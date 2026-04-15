@@ -3755,26 +3755,6 @@ export default function UnionPathway() {
           </div>
         )}
 
-        {/* FEATURES STRIP */}
-        {!results && (
-          <div className="features">
-            {[
-              { icon: "⚡", text: t.featIBEW },
-              { icon: "🔧", text: t.featUA },
-              { icon: "🌬️", text: t.featSMART },
-              { icon: "🧱", text: lang==="es" ? "Locales de BAC Albañiles a nivel nacional" : lang==="pl" ? "Oddziały BAC Murarze w całym kraju" : "BAC Bricklayers locals nationwide" },
-              { icon: "🪚", text: lang==="es" ? "Locales de UBC Carpinteros a nivel nacional" : lang==="pl" ? "Oddziały UBC Cieśle w całym kraju" : "UBC Carpenters locals nationwide" },
-              { icon: "⚒️", text: lang==="es" ? "Locales de LIUNA Obreros a nivel nacional" : lang==="pl" ? "Oddziały LIUNA Robotnicy w całym kraju" : "LIUNA Laborers locals nationwide" },
-              { icon: "🏗️", text: lang==="es" ? "Locales de Trabajadores del Hierro a nivel nacional" : lang==="pl" ? "Oddziały Ironworkers w całym kraju" : "Ironworkers locals nationwide" },
-              { icon: "📍", text: t.featPin },
-            ].map(({ icon, text }) => (
-              <div className="feature" key={text}>
-                <div className="feature-icon">{icon}</div>
-                <span>{text}</span>
-              </div>
-            ))}
-          </div>
-        )}
         {/* EMAIL CAPTURE */}
         {!results && (
           <div style={{
