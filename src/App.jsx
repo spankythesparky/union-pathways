@@ -28,7 +28,7 @@ const UNION_TRADES = [
     group: "Heavy Construction",
     trades: [
       { abbr: "IUOE", name: "Operating Engineers", full: "Int'l Union of Operating Engineers", website: "www.iuoe.org", status: "coming" },
-      { abbr: "LIUNA", name: "Laborers", full: "Laborers' Int'l Union of North America", website: "www.liuna.org", status: "coming" },
+      { abbr: "LIUNA", name: "Laborers", full: "Laborers' Int'l Union of North America", website: "www.liuna.org", status: "active", color: "#fb923c" },
       { abbr: "IW", name: "Ironworkers", full: "Int'l Association of Bridge & Structural Iron Workers", website: "www.ironworkers.org", status: "coming" },
       { abbr: "OCA", name: "Cement Masons", full: "Operative Plasterers' & Cement Masons' Int'l Association", website: "www.opcmia.org", status: "coming" },
     ],
@@ -497,6 +497,113 @@ const HFIAW_LOCALS = [
   { id: 73, name: "HFIAW Local 73", city: "Albuquerque",   state: "NM", phone: null,               website: null,                    lat: 35.0844, lng: -106.6504, address: "Albuquerque, NM" },
   { id: 74, name: "HFIAW Local 74", city: "Charlotte",     state: "NC", phone: "(515) 288-0472",   website: "insulators74.org",      lat: 35.2271, lng: -80.8431, address: "Charlotte, NC" },
   { id: 84, name: "HFIAW Local 84", city: "Akron",         state: "OH", phone: null,               website: null,                    lat: 41.0998, lng: -81.5190, address: "Akron, OH" },
+];
+
+
+// ─── LIUNA LOCALS DATABASE — Laborers' International Union of North America ───
+const LIUNA_LOCALS = [
+  { id: 1,    name: "LIUNA Local 1",    city: "Chicago",          state: "IL", phone: null, website: null, lat: 41.8781, lng: -87.6298, address: "Chicago, IL" },
+  { id: 2,    name: "LIUNA Local 2",    city: "Brookfield",       state: "IL", phone: null, website: null, lat: 41.8253, lng: -87.8476, address: "Brookfield, IL" },
+  { id: 3,    name: "LIUNA Local 3",    city: "Jersey City",      state: "NJ", phone: null, website: null, lat: 40.7178, lng: -74.0431, address: "Jersey City, NJ" },
+  { id: 5,    name: "LIUNA Local 5",    city: "Chicago",          state: "IL", phone: null, website: null, lat: 41.8831, lng: -87.6320, address: "Chicago, IL" },
+  { id: 9,    name: "LIUNA Local 9",    city: "Hopkinton",        state: "MA", phone: null, website: null, lat: 42.2284, lng: -71.5226, address: "Hopkinton, MA" },
+  { id: 11,   name: "LIUNA Local 11",   city: "Upper Marlboro",   state: "MD", phone: null, website: null, lat: 38.8407, lng: -76.7491, address: "Upper Marlboro, MD" },
+  { id: 16,   name: "LIUNA Local 16",   city: "Albuquerque",      state: "NM", phone: null, website: null, lat: 35.0844, lng: -106.6504, address: "Albuquerque, NM" },
+  { id: 17,   name: "LIUNA Local 17",   city: "Newburgh",         state: "NY", phone: null, website: null, lat: 41.5034, lng: -74.0104, address: "Newburgh, NY" },
+  { id: 22,   name: "LIUNA Local 22",   city: "Malden",           state: "MA", phone: null, website: null, lat: 42.4251, lng: -71.0662, address: "Malden, MA" },
+  { id: 32,   name: "LIUNA Local 32",   city: "Rockford",         state: "IL", phone: null, website: null, lat: 42.2711, lng: -89.0940, address: "Rockford, IL" },
+  { id: 42,   name: "LIUNA Local 42",   city: "St. Louis",        state: "MO", phone: null, website: null, lat: 38.6270, lng: -90.1994, address: "St. Louis, MO" },
+  { id: 43,   name: "LIUNA Local 43",   city: "Cedar Rapids",     state: "IA", phone: null, website: null, lat: 41.9779, lng: -91.6656, address: "Cedar Rapids, IA" },
+  { id: 68,   name: "LIUNA Local 68",   city: "Lombard",          state: "IL", phone: null, website: null, lat: 41.8800, lng: -88.0076, address: "Lombard, IL" },
+  { id: 73,   name: "LIUNA Local 73",   city: "Stockton",         state: "CA", phone: null, website: null, lat: 37.9577, lng: -121.2908, address: "Stockton, CA" },
+  { id: 75,   name: "LIUNA Local 75",   city: "Crest Hill",       state: "IL", phone: null, website: null, lat: 41.5642, lng: -88.1009, address: "Crest Hill, IL" },
+  { id: 77,   name: "LIUNA Local 77",   city: "Ewing",            state: "NJ", phone: null, website: null, lat: 40.2676, lng: -74.7960, address: "Ewing, NJ" },
+  { id: 79,   name: "LIUNA Local 79",   city: "New York City",    state: "NY", phone: null, website: null, lat: 40.7128, lng: -74.0059, address: "New York, NY" },
+  { id: 88,   name: "LIUNA Local 88",   city: "Quincy",           state: "MA", phone: null, website: null, lat: 42.2529, lng: -71.0023, address: "Quincy, MA" },
+  { id: 89,   name: "LIUNA Local 89",   city: "San Diego",        state: "CA", phone: null, website: null, lat: 32.7157, lng: -117.1611, address: "San Diego, CA" },
+  { id: 100,  name: "LIUNA Local 100",  city: "East St. Louis",   state: "IL", phone: null, website: null, lat: 38.6245, lng: -90.1532, address: "East St. Louis, IL" },
+  { id: 110,  name: "LIUNA Local 110",  city: "St. Louis",        state: "MO", phone: null, website: null, lat: 38.6320, lng: -90.1870, address: "St. Louis, MO" },
+  { id: 130,  name: "LIUNA Local 130",  city: "Scranton",         state: "PA", phone: null, website: null, lat: 41.4090, lng: -75.6624, address: "Scranton, PA" },
+  { id: 140,  name: "LIUNA Local 140",  city: "La Crosse",        state: "WI", phone: null, website: null, lat: 43.8014, lng: -91.2396, address: "La Crosse, WI" },
+  { id: 146,  name: "LIUNA Local 146",  city: "Norwalk",          state: "CT", phone: null, website: null, lat: 41.1177, lng: -73.4082, address: "Norwalk, CT" },
+  { id: 152,  name: "LIUNA Local 152",  city: "Highland Park",    state: "IL", phone: null, website: null, lat: 42.1817, lng: -87.8003, address: "Highland Park, IL" },
+  { id: 157,  name: "LIUNA Local 157",  city: "Schenectady",      state: "NY", phone: null, website: null, lat: 42.8142, lng: -73.9396, address: "Schenectady, NY" },
+  { id: 159,  name: "LIUNA Local 159",  city: "Decatur",          state: "IL", phone: null, website: null, lat: 39.8403, lng: -88.9548, address: "Decatur, IL" },
+  { id: 169,  name: "LIUNA Local 169",  city: "Reno",             state: "NV", phone: null, website: null, lat: 39.5296, lng: -119.8138, address: "Reno, NV" },
+  { id: 175,  name: "LIUNA Local 175",  city: "Methuen",          state: "MA", phone: null, website: null, lat: 42.7262, lng: -71.1909, address: "Methuen, MA" },
+  { id: 185,  name: "LIUNA Local 185",  city: "Sacramento",       state: "CA", phone: null, website: null, lat: 38.5816, lng: -121.4944, address: "Sacramento, CA" },
+  { id: 220,  name: "LIUNA Local 220",  city: "Bakersfield",      state: "CA", phone: null, website: null, lat: 35.3733, lng: -119.0187, address: "Bakersfield, CA" },
+  { id: 225,  name: "LIUNA Local 225",  city: "Willow Springs",   state: "IL", phone: null, website: null, lat: 41.7400, lng: -87.8670, address: "Willow Springs, IL" },
+  { id: 231,  name: "LIUNA Local 231",  city: "Peoria",           state: "IL", phone: null, website: null, lat: 40.6936, lng: -89.5890, address: "Peoria, IL" },
+  { id: 238,  name: "LIUNA Local 238",  city: "Spokane",          state: "WA", phone: null, website: null, lat: 47.6588, lng: -117.4260, address: "Spokane, WA" },
+  { id: 242,  name: "LIUNA Local 242",  city: "Des Moines",       state: "WA", phone: null, website: null, lat: 47.4015, lng: -122.3243, address: "Des Moines, WA" },
+  { id: 252,  name: "LIUNA Local 252",  city: "Tacoma",           state: "WA", phone: null, website: null, lat: 47.2529, lng: -122.4443, address: "Tacoma, WA" },
+  { id: 261,  name: "LIUNA Local 261",  city: "San Francisco",    state: "CA", phone: null, website: null, lat: 37.7849, lng: -122.4094, address: "San Francisco, CA" },
+  { id: 265,  name: "LIUNA Local 265",  city: "Cincinnati",       state: "OH", phone: null, website: null, lat: 39.1031, lng: -84.5120, address: "Cincinnati, OH" },
+  { id: 268,  name: "LIUNA Local 268",  city: "Eau Claire",       state: "WI", phone: null, website: null, lat: 44.8113, lng: -91.4985, address: "Eau Claire, WI" },
+  { id: 270,  name: "LIUNA Local 270",  city: "San Jose",         state: "CA", phone: null, website: null, lat: 37.3382, lng: -121.8863, address: "San Jose, CA" },
+  { id: 271,  name: "LIUNA Local 271",  city: "Providence",       state: "RI", phone: null, website: null, lat: 41.8240, lng: -71.4128, address: "Providence, RI" },
+  { id: 274,  name: "LIUNA Local 274",  city: "Lafayette",        state: "IN", phone: null, website: null, lat: 40.4168, lng: -86.8753, address: "Lafayette, IN" },
+  { id: 292,  name: "LIUNA Local 292",  city: "Everett",          state: "WA", phone: null, website: null, lat: 47.9790, lng: -122.2021, address: "Everett, WA" },
+  { id: 294,  name: "LIUNA Local 294",  city: "Fresno",           state: "CA", phone: null, website: null, lat: 36.7378, lng: -119.7871, address: "Fresno, CA" },
+  { id: 300,  name: "LIUNA Local 300",  city: "Los Angeles",      state: "CA", phone: null, website: null, lat: 34.0622, lng: -118.2537, address: "Los Angeles, CA" },
+  { id: 304,  name: "LIUNA Local 304",  city: "Hayward",          state: "CA", phone: null, website: null, lat: 37.6688, lng: -122.0808, address: "Hayward, CA" },
+  { id: 324,  name: "LIUNA Local 324",  city: "Martinez",         state: "CA", phone: null, website: null, lat: 38.0194, lng: -122.1341, address: "Martinez, CA" },
+  { id: 330,  name: "LIUNA Local 330",  city: "Menasha",          state: "WI", phone: null, website: null, lat: 44.2022, lng: -88.4426, address: "Menasha, WI" },
+  { id: 335,  name: "LIUNA Local 335",  city: "Vancouver",        state: "WA", phone: null, website: null, lat: 45.6387, lng: -122.6615, address: "Vancouver, WA" },
+  { id: 336,  name: "LIUNA Local 336",  city: "Sheffield",        state: "AL", phone: null, website: null, lat: 34.7651, lng: -87.6975, address: "Sheffield, AL" },
+  { id: 341,  name: "LIUNA Local 341",  city: "Anchorage",        state: "AK", phone: null, website: null, lat: 61.2181, lng: -149.9003, address: "Anchorage, AK" },
+  { id: 345,  name: "LIUNA Local 345",  city: "Burbank",          state: "CA", phone: null, website: null, lat: 34.1808, lng: -118.3090, address: "Burbank, CA" },
+  { id: 348,  name: "LIUNA Local 348",  city: "Richland",         state: "WA", phone: null, website: null, lat: 46.2804, lng: -119.2752, address: "Richland, WA" },
+  { id: 360,  name: "LIUNA Local 360",  city: "Clarksville",      state: "AR", phone: null, website: null, lat: 35.4715, lng: -93.4660, address: "Clarksville, AR" },
+  { id: 362,  name: "LIUNA Local 362",  city: "Bloomington",      state: "IL", phone: null, website: null, lat: 40.4842, lng: -88.9937, address: "Bloomington, IL" },
+  { id: 373,  name: "LIUNA Local 373",  city: "Pittsburgh",       state: "PA", phone: null, website: null, lat: 40.4506, lng: -79.9859, address: "Pittsburgh, PA" },
+  { id: 380,  name: "LIUNA Local 380",  city: "Cambridge",        state: "MA", phone: null, website: null, lat: 42.3736, lng: -71.1097, address: "Cambridge, MA" },
+  { id: 397,  name: "LIUNA Local 397",  city: "Granite City",     state: "IL", phone: null, website: null, lat: 38.7034, lng: -90.1487, address: "Granite City, IL" },
+  { id: 429,  name: "LIUNA Local 429",  city: "Hopkinton",        state: "MA", phone: null, website: null, lat: 42.2284, lng: -71.5326, address: "Hopkinton, MA" },
+  { id: 464,  name: "LIUNA Local 464",  city: "Madison",          state: "WI", phone: null, website: null, lat: 43.0731, lng: -89.4012, address: "Madison, WI" },
+  { id: 473,  name: "LIUNA Local 473",  city: "Pittsfield",       state: "MA", phone: null, website: null, lat: 42.4501, lng: -73.2673, address: "Pittsfield, MA" },
+  { id: 477,  name: "LIUNA Local 477",  city: "Springfield",      state: "IL", phone: null, website: null, lat: 39.7817, lng: -89.6501, address: "Springfield, IL" },
+  { id: 483,  name: "LIUNA Local 483",  city: "Portland",         state: "OR", phone: null, website: null, lat: 45.5331, lng: -122.6565, address: "Portland, OR" },
+  { id: 517,  name: "LIUNA Local 517",  city: "Orlando",          state: "FL", phone: null, website: null, lat: 28.5383, lng: -81.3792, address: "Orlando, FL" },
+  { id: 530,  name: "LIUNA Local 530",  city: "Zanesville",       state: "OH", phone: null, website: null, lat: 39.9403, lng: -82.0132, address: "Zanesville, OH" },
+  { id: 538,  name: "LIUNA Local 538",  city: "Galesburg",        state: "IL", phone: null, website: null, lat: 40.9478, lng: -90.3712, address: "Galesburg, IL" },
+  { id: 560,  name: "LIUNA Local 560",  city: "Waltham",          state: "MA", phone: null, website: null, lat: 42.3765, lng: -71.2356, address: "Waltham, MA" },
+  { id: 5631, name: "LIUNA Local 563",  city: "Mankato",          state: "MN", phone: null, website: null, lat: 44.1636, lng: -94.0007, address: "Mankato, MN" },
+  { id: 5632, name: "LIUNA Local 563",  city: "Minneapolis",      state: "MN", phone: null, website: null, lat: 44.9878, lng: -93.2550, address: "Minneapolis, MN" },
+  { id: 5633, name: "LIUNA Local 563",  city: "St. Cloud",        state: "MN", phone: null, website: null, lat: 45.5579, lng: -94.1632, address: "St. Cloud, MN" },
+  { id: 5634, name: "LIUNA Local 563",  city: "Bismarck",         state: "ND", phone: null, website: null, lat: 46.8083, lng: -100.7837, address: "Bismarck, ND" },
+  { id: 576,  name: "LIUNA Local 576",  city: "Louisville",       state: "KY", phone: null, website: null, lat: 38.2527, lng: -85.7585, address: "Louisville, KY" },
+  { id: 582,  name: "LIUNA Local 582",  city: "Elgin",            state: "IL", phone: null, website: null, lat: 42.0354, lng: -88.2826, address: "Elgin, IL" },
+  { id: 585,  name: "LIUNA Local 585",  city: "Ventura",          state: "CA", phone: null, website: null, lat: 34.2749, lng: -119.2290, address: "Ventura, CA" },
+  { id: 596,  name: "LIUNA Local 596",  city: "Holyoke",          state: "MA", phone: null, website: null, lat: 42.2042, lng: -72.6162, address: "Holyoke, MA" },
+  { id: 609,  name: "LIUNA Local 609",  city: "Framingham",       state: "MA", phone: null, website: null, lat: 42.2793, lng: -71.4162, address: "Framingham, MA" },
+  { id: 611,  name: "LIUNA Local 611",  city: "New Britain",      state: "CT", phone: null, website: null, lat: 41.6612, lng: -72.7795, address: "New Britain, CT" },
+  { id: 639,  name: "LIUNA Local 639",  city: "Marietta",         state: "OH", phone: null, website: null, lat: 39.4153, lng: -81.4549, address: "Marietta, OH" },
+  { id: 652,  name: "LIUNA Local 652",  city: "Santa Ana",        state: "CA", phone: null, website: null, lat: 33.7455, lng: -117.8677, address: "Santa Ana, CA" },
+  { id: 703,  name: "LIUNA Local 703",  city: "Champaign",        state: "IL", phone: null, website: null, lat: 40.1164, lng: -88.2434, address: "Champaign, IL" },
+  { id: 721,  name: "LIUNA Local 721",  city: "Brockton",         state: "MA", phone: null, website: null, lat: 42.0834, lng: -71.0184, address: "Brockton, MA" },
+  { id: 724,  name: "LIUNA Local 724",  city: "Hollywood",        state: "CA", phone: null, website: null, lat: 34.0928, lng: -118.3287, address: "Hollywood, CA" },
+  { id: 731,  name: "LIUNA Local 731",  city: "New York City",    state: "NY", phone: null, website: null, lat: 40.7228, lng: -74.0059, address: "New York, NY" },
+  { id: 737,  name: "LIUNA Local 737",  city: "Portland",         state: "OR", phone: null, website: null, lat: 45.5431, lng: -122.6465, address: "Portland, OR" },
+  { id: 783,  name: "LIUNA Local 783",  city: "San Bernardino",   state: "CA", phone: null, website: null, lat: 34.1083, lng: -117.2898, address: "San Bernardino, CA" },
+  { id: 785,  name: "LIUNA Local 785",  city: "Ithaca",           state: "NY", phone: null, website: null, lat: 42.4440, lng: -76.5021, address: "Ithaca, NY" },
+  { id: 833,  name: "LIUNA Local 833",  city: "Beaver",           state: "PA", phone: null, website: null, lat: 40.6967, lng: -80.3045, address: "Beaver, PA" },
+  { id: 876,  name: "LIUNA Local 876",  city: "Taunton",          state: "MA", phone: null, website: null, lat: 41.9001, lng: -71.0898, address: "Taunton, MA" },
+  { id: 996,  name: "LIUNA Local 996",  city: "Roanoke",          state: "IL", phone: null, website: null, lat: 40.7981, lng: -89.2048, address: "Roanoke, IL" },
+  { id: 999,  name: "LIUNA Local 999",  city: "East Longmeadow",  state: "MA", phone: null, website: null, lat: 42.0670, lng: -72.5079, address: "East Longmeadow, MA" },
+  { id: 1015, name: "LIUNA Local 1015", city: "Canton",           state: "OH", phone: null, website: null, lat: 40.7989, lng: -81.3784, address: "Canton, OH" },
+  { id: 1035, name: "LIUNA Local 1035", city: "Marengo",          state: "IL", phone: null, website: null, lat: 42.2500, lng: -88.6073, address: "Marengo, IL" },
+  { id: 1076, name: "LIUNA Local 1076", city: "Pontiac",          state: "MI", phone: null, website: null, lat: 42.6389, lng: -83.2910, address: "Pontiac, MI" },
+  { id: 1091, name: "LIUNA Local 1091", city: "Duluth",           state: "MN", phone: null, website: null, lat: 46.7867, lng: -92.1005, address: "Duluth, MN" },
+  { id: 1116, name: "LIUNA Local 1116", city: "Natick",           state: "MA", phone: null, website: null, lat: 42.2837, lng: -71.3495, address: "Natick, MA" },
+  { id: 1130, name: "LIUNA Local 1130", city: "Modesto",          state: "CA", phone: null, website: null, lat: 37.6391, lng: -120.9969, address: "Modesto, CA" },
+  { id: 1144, name: "LIUNA Local 1144", city: "East Taunton",     state: "MA", phone: null, website: null, lat: 41.8734, lng: -71.0537, address: "East Taunton, MA" },
+  { id: 1156, name: "LIUNA Local 1156", city: "Framingham",       state: "MA", phone: null, website: null, lat: 42.2893, lng: -71.4062, address: "Framingham, MA" },
+  { id: 1180, name: "LIUNA Local 1180", city: "Lancaster",        state: "PA", phone: null, website: null, lat: 40.0379, lng: -76.3055, address: "Lancaster, PA" },
+  { id: 1184, name: "LIUNA Local 1184", city: "Riverside",        state: "CA", phone: null, website: null, lat: 33.9806, lng: -117.3755, address: "Riverside, CA" },
+  { id: 1309, name: "LIUNA Local 1309", city: "Lakewood",         state: "CA", phone: null, website: null, lat: 33.8536, lng: -118.1339, address: "Lakewood, CA" },
+  { id: 1421, name: "LIUNA Local 1421", city: "Tewksbury",        state: "MA", phone: null, website: null, lat: 42.6112, lng: -71.2345, address: "Tewksbury, MA" },
 ];
 
 // ─── UA LOCALS DATABASE — Plumbers & Pipefitters (source: unionpayscales.com) ─
@@ -2177,7 +2284,7 @@ export default function UnionPathway() {
     const q = input.trim();
     if (!q) return null;
 
-    const ALL = [...IBEW_INSIDE_LOCALS, ...IBEW_LINEMAN_LOCALS, ...UA_LOCALS, ...SMART_LOCALS, ...BAC_LOCALS, ...UBC_LOCALS, ...HFIAW_LOCALS];
+    const ALL = [...IBEW_INSIDE_LOCALS, ...IBEW_LINEMAN_LOCALS, ...UA_LOCALS, ...SMART_LOCALS, ...BAC_LOCALS, ...UBC_LOCALS, ...HFIAW_LOCALS, ...LIUNA_LOCALS];
 
     // ZIP code (5 digits) — use local ZIP map first for speed
     if (/^\d{5}$/.test(q)) {
@@ -2233,7 +2340,7 @@ export default function UnionPathway() {
     }
 
     setLocationLabel(loc.display);
-    const database = selectedTrade === "UA" ? UA_LOCALS : selectedTrade === "SMART" ? SMART_LOCALS : selectedTrade === "BAC" ? BAC_LOCALS : selectedTrade === "UBC" ? UBC_LOCALS : selectedTrade === "HFIAW" ? HFIAW_LOCALS : selectedTrade === "IBEW_L" ? IBEW_LINEMAN_LOCALS : IBEW_INSIDE_LOCALS;
+    const database = selectedTrade === "UA" ? UA_LOCALS : selectedTrade === "SMART" ? SMART_LOCALS : selectedTrade === "BAC" ? BAC_LOCALS : selectedTrade === "UBC" ? UBC_LOCALS : selectedTrade === "HFIAW" ? HFIAW_LOCALS : selectedTrade === "LIUNA" ? LIUNA_LOCALS : selectedTrade === "IBEW_L" ? IBEW_LINEMAN_LOCALS : IBEW_INSIDE_LOCALS;
     const withDist = database
       .map(l => ({ ...l, distance: getDistanceMiles(loc.lat, loc.lng, l.lat, l.lng) }))
       .sort((a, b) => a.distance - b.distance);
@@ -2250,7 +2357,7 @@ export default function UnionPathway() {
       (pos) => {
         const { latitude: lat, longitude: lng } = pos.coords;
         setLocationLabel("Your Current Location");
-        const database = selectedTrade === "UA" ? UA_LOCALS : selectedTrade === "SMART" ? SMART_LOCALS : selectedTrade === "BAC" ? BAC_LOCALS : selectedTrade === "UBC" ? UBC_LOCALS : selectedTrade === "HFIAW" ? HFIAW_LOCALS : selectedTrade === "IBEW_L" ? IBEW_LINEMAN_LOCALS : IBEW_INSIDE_LOCALS;
+        const database = selectedTrade === "UA" ? UA_LOCALS : selectedTrade === "SMART" ? SMART_LOCALS : selectedTrade === "BAC" ? BAC_LOCALS : selectedTrade === "UBC" ? UBC_LOCALS : selectedTrade === "HFIAW" ? HFIAW_LOCALS : selectedTrade === "LIUNA" ? LIUNA_LOCALS : selectedTrade === "IBEW_L" ? IBEW_LINEMAN_LOCALS : IBEW_INSIDE_LOCALS;
         const withDist = database
           .map(l => ({ ...l, distance: getDistanceMiles(lat, lng, l.lat, l.lng) }))
           .sort((a, b) => a.distance - b.distance);
