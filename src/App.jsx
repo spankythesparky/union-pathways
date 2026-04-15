@@ -3755,70 +3755,66 @@ export default function UnionPathway() {
           </div>
         )}
 
-        {/* EMAIL CAPTURE */}
+        {/* TRADES BANNER */}
         {!results && (
           <div style={{
-            maxWidth: 600, margin: "0 auto 60px", padding: "0 24px",
+            maxWidth: 860, margin: "0 auto 64px", padding: "0 24px",
             textAlign: "center"
           }}>
+            {/* Stats Row */}
             <div style={{
-              background: "rgba(245,197,24,0.06)",
-              border: "1px solid rgba(245,197,24,0.2)",
-              borderRadius: 14, padding: "28px 32px"
+              display: "flex", justifyContent: "center", gap: 12,
+              flexWrap: "wrap", marginBottom: 32
             }}>
-              <div style={{
-                fontFamily:"'Barlow Condensed',sans-serif",
-                fontSize: 20, fontWeight: 900,
-                textTransform: "uppercase", marginBottom: 8
-              }}>
-                {lang==="es" ? "Recibe Notificaciones a Medida que Crecemos" : lang==="pl" ? "Otrzymuj Powiadomienia o Naszym Rozwoju" : "Get Notified as We Grow"}
-              </div>
-              <p style={{fontSize:14, color:"var(--muted)", marginBottom:20, lineHeight:1.6}}>
-                {lang==="es"
-                  ? "Estamos agregando nuevos oficios y locales regularmente. Ingresa tu correo y te avisaremos cuando tu oficio o estado esté disponible."
-                  : lang==="pl"
-                  ? "Regularnie dodajemy nowe zawody i oddziały. Wpisz swój e-mail, a powiadomimy Cię, gdy Twój zawód lub stan zostanie dodany."
-                  : "We're adding new trades and locals regularly. Drop your email and we'll let you know when your trade or state goes live."}
-              </p>
-              <div style={{display:"flex", gap:8, maxWidth:420, margin:"0 auto"}}>
-                <input
-                  type="email"
-                  placeholder={lang==="es" ? "tu@correo.com" : lang==="pl" ? "twoj@email.com" : "your@email.com"}
-                  style={{
-                    flex:1, background:"var(--steel-mid)",
-                    border:"1.5px solid var(--wire)", borderRadius:8,
-                    padding:"11px 16px", color:"var(--text)",
-                    fontFamily:"'Barlow',sans-serif", fontSize:14, outline:"none"
-                  }}
-                  onFocus={e => e.target.style.borderColor="var(--yellow)"}
-                  onBlur={e => e.target.style.borderColor="var(--wire)"}
-                  id="email-capture-input"
-                />
-                <button
-                  className="btn-primary"
-                  style={{whiteSpace:"nowrap", padding:"11px 20px"}}
-                  onClick={() => {
-                    const val = document.getElementById("email-capture-input").value;
-                    if (val && val.includes("@")) {
-                      setPage("contact");
-                      setContactSent(false);
-                      setTimeout(() => setContactForm(f => ({
-                        ...f,
-                        email: val,
-                        subject: "other",
-                        message: lang==="es"
-                          ? "Por favor agrégame a la lista de notificaciones de Union Pathways."
-                          : lang==="pl"
-                          ? "Proszę dodaj mnie do listy powiadomień Union Pathways o nowych zawodach i oddziałach."
-                          : "Please add me to the Union Pathways notify list for new trades and locals."
-                      })), 100);
-                    }
-                  }}
-                >
-                  {lang==="es" ? "Notifícame" : lang==="pl" ? "Powiadom Mnie" : "Notify Me"}
-                </button>
-              </div>
+              {[
+                { num: "1,000+", label: lang==="es" ? "Locales sindicales" : lang==="pl" ? "Oddziałów związkowych" : "Union Locals" },
+                { num: "17", label: lang==="es" ? "Oficios de construcción" : lang==="pl" ? "Zawodów budowlanych" : "Construction Trades" },
+                { num: "50", label: lang==="es" ? "Estados cubiertos" : lang==="pl" ? "Stanów objętych" : "States Covered" },
+                { num: "$0", label: lang==="es" ? "Costo para usar" : lang==="pl" ? "Koszt korzystania" : "Cost to Use" },
+              ].map(({ num, label }) => (
+                <div key={label} style={{
+                  background: "rgba(245,197,24,0.06)",
+                  border: "1px solid rgba(245,197,24,0.18)",
+                  borderRadius: 12, padding: "18px 28px",
+                  minWidth: 130, flex: "1 1 120px", maxWidth: 180
+                }}>
+                  <div style={{
+                    fontFamily: "'Barlow Condensed', sans-serif",
+                    fontSize: 36, fontWeight: 900,
+                    color: "var(--yellow)", lineHeight: 1
+                  }}>{num}</div>
+                  <div style={{
+                    fontSize: 12, color: "var(--muted)",
+                    textTransform: "uppercase", letterSpacing: "0.08em",
+                    marginTop: 6, fontWeight: 600
+                  }}>{label}</div>
+                </div>
+              ))}
             </div>
+
+            {/* Tagline */}
+            <div style={{
+              fontFamily: "'Barlow Condensed', sans-serif",
+              fontSize: 22, fontWeight: 800,
+              textTransform: "uppercase", letterSpacing: "0.06em",
+              color: "var(--text)", marginBottom: 10
+            }}>
+              {lang==="es"
+                ? "Hecho por trabajadores del oficio, para trabajadores del oficio"
+                : lang==="pl"
+                ? "Stworzone przez rzemieślników, dla rzemieślników"
+                : "Built by union tradespeople, for union tradespeople"}
+            </div>
+            <p style={{
+              fontSize: 14, color: "var(--muted)",
+              lineHeight: 1.7, maxWidth: 560, margin: "0 auto"
+            }}>
+              {lang==="es"
+                ? "Union Pathways es un recurso gratuito, sin publicidad y sin afiliación. Solo datos reales para ayudarte a encontrar tu local más cercano."
+                : lang==="pl"
+                ? "Union Pathways to bezpłatne, wolne od reklam i bezstronne narzędzie. Tylko prawdziwe dane, które pomogą Ci znaleźć najbliższy oddział."
+                : "Union Pathways is free, ad-free, and unaffiliated. Just real data to help you find your nearest local and start your career in the trades."}
+            </p>
           </div>
         )}
         </>)}
