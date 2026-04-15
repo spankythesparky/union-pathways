@@ -560,6 +560,7 @@ const LIUNA_LOCALS = [
   { id: 373,  name: "LIUNA Local 373",  city: "Pittsburgh",       state: "PA", phone: null, website: null, lat: 40.4506, lng: -79.9859, address: "Pittsburgh, PA" },
   { id: 380,  name: "LIUNA Local 380",  city: "Cambridge",        state: "MA", phone: null, website: null, lat: 42.3736, lng: -71.1097, address: "Cambridge, MA" },
   { id: 397,  name: "LIUNA Local 397",  city: "Granite City",     state: "IL", phone: null, website: null, lat: 38.7034, lng: -90.1487, address: "Granite City, IL" },
+  { id: 423,  name: "LIUNA Local 423",  city: "Columbus",         state: "OH", phone: "(614) 252-1093", website: "liuna.org", lat: 39.9487, lng: -82.9109, address: "2625 Winchester Pike, Columbus, OH 43232" },
   { id: 429,  name: "LIUNA Local 429",  city: "Hopkinton",        state: "MA", phone: null, website: null, lat: 42.2284, lng: -71.5326, address: "Hopkinton, MA" },
   { id: 464,  name: "LIUNA Local 464",  city: "Madison",          state: "WI", phone: null, website: null, lat: 43.0731, lng: -89.4012, address: "Madison, WI" },
   { id: 473,  name: "LIUNA Local 473",  city: "Pittsfield",       state: "MA", phone: null, website: null, lat: 42.4501, lng: -73.2673, address: "Pittsfield, MA" },
