@@ -1827,13 +1827,13 @@ export default function UnionPathway() {
     en: [
       {
         q: "What kind of work environment do you prefer?",
-        options: ["Working with electrical systems and technology", "Working with pipes, water, and heating/cooling systems", "Working with metal, ductwork, and HVAC systems", "Working with brick, stone, and masonry", "Working with wood, framing, and finishing"],
-        trades: ["IBEW", "UA", "SMART", "BAC", "UBC"]
+        options: ["Working with electrical systems and technology", "Working with pipes, water, and heating/cooling systems", "Working with metal, ductwork, and HVAC systems", "Working with brick, stone, and masonry", "Working with wood, framing, and finishing", "Working with insulation, industrial systems, and temperature control"],
+        trades: ["IBEW", "UA", "SMART", "BAC", "UBC", "HFIAW"]
       },
       {
         q: "Which best describes your interest?",
-        options: ["Powering buildings — wiring, panels, controls", "Keeping systems flowing — plumbing, gas, steam", "Controlling airflow — ducts, vents, HVAC", "Building walls and structures that last centuries", "Shaping structures — carpentry, millwork"],
-        trades: ["IBEW", "UA", "SMART", "BAC", "UBC"]
+        options: ["Powering buildings — wiring, panels, controls", "Keeping systems flowing — plumbing, gas, steam", "Controlling airflow — ducts, vents, HVAC", "Building walls and structures that last centuries", "Shaping structures — carpentry, millwork", "Protecting systems — insulating pipes, equipment & industrial facilities"],
+        trades: ["IBEW", "UA", "SMART", "BAC", "UBC", "HFIAW"]
       },
       {
         q: "How do you feel about working at heights?",
@@ -1854,13 +1854,13 @@ export default function UnionPathway() {
     es: [
       {
         q: "¿Qué tipo de ambiente de trabajo prefieres?",
-        options: ["Trabajar con sistemas eléctricos y tecnología", "Trabajar con tuberías, agua y calefacción/refrigeración", "Trabajar con metal, conductos y sistemas HVAC", "Trabajar con ladrillo, piedra y mampostería", "Trabajar con madera, marcos y acabados"],
-        trades: ["IBEW", "UA", "SMART", "BAC", "UBC"]
+        options: ["Trabajar con sistemas eléctricos y tecnología", "Trabajar con tuberías, agua y calefacción/refrigeración", "Trabajar con metal, conductos y sistemas HVAC", "Trabajar con ladrillo, piedra y mampostería", "Trabajar con madera, marcos y acabados", "Trabajar con aislamiento, sistemas industriales y control de temperatura"],
+        trades: ["IBEW", "UA", "SMART", "BAC", "UBC", "HFIAW"]
       },
       {
         q: "¿Cuál describe mejor tu interés?",
-        options: ["Dar energía a edificios — cableado, paneles, controles", "Mantener los sistemas fluyendo — plomería, gas, vapor", "Controlar el flujo de aire — conductos, ventilación, HVAC", "Construir muros y estructuras que duran siglos", "Dar forma a estructuras — carpintería, ebanistería"],
-        trades: ["IBEW", "UA", "SMART", "BAC", "UBC"]
+        options: ["Dar energía a edificios — cableado, paneles, controles", "Mantener los sistemas fluyendo — plomería, gas, vapor", "Controlar el flujo de aire — conductos, ventilación, HVAC", "Construir muros y estructuras que duran siglos", "Dar forma a estructuras — carpintería, ebanistería", "Proteger sistemas — aislar tuberías, equipos e instalaciones industriales"],
+        trades: ["IBEW", "UA", "SMART", "BAC", "UBC", "HFIAW"]
       },
       {
         q: "¿Cómo te sientes trabajando en alturas?",
@@ -1881,13 +1881,13 @@ export default function UnionPathway() {
     pl: [
       {
         q: "Jakie środowisko pracy preferujesz?",
-        options: ["Praca z systemami elektrycznymi i technologią", "Praca z rurociągami, wodą i ogrzewaniem/chłodzeniem", "Praca z metalem, kanałami i systemami HVAC", "Praca z cegłą, kamieniem i murarką", "Praca z drewnem, szkieletem i wykończeniem"],
-        trades: ["IBEW", "UA", "SMART", "BAC", "UBC"]
+        options: ["Praca z systemami elektrycznymi i technologią", "Praca z rurociągami, wodą i ogrzewaniem/chłodzeniem", "Praca z metalem, kanałami i systemami HVAC", "Praca z cegłą, kamieniem i murarką", "Praca z drewnem, szkieletem i wykończeniem", "Praca z izolacją, systemami przemysłowymi i kontrolą temperatury"],
+        trades: ["IBEW", "UA", "SMART", "BAC", "UBC", "HFIAW"]
       },
       {
         q: "Co najlepiej opisuje Twoje zainteresowania?",
-        options: ["Zasilanie budynków — okablowanie, panele, sterowanie", "Utrzymanie systemów — hydraulika, gaz, para", "Kontrola przepływu powietrza — kanały, wentylacja, HVAC", "Budowanie ścian i konstrukcji trwających wieki", "Kształtowanie konstrukcji — ciesielstwo, stolarstwo"],
-        trades: ["IBEW", "UA", "SMART", "BAC", "UBC"]
+        options: ["Zasilanie budynków — okablowanie, panele, sterowanie", "Utrzymanie systemów — hydraulika, gaz, para", "Kontrola przepływu powietrza — kanały, wentylacja, HVAC", "Budowanie ścian i konstrukcji trwających wieki", "Kształtowanie konstrukcji — ciesielstwo, stolarstwo", "Ochrona systemów — izolacja rur, urządzeń i obiektów przemysłowych"],
+        trades: ["IBEW", "UA", "SMART", "BAC", "UBC", "HFIAW"]
       },
       {
         q: "Jak czujesz się pracując na wysokościach?",
@@ -1953,6 +1953,15 @@ export default function UnionPathway() {
         path: ["Year 1–4: Apprentice — learn framing, finishing, formwork", "Journeyman Carpenter: Full wages on commercial and residential projects", "Foreman: Lead carpentry crews", "Superintendent / Contractor: Run your own projects"],
         apprenticeship: "4-year apprenticeship through UBC regional councils.",
         website: "carpenters.org"
+      },
+      HFIAW: {
+        name: "HFIAW — Insulators",
+        color: "#38bdf8",
+        icon: "🧊",
+        why: "You're drawn to the technical side of industrial systems — keeping pipes, equipment, and facilities insulated for efficiency and safety. Insulators work on power plants, refineries, commercial buildings, and industrial facilities, earning excellent union wages.",
+        path: ["Year 1–4: Apprentice — earn while you learn, starting ~$18-26/hr", "Journeyman Insulator: Full union wages, $30–65/hr depending on location", "Foreman: Lead insulation crews on industrial and commercial projects", "Superintendent / Contractor: Manage large-scale insulation operations"],
+        apprenticeship: "4-year registered apprenticeship through HFIAW JATC. Paid training from day one.",
+        website: "insulators.org"
       },
     },
     es: {
@@ -2262,7 +2271,7 @@ export default function UnionPathway() {
       setQuizStep(quizStep + 1);
     } else {
       // Score: first two questions determine trade
-      const tradeVotes = { IBEW: 0, UA: 0, SMART: 0, BAC: 0, UBC: 0 };
+      const tradeVotes = { IBEW: 0, UA: 0, SMART: 0, BAC: 0, UBC: 0, HFIAW: 0 };
       [0, 1].forEach(qi => {
         const q = QUIZ[lang][qi];
         if (q.trades && newAnswers[qi] !== undefined) {
