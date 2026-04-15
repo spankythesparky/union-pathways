@@ -3813,7 +3813,7 @@ export default function UnionPathway() {
                 ? "Union Pathways es un recurso gratuito, sin publicidad y sin afiliación. Solo datos reales para ayudarte a encontrar tu local más cercano."
                 : lang==="pl"
                 ? "Union Pathways to bezpłatne, wolne od reklam i bezstronne narzędzie. Tylko prawdziwe dane, które pomogą Ci znaleźć najbliższy oddział."
-                : "Union Pathways is free, ad-free, and unaffiliated. Just real data to help you find your nearest local and start your career in the trades."}
+                : "Union Pathways is free and unaffiliated. Just real data to help you find your nearest local and start your career in the trades."}
             </p>
           </div>
         )}
