@@ -2001,6 +2001,15 @@ export default function UnionPathway() {
         apprenticeship: "Aprendizaje de 4 años a través de los consejos regionales de UBC.",
         website: "carpenters.org"
       },
+      HFIAW: {
+        name: "HFIAW — Aisladores",
+        color: "#38bdf8",
+        icon: "🧊",
+        why: "Te atrae el lado técnico de los sistemas industriales — mantener tuberías, equipos e instalaciones aisladas para mayor eficiencia y seguridad. Los aisladores trabajan en plantas de energía, refinerías y edificios comerciales.",
+        path: ["Años 1–4: Aprendiz — gana mientras aprendes, desde ~$18-26/hr", "Aislador Oficial: Salario sindical completo, $30–65/hr según ubicación", "Capataz: Liderar cuadrillas de aislamiento en proyectos industriales", "Superintendente / Contratista: Gestionar operaciones a gran escala"],
+        apprenticeship: "Aprendizaje registrado de 4 años a través de HFIAW JATC. Formación remunerada desde el primer día.",
+        website: "insulators.org"
+      },
     }
   };
 
@@ -2129,6 +2138,15 @@ export default function UnionPathway() {
       apprenticeship: "4-letnia praktyka przez regionalne rady UBC.",
       website: "carpenters.org"
     },
+      HFIAW: {
+        name: "HFIAW — Izolatorzy",
+        color: "#38bdf8",
+        icon: "🧊",
+        why: "Pociąga Cię techniczny aspekt systemów przemysłowych — izolowanie rur, urządzeń i obiektów dla efektywności i bezpieczeństwa. Izolatorzy pracują w elektrowniach, rafineriach i budynkach komercyjnych.",
+        path: ["Lata 1–4: Praktykant — zarabiaj ucząc się, od ~$18-26/hr", "Izolator Czeladnik: Pełne wynagrodzenie związkowe, $30–65/hr", "Brygadzista: Kierowanie ekipami izolacyjnymi przy projektach przemysłowych", "Superintendent / Wykonawca: Zarządzanie dużymi operacjami izolacyjnymi"],
+        apprenticeship: "4-letnia praktyka zarejestrowana przez HFIAW JATC. Płatne szkolenie od pierwszego dnia.",
+        website: "insulators.org"
+      },
   };
 
 
