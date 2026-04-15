@@ -1893,13 +1893,13 @@ export default function UnionPathway() {
     en: [
       {
         q: "What kind of work environment do you prefer?",
-        options: ["Working with electrical systems and technology", "Working with pipes, water, and heating/cooling systems", "Working with metal, ductwork, and HVAC systems", "Building structures with heavy equipment", "Working with wood, framing, and finishing"],
-        trades: ["IBEW", "UA", "SMART", "IUOE/LIUNA", "UBC"]
+        options: ["Working with electrical systems and technology", "Working with pipes, water, and heating/cooling systems", "Working with metal, ductwork, and HVAC systems", "Working with brick, stone, and masonry", "Working with wood, framing, and finishing"],
+        trades: ["IBEW", "UA", "SMART", "BAC", "UBC"]
       },
       {
         q: "Which best describes your interest?",
-        options: ["Powering buildings — wiring, panels, controls", "Keeping systems flowing — plumbing, gas, steam", "Controlling airflow — ducts, vents, HVAC", "Moving earth and materials — cranes, excavators", "Shaping structures — carpentry, millwork"],
-        trades: ["IBEW", "UA", "SMART", "IUOE", "UBC"]
+        options: ["Powering buildings — wiring, panels, controls", "Keeping systems flowing — plumbing, gas, steam", "Controlling airflow — ducts, vents, HVAC", "Building walls and structures that last centuries", "Shaping structures — carpentry, millwork"],
+        trades: ["IBEW", "UA", "SMART", "BAC", "UBC"]
       },
       {
         q: "How do you feel about working at heights?",
@@ -1920,13 +1920,13 @@ export default function UnionPathway() {
     es: [
       {
         q: "¿Qué tipo de ambiente de trabajo prefieres?",
-        options: ["Trabajar con sistemas eléctricos y tecnología", "Trabajar con tuberías, agua y calefacción/refrigeración", "Trabajar con metal, conductos y sistemas HVAC", "Construir estructuras con equipo pesado", "Trabajar con madera, marcos y acabados"],
-        trades: ["IBEW", "UA", "SMART", "IUOE/LIUNA", "UBC"]
+        options: ["Trabajar con sistemas eléctricos y tecnología", "Trabajar con tuberías, agua y calefacción/refrigeración", "Trabajar con metal, conductos y sistemas HVAC", "Trabajar con ladrillo, piedra y mampostería", "Trabajar con madera, marcos y acabados"],
+        trades: ["IBEW", "UA", "SMART", "BAC", "UBC"]
       },
       {
         q: "¿Cuál describe mejor tu interés?",
-        options: ["Dar energía a edificios — cableado, paneles, controles", "Mantener los sistemas fluyendo — plomería, gas, vapor", "Controlar el flujo de aire — conductos, ventilación, HVAC", "Mover tierra y materiales — grúas, excavadoras", "Dar forma a estructuras — carpintería, ebanistería"],
-        trades: ["IBEW", "UA", "SMART", "IUOE", "UBC"]
+        options: ["Dar energía a edificios — cableado, paneles, controles", "Mantener los sistemas fluyendo — plomería, gas, vapor", "Controlar el flujo de aire — conductos, ventilación, HVAC", "Construir muros y estructuras que duran siglos", "Dar forma a estructuras — carpintería, ebanistería"],
+        trades: ["IBEW", "UA", "SMART", "BAC", "UBC"]
       },
       {
         q: "¿Cómo te sientes trabajando en alturas?",
@@ -1947,13 +1947,13 @@ export default function UnionPathway() {
     pl: [
       {
         q: "Jakie środowisko pracy preferujesz?",
-        options: ["Praca z systemami elektrycznymi i technologią", "Praca z rurociągami, wodą i ogrzewaniem/chłodzeniem", "Praca z metalem, kanałami i systemami HVAC", "Budowanie konstrukcji z ciężkim sprzętem", "Praca z drewnem, szkieletem i wykończeniem"],
-        trades: ["IBEW", "UA", "SMART", "IUOE/LIUNA", "UBC"]
+        options: ["Praca z systemami elektrycznymi i technologią", "Praca z rurociągami, wodą i ogrzewaniem/chłodzeniem", "Praca z metalem, kanałami i systemami HVAC", "Praca z cegłą, kamieniem i murarką", "Praca z drewnem, szkieletem i wykończeniem"],
+        trades: ["IBEW", "UA", "SMART", "BAC", "UBC"]
       },
       {
         q: "Co najlepiej opisuje Twoje zainteresowania?",
-        options: ["Zasilanie budynków — okablowanie, panele, sterowanie", "Utrzymanie systemów — hydraulika, gaz, para", "Kontrola przepływu powietrza — kanały, wentylacja, HVAC", "Przemieszczanie ziemi i materiałów — dźwigi, koparki", "Kształtowanie konstrukcji — ciesielstwo, stolarstwo"],
-        trades: ["IBEW", "UA", "SMART", "IUOE", "UBC"]
+        options: ["Zasilanie budynków — okablowanie, panele, sterowanie", "Utrzymanie systemów — hydraulika, gaz, para", "Kontrola przepływu powietrza — kanały, wentylacja, HVAC", "Budowanie ścian i konstrukcji trwających wieki", "Kształtowanie konstrukcji — ciesielstwo, stolarstwo"],
+        trades: ["IBEW", "UA", "SMART", "BAC", "UBC"]
       },
       {
         q: "Jak czujesz się pracując na wysokościach?",
@@ -2002,14 +2002,14 @@ export default function UnionPathway() {
         apprenticeship: "5-year apprenticeship through SMART JATC training centers nationwide.",
         website: "smart-union.org"
       },
-      "IUOE": {
-        name: "IUOE — Operating Engineers",
-        color: "#22c55e",
-        icon: "🏗️",
-        why: "You want to operate heavy equipment — cranes, bulldozers, excavators — on major construction projects. Operating Engineers run some of the most complex machinery in the industry.",
-        path: ["Apprentice: Start operating equipment under supervision", "Journeyman Operator: Certified on multiple equipment types", "Master Mechanic / Crane Operator: Top of the trade, highest pay", "Foreman / Superintendent: Manage heavy equipment operations"],
-        apprenticeship: "3-4 year apprenticeship through IUOE training programs.",
-        website: "iuoe.org"
+      "BAC": {
+        name: "BAC — Bricklayers & Allied Craftworkers",
+        color: "#f97316",
+        icon: "🧱",
+        why: "You're drawn to hands-on work building lasting structures with brick, stone, tile, and masonry. Bricklayers work on some of the most iconic buildings and infrastructure in America — and union bricklayers earn excellent wages with full benefits.",
+        path: ["Year 1–3: Apprentice — earn while you learn, starting ~$18-26/hr", "Journeyman Mason: Full union wages, $30–65/hr depending on location", "Foreman: Lead masonry crews on commercial and industrial projects", "Superintendent / Contractor: Run your own masonry operation"],
+        apprenticeship: "3-year registered apprenticeship through BAC JATC. Paid training from day one.",
+        website: "bacweb.org"
       },
       "UBC": {
         name: "UBC — Carpenters",
@@ -2049,14 +2049,14 @@ export default function UnionPathway() {
         apprenticeship: "Aprendizaje de 5 años a través de los centros de capacitación SMART JATC.",
         website: "smart-union.org"
       },
-      "IUOE": {
-        name: "IUOE — Ingenieros de Operación",
-        color: "#22c55e",
-        icon: "🏗️",
-        why: "Quieres operar equipo pesado — grúas, topadoras, excavadoras — en grandes proyectos de construcción.",
-        path: ["Aprendiz: Comenzar a operar equipo bajo supervisión", "Operador Oficial: Certificado en múltiples tipos de equipos", "Mecánico Maestro / Operador de Grúa: Lo mejor del oficio", "Capataz / Superintendente: Gestionar operaciones de equipo pesado"],
-        apprenticeship: "Aprendizaje de 3-4 años a través de programas de capacitación de IUOE.",
-        website: "iuoe.org"
+      "BAC": {
+        name: "BAC — Albañiles y Artesanos Afines",
+        color: "#f97316",
+        icon: "🧱",
+        why: "Te atrae el trabajo manual construyendo estructuras duraderas con ladrillo, piedra, azulejo y mampostería. Los albañiles sindicalizados ganan excelentes salarios con beneficios completos.",
+        path: ["Años 1-3: Aprendiz — comenzando ~$18-26/hr", "Oficial Albañil: Salario completo, $30-65/hr", "Capataz: Liderar cuadrillas de mampostería en proyectos comerciales", "Superintendente / Contratista: Manejar tu propia operación"],
+        apprenticeship: "Aprendizaje registrado de 3 años a través de BAC JATC. Capacitación pagada desde el primer día.",
+        website: "bacweb.org"
       },
       "UBC": {
         name: "UBC — Carpinteros",
@@ -2177,14 +2177,14 @@ export default function UnionPathway() {
       apprenticeship: "5-letnia praktyka przez centra szkoleniowe SMART JATC.",
       website: "smart-union.org"
     },
-    "IUOE": {
-      name: "IUOE — Operatorzy Sprzętu",
-      color: "#22c55e",
-      icon: "🏗️",
-      why: "Chcesz obsługiwać ciężki sprzęt — dźwigi, buldożery, koparki — przy dużych projektach budowlanych.",
-      path: ["Praktykant: Obsługa sprzętu pod nadzorem", "Czeladnik Operator: Certyfikat na wiele typów sprzętu", "Operator Dźwigu / Mechanik Mistrzowski: Szczyt zawodu", "Brygadzista / Superintendent: Zarządzanie operacjami ciężkiego sprzętu"],
-      apprenticeship: "3–4-letnia praktyka przez programy szkoleniowe IUOE.",
-      website: "iuoe.org"
+    "BAC": {
+      name: "BAC — Murarze i Rzemieślnicy Pokrewni",
+      color: "#f97316",
+      icon: "🧱",
+      why: "Przyciąga Cię praca manualna przy budowaniu trwałych konstrukcji z cegły, kamienia, płytek i murów. Murarze związkowi zarabiają doskonałe wynagrodzenia z pełnymi świadczeniami.",
+      path: ["Lata 1-3: Praktykant — zaczynając ~$18-26/godz", "Czeladnik Murarz: Pełne wynagrodzenie, $30-65/godz", "Brygadzista: Prowadzenie ekip murarskich przy projektach komercyjnych", "Superintendent / Wykonawca: Prowadzenie własnej firmy murarskiej"],
+      apprenticeship: "3-letnia zarejestrowana praktyka przez BAC JATC. Płatne szkolenie od pierwszego dnia.",
+      website: "bacweb.org"
     },
     "UBC": {
       name: "UBC — Cieśle",
@@ -2310,7 +2310,7 @@ export default function UnionPathway() {
       setQuizStep(quizStep + 1);
     } else {
       // Score: first two questions determine trade
-      const tradeVotes = { IBEW: 0, UA: 0, SMART: 0, IUOE: 0, UBC: 0 };
+      const tradeVotes = { IBEW: 0, UA: 0, SMART: 0, BAC: 0, UBC: 0 };
       [0, 1].forEach(qi => {
         const q = QUIZ[lang][qi];
         if (q.trades && newAnswers[qi] !== undefined) {
@@ -3589,7 +3589,7 @@ export default function UnionPathway() {
                       </div>
                       <div className="result-app-note">{res.apprenticeship}</div>
                       <div className="result-actions">
-                        <button className="btn-primary" onClick={() => { setSelectedTrade(quizResult in {IBEW:1,UA:1,SMART:1} ? (quizResult === "IBEW" ? "IBEW_I" : quizResult) : "IBEW_I"); setPage("home"); }}>
+                        <button className="btn-primary" onClick={() => { setSelectedTrade(quizResult === "IBEW" ? "IBEW_I" : quizResult); setPage("home"); }}>
                           {lang==="es" ? "Encontrar Mi Local Más Cercano →" : lang==="pl" ? "Znajdź Mój Najbliższy Oddział →" : "Find My Nearest Local →"}
                         </button>
                         <a className="btn-ghost" href={`https://www.${res.website}`} target="_blank" rel="noopener noreferrer">
@@ -4430,15 +4430,23 @@ export default function UnionPathway() {
                   <button className="btn-primary"
                     style={{width:"100%", padding:"14px", fontSize:"15px"}}
                     disabled={!contactForm.name || !contactForm.email || !contactForm.subject || !contactForm.message}
-                    onClick={() => {
-                      // EMAIL DESTINATION — update this address when ready:
-                      const to = "YOUR_EMAIL@EMAIL.COM";
-                      const subject = encodeURIComponent(`Union Pathways Contact: ${contactForm.subject}`);
-                      const body = encodeURIComponent(
-                        `Name: ${contactForm.name}\nEmail: ${contactForm.email}\nPhone: ${contactForm.phone || "Not provided"}\nSubject: ${contactForm.subject}\n\nMessage:\n${contactForm.message}`
-                      );
-                      window.open(`mailto:${to}?subject=${subject}&body=${body}`);
-                      setContactSent(true);
+                    onClick={async () => {
+                      try {
+                        await fetch("https://formspree.io/f/myklzalg", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+                          body: JSON.stringify({
+                            name: contactForm.name,
+                            email: contactForm.email,
+                            phone: contactForm.phone || "Not provided",
+                            subject: contactForm.subject,
+                            message: contactForm.message
+                          })
+                        });
+                        setContactSent(true);
+                      } catch (e) {
+                        alert("Something went wrong. Please try again.");
+                      }
                     }}>
                     {lang==="es" ? "Enviar Mensaje →" : lang==="pl" ? "Wyślij Wiadomość →" : "Send Message →"}
                   </button>
