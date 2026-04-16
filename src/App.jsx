@@ -3490,7 +3490,7 @@ export default function UnionPathway() {
       <div className="app">
         {/* NAV */}
         <nav>
-          <div className="nav-logo" style={{cursor:"pointer"}} onClick={() => setPage("home")}>
+          <div className="nav-logo" style={{cursor:"pointer", padding:"4px", margin:"-4px"}} onClick={() => { setPage("home"); setResults(null); setQuery(""); window.scrollTo(0,0); }}>
             <div className="nav-bolt" />
             <div className="nav-wordmark">Union<span>Pathways</span></div>
           </div>
