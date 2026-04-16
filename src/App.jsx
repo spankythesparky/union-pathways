@@ -319,8 +319,6 @@ const IBEW_INSIDE_LOCALS = [
   { id: 1701, name: "IBEW Local 1701", city: "Owensboro", state: "KY", phone: null, website: null, lat: 37.7719, lng: -87.1112, address: "Owensboro, KY" },
   { id: 1914, name: "IBEW Local 1914", city: "Cheswick", state: "PA", phone: null, website: null, lat: 40.5412, lng: -79.797, address: "Cheswick, PA" },
   { id: 1925, name: "IBEW Local 1925", city: "Martin", state: "TN", phone: null, website: null, lat: 36.3434, lng: -88.8503, address: "Martin, TN" },
-];
-
   { id: 11300, name: "IBEW Local 113", city: "Colorado Springs", state: "CO", phone: "(719) 633-3872", website: "ibew113.com", lat: 38.8339, lng: -104.8214, address: "2150 Naegele Road, Colorado Springs, CO 80904" },
   { id: 11700, name: "IBEW Local 117", city: "Crystal Lake", state: "IL", phone: "(847) 854-7200", website: "ibew117.com", lat: 42.2411, lng: -88.3162, address: "765 Munshaw Lane, Crystal Lake, IL 60014" },
   { id: 12400, name: "IBEW Local 124", city: "Kansas City", state: "MO", phone: "(816) 942-7500", website: "ibew124.org", lat: 39.0997, lng: -94.5786, address: "301 E 103rd Terrace, Kansas City, MO 64114" },
@@ -377,6 +375,8 @@ const IBEW_INSIDE_LOCALS = [
   { id: 30000, name: "IBEW Local 300", city: "Burlington", state: "VT", phone: "(802) 864-5864", website: "ibewlocal300.org", lat: 44.4759, lng: -73.2121, address: "3 Gregory Drive, South Burlington, VT 05403" },
   { id: 30100, name: "IBEW Local 301", city: "Texarkana", state: "TX", phone: "(903) 838-8531", website: null, lat: 33.4251, lng: -94.0477, address: "114 Elm Street, Nash, TX 75569" },
   { id: 30200, name: "IBEW Local 302", city: "Martinez", state: "CA", phone: "(925) 228-2302", website: "ibewlu302.com", lat: 37.991, lng: -122.1341, address: "1875 Arnold Drive, Martinez, CA 94553" },
+];
+
 // ─── IBEW LINEMAN DATABASE — Outside Utility & Transmission ──────────────────
 // ─── IBEW LINEMAN DATABASE — Outside Utility & Transmission ─────────────────
 // Source: User-provided wage data. Completely separate from Inside Wireman locals.
