@@ -107,7 +107,7 @@ const IBEW_INSIDE_LOCALS = [
   { id: 129, name: "IBEW Local 129", city: "Lorain", state: "OH", phone: "(440) 233-7156", website: "ibew129.org", lat: 41.4523, lng: -82.1824, address: "6100 S Broadway Suite 201, Lorain, OH 44053" },
   { id: 130, name: "IBEW Local 130", city: "New Orleans", state: "LA", phone: "(504) 831-1372", website: "ibewlu130.com", lat: 29.9511, lng: -90.0715, address: "3200 Ridgelake Drive Suite 300, Metairie, LA 70002" },
   { id: 131, name: "IBEW Local 131", city: "Kalamazoo", state: "MI", phone: "(269) 382-1762", website: "ibew131.com", lat: 42.2917, lng: -85.5872, address: "3641 E Cork Street, Kalamazoo, MI 49001" },
-  { id: 134, name: "IBEW Local 134", city: "Chicago", state: "IL", phone: "(312) 454-1340", website: "ibew134.org", lat: 41.8781, lng: -87.6298, address: "600 W Washington Blvd, Chicago, IL 60661" },
+  { id: 134, name: "IBEW Local 134", city: "Chicago", state: "IL", phone: "(312) 454-1340", website: "ibew134.org", lat: 41.8781, lng: -87.6298, address: "2722 S Martin Luther King Drive, Chicago, IL 60616" },
   { id: 136, name: "IBEW Local 136", city: "Birmingham", state: "AL", phone: "(205) 833-0909", website: "ibew136.org", lat: 33.5186, lng: -86.8104, address: "845 Gadsden Highway, Birmingham, AL 35235" },
   { id: 139, name: "IBEW Local 139", city: "Elmira", state: "NY", phone: "(607) 732-1237", website: "ibew139.com", lat: 42.0898, lng: -76.8077, address: "415 W Second Street, Elmira, NY 14901" },
   { id: 141, name: "IBEW Local 141", city: "Wheeling", state: "WV", phone: "(304) 242-3870", website: "ibew141.org", lat: 40.064, lng: -80.7209, address: "Wheeling, WV" },
