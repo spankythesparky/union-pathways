@@ -3478,7 +3478,7 @@ export default function UnionPathway() {
           .nav-wordmark { font-size: 17px; }
           .nav-link { padding: 5px 7px; font-size: 10px; }
           .nav-trades-btn { padding: 7px 10px; font-size: 12px; }
-          .trades-dropdown { width: calc(100vw - 32px); right: 0; left: auto; position: absolute; }
+          .trades-dropdown { position: fixed; top: auto; left: 16px; right: 16px; width: auto; }
           .career-stats { grid-template-columns: 1fr; }
           .benefits-grid { grid-template-columns: 1fr; }
           .stage-pay { margin-left: 0; }
