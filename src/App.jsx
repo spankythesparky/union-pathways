@@ -2768,7 +2768,7 @@ export default function UnionPathway() {
         /* ── RESULTS ── */
         .results-section {
           width: 100%; max-width: 760px;
-          margin: 48px auto 0; padding: 0 24px 80px;
+          margin: 32px auto 0; padding: 0 24px 80px;
         }
         .results-header {
           display: flex; align-items: center; justify-content: space-between;
@@ -3477,7 +3477,7 @@ export default function UnionPathway() {
           .nav-wordmark { font-size: 17px; }
           .nav-link { padding: 5px 7px; font-size: 10px; }
           .nav-trades-btn { padding: 7px 10px; font-size: 12px; }
-          .trades-dropdown { width: calc(100vw - 32px); right: -8px; }
+          .trades-dropdown { width: calc(100vw - 32px); right: 0; left: auto; position: absolute; }
           .career-stats { grid-template-columns: 1fr; }
           .benefits-grid { grid-template-columns: 1fr; }
           .stage-pay { margin-left: 0; }
