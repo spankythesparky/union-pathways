@@ -2396,6 +2396,15 @@ export default function UnionPathway() {
 
   return (
     <>
+        {/* Google Analytics */}
+        <script async src='https://www.googletagmanager.com/gtag/js?id=G-6YG0F2LQKT'></script>
+        <script dangerouslySetInnerHTML={{__html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-6YG0F2LQKT');
+        `}} />
+
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap');
 
