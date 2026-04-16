@@ -2478,7 +2478,7 @@ export default function UnionPathway() {
 
         .trades-dropdown {
           position: absolute; top: calc(100% + 10px); right: 0;
-          width: 380px;
+          width: 380px; max-width: calc(100vw - 24px);
           background: var(--steel-light);
           border: 1px solid var(--wire);
           border-radius: 14px;
