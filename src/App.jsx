@@ -2671,6 +2671,7 @@ export default function UnionPathway() {
           transition: transform 0.3s ease;
         }
         .search-card:hover { transform: translateY(-2px); }
+        .search-card { margin-bottom: 32px; }
 
         .search-label {
           font-family: 'Barlow Condensed', sans-serif;
