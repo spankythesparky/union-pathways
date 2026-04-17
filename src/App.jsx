@@ -317,10 +317,11 @@ const IBEW_INSIDE_LOCALS = [
   { id: 1701, name: "IBEW Local 1701", city: "Owensboro", state: "KY", phone: null, website: null, lat: 37.7719, lng: -87.1112, address: "Owensboro, KY" },
   { id: 1914, name: "IBEW Local 1914", city: "Cheswick", state: "PA", phone: null, website: null, lat: 40.5412, lng: -79.797, address: "Cheswick, PA" },
   { id: 1925, name: "IBEW Local 1925", city: "Martin", state: "TN", phone: null, website: null, lat: 36.3434, lng: -88.8503, address: "Martin, TN" },
-];
 
   { id: 583, name: "IBEW Local 583", city: "El Paso", state: "TX", phone: "(915) 877-9166", website: "ibew583.com", lat: 31.7619, lng: -106.485, address: "311 W Borderland Road, El Paso, TX 79932", email: "ibew@ibew583.com" },
   { id: 595, name: "IBEW Local 595", city: "Dublin", state: "CA", phone: "(925) 556-0595", website: "ibew595.org", lat: 37.7021, lng: -121.9358, address: "6850 Regional Street Suite 100, Dublin, CA 94568", email: "info@ibew595.org" },
+];
+
 // ─── IBEW LINEMAN DATABASE — Outside Utility & Transmission ──────────────────
 // ─── IBEW LINEMAN DATABASE — Outside Utility & Transmission ─────────────────
 // Source: User-provided wage data. Completely separate from Inside Wireman locals.
