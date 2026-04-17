@@ -2981,7 +2981,7 @@ export default function UnionPathway() {
     const withDist = database
       .map(l => ({ ...l, distance: getDistanceMiles(loc.lat, loc.lng, l.lat, l.lng) }))
       .sort((a, b) => a.distance - b.distance);
-    const within150 = withDist.filter(l => l.distance <= 150);
+    const within150 = withDist.filter(l => l.distance <= 50);
     setResults(within150.length > 0 ? within150 : withDist.slice(0, 5));
     setLoading(false);
   };
@@ -2998,7 +2998,7 @@ export default function UnionPathway() {
         const withDist = database
           .map(l => ({ ...l, distance: getDistanceMiles(lat, lng, l.lat, l.lng) }))
           .sort((a, b) => a.distance - b.distance);
-        const within150 = withDist.filter(l => l.distance <= 150);
+        const within150 = withDist.filter(l => l.distance <= 50);
         setResults(within150.length > 0 ? within150 : withDist.slice(0, 5));
         setGeoLoading(false);
       },
