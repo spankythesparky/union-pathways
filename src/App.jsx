@@ -2122,103 +2122,391 @@ export default function UnionPathway() {
   const QUIZ = {
     en: [
       {
-        q: "What kind of work environment do you prefer?",
-        options: ["Working with electrical systems and technology", "Working with pipes, water, and heating/cooling systems", "Working with metal, ductwork, and HVAC systems", "Working with brick, stone, and masonry", "Working with wood, framing, and finishing", "Working with insulation, industrial systems, and temperature control"],
-        trades: ["IBEW", "UA", "SMART", "BAC", "UBC", "HFIAW"]
+        q: "What type of work appeals to you most?",
+        options: [
+          "Electrical systems — wiring, power, controls, and technology",
+          "Power lines and utility infrastructure — working outdoors on the grid",
+          "Pipes, plumbing, gas lines, and heating/cooling systems",
+          "Sheet metal, ductwork, and HVAC systems",
+          "Structural steel — building the skeleton of bridges and skyscrapers",
+          "Brick, stone, tile, and masonry construction",
+          "Wood framing, finish carpentry, and millwork",
+          "Painting, coatings, and surface finishing",
+          "Insulation and protecting industrial equipment",
+          "Operating heavy equipment — cranes, bulldozers, excavators",
+          "General construction labor — site prep, demolition, concrete",
+          "Fire protection and sprinkler systems",
+          "Elevators, escalators, and vertical transportation",
+          "Boilers, pressure vessels, and industrial steam systems",
+          "Hauling materials and driving heavy trucks on job sites",
+        ],
+        scores: [
+          { IBEW_I: 3 },
+          { IBEW_L: 3 },
+          { UA: 3 },
+          { SMART: 3 },
+          { IW: 3 },
+          { BAC: 3 },
+          { UBC: 3 },
+          { IUPAT: 3 },
+          { HFIAW: 3 },
+          { IUOE: 3 },
+          { LIUNA: 3 },
+          { SF: 3 },
+          { IUEC: 3 },
+          { IABSORIW: 3 },
+          { IBT: 3 },
+        ]
       },
       {
-        q: "Which best describes your interest?",
-        options: ["Powering buildings — wiring, panels, controls", "Keeping systems flowing — plumbing, gas, steam", "Controlling airflow — ducts, vents, HVAC", "Building walls and structures that last centuries", "Shaping structures — carpentry, millwork", "Protecting systems — insulating pipes, equipment & industrial facilities"],
-        trades: ["IBEW", "UA", "SMART", "BAC", "UBC", "HFIAW"]
+        q: "Which work environment sounds most exciting to you?",
+        options: [
+          "Inside commercial buildings — offices, hospitals, data centers",
+          "Outdoors on power lines, substations, and utility infrastructure",
+          "On large industrial sites — refineries, power plants, factories",
+          "High in the air — on bridges, high-rises, or transmission towers",
+          "Underground — tunnels, excavations, and below-grade work",
+          "On residential job sites — homes and apartment buildings",
+          "Moving between many types of job sites — variety every day",
+        ],
+        scores: [
+          { IBEW_I: 2, SMART: 1, UA: 1, HFIAW: 1, IUPAT: 1, UBC: 1 },
+          { IBEW_L: 2, IW: 1 },
+          { HFIAW: 2, UA: 2, IABSORIW: 2, LIUNA: 1, IUOE: 1 },
+          { IW: 2, IBEW_L: 2, IUEC: 1 },
+          { LIUNA: 2, UA: 1, IBT: 1 },
+          { UBC: 2, BAC: 1, IUPAT: 1, UA: 1 },
+          { LIUNA: 1, IBT: 1, IUOE: 1, UBC: 1, IUPAT: 1 },
+        ]
       },
       {
-        q: "How do you feel about working at heights?",
-        options: ["Comfortable — heights don't bother me", "Somewhat comfortable", "I'd prefer to stay close to the ground"],
-        trades: null
+        q: "How do you feel about working at significant heights?",
+        options: [
+          "I love it — the higher the better",
+          "I'm comfortable at heights when needed",
+          "Somewhat comfortable — I can handle it",
+          "I prefer to stay close to the ground",
+        ],
+        scores: [
+          { IBEW_L: 2, IW: 2, IUEC: 1 },
+          { IBEW_I: 1, SMART: 1, UBC: 1, IUEC: 1 },
+          { UA: 1, BAC: 1, HFIAW: 1, IUPAT: 1 },
+          { LIUNA: 1, BAC: 1, OPCMIA: 1, UA: 1, IABSORIW: 1 },
+        ]
       },
       {
-        q: "Are you interested in working on large industrial or commercial projects?",
-        options: ["Yes — the bigger the better", "I'd like a mix of commercial and residential", "I prefer residential and smaller jobs"],
-        trades: null
+        q: "Which best describes your working style?",
+        options: [
+          "Precision technical work — reading plans, problem solving",
+          "Heavy physical labor — building, lifting, pouring",
+          "Operating machinery and equipment",
+          "Artistic and detail-oriented finishing work",
+          "Safety-critical work with specialized systems",
+        ],
+        scores: [
+          { IBEW_I: 2, UA: 2, SMART: 1, HFIAW: 1, IUEC: 1 },
+          { IW: 2, LIUNA: 2, BAC: 1, OPCMIA: 1, UBC: 1 },
+          { IUOE: 2, IBT: 2, IW: 1 },
+          { IUPAT: 2, BAC: 1, UBC: 1 },
+          { SF: 2, IABSORIW: 2, HFIAW: 1, UA: 1 },
+        ]
+      },
+      {
+        q: "What kind of projects do you want to work on?",
+        options: [
+          "Massive infrastructure — dams, highways, bridges, stadiums",
+          "Large commercial construction — hospitals, airports, office towers",
+          "Industrial — power plants, refineries, chemical facilities",
+          "Residential — homes, apartments, neighborhoods",
+          "Specialty systems — fire protection, elevators, escalators",
+        ],
+        scores: [
+          { IW: 2, LIUNA: 2, IUOE: 2, IBT: 1 },
+          { IBEW_I: 2, UA: 1, SMART: 1, BAC: 1, HFIAW: 1 },
+          { HFIAW: 2, IABSORIW: 2, UA: 2, LIUNA: 1 },
+          { UBC: 2, IUPAT: 2, BAC: 1, UA: 1 },
+          { SF: 2, IUEC: 2, IBEW_I: 1 },
+        ]
       },
       {
         q: "What matters most to you in a career?",
-        options: ["Top pay and overtime potential", "Job stability and benefits", "Learning advanced technical skills", "Working with a close-knit crew", "A clear path to supervisory roles"],
-        trades: null
+        options: [
+          "Top pay and overtime potential",
+          "Learning advanced technical skills and becoming a specialist",
+          "Physical outdoor work and variety every day",
+          "Being part of a tight-knit skilled crew",
+          "A clear path to supervision, management, or owning a business",
+          "Job stability, strong benefits, and a solid pension",
+        ],
+        scores: [
+          { IBEW_I: 1, IBEW_L: 1, IW: 1, IUEC: 1 },
+          { IBEW_I: 1, UA: 1, SMART: 1, HFIAW: 1, IUEC: 1 },
+          { IBEW_L: 1, IW: 1, IUOE: 1, LIUNA: 1 },
+          { IW: 1, BAC: 1, UBC: 1, HFIAW: 1, IABSORIW: 1 },
+          { UBC: 1, UA: 1, IBEW_I: 1 },
+          { UA: 1, SMART: 1, BAC: 1, LIUNA: 1 },
+        ]
       },
     ],
     es: [
       {
-        q: "¿Qué tipo de ambiente de trabajo prefieres?",
-        options: ["Trabajar con sistemas eléctricos y tecnología", "Trabajar con tuberías, agua y calefacción/refrigeración", "Trabajar con metal, conductos y sistemas HVAC", "Trabajar con ladrillo, piedra y mampostería", "Trabajar con madera, marcos y acabados", "Trabajar con aislamiento, sistemas industriales y control de temperatura"],
-        trades: ["IBEW", "UA", "SMART", "BAC", "UBC", "HFIAW"]
+        q: "¿Qué tipo de trabajo te atrae más?",
+        options: [
+          "Sistemas eléctricos — cableado, energía, controles y tecnología",
+          "Líneas eléctricas e infraestructura de servicios — trabajo al aire libre",
+          "Tuberías, plomería, gas y sistemas de calefacción/refrigeración",
+          "Chapa metálica, conductos y sistemas HVAC",
+          "Acero estructural — construyendo puentes y rascacielos",
+          "Ladrillo, piedra, azulejo y mampostería",
+          "Marcos de madera, carpintería y ebanistería",
+          "Pintura, recubrimientos y acabados superficiales",
+          "Aislamiento y protección de equipos industriales",
+          "Operar maquinaria pesada — grúas, bulldozers, excavadoras",
+          "Trabajo general de construcción — preparación, demolición, concreto",
+          "Protección contra incendios y sistemas de rociadores",
+          "Ascensores, escaleras mecánicas y transporte vertical",
+          "Calderas, recipientes a presión y sistemas de vapor industrial",
+          "Transportar materiales y conducir camiones pesados en obras",
+        ],
+        scores: [
+          { IBEW_I: 3 }, { IBEW_L: 3 }, { UA: 3 }, { SMART: 3 }, { IW: 3 },
+          { BAC: 3 }, { UBC: 3 }, { IUPAT: 3 }, { HFIAW: 3 }, { IUOE: 3 },
+          { LIUNA: 3 }, { SF: 3 }, { IUEC: 3 }, { IABSORIW: 3 }, { IBT: 3 },
+        ]
       },
       {
-        q: "¿Cuál describe mejor tu interés?",
-        options: ["Dar energía a edificios — cableado, paneles, controles", "Mantener los sistemas fluyendo — plomería, gas, vapor", "Controlar el flujo de aire — conductos, ventilación, HVAC", "Construir muros y estructuras que duran siglos", "Dar forma a estructuras — carpintería, ebanistería", "Proteger sistemas — aislar tuberías, equipos e instalaciones industriales"],
-        trades: ["IBEW", "UA", "SMART", "BAC", "UBC", "HFIAW"]
+        q: "¿Qué ambiente de trabajo te parece más emocionante?",
+        options: [
+          "Dentro de edificios comerciales — oficinas, hospitales, centros de datos",
+          "Al aire libre en líneas eléctricas y subestaciones",
+          "En grandes sitios industriales — refinerías, plantas de energía",
+          "En las alturas — puentes, rascacielos o torres de transmisión",
+          "Bajo tierra — túneles, excavaciones y trabajo subterráneo",
+          "En obras residenciales — casas y edificios de apartamentos",
+          "Moviéndome entre muchos tipos de obras — variedad todos los días",
+        ],
+        scores: [
+          { IBEW_I: 2, SMART: 1, UA: 1, HFIAW: 1, IUPAT: 1, UBC: 1 },
+          { IBEW_L: 2, IW: 1 },
+          { HFIAW: 2, UA: 2, IABSORIW: 2, LIUNA: 1, IUOE: 1 },
+          { IW: 2, IBEW_L: 2, IUEC: 1 },
+          { LIUNA: 2, UA: 1, IBT: 1 },
+          { UBC: 2, BAC: 1, IUPAT: 1, UA: 1 },
+          { LIUNA: 1, IBT: 1, IUOE: 1, UBC: 1, IUPAT: 1 },
+        ]
       },
       {
-        q: "¿Cómo te sientes trabajando en alturas?",
-        options: ["Cómodo — las alturas no me molestan", "Algo cómodo", "Prefiero quedarme cerca del suelo"],
-        trades: null
+        q: "¿Cómo te sientes trabajando a gran altura?",
+        options: [
+          "Me encanta — cuanto más alto, mejor",
+          "Cómodo cuando es necesario",
+          "Algo cómodo — puedo manejarlo",
+          "Prefiero quedarme cerca del suelo",
+        ],
+        scores: [
+          { IBEW_L: 2, IW: 2, IUEC: 1 },
+          { IBEW_I: 1, SMART: 1, UBC: 1, IUEC: 1 },
+          { UA: 1, BAC: 1, HFIAW: 1, IUPAT: 1 },
+          { LIUNA: 1, BAC: 1, OPCMIA: 1, UA: 1, IABSORIW: 1 },
+        ]
       },
       {
-        q: "¿Te interesa trabajar en grandes proyectos industriales o comerciales?",
-        options: ["Sí — cuanto más grande, mejor", "Me gustaría una mezcla de comercial y residencial", "Prefiero residencial y trabajos más pequeños"],
-        trades: null
+        q: "¿Cuál describe mejor tu estilo de trabajo?",
+        options: [
+          "Trabajo técnico de precisión — leer planos, resolver problemas",
+          "Trabajo físico intenso — construir, levantar, verter concreto",
+          "Operar maquinaria y equipos",
+          "Trabajo artístico y de acabado detallado",
+          "Trabajo crítico de seguridad con sistemas especializados",
+        ],
+        scores: [
+          { IBEW_I: 2, UA: 2, SMART: 1, HFIAW: 1, IUEC: 1 },
+          { IW: 2, LIUNA: 2, BAC: 1, OPCMIA: 1, UBC: 1 },
+          { IUOE: 2, IBT: 2, IW: 1 },
+          { IUPAT: 2, BAC: 1, UBC: 1 },
+          { SF: 2, IABSORIW: 2, HFIAW: 1, UA: 1 },
+        ]
+      },
+      {
+        q: "¿En qué tipo de proyectos quieres trabajar?",
+        options: [
+          "Infraestructura masiva — presas, carreteras, puentes, estadios",
+          "Construcción comercial grande — hospitales, aeropuertos, torres",
+          "Industrial — plantas de energía, refinerías, instalaciones químicas",
+          "Residencial — casas, apartamentos, vecindarios",
+          "Sistemas especiales — protección contra incendios, ascensores",
+        ],
+        scores: [
+          { IW: 2, LIUNA: 2, IUOE: 2, IBT: 1 },
+          { IBEW_I: 2, UA: 1, SMART: 1, BAC: 1, HFIAW: 1 },
+          { HFIAW: 2, IABSORIW: 2, UA: 2, LIUNA: 1 },
+          { UBC: 2, IUPAT: 2, BAC: 1, UA: 1 },
+          { SF: 2, IUEC: 2, IBEW_I: 1 },
+        ]
       },
       {
         q: "¿Qué es lo más importante para ti en una carrera?",
-        options: ["El mejor salario y potencial de horas extras", "Estabilidad laboral y beneficios", "Aprender habilidades técnicas avanzadas", "Trabajar con un equipo unido", "Un camino claro hacia roles de supervisión"],
-        trades: null
+        options: [
+          "Máximo salario y potencial de horas extras",
+          "Aprender habilidades técnicas avanzadas y especializarme",
+          "Trabajo físico al aire libre y variedad todos los días",
+          "Ser parte de un equipo unido y especializado",
+          "Un camino claro hacia la supervisión o tener mi propio negocio",
+          "Estabilidad, buenos beneficios y pensión sólida",
+        ],
+        scores: [
+          { IBEW_I: 1, IBEW_L: 1, IW: 1, IUEC: 1 },
+          { IBEW_I: 1, UA: 1, SMART: 1, HFIAW: 1, IUEC: 1 },
+          { IBEW_L: 1, IW: 1, IUOE: 1, LIUNA: 1 },
+          { IW: 1, BAC: 1, UBC: 1, HFIAW: 1, IABSORIW: 1 },
+          { UBC: 1, UA: 1, IBEW_I: 1 },
+          { UA: 1, SMART: 1, BAC: 1, LIUNA: 1 },
+        ]
       },
     ],
     pl: [
       {
-        q: "Jakie środowisko pracy preferujesz?",
-        options: ["Praca z systemami elektrycznymi i technologią", "Praca z rurociągami, wodą i ogrzewaniem/chłodzeniem", "Praca z metalem, kanałami i systemami HVAC", "Praca z cegłą, kamieniem i murarką", "Praca z drewnem, szkieletem i wykończeniem", "Praca z izolacją, systemami przemysłowymi i kontrolą temperatury"],
-        trades: ["IBEW", "UA", "SMART", "BAC", "UBC", "HFIAW"]
+        q: "Jaki rodzaj pracy najbardziej Cię przyciąga?",
+        options: [
+          "Systemy elektryczne — okablowanie, zasilanie, sterowanie i technologia",
+          "Linie energetyczne i infrastruktura sieci — praca na zewnątrz",
+          "Rury, instalacje wod-kan, gaz i systemy grzewcze/chłodnicze",
+          "Blacha, kanały wentylacyjne i systemy HVAC",
+          "Stal konstrukcyjna — budowanie mostów i wieżowców",
+          "Cegła, kamień, glazura i murarstwo",
+          "Szkielet drewniany, stolarka i wykończenie",
+          "Malowanie, powłoki i wykończenie powierzchni",
+          "Izolacja i ochrona urządzeń przemysłowych",
+          "Obsługa ciężkiego sprzętu — dźwigi, buldożery, koparki",
+          "Ogólne roboty budowlane — przygotowanie terenu, wyburzenia, beton",
+          "Ochrona przeciwpożarowa i systemy tryskaczowe",
+          "Windy, schody ruchome i transport pionowy",
+          "Kotły, zbiorniki ciśnieniowe i przemysłowe systemy parowe",
+          "Transport materiałów i prowadzenie ciężkich pojazdów na budowie",
+        ],
+        scores: [
+          { IBEW_I: 3 }, { IBEW_L: 3 }, { UA: 3 }, { SMART: 3 }, { IW: 3 },
+          { BAC: 3 }, { UBC: 3 }, { IUPAT: 3 }, { HFIAW: 3 }, { IUOE: 3 },
+          { LIUNA: 3 }, { SF: 3 }, { IUEC: 3 }, { IABSORIW: 3 }, { IBT: 3 },
+        ]
       },
       {
-        q: "Co najlepiej opisuje Twoje zainteresowania?",
-        options: ["Zasilanie budynków — okablowanie, panele, sterowanie", "Utrzymanie systemów — hydraulika, gaz, para", "Kontrola przepływu powietrza — kanały, wentylacja, HVAC", "Budowanie ścian i konstrukcji trwających wieki", "Kształtowanie konstrukcji — ciesielstwo, stolarstwo", "Ochrona systemów — izolacja rur, urządzeń i obiektów przemysłowych"],
-        trades: ["IBEW", "UA", "SMART", "BAC", "UBC", "HFIAW"]
+        q: "Które środowisko pracy brzmi dla Ciebie najbardziej ekscytująco?",
+        options: [
+          "Wewnątrz budynków komercyjnych — biura, szpitale, centra danych",
+          "Na zewnątrz przy liniach energetycznych i podstacjach",
+          "Na dużych obiektach przemysłowych — rafinerie, elektrownie",
+          "Na wysokości — mosty, wieżowce lub wieże transmisyjne",
+          "Pod ziemią — tunele, wykopy i roboty podziemne",
+          "Na budowach mieszkaniowych — domy i budynki wielorodzinne",
+          "Przemieszczam się między różnymi placami budowy — różnorodność",
+        ],
+        scores: [
+          { IBEW_I: 2, SMART: 1, UA: 1, HFIAW: 1, IUPAT: 1, UBC: 1 },
+          { IBEW_L: 2, IW: 1 },
+          { HFIAW: 2, UA: 2, IABSORIW: 2, LIUNA: 1, IUOE: 1 },
+          { IW: 2, IBEW_L: 2, IUEC: 1 },
+          { LIUNA: 2, UA: 1, IBT: 1 },
+          { UBC: 2, BAC: 1, IUPAT: 1, UA: 1 },
+          { LIUNA: 1, IBT: 1, IUOE: 1, UBC: 1, IUPAT: 1 },
+        ]
       },
       {
-        q: "Jak czujesz się pracując na wysokościach?",
-        options: ["Komfortowo — wysokości mi nie przeszkadzają", "Dość komfortowo", "Wolę pozostać blisko ziemi"],
-        trades: null
+        q: "Jak czujesz się pracując na dużych wysokościach?",
+        options: [
+          "Uwielbiam — im wyżej, tym lepiej",
+          "Komfortowo, gdy jest to konieczne",
+          "Dość komfortowo — dam radę",
+          "Wolę pozostać blisko ziemi",
+        ],
+        scores: [
+          { IBEW_L: 2, IW: 2, IUEC: 1 },
+          { IBEW_I: 1, SMART: 1, UBC: 1, IUEC: 1 },
+          { UA: 1, BAC: 1, HFIAW: 1, IUPAT: 1 },
+          { LIUNA: 1, BAC: 1, OPCMIA: 1, UA: 1, IABSORIW: 1 },
+        ]
       },
       {
-        q: "Czy interesuje Cię praca przy dużych projektach przemysłowych lub komercyjnych?",
-        options: ["Tak — im większy, tym lepiej", "Chciałbym połączenie komercyjnego i mieszkaniowego", "Wolę projekty mieszkaniowe i mniejsze zlecenia"],
-        trades: null
+        q: "Co najlepiej opisuje Twój styl pracy?",
+        options: [
+          "Precyzyjna praca techniczna — czytanie planów, rozwiązywanie problemów",
+          "Ciężka praca fizyczna — budowanie, dźwiganie, wylewanie betonu",
+          "Obsługa maszyn i sprzętu",
+          "Artystyczna i szczegółowa praca wykończeniowa",
+          "Praca o krytycznym znaczeniu dla bezpieczeństwa ze specjalistycznymi systemami",
+        ],
+        scores: [
+          { IBEW_I: 2, UA: 2, SMART: 1, HFIAW: 1, IUEC: 1 },
+          { IW: 2, LIUNA: 2, BAC: 1, OPCMIA: 1, UBC: 1 },
+          { IUOE: 2, IBT: 2, IW: 1 },
+          { IUPAT: 2, BAC: 1, UBC: 1 },
+          { SF: 2, IABSORIW: 2, HFIAW: 1, UA: 1 },
+        ]
+      },
+      {
+        q: "Przy jakich projektach chcesz pracować?",
+        options: [
+          "Ogromna infrastruktura — tamy, autostrady, mosty, stadiony",
+          "Duże budownictwo komercyjne — szpitale, lotniska, wieżowce",
+          "Przemysłowe — elektrownie, rafinerie, zakłady chemiczne",
+          "Mieszkaniowe — domy, apartamenty, osiedla",
+          "Systemy specjalistyczne — ochrona pożarowa, windy",
+        ],
+        scores: [
+          { IW: 2, LIUNA: 2, IUOE: 2, IBT: 1 },
+          { IBEW_I: 2, UA: 1, SMART: 1, BAC: 1, HFIAW: 1 },
+          { HFIAW: 2, IABSORIW: 2, UA: 2, LIUNA: 1 },
+          { UBC: 2, IUPAT: 2, BAC: 1, UA: 1 },
+          { SF: 2, IUEC: 2, IBEW_I: 1 },
+        ]
       },
       {
         q: "Co jest dla Ciebie najważniejsze w karierze?",
-        options: ["Najwyższe wynagrodzenie i możliwość nadgodzin", "Stabilność zatrudnienia i świadczenia", "Nauka zaawansowanych umiejętności technicznych", "Praca w zgranym zespole", "Wyraźna ścieżka do stanowisk kierowniczych"],
-        trades: null
+        options: [
+          "Najwyższe wynagrodzenie i możliwość nadgodzin",
+          "Nauka zaawansowanych umiejętności technicznych i specjalizacja",
+          "Fizyczna praca na zewnątrz i codzienne zróżnicowanie",
+          "Bycie częścią zgranego, wykwalifikowanego zespołu",
+          "Wyraźna ścieżka do nadzoru lub własnego biznesu",
+          "Stabilność, dobre świadczenia i solidna emerytura",
+        ],
+        scores: [
+          { IBEW_I: 1, IBEW_L: 1, IW: 1, IUEC: 1 },
+          { IBEW_I: 1, UA: 1, SMART: 1, HFIAW: 1, IUEC: 1 },
+          { IBEW_L: 1, IW: 1, IUOE: 1, LIUNA: 1 },
+          { IW: 1, BAC: 1, UBC: 1, HFIAW: 1, IABSORIW: 1 },
+          { UBC: 1, UA: 1, IBEW_I: 1 },
+          { UA: 1, SMART: 1, BAC: 1, LIUNA: 1 },
+        ]
       },
     ]
   };
 
   let TRADE_RESULTS = {
     en: {
-      IBEW: {
-        name: "IBEW — Electricians",
+      IBEW_I: {
+        name: "IBEW — Inside Wiremen",
         color: "#F5C518",
         icon: "⚡",
-        why: "You're drawn to technology, precision work, and systems that power the modern world. Electricians are among the highest-paid in the trades and work on everything from homes to hospitals to data centers.",
+        why: "You're drawn to technology, precision work, and systems that power the modern world. Inside wiremen wire commercial and industrial buildings — from hospitals to data centers to stadiums.",
         path: ["Year 1–5: Apprentice — earn while you learn, starting ~$20-28/hr", "Journeyman: Full union wages, typically $35–75/hr depending on location", "Foreman/General Foreman: Lead crews on major projects", "Master Electrician / Business Owner: Run your own shop"],
         apprenticeship: "5-year registered apprenticeship through NECA-IBEW JATC. No college debt.",
+        website: "ibew.org"
+      },
+      IBEW_L: {
+        name: "IBEW — Outside Linemen",
+        color: "#FFD700",
+        icon: "🔌",
+        why: "You thrive outdoors, love working at heights, and want to keep the power grid running. Linemen build and maintain the transmission and distribution lines that power entire regions.",
+        path: ["Year 1–4: Apprentice Lineman — earn while you learn at ~$22-30/hr", "Journeyman Lineman: Full wages, $40–80/hr in most markets", "Foreman: Lead line crews on major transmission projects", "General Foreman / Superintendent: Oversee large infrastructure projects"],
+        apprenticeship: "4-year registered apprenticeship through IBEW/NECA JATC. Extensive hands-on training.",
         website: "ibew.org"
       },
       UA: {
         name: "UA — Plumbers & Pipefitters",
         color: "#3b9eff",
         icon: "🔧",
-        why: "You're interested in the systems that keep buildings running — water, gas, steam, and heating/cooling. Pipe trades are essential on every major construction project and offer excellent long-term stability.",
+        why: "You're interested in the systems that keep buildings running — water, gas, steam, and heating/cooling. Pipe trades are essential on every major construction project.",
         path: ["Year 1–5: Apprentice — earn while you learn, starting ~$18-26/hr", "Journeyman Plumber/Pipefitter: Full union wages, $30–70/hr", "Foreman: Lead pipe crews on commercial and industrial projects", "Master Plumber / Business Owner: License and run your own operation"],
         apprenticeship: "5-year registered apprenticeship through UA JATC. Earn from day one.",
         website: "ua.org"
@@ -2232,16 +2520,25 @@ export default function UnionPathway() {
         apprenticeship: "5-year apprenticeship through SMART JATC training centers nationwide.",
         website: "smart-union.org"
       },
-      "BAC": {
+      IW: {
+        name: "Ironworkers — Structural & Reinforcing",
+        color: "#ef4444",
+        icon: "🏗️",
+        why: "You want to build the bones of America — bridges, skyscrapers, stadiums, and industrial plants. Ironworkers work at height connecting structural steel and placing rebar for concrete.",
+        path: ["Year 1–3: Apprentice — earn while you learn at ~$20-28/hr", "Journeyman Ironworker: Full wages, $35–70/hr depending on market", "Foreman: Lead steel erection or reinforcing crews", "General Foreman / Superintendent: Manage major structural projects"],
+        apprenticeship: "3-year registered apprenticeship through IMPACT (Ironworkers JATC). Paid from day one.",
+        website: "ironworkers.org"
+      },
+      BAC: {
         name: "BAC — Bricklayers & Allied Craftworkers",
         color: "#f97316",
         icon: "🧱",
-        why: "You're drawn to hands-on work building lasting structures with brick, stone, tile, and masonry. Bricklayers work on some of the most iconic buildings and infrastructure in America — and union bricklayers earn excellent wages with full benefits.",
+        why: "You're drawn to hands-on work building lasting structures with brick, stone, tile, and masonry. Union bricklayers earn excellent wages with full benefits.",
         path: ["Year 1–3: Apprentice — earn while you learn, starting ~$18-26/hr", "Journeyman Mason: Full union wages, $30–65/hr depending on location", "Foreman: Lead masonry crews on commercial and industrial projects", "Superintendent / Contractor: Run your own masonry operation"],
         apprenticeship: "3-year registered apprenticeship through BAC JATC. Paid training from day one.",
         website: "bacweb.org"
       },
-      "UBC": {
+      UBC: {
         name: "UBC — Carpenters",
         color: "#a78bfa",
         icon: "🪚",
@@ -2254,204 +2551,344 @@ export default function UnionPathway() {
         name: "HFIAW — Insulators",
         color: "#38bdf8",
         icon: "🧊",
-        why: "You're drawn to the technical side of industrial systems — keeping pipes, equipment, and facilities insulated for efficiency and safety. Insulators work on power plants, refineries, commercial buildings, and industrial facilities, earning excellent union wages.",
+        why: "You're drawn to the technical side of industrial systems — keeping pipes, equipment, and facilities insulated for efficiency and safety. Insulators work on power plants, refineries, and commercial buildings.",
         path: ["Year 1–4: Apprentice — earn while you learn, starting ~$18-26/hr", "Journeyman Insulator: Full union wages, $30–65/hr depending on location", "Foreman: Lead insulation crews on industrial and commercial projects", "Superintendent / Contractor: Manage large-scale insulation operations"],
         apprenticeship: "4-year registered apprenticeship through HFIAW JATC. Paid training from day one.",
         website: "insulators.org"
       },
+      LIUNA: {
+        name: "LIUNA — Laborers",
+        color: "#fb923c",
+        icon: "⛏️",
+        why: "You want to be on the ground floor of every major project — doing the essential site work that makes everything else possible. Laborers work on tunnels, highways, foundations, demolition, and more.",
+        path: ["Year 1–3: Apprentice — earn while you learn, starting ~$18-25/hr", "Journeyman Laborer: Full wages, $28–55/hr depending on location and specialty", "Foreman: Lead labor crews on large projects", "Superintendent: Oversee multiple crews on major infrastructure jobs"],
+        apprenticeship: "Registered apprenticeship through LIUNA Training & Education Fund. Diverse specializations available.",
+        website: "liuna.org"
+      },
+      IUOE: {
+        name: "IUOE — Operating Engineers",
+        color: "#84cc16",
+        icon: "🚜",
+        why: "You want to operate the machines that move mountains — cranes, excavators, bulldozers, and more. Operating Engineers are among the highest-paid craft workers on any job site.",
+        path: ["Year 1–4: Apprentice — earn while you learn operating various equipment", "Journeyman Operating Engineer: Full wages, $35–75/hr depending on equipment and market", "Master Mechanic: Specialize in crane operation or heavy equipment repair", "Foreman / Superintendent: Lead equipment crews on major projects"],
+        apprenticeship: "4-year registered apprenticeship through IUOE Local JATC programs. Extensive equipment training.",
+        website: "iuoe.org"
+      },
+      IUPAT: {
+        name: "IUPAT — Painters & Allied Trades",
+        color: "#c084fc",
+        icon: "🎨",
+        why: "You have an eye for detail and take pride in the finished product. Painters work on everything from commercial buildings to bridges, applying coatings that protect and beautify structures.",
+        path: ["Year 1–4: Apprentice — earn while you learn, starting ~$17-23/hr", "Journeyman Painter: Full wages, $28–55/hr depending on location", "Foreman: Lead painting and coating crews", "Superintendent / Contractor: Run your own painting operation"],
+        apprenticeship: "4-year registered apprenticeship through IUPAT District Councils.",
+        website: "iupat.org"
+      },
+      SF: {
+        name: "Sprinkler Fitters — UA Local 669",
+        color: "#22d3ee",
+        icon: "🚿",
+        why: "You want to work on the life-safety systems that protect buildings and the people inside them. Sprinkler fitters design and install fire suppression systems in every type of building.",
+        path: ["Year 1–5: Apprentice — earn while you learn, starting ~$18-25/hr", "Journeyman Sprinkler Fitter: Full wages, $35–65/hr depending on market", "Foreman: Oversee sprinkler installation on major projects", "Inspector / Estimator: Move into technical or business roles"],
+        apprenticeship: "5-year registered apprenticeship through UA Local 669 JATC.",
+        website: "sprinklerfitters669.org"
+      },
+      IUEC: {
+        name: "IUEC — Elevator Constructors",
+        color: "#facc15",
+        icon: "🛗",
+        why: "You want to work on one of the most specialized and highest-paid trades in construction. Elevator constructors install, maintain, and modernize elevators, escalators, and other vertical transportation systems.",
+        path: ["Year 1–4: Apprentice — earn while you learn, starting ~$25-35/hr", "Journeyman Elevator Constructor: Full wages, $50–90/hr in major markets", "Mechanic in Charge: Lead installation crews", "Modernization Specialist: Work on retrofitting existing systems"],
+        apprenticeship: "4-year registered apprenticeship through IUEC JATC. One of the highest-paid apprenticeships in the trades.",
+        website: "iuec.org"
+      },
+      IABSORIW: {
+        name: "Boilermakers — Brotherhood of Boilermakers",
+        color: "#f59e0b",
+        icon: "🔥",
+        why: "You want to work on the industrial systems that power America — boilers, pressure vessels, tanks, and heat exchangers at power plants, refineries, and chemical plants.",
+        path: ["Year 1–4: Apprentice — earn while you learn, starting ~$20-28/hr", "Journeyman Boilermaker: Full wages, $35–70/hr depending on location", "Foreman: Lead boilermaker crews on industrial projects", "General Foreman / Superintendent: Manage major industrial turnarounds"],
+        apprenticeship: "4-year registered apprenticeship through Boilermakers National Apprenticeship Program.",
+        website: "boilermakers.org"
+      },
+      IBT: {
+        name: "Teamsters — Construction Division",
+        color: "#94a3b8",
+        icon: "🚛",
+        why: "You want to keep construction sites moving — hauling materials, operating trucks, and ensuring the logistics that make every project possible.",
+        path: ["Entry: CDL training and job site experience", "Journeyman Teamster: Full wages, $28–55/hr depending on location and equipment", "Foreman: Lead trucking and material handling operations", "Dispatcher / Owner-Operator: Run your own operation"],
+        apprenticeship: "Teamsters Construction Division training programs. CDL license required for most positions.",
+        website: "teamster.org"
+      },
+      OPCMIA: {
+        name: "OPCMIA — Plasterers & Cement Masons",
+        color: "#a78bfa",
+        icon: "🏛️",
+        why: "You want to work with concrete and plaster — finishing floors, walls, and decorative elements that require skill and an eye for detail.",
+        path: ["Year 1–3: Apprentice — earn while you learn, starting ~$18-24/hr", "Journeyman Cement Mason/Plasterer: Full wages, $28–58/hr depending on location", "Foreman: Lead finishing crews on commercial projects", "Superintendent / Contractor: Run your own masonry/plastering operation"],
+        apprenticeship: "3-year registered apprenticeship through OPCMIA JATC.",
+        website: "opcmia.org"
+      },
     },
     es: {
-      IBEW: {
-        name: "IBEW — Electricistas",
-        color: "#F5C518",
-        icon: "⚡",
-        why: "Te atrae la tecnología, el trabajo de precisión y los sistemas que alimentan el mundo moderno. Los electricistas están entre los mejor pagados en los oficios y trabajan en todo, desde casas hasta hospitales y centros de datos.",
-        path: ["Años 1-5: Aprendiz — gana mientras aprendes, comenzando ~$20-28/hr", "Oficial: Salario sindical completo, típicamente $35-75/hr según ubicación", "Capataz/Capataz General: Liderar cuadrillas en grandes proyectos", "Electricista Maestro / Propietario: Manejar tu propio negocio"],
+      IBEW_I: {
+        name: "IBEW — Electricistas de Interior",
+        color: "#F5C518", icon: "⚡",
+        why: "Te atrae la tecnología, el trabajo de precisión y los sistemas que alimentan el mundo moderno. Los electricistas de interior cablan edificios comerciales e industriales.",
+        path: ["Años 1-5: Aprendiz — comenzando ~$20-28/hr", "Oficial: Salario completo, $35-75/hr según ubicación", "Capataz/Capataz General: Liderar cuadrillas en proyectos importantes", "Electricista Maestro / Propietario: Tener tu propio negocio"],
         apprenticeship: "Aprendizaje registrado de 5 años a través de NECA-IBEW JATC. Sin deuda universitaria.",
         website: "ibew.org"
       },
+      IBEW_L: {
+        name: "IBEW — Lineros Exteriores",
+        color: "#FFD700", icon: "🔌",
+        why: "Disfrutas trabajar al aire libre, en las alturas, manteniendo la red eléctrica en funcionamiento. Los lineros construyen y mantienen líneas de transmisión y distribución.",
+        path: ["Años 1-4: Aprendiz Linero — comenzando ~$22-30/hr", "Linero Oficial: Salario completo, $40-80/hr", "Capataz: Liderar cuadrillas en proyectos de transmisión", "Capataz General/Superintendent: Supervisar grandes proyectos de infraestructura"],
+        apprenticeship: "Aprendizaje registrado de 4 años a través de IBEW/NECA JATC.",
+        website: "ibew.org"
+      },
       UA: {
-        name: "UA — Plomeros y Tuberos",
-        color: "#3b9eff",
-        icon: "🔧",
-        why: "Te interesan los sistemas que mantienen los edificios funcionando — agua, gas, vapor y calefacción/refrigeración. Los oficios de tuberías son esenciales en cada proyecto de construcción importante.",
-        path: ["Años 1-5: Aprendiz — gana mientras aprendes, comenzando ~$18-26/hr", "Plomero/Tubero Oficial: Salario completo, $30-70/hr", "Capataz: Liderar cuadrillas en proyectos comerciales e industriales", "Plomero Maestro / Propietario: Licencia y maneja tu propia operación"],
-        apprenticeship: "Aprendizaje registrado de 5 años a través de UA JATC. Gana desde el primer día.",
+        name: "UA — Plomeros y Pipefitters",
+        color: "#3b9eff", icon: "🔧",
+        why: "Te interesan los sistemas que mantienen los edificios en funcionamiento — agua, gas, vapor y climatización. Los oficios de tuberías son esenciales en cada gran proyecto de construcción.",
+        path: ["Años 1-5: Aprendiz — comenzando ~$18-26/hr", "Oficial Plomero/Pipefitter: Salario completo, $30-70/hr", "Capataz: Liderar cuadrillas en proyectos comerciales e industriales", "Plomero Maestro/Propietario: Tener tu propia operación"],
+        apprenticeship: "Aprendizaje registrado de 5 años a través de UA JATC.",
         website: "ua.org"
       },
       SMART: {
-        name: "SMART — Trabajadores de Chapa",
-        color: "#e05a2b",
-        icon: "🌬️",
+        name: "SMART — Trabajadores de Chapa Metálica",
+        color: "#e05a2b", icon: "🌬️",
         why: "Te interesan el HVAC, los conductos y los sistemas que controlan el flujo de aire en los edificios.",
-        path: ["Años 1-5: Aprendiz — comenzando ~$17-24/hr", "Chapista Oficial: Salario completo, $30-65/hr", "Capataz: Gestionar la instalación de conductos y cuadrillas de HVAC", "Estimador / Gerente de Proyecto: Pasar al lado empresarial"],
+        path: ["Años 1-5: Aprendiz — comenzando ~$17-24/hr", "Oficial de Chapa Metálica: Salario completo, $30-65/hr", "Capataz: Gestionar instalaciones de conductos y cuadrillas HVAC", "Estimador/Director de Proyecto: Pasar al lado empresarial"],
         apprenticeship: "Aprendizaje de 5 años a través de los centros de capacitación SMART JATC.",
         website: "smart-union.org"
       },
-      "BAC": {
-        name: "BAC — Albañiles y Artesanos Afines",
-        color: "#f97316",
-        icon: "🧱",
-        why: "Te atrae el trabajo manual construyendo estructuras duraderas con ladrillo, piedra, azulejo y mampostería. Los albañiles sindicalizados ganan excelentes salarios con beneficios completos.",
-        path: ["Años 1-3: Aprendiz — comenzando ~$18-26/hr", "Oficial Albañil: Salario completo, $30-65/hr", "Capataz: Liderar cuadrillas de mampostería en proyectos comerciales", "Superintendente / Contratista: Manejar tu propia operación"],
-        apprenticeship: "Aprendizaje registrado de 3 años a través de BAC JATC. Capacitación pagada desde el primer día.",
+      IW: {
+        name: "Ironworkers — Estructurales y Refuerzo",
+        color: "#ef4444", icon: "🏗️",
+        why: "Quieres construir los huesos de América — puentes, rascacielos, estadios y plantas industriales. Los ironworkers trabajan conectando acero estructural y colocando armadura.",
+        path: ["Años 1-3: Aprendiz — comenzando ~$20-28/hr", "Oficial Ironworker: Salario completo, $35-70/hr", "Capataz: Liderar cuadrillas de erección de acero", "Capataz General: Gestionar grandes proyectos estructurales"],
+        apprenticeship: "Aprendizaje registrado de 3 años a través de IMPACT JATC.",
+        website: "ironworkers.org"
+      },
+      BAC: {
+        name: "BAC — Albañiles y Artesanos Aliados",
+        color: "#f97316", icon: "🧱",
+        why: "Te atrae el trabajo manual construyendo estructuras duraderas con ladrillo, piedra, azulejo y mampostería.",
+        path: ["Años 1-3: Aprendiz — comenzando ~$18-26/hr", "Oficial Albañil: Salario completo, $30-65/hr", "Capataz: Liderar cuadrillas de mampostería", "Superintendent/Contratista: Manejar tu propia operación"],
+        apprenticeship: "Aprendizaje registrado de 3 años a través de BAC JATC.",
         website: "bacweb.org"
       },
-      "UBC": {
+      UBC: {
         name: "UBC — Carpinteros",
-        color: "#a78bfa",
-        icon: "🪚",
+        color: "#a78bfa", icon: "🪚",
         why: "Disfrutas trabajar con madera, construir estructuras y ver los resultados físicos de tu trabajo.",
-        path: ["Años 1-4: Aprendiz — aprender marcos, acabados, encofrados", "Carpintero Oficial: Salario completo en proyectos comerciales y residenciales", "Capataz: Liderar cuadrillas de carpintería", "Superintendente / Contratista: Manejar tus propios proyectos"],
+        path: ["Años 1-4: Aprendiz — aprender marcos, acabados, encofrados", "Carpintero Oficial: Salario completo en proyectos comerciales y residenciales", "Capataz: Liderar cuadrillas de carpintería", "Superintendent/Contratista: Manejar tus propios proyectos"],
         apprenticeship: "Aprendizaje de 4 años a través de los consejos regionales de UBC.",
         website: "carpenters.org"
       },
       HFIAW: {
         name: "HFIAW — Aisladores",
-        color: "#38bdf8",
-        icon: "🧊",
-        why: "Te atrae el lado técnico de los sistemas industriales — mantener tuberías, equipos e instalaciones aisladas para mayor eficiencia y seguridad. Los aisladores trabajan en plantas de energía, refinerías y edificios comerciales.",
-        path: ["Años 1–4: Aprendiz — gana mientras aprendes, desde ~$18-26/hr", "Aislador Oficial: Salario sindical completo, $30–65/hr según ubicación", "Capataz: Liderar cuadrillas de aislamiento en proyectos industriales", "Superintendente / Contratista: Gestionar operaciones a gran escala"],
-        apprenticeship: "Aprendizaje registrado de 4 años a través de HFIAW JATC. Formación remunerada desde el primer día.",
+        color: "#38bdf8", icon: "🧊",
+        why: "Te atrae el lado técnico de los sistemas industriales — mantener tuberías, equipos e instalaciones aisladas para mayor eficiencia y seguridad.",
+        path: ["Años 1-4: Aprendiz — comenzando ~$18-26/hr", "Aislador Oficial: Salario sindical completo, $30-65/hr", "Capataz: Liderar cuadrillas de aislamiento en proyectos industriales", "Superintendent/Contratista: Gestionar operaciones a gran escala"],
+        apprenticeship: "Aprendizaje registrado de 4 años a través de HFIAW JATC.",
         website: "insulators.org"
       },
-    }
-  };
-
-  const CAREER_DATA = {
-    en: {
-      title: "Career Path in the Union Trades",
-      sub: "Every trade offers a structured path from apprentice to master — earning real wages the entire way. No student debt. No unpaid internships.",
-      stages: [
-        { stage: "Apprentice", years: "Years 1–5", pay: "$18–35/hr", icon: "📋", desc: "You're enrolled in a registered apprenticeship — working full-time on the job while attending trade school. Your wage increases every 6 months. You earn benefits from day one." },
-        { stage: "Journeyman", years: "5+ Years", pay: "$35–75/hr", icon: "🔨", desc: "You've completed your apprenticeship and earned your journeyman card. You can work anywhere your union has jurisdiction. Full wages, full benefits, full pension contributions." },
-        { stage: "Foreman", years: "8–15 Years", pay: "$45–90/hr", icon: "📐", desc: "Experienced journeymen step into foreman roles — leading crews, reading plans, coordinating materials. Foreman pay includes a premium on top of journeyman scale." },
-        { stage: "General Foreman / Super", years: "15+ Years", pay: "$75–120k+/yr", icon: "🏗️", desc: "Managing multiple crews and subcontractors on major projects. Often salaried. Some move into project management, estimating, or inspection roles." },
-        { stage: "Master / Business Owner", years: "Varies", pay: "Unlimited", icon: "⭐", desc: "With a master's license (where applicable) you can pull permits and run your own contracting company — while still enjoying union scale on public and prevailing wage work." },
-      ],
-      whyUnion: [
-        { label: "Pension", icon: "💰", desc: "Defined benefit pensions that pay you for life after retirement — rare in today's economy." },
-        { label: "Health Insurance", icon: "🏥", desc: "Full family health coverage, often with no premium for the worker. Dental and vision included." },
-        { label: "Apprenticeship", icon: "🎓", desc: "Earn while you learn. No student loans. Training paid for by the industry." },
-        { label: "Annuity / 401k", icon: "📈", desc: "Additional retirement savings on top of your pension, contributed by employers." },
-        { label: "Paid Holidays", icon: "📅", desc: "Union contracts typically include paid holidays, vacation funds, and sick leave." },
-        { label: "Safety", icon: "🦺", desc: "Union job sites have strict safety standards. Union members have the right to refuse unsafe work." },
-      ],
-      stats: [
-        { num: "$63/hr", label: "Average journeyman wage in major metro markets" },
-        { num: "$0", label: "Cost of apprenticeship training to the worker" },
-        { num: "5 Years", label: "Typical apprenticeship length — shorter than a college degree" },
-        { num: "300%+", label: "More likely to have employer-provided health insurance" },
-      ]
-    },
-    es: {
-      title: "Trayectoria Profesional en los Oficios Sindicales",
-      sub: "Cada oficio ofrece un camino estructurado de aprendiz a maestro — ganando salarios reales durante todo el proceso. Sin deuda estudiantil. Sin pasantías sin pago.",
-      stages: [
-        { stage: "Aprendiz", years: "Años 1–5", pay: "$18–35/hr", icon: "📋", desc: "Estás inscrito en un aprendizaje registrado — trabajando a tiempo completo mientras asistes a la escuela de oficios. Tu salario aumenta cada 6 meses. Recibes beneficios desde el primer día." },
-        { stage: "Oficial", years: "5+ Años", pay: "$35–75/hr", icon: "🔨", desc: "Completaste tu aprendizaje y obtuviste tu tarjeta de oficial. Puedes trabajar donde tu sindicato tenga jurisdicción. Salarios completos, beneficios completos, contribuciones completas de pensión." },
-        { stage: "Capataz", years: "8–15 Años", pay: "$45–90/hr", icon: "📐", desc: "Los oficiales experimentados asumen roles de capataz — liderando cuadrillas, leyendo planos, coordinando materiales. El pago de capataz incluye una prima sobre la escala de oficial." },
-        { stage: "Capataz General / Superintendent", years: "15+ Años", pay: "$75–120k+/año", icon: "🏗️", desc: "Gestionar múltiples cuadrillas y subcontratistas en proyectos importantes. A menudo asalariado." },
-        { stage: "Maestro / Propietario", years: "Varía", pay: "Ilimitado", icon: "⭐", desc: "Con una licencia de maestro puedes sacar permisos y manejar tu propia empresa contratista." },
-      ],
-      whyUnion: [
-        { label: "Pensión", icon: "💰", desc: "Pensiones de beneficio definido que te pagan de por vida después de la jubilación." },
-        { label: "Seguro Médico", icon: "🏥", desc: "Cobertura médica familiar completa, a menudo sin prima para el trabajador." },
-        { label: "Aprendizaje", icon: "🎓", desc: "Gana mientras aprendes. Sin préstamos estudiantiles. Capacitación pagada por la industria." },
-        { label: "Anualidad / 401k", icon: "📈", desc: "Ahorros adicionales para la jubilación además de tu pensión, aportados por los empleadores." },
-        { label: "Días Festivos Pagados", icon: "📅", desc: "Los contratos sindicales incluyen días festivos pagados, fondos de vacaciones y licencia por enfermedad." },
-        { label: "Seguridad", icon: "🦺", desc: "Los sitios de trabajo sindicales tienen estrictas normas de seguridad." },
-      ],
-      stats: [
-        { num: "$63/hr", label: "Salario promedio de oficial en grandes mercados metropolitanos" },
-        { num: "$0", label: "Costo del aprendizaje para el trabajador" },
-        { num: "5 Años", label: "Duración típica del aprendizaje — más corto que una carrera universitaria" },
-        { num: "300%+", label: "Más probabilidades de tener seguro médico proporcionado por el empleador" },
-      ]
+      LIUNA: {
+        name: "LIUNA — Trabajadores de la Construcción",
+        color: "#fb923c", icon: "⛏️",
+        why: "Quieres estar en la primera línea de cada gran proyecto. Los laborers realizan el trabajo esencial de preparación de sitios que hace posible todo lo demás.",
+        path: ["Años 1-3: Aprendiz — comenzando ~$18-25/hr", "Oficial Laborer: Salario completo, $28-55/hr", "Capataz: Liderar cuadrillas laborales en grandes proyectos", "Superintendent: Supervisar múltiples cuadrillas"],
+        apprenticeship: "Aprendizaje registrado a través del Fondo de Capacitación y Educación de LIUNA.",
+        website: "liuna.org"
+      },
+      IUOE: {
+        name: "IUOE — Operadores de Equipos",
+        color: "#84cc16", icon: "🚜",
+        why: "Quieres operar las máquinas que mueven montañas — grúas, excavadoras, bulldozers y más.",
+        path: ["Años 1-4: Aprendiz — operando varios equipos", "Oficial Operador: Salario completo, $35-75/hr", "Mecánico en Jefe: Especializarse en operación de grúas", "Capataz/Superintendent: Liderar cuadrillas de equipo"],
+        apprenticeship: "Aprendizaje registrado de 4 años a través de programas JATC locales de IUOE.",
+        website: "iuoe.org"
+      },
+      IUPAT: {
+        name: "IUPAT — Pintores y Oficios Aliados",
+        color: "#c084fc", icon: "🎨",
+        why: "Tienes ojo para los detalles y te enorgulleces del producto terminado. Los pintores trabajan aplicando recubrimientos que protegen y embellecen estructuras.",
+        path: ["Años 1-4: Aprendiz — comenzando ~$17-23/hr", "Oficial Pintor: Salario completo, $28-55/hr", "Capataz: Liderar cuadrillas de pintura", "Superintendent/Contratista: Manejar tu propia operación"],
+        apprenticeship: "Aprendizaje registrado de 4 años a través de los Consejos de Distrito de IUPAT.",
+        website: "iupat.org"
+      },
+      SF: {
+        name: "Sprinkler Fitters — UA Local 669",
+        color: "#22d3ee", icon: "🚿",
+        why: "Quieres trabajar en los sistemas de seguridad que protegen edificios y personas. Los sprinkler fitters instalan sistemas de supresión de incendios.",
+        path: ["Años 1-5: Aprendiz — comenzando ~$18-25/hr", "Oficial Sprinkler Fitter: Salario completo, $35-65/hr", "Capataz: Supervisar instalaciones en grandes proyectos", "Inspector/Estimador: Pasar a roles técnicos o empresariales"],
+        apprenticeship: "Aprendizaje registrado de 5 años a través de UA Local 669 JATC.",
+        website: "sprinklerfitters669.org"
+      },
+      IUEC: {
+        name: "IUEC — Constructores de Elevadores",
+        color: "#facc15", icon: "🛗",
+        why: "Quieres trabajar en uno de los oficios más especializados y mejor pagados de la construcción — elevadores, escaleras mecánicas y sistemas de transporte vertical.",
+        path: ["Años 1-4: Aprendiz — comenzando ~$25-35/hr", "Oficial Constructor de Elevadores: Salario completo, $50-90/hr en grandes mercados", "Mecánico en Cargo: Liderar cuadrillas de instalación", "Especialista en Modernización: Trabajar en sistemas existentes"],
+        apprenticeship: "Aprendizaje registrado de 4 años a través de IUEC JATC.",
+        website: "iuec.org"
+      },
+      IABSORIW: {
+        name: "Boilermakers — Hermandad de Caldereros",
+        color: "#f59e0b", icon: "🔥",
+        why: "Quieres trabajar en los sistemas industriales que alimentan América — calderas, recipientes a presión y plantas de energía.",
+        path: ["Años 1-4: Aprendiz — comenzando ~$20-28/hr", "Oficial Calderero: Salario completo, $35-70/hr", "Capataz: Liderar cuadrillas en proyectos industriales", "Capataz General: Gestionar grandes revisiones industriales"],
+        apprenticeship: "Aprendizaje registrado de 4 años a través del Programa Nacional de Aprendizaje de Boilermakers.",
+        website: "boilermakers.org"
+      },
+      IBT: {
+        name: "Teamsters — División de Construcción",
+        color: "#94a3b8", icon: "🚛",
+        why: "Quieres mantener las obras en movimiento — transportando materiales y asegurando la logística que hace posible cada proyecto.",
+        path: ["Entrada: Capacitación CDL y experiencia en obra", "Oficial Teamster: Salario completo, $28-55/hr", "Capataz: Liderar operaciones de camiones y manejo de materiales", "Dispatcher/Propietario: Tener tu propia operación"],
+        apprenticeship: "Programas de capacitación de la División de Construcción de Teamsters.",
+        website: "teamster.org"
+      },
+      OPCMIA: {
+        name: "OPCMIA — Plasterers y Cement Masons",
+        color: "#a78bfa", icon: "🏛️",
+        why: "Quieres trabajar con concreto y yeso — terminando pisos, paredes y elementos decorativos que requieren habilidad y ojo para los detalles.",
+        path: ["Años 1-3: Aprendiz — comenzando ~$18-24/hr", "Oficial Cement Mason/Plasterer: Salario completo, $28-58/hr", "Capataz: Liderar cuadrillas de acabado", "Superintendent/Contratista: Manejar tu propia operación"],
+        apprenticeship: "Aprendizaje registrado de 3 años a través de OPCMIA JATC.",
+        website: "opcmia.org"
+      },
     },
     pl: {
-      title: "Ścieżka Kariery w Zawodach Związkowych",
-      sub: "Każdy zawód oferuje ustrukturyzowaną ścieżkę od praktykanta do mistrza — zarabiając prawdziwe wynagrodzenie przez cały czas. Bez długu studenckiego. Bez bezpłatnych staży.",
-      stages: [
-        { stage: "Praktykant", years: "Lata 1–5", pay: "$18–35/godz", icon: "📋", desc: "Jesteś zapisany do zarejestrowanego programu praktyk — pracujesz w pełnym wymiarze godzin, jednocześnie uczęszczając do szkoły zawodowej. Wynagrodzenie rośnie co 6 miesięcy. Świadczenia od pierwszego dnia." },
-        { stage: "Czeladnik", years: "5+ lat", pay: "$35–75/godz", icon: "🔨", desc: "Ukończyłeś praktykę i otrzymałeś kartę czeladnika. Możesz pracować wszędzie, gdzie twój związek ma jurysdykcję. Pełne wynagrodzenie, pełne świadczenia, pełne składki emerytalne." },
-        { stage: "Brygadzista", years: "8–15 lat", pay: "$45–90/godz", icon: "📐", desc: "Doświadczeni czeladnicy obejmują role brygadzistów — prowadzą ekipy, czytają plany, koordynują materiały. Wynagrodzenie brygadzisty zawiera premię ponad stawkę czeladnika." },
-        { stage: "Główny Brygadzista / Superintendent", years: "15+ lat", pay: "$75–120k+/rok", icon: "🏗️", desc: "Zarządzanie wieloma ekipami i podwykonawcami przy dużych projektach. Często na etacie." },
-        { stage: "Mistrz / Właściciel", years: "Różnie", pay: "Nieograniczone", icon: "⭐", desc: "Z licencją mistrzowską możesz uzyskiwać pozwolenia i prowadzić własną firmę wykonawczą." },
-      ],
-      whyUnion: [
-        { label: "Emerytura", icon: "💰", desc: "Emerytury ze zdefiniowanym świadczeniem, które wypłacają Ci przez całe życie po przejściu na emeryturę." },
-        { label: "Ubezpieczenie Zdrowotne", icon: "🏥", desc: "Pełne ubezpieczenie zdrowotne rodziny, często bez składki dla pracownika. Dentysta i wzrok w zestawie." },
-        { label: "Praktyka", icon: "🎓", desc: "Zarabiaj ucząc się. Bez pożyczek studenckich. Szkolenie opłacone przez przemysł." },
-        { label: "Renta / 401k", icon: "📈", desc: "Dodatkowe oszczędności emerytalne oprócz emerytury, wnoszone przez pracodawców." },
-        { label: "Płatne Urlopy", icon: "📅", desc: "Umowy związkowe obejmują płatne dni wolne, fundusze urlopowe i urlop chorobowy." },
-        { label: "Bezpieczeństwo", icon: "🦺", desc: "Place budowy związkowe mają surowe standardy bezpieczeństwa. Członkowie mają prawo odmówić niebezpiecznej pracy." },
-      ],
-      stats: [
-        { num: "$63/godz", label: "Średnie wynagrodzenie czeladnika na głównych rynkach miejskich" },
-        { num: "$0", label: "Koszt szkolenia praktykanta dla pracownika" },
-        { num: "5 lat", label: "Typowy czas trwania praktyki — krótszy niż studia wyższe" },
-        { num: "300%+", label: "Większe prawdopodobieństwo posiadania ubezpieczenia zdrowotnego od pracodawcy" },
-      ]
-    }
-  };
-
-  // Polish TRADE_RESULTS added inline below ES
-  TRADE_RESULTS.pl = {
-    IBEW: {
-      name: "IBEW — Elektrycy",
-      color: "#F5C518",
-      icon: "⚡",
-      why: "Przyciąga Cię technologia, praca precyzyjna i systemy zasilające współczesny świat. Elektrycy należą do najlepiej opłacanych w zawodach budowlanych i pracują przy wszystkim — od domów po szpitale i centra danych.",
-      path: ["Lata 1–5: Praktykant — zarabiaj ucząc się, zaczynając od ~$20-28/godz", "Czeladnik: Pełna stawka związkowa, zazwyczaj $35–75/godz zależnie od lokalizacji", "Brygadzista: Prowadzenie ekip przy dużych projektach", "Elektryk Mistrzowski / Właściciel: Prowadzenie własnej firmy"],
-      apprenticeship: "5-letnia zarejestrowana praktyka przez NECA-IBEW JATC. Bez długu studenckiego.",
-      website: "ibew.org"
-    },
-    UA: {
-      name: "UA — Hydraulicy i Monterzy",
-      color: "#3b9eff",
-      icon: "🔧",
-      why: "Interesują Cię systemy utrzymujące budynki w ruchu — woda, gaz, para i ogrzewanie/chłodzenie. Zawody rurociągowe są niezbędne przy każdym dużym projekcie budowlanym.",
-      path: ["Lata 1–5: Praktykant — zaczynając od ~$18-26/godz", "Czeladnik Hydraulik/Monter: Pełna stawka, $30–70/godz", "Brygadzista: Prowadzenie ekip przy projektach komercyjnych i przemysłowych", "Mistrz Hydrauliczny / Właściciel: Licencja i własna firma"],
-      apprenticeship: "5-letnia zarejestrowana praktyka przez UA JATC. Zarabiasz od pierwszego dnia.",
-      website: "ua.org"
-    },
-    SMART: {
-      name: "SMART — Blacharze",
-      color: "#e05a2b",
-      icon: "🌬️",
-      why: "Interesujesz się HVAC, kanałami wentylacyjnymi i systemami kontrolującymi przepływ powietrza w budynkach.",
-      path: ["Lata 1–5: Praktykant — zaczynając od ~$17-24/godz", "Czeladnik Blacharz: Pełna stawka, $30–65/godz", "Brygadzista: Zarządzanie montażem kanałów i ekipami HVAC", "Kosztorysant / Kierownik Projektu: Przejście na stronę biznesową"],
-      apprenticeship: "5-letnia praktyka przez centra szkoleniowe SMART JATC.",
-      website: "smart-union.org"
-    },
-    "BAC": {
-      name: "BAC — Murarze i Rzemieślnicy Pokrewni",
-      color: "#f97316",
-      icon: "🧱",
-      why: "Przyciąga Cię praca manualna przy budowaniu trwałych konstrukcji z cegły, kamienia, płytek i murów. Murarze związkowi zarabiają doskonałe wynagrodzenia z pełnymi świadczeniami.",
-      path: ["Lata 1-3: Praktykant — zaczynając ~$18-26/godz", "Czeladnik Murarz: Pełne wynagrodzenie, $30-65/godz", "Brygadzista: Prowadzenie ekip murarskich przy projektach komercyjnych", "Superintendent / Wykonawca: Prowadzenie własnej firmy murarskiej"],
-      apprenticeship: "3-letnia zarejestrowana praktyka przez BAC JATC. Płatne szkolenie od pierwszego dnia.",
-      website: "bacweb.org"
-    },
-    "UBC": {
-      name: "UBC — Cieśle",
-      color: "#a78bfa",
-      icon: "🪚",
-      why: "Lubisz pracować z drewnem, budować konstrukcje i widzieć fizyczne efekty swojej pracy.",
-      path: ["Lata 1–4: Praktykant — szkieletowanie, wykończenie, szalunki", "Czeladnik Cieśla: Pełna stawka przy projektach komercyjnych i mieszkaniowych", "Brygadzista: Prowadzenie ekip ciesielskich", "Superintendent / Wykonawca: Prowadzenie własnych projektów"],
-      apprenticeship: "4-letnia praktyka przez regionalne rady UBC.",
-      website: "carpenters.org"
-    },
+      IBEW_I: {
+        name: "IBEW — Elektrycy Wewnętrzni",
+        color: "#F5C518", icon: "⚡",
+        why: "Pociąga Cię technologia, precyzyjna praca i systemy zasilające nowoczesny świat. Elektrycy wewnętrzni okablowują budynki komercyjne i przemysłowe.",
+        path: ["Lata 1-5: Praktykant — od ~$20-28/hr", "Czeladnik: Pełne wynagrodzenie, $35-75/hr", "Brygadzista/Brygadzista Generalny: Kierowanie ekipami", "Mistrz Elektryczny/Właściciel: Własna firma"],
+        apprenticeship: "5-letnia praktyka przez NECA-IBEW JATC. Bez długu studenckiego.",
+        website: "ibew.org"
+      },
+      IBEW_L: {
+        name: "IBEW — Monterzy Linii Elektrycznych",
+        color: "#FFD700", icon: "🔌",
+        why: "Lubisz pracę na zewnątrz, na wysokościach, utrzymując sieć energetyczną. Monterzy budują i utrzymują linie przesyłowe i dystrybucyjne.",
+        path: ["Lata 1-4: Praktykant — od ~$22-30/hr", "Monter Czeladnik: Pełne wynagrodzenie, $40-80/hr", "Brygadzista: Kierowanie ekipami linowymi", "Brygadzista Generalny: Nadzór dużych projektów infrastrukturalnych"],
+        apprenticeship: "4-letnia praktyka przez IBEW/NECA JATC.",
+        website: "ibew.org"
+      },
+      UA: {
+        name: "UA — Hydraulicy i Monterzy Rurociągów",
+        color: "#3b9eff", icon: "🔧",
+        why: "Interesują Cię systemy utrzymujące budynki w ruchu — woda, gaz, para i klimatyzacja.",
+        path: ["Lata 1-5: Praktykant — od ~$18-26/hr", "Hydraulik/Monter Czeladnik: Pełne wynagrodzenie, $30-70/hr", "Brygadzista: Kierowanie ekipami", "Mistrz Hydraulik/Właściciel: Własna firma"],
+        apprenticeship: "5-letnia praktyka przez UA JATC.",
+        website: "ua.org"
+      },
+      SMART: {
+        name: "SMART — Blacharze i Pracownicy HVAC",
+        color: "#e05a2b", icon: "🌬️",
+        why: "Interesuje Cię HVAC, kanały wentylacyjne i systemy kontroli przepływu powietrza w budynkach.",
+        path: ["Lata 1-5: Praktykant — od ~$17-24/hr", "Czeladnik Blacharza: Pełne wynagrodzenie, $30-65/hr", "Brygadzista: Zarządzanie instalacjami kanałów i ekipami HVAC", "Kosztorysant/Kierownik Projektu: Strona biznesowa"],
+        apprenticeship: "5-letnia praktyka przez centra szkoleniowe SMART JATC.",
+        website: "smart-union.org"
+      },
+      IW: {
+        name: "Ironworkers — Konstrukcje Stalowe",
+        color: "#ef4444", icon: "🏗️",
+        why: "Chcesz budować szkielet Ameryki — mosty, wieżowce, stadiony i zakłady przemysłowe.",
+        path: ["Lata 1-3: Praktykant — od ~$20-28/hr", "Monter Czeladnik: Pełne wynagrodzenie, $35-70/hr", "Brygadzista: Kierowanie ekipami stalowymi", "Brygadzista Generalny: Zarządzanie dużymi projektami"],
+        apprenticeship: "3-letnia praktyka przez IMPACT JATC.",
+        website: "ironworkers.org"
+      },
+      BAC: {
+        name: "BAC — Murarze i Rzemieślnicy",
+        color: "#f97316", icon: "🧱",
+        why: "Pociąga Cię praca manualna przy budowie trwałych konstrukcji z cegły, kamienia, płytek i murów.",
+        path: ["Lata 1-3: Praktykant — od ~$18-26/hr", "Murarz Czeladnik: Pełne wynagrodzenie, $30-65/hr", "Brygadzista: Kierowanie ekipami murarskimi", "Superintendent/Wykonawca: Własna firma"],
+        apprenticeship: "3-letnia praktyka przez BAC JATC.",
+        website: "bacweb.org"
+      },
+      UBC: {
+        name: "UBC — Cieśle",
+        color: "#a78bfa", icon: "🪚",
+        why: "Lubisz pracować z drewnem, budować konstrukcje i widzieć fizyczne efekty swojej pracy.",
+        path: ["Lata 1-4: Praktykant — szkieletowanie, wykończenie, szalunki", "Czeladnik Cieśla: Pełna stawka przy projektach komercyjnych i mieszkaniowych", "Brygadzista: Prowadzenie ekip ciesielskich", "Superintendent/Wykonawca: Własne projekty"],
+        apprenticeship: "4-letnia praktyka przez regionalne rady UBC.",
+        website: "carpenters.org"
+      },
       HFIAW: {
         name: "HFIAW — Izolatorzy",
-        color: "#38bdf8",
-        icon: "🧊",
-        why: "Pociąga Cię techniczny aspekt systemów przemysłowych — izolowanie rur, urządzeń i obiektów dla efektywności i bezpieczeństwa. Izolatorzy pracują w elektrowniach, rafineriach i budynkach komercyjnych.",
-        path: ["Lata 1–4: Praktykant — zarabiaj ucząc się, od ~$18-26/hr", "Izolator Czeladnik: Pełne wynagrodzenie związkowe, $30–65/hr", "Brygadzista: Kierowanie ekipami izolacyjnymi przy projektach przemysłowych", "Superintendent / Wykonawca: Zarządzanie dużymi operacjami izolacyjnymi"],
-        apprenticeship: "4-letnia praktyka zarejestrowana przez HFIAW JATC. Płatne szkolenie od pierwszego dnia.",
+        color: "#38bdf8", icon: "🧊",
+        why: "Pociąga Cię techniczny aspekt systemów przemysłowych — izolowanie rur, urządzeń i obiektów dla efektywności i bezpieczeństwa.",
+        path: ["Lata 1-4: Praktykant — od ~$18-26/hr", "Izolator Czeladnik: Pełne wynagrodzenie związkowe, $30-65/hr", "Brygadzista: Kierowanie ekipami izolacyjnymi", "Superintendent/Wykonawca: Zarządzanie dużymi operacjami"],
+        apprenticeship: "4-letnia praktyka przez HFIAW JATC.",
         website: "insulators.org"
       },
+      LIUNA: {
+        name: "LIUNA — Robotnicy Budowlani",
+        color: "#fb923c", icon: "⛏️",
+        why: "Chcesz być na pierwszej linii każdego dużego projektu — wykonując niezbędne prace przygotowawcze.",
+        path: ["Lata 1-3: Praktykant — od ~$18-25/hr", "Robotnik Czeladnik: Pełne wynagrodzenie, $28-55/hr", "Brygadzista: Kierowanie ekipami roboczymi", "Superintendent: Nadzór nad wieloma ekipami"],
+        apprenticeship: "Zarejestrowana praktyka przez Fundusz Szkoleniowy LIUNA.",
+        website: "liuna.org"
+      },
+      IUOE: {
+        name: "IUOE — Operatorzy Sprzętu",
+        color: "#84cc16", icon: "🚜",
+        why: "Chcesz obsługiwać maszyny poruszające górami — dźwigi, koparki, buldożery i inne.",
+        path: ["Lata 1-4: Praktykant — obsługa różnych urządzeń", "Czeladnik Operator: Pełne wynagrodzenie, $35-75/hr", "Główny Mechanik: Specjalizacja w obsłudze dźwigów", "Brygadzista/Superintendent: Kierowanie ekipami sprzętowymi"],
+        apprenticeship: "4-letnia zarejestrowana praktyka przez lokalne programy JATC IUOE.",
+        website: "iuoe.org"
+      },
+      IUPAT: {
+        name: "IUPAT — Malarze i Pokrewne Zawody",
+        color: "#c084fc", icon: "🎨",
+        why: "Masz oko do szczegółów i dbasz o jakość gotowego produktu. Malarze nakładają powłoki chroniące i upiększające konstrukcje.",
+        path: ["Lata 1-4: Praktykant — od ~$17-23/hr", "Malarz Czeladnik: Pełne wynagrodzenie, $28-55/hr", "Brygadzista: Kierowanie ekipami malarskimi", "Superintendent/Wykonawca: Własna firma malarska"],
+        apprenticeship: "4-letnia praktyka przez Okręgowe Rady IUPAT.",
+        website: "iupat.org"
+      },
+      SF: {
+        name: "Sprinkler Fitters — UA Local 669",
+        color: "#22d3ee", icon: "🚿",
+        why: "Chcesz pracować przy systemach bezpieczeństwa chroniących budynki i ludzi. Monterzy tryskaczów instalują systemy gaśnicze.",
+        path: ["Lata 1-5: Praktykant — od ~$18-25/hr", "Monter Tryskaczów Czeladnik: Pełne wynagrodzenie, $35-65/hr", "Brygadzista: Nadzór instalacji", "Inspektor/Kosztorysant: Role techniczne lub biznesowe"],
+        apprenticeship: "5-letnia praktyka przez UA Local 669 JATC.",
+        website: "sprinklerfitters669.org"
+      },
+      IUEC: {
+        name: "IUEC — Konstruktorzy Wind",
+        color: "#facc15", icon: "🛗",
+        why: "Chcesz pracować w jednym z najbardziej wyspecjalizowanych i najlepiej opłacanych zawodów budowlanych — windy, schody ruchome i systemy transportu pionowego.",
+        path: ["Lata 1-4: Praktykant — od ~$25-35/hr", "Czeladnik Konstruktor Wind: Pełne wynagrodzenie, $50-90/hr", "Mechanik Odpowiedzialny: Kierowanie ekipami instalacyjnymi", "Specjalista Modernizacji: Praca z istniejącymi systemami"],
+        apprenticeship: "4-letnia praktyka przez IUEC JATC.",
+        website: "iuec.org"
+      },
+      IABSORIW: {
+        name: "Boilermakers — Bracia Kotlarze",
+        color: "#f59e0b", icon: "🔥",
+        why: "Chcesz pracować przy systemach przemysłowych zasilających Amerykę — kotłach, zbiornikach ciśnieniowych i elektrowniach.",
+        path: ["Lata 1-4: Praktykant — od ~$20-28/hr", "Kotlarz Czeladnik: Pełne wynagrodzenie, $35-70/hr", "Brygadzista: Kierowanie ekipami kotlarskimi", "Brygadzista Generalny: Zarządzanie dużymi przeglądami"],
+        apprenticeship: "4-letnia praktyka przez Narodowy Program Szkoleniowy Boilermakers.",
+        website: "boilermakers.org"
+      },
+      IBT: {
+        name: "Teamsters — Dział Budowlany",
+        color: "#94a3b8", icon: "🚛",
+        why: "Chcesz utrzymywać place budowy w ruchu — transportując materiały i zapewniając logistykę każdego projektu.",
+        path: ["Wejście: Szkolenie CDL i doświadczenie na budowie", "Czeladnik Teamster: Pełne wynagrodzenie, $28-55/hr", "Brygadzista: Kierowanie operacjami transportowymi", "Dyspozytor/Właściciel: Własna firma"],
+        apprenticeship: "Programy szkoleniowe Działu Budowlanego Teamsters.",
+        website: "teamster.org"
+      },
+      OPCMIA: {
+        name: "OPCMIA — Tynkarze i Cementownicy",
+        color: "#a78bfa", icon: "🏛️",
+        why: "Chcesz pracować z betonem i tynkiem — wykańczając podłogi, ściany i elementy dekoracyjne.",
+        path: ["Lata 1-3: Praktykant — od ~$18-24/hr", "Czeladnik Cementownik/Tynkarz: Pełne wynagrodzenie, $28-58/hr", "Brygadzista: Kierowanie ekipami wykończeniowymi", "Superintendent/Wykonawca: Własna firma"],
+        apprenticeship: "3-letnia praktyka przez OPCMIA JATC.",
+        website: "opcmia.org"
+      },
+    },
   };
 
 
@@ -2566,16 +3003,19 @@ export default function UnionPathway() {
     if (quizStep < QUIZ[lang].length - 1) {
       setQuizStep(quizStep + 1);
     } else {
-      // Score: first two questions determine trade
-      const tradeVotes = { IBEW: 0, UA: 0, SMART: 0, BAC: 0, UBC: 0, HFIAW: 0 };
-      [0, 1].forEach(qi => {
-        const q = QUIZ[lang][qi];
-        if (q.trades && newAnswers[qi] !== undefined) {
-          const trade = q.trades[newAnswers[qi]];
-          if (trade && tradeVotes[trade] !== undefined) tradeVotes[trade]++;
+      // Tally scores across all questions
+      const tradeScores = {};
+      QUIZ[lang].forEach((q, qi) => {
+        if (q.scores && newAnswers[qi] !== undefined) {
+          const scoreMap = q.scores[newAnswers[qi]];
+          if (scoreMap) {
+            Object.entries(scoreMap).forEach(([trade, pts]) => {
+              tradeScores[trade] = (tradeScores[trade] || 0) + pts;
+            });
+          }
         }
       });
-      const top = Object.entries(tradeVotes).sort((a,b) => b[1]-a[1])[0][0];
+      const top = Object.entries(tradeScores).sort((a,b) => b[1]-a[1])[0][0];
       setQuizResult(top);
     }
   };
@@ -3856,7 +4296,7 @@ export default function UnionPathway() {
                       </div>
                       <div className="result-app-note">{res.apprenticeship}</div>
                       <div className="result-actions">
-                        <button className="btn-primary" onClick={() => { setSelectedTrade(quizResult === "IBEW" ? "IBEW_I" : quizResult); setPage("home"); }}>
+                        <button className="btn-primary" onClick={() => { setSelectedTrade(["IBEW_I","IBEW_L","UA","SMART","BAC","UBC","HFIAW","IW","LIUNA"].includes(quizResult) ? quizResult : "IBEW_I"); setPage("home"); }}>
                           {lang==="es" ? "Encontrar Mi Local Más Cercano →" : lang==="pl" ? "Znajdź Mój Najbliższy Oddział →" : "Find My Nearest Local →"}
                         </button>
                         <a className="btn-ghost" href={`https://www.${res.website}`} target="_blank" rel="noopener noreferrer">
