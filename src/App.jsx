@@ -316,7 +316,6 @@ const IBEW_INSIDE_LOCALS = [
 
   { id: 583, name: "IBEW Local 583", city: "El Paso", state: "TX", phone: "(915) 877-9166", website: "ibew583.com", lat: 31.7619, lng: -106.485, address: "311 W Borderland Road, El Paso, TX 79932", email: "ibew@ibew583.com" },
   { id: 595, name: "IBEW Local 595", city: "Dublin", state: "CA", phone: "(925) 556-0595", website: "ibew595.org", lat: 37.7021, lng: -121.9358, address: "6850 Regional Street Suite 100, Dublin, CA 94568", email: "info@ibew595.org" },
-];
 
   { id: 993, name: "IBEW Local 993", city: "Kamloops", state: "BC", phone: "(250) 376-8755", website: "ibew993.org", lat: 50.6745, lng: -120.3273, address: "873 Desmond Street, Kamloops, BC V2B 5K3", email: "office@ibew993.org" },
   { id: 1003, name: "IBEW Local 1003", city: "Nelson", state: "BC", phone: "(250) 354-4177", website: "ibew1003.org", lat: 49.4928, lng: -117.2948, address: "101 Baker Street, Nelson, BC V1L 4H1", email: "info@ibew1003.org" },
@@ -328,6 +327,8 @@ const IBEW_INSIDE_LOCALS = [
   { id: 2085, name: "IBEW Local 2085", city: "Winnipeg", state: "MB", phone: "(204) 982-2085", website: "ibew2085.com", lat: 49.8951, lng: -97.1384, address: "2181 Portage Avenue, Winnipeg, MB R3J 0L7", email: "info@ibew2085.com" },
   { id: 2166, name: "IBEW Local 2166", city: "Fredericton", state: "NB", phone: "(506) 452-0111", website: "ibewlocal2166.com", lat: 45.9636, lng: -66.6431, address: "681 Union Street, Fredericton, NB E3A 3N8" },
   { id: 2330, name: "IBEW Local 2330", city: "St. John's", state: "NL", phone: "(709) 895-3764", website: "ibew.nf.ca", lat: 47.5615, lng: -52.7126, address: "160 Holyrood Access Road, Holyrood, NL A0A 2R0" },
+];
+
 // ─── IBEW LINEMAN DATABASE — Outside Utility & Transmission ──────────────────
 // ─── IBEW LINEMAN DATABASE — Outside Utility & Transmission ─────────────────
 // Source: User-provided wage data. Completely separate from Inside Wireman locals.
