@@ -3110,14 +3110,14 @@ export default function UnionPathway() {
         :root {
           --yellow: #FA8059;
           --yellow-dim: #d4634a;
-          --steel: #0d1a24;
+          --steel: #000000;
           --steel-mid: #22303D;
           --steel-light: #2d3f4e;
           --plate: #1a2c3a;
           --wire: #3a5068;
           --text: #ffffff;
           --muted: #a0b4c4;
-          --card-bg: #1a2c3a;
+          --card-bg: #111111;
         }
 
         body {
