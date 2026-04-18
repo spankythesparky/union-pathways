@@ -431,7 +431,6 @@ const IBEW_LINEMAN_LOCALS = [
   { id: 90530, name: "IBEW Local 530 (Lineman)", city: "Sarnia", state: "ON", phone: "(519) 344-4154", website: "lu530.com", lat: 42.9977, lng: -82.409, address: "128 Kendall Street, Point Edward, ON N7V 4G5", email: "IBEW@LU530.com" },
   { id: 90568, name: "IBEW Local 568 (Lineman)", city: "Montreal", state: "QC", phone: "(514) 329-0568", website: "fioe568.com", lat: 45.5017, lng: -73.5673, address: "4881 Jarry Street E Suite 228, Montreal, QC H1R 1Y1", email: "info@fioe568.com" },
   { id: 90586, name: "IBEW Local 586 (Lineman)", city: "Ottawa", state: "ON", phone: "(613) 741-5664", website: "ibew586.org", lat: 45.4215, lng: -75.6972, address: "2460 Lancaster Road Suite 103, Ottawa, ON K1B 4S5", email: "bpotter@ibew586.org" },
-];
 
   { id: 90702, name: "IBEW Local 702 (Lineman)", city: "West Frankfort", state: "IL", phone: "(618) 932-2102", website: "ibew702.org", lat: 37.8978, lng: -88.9209, address: "106 N Monroe Street, West Frankfort, IL 62896", email: "ibew702@ibew702.org" },
   { id: 90714, name: "IBEW Local 714 (Lineman)", city: "Minot", state: "ND", phone: "(701) 852-3025", website: "local714.com", lat: 48.2325, lng: -101.2963, address: "125 35th Avenue NE, Minot, ND 58703", email: "office@local714.com" },
@@ -475,6 +474,8 @@ const IBEW_LINEMAN_LOCALS = [
   { id: 92150, name: "IBEW Local 2150 (Lineman)", city: "Milwaukee", state: "WI", phone: "(262) 252-2552", website: "ibewlocal2150.org", lat: 43.1793, lng: -88.1077, address: "N56 W13777 Silver Spring Drive, Menomonee Falls, WI 53051", email: "ibew@ibewlocal2150.com" },
   { id: 92166, name: "IBEW Local 2166 (Lineman)", city: "Fredericton", state: "NB", phone: "(506) 452-0111", website: "ibewlocal2166.com", lat: 45.9636, lng: -66.6431, address: "681 Union Street, Fredericton, NB E3A 3N8", email: "admin@ibewlocal2166.com" },
   { id: 92286, name: "IBEW Local 2286 (Lineman)", city: "Beaumont", state: "TX", phone: "(409) 840-4806", website: null, lat: 30.0802, lng: -94.1266, address: "4850 Stone Oak Drive, Beaumont, TX 77705", email: "ibew2286@hotmail.com" },
+];
+
 // ─── HFIAW LOCALS DATABASE — Heat & Frost Insulators & Allied Workers ─────────
 const HFIAW_LOCALS = [
   { id: 1,  name: "HFIAW Local 1",  city: "St. Louis",     state: "MO", phone: "(314) 291-7399",  website: "insulators1.org",       lat: 38.6270, lng: -90.1994, address: "St. Louis, MO" },
