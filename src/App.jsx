@@ -2398,7 +2398,19 @@ export default function UnionPathway() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [getStartedOpen, setGetStartedOpen] = useState(false);
   const [selectedTrade, setSelectedTrade] = useState("IBEW_I");
-  const [page, setPage] = useState("home");
+  // URL-aware page state
+  const getPageFromUrl = () => {
+    const path = window.location.pathname.replace('/', '') || 'home';
+    const validPages = ['home','quiz','careers','checklist','veterans','history','contact'];
+    return validPages.includes(path) ? path : 'home';
+  };
+  const [page, setPageState] = useState(getPageFromUrl);
+  const setPage = (newPage) => {
+    setPageState(newPage);
+    const url = newPage === 'home' ? '/' : '/' + newPage;
+    window.history.pushState({ page: newPage }, '', url);
+    window.scrollTo(0, 0);
+  };
   const [lang, setLang] = useState("en");
   const [quizStep, setQuizStep] = useState(0);
   const [quizAnswers, setQuizAnswers] = useState([]);
@@ -3386,6 +3398,17 @@ export default function UnionPathway() {
     }
   };
 
+
+
+  // Handle browser back/forward
+  useEffect(() => {
+    const handlePop = (e) => {
+      const p = e.state?.page || getPageFromUrl();
+      setPageState(p);
+    };
+    window.addEventListener('popstate', handlePop);
+    return () => window.removeEventListener('popstate', handlePop);
+  }, []);
 
   useEffect(() => {
     document.title = lang === "es"
@@ -4879,7 +4902,7 @@ export default function UnionPathway() {
       <div className="app">
         {/* NAV */}
         <nav>
-          <div className="nav-logo" style={{cursor:"pointer", padding:"4px", margin:"-4px"}} onClick={() => { setPage("home"); setResults(null); setQuery(""); window.scrollTo(0,0); }}>
+          <div className="nav-logo" style={{cursor:"pointer", padding:"4px", margin:"-4px"}} onClick={() => { setPage("home"); setResults(null); setQuery(""); }}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="450 395 390 110" style={{height:"56px", width:"auto"}}>
               <defs><style>{".cls-1{fill:#FA8059;}"}</style></defs>
               <g fill="white">
@@ -5762,7 +5785,7 @@ export default function UnionPathway() {
                 ))}
               </div>
               <div style={{textAlign:"center", marginTop:48}}>
-                <button className="btn-primary" onClick={() => { setPage("home"); window.scrollTo(0,0); }}>
+                <button className="btn-primary" onClick={() => { setPage("home"); }}>
                   Find Your Union Local →
                 </button>
               </div>
