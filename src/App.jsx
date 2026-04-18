@@ -3029,16 +3029,16 @@ export default function UnionPathway() {
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-          --yellow: #F5C518;
-          --yellow-dim: #c9a012;
-          --steel: #0f1923;
-          --steel-mid: #162130;
-          --steel-light: #1e2f42;
-          --plate: #243347;
-          --wire: #2e4260;
-          --text: #e8edf2;
-          --muted: #7a92a8;
-          --card-bg: #152030;
+          --yellow: #FA8059;
+          --yellow-dim: #d4634a;
+          --steel: #0d1a24;
+          --steel-mid: #22303D;
+          --steel-light: #2d3f4e;
+          --plate: #1a2c3a;
+          --wire: #3a5068;
+          --text: #ffffff;
+          --muted: #a0b4c4;
+          --card-bg: #1a2c3a;
         }
 
         body {
