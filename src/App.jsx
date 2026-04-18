@@ -4197,7 +4197,7 @@ export default function UnionPathway() {
         {/* NAV */}
         <nav>
           <div className="nav-logo" style={{cursor:"pointer", padding:"4px", margin:"-4px"}} onClick={() => { setPage("home"); setResults(null); setQuery(""); window.scrollTo(0,0); }}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 900" style={{height:"120px", width:"auto"}}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 900" style={{height:"200px", width:"auto"}}>
               <defs><style>{".cls-1{fill:#FA8059;}"}</style></defs>
               <g fill="white">
                 <path d="M601.2,430.86c0,2.59-.56,4.57-1.69,5.92-1.13,1.35-2.93,2.03-5.41,2.03s-4.31-.68-5.44-2.03c-1.13-1.35-1.69-3.33-1.69-5.92v-22.85h-7.47v22.68c0,4.71,1.18,8.29,3.55,10.75,2.36,2.45,6.05,3.68,11.04,3.68s8.65-1.22,11.02-3.68c2.37-2.45,3.55-6.04,3.55-10.75v-22.68h-7.47v22.85Z"/>
