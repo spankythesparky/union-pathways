@@ -3161,9 +3161,9 @@ export default function UnionPathway() {
 
         .nav-trades-btn {
           display: flex; align-items: center; gap: 8px;
-          background: rgba(245,197,24,0.08);
-          border: 1px solid rgba(245,197,24,0.25);
-          border-radius: 8px;
+          background: rgba(250,128,89,0.08);
+          border: 1px solid rgba(250,128,89,0.25);
+          border-radius: 50px;
           padding: 9px 16px;
           color: var(--text);
           font-family: 'Barlow Condensed', sans-serif;
@@ -3173,9 +3173,10 @@ export default function UnionPathway() {
           transition: background 0.2s, border-color 0.2s, color 0.2s;
         }
         .nav-trades-btn:hover, .nav-trades-btn.open {
-          background: rgba(245,197,24,0.15);
-          border-color: var(--yellow);
-          color: var(--yellow);
+          background: rgba(250,128,89,0.15);
+          border-color: #FA8059;
+          color: #FA8059;
+          box-shadow: 0 0 20px rgba(250,128,89,0.2);
         }
         .nav-trades-btn .chevron {
           transition: transform 0.2s ease;
@@ -3242,7 +3243,7 @@ export default function UnionPathway() {
           background: rgba(245,197,24,0.08);
           border-left: 3px solid var(--yellow);
         }
-        .dropdown-item.active:hover { background: rgba(245,197,24,0.06); }
+        .dropdown-item.active:hover { background: rgba(250,128,89,0.06); }
         .dropdown-item.coming { opacity: 0.55; cursor: default; }
 
         .trade-abbr-badge {
@@ -3316,8 +3317,8 @@ export default function UnionPathway() {
         .hero-grid {
           position: absolute; inset: 0;
           background-image:
-            linear-gradient(rgba(245,197,24,0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(245,197,24,0.04) 1px, transparent 1px);
+            linear-gradient(rgba(250,128,89,0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(250,128,89,0.05) 1px, transparent 1px);
           background-size: 50px 50px;
           mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
         }
@@ -3325,7 +3326,7 @@ export default function UnionPathway() {
         .hero-glow {
           position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
           width: 600px; height: 400px;
-          background: radial-gradient(ellipse, rgba(245,197,24,0.08) 0%, transparent 70%);
+          background: radial-gradient(ellipse, rgba(250,128,89,0.12) 0%, transparent 70%);
           pointer-events: none;
         }
 
@@ -3368,15 +3369,17 @@ export default function UnionPathway() {
 
         /* ── SEARCH BOX ── */
         .search-card {
-          background: var(--steel-light);
-          border: 1px solid var(--wire);
-          border-radius: 16px;
+          background: rgba(34,48,61,0.6);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid rgba(250,128,89,0.15);
+          border-radius: 24px;
           padding: 28px 32px;
           width: 100%; max-width: 620px;
-          box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(245,197,24,0.05);
-          transition: transform 0.3s ease;
+          box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(250,128,89,0.08);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .search-card:hover { transform: translateY(-2px); }
+        .search-card:hover { transform: translateY(-3px); box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(250,128,89,0.15); }
         .search-card { margin-bottom: 32px; }
 
         .search-label {
@@ -3404,7 +3407,7 @@ export default function UnionPathway() {
         .search-input::placeholder { color: var(--muted); }
         .search-input:focus {
           border-color: var(--yellow);
-          box-shadow: 0 0 0 3px rgba(245,197,24,0.1);
+          box-shadow: 0 0 0 3px rgba(250,128,89,0.15); border-color: rgba(250,128,89,0.5);
         }
 
         .btn-search {
@@ -3419,7 +3422,7 @@ export default function UnionPathway() {
           transition: background 0.2s, transform 0.1s;
           white-space: nowrap;
         }
-        .btn-search:hover { background: #ffd740; transform: translateY(-1px); }
+        .btn-search:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(250,128,89,0.5); }
         .btn-search:active { transform: translateY(0); }
         .btn-search:disabled { opacity: 0.6; cursor: not-allowed; }
 
@@ -3493,8 +3496,10 @@ export default function UnionPathway() {
         }
 
         .local-card {
-          background: var(--card-bg);
-          border: 1px solid var(--wire);
+          background: rgba(26,44,58,0.7);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border: 1px solid rgba(58,80,104,0.5);
           border-radius: 14px;
           padding: 24px 28px;
           margin-bottom: 14px;
@@ -3603,7 +3608,7 @@ export default function UnionPathway() {
           text-decoration: none; display: inline-block;
           transition: border-color 0.2s, color 0.2s;
         }
-        .btn-website:hover { border-color: var(--yellow); color: var(--yellow); }
+        .btn-website:hover { border-color: #FA8059; color: #FA8059; background: rgba(250,128,89,0.15); }
 
         .card-distance {
           text-align: right; min-width: 80px;
@@ -3840,7 +3845,7 @@ export default function UnionPathway() {
           text-decoration: none; display: inline-block;
           transition: background 0.2s;
         }
-        .btn-primary:hover { background: #ffd740; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(250,128,89,0.5); }
         .btn-ghost {
           background: transparent; color: var(--muted);
           border: 1.5px solid var(--wire); cursor: pointer;
@@ -3850,7 +3855,7 @@ export default function UnionPathway() {
           letter-spacing: 0.06em; text-transform: uppercase;
           transition: border-color 0.2s, color 0.2s;
         }
-        .btn-ghost:hover { border-color: var(--yellow); color: var(--yellow); }
+        .btn-ghost:hover { border-color: #FA8059; color: #FA8059; box-shadow: 0 0 20px rgba(250,128,89,0.15); }
 
         /* ── CAREER PATH PAGE ── */
         .career-stats {
