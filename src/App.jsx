@@ -531,7 +531,37 @@ const HFIAW_LOCALS = [
 
 
 // ─── IRONWORKERS LOCALS DATABASE — Int'l Association of Bridge & Structural Iron Workers ─
-const IW_LOCALS = [];
+const IW_LOCALS = [
+  { id: 10001, name: "IW Local 1", city: "Forest Park", state: "IL", phone: "(708) 366-6695", website: "iwlocal1.com", lat: 41.8781, lng: -87.6298, address: "7720 Industrial Drive, Forest Park, IL 60130" },
+  { id: 10003, name: "IW Local 3", city: "Pittsburgh", state: "PA", phone: "(412) 227-6767", website: "iwlocal3.com", lat: 40.4406, lng: -79.9959, address: "2201 Liberty Ave., Pittsburgh, PA 15222" },
+  { id: 10005, name: "IW Local 5", city: "Largo", state: "MD", phone: "(301) 599-0960", website: "ironworkers5.org", lat: 38.8929, lng: -76.8405, address: "9301 Peppercorn Place, Largo, MD 20774" },
+  { id: 10006, name: "IW Local 6", city: "West Seneca", state: "NY", phone: "(716) 828-1200", website: "ironworkerslocal6.com", lat: 42.8447, lng: -78.7998, address: "196 Orchard Park Rd., West Seneca, NY 14224", email: "ironworkerlocal6@aol.com" },
+  { id: 10007, name: "IW Local 7", city: "South Boston", state: "MA", phone: "(617) 268-4777", website: "iwlocal7.org", lat: 42.332, lng: -71.045, address: "195 Old Colony Ave., South Boston, MA 02127" },
+  { id: 10008, name: "IW Local 8", city: "Milwaukee", state: "WI", phone: "(414) 476-9370", website: "iwl8.org", lat: 43.0389, lng: -87.9065, address: "12034 West Adler Ln., Milwaukee, WI 53214" },
+  { id: 10009, name: "IW Local 9", city: "Niagara Falls", state: "NY", phone: "(716) 285-5738", website: "ironworkers9.org", lat: 43.0962, lng: -79.0377, address: "412 39th St., Niagara Falls, NY 14303" },
+  { id: 10010, name: "IW Local 10", city: "Kansas City", state: "MO", phone: "(816) 842-8917", website: "ironworkers10.com", lat: 39.0997, lng: -94.5786, address: "1000 E 10th St, Kansas City, MO 64106" },
+  { id: 10011, name: "IW Local 11", city: "Bloomfield", state: "NJ", phone: "(973) 338-3777", website: "ironworkers11.org", lat: 40.8037, lng: -74.1885, address: "1500 Broad Street, Bloomfield, NJ 07003" },
+  { id: 10012, name: "IW Local 12", city: "Latham", state: "NY", phone: "(518) 435-0470", website: "ironworkers12.org", lat: 42.7454, lng: -73.754, address: "17 Hemlock St., Latham, NY 12110", email: "frontoffice@iwl12.org" },
+  { id: 10014, name: "IW Local 14", city: "Spokane", state: "WA", phone: "(509) 927-8288", website: "ironworkers14.org", lat: 47.6587, lng: -117.426, address: "16610 E. Euclid Ave., Spokane, WA 99216" },
+  { id: 10015, name: "IW Local 15", city: "Hartford", state: "CT", phone: "(860) 249-7639", website: "ironworkers15.org", lat: 41.7658, lng: -72.6851, address: "49 Locust Street, Hartford, CT 06114" },
+  { id: 10017, name: "IW Local 17", city: "Cleveland", state: "OH", phone: "(216) 771-5558", website: "iw17.org", lat: 41.4993, lng: -81.6944, address: "1544 E. 23rd St., Cleveland, OH 44114", email: "union@ironworkers17.org" },
+  { id: 10021, name: "IW Local 21", city: "Omaha", state: "NE", phone: "(712) 252-1761", website: "iw21.org", lat: 41.2565, lng: -95.9345, address: "14515 Industrial Rd, Omaha, NE 68144" },
+  { id: 10022, name: "IW Local 22", city: "Indianapolis", state: "IN", phone: "(317) 243-8222", website: "ironworkers22.com", lat: 39.7684, lng: -86.1581, address: "5600 Dividend Road, Indianapolis, IN 46241" },
+  { id: 10075, name: "IW Local 75", city: "Phoenix", state: "AZ", phone: "(602) 268-1449", website: "ironworkers75.org", lat: 33.4484, lng: -112.074, address: "950 E. Elwood St., Phoenix, AZ 85040" },
+  { id: 10092, name: "IW Local 92", city: "Birmingham", state: "AL", phone: "(205) 323-4551", website: "ironworkerslocal92.org", lat: 33.5186, lng: -86.8104, address: "2828 4th Avenue South, Birmingham, AL 35233", email: "localno92@bellsouth.net" },
+  { id: 10321, name: "IW Local 321", city: "Little Rock", state: "AR", phone: "(501) 374-3705", website: null, lat: 34.7465, lng: -92.2896, address: "1315 W 2nd St, Little Rock, AR 72201", email: "ironworkers321@yahoo.com" },
+  { id: 10477, name: "IW Local 477", city: "Sheffield", state: "AL", phone: "(256) 383-3334", website: "ironworkers477.org", lat: 34.7651, lng: -87.6975, address: "506 N Nashville Ave, Sheffield, AL 35660" },
+  { id: 10751, name: "IW Local 751", city: "Anchorage", state: "AK", phone: "(907) 563-4766", website: "ironworkers751.org", lat: 61.2181, lng: -149.9003, address: "8141 Schoon St, Anchorage, AK 99518" },
+  { id: 10798, name: "IW Local 798", city: "Semmes", state: "AL", phone: "(251) 645-2477", website: "ironworkers798.org", lat: 30.6954, lng: -88.0399, address: "7920 Crary Station Rd., Semmes, AL 36575" },
+  { id: 10845, name: "IW Local 845", city: "Beaver", state: "PA", phone: "(412) 849-1271", website: "ironworkers845.org", lat: 40.6959, lng: -80.3045, address: "PO Box 190, Beaver, PA 15009", email: "contact@ironworkers845.org" },
+  { id: 10852, name: "IW Local 852", city: "Framingham", state: "MA", phone: "(508) 202-9453", website: "ironworkers852.org", lat: 42.2793, lng: -71.4162, address: "9 Pleasant Street, Framingham, MA 01701" },
+  { id: 10854, name: "IW Local 854", city: "Fredericksburg", state: "VA", phone: "(757) 461-3454", website: "ironworkers854.org", lat: 38.3032, lng: -77.4605, address: "415 William Street, Fredericksburg, VA 22401", email: "iwlu854a@ironworkers.org" },
+  { id: 108471, name: "IW Local 847", city: "Houston", state: "TX", phone: "(713) 984-9980", website: "ironworkers847.org", lat: 29.7604, lng: -95.3698, address: "16233 Clay Rd Suite 320, Houston, TX 77084" },
+  { id: 108472, name: "IW Local 847", city: "Omaha", state: "NE", phone: "(402) 731-2490", website: "ironworkers847.org", lat: 41.2133, lng: -96.0779, address: "4205 South 87th St., Omaha, NE 68127" },
+  { id: 108473, name: "IW Local 847", city: "Denver", state: "CO", phone: "(303) 287-4301", website: "ironworkers847.org", lat: 39.7392, lng: -104.9903, address: "5575 Tejon St., Denver, CO 80221" },
+  { id: 108474, name: "IW Local 847", city: "Phoenix", state: "AZ", phone: "(602) 233-0417", website: "ironworkers847.org", lat: 33.4484, lng: -112.074, address: "3131 W. Lewis Ave Suite 100, Phoenix, AZ 85009" },
+  { id: 108475, name: "IW Local 847", city: "West Valley City", state: "UT", phone: "(801) 463-2897", website: "ironworkers847.org", lat: 40.6916, lng: -112.001, address: "2702 South 3600 West Suite C, West Valley City, UT 84119" },
+];
 
 // ─── LIUNA LOCALS DATABASE — Laborers' International Union of North America ───
 const LIUNA_LOCALS = [
