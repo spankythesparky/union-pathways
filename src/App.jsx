@@ -3134,7 +3134,7 @@ export default function UnionPathway() {
         nav {
           display: flex; align-items: center; justify-content: space-between;
           padding: 14px 20px;
-          background: rgba(15,25,35,0.95);
+          background: rgba(0,0,0,0.97);
           border-bottom: 1px solid rgba(245,197,24,0.15);
           backdrop-filter: blur(12px);
           position: sticky; top: 0; z-index: 100;
