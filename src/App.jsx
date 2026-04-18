@@ -3398,8 +3398,11 @@ export default function UnionPathway() {
 
     // Try Nominatim geocoding for any city/address input
     try {
-      const encoded = encodeURIComponent(q + ", USA");
-      const res = await fetch(`https://nominatim.openstreetmap.org/search?q=${encoded}&format=json&limit=1&countrycodes=us`, {
+      const isCanadian = /(canada|ontario|quebec|british columbia|alberta|bc|on|qc|ab|mb|sk|ns|nb|nl|pe|nt|yt|nu)/i.test(q);
+      const searchQ = isCanadian ? q : q + ", USA";
+      const countryFilter = isCanadian ? "ca" : "us,ca";
+      const encoded = encodeURIComponent(searchQ);
+      const res = await fetch(`https://nominatim.openstreetmap.org/search?q=${encoded}&format=json&limit=1&countrycodes=${countryFilter}`, {
         headers: { "Accept-Language": "en", "User-Agent": "UnionPathway/1.0" }
       });
       const data = await res.json();
