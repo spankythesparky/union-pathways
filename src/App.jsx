@@ -1969,7 +1969,6 @@ export default function UnionPathway() {
   const [error, setError] = useState("");
   const [geoLoading, setGeoLoading] = useState(false);
   const [showMap, setShowMap] = useState(false);
-  const mapRef = React.useRef(null);
 
   const [locationLabel, setLocationLabel] = useState("");
   const [heroVisible, setHeroVisible] = useState(false);
