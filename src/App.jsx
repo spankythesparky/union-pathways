@@ -5643,7 +5643,7 @@ export default function UnionPathway() {
               <div className="history-section-title">{lang==="es" ? <>{"¿Por qué los Beneficios Sindicales son "}<span className="accent">Tan Buenos?</span></> : lang==="pl" ? <>{"Dlaczego Świadczenia Związkowe są "}<span className="accent">Tak Dobre?</span></> : <>{"Why Are Union Benefits "}<span className="accent">So Good?</span></>}</div>
               <div className="history-section-sub">{lang==="es" ? "La negociación colectiva funciona." : lang==="pl" ? "Negocjacje zbiorowe działają." : "Collective bargaining works."}</div>
               <div className="quote-block">
-                <div className="quote-text">{lang==="es" ? '"Cuando sumas el salario, la pensión, la anualidad y los beneficios de salud — el paquete total de compensación de un oficial puede superar los $100/hr en los mercados principales. La mayoría de la gente no se da cuenta de cuánto va hacia tu futuro."' : lang==="pl" ? '"Gdy zsumujemy wynagrodzenie, emeryturę, rentę annuitetową i świadczenia zdrowotne — całkowity pakiet wynagrodzenia czeladnika może przekroczyć $100/godz. na głównych rynkach. Większość ludzi nie zdaje sobie sprawy, ile z tego trafia do ich przyszłości."' : '"When you add up the wages, pension, annuity, and health benefits — a journeyman's total compensation package can exceed $100/hr in major markets. Most people don't realize how much of that goes toward your future."'}</div>
+                <div className="quote-text">{lang==="es" ? '"Cuando sumas el salario, la pensión, la anualidad y los beneficios de salud — el paquete total de compensación de un oficial puede superar los $100/hr en los mercados principales. La mayoría de la gente no se da cuenta de cuánto va hacia tu futuro."' : lang==="pl" ? '"Gdy zsumujemy wynagrodzenie, emeryturę, rentę annuitetową i świadczenia zdrowotne — całkowity pakiet wynagrodzenia czeladnika może przekroczyć $100/godz. na głównych rynkach. Większość ludzi nie zdaje sobie sprawy, ile z tego trafia do ich przyszłości."' : '"When you add up the wages, pension, annuity, and health benefits — a journeyman total compensation package can exceed $100/hr in major markets. Most people do not realize how much of that goes toward your future."'}</div>
                 <div className="quote-author">{lang==="es" ? "— El Verdadero Valor de un Paquete Sindical" : lang==="pl" ? "— Prawdziwa Wartość Pakietu Związkowego" : "— The True Value of a Union Package"}</div>
               </div>
             </div>
@@ -5898,7 +5898,7 @@ export default function UnionPathway() {
               </div>
 
               <div className="quote-block">
-                <div className="quote-text">"When you add up the pension, annuity, and benefits — a journeyman electrician's total compensation package can exceed $100/hr in major markets. Most people don't realize how much of that goes toward your future."</div>
+                <div className="quote-text">"When you add up the pension, annuity, and benefits — a journeyman electrician's total compensation package can exceed $100/hr in major markets. Most people do not realize how much of that goes toward your future."</div>
                 <div className="quote-author">— The True Value of a Union Package</div>
               </div>
 
