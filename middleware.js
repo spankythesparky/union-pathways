@@ -30,7 +30,7 @@ export default function middleware(req) {
 <meta property="og:url" content="${url}"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="Union Pathways"/>
-<meta property="og:image" content="https://unionpathways.com/favicon-32x32.png"/>
+<meta property="og:image" content="https://unionpathways.com/social-preview.png"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="${m.title}"/>
 <meta name="twitter:description" content="${m.desc}"/>
