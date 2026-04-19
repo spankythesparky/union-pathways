@@ -34,6 +34,10 @@ export default function middleware(req) {
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="${m.title}"/>
 <meta name="twitter:description" content="${m.desc}"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:image" content="https://unionpathways.com/social-preview.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
 <link rel="canonical" href="${url}"/>
 </head><body><h1>${m.title}</h1><p>${m.desc}</p></body></html>`, {
     headers: { 'Content-Type': 'text/html' }
