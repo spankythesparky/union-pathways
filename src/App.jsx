@@ -5795,11 +5795,6 @@ export default function UnionPathway() {
                   </div>
                 ))}
               </div>
-              <div style={{textAlign:"center", marginTop:48}}>
-                <button className="btn-primary" onClick={() => { setPage("home"); }}>
-                  Find Your Union Local →
-                </button>
-              </div>
             </div>
           </div>
         )}
