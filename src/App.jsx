@@ -4155,14 +4155,14 @@ export default function UnionPathway() {
         .lang-btn.active { background: var(--yellow); color: var(--steel); border-color: var(--yellow); }
 
         /* ── NAV LINKS ── */
-        .nav-links { display: flex; align-items: center; gap: 8px; }
+        .nav-links { display: flex; align-items: center; gap: 2px; }
         .nav-link {
           background: transparent; border: none;
           color: var(--muted); cursor: pointer;
           font-family: 'Barlow Condensed', sans-serif;
-          font-size: 13px; font-weight: 700;
-          letter-spacing: 0.08em; text-transform: uppercase;
-          padding: 7px 12px; border-radius: 6px;
+          font-size: 12px; font-weight: 700;
+          letter-spacing: 0.06em; text-transform: uppercase;
+          padding: 6px 9px; border-radius: 6px;
           transition: color 0.2s, background 0.2s;
         }
         .nav-link:hover { color: var(--text); background: rgba(255,255,255,0.05); }
@@ -4174,10 +4174,10 @@ export default function UnionPathway() {
           background: transparent; border: none;
           color: var(--muted); cursor: pointer;
           font-family: 'Barlow Condensed', sans-serif;
-          font-size: 13px; font-weight: 700;
-          letter-spacing: 0.08em; text-transform: uppercase;
-          padding: 7px 12px; border-radius: 6px;
-          display: flex; align-items: center; gap: 5px;
+          font-size: 12px; font-weight: 700;
+          letter-spacing: 0.06em; text-transform: uppercase;
+          padding: 6px 9px; border-radius: 6px;
+          display: flex; align-items: center; gap: 4px;
           transition: color 0.2s, background 0.2s;
         }
         .nav-dropdown-btn:hover { color: var(--text); background: rgba(255,255,255,0.05); }
