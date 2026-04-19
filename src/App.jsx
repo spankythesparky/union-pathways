@@ -3846,6 +3846,39 @@ export default function UnionPathway() {
         .hero-sub strong { color: var(--text); font-weight: 500; }
 
         /* ── SEARCH BOX ── */
+        .trade-selector {
+          display: flex;
+          gap: 8px;
+          overflow-x: auto;
+          padding-bottom: 2px;
+          margin-bottom: 20px;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .trade-selector::-webkit-scrollbar { display: none; }
+        .trade-pill {
+          flex-shrink: 0;
+          background: transparent;
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 50px;
+          padding: 6px 14px;
+          font-family: 'Barlow Condensed', sans-serif;
+          font-size: 11px; font-weight: 700;
+          letter-spacing: 0.1em; text-transform: uppercase;
+          color: var(--muted);
+          cursor: pointer;
+          transition: all 0.18s;
+          white-space: nowrap;
+        }
+        .trade-pill:hover {
+          border-color: rgba(255,255,255,0.25);
+          color: #fff;
+        }
+        .trade-pill.selected {
+          color: #000;
+          border-color: transparent;
+        }
+
         .search-card {
           background: rgba(34,48,61,0.6);
           backdrop-filter: blur(20px);
@@ -5045,6 +5078,29 @@ export default function UnionPathway() {
 
             {/* SEARCH CARD */}
             <div className="search-card">
+              {/* INLINE TRADE SELECTOR */}
+              <div className="trade-selector">
+                {[
+                  { abbr: "IBEW_I", label: "IBEW Inside",   color: "#F5C518" },
+                  { abbr: "IBEW_L", label: "IBEW Lineman",  color: "#FFD700" },
+                  { abbr: "UA",     label: "Plumbers & Pipefitters", color: "#3b9eff" },
+                  { abbr: "SMART",  label: "Sheet Metal",   color: "#e05a2b" },
+                  { abbr: "UBC",    label: "Carpenters",    color: "#a78bfa" },
+                  { abbr: "BAC",    label: "Bricklayers",   color: "#f97316" },
+                  { abbr: "IW",     label: "Ironworkers",   color: "#ef4444" },
+                  { abbr: "LIUNA",  label: "Laborers",      color: "#fb923c" },
+                  { abbr: "HFIAW",  label: "Insulators",    color: "#38bdf8" },
+                ].map(trade => (
+                  <button
+                    key={trade.abbr}
+                    className={`trade-pill ${selectedTrade === trade.abbr ? "selected" : ""}`}
+                    style={selectedTrade === trade.abbr ? { background: trade.color, borderColor: trade.color, color: "#000" } : {}}
+                    onClick={() => setSelectedTrade(trade.abbr)}
+                  >
+                    {trade.label}
+                  </button>
+                ))}
+              </div>
               <span className="search-label">
                 {selectedTrade === "UA" ? t.uaLabel : selectedTrade === "SMART" ? t.smartLabel : selectedTrade === "BAC" ? t.bacLabel : selectedTrade === "UBC" ? t.ubcLabel : selectedTrade === "LIUNA" ? t.liunaLabel : selectedTrade === "IW" ? t.iwLabel : selectedTrade === "IBEW_L" ? t.ibewLinLabel : selectedTrade === "IUEC" ? t.iuecLabel : selectedTrade === "HFIAW" ? t.hfiawLabel : selectedTrade === "SF" ? t.sfLabel : t.ibewLabel}
                 {" "}{t.searchLabel}
