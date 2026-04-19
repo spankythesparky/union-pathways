@@ -31,7 +31,6 @@ export default function middleware(req) {
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="Union Pathways"/>
 <meta property="og:image" content="https://unionpathways.com/social-preview.png"/>
-<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="${m.title}"/>
 <meta name="twitter:description" content="${m.desc}"/>
 <meta property="og:image:width" content="1200"/>
