@@ -5990,16 +5990,22 @@ export default function UnionPathway() {
               <div style={{background:"rgba(34,48,61,0.5)", border:"1px solid rgba(250,128,89,0.2)", borderRadius:20, padding:"32px", marginBottom:32}}>
                 <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:700, color:"var(--muted)", textTransform:"uppercase", letterSpacing:"0.1em", marginBottom:24}}>Example: Journeyman Electrician — Major Market</div>
                 {[
-                  ["Base Wage (your take-home)", "$48.00/hr", true],
+                  ["Base Wage ", "$48.00/hr", true, "This is what appears on your paycheck"],
+                  ["Health & Welfare", "$12.50/hr", false, "Paid by contractor directly to your health fund — NOT deducted from your check"],
+                  ["Pension Contribution", "$9.00/hr", false, "Paid by contractor to your pension fund — NOT deducted from your check"],
+                  ["Annuity / 401k", "$5.00/hr", false, "Paid by contractor to your retirement account — NOT deducted from your check"],
+                  ["Vacation / Holiday Fund", "$4.50/hr", false, "Paid by contractor to your vacation fund — NOT deducted from your check"],
+                  ["Training / Apprenticeship Fund", "$1.00/hr", false, "Paid by contractor — NOT deducted from your check"],
+                  ["Other (disability, etc.)", "$1.00/hr", false, "Paid by contractor — NOT deducted from your check"],
                   ["Health & Welfare (insurance)", "$12.50/hr", false],
                   ["Pension Contribution", "$9.00/hr", false],
                   ["Annuity / 401k", "$5.00/hr", false],
                   ["Vacation / Holiday Fund", "$4.50/hr", false],
                   ["Training / Apprenticeship Fund", "$1.00/hr", false],
                   ["Other (disability, etc.)", "$1.00/hr", false],
-                ].map(([label, amount, isWage], i) => (
+                ].map(([label, amount, isWage, note], i) => (
                   <div key={i} style={{display:"flex", justifyContent:"space-between", alignItems:"center", padding:"12px 0", borderBottom: i < 6 ? "1px solid rgba(58,80,104,0.4)" : "none"}}>
-                    <span style={{fontSize:15, color: isWage ? "white" : "var(--muted)", fontWeight: isWage ? 700 : 400}}>{label}</span>
+                    <div><span style={{fontSize:15, color: isWage ? "white" : "var(--muted)", fontWeight: isWage ? 700 : 400}}>{label}</span>{note && <div style={{fontSize:12, color:"#FA8059", marginTop:2}}>{note}</div>}</div>
                     <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:800, color: isWage ? "#FA8059" : "var(--muted)"}}>{amount}</span>
                   </div>
                 ))}
