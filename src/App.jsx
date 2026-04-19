@@ -3466,6 +3466,10 @@ export default function UnionPathway() {
       if (entry) return { lat: entry[1], lng: entry[2], display: `ZIP ${q}` };
     }
 
+    // Check known city lookup table FIRST before Nominatim
+    const qLow = q.toLowerCase();
+    if (CITY_COORDS[qLow]) return { lat: CITY_COORDS[qLow][0], lng: CITY_COORDS[qLow][1], display: q };
+
     // Try Nominatim geocoding for any city/address input
     try {
       const isCanadian = /(canada|ontario|quebec|british columbia|alberta|bc|on|qc|ab|mb|sk|ns|nb|nl|pe|nt|yt|nu)/i.test(q);
@@ -3482,10 +3486,6 @@ export default function UnionPathway() {
     } catch (e) {
       // Fall through to local lookup
     }
-
-    // Fallback: known city lookup table
-    const qLow = q.toLowerCase();
-    if (CITY_COORDS[qLow]) return { lat: CITY_COORDS[qLow][0], lng: CITY_COORDS[qLow][1], display: q };
 
     // Fallback: state name only
     const stateAbbr2 = STATE_NAMES[qLow] || (STATE_CENTERS[q.toUpperCase()] ? q.toUpperCase() : null);
