@@ -2397,7 +2397,7 @@ export default function UnionPathway() {
   const [heroVisible, setHeroVisible] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [getStartedOpen, setGetStartedOpen] = useState(false);
-  const [selectedTrade, setSelectedTrade] = useState("ALL");
+  const [selectedTrade, setSelectedTrade] = useState("IBEW_I");
   // URL-aware page state
   const getPageFromUrl = () => {
     const path = window.location.pathname.replace('/', '') || 'home';
@@ -3561,12 +3561,12 @@ export default function UnionPathway() {
     }
 
     setLocationLabel(loc.display);
-    const database = selectedTrade === "ALL" ? [...IBEW_INSIDE_LOCALS, ...IBEW_LINEMAN_LOCALS, ...UA_LOCALS, ...SMART_LOCALS, ...BAC_LOCALS, ...UBC_LOCALS, ...HFIAW_LOCALS, ...IW_LOCALS, ...LIUNA_LOCALS] : selectedTrade === "UA" ? UA_LOCALS : selectedTrade === "SMART" ? SMART_LOCALS : selectedTrade === "BAC" ? BAC_LOCALS : selectedTrade === "UBC" ? UBC_LOCALS : selectedTrade === "HFIAW" ? HFIAW_LOCALS : selectedTrade === "IW" ? IW_LOCALS : selectedTrade === "LIUNA" ? LIUNA_LOCALS : selectedTrade === "IBEW_L" ? IBEW_LINEMAN_LOCALS : IBEW_INSIDE_LOCALS;
+    const database = selectedTrade === "UA" ? UA_LOCALS : selectedTrade === "SMART" ? SMART_LOCALS : selectedTrade === "BAC" ? BAC_LOCALS : selectedTrade === "UBC" ? UBC_LOCALS : selectedTrade === "HFIAW" ? HFIAW_LOCALS : selectedTrade === "IW" ? IW_LOCALS : selectedTrade === "LIUNA" ? LIUNA_LOCALS : selectedTrade === "IBEW_L" ? IBEW_LINEMAN_LOCALS : IBEW_INSIDE_LOCALS;
     const withDist = database
       .map(l => ({ ...l, distance: getDistanceMiles(loc.lat, loc.lng, l.lat, l.lng) }))
       .sort((a, b) => a.distance - b.distance);
-    const within50 = withDist.filter(l => l.distance <= 50);
-    setResults(within50);
+    const within150 = withDist.filter(l => l.distance <= 50);
+    setResults(within150.length > 0 ? within150 : withDist.slice(0, 5));
     setLoading(false);
   };
 
@@ -3578,12 +3578,12 @@ export default function UnionPathway() {
       (pos) => {
         const { latitude: lat, longitude: lng } = pos.coords;
         setLocationLabel("Your Current Location");
-        const database = selectedTrade === "ALL" ? [...IBEW_INSIDE_LOCALS, ...IBEW_LINEMAN_LOCALS, ...UA_LOCALS, ...SMART_LOCALS, ...BAC_LOCALS, ...UBC_LOCALS, ...HFIAW_LOCALS, ...IW_LOCALS, ...LIUNA_LOCALS] : selectedTrade === "UA" ? UA_LOCALS : selectedTrade === "SMART" ? SMART_LOCALS : selectedTrade === "BAC" ? BAC_LOCALS : selectedTrade === "UBC" ? UBC_LOCALS : selectedTrade === "HFIAW" ? HFIAW_LOCALS : selectedTrade === "IW" ? IW_LOCALS : selectedTrade === "LIUNA" ? LIUNA_LOCALS : selectedTrade === "IBEW_L" ? IBEW_LINEMAN_LOCALS : IBEW_INSIDE_LOCALS;
+        const database = selectedTrade === "UA" ? UA_LOCALS : selectedTrade === "SMART" ? SMART_LOCALS : selectedTrade === "BAC" ? BAC_LOCALS : selectedTrade === "UBC" ? UBC_LOCALS : selectedTrade === "HFIAW" ? HFIAW_LOCALS : selectedTrade === "IW" ? IW_LOCALS : selectedTrade === "LIUNA" ? LIUNA_LOCALS : selectedTrade === "IBEW_L" ? IBEW_LINEMAN_LOCALS : IBEW_INSIDE_LOCALS;
         const withDist = database
           .map(l => ({ ...l, distance: getDistanceMiles(lat, lng, l.lat, l.lng) }))
           .sort((a, b) => a.distance - b.distance);
-        const within50 = withDist.filter(l => l.distance <= 50);
-        setResults(within50);
+        const within150 = withDist.filter(l => l.distance <= 50);
+        setResults(within150.length > 0 ? within150 : withDist.slice(0, 5));
         setGeoLoading(false);
       },
       () => { setError("Location access denied. Please enter your location manually."); setGeoLoading(false); }
@@ -4996,7 +4996,7 @@ export default function UnionPathway() {
                 <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
                 <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
               </svg>
-              {selectedTrade === "ALL" ? (lang==="es" ? "Buscar Todos los Oficios" : lang==="pl" ? "Szukaj We Wszystkich Zawodach" : "Search All Trades") : <>All Trades · <span style={{color:"var(--yellow)"}}>{selectedTrade === "IBEW_I" ? "IBEW Inside" : selectedTrade === "IBEW_L" ? "IBEW Lineman" : selectedTrade === "IUEC" ? "Elevator" : selectedTrade === "HFIAW" ? "Insulators" : selectedTrade === "SF" ? "Sprinkler Fitters" : selectedTrade}</span></>}
+              All Trades · <span style={{color:"var(--yellow)"}}>{selectedTrade === "IBEW_I" ? "IBEW Inside" : selectedTrade === "IBEW_L" ? "IBEW Lineman" : selectedTrade === "IUEC" ? "Elevator" : selectedTrade === "HFIAW" ? "Insulators" : selectedTrade === "SF" ? "Sprinkler Fitters" : selectedTrade}</span>
               <svg className="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
@@ -5216,7 +5216,7 @@ export default function UnionPathway() {
             {/* SEARCH CARD */}
             <div className="search-card">
               <span className="search-label">
-                {selectedTrade === "ALL" ? (lang==="es" ? "🔍 Todos los Oficios — Ingresa Código Postal o Ciudad" : lang==="pl" ? "🔍 Wszystkie Zawody — Wpisz Kod Pocztowy lub Miasto" : "🔍 All Trades — Enter ZIP Code or City, State") : selectedTrade === "UA" ? t.uaLabel : selectedTrade === "SMART" ? t.smartLabel : selectedTrade === "BAC" ? t.bacLabel : selectedTrade === "UBC" ? t.ubcLabel : selectedTrade === "LIUNA" ? t.liunaLabel : selectedTrade === "IW" ? t.iwLabel : selectedTrade === "IBEW_L" ? t.ibewLinLabel : selectedTrade === "IUEC" ? t.iuecLabel : selectedTrade === "HFIAW" ? t.hfiawLabel : selectedTrade === "SF" ? t.sfLabel : t.ibewLabel}
+                {selectedTrade === "UA" ? t.uaLabel : selectedTrade === "SMART" ? t.smartLabel : selectedTrade === "BAC" ? t.bacLabel : selectedTrade === "UBC" ? t.ubcLabel : selectedTrade === "LIUNA" ? t.liunaLabel : selectedTrade === "IW" ? t.iwLabel : selectedTrade === "IBEW_L" ? t.ibewLinLabel : selectedTrade === "IUEC" ? t.iuecLabel : selectedTrade === "HFIAW" ? t.hfiawLabel : selectedTrade === "SF" ? t.sfLabel : t.ibewLabel}
                 {" "}{t.searchLabel}
               </span>
               <div className="search-row">
@@ -6044,6 +6044,11 @@ export default function UnionPathway() {
                 <div className="quote-author">— The True Value of a Union Package</div>
               </div>
 
+              <div style={{textAlign:"center", marginTop:48}}>
+                <button className="btn-primary" onClick={() => { setPage("home"); window.scrollTo(0,0); }}>
+                  {lang==="es" ? "Encuentra tu Local Sindical →" : lang==="pl" ? "Znajdź Swój Lokalny Związek →" : "Find Your Union Local →"}
+                </button>
+              </div>
             </div>
           </div>
         )}
