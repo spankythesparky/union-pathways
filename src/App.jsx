@@ -4745,7 +4745,7 @@ export default function UnionPathway() {
             {/* UNION BENEFITS DROPDOWN */}
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
-                className={`nav-dropdown-btn${(page==="benefits"||page==="retirement"||page==="health")?" active":""}​${benefitsOpen?" open":""}`}
+                className={`nav-dropdown-btn${(page==="benefits"||page==="retirement"||page==="health")?" active":""}${benefitsOpen?" open":""}`}
                 onClick={() => setBenefitsOpen(o => !o)}
                 onBlur={() => setTimeout(() => setBenefitsOpen(false), 150)}
               >
