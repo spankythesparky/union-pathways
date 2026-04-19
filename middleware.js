@@ -34,7 +34,7 @@ export default function middleware(req) {
 <meta name="twitter:title" content="${m.title}"/>
 <meta name="twitter:description" content="${m.desc}"/>
 <meta property="og:image:width" content="1200"/>
-<meta property="og:image:height" content="630"/>
+<meta property="og:image:height" content="1200"/>
 <meta name="twitter:image" content="https://unionpathways.com/social-preview.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="canonical" href="${url}"/>
