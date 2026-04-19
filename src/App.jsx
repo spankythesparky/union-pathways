@@ -5216,7 +5216,7 @@ export default function UnionPathway() {
             {/* SEARCH CARD */}
             <div className="search-card">
               <span className="search-label">
-                {selectedTrade === "UA" ? t.uaLabel : selectedTrade === "SMART" ? t.smartLabel : selectedTrade === "BAC" ? t.bacLabel : selectedTrade === "UBC" ? t.ubcLabel : selectedTrade === "LIUNA" ? t.liunaLabel : selectedTrade === "IW" ? t.iwLabel : selectedTrade === "IBEW_L" ? t.ibewLinLabel : selectedTrade === "IUEC" ? t.iuecLabel : selectedTrade === "HFIAW" ? t.hfiawLabel : selectedTrade === "SF" ? t.sfLabel : t.ibewLabel}
+                {selectedTrade === "ALL" ? (lang==="es" ? "🔍 Todos los Oficios — Ingresa Código Postal o Ciudad" : lang==="pl" ? "🔍 Wszystkie Zawody — Wpisz Kod Pocztowy lub Miasto" : "🔍 All Trades — Enter ZIP Code or City, State") : selectedTrade === "UA" ? t.uaLabel : selectedTrade === "SMART" ? t.smartLabel : selectedTrade === "BAC" ? t.bacLabel : selectedTrade === "UBC" ? t.ubcLabel : selectedTrade === "LIUNA" ? t.liunaLabel : selectedTrade === "IW" ? t.iwLabel : selectedTrade === "IBEW_L" ? t.ibewLinLabel : selectedTrade === "IUEC" ? t.iuecLabel : selectedTrade === "HFIAW" ? t.hfiawLabel : selectedTrade === "SF" ? t.sfLabel : t.ibewLabel}
                 {" "}{t.searchLabel}
               </span>
               <div className="search-row">
