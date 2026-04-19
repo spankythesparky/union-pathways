@@ -2397,7 +2397,7 @@ export default function UnionPathway() {
   const [heroVisible, setHeroVisible] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [getStartedOpen, setGetStartedOpen] = useState(false);
-  const [selectedTrade, setSelectedTrade] = useState("IBEW_I");
+  const [selectedTrade, setSelectedTrade] = useState("ALL");
   // URL-aware page state
   const getPageFromUrl = () => {
     const path = window.location.pathname.replace('/', '') || 'home';
@@ -3561,7 +3561,7 @@ export default function UnionPathway() {
     }
 
     setLocationLabel(loc.display);
-    const database = selectedTrade === "UA" ? UA_LOCALS : selectedTrade === "SMART" ? SMART_LOCALS : selectedTrade === "BAC" ? BAC_LOCALS : selectedTrade === "UBC" ? UBC_LOCALS : selectedTrade === "HFIAW" ? HFIAW_LOCALS : selectedTrade === "IW" ? IW_LOCALS : selectedTrade === "LIUNA" ? LIUNA_LOCALS : selectedTrade === "IBEW_L" ? IBEW_LINEMAN_LOCALS : IBEW_INSIDE_LOCALS;
+    const database = selectedTrade === "ALL" ? [...IBEW_INSIDE_LOCALS, ...IBEW_LINEMAN_LOCALS, ...UA_LOCALS, ...SMART_LOCALS, ...BAC_LOCALS, ...UBC_LOCALS, ...HFIAW_LOCALS, ...IW_LOCALS, ...LIUNA_LOCALS] : selectedTrade === "UA" ? UA_LOCALS : selectedTrade === "SMART" ? SMART_LOCALS : selectedTrade === "BAC" ? BAC_LOCALS : selectedTrade === "UBC" ? UBC_LOCALS : selectedTrade === "HFIAW" ? HFIAW_LOCALS : selectedTrade === "IW" ? IW_LOCALS : selectedTrade === "LIUNA" ? LIUNA_LOCALS : selectedTrade === "IBEW_L" ? IBEW_LINEMAN_LOCALS : IBEW_INSIDE_LOCALS;
     const withDist = database
       .map(l => ({ ...l, distance: getDistanceMiles(loc.lat, loc.lng, l.lat, l.lng) }))
       .sort((a, b) => a.distance - b.distance);
@@ -3578,7 +3578,7 @@ export default function UnionPathway() {
       (pos) => {
         const { latitude: lat, longitude: lng } = pos.coords;
         setLocationLabel("Your Current Location");
-        const database = selectedTrade === "UA" ? UA_LOCALS : selectedTrade === "SMART" ? SMART_LOCALS : selectedTrade === "BAC" ? BAC_LOCALS : selectedTrade === "UBC" ? UBC_LOCALS : selectedTrade === "HFIAW" ? HFIAW_LOCALS : selectedTrade === "IW" ? IW_LOCALS : selectedTrade === "LIUNA" ? LIUNA_LOCALS : selectedTrade === "IBEW_L" ? IBEW_LINEMAN_LOCALS : IBEW_INSIDE_LOCALS;
+        const database = selectedTrade === "ALL" ? [...IBEW_INSIDE_LOCALS, ...IBEW_LINEMAN_LOCALS, ...UA_LOCALS, ...SMART_LOCALS, ...BAC_LOCALS, ...UBC_LOCALS, ...HFIAW_LOCALS, ...IW_LOCALS, ...LIUNA_LOCALS] : selectedTrade === "UA" ? UA_LOCALS : selectedTrade === "SMART" ? SMART_LOCALS : selectedTrade === "BAC" ? BAC_LOCALS : selectedTrade === "UBC" ? UBC_LOCALS : selectedTrade === "HFIAW" ? HFIAW_LOCALS : selectedTrade === "IW" ? IW_LOCALS : selectedTrade === "LIUNA" ? LIUNA_LOCALS : selectedTrade === "IBEW_L" ? IBEW_LINEMAN_LOCALS : IBEW_INSIDE_LOCALS;
         const withDist = database
           .map(l => ({ ...l, distance: getDistanceMiles(lat, lng, l.lat, l.lng) }))
           .sort((a, b) => a.distance - b.distance);
@@ -4996,7 +4996,7 @@ export default function UnionPathway() {
                 <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
                 <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
               </svg>
-              All Trades · <span style={{color:"var(--yellow)"}}>{selectedTrade === "IBEW_I" ? "IBEW Inside" : selectedTrade === "IBEW_L" ? "IBEW Lineman" : selectedTrade === "IUEC" ? "Elevator" : selectedTrade === "HFIAW" ? "Insulators" : selectedTrade === "SF" ? "Sprinkler Fitters" : selectedTrade}</span>
+              selectedTrade === "ALL" ? (lang==="es" ? "Buscar Todos los Oficios" : lang==="pl" ? "Szukaj We Wszystkich Zawodach" : "Search All Trades") : <>All Trades · <span style={{color:"var(--yellow)"}}{selectedTrade === "IBEW_I" ? "IBEW Inside" : selectedTrade === "IBEW_L" ? "IBEW Lineman" : selectedTrade === "IUEC" ? "Elevator" : selectedTrade === "HFIAW" ? "Insulators" : selectedTrade === "SF" ? "Sprinkler Fitters" : selectedTrade}</span>
               <svg className="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
@@ -6045,7 +6045,7 @@ export default function UnionPathway() {
               </div>
 
               <div style={{textAlign:"center", marginTop:48}}>
-                <button className="btn-primary" onClick={() => { setPage("home"); window.scrollTo(0,0); }}>
+                <button className="btn-primary" onClick={() => { setPage("home"); setSelectedTrade("ALL"); window.scrollTo(0,0); }}>
                   {lang==="es" ? "Encuentra tu Local Sindical →" : lang==="pl" ? "Znajdź Swój Lokalny Związek →" : "Find Your Union Local →"}
                 </button>
               </div>
