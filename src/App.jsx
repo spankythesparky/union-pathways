@@ -3565,8 +3565,8 @@ export default function UnionPathway() {
     const withDist = database
       .map(l => ({ ...l, distance: getDistanceMiles(loc.lat, loc.lng, l.lat, l.lng) }))
       .sort((a, b) => a.distance - b.distance);
-    const within150 = withDist.filter(l => l.distance <= 50);
-    setResults(within150.length > 0 ? within150 : withDist.slice(0, 5));
+    const within50 = withDist.filter(l => l.distance <= 50);
+    setResults(within50);
     setLoading(false);
   };
 
@@ -3582,8 +3582,8 @@ export default function UnionPathway() {
         const withDist = database
           .map(l => ({ ...l, distance: getDistanceMiles(lat, lng, l.lat, l.lng) }))
           .sort((a, b) => a.distance - b.distance);
-        const within150 = withDist.filter(l => l.distance <= 50);
-        setResults(within150.length > 0 ? within150 : withDist.slice(0, 5));
+        const within50 = withDist.filter(l => l.distance <= 50);
+        setResults(within50);
         setGeoLoading(false);
       },
       () => { setError("Location access denied. Please enter your location manually."); setGeoLoading(false); }
@@ -6044,11 +6044,6 @@ export default function UnionPathway() {
                 <div className="quote-author">— The True Value of a Union Package</div>
               </div>
 
-              <div style={{textAlign:"center", marginTop:48}}>
-                <button className="btn-primary" onClick={() => { setPage("home"); setSelectedTrade("ALL"); window.scrollTo(0,0); }}>
-                  {lang==="es" ? "Encuentra tu Local Sindical →" : lang==="pl" ? "Znajdź Swój Lokalny Związek →" : "Find Your Union Local →"}
-                </button>
-              </div>
             </div>
           </div>
         )}
