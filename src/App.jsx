@@ -13,13 +13,13 @@ const UNION_TRADES = [
     group: "Plumbing, Pipefitting & HVAC",
     trades: [
       { abbr: "UA", name: "Plumbers & Pipefitters", full: "United Association of Plumbers & Pipefitters", website: "www.ua.org", status: "active", color: "#3b9eff" },
-      { abbr: "SMART", name: "Sheet Metal Workers", full: "Sheet Metal, Air, Rail & Transportation Workers", website: "www.smart-union.org", status: "active", color: "#e05a2b" },
+      { abbr: "SMART", name: "Sheet Metal Workers", full: "Sheet Metal, Air, Rail & Transportation Workers", website: "www.smart-union.org", status: "coming" },
     ],
   },
   {
     group: "Carpentry & Millwork",
     trades: [
-      { abbr: "UBC", name: "Carpenters", full: "United Brotherhood of Carpenters", website: "www.carpenters.org", status: "active", color: "#a78bfa" },
+      { abbr: "UBC", name: "Carpenters", full: "United Brotherhood of Carpenters", website: "www.carpenters.org", status: "coming" },
       { abbr: "IUPAT", name: "Painters & Allied Trades", full: "Int'l Union of Painters & Allied Trades", website: "www.iupat.org", status: "coming" },
       { abbr: "BAC", name: "Bricklayers", full: "Int'l Union of Bricklayers & Allied Craftworkers", website: "www.bacweb.org", status: "active", color: "#f97316" },
     ],
@@ -28,7 +28,7 @@ const UNION_TRADES = [
     group: "Heavy Construction",
     trades: [
       { abbr: "IUOE", name: "Operating Engineers", full: "Int'l Union of Operating Engineers", website: "www.iuoe.org", status: "coming" },
-      { abbr: "LIUNA", name: "Laborers", full: "Laborers' Int'l Union of North America", website: "www.liuna.org", status: "active", color: "#fb923c" },
+      { abbr: "LIUNA", name: "Laborers", full: "Laborers' Int'l Union of North America", website: "www.liuna.org", status: "coming" },
       { abbr: "IW", name: "Ironworkers", full: "Int'l Association of Bridge & Structural Iron Workers", website: "www.ironworkers.org", status: "active", color: "#ef4444" },
       { abbr: "OCA", name: "Cement Masons", full: "Operative Plasterers' & Cement Masons' Int'l Association", website: "www.opcmia.org", status: "coming" },
     ],
@@ -37,7 +37,7 @@ const UNION_TRADES = [
     group: "Specialty Trades",
     trades: [
       { abbr: "IUEC", name: "Elevator Constructors", full: "Int'l Union of Elevator Constructors", website: "www.iuec.org", status: "coming" },
-      { abbr: "HFIAW", name: "Insulators", full: "Heat & Frost Insulators and Allied Workers", website: "www.insulators.org", status: "active", color: "#38bdf8" },
+      { abbr: "HFIAW", name: "Insulators", full: "Heat & Frost Insulators and Allied Workers", website: "www.insulators.org", status: "coming" },
       { abbr: "SF", name: "Sprinkler Fitters", full: "United Assoc. Sprinkler Fitters Local 669", website: "www.sprinklerfitters669.org", status: "coming" },
       { abbr: "IABSORIW", name: "Boilermakers", full: "Int'l Brotherhood of Boilermakers", website: "www.boilermakers.org", status: "coming" },
       { abbr: "IBT", name: "Teamsters (Construction)", full: "Int'l Brotherhood of Teamsters", website: "www.teamster.org", status: "coming" },
@@ -477,57 +477,7 @@ const IBEW_LINEMAN_LOCALS = [
 ];
 
 // ─── HFIAW LOCALS DATABASE — Heat & Frost Insulators & Allied Workers ─────────
-const HFIAW_LOCALS = [
-  { id: 1,  name: "HFIAW Local 1",  city: "St. Louis",     state: "MO", phone: "(314) 291-7399",  website: "insulators1.org",       lat: 38.6270, lng: -90.1994, address: "St. Louis, MO" },
-  { id: 2,  name: "HFIAW Local 2",  city: "New York",      state: "NY", phone: null,               website: null,                    lat: 40.7128, lng: -74.0059, address: "New York, NY" },
-  { id: 3,  name: "HFIAW Local 3",  city: "Cleveland",     state: "OH", phone: null,               website: null,                    lat: 41.4993, lng: -81.6944, address: "Cleveland, OH" },
-  { id: 4,  name: "HFIAW Local 4",  city: "Buffalo",       state: "NY", phone: null,               website: null,                    lat: 42.8864, lng: -78.8784, address: "Buffalo, NY" },
-  { id: 5,  name: "HFIAW Local 5",  city: "Los Angeles",   state: "CA", phone: null,               website: null,                    lat: 34.0522, lng: -118.2437, address: "Los Angeles, CA" },
-  { id: 6,  name: "HFIAW Local 6",  city: "Boston",        state: "MA", phone: null,               website: null,                    lat: 42.3601, lng: -71.0589, address: "Boston, MA" },
-  { id: 7,  name: "HFIAW Local 7",  city: "Albany",        state: "NY", phone: null,               website: null,                    lat: 42.6526, lng: -73.7562, address: "Albany, NY" },
-  { id: 8,  name: "HFIAW Local 8",  city: "Cincinnati",    state: "OH", phone: null,               website: null,                    lat: 39.1031, lng: -84.5120, address: "Cincinnati, OH" },
-  { id: 9,  name: "HFIAW Local 9",  city: "Detroit",       state: "MI", phone: null,               website: null,                    lat: 42.3314, lng: -83.0458, address: "Detroit, MI" },
-  { id: 10, name: "HFIAW Local 10", city: "Washington",    state: "DC", phone: null,               website: null,                    lat: 38.9072, lng: -77.0369, address: "Washington, DC" },
-  { id: 11, name: "HFIAW Local 11", city: "Phoenix",       state: "AZ", phone: null,               website: null,                    lat: 33.4484, lng: -112.0740, address: "Phoenix, AZ" },
-  { id: 12, name: "HFIAW Local 12", city: "Newark",        state: "NJ", phone: null,               website: null,                    lat: 40.7357, lng: -74.1724, address: "Newark, NJ" },
-  { id: 13, name: "HFIAW Local 13", city: "Pittsburgh",    state: "PA", phone: null,               website: null,                    lat: 40.4406, lng: -79.9959, address: "Pittsburgh, PA" },
-  { id: 14, name: "HFIAW Local 14", city: "Rochester",     state: "NY", phone: null,               website: null,                    lat: 43.1566, lng: -77.6088, address: "Rochester, NY" },
-  { id: 15, name: "HFIAW Local 15", city: "Baltimore",     state: "MD", phone: null,               website: null,                    lat: 39.2904, lng: -76.6122, address: "Baltimore, MD" },
-  { id: 16, name: "HFIAW Local 16", city: "Portland",      state: "ME", phone: null,               website: null,                    lat: 43.6591, lng: -70.2568, address: "Portland, ME" },
-  { id: 17, name: "HFIAW Local 17", city: "Chicago",       state: "IL", phone: "(708) 468-8000",   website: "local17insulators.com", lat: 41.8781, lng: -87.6298, address: "Chicago, IL" },
-  { id: 18, name: "HFIAW Local 18", city: "Indianapolis",  state: "IN", phone: "(317) 786-3216",   website: "insulators18.org",      lat: 39.7684, lng: -86.1581, address: "Indianapolis, IN" },
-  { id: 19, name: "HFIAW Local 19", city: "Milwaukee",     state: "WI", phone: "(262) 548-9606",   website: "insulators19.com",      lat: 43.0389, lng: -87.9065, address: "Milwaukee, WI" },
-  { id: 21, name: "HFIAW Local 21", city: "Houston",       state: "TX", phone: null,               website: null,                    lat: 29.7604, lng: -95.3698, address: "Houston, TX" },
-  { id: 22, name: "HFIAW Local 22", city: "Dallas",        state: "TX", phone: null,               website: null,                    lat: 32.7767, lng: -96.7970, address: "Dallas, TX" },
-  { id: 23, name: "HFIAW Local 23", city: "Syracuse",      state: "NY", phone: null,               website: null,                    lat: 43.0481, lng: -76.1474, address: "Syracuse, NY" },
-  { id: 24, name: "HFIAW Local 24", city: "Memphis",       state: "TN", phone: null,               website: null,                    lat: 35.1495, lng: -90.0490, address: "Memphis, TN" },
-  { id: 25, name: "HFIAW Local 25", city: "Kansas City",   state: "MO", phone: null,               website: null,                    lat: 39.0997, lng: -94.5786, address: "Kansas City, MO" },
-  { id: 26, name: "HFIAW Local 26", city: "New Orleans",   state: "LA", phone: null,               website: null,                    lat: 29.9511, lng: -90.0715, address: "New Orleans, LA" },
-  { id: 27, name: "HFIAW Local 27", city: "Denver",        state: "CO", phone: "(816) 252-0588",   website: "insulators27.com",      lat: 39.7392, lng: -104.9903, address: "Denver, CO" },
-  { id: 28, name: "HFIAW Local 28", city: "Atlanta",       state: "GA", phone: null,               website: null,                    lat: 33.7490, lng: -84.3880, address: "Atlanta, GA" },
-  { id: 29, name: "HFIAW Local 29", city: "San Francisco", state: "CA", phone: null,               website: null,                    lat: 37.7749, lng: -122.4194, address: "San Francisco, CA" },
-  { id: 30, name: "HFIAW Local 30", city: "Scranton",      state: "PA", phone: null,               website: null,                    lat: 41.4090, lng: -75.6624, address: "Scranton, PA" },
-  { id: 31, name: "HFIAW Local 31", city: "Minneapolis",   state: "MN", phone: null,               website: null,                    lat: 44.9778, lng: -93.2650, address: "Minneapolis, MN" },
-  { id: 34, name: "HFIAW Local 34", city: "Chicago",       state: "IL", phone: null,               website: null,                    lat: 41.8827, lng: -87.6233, address: "Chicago, IL" },
-  { id: 35, name: "HFIAW Local 35", city: "Tampa",         state: "FL", phone: null,               website: null,                    lat: 27.9506, lng: -82.4572, address: "Tampa, FL" },
-  { id: 36, name: "HFIAW Local 36", city: "Las Vegas",     state: "NV", phone: null,               website: null,                    lat: 36.1699, lng: -115.1398, address: "Las Vegas, NV" },
-  { id: 37, name: "HFIAW Local 37", city: "Oklahoma City", state: "OK", phone: "(812) 477-2341",   website: "insulators37.org",      lat: 35.4676, lng: -97.5164, address: "Oklahoma City, OK" },
-  { id: 39, name: "HFIAW Local 39", city: "Omaha",         state: "NE", phone: "(402) 333-6960",   website: null,                    lat: 41.2565, lng: -95.9345, address: "Omaha, NE" },
-  { id: 40, name: "HFIAW Local 40", city: "Portland",      state: "OR", phone: null,               website: null,                    lat: 45.5231, lng: -122.6765, address: "Portland, OR" },
-  { id: 41, name: "HFIAW Local 41", city: "Fort Wayne",    state: "IN", phone: null,               website: null,                    lat: 41.0793, lng: -85.1394, address: "Fort Wayne, IN" },
-  { id: 42, name: "HFIAW Local 42", city: "Seattle",       state: "WA", phone: null,               website: null,                    lat: 47.6062, lng: -122.3321, address: "Seattle, WA" },
-  { id: 45, name: "HFIAW Local 45", city: "Toledo",        state: "OH", phone: null,               website: null,                    lat: 41.6528, lng: -83.5379, address: "Toledo, OH" },
-  { id: 46, name: "HFIAW Local 46", city: "Oakland",       state: "CA", phone: null,               website: null,                    lat: 37.8044, lng: -122.2712, address: "Oakland, CA" },
-  { id: 48, name: "HFIAW Local 48", city: "Salt Lake City",state: "UT", phone: null,               website: null,                    lat: 40.7608, lng: -111.8910, address: "Salt Lake City, UT" },
-  { id: 50, name: "HFIAW Local 50", city: "Columbus",      state: "OH", phone: null,               website: null,                    lat: 39.9612, lng: -82.9988, address: "Columbus, OH" },
-  { id: 52, name: "HFIAW Local 52", city: "Minneapolis",   state: "MN", phone: null,               website: null,                    lat: 44.9638, lng: -93.2422, address: "Minneapolis, MN" },
-  { id: 53, name: "HFIAW Local 53", city: "Birmingham",    state: "AL", phone: null,               website: null,                    lat: 33.5186, lng: -86.8104, address: "Birmingham, AL" },
-  { id: 55, name: "HFIAW Local 55", city: "Des Moines",    state: "IA", phone: null,               website: null,                    lat: 41.5868, lng: -93.6250, address: "Des Moines, IA" },
-  { id: 65, name: "HFIAW Local 65", city: "Nashville",     state: "TN", phone: null,               website: null,                    lat: 36.1627, lng: -86.7816, address: "Nashville, TN" },
-  { id: 73, name: "HFIAW Local 73", city: "Albuquerque",   state: "NM", phone: null,               website: null,                    lat: 35.0844, lng: -106.6504, address: "Albuquerque, NM" },
-  { id: 74, name: "HFIAW Local 74", city: "Charlotte",     state: "NC", phone: "(515) 288-0472",   website: "insulators74.org",      lat: 35.2271, lng: -80.8431, address: "Charlotte, NC" },
-  { id: 84, name: "HFIAW Local 84", city: "Akron",         state: "OH", phone: null,               website: null,                    lat: 41.0998, lng: -81.5190, address: "Akron, OH" },
-];
+const HFIAW_LOCALS = [];
 
 
 // ─── IRONWORKERS LOCALS DATABASE — Int'l Association of Bridge & Structural Iron Workers ─
@@ -666,111 +616,7 @@ const IW_LOCALS = [
 ];
 
 // ─── LIUNA LOCALS DATABASE — Laborers' International Union of North America ───
-const LIUNA_LOCALS = [
-  { id: 1,    name: "LIUNA Local 1",    city: "Chicago",          state: "IL", phone: null, website: null, lat: 41.8781, lng: -87.6298, address: "Chicago, IL" },
-  { id: 2,    name: "LIUNA Local 2",    city: "Brookfield",       state: "IL", phone: null, website: null, lat: 41.8253, lng: -87.8476, address: "Brookfield, IL" },
-  { id: 3,    name: "LIUNA Local 3",    city: "Jersey City",      state: "NJ", phone: null, website: null, lat: 40.7178, lng: -74.0431, address: "Jersey City, NJ" },
-  { id: 5,    name: "LIUNA Local 5",    city: "Chicago",          state: "IL", phone: null, website: null, lat: 41.8831, lng: -87.6320, address: "Chicago, IL" },
-  { id: 9,    name: "LIUNA Local 9",    city: "Hopkinton",        state: "MA", phone: null, website: null, lat: 42.2284, lng: -71.5226, address: "Hopkinton, MA" },
-  { id: 11,   name: "LIUNA Local 11",   city: "Upper Marlboro",   state: "MD", phone: null, website: null, lat: 38.8407, lng: -76.7491, address: "Upper Marlboro, MD" },
-  { id: 16,   name: "LIUNA Local 16",   city: "Albuquerque",      state: "NM", phone: null, website: null, lat: 35.0844, lng: -106.6504, address: "Albuquerque, NM" },
-  { id: 17,   name: "LIUNA Local 17",   city: "Newburgh",         state: "NY", phone: null, website: null, lat: 41.5034, lng: -74.0104, address: "Newburgh, NY" },
-  { id: 22,   name: "LIUNA Local 22",   city: "Malden",           state: "MA", phone: null, website: null, lat: 42.4251, lng: -71.0662, address: "Malden, MA" },
-  { id: 32,   name: "LIUNA Local 32",   city: "Rockford",         state: "IL", phone: null, website: null, lat: 42.2711, lng: -89.0940, address: "Rockford, IL" },
-  { id: 42,   name: "LIUNA Local 42",   city: "St. Louis",        state: "MO", phone: null, website: null, lat: 38.6270, lng: -90.1994, address: "St. Louis, MO" },
-  { id: 43,   name: "LIUNA Local 43",   city: "Cedar Rapids",     state: "IA", phone: null, website: null, lat: 41.9779, lng: -91.6656, address: "Cedar Rapids, IA" },
-  { id: 68,   name: "LIUNA Local 68",   city: "Lombard",          state: "IL", phone: null, website: null, lat: 41.8800, lng: -88.0076, address: "Lombard, IL" },
-  { id: 73,   name: "LIUNA Local 73",   city: "Stockton",         state: "CA", phone: null, website: null, lat: 37.9577, lng: -121.2908, address: "Stockton, CA" },
-  { id: 75,   name: "LIUNA Local 75",   city: "Crest Hill",       state: "IL", phone: null, website: null, lat: 41.5642, lng: -88.1009, address: "Crest Hill, IL" },
-  { id: 77,   name: "LIUNA Local 77",   city: "Ewing",            state: "NJ", phone: null, website: null, lat: 40.2676, lng: -74.7960, address: "Ewing, NJ" },
-  { id: 79,   name: "LIUNA Local 79",   city: "New York City",    state: "NY", phone: null, website: null, lat: 40.7128, lng: -74.0059, address: "New York, NY" },
-  { id: 88,   name: "LIUNA Local 88",   city: "Quincy",           state: "MA", phone: null, website: null, lat: 42.2529, lng: -71.0023, address: "Quincy, MA" },
-  { id: 89,   name: "LIUNA Local 89",   city: "San Diego",        state: "CA", phone: null, website: null, lat: 32.7157, lng: -117.1611, address: "San Diego, CA" },
-  { id: 100,  name: "LIUNA Local 100",  city: "East St. Louis",   state: "IL", phone: null, website: null, lat: 38.6245, lng: -90.1532, address: "East St. Louis, IL" },
-  { id: 110,  name: "LIUNA Local 110",  city: "St. Louis",        state: "MO", phone: null, website: null, lat: 38.6320, lng: -90.1870, address: "St. Louis, MO" },
-  { id: 130,  name: "LIUNA Local 130",  city: "Scranton",         state: "PA", phone: null, website: null, lat: 41.4090, lng: -75.6624, address: "Scranton, PA" },
-  { id: 140,  name: "LIUNA Local 140",  city: "La Crosse",        state: "WI", phone: null, website: null, lat: 43.8014, lng: -91.2396, address: "La Crosse, WI" },
-  { id: 146,  name: "LIUNA Local 146",  city: "Norwalk",          state: "CT", phone: null, website: null, lat: 41.1177, lng: -73.4082, address: "Norwalk, CT" },
-  { id: 152,  name: "LIUNA Local 152",  city: "Highland Park",    state: "IL", phone: null, website: null, lat: 42.1817, lng: -87.8003, address: "Highland Park, IL" },
-  { id: 157,  name: "LIUNA Local 157",  city: "Schenectady",      state: "NY", phone: null, website: null, lat: 42.8142, lng: -73.9396, address: "Schenectady, NY" },
-  { id: 159,  name: "LIUNA Local 159",  city: "Decatur",          state: "IL", phone: null, website: null, lat: 39.8403, lng: -88.9548, address: "Decatur, IL" },
-  { id: 169,  name: "LIUNA Local 169",  city: "Reno",             state: "NV", phone: null, website: null, lat: 39.5296, lng: -119.8138, address: "Reno, NV" },
-  { id: 175,  name: "LIUNA Local 175",  city: "Methuen",          state: "MA", phone: null, website: null, lat: 42.7262, lng: -71.1909, address: "Methuen, MA" },
-  { id: 185,  name: "LIUNA Local 185",  city: "Sacramento",       state: "CA", phone: null, website: null, lat: 38.5816, lng: -121.4944, address: "Sacramento, CA" },
-  { id: 220,  name: "LIUNA Local 220",  city: "Bakersfield",      state: "CA", phone: null, website: null, lat: 35.3733, lng: -119.0187, address: "Bakersfield, CA" },
-  { id: 225,  name: "LIUNA Local 225",  city: "Willow Springs",   state: "IL", phone: null, website: null, lat: 41.7400, lng: -87.8670, address: "Willow Springs, IL" },
-  { id: 231,  name: "LIUNA Local 231",  city: "Peoria",           state: "IL", phone: null, website: null, lat: 40.6936, lng: -89.5890, address: "Peoria, IL" },
-  { id: 238,  name: "LIUNA Local 238",  city: "Spokane",          state: "WA", phone: null, website: null, lat: 47.6588, lng: -117.4260, address: "Spokane, WA" },
-  { id: 242,  name: "LIUNA Local 242",  city: "Des Moines",       state: "WA", phone: null, website: null, lat: 47.4015, lng: -122.3243, address: "Des Moines, WA" },
-  { id: 252,  name: "LIUNA Local 252",  city: "Tacoma",           state: "WA", phone: null, website: null, lat: 47.2529, lng: -122.4443, address: "Tacoma, WA" },
-  { id: 261,  name: "LIUNA Local 261",  city: "San Francisco",    state: "CA", phone: null, website: null, lat: 37.7849, lng: -122.4094, address: "San Francisco, CA" },
-  { id: 265,  name: "LIUNA Local 265",  city: "Cincinnati",       state: "OH", phone: null, website: null, lat: 39.1031, lng: -84.5120, address: "Cincinnati, OH" },
-  { id: 268,  name: "LIUNA Local 268",  city: "Eau Claire",       state: "WI", phone: null, website: null, lat: 44.8113, lng: -91.4985, address: "Eau Claire, WI" },
-  { id: 270,  name: "LIUNA Local 270",  city: "San Jose",         state: "CA", phone: null, website: null, lat: 37.3382, lng: -121.8863, address: "San Jose, CA" },
-  { id: 271,  name: "LIUNA Local 271",  city: "Providence",       state: "RI", phone: null, website: null, lat: 41.8240, lng: -71.4128, address: "Providence, RI" },
-  { id: 274,  name: "LIUNA Local 274",  city: "Lafayette",        state: "IN", phone: null, website: null, lat: 40.4168, lng: -86.8753, address: "Lafayette, IN" },
-  { id: 292,  name: "LIUNA Local 292",  city: "Everett",          state: "WA", phone: null, website: null, lat: 47.9790, lng: -122.2021, address: "Everett, WA" },
-  { id: 294,  name: "LIUNA Local 294",  city: "Fresno",           state: "CA", phone: null, website: null, lat: 36.7378, lng: -119.7871, address: "Fresno, CA" },
-  { id: 300,  name: "LIUNA Local 300",  city: "Los Angeles",      state: "CA", phone: null, website: null, lat: 34.0622, lng: -118.2537, address: "Los Angeles, CA" },
-  { id: 304,  name: "LIUNA Local 304",  city: "Hayward",          state: "CA", phone: null, website: null, lat: 37.6688, lng: -122.0808, address: "Hayward, CA" },
-  { id: 324,  name: "LIUNA Local 324",  city: "Martinez",         state: "CA", phone: null, website: null, lat: 38.0194, lng: -122.1341, address: "Martinez, CA" },
-  { id: 330,  name: "LIUNA Local 330",  city: "Menasha",          state: "WI", phone: null, website: null, lat: 44.2022, lng: -88.4426, address: "Menasha, WI" },
-  { id: 335,  name: "LIUNA Local 335",  city: "Vancouver",        state: "WA", phone: null, website: null, lat: 45.6387, lng: -122.6615, address: "Vancouver, WA" },
-  { id: 336,  name: "LIUNA Local 336",  city: "Sheffield",        state: "AL", phone: null, website: null, lat: 34.7651, lng: -87.6975, address: "Sheffield, AL" },
-  { id: 341,  name: "LIUNA Local 341",  city: "Anchorage",        state: "AK", phone: null, website: null, lat: 61.2181, lng: -149.9003, address: "Anchorage, AK" },
-  { id: 345,  name: "LIUNA Local 345",  city: "Burbank",          state: "CA", phone: null, website: null, lat: 34.1808, lng: -118.3090, address: "Burbank, CA" },
-  { id: 348,  name: "LIUNA Local 348",  city: "Richland",         state: "WA", phone: null, website: null, lat: 46.2804, lng: -119.2752, address: "Richland, WA" },
-  { id: 360,  name: "LIUNA Local 360",  city: "Clarksville",      state: "AR", phone: null, website: null, lat: 35.4715, lng: -93.4660, address: "Clarksville, AR" },
-  { id: 362,  name: "LIUNA Local 362",  city: "Bloomington",      state: "IL", phone: null, website: null, lat: 40.4842, lng: -88.9937, address: "Bloomington, IL" },
-  { id: 373,  name: "LIUNA Local 373",  city: "Pittsburgh",       state: "PA", phone: null, website: null, lat: 40.4506, lng: -79.9859, address: "Pittsburgh, PA" },
-  { id: 380,  name: "LIUNA Local 380",  city: "Cambridge",        state: "MA", phone: null, website: null, lat: 42.3736, lng: -71.1097, address: "Cambridge, MA" },
-  { id: 397,  name: "LIUNA Local 397",  city: "Granite City",     state: "IL", phone: null, website: null, lat: 38.7034, lng: -90.1487, address: "Granite City, IL" },
-  { id: 423,  name: "LIUNA Local 423",  city: "Columbus",         state: "OH", phone: "(614) 252-1093", website: "liuna.org", lat: 39.9487, lng: -82.9109, address: "2625 Winchester Pike, Columbus, OH 43232" },
-  { id: 429,  name: "LIUNA Local 429",  city: "Hopkinton",        state: "MA", phone: null, website: null, lat: 42.2284, lng: -71.5326, address: "Hopkinton, MA" },
-  { id: 464,  name: "LIUNA Local 464",  city: "Madison",          state: "WI", phone: null, website: null, lat: 43.0731, lng: -89.4012, address: "Madison, WI" },
-  { id: 473,  name: "LIUNA Local 473",  city: "Pittsfield",       state: "MA", phone: null, website: null, lat: 42.4501, lng: -73.2673, address: "Pittsfield, MA" },
-  { id: 477,  name: "LIUNA Local 477",  city: "Springfield",      state: "IL", phone: null, website: null, lat: 39.7817, lng: -89.6501, address: "Springfield, IL" },
-  { id: 483,  name: "LIUNA Local 483",  city: "Portland",         state: "OR", phone: null, website: null, lat: 45.5331, lng: -122.6565, address: "Portland, OR" },
-  { id: 517,  name: "LIUNA Local 517",  city: "Orlando",          state: "FL", phone: null, website: null, lat: 28.5383, lng: -81.3792, address: "Orlando, FL" },
-  { id: 530,  name: "LIUNA Local 530",  city: "Zanesville",       state: "OH", phone: null, website: null, lat: 39.9403, lng: -82.0132, address: "Zanesville, OH" },
-  { id: 538,  name: "LIUNA Local 538",  city: "Galesburg",        state: "IL", phone: null, website: null, lat: 40.9478, lng: -90.3712, address: "Galesburg, IL" },
-  { id: 560,  name: "LIUNA Local 560",  city: "Waltham",          state: "MA", phone: null, website: null, lat: 42.3765, lng: -71.2356, address: "Waltham, MA" },
-  { id: 5631, name: "LIUNA Local 563",  city: "Mankato",          state: "MN", phone: null, website: null, lat: 44.1636, lng: -94.0007, address: "Mankato, MN" },
-  { id: 5632, name: "LIUNA Local 563",  city: "Minneapolis",      state: "MN", phone: null, website: null, lat: 44.9878, lng: -93.2550, address: "Minneapolis, MN" },
-  { id: 5633, name: "LIUNA Local 563",  city: "St. Cloud",        state: "MN", phone: null, website: null, lat: 45.5579, lng: -94.1632, address: "St. Cloud, MN" },
-  { id: 5634, name: "LIUNA Local 563",  city: "Bismarck",         state: "ND", phone: null, website: null, lat: 46.8083, lng: -100.7837, address: "Bismarck, ND" },
-  { id: 576,  name: "LIUNA Local 576",  city: "Louisville",       state: "KY", phone: null, website: null, lat: 38.2527, lng: -85.7585, address: "Louisville, KY" },
-  { id: 582,  name: "LIUNA Local 582",  city: "Elgin",            state: "IL", phone: null, website: null, lat: 42.0354, lng: -88.2826, address: "Elgin, IL" },
-  { id: 585,  name: "LIUNA Local 585",  city: "Ventura",          state: "CA", phone: null, website: null, lat: 34.2749, lng: -119.2290, address: "Ventura, CA" },
-  { id: 596,  name: "LIUNA Local 596",  city: "Holyoke",          state: "MA", phone: null, website: null, lat: 42.2042, lng: -72.6162, address: "Holyoke, MA" },
-  { id: 609,  name: "LIUNA Local 609",  city: "Framingham",       state: "MA", phone: null, website: null, lat: 42.2793, lng: -71.4162, address: "Framingham, MA" },
-  { id: 611,  name: "LIUNA Local 611",  city: "New Britain",      state: "CT", phone: null, website: null, lat: 41.6612, lng: -72.7795, address: "New Britain, CT" },
-  { id: 639,  name: "LIUNA Local 639",  city: "Marietta",         state: "OH", phone: null, website: null, lat: 39.4153, lng: -81.4549, address: "Marietta, OH" },
-  { id: 652,  name: "LIUNA Local 652",  city: "Santa Ana",        state: "CA", phone: null, website: null, lat: 33.7455, lng: -117.8677, address: "Santa Ana, CA" },
-  { id: 703,  name: "LIUNA Local 703",  city: "Champaign",        state: "IL", phone: null, website: null, lat: 40.1164, lng: -88.2434, address: "Champaign, IL" },
-  { id: 721,  name: "LIUNA Local 721",  city: "Brockton",         state: "MA", phone: null, website: null, lat: 42.0834, lng: -71.0184, address: "Brockton, MA" },
-  { id: 724,  name: "LIUNA Local 724",  city: "Hollywood",        state: "CA", phone: null, website: null, lat: 34.0928, lng: -118.3287, address: "Hollywood, CA" },
-  { id: 731,  name: "LIUNA Local 731",  city: "New York City",    state: "NY", phone: null, website: null, lat: 40.7228, lng: -74.0059, address: "New York, NY" },
-  { id: 737,  name: "LIUNA Local 737",  city: "Portland",         state: "OR", phone: null, website: null, lat: 45.5431, lng: -122.6465, address: "Portland, OR" },
-  { id: 783,  name: "LIUNA Local 783",  city: "San Bernardino",   state: "CA", phone: null, website: null, lat: 34.1083, lng: -117.2898, address: "San Bernardino, CA" },
-  { id: 785,  name: "LIUNA Local 785",  city: "Ithaca",           state: "NY", phone: null, website: null, lat: 42.4440, lng: -76.5021, address: "Ithaca, NY" },
-  { id: 833,  name: "LIUNA Local 833",  city: "Beaver",           state: "PA", phone: null, website: null, lat: 40.6967, lng: -80.3045, address: "Beaver, PA" },
-  { id: 876,  name: "LIUNA Local 876",  city: "Taunton",          state: "MA", phone: null, website: null, lat: 41.9001, lng: -71.0898, address: "Taunton, MA" },
-  { id: 996,  name: "LIUNA Local 996",  city: "Roanoke",          state: "IL", phone: null, website: null, lat: 40.7981, lng: -89.2048, address: "Roanoke, IL" },
-  { id: 999,  name: "LIUNA Local 999",  city: "East Longmeadow",  state: "MA", phone: null, website: null, lat: 42.0670, lng: -72.5079, address: "East Longmeadow, MA" },
-  { id: 1015, name: "LIUNA Local 1015", city: "Canton",           state: "OH", phone: null, website: null, lat: 40.7989, lng: -81.3784, address: "Canton, OH" },
-  { id: 1035, name: "LIUNA Local 1035", city: "Marengo",          state: "IL", phone: null, website: null, lat: 42.2500, lng: -88.6073, address: "Marengo, IL" },
-  { id: 1076, name: "LIUNA Local 1076", city: "Pontiac",          state: "MI", phone: null, website: null, lat: 42.6389, lng: -83.2910, address: "Pontiac, MI" },
-  { id: 1091, name: "LIUNA Local 1091", city: "Duluth",           state: "MN", phone: null, website: null, lat: 46.7867, lng: -92.1005, address: "Duluth, MN" },
-  { id: 1116, name: "LIUNA Local 1116", city: "Natick",           state: "MA", phone: null, website: null, lat: 42.2837, lng: -71.3495, address: "Natick, MA" },
-  { id: 1130, name: "LIUNA Local 1130", city: "Modesto",          state: "CA", phone: null, website: null, lat: 37.6391, lng: -120.9969, address: "Modesto, CA" },
-  { id: 1144, name: "LIUNA Local 1144", city: "East Taunton",     state: "MA", phone: null, website: null, lat: 41.8734, lng: -71.0537, address: "East Taunton, MA" },
-  { id: 1156, name: "LIUNA Local 1156", city: "Framingham",       state: "MA", phone: null, website: null, lat: 42.2893, lng: -71.4062, address: "Framingham, MA" },
-  { id: 1180, name: "LIUNA Local 1180", city: "Lancaster",        state: "PA", phone: null, website: null, lat: 40.0379, lng: -76.3055, address: "Lancaster, PA" },
-  { id: 1184, name: "LIUNA Local 1184", city: "Riverside",        state: "CA", phone: null, website: null, lat: 33.9806, lng: -117.3755, address: "Riverside, CA" },
-  { id: 1309, name: "LIUNA Local 1309", city: "Lakewood",         state: "CA", phone: null, website: null, lat: 33.8536, lng: -118.1339, address: "Lakewood, CA" },
-  { id: 1421, name: "LIUNA Local 1421", city: "Tewksbury",        state: "MA", phone: null, website: null, lat: 42.6112, lng: -71.2345, address: "Tewksbury, MA" },
-];
+const LIUNA_LOCALS = [];
 
 // ─── UA LOCALS DATABASE — Plumbers & Pipefitters (source: unionpayscales.com) ─
 const UA_LOCALS = [
@@ -877,143 +723,7 @@ const UA_LOCALS = [
   { id: 669, name: "UA Local 669", city: "Columbia", state: "MD", phone: "(410) 381-4300", website: "sprinklerfitters669.org", lat: 39.2037, lng: -76.861, address: "7050 Oakland Mills Rd #200, Columbia, MD 21046" },
 ];
 
-const SMART_LOCALS = [
-  // ── ALASKA ──
-  { id: 23, name: "SMART Local 23", city: "Anchorage", state: "AK", phone: "(907) 277-5313", website: "aklocal23.org", lat: 61.1508, lng: -149.9003, address: "1317 E 75th Ave #4, Anchorage, AK 99518" },
-
-  // ── ARIZONA ──
-  { id: 359, name: "SMART Local 359", city: "Phoenix", state: "AZ", phone: null, website: "smw359.org", lat: 33.4484, lng: -112.0740, address: "Phoenix, AZ" },
-
-  // ── CALIFORNIA ──
-  { id: 104, name: "SMART Local 104", city: "San Francisco", state: "CA", phone: null, website: "smw104.org", lat: 37.7749, lng: -122.4194, address: "San Francisco, CA" },
-  { id: 104, name: "SMART Local 104", city: "Sacramento", state: "CA", phone: null, website: "smw104.org", lat: 38.5816, lng: -121.4944, address: "Sacramento, CA" },
-  { id: 105, name: "SMART Local 105", city: "Los Angeles", state: "CA", phone: null, website: "local105.org", lat: 34.0522, lng: -118.2437, address: "Los Angeles, CA" },
-  { id: 206, name: "SMART Local 206", city: "San Diego", state: "CA", phone: null, website: "smwlocal206.org", lat: 32.7157, lng: -117.1611, address: "San Diego, CA" },
-
-  // ── COLORADO ──
-  { id: 9, name: "SMART Local 9", city: "Denver", state: "CO", phone: "(303) 922-1213", website: "smw9.com", lat: 39.7392, lng: -105.0178, address: "PO Box 11040, Denver, CO 80211" },
-
-  // ── FLORIDA ──
-  { id: 15, name: "SMART Local 15", city: "Tampa", state: "FL", phone: "(813) 628-0021", website: "smwlocal15.org", lat: 27.9506, lng: -82.4572, address: "5619 N 50th St, Tampa, FL 33610" },
-  { id: 32, name: "SMART Local 32", city: "Fort Lauderdale", state: "FL", phone: null, website: "smw32.org", lat: 26.1224, lng: -80.1373, address: "Southern Florida" },
-  { id: 435, name: "SMART Local 435", city: "Jacksonville", state: "FL", phone: null, website: "smart-union.org", lat: 30.3322, lng: -81.6557, address: "Jacksonville, FL" },
-
-  // ── GEORGIA ──
-  { id: 85, name: "SMART Local 85", city: "Atlanta", state: "GA", phone: null, website: "smart85.org", lat: 33.7490, lng: -84.3880, address: "Atlanta, GA" },
-
-  // ── HAWAII ──
-  { id: 293, name: "SMART Local 293", city: "Honolulu", state: "HI", phone: null, website: "hawaiisheetmetal.com", lat: 21.3069, lng: -157.8583, address: "Honolulu, HI" },
-
-  // ── ILLINOIS ──
-  { id: 1, name: "SMART Local 1", city: "Peoria", state: "IL", phone: "(309) 682-5677", website: "smartlu1.org", lat: 40.6936, lng: -89.5890, address: "840 W Birchwood, Morton, IL 61550" },
-  { id: 73, name: "SMART Local 73", city: "Chicago", state: "IL", phone: null, website: "smw73.org", lat: 41.8781, lng: -87.6298, address: "Chicago, IL" },
-  { id: 218, name: "SMART Local 218", city: "Springfield", state: "IL", phone: null, website: "smart218.org", lat: 39.7817, lng: -89.6501, address: "Springfield, IL" },
-  { id: 219, name: "SMART Local 219", city: "Rockford", state: "IL", phone: null, website: "smwlocal219.com", lat: 42.2711, lng: -89.0940, address: "Rockford, IL" },
-  { id: 265, name: "SMART Local 265", city: "Naperville", state: "IL", phone: null, website: "smart265.org", lat: 41.8508, lng: -88.0200, address: "DuPage County, IL" },
-  { id: 268, name: "SMART Local 268", city: "Carbondale", state: "IL", phone: null, website: "local268.com", lat: 37.7270, lng: -89.2167, address: "Southern Illinois" },
-
-  // ── INDIANA ──
-  { id: 20, name: "SMART Local 20", city: "Indianapolis", state: "IN", phone: "(317) 549-6013", website: "smw20.com", lat: 39.7684, lng: -86.1581, address: "PO Box 20530, Indianapolis, IN 46220" },
-
-  // ── IOWA ──
-  { id: 91, name: "SMART Local 91", city: "Davenport", state: "IA", phone: null, website: "smw91.org", lat: 41.5236, lng: -90.5776, address: "Davenport, IA" },
-  { id: 263, name: "SMART Local 263", city: "Cedar Rapids", state: "IA", phone: null, website: "smart263.org", lat: 41.9779, lng: -91.6656, address: "Cedar Rapids, IA" },
-
-  // ── KANSAS ──
-  { id: 29, name: "SMART Local 29", city: "Wichita", state: "KS", phone: null, website: "sheetmetal29.com", lat: 37.6872, lng: -97.3301, address: "Wichita, KS" },
-
-  // ── KENTUCKY ──
-  { id: 110, name: "SMART Local 110", city: "Louisville", state: "KY", phone: null, website: "smw110.com", lat: 38.2527, lng: -85.7585, address: "Louisville, KY" },
-
-  // ── LOUISIANA ──
-  { id: 214, name: "SMART Local 214", city: "Baton Rouge", state: "LA", phone: null, website: "smart-local214.org", lat: 30.4515, lng: -91.1871, address: "Baton Rouge, LA" },
-
-  // ── MASSACHUSETTS ──
-  { id: 17, name: "SMART Local 17", city: "Boston", state: "MA", phone: "(617) 296-1680", website: "smw17boston.org", lat: 42.2929, lng: -71.0636, address: "1157 Adams St, Dorchester, MA 02124" },
-  { id: 63, name: "SMART Local 63", city: "Springfield", state: "MA", phone: null, website: "smwsmartlocal63.org", lat: 42.1015, lng: -72.5898, address: "Western Massachusetts" },
-
-  // ── MICHIGAN ──
-  { id: 7, name: "SMART Local 7", city: "Lansing", state: "MI", phone: "(517) 882-4064", website: "sheetmetal7.org", lat: 42.7335, lng: -84.5555, address: "4931 Contec Dr, Lansing, MI 48910" },
-  { id: 80, name: "SMART Local 80", city: "Detroit", state: "MI", phone: null, website: "sheet80.org", lat: 42.4734, lng: -83.2219, address: "Detroit, MI" },
-  { id: 292, name: "SMART Local 292", city: "Detroit", state: "MI", phone: null, website: "sheetmetal292.com", lat: 42.3314, lng: -83.0458, address: "Detroit, MI" },
-
-  // ── MINNESOTA ──
-  { id: 10, name: "SMART Local 10", city: "Maplewood", state: "MN", phone: "(651) 770-2388", website: "smw10.org", lat: 44.9536, lng: -93.0344, address: "1681 E Cope Ave Ste A, Maplewood, MN 55109" },
-
-  // ── MISSOURI ──
-  { id: 2, name: "SMART Local 2", city: "Kansas City", state: "MO", phone: "(816) 254-8021", website: "sheetmetal2.org", lat: 39.0997, lng: -94.5786, address: "PO Box 300378, Kansas City, MO 64130" },
-  { id: 36, name: "SMART Local 36", city: "St. Louis", state: "MO", phone: null, website: "sheetmetal36.org", lat: 38.6270, lng: -90.1994, address: "St. Louis, MO" },
-
-  // ── MONTANA ──
-  { id: 103, name: "SMART Local 103", city: "Helena", state: "MT", phone: null, website: "smartlocal103.org", lat: 46.5958, lng: -112.0270, address: "Helena, MT" },
-
-  // ── NEBRASKA ──
-  { id: 3, name: "SMART Local 3", city: "Omaha", state: "NE", phone: "(402) 330-3383", website: "sheetmetalworkerslocal3.org", lat: 41.2223, lng: -96.0154, address: "3333 South 24th St, Omaha, NE 68108" },
-
-  // ── NEVADA ──
-  { id: 26, name: "SMART Local 26", city: "Sparks", state: "NV", phone: "(775) 352-9226", website: "smw26.com", lat: 39.5349, lng: -119.7527, address: "PO Box 26, Sparks, NV 89432" },
-  { id: 88, name: "SMART Local 88", city: "Las Vegas", state: "NV", phone: null, website: "smart88.org", lat: 36.1699, lng: -115.1398, address: "Las Vegas, NV" },
-
-  // ── NEW JERSEY ──
-  { id: 22, name: "SMART Local 22", city: "Cranford", state: "NJ", phone: "(908) 931-1798", website: "smwialu22.org", lat: 40.6576, lng: -74.2998, address: "106 South Ave W, Cranford, NJ 07016" },
-  { id: 25, name: "SMART Local 25", city: "Carlstadt", state: "NJ", phone: "(201) 507-0330", website: "smw25.org", lat: 40.8376, lng: -74.0921, address: "440 Barell Ave, Carlstadt, NJ 07072" },
-  { id: 27, name: "SMART Local 27", city: "Farmingdale", state: "NJ", phone: "(732) 919-1999", website: "smwlu27.org", lat: 40.1987, lng: -74.1657, address: "PO Box 847, Farmingdale, NJ 07727" },
-
-  // ── NEW MEXICO ──
-  { id: 49, name: "SMART Local 49", city: "Albuquerque", state: "NM", phone: null, website: "smwlu49.org", lat: 35.0844, lng: -106.6504, address: "Albuquerque, NM" },
-
-  // ── NEW YORK ──
-  { id: 28, name: "SMART Local 28", city: "New York City", state: "NY", phone: "(212) 941-7700", website: "smart28.org", lat: 40.7265, lng: -74.0073, address: "500 Greenwich St 5th Floor, New York, NY 10013" },
-  { id: 38, name: "SMART Local 38", city: "Brewster", state: "NY", phone: "(845) 278-6868", website: "smart38.org", lat: 41.3987, lng: -73.6179, address: "38 Starr Ridge Rd, Brewster, NY 10509" },
-  { id: 46, name: "SMART Local 46", city: "Rochester", state: "NY", phone: null, website: "smw46.com", lat: 43.1610, lng: -77.6109, address: "Rochester, NY" },
-  { id: 58, name: "SMART Local 58", city: "Syracuse", state: "NY", phone: null, website: "smw58.org", lat: 43.0481, lng: -76.1474, address: "Syracuse, NY" },
-  { id: 71, name: "SMART Local 71", city: "Buffalo", state: "NY", phone: null, website: "smartlocal71.com", lat: 42.8864, lng: -78.8784, address: "Buffalo, NY" },
-  { id: 83, name: "SMART Local 83", city: "Albany", state: "NY", phone: null, website: "smwlocal83.org", lat: 42.6526, lng: -73.7562, address: "Albany, NY" },
-  { id: 112, name: "SMART Local 112", city: "Elmira", state: "NY", phone: null, website: "smw112.org", lat: 42.0898, lng: -76.8077, address: "Elmira, NY" },
-  { id: 137, name: "SMART Local 137", city: "New York City", state: "NY", phone: null, website: "smart137.com", lat: 40.7580, lng: -73.9855, address: "New York, NY" },
-
-  // ── OHIO ──
-  { id: 24, name: "SMART Local 24", city: "Dayton", state: "OH", phone: "(937) 277-9303", website: "smw24.org", lat: 39.7795, lng: -84.1996, address: "6550 Poe Ave, Dayton, OH 45414" },
-  { id: 33, name: "SMART Local 33", city: "Cleveland", state: "OH", phone: null, website: "smwlu33.org", lat: 41.4993, lng: -81.6944, address: "Northern Ohio" },
-
-  // ── OKLAHOMA ──
-  { id: 124, name: "SMART Local 124", city: "Oklahoma City", state: "OK", phone: null, website: "smw124.com", lat: 35.4676, lng: -97.5164, address: "Oklahoma City, OK" },
-  { id: 270, name: "SMART Local 270", city: "Tulsa", state: "OK", phone: null, website: "smart-union.org", lat: 36.1540, lng: -95.9928, address: "Tulsa, OK" },
-
-  // ── OREGON ──
-  { id: 16, name: "SMART Local 16", city: "Portland", state: "OR", phone: "(503) 254-0123", website: "smw16.org", lat: 45.5601, lng: -122.5085, address: "2379 NE 178th Ave, Portland, OR 97230" },
-
-  // ── PENNSYLVANIA ──
-  { id: 12, name: "SMART Local 12", city: "Pittsburgh", state: "PA", phone: "(412) 828-5300", website: "smlocal12.org", lat: 40.5001, lng: -79.8969, address: "1200 Gulf Lab Rd, Pittsburgh, PA 15238" },
-  { id: 19, name: "SMART Local 19", city: "Philadelphia", state: "PA", phone: "(215) 952-1999", website: "smartlu19.org", lat: 39.9350, lng: -75.1411, address: "1301 S Columbus Blvd, Philadelphia, PA 19147" },
-  { id: 44, name: "SMART Local 44", city: "Scranton", state: "PA", phone: null, website: "smwlu44.org", lat: 41.4090, lng: -75.6624, address: "Northeastern PA" },
-
-  // ── SOUTH CAROLINA ──
-  { id: 399, name: "SMART Local 399", city: "Charleston", state: "SC", phone: null, website: "sheetmetallocal399.com", lat: 32.7765, lng: -79.9311, address: "Charleston, SC" },
-
-  // ── TENNESSEE ──
-  { id: 4, name: "SMART Local 4", city: "Memphis", state: "TN", phone: "(901) 278-7288", website: "smwlocal4.org", lat: 35.2115, lng: -89.9793, address: "6735 Whitten Place, Memphis, TN 38133" },
-  { id: 5, name: "SMART Local 5", city: "Knoxville", state: "TN", phone: "(865) 689-2928", website: "sheetmetal5.org", lat: 36.0414, lng: -83.9272, address: "112 Hillcrest Dr, Knoxville, TN 37918" },
-  { id: 177, name: "SMART Local 177", city: "Nashville", state: "TN", phone: null, website: "sheetmetal177.com", lat: 36.1627, lng: -86.7816, address: "Nashville, TN" },
-
-  // ── TEXAS ──
-  { id: 54, name: "SMART Local 54", city: "Houston", state: "TX", phone: null, website: "smart-local54.org", lat: 29.7604, lng: -95.3698, address: "Houston, TX" },
-  { id: 67, name: "SMART Local 67", city: "San Antonio", state: "TX", phone: null, website: "smart-local67.org", lat: 29.4241, lng: -98.4936, address: "San Antonio, TX" },
-  { id: 68, name: "SMART Local 68", city: "Dallas", state: "TX", phone: null, website: "localunion68.com", lat: 32.7767, lng: -96.7970, address: "Dallas/Fort Worth, TX" },
-
-  // ── UTAH ──
-  { id: 312, name: "SMART Local 312", city: "Salt Lake City", state: "UT", phone: null, website: "utahsheetmetal.com", lat: 40.7608, lng: -111.8910, address: "Salt Lake City, UT" },
-
-  // ── VIRGINIA / DC / MD ──
-  { id: 100, name: "SMART Local 100", city: "Washington DC Area", state: "VA", phone: null, website: "smart100.org", lat: 38.8951, lng: -77.0364, address: "Washington DC, Maryland and Virginia" },
-
-  // ── WASHINGTON ──
-  { id: 55, name: "SMART Local 55", city: "Pasco", state: "WA", phone: null, website: "smw55.org", lat: 46.2396, lng: -119.1006, address: "Pasco, WA" },
-  { id: 66, name: "SMART Local 66", city: "Seattle", state: "WA", phone: null, website: "smw66.org", lat: 47.6062, lng: -122.3321, address: "Seattle, WA" },
-
-  // ── WISCONSIN ──
-  { id: 18, name: "SMART Local 18", city: "Waukesha", state: "WI", phone: "(262) 798-1818", website: "smwlu18.org", lat: 43.0117, lng: -88.2315, address: "2201 Springdale Rd, Waukesha, WI 53186" },
-];
+const SMART_LOCALS = [];
 // ─── BAC LOCAL DATABASE — Bricklayers & Allied Craftworkers ──────────────────
 // All data verified from bacweb.org official directory
 const BAC_LOCALS = [
@@ -1135,140 +845,7 @@ const BAC_LOCALS = [
 
 // ─── UBC LOCAL DATABASE — United Brotherhood of Carpenters ───────────────────
 // Only verified phones/websites from official regional council directories
-const UBC_LOCALS = [
-  // ── ALASKA ──
-  { id: 1281, name: "UBC Local 1281", city: "Anchorage",       state: "AK", phone: null,               website: "wsbuildsbetter.com",   lat: 61.2181, lng: -149.9003, address: "Anchorage, AK" },
-  { id: 1243, name: "UBC Local 1243", city: "Fairbanks",       state: "AK", phone: null,               website: "wsbuildsbetter.com",   lat: 64.8378, lng: -147.7164, address: "Fairbanks, AK" },
-
-  // ── CALIFORNIA ──
-  { id: 22,   name: "UBC Local 22",   city: "San Francisco",  state: "CA", phone: "(415) 355-1322",    website: "local22.org",          lat: 37.7614, lng: -122.3873, address: "2085 Third St, San Francisco, CA 94107" },
-  { id: 34,   name: "UBC Local 34",   city: "Oakland",        state: "CA", phone: "(510) 568-4788",    website: "nccrc.org",            lat: 37.7392, lng: -122.1944, address: "265 Hegenberger Rd, Oakland, CA 94621" },
-  { id: 35,   name: "UBC Local 35",   city: "San Rafael",     state: "CA", phone: "(510) 568-4788",    website: "nccrc.org",            lat: 37.9735, lng: -122.5311, address: "San Rafael, CA" },
-  { id: 46,   name: "UBC Local 46",   city: "Sacramento",     state: "CA", phone: "(510) 568-4788",    website: "nccrc.org",            lat: 38.5816, lng: -121.4944, address: "Sacramento, CA" },
-  { id: 152,  name: "UBC Local 152",  city: "Manteca",        state: "CA", phone: "(510) 568-4788",    website: "nccrc.org",            lat: 37.7974, lng: -121.2161, address: "Manteca, CA" },
-  { id: 152,  name: "UBC Local 152",  city: "Martinez",       state: "CA", phone: "(510) 568-4788",    website: "nccrc.org",            lat: 37.9935, lng: -122.1341, address: "Martinez, CA" },
-  { id: 180,  name: "UBC Local 180",  city: "Vallejo",        state: "CA", phone: "(510) 568-4788",    website: "nccrc.org",            lat: 38.1040, lng: -122.2566, address: "Vallejo, CA" },
-  { id: 213,  name: "UBC Local 213",  city: "Monterey Park",  state: "CA", phone: null,               website: "wsbuildsbetter.com",   lat: 34.0625, lng: -118.1228, address: "Monterey Park, CA" },
-  { id: 217,  name: "UBC Local 217",  city: "San Mateo",      state: "CA", phone: "(510) 568-4788",    website: "nccrc.org",            lat: 37.5630, lng: -122.3255, address: "San Mateo, CA" },
-  { id: 405,  name: "UBC Local 405",  city: "San Jose",       state: "CA", phone: "(510) 568-4788",    website: "nccrc.org",            lat: 37.2319, lng: -121.7958, address: "San Jose, CA" },
-  { id: 505,  name: "UBC Local 505",  city: "Santa Cruz",     state: "CA", phone: "(510) 568-4788",    website: "nccrc.org",            lat: 36.9741, lng: -122.0308, address: "Santa Cruz, CA" },
-  { id: 562,  name: "UBC Local 562",  city: "Los Angeles",    state: "CA", phone: null,               website: "wsbuildsbetter.com",   lat: 34.0522, lng: -118.2437, address: "Los Angeles, CA" },
-  { id: 605,  name: "UBC Local 605",  city: "Marina",         state: "CA", phone: "(510) 568-4788",    website: "nccrc.org",            lat: 36.6850, lng: -121.8025, address: "Marina, CA" },
-  { id: 619,  name: "UBC Local 619",  city: "San Diego",      state: "CA", phone: null,               website: "wsbuildsbetter.com",   lat: 32.7157, lng: -117.1611, address: "San Diego, CA" },
-  { id: 661,  name: "UBC Local 661",  city: "Sylmar",         state: "CA", phone: null,               website: "wsbuildsbetter.com",   lat: 34.3027, lng: -118.4530, address: "Sylmar, CA" },
-  { id: 701,  name: "UBC Local 701",  city: "Fresno",         state: "CA", phone: "(510) 568-4788",    website: "nccrc.org",            lat: 36.7468, lng: -119.7726, address: "Fresno, CA" },
-  { id: 713,  name: "UBC Local 713",  city: "Hayward",        state: "CA", phone: "(510) 568-4788",    website: "nccrc.org",            lat: 37.6688, lng: -122.0808, address: "Hayward, CA" },
-  { id: 714,  name: "UBC Local 714",  city: "Buena Park",     state: "CA", phone: null,               website: "wsbuildsbetter.com",   lat: 33.8672, lng: -117.9981, address: "Buena Park, CA" },
-  { id: 751,  name: "UBC Local 751",  city: "Santa Rosa",     state: "CA", phone: "(510) 568-4788",    website: "nccrc.org",            lat: 38.4404, lng: -122.7141, address: "Santa Rosa, CA" },
-  { id: 805,  name: "UBC Local 805",  city: "Camarillo",      state: "CA", phone: null,               website: "wsbuildsbetter.com",   lat: 34.2164, lng: -119.0376, address: "Camarillo, CA" },
-  { id: 1109, name: "UBC Local 1109", city: "Visalia",        state: "CA", phone: "(510) 568-4788",    website: "nccrc.org",            lat: 36.3302, lng: -119.2921, address: "Visalia, CA" },
-  { id: 1599, name: "UBC Local 1599", city: "Redding",        state: "CA", phone: "(510) 568-4788",    website: "nccrc.org",            lat: 40.5865, lng: -122.3917, address: "Redding, CA" },
-  { id: 1789, name: "UBC Local 1789", city: "Lake Tahoe",     state: "CA", phone: "(510) 568-4788",    website: "nccrc.org",            lat: 38.9399, lng: -119.9772, address: "South Lake Tahoe, CA" },
-  { id: 2236, name: "UBC Local 2236", city: "Oakland",        state: "CA", phone: "(510) 568-4788",    website: "nccrc.org",            lat: 37.8044, lng: -122.2712, address: "Oakland, CA" },
-
-  // ── GEORGIA ──
-  { id: 225,  name: "UBC Local 225",  city: "Atlanta",        state: "GA", phone: null,               website: "atlantacarpenters.com", lat: 33.6888, lng: -84.4710, address: "3500 Atlanta Industrial Dr, Atlanta, GA 30331" },
-  { id: 256,  name: "UBC Local 256",  city: "Savannah",       state: "GA", phone: null,               website: "southeasterncarpenters.org", lat: 32.0835, lng: -81.0998, address: "40 Telfair Place, Savannah, GA 31415" },
-  { id: 283,  name: "UBC Local 283",  city: "Augusta",        state: "GA", phone: "(706) 722-4445",    website: "carpenterslocalunion283.org", lat: 33.4998, lng: -82.0529, address: "3025 Riverwatch Pkwy, Augusta, GA 30907" },
-
-  // ── IDAHO ──
-  { id: 808,  name: "UBC Local 808",  city: "Idaho Falls",    state: "ID", phone: null,               website: "wsbuildsbetter.com",   lat: 43.4926, lng: -112.0408, address: "Idaho Falls, ID" },
-
-  // ── ILLINOIS ──
-  { id: 237,  name: "UBC Local 237",  city: "Peoria",         state: "IL", phone: null,               website: "nmcarpenters.com",     lat: 40.6936, lng: -89.5890, address: "Peoria, IL" },
-  { id: 243,  name: "UBC Local 243",  city: "Champaign",      state: "IL", phone: null,               website: "nmcarpenters.com",     lat: 40.1164, lng: -88.2434, address: "Champaign, IL" },
-  { id: 270,  name: "UBC Local 270",  city: "Springfield",    state: "IL", phone: null,               website: "nmcarpenters.com",     lat: 39.7817, lng: -89.6501, address: "Springfield, IL" },
-
-  // ── INDIANA ──
-  { id: 133,  name: "UBC Local 133",  city: "Terre Haute",    state: "IN", phone: "(812) 232-6035",    website: "cmwcarpenters.com",    lat: 39.4667, lng: -87.4139, address: "Terre Haute, IN" },
-  { id: 215,  name: "UBC Local 215",  city: "Lafayette",      state: "IN", phone: "(765) 477-1215",    website: "cmwcarpenters.com",    lat: 40.4167, lng: -86.8753, address: "Lafayette, IN" },
-  { id: 224,  name: "UBC Local 224",  city: "Evansville",     state: "IN", phone: "(812) 490-0500",    website: "cmwcarpenters.com",    lat: 37.9716, lng: -87.5711, address: "Evansville, IN" },
-  { id: 232,  name: "UBC Local 232",  city: "Fort Wayne",     state: "IN", phone: "(260) 484-1803",    website: "cmwcarpenters.com",    lat: 41.1306, lng: -85.1280, address: "1520 Profit Dr, Fort Wayne, IN 46808" },
-  { id: 301,  name: "UBC Local 301",  city: "Indianapolis",   state: "IN", phone: "(317) 632-9780",    website: "cmwcarpenters.com",    lat: 39.7045, lng: -86.0716, address: "3530 S Rural St, Indianapolis, IN 46237" },
-  { id: 413,  name: "UBC Local 413",  city: "South Bend",     state: "IN", phone: "(574) 233-2138",    website: "cmwcarpenters.com",    lat: 41.6764, lng: -86.2520, address: "South Bend, IN" },
-  { id: 599,  name: "UBC Local 599",  city: "Griffith",       state: "IN", phone: "(219) 942-0518",    website: "cmwcarpenters.com",    lat: 41.5281, lng: -87.4237, address: "Griffith, IN" },
-  { id: 615,  name: "UBC Local 615",  city: "Kokomo",         state: "IN", phone: "(765) 236-0082",    website: "cmwcarpenters.com",    lat: 40.4864, lng: -86.1336, address: "Kokomo, IN" },
-  { id: 1016, name: "UBC Local 1016", city: "Muncie",         state: "IN", phone: "(765) 288-7568",    website: "cmwcarpenters.com",    lat: 40.1934, lng: -85.3864, address: "Muncie, IN" },
-  { id: 1076, name: "UBC Local 1076", city: "Greenwood",      state: "IN", phone: null,               website: "cmwcarpenters.com",    lat: 39.6134, lng: -86.1067, address: "Greenwood, IN" },
-
-  // ── KENTUCKY ──
-  { id: 175,  name: "UBC Local 175",  city: "Louisville",     state: "KY", phone: null,               website: "carpenters.org",       lat: 38.2527, lng: -85.7585, address: "Louisville, KY" },
-
-  // ── MARYLAND ──
-  { id: 197,  name: "UBC Local 197",  city: "Marlboro",       state: "MD", phone: null,               website: "carpenters.org",       lat: 38.8407, lng: -76.7491, address: "Upper Marlboro, MD" },
-
-  // ── MASSACHUSETTS ──
-  { id: 327,  name: "UBC Local 327",  city: "Boston",         state: "MA", phone: "(617) 379-5600",    website: "nasrcc.org",           lat: 42.2929, lng: -71.0636, address: "1252 Massachusetts Ave, Dorchester, MA 02125" },
-  { id: 336,  name: "UBC Local 336",  city: "Springfield",    state: "MA", phone: "(413) 505-5051",    website: "nasrcc.org",           lat: 42.1015, lng: -72.5898, address: "29 Oakland St, Springfield, MA 01108" },
-  { id: 339,  name: "UBC Local 339",  city: "Wilmington",     state: "MA", phone: "(978) 229-5200",    website: "nasrcc.org",           lat: 42.5454, lng: -71.1728, address: "350 Fordham Rd, Wilmington, MA 01887" },
-
-  // ── MAINE / NH / VT ──
-  { id: 349,  name: "UBC Local 349",  city: "New England",    state: "ME", phone: "(617) 268-3400",    website: "nasrcc.org",           lat: 44.3106, lng: -69.7795, address: "ME, NH, VT" },
-
-  // ── MICHIGAN ──
-  { id: 100,  name: "UBC Local 100",  city: "Wayland",        state: "MI", phone: null,               website: "nmcarpenters.com",     lat: 42.6734, lng: -85.6444, address: "Wayland, MI" },
-  { id: 315,  name: "UBC Local 315",  city: "Kansas City",    state: "MI", phone: null,               website: "nmcarpenters.com",     lat: 42.1695, lng: -85.0086, address: "Michigan" },
-  { id: 687,  name: "UBC Local 687",  city: "Detroit",        state: "MI", phone: null,               website: "nmcarpenters.com",     lat: 42.3314, lng: -83.0458, address: "Detroit, MI" },
-  { id: 706,  name: "UBC Local 706",  city: "Saginaw",        state: "MI", phone: null,               website: "nmcarpenters.com",     lat: 43.4195, lng: -83.9508, address: "Saginaw, MI" },
-  { id: 706,  name: "UBC Local 706",  city: "Flint",          state: "MI", phone: null,               website: "nmcarpenters.com",     lat: 43.0125, lng: -83.6875, address: "Flint, MI" },
-
-  // ── MINNESOTA ──
-  { id: 322,  name: "UBC Local 322",  city: "St. Paul",       state: "MN", phone: null,               website: "carpenters322.org",    lat: 44.9486, lng: -93.1029, address: "730 Olive St, Saint Paul, MN 55130" },
-  { id: 606,  name: "UBC Local 606",  city: "Virginia",       state: "MN", phone: null,               website: "nmcarpenters.com",     lat: 47.5230, lng: -92.5380, address: "Virginia, MN" },
-
-  // ── MISSOURI ──
-  { id: 945,  name: "UBC Local 945",  city: "Springfield",    state: "MO", phone: null,               website: "nmcarpenters.com",     lat: 37.2153, lng: -93.2982, address: "Springfield, MO" },
-  { id: 1127, name: "UBC Local 1127", city: "Kansas City",    state: "MO", phone: null,               website: "nmcarpenters.com",     lat: 39.0997, lng: -94.5786, address: "Kansas City, MO" },
-
-  // ── MONTANA ──
-  { id: 82,   name: "UBC Local 82",   city: "Great Falls",    state: "MT", phone: null,               website: "wsbuildsbetter.com",   lat: 47.5002, lng: -111.3008, address: "Great Falls, MT" },
-
-  // ── NEVADA ──
-  { id: 971,  name: "UBC Local 971",  city: "Reno",           state: "NV", phone: null,               website: "wsbuildsbetter.com",   lat: 39.5296, lng: -119.8138, address: "Reno, NV" },
-
-  // ── NEW JERSEY ──
-  { id: 254,  name: "UBC Local 254",  city: "Edison",         state: "NJ", phone: null,               website: "ubclocal255.org",      lat: 40.5187, lng: -74.4121, address: "Edison, NJ" },
-  { id: 255,  name: "UBC Local 255",  city: "Hammonton",      state: "NJ", phone: null,               website: "ubclocal255.org",      lat: 39.6418, lng: -74.7996, address: "Hammonton, NJ" },
-
-  // ── NEW YORK ──
-  { id: 276,  name: "UBC Local 276",  city: "Rochester",      state: "NY", phone: null,               website: "carpenters.org",       lat: 43.1610, lng: -77.6109, address: "Cheektowaga, NY" },
-  { id: 277,  name: "UBC Local 277",  city: "New York State", state: "NY", phone: null,               website: "carpenters.org",       lat: 42.0987, lng: -75.9180, address: "Binghamton, NY" },
-  { id: 740,  name: "UBC Local 740",  city: "Long Island",    state: "NY", phone: null,               website: "carpenters.org",       lat: 40.7282, lng: -73.7949, address: "Woodhaven, NY" },
-  { id: 1556, name: "UBC Local 1556", city: "New York City",  state: "NY", phone: null,               website: "carpenters.org",       lat: 40.7128, lng: -74.0059, address: "New York, NY" },
-
-  // ── OHIO ──
-  { id: 186,  name: "UBC Local 186",  city: "Steubenville",   state: "OH", phone: null,               website: "carpenters.org",       lat: 40.3698, lng: -80.6342, address: "Steubenville, OH" },
-  { id: 285,  name: "UBC Local 285",  city: "North Canton",   state: "OH", phone: null,               website: "carpenters.org",       lat: 40.8751, lng: -81.4026, address: "North Canton, OH" },
-  { id: 351,  name: "UBC Local 351",  city: "Rossford",       state: "OH", phone: null,               website: "carpenters.org",       lat: 41.6031, lng: -83.5641, address: "Rossford, OH" },
-  { id: 373,  name: "UBC Local 373",  city: "Cleveland",      state: "OH", phone: null,               website: "carpenters.org",       lat: 41.4993, lng: -81.6944, address: "Cleveland, OH" },
-  { id: 435,  name: "UBC Local 435",  city: "Cleveland",      state: "OH", phone: null,               website: "carpenters.org",       lat: 41.5500, lng: -81.6000, address: "Cleveland, OH" },
-  { id: 1090, name: "UBC Local 1090", city: "Akron",          state: "OH", phone: null,               website: "carpenters.org",       lat: 41.0814, lng: -81.5190, address: "Akron, OH" },
-
-  // ── OREGON ──
-  { id: 541,  name: "UBC Local 541",  city: "Hermiston",      state: "OR", phone: null,               website: "wsbuildsbetter.com",   lat: 45.8407, lng: -119.2892, address: "Hermiston, OR" },
-  { id: 1503, name: "UBC Local 1503", city: "Oregon City",    state: "OR", phone: null,               website: "wsbuildsbetter.com",   lat: 45.3573, lng: -122.6068, address: "Oregon City, OR" },
-
-  // ── PENNSYLVANIA ──
-  { id: 158,  name: "UBC Local 158",  city: "Philadelphia",   state: "PA", phone: null,               website: "carpenters.org",       lat: 39.9526, lng: -75.1652, address: "Philadelphia, PA" },
-  { id: 432,  name: "UBC Local 432",  city: "Pittsburgh",     state: "PA", phone: null,               website: "carpenters.org",       lat: 40.4406, lng: -79.9959, address: "Pittsburgh, PA" },
-
-  // ── RHODE ISLAND ──
-  { id: 330,  name: "UBC Local 330",  city: "Warwick",        state: "RI", phone: "(401) 424-1100",    website: "carpenters330.org",    lat: 41.7001, lng: -71.4162, address: "14 Jefferson Park Rd, Warwick, RI 02888" },
-
-  // ── TENNESSEE ──
-  { id: 74,   name: "UBC Local 74",   city: "Chattanooga",    state: "TN", phone: null,               website: "southeasterncarpenters.org", lat: 35.0456, lng: -85.3097, address: "Chattanooga, TN" },
-  { id: 223,  name: "UBC Local 223",  city: "Nashville",      state: "TN", phone: null,               website: "southeasterncarpenters.org", lat: 36.1627, lng: -86.7816, address: "130 Veterans Memorial Pkwy, La Vergne, TN 37086" },
-
-  // ── WASHINGTON ──
-  { id: 59,   name: "UBC Local 59",   city: "Spokane",        state: "WA", phone: null,               website: "wsbuildsbetter.com",   lat: 47.6588, lng: -117.4260, address: "Spokane, WA" },
-  { id: 70,   name: "UBC Local 70",   city: "Mount Vernon",   state: "WA", phone: null,               website: "wsbuildsbetter.com",   lat: 48.4200, lng: -122.3343, address: "Mount Vernon, WA" },
-  { id: 129,  name: "UBC Local 129",  city: "Lacey",          state: "WA", phone: "(360) 459-0359",    website: "spscarpenters129.org", lat: 47.0343, lng: -122.8232, address: "4224 6th Ave SE, Lacey, WA 98503" },
-  { id: 625,  name: "UBC Local 625",  city: "Seattle",        state: "WA", phone: null,               website: "wsbuildsbetter.com",   lat: 47.6062, lng: -122.3321, address: "Seattle, WA" },
-
-  // ── WISCONSIN ──
-  { id: 161,  name: "UBC Local 161",  city: "Kenosha",        state: "WI", phone: null,               website: "nmcarpenters.com",     lat: 42.5847, lng: -87.8212, address: "Kenosha, WI" },
-  { id: 344,  name: "UBC Local 344",  city: "Pewaukee",       state: "WI", phone: null,               website: "nmcarpenters.com",     lat: 43.0800, lng: -88.2587, address: "Pewaukee, WI" },
-];
+const UBC_LOCALS = [];
 
 function getDistanceMiles(lat1, lon1, lat2, lon2) {
   const R = 3958.8;
@@ -5084,12 +4661,8 @@ export default function UnionPathway() {
                   { abbr: "IBEW_I", label: "IBEW Inside",   color: "#F5C518" },
                   { abbr: "IBEW_L", label: "IBEW Lineman",  color: "#FFD700" },
                   { abbr: "UA",     label: "Plumbers & Pipefitters", color: "#3b9eff" },
-                  { abbr: "SMART",  label: "Sheet Metal",   color: "#e05a2b" },
-                  { abbr: "UBC",    label: "Carpenters",    color: "#a78bfa" },
                   { abbr: "BAC",    label: "Bricklayers",   color: "#f97316" },
                   { abbr: "IW",     label: "Ironworkers",   color: "#ef4444" },
-                  { abbr: "LIUNA",  label: "Laborers",      color: "#fb923c" },
-                  { abbr: "HFIAW",  label: "Insulators",    color: "#38bdf8" },
                 ].map(trade => (
                   <button
                     key={trade.abbr}
