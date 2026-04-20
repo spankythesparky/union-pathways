@@ -5040,7 +5040,7 @@ export default function UnionPathway() {
           <div>
             {/* HISTORY HERO */}
             <div className="history-hero">
-              <div className="history-eyebrow">{lang==="es" ? "🏗️ La Base de la Clase Media Americana" : lang==="pl" ? "🏗️ Fundament Amerykańskiej Klasy Średniej" : "🏗️ The Foundation of the American Middle Class"}</div>
+              <div className="history-eyebrow">{lang==="es" ? "La Base de la Clase Media Americana" : lang==="pl" ? "Fundament Amerykańskiej Klasy Średniej" : "The Foundation of the American Middle Class"}</div>
               <h1 className="history-title">
                 {lang==="es" ? <>{lang==="es"?"Construido por ":""}<span className="accent">Manos Sindicales</span></> : lang==="pl" ? <>{"Zbudowane przez "}<span className="accent">Związkowe Ręce</span></> : <>{"Built by "}<span className="accent">Union Hands</span></>}
               </h1>
@@ -5162,7 +5162,7 @@ export default function UnionPathway() {
         {page === "benefits" && (
           <div>
             <div className="history-hero">
-              <div className="history-eyebrow">💼 More Than Just a Paycheck</div>
+              <div className="history-eyebrow">More Than Just a Paycheck</div>
               <h1 className="history-title">
                 {lang==="es" ? <>{"Beneficios "}<span className="accent">Sindicales</span></> : lang==="pl" ? <>{"Świadczenia "}<span className="accent">Związkowe</span></> : <>{"Union "}<span className="accent">Benefits</span></>}
               </h1>
@@ -5208,7 +5208,7 @@ export default function UnionPathway() {
         {page === "health" && (
           <div>
             <div className="history-hero">
-              <div className="history-eyebrow">{lang==="es" ? "🏥 No Sale de Tu Cheque" : lang==="pl" ? "🏥 Nie Potrącane z Twojej Wypłaty" : "🏥 Never Deducted From Your Paycheck"}</div>
+              <div className="history-eyebrow">{lang==="es" ? "No Sale de Tu Cheque" : lang==="pl" ? "Nie Potrącane z Twojej Wypłaty" : "Never Deducted From Your Paycheck"}</div>
               <h1 className="history-title">
                 {lang==="es" ? <>{"Seguro de Salud — "}<span className="accent">Pagado por el Contratista</span></> : lang==="pl" ? <>{"Ubezpieczenie Zdrowotne — "}<span className="accent">Płacone przez Wykonawcę</span></> : <>{"Health Insurance — "}<span className="accent">Paid by Your Contractor</span></>}
               </h1>
@@ -5222,22 +5222,22 @@ export default function UnionPathway() {
               <div className="history-section-sub">{lang==="es" ? "Simple — el contratista lo paga, no tú." : lang==="pl" ? "Prosto — wykonawca to płaci, nie Ty." : "Simple — your contractor pays it, not you."}</div>
               <div className="impact-grid">
                 <div className="impact-card">
-                  <div className="impact-icon">💡</div>
+                  
                   <div className="impact-title">{lang==="es" ? "Cómo Funciona" : lang==="pl" ? "Jak To Działa" : "How It Works"}</div>
                   <div className="impact-desc">{lang==="es" ? "En la construcción sindical, cada contratista que firma un acuerdo sindical debe contribuir una cantidad fija por hora trabajada directamente a tu fondo de salud. Esto cubre tus primas de seguro médico — no tú. Nunca toca tu cheque." : lang==="pl" ? "W związkowym budownictwie każdy wykonawca, który podpisuje umowę związkową, jest zobowiązany wpłacać ustaloną kwotę za każdą przepracowaną godzinę bezpośrednio do Twojego funduszu zdrowotnego. Pokrywa to Twoje składki na ubezpieczenie zdrowotne — nie Ty. Nigdy nie dotyka Twojej wypłaty." : "In union construction, every contractor who signs a union agreement is required to contribute a set dollar amount per hour you work directly into your health and welfare fund. This covers your health insurance premiums — not you. It never touches your paycheck."}</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">💵</div>
+                  
                   <div className="impact-title">{lang==="es" ? "En Dólares" : lang==="pl" ? "W Dolarach" : "What That Means in Dollars"}</div>
                   <div className="impact-desc">{lang==="es" ? "Una contribución típica de salud sindical puede ser de $8-15 por hora trabajada. Si trabajas 2,000 horas al año, eso son $16,000-$30,000 por año para tu cobertura de salud — pagado completamente por el contratista además de tu salario." : lang==="pl" ? "Typowa składka zdrowotna związkowca może wynosić $8-15 za godzinę pracy. Jeśli pracujesz 2000 godzin rocznie, to $16 000-$30 000 rocznie na Twoje ubezpieczenie zdrowotne — płacone w całości przez wykonawcę oprócz Twojego wynagrodzenia." : "A typical union health contribution might be $8-15 per hour worked. If you work 2,000 hours a year, that's $16,000-$30,000 per year toward your health coverage — paid entirely by the contractor on top of your wages."}</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">👨‍👩‍👧‍👦</div>
+                  
                   <div className="impact-title">{lang==="es" ? "Cobertura Familiar" : lang==="pl" ? "Ubezpieczenie Rodzinne" : "Family Coverage Included"}</div>
                   <div className="impact-desc">{lang==="es" ? "La mayoría de los planes de salud sindicales cubren a toda tu familia — cónyuge e hijos — con poco o ningún costo adicional para ti. En el mundo no sindical, la cobertura familiar puede costar fácilmente $800-1,500/mes de tu propio bolsillo." : lang==="pl" ? "Większość planów zdrowotnych związków zawodowych obejmuje całą Twoją rodzinę — współmałżonka i dzieci — przy niewielkim lub żadnym dodatkowym koszcie dla Ciebie. W świecie niezwiązkowym ubezpieczenie rodzinne może łatwo kosztować $800-1500/mies. z własnej kieszeni." : "Most union health plans cover your entire family — spouse and children — at little to no additional cost to you. In the non-union world, family coverage can easily cost $800-1,500/month out of your own pocket."}</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">🦷</div>
+                  
                   <div className="impact-title">{lang==="es" ? "Qué Está Cubierto" : lang==="pl" ? "Co Jest Objęte" : "What's Covered"}</div>
                   <div className="impact-desc">{lang==="es" ? "Los planes de salud sindicales típicamente incluyen médico, dental, visión, medicamentos recetados, salud mental y a veces seguro de vida — todo en un paquete. La cobertura suele ser mejor que la de la mayoría de los trabajadores de oficina." : lang==="pl" ? "Plany zdrowotne związków zawodowych zazwyczaj obejmują opiekę medyczną, dentystyczną, wzrokową, leki na receptę, usługi zdrowia psychicznego, a czasem ubezpieczenie na życie — wszystko w jednym pakiecie." : "Union health plans typically include medical, dental, vision, prescription drugs, mental health services, and sometimes life insurance — all in one package. Coverage is often better than what most office workers receive."}</div>
                 </div>
@@ -5255,7 +5255,7 @@ export default function UnionPathway() {
           <div>
             {/* HERO */}
             <div className="history-hero">
-              <div className="history-eyebrow">{lang==="es" ? "💰 Tu Futuro, Construido en el Trabajo" : lang==="pl" ? "💰 Twoja Przyszłość, Zbudowana w Pracy" : "💰 Your Future, Built on the Job"}</div>
+              <div className="history-eyebrow">{lang==="es" ? "Tu Futuro, Construido en el Trabajo" : lang==="pl" ? "Twoja Przyszłość, Zbudowana w Pracy" : "Your Future, Built on the Job"}</div>
               <h1 className="history-title">
                 {lang==="es" ? "401k vs Anualidad vs" : lang==="pl" ? "401k vs Renta vs" : "401k vs Annuity vs"} <span className="accent">{lang==="es" ? "Pensión" : lang==="pl" ? "Emerytura" : "Pension"}</span>
               </h1>
@@ -5305,22 +5305,22 @@ export default function UnionPathway() {
               <div className="history-section-sub">{lang==="es" ? "El beneficio de jubilación más valioso que puedes tener — y los oficios sindicales todavía lo ofrecen." : lang==="pl" ? "Najcenniejszy świadczenie emerytalne, jakie możesz mieć — a związki zawodowe w budownictwie nadal je oferują." : "The most valuable retirement benefit you can have — and union trades still offer it."}</div>
               <div className="impact-grid">
                 <div className="impact-card">
-                  <div className="impact-icon">📋</div>
+                  
                   <div className="impact-title">What It Is</div>
                   <div className="impact-desc">A pension — also called a "defined benefit plan" — is a retirement account funded entirely by your employer. You don't contribute anything out of your paycheck. When you retire, you receive a guaranteed monthly check for the rest of your life, no matter how long you live.</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">🔢</div>
+                  
                   <div className="impact-title">How It's Calculated</div>
                   <div className="impact-desc">Your monthly pension check is typically calculated based on how many years you worked and your average wage. Example: 30 years of work × 2% × $60,000 average salary = $36,000/year pension. That's $3,000/month, every month, for life.</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">⭐</div>
+                  
                   <div className="impact-title">Why It's So Valuable</div>
                   <div className="impact-desc">Most Americans have no pension. Only about 12% of private sector workers have one. Union construction workers are among the few who still do. You can't outlive a pension — it pays until you die, and often continues for a spouse after you're gone.</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">🏗️</div>
+                  
                   <div className="impact-title">In Union Trades</div>
                   <div className="impact-desc">Nearly every major construction union — IBEW, UA, UBC, BAC, Ironworkers, Laborers, and more — offers a defined benefit pension plan. Employers contribute a set dollar amount per hour you work. After enough years of service, you retire with a guaranteed monthly check for life.</div>
                 </div>
@@ -5340,22 +5340,22 @@ export default function UnionPathway() {
               <div className="history-section-sub">{lang==="es" ? "Piénsalo como una cuenta de jubilación adicional además de tu pensión." : lang==="pl" ? "Pomyśl o tym jako dodatkowym koncie emerytalnym na szczycie Twojej emerytury." : "Think of it as a bonus retirement account on top of your pension."}</div>
               <div className="impact-grid">
                 <div className="impact-card">
-                  <div className="impact-icon">📋</div>
+                  
                   <div className="impact-title">What It Is</div>
                   <div className="impact-desc">An annuity (sometimes called a "defined contribution" plan) is an additional retirement account that your employer funds. In most union contracts, employers contribute a set amount per hour worked directly into your annuity account. It builds up over your career and pays out when you retire.</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">💵</div>
+                  
                   <div className="impact-title">How It Works</div>
                   <div className="impact-desc">Example: Your union contract says the employer contributes $3.50/hr to your annuity. If you work 2,000 hours a year, that's $7,000/year going into your account — without you contributing a single dollar. Over 30 years, that could easily grow to $400,000+.</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">🔄</div>
+                  
                   <div className="impact-title">Annuity vs. Pension</div>
                   <div className="impact-desc">The key difference: a pension pays a fixed monthly amount for life. An annuity is more like a savings account — it grows over time and you can often choose how to draw it down in retirement. Some annuities also convert to a monthly payment at retirement.</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">🏗️</div>
+                  
                   <div className="impact-title">In Union Trades</div>
                   <div className="impact-desc">Many union construction contracts include BOTH a pension AND an annuity. So you're building two separate retirement accounts simultaneously — both funded by your employer — on top of Social Security. This is extremely rare outside of union jobs.</div>
                 </div>
@@ -5370,7 +5370,7 @@ export default function UnionPathway() {
               <div className="history-section-sub">{lang==="es" ? "Probablemente hayas oído hablar de este — esto es lo que necesitas saber." : lang==="pl" ? "Prawdopodobnie już o tym słyszałeś — oto co musisz wiedzieć." : "You've probably heard of this one — here's what you need to know."}</div>
               <div className="impact-grid">
                 <div className="impact-card">
-                  <div className="impact-icon">📋</div>
+                  
                   <div className="impact-title">What It Is</div>
                   <div className="impact-desc">A 401k is a retirement savings account where YOU contribute a portion of your paycheck — before taxes — and the money grows in investments (stocks, bonds, mutual funds). Your employer may match some of your contributions, but you're doing most of the funding yourself.</div>
                 </div>
@@ -5385,7 +5385,7 @@ export default function UnionPathway() {
                   <div className="impact-desc">You control where your money is invested. Contributions are pre-tax, lowering your taxable income now. Employer matches are essentially free money. You can take it with you if you change jobs (unlike some pensions that require years of service to vest).</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">🏗️</div>
+                  
                   <div className="impact-title">In Union Trades</div>
                   <div className="impact-desc">Some unions offer a 401k in addition to a pension and annuity. Others don't need to — because the pension and annuity already do what a 401k does, but better. In most cases, a union pension + annuity beats a 401k because it's guaranteed and employer-funded.</div>
                 </div>
@@ -5620,7 +5620,7 @@ export default function UnionPathway() {
           <div>
             {/* HERO */}
             <div className="history-hero" style={{paddingBottom:"80px"}}>
-              <div className="history-eyebrow">⚡ Built by a Tradesperson, for Tradespeople</div>
+              <div className="history-eyebrow">Built by a Tradesperson, for Tradespeople</div>
               <h1 className="history-title">
                 {lang==="es" ? <>{"La Historia "}<span className="accent">Detrás de la Plataforma"</span></> : lang==="pl" ? <>{"Historia "}<span className="accent">Platformy"</span></> : <>{"The Story "}<span className="accent">Behind the Platform"</span></>}
               </h1>
@@ -5678,6 +5678,9 @@ export default function UnionPathway() {
                   <div className="timeline-year">{lang==="es" ? "Diciembre 2024" : lang==="pl" ? "Grudzień 2024" : "December 2024"}</div>
                   <div className="timeline-event">{lang==="es" ? "Spanky The Sparky — 400 Millones de Visualizaciones" : lang==="pl" ? "Spanky The Sparky — 400 Milionów Wyświetleń" : "Spanky The Sparky — 400 Million Views"}</div>
                   <div className="timeline-desc">{lang==="es" ? "Noah lanzó Spanky The Sparky para mostrar la vida real en el oficio — sin filtros, sin exageraciones. El contenido explotó. Más de 157,000 seguidores en todas las plataformas y más de 400 millones de visualizaciones desde diciembre de 2024. La gente estaba hambrienta de información real sobre los oficios." : lang==="pl" ? "Noah uruchomił Spanky The Sparky, aby pokazać prawdziwe życie w zawodzie — bez filtrów, bez przesady. Treści eksplodowały. Ponad 157 000 obserwujących na wszystkich platformach i ponad 400 milionów wyświetleń od grudnia 2024. Ludzie byli głodni prawdziwych informacji o zawodach budowlanych." : "Noah launched Spanky The Sparky to show real life in the trade — unfiltered, no hype. The content exploded. Over 157,000 followers across all platforms and over 400 million views since December 2024. The mission was simple: bridge the gap in the union construction industry in a modern way — bringing real, accessible information to the next generation of tradespeople. Follow along: linktr.ee/spankythesparky"}</div>
+                  <a href="https://linktr.ee/spankythesparky" target="_blank" rel="noopener noreferrer" style={{display:"inline-flex", alignItems:"center", gap:"8px", marginTop:"16px", background:"rgba(250,128,89,0.1)", border:"1px solid rgba(250,128,89,0.3)", borderRadius:"50px", padding:"8px 20px", color:"#FA8059", fontSize:"13px", fontWeight:"700", fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:"0.08em", textTransform:"uppercase", textDecoration:"none", transition:"all 0.2s"}}>
+                    linktr.ee/spankythesparky →
+                  </a>
                 </div>
 
                 <div className="timeline-item">
@@ -5697,17 +5700,17 @@ export default function UnionPathway() {
               <div className="history-section-title">{lang==="es" ? <>{"La "}<span className="accent">Misión</span></> : lang==="pl" ? <>{"Nasza "}<span className="accent">Misja</span></> : <>{"The "}<span className="accent">Mission</span></>}</div>
               <div className="impact-grid">
                 <div className="impact-card">
-                  <div className="impact-icon">⚡</div>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FA8059",marginBottom:"14px",textTransform:"uppercase"}}>01</div>
                   <div className="impact-title">{lang==="es" ? "Construido por un Trabajador" : lang==="pl" ? "Zbudowane przez Pracownika" : "Built by a Worker"}</div>
                   <div className="impact-desc">{lang==="es" ? "No somos una empresa de marketing que intenta capitalizar los oficios. Somos un electricista IBEW que ve la necesidad de una plataforma real para trabajadores reales." : lang==="pl" ? "Nie jesteśmy firmą marketingową próbującą zarabiać na zawodach budowlanych. Jesteśmy elektrykiem IBEW, który widzi potrzebę prawdziwej platformy dla prawdziwych pracowników." : "We're not a marketing company trying to capitalize on the trades. We're an IBEW electrician who sees the need for a real platform for real workers."}</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">🤝</div>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"var(--muted)",marginBottom:"14px",textTransform:"uppercase"}}>02</div>
                   <div className="impact-title">{lang==="es" ? "Todo en Un Lugar" : lang==="pl" ? "Wszystko w Jednym Miejscu" : "Everything in One Place"}</div>
                   <div className="impact-desc">{lang==="es" ? "Locales sindicales, rutas de carrera, beneficios, historia, recursos para veteranos — todo lo que alguien necesita saber sobre los oficios sindicales, en una sola plataforma." : lang==="pl" ? "Lokale związkowe, ścieżki kariery, świadczenia, historia, zasoby dla weteranów — wszystko, co ktoś musi wiedzieć o związkowych zawodach budowlanych, w jednej platformie." : "Union locals, career paths, benefits, history, veteran resources — everything someone needs to know about the union trades, in one platform."}</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">💪</div>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"var(--muted)",marginBottom:"14px",textTransform:"uppercase"}}>03</div>
                   <div className="impact-title">{lang==="es" ? "Por los Trabajadores" : lang==="pl" ? "Dla Pracowników" : "For the Workers"}</div>
                   <div className="impact-desc">{lang==="es" ? "Ya sea que estés buscando unirte a los oficios, ya seas un aprendiz, un oficial o un veterano — este es tu recurso. Gratis. Siempre." : lang==="pl" ? "Niezależnie od tego, czy chcesz dołączyć do zawodów, czy jesteś już praktykantem, czeladnikiem lub weteranem — to jest Twój zasób. Bezpłatnie. Zawsze." : "Whether you're looking to join the trades, you're already an apprentice, a journeyman, or a veteran — this is your resource. Free. Always."}</div>
                 </div>
