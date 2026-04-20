@@ -5905,7 +5905,7 @@ export default function UnionPathway() {
             {/* STATS ROW */}
             <div style={{display:"flex", justifyContent:"center", gap:"16px", flexWrap:"wrap", margin:"60px 0 64px"}}>
               {[
-                { num: "16M+", label: lang==="es" ? "Miembros Sindicales en EE.UU." : lang==="pl" ? "Członków Związków w USA" : "Union Members in the US" },
+                { num: "6M+", label: lang==="es" ? "Miembros Sindicales en EE.UU." : lang==="pl" ? "Członków Związków w USA" : "Union Members in the US" },
                 { num: "18%", label: lang==="es" ? "Salarios Más Altos que No Sindicales" : lang==="pl" ? "Wyższe Płace niż Niezwiązkowcy" : "Higher Wages Than Non-Union" },
                 { num: "500K+", label: lang==="es" ? "Trabajadores de Construcción Necesarios" : lang==="pl" ? "Potrzebnych Pracowników Budowlanych" : "Construction Workers Needed Now" },
                 { num: "$0", label: lang==="es" ? "Costo del Aprendizaje Sindical" : lang==="pl" ? "Koszt Praktyki Związkowej" : "Cost to Join an Apprenticeship" },
