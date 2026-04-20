@@ -2669,19 +2669,18 @@ export default function UnionPathway() {
       title: "Career Path in the Union Trades",
       sub: "Every trade offers a structured path from apprentice to master — earning real wages the entire way. No student debt. No unpaid internships.",
       stages: [
-        { stage: "Apprentice", years: "Years 1–5", pay: "$18–35/hr", icon: "📋", desc: "You're enrolled in a registered apprenticeship — working full-time on the job while attending trade school. Your wage increases every 6 months. You earn benefits from day one." },
-        { stage: "Journeyman", years: "5+ Years", pay: "$35–75/hr", icon: "🔨", desc: "You've completed your apprenticeship and earned your journeyman card. You can work anywhere your union has jurisdiction. Full wages, full benefits, full pension contributions." },
-        { stage: "Foreman", years: "8–15 Years", pay: "$45–90/hr", icon: "📐", desc: "Experienced journeymen step into foreman roles — leading crews, reading plans, coordinating materials. Foreman pay includes a premium on top of journeyman scale." },
-        { stage: "General Foreman / Super", years: "15+ Years", pay: "$75–120k+/yr", icon: "🏗️", desc: "Managing multiple crews and subcontractors on major projects. Often salaried. Some move into project management, estimating, or inspection roles." },
-        { stage: "Master / Business Owner", years: "Varies", pay: "Unlimited", icon: "⭐", desc: "With a master's license (where applicable) you can pull permits and run your own contracting company — while still enjoying union scale on public and prevailing wage work." },
+        { stage: "Apprentice", years: "Years 1–5", pay: "$18–35/hr", icon: "01", desc: "You're enrolled in a registered apprenticeship — working full-time on the job while attending trade school. Your wage increases every 6 months. You earn benefits from day one." },
+        { stage: "Journeyman", years: "5+ Years", pay: "$35–75/hr", icon: "02", desc: "You've completed your apprenticeship and earned your journeyman card. You can work anywhere your union has jurisdiction. Full wages, full benefits, full pension contributions." },
+        { stage: "Foreman", years: "8–15 Years", pay: "$45–90/hr", icon: "03", desc: "Experienced journeymen step into foreman roles — leading crews, reading plans, coordinating materials. Foreman pay includes a premium on top of journeyman scale." },
+        { stage: "General Foreman / Super", years: "15+ Years", pay: "$75–120k+/yr", icon: "04", desc: "Managing multiple crews and subcontractors on major projects. Often salaried. Some move into project management, estimating, or inspection roles." },
+        { stage: "Master / Business Owner", years: "Varies", pay: "Unlimited", icon: "05", desc: "With a master's license (where applicable) you can pull permits and run your own contracting company — while still enjoying union scale on public and prevailing wage work." },
       ],
       whyUnion: [
-        { label: "Pension", icon: "💰", desc: "Defined benefit pensions that pay you for life after retirement — rare in today's economy." },
-        { label: "Health Insurance", icon: "🏥", desc: "Full family health coverage, often with no premium for the worker. Dental and vision included." },
-        { label: "Apprenticeship", icon: "🎓", desc: "Earn while you learn. No student loans. Training paid for by the industry." },
-        { label: "Annuity / 401k", icon: "📈", desc: "Additional retirement savings on top of your pension, contributed by employers." },
-        { label: "Paid Holidays", icon: "📅", desc: "Union contracts typically include paid holidays, vacation funds, and sick leave." },
-        { label: "Safety", icon: "🦺", desc: "Union job sites have strict safety standards. Union members have the right to refuse unsafe work." },
+        { label: "Pension", icon: "$", desc: "Defined benefit pensions that pay you for life after retirement — rare in today's economy." },
+        { label: "Health Insurance", icon: "+", desc: "Full family health coverage, often with no premium for the worker. Dental and vision included." },
+        { label: "Apprenticeship", icon: "◆", desc: "Earn while you learn. No student loans. Training paid for by the industry." },
+        { label: "Annuity / 401k", icon: "↑", desc: "Additional retirement savings on top of your pension, contributed by employers." },
+        { label: "Safety", icon: "✓", desc: "Union job sites have strict safety standards. Union members have the right to refuse unsafe work." },
       ],
       stats: [
         { num: "$63/hr", label: "Average journeyman wage in major metro markets" },
@@ -2694,19 +2693,19 @@ export default function UnionPathway() {
       title: "Trayectoria Profesional en los Oficios Sindicales",
       sub: "Cada oficio ofrece un camino estructurado de aprendiz a maestro — ganando salarios reales durante todo el proceso. Sin deuda estudiantil. Sin pasantías sin pago.",
       stages: [
-        { stage: "Aprendiz", years: "Años 1–5", pay: "$18–35/hr", icon: "📋", desc: "Estás inscrito en un aprendizaje registrado — trabajando a tiempo completo mientras asistes a la escuela de oficios. Tu salario aumenta cada 6 meses. Recibes beneficios desde el primer día." },
-        { stage: "Oficial", years: "5+ Años", pay: "$35–75/hr", icon: "🔨", desc: "Completaste tu aprendizaje y obtuviste tu tarjeta de oficial. Puedes trabajar donde tu sindicato tenga jurisdicción. Salarios completos, beneficios completos, contribuciones completas de pensión." },
-        { stage: "Capataz", years: "8–15 Años", pay: "$45–90/hr", icon: "📐", desc: "Los oficiales experimentados asumen roles de capataz — liderando cuadrillas, leyendo planos, coordinando materiales. El pago de capataz incluye una prima sobre la escala de oficial." },
-        { stage: "Capataz General / Superintendent", years: "15+ Años", pay: "$75–120k+/año", icon: "🏗️", desc: "Gestionar múltiples cuadrillas y subcontratistas en proyectos importantes. A menudo asalariado." },
-        { stage: "Maestro / Propietario", years: "Varía", pay: "Ilimitado", icon: "⭐", desc: "Con una licencia de maestro puedes sacar permisos y manejar tu propia empresa contratista." },
+        { stage: "Aprendiz", years: "Años 1–5", pay: "$18–35/hr", icon: "01", desc: "Estás inscrito en un aprendizaje registrado — trabajando a tiempo completo mientras asistes a la escuela de oficios. Tu salario aumenta cada 6 meses. Recibes beneficios desde el primer día." },
+        { stage: "Oficial", years: "5+ Años", pay: "$35–75/hr", icon: "02", desc: "Completaste tu aprendizaje y obtuviste tu tarjeta de oficial. Puedes trabajar donde tu sindicato tenga jurisdicción. Salarios completos, beneficios completos, contribuciones completas de pensión." },
+        { stage: "Capataz", years: "8–15 Años", pay: "$45–90/hr", icon: "03", desc: "Los oficiales experimentados asumen roles de capataz — liderando cuadrillas, leyendo planos, coordinando materiales. El pago de capataz incluye una prima sobre la escala de oficial." },
+        { stage: "Capataz General / Superintendent", years: "15+ Años", pay: "$75–120k+/año", icon: "04", desc: "Gestionar múltiples cuadrillas y subcontratistas en proyectos importantes. A menudo asalariado." },
+        { stage: "Maestro / Propietario", years: "Varía", pay: "Ilimitado", icon: "05", desc: "Con una licencia de maestro puedes sacar permisos y manejar tu propia empresa contratista." },
       ],
       whyUnion: [
-        { label: "Pensión", icon: "💰", desc: "Pensiones de beneficio definido que te pagan de por vida después de la jubilación." },
-        { label: "Seguro Médico", icon: "🏥", desc: "Cobertura médica familiar completa, a menudo sin prima para el trabajador." },
-        { label: "Aprendizaje", icon: "🎓", desc: "Gana mientras aprendes. Sin préstamos estudiantiles. Capacitación pagada por la industria." },
-        { label: "Anualidad / 401k", icon: "📈", desc: "Ahorros adicionales para la jubilación además de tu pensión, aportados por los empleadores." },
+        { label: "Pensión", icon: "$", desc: "Pensiones de beneficio definido que te pagan de por vida después de la jubilación." },
+        { label: "Seguro Médico", icon: "+", desc: "Cobertura médica familiar completa, a menudo sin prima para el trabajador." },
+        { label: "Aprendizaje", icon: "◆", desc: "Gana mientras aprendes. Sin préstamos estudiantiles. Capacitación pagada por la industria." },
+        { label: "Anualidad / 401k", icon: "↑", desc: "Ahorros adicionales para la jubilación además de tu pensión, aportados por los empleadores." },
         { label: "Días Festivos Pagados", icon: "📅", desc: "Los contratos sindicales incluyen días festivos pagados, fondos de vacaciones y licencia por enfermedad." },
-        { label: "Seguridad", icon: "🦺", desc: "Los sitios de trabajo sindicales tienen estrictas normas de seguridad." },
+        { label: "Seguridad", icon: "✓", desc: "Los sitios de trabajo sindicales tienen estrictas normas de seguridad." },
       ],
       stats: [
         { num: "$63/hr", label: "Salario promedio de oficial en grandes mercados metropolitanos" },
@@ -2719,19 +2718,18 @@ export default function UnionPathway() {
       title: "Ścieżka Kariery w Zawodach Związkowych",
       sub: "Każdy zawód oferuje ustrukturyzowaną ścieżkę od praktykanta do mistrza — zarabiając prawdziwe wynagrodzenie przez cały czas. Bez długu studenckiego. Bez bezpłatnych staży.",
       stages: [
-        { stage: "Praktykant", years: "Lata 1–5", pay: "$18–35/hr", icon: "📋", desc: "Jesteś zapisany na zarejestrowaną praktykę — pracujesz w pełnym wymiarze godzin, jednocześnie uczęszczając do szkoły zawodowej. Twoje wynagrodzenie rośnie co 6 miesięcy. Otrzymujesz świadczenia od pierwszego dnia." },
-        { stage: "Czeladnik", years: "5+ Lat", pay: "$35–75/hr", icon: "🔨", desc: "Ukończyłeś praktykę i zdobyłeś kartę czeladniczą. Możesz pracować wszędzie, gdzie Twój związek ma jurysdykcję. Pełne wynagrodzenie, pełne świadczenia, pełne składki emerytalne." },
-        { stage: "Brygadzista", years: "8–15 Lat", pay: "$45–90/hr", icon: "📐", desc: "Doświadczeni czeladnicy przejmują role brygadzistów — kierując ekipami, czytając plany, koordynując materiały." },
-        { stage: "Brygadzista Generalny / Superintendent", years: "15+ Lat", pay: "$75–120k+/rok", icon: "🏗️", desc: "Zarządzanie wieloma ekipami i podwykonawcami przy dużych projektach. Często na etacie." },
-        { stage: "Mistrz / Właściciel firmy", years: "Różnie", pay: "Bez ograniczeń", icon: "⭐", desc: "Z licencją mistrzowską możesz wystawiać pozwolenia i prowadzić własną firmę wykonawczą." },
+        { stage: "Praktykant", years: "Lata 1–5", pay: "$18–35/hr", icon: "01", desc: "Jesteś zapisany na zarejestrowaną praktykę — pracujesz w pełnym wymiarze godzin, jednocześnie uczęszczając do szkoły zawodowej. Twoje wynagrodzenie rośnie co 6 miesięcy. Otrzymujesz świadczenia od pierwszego dnia." },
+        { stage: "Czeladnik", years: "5+ Lat", pay: "$35–75/hr", icon: "02", desc: "Ukończyłeś praktykę i zdobyłeś kartę czeladniczą. Możesz pracować wszędzie, gdzie Twój związek ma jurysdykcję. Pełne wynagrodzenie, pełne świadczenia, pełne składki emerytalne." },
+        { stage: "Brygadzista", years: "8–15 Lat", pay: "$45–90/hr", icon: "03", desc: "Doświadczeni czeladnicy przejmują role brygadzistów — kierując ekipami, czytając plany, koordynując materiały." },
+        { stage: "Brygadzista Generalny / Superintendent", years: "15+ Lat", pay: "$75–120k+/rok", icon: "04", desc: "Zarządzanie wieloma ekipami i podwykonawcami przy dużych projektach. Często na etacie." },
+        { stage: "Mistrz / Właściciel firmy", years: "Różnie", pay: "Bez ograniczeń", icon: "05", desc: "Z licencją mistrzowską możesz wystawiać pozwolenia i prowadzić własną firmę wykonawczą." },
       ],
       whyUnion: [
-        { label: "Emerytura", icon: "💰", desc: "Emerytury ze zdefiniowanym świadczeniem, które wypłacają Ci pieniądze przez całe życie po przejściu na emeryturę." },
-        { label: "Ubezpieczenie zdrowotne", icon: "🏥", desc: "Pełne ubezpieczenie zdrowotne rodziny, często bez składki dla pracownika." },
-        { label: "Praktyka zawodowa", icon: "🎓", desc: "Zarabiaj ucząc się. Bez pożyczek studenckich. Szkolenie opłacane przez branżę." },
-        { label: "Renta / 401k", icon: "📈", desc: "Dodatkowe oszczędności emerytalne ponad Twoją emeryturę, wnoszone przez pracodawców." },
-        { label: "Płatne święta", icon: "📅", desc: "Umowy związkowe zazwyczaj obejmują płatne święta, fundusze urlopowe i zwolnienia chorobowe." },
-        { label: "Bezpieczeństwo", icon: "🦺", desc: "Place budowy związkowe mają rygorystyczne standardy bezpieczeństwa." },
+        { label: "Emerytura", icon: "$", desc: "Emerytury ze zdefiniowanym świadczeniem, które wypłacają Ci pieniądze przez całe życie po przejściu na emeryturę." },
+        { label: "Ubezpieczenie zdrowotne", icon: "+", desc: "Pełne ubezpieczenie zdrowotne rodziny, często bez składki dla pracownika." },
+        { label: "Praktyka zawodowa", icon: "◆", desc: "Zarabiaj ucząc się. Bez pożyczek studenckich. Szkolenie opłacane przez branżę." },
+        { label: "Renta / 401k", icon: "↑", desc: "Dodatkowe oszczędności emerytalne ponad Twoją emeryturę, wnoszone przez pracodawców." },
+        { label: "Bezpieczeństwo", icon: "✓", desc: "Place budowy związkowe mają rygorystyczne standardy bezpieczeństwa." },
       ],
       stats: [
         { num: "$63/hr", label: "Średnie wynagrodzenie czeladnika na głównych rynkach miejskich" },
@@ -3951,8 +3949,9 @@ export default function UnionPathway() {
           gap: 16px; margin-bottom: 48px;
         }
         .stat-card {
-          background: var(--card-bg); border: 1px solid var(--wire);
-          border-radius: 12px; padding: 20px;
+          background: transparent;
+          border: 1px solid rgba(250,128,89,0.2);
+          border-radius: 12px; padding: 20px 24px;
         }
         .stat-num {
           font-family: 'Barlow Condensed', sans-serif;
@@ -3975,13 +3974,27 @@ export default function UnionPathway() {
         .career-stages { margin-bottom: 48px; }
         .career-stage {
           display: flex; gap: 20px;
-          padding: 24px 0;
-          border-bottom: 1px solid rgba(255,255,255,0.05);
+          padding: 22px 24px;
+          border: 1px solid rgba(255,255,255,0.07);
+          border-radius: 14px;
+          background: rgba(255,255,255,0.02);
+          margin-bottom: 12px;
           align-items: flex-start;
+          transition: border-color 0.2s, background 0.2s;
+        }
+        .career-stage:hover {
+          background: rgba(250,128,89,0.04);
+          border-color: rgba(250,128,89,0.2);
         }
         .stage-icon {
-          font-size: 28px; min-width: 44px; text-align: center;
-          padding-top: 4px;
+          min-width: 44px; height: 44px;
+          display: flex; align-items: center; justify-content: center;
+          border: 1px solid rgba(250,128,89,0.3);
+          border-radius: 8px;
+          font-size: 13px; font-weight: 800;
+          font-family: 'Barlow Condensed', sans-serif;
+          color: #FA8059; letter-spacing: 0.05em;
+          flex-shrink: 0;
         }
         .stage-info { flex: 1; }
         .stage-header {
@@ -4005,10 +4018,25 @@ export default function UnionPathway() {
           gap: 14px; margin-bottom: 40px;
         }
         .benefit-card {
-          background: var(--card-bg); border: 1px solid var(--wire);
-          border-radius: 10px; padding: 18px;
+          background: rgba(255,255,255,0.02);
+          border: 1px solid rgba(255,255,255,0.07);
+          border-radius: 14px; padding: 24px 20px;
+          transition: border-color 0.2s, background 0.2s;
         }
-        .benefit-icon { font-size: 22px; margin-bottom: 10px; }
+        .benefit-card:hover {
+          background: rgba(250,128,89,0.04);
+          border-color: rgba(250,128,89,0.2);
+        }
+        .benefit-icon {
+          width: 36px; height: 36px;
+          background: transparent;
+          border: 1px solid rgba(250,128,89,0.3);
+          border-radius: 6px;
+          display: flex; align-items: center; justify-content: center;
+          font-size: 16px; font-weight: 900;
+          font-family: 'Barlow Condensed', sans-serif;
+          color: #FA8059; margin-bottom: 14px;
+        }
         .benefit-label {
           font-family: 'Barlow Condensed', sans-serif;
           font-size: 15px; font-weight: 800;
@@ -5200,11 +5228,11 @@ export default function UnionPathway() {
                   { icon: "📅", title: lang==="es" ? "El Fin de Semana" : lang==="pl" ? "Weekend" : "The Weekend", desc: lang==="es" ? "Antes de los sindicatos, los trabajadores laboraban 6 o 7 días a la semana. El fin de semana de dos días fue una victoria sindical — luchada y ganada por el trabajo organizado a principios del siglo XX." : lang==="pl" ? "Przed powstaniem związków zawodowych pracownicy pracowali 6 lub 7 dni w tygodniu. Dwudniowy weekend był zwycięstwem związkowym — wywalczonym przez zorganizowaną pracę na początku XX wieku." : "Before unions, workers labored 6 or 7 days a week. The two-day weekend was a union victory — fought for and won by organized labor in the early 20th century." },
                   { icon: "⏰", title: lang==="es" ? "La Jornada de 8 Horas" : lang==="pl" ? "8-Godzinny Dzień Pracy" : "The 8-Hour Day", desc: lang==="es" ? "'8 horas para trabajar, 8 horas para descansar, 8 horas para lo que queramos.' Los trabajadores sindicalizados lucharon durante décadas para limitar la jornada laboral de más de 16 horas a 8." : lang==="pl" ? "'8 godzin pracy, 8 godzin odpoczynku, 8 godzin na co chcemy.' Związkowcy walczyli przez dekady, aby ograniczyć dzień pracy z ponad 16 godzin do 8." : "'8 hours for work, 8 hours for rest, 8 hours for what we will.' Union workers fought for decades to limit the working day from 16+ hours to 8." },
                   { icon: "👶", title: lang==="es" ? "Fin del Trabajo Infantil" : lang==="pl" ? "Koniec Pracy Dzieci" : "End of Child Labor", desc: lang==="es" ? "Niños tan pequeños como de 5 años trabajaban en minas y fábricas antes de que los sindicatos impulsaran las leyes contra el trabajo infantil. La Ley de Normas Laborales Justas de 1938 finalmente prohibió la mayor parte del trabajo infantil." : lang==="pl" ? "Dzieci w wieku 5 lat pracowały w kopalniach i fabrykach zanim związki zawodowe zaczęły walczyć o przepisy dotyczące pracy dzieci. Ustawa o uczciwych standardach pracy z 1938 roku ostatecznie zakazała większości pracy dzieci." : "Children as young as 5 worked in mines and factories before unions pushed for child labor laws. The Fair Labor Standards Act of 1938 finally banned most child labor." },
-                  { icon: "🏥", title: lang==="es" ? "Seguro de Salud" : lang==="pl" ? "Ubezpieczenie Zdrowotne" : "Health Insurance", desc: lang==="es" ? "El seguro de salud proporcionado por el empleador se convirtió en estándar en América porque los sindicatos lo negociaron en los contratos — y otros empleadores tuvieron que seguir para competir por trabajadores." : lang==="pl" ? "Ubezpieczenie zdrowotne zapewniane przez pracodawcę stało się standardem w Ameryce, ponieważ związki wynegocjowały je w umowach — a inni pracodawcy musieli podążać za tym, aby konkurować o pracowników." : "Employer-provided health insurance became standard in America because unions negotiated it into contracts — and other employers had to follow to compete for workers." },
-                  { icon: "💰", title: lang==="es" ? "Salario Mínimo" : lang==="pl" ? "Płaca Minimalna" : "Minimum Wage", desc: lang==="es" ? "No había salario mínimo antes de que los sindicatos lucharan por él. El primer salario mínimo federal de $0.25/hr en 1938 fue una victoria sindical." : lang==="pl" ? "Nie było płacy minimalnej zanim związki zawodowe o nią nie walczyły. Pierwsza federalna płaca minimalna w wysokości $0,25/hr w 1938 roku była zwycięstwem związkowym." : "There was no minimum wage before unions fought for it. The first federal minimum wage of $0.25/hr in 1938 was a union victory." },
-                  { icon: "🦺", title: lang==="es" ? "Seguridad en el Trabajo" : lang==="pl" ? "Bezpieczeństwo w Pracy" : "Workplace Safety", desc: lang==="es" ? "OSHA, cascos, arneses de seguridad, salidas de emergencia — los trabajadores sindicalizados exigieron estas protecciones y eventualmente lograron que se convirtieran en ley para todos los trabajadores americanos." : lang==="pl" ? "OSHA, kaski, uprzęże bezpieczeństwa, wyjścia awaryjne — pracownicy związkowi domagali się tych zabezpieczeń i ostatecznie doprowadzili do ich zapisania w prawie dla wszystkich amerykańskich pracowników." : "OSHA, hard hats, safety harnesses, fire exits — union workers demanded these protections and eventually got them written into law for all American workers." },
-                  { icon: "📈", title: lang==="es" ? "Pago de Horas Extras" : lang==="pl" ? "Wynagrodzenie za Nadgodziny" : "Overtime Pay", desc: lang==="es" ? "¿Tiempo y medio por horas extras? Eso es una victoria sindical. Antes de la FLSA, los empleadores podían hacerte trabajar horas ilimitadas sin pago adicional." : lang==="pl" ? "Półtorakrotność stawki za nadgodziny? To zwycięstwo związkowe. Przed FLSA pracodawcy mogli zmuszać do nieograniczonej liczby godzin pracy bez dodatkowego wynagrodzenia." : "Time-and-a-half for overtime? That's a union win. Before the FLSA, employers could work you unlimited hours with no extra pay." },
-                  { icon: "🎓", title: lang==="es" ? "Aprendizajes Pagados" : lang==="pl" ? "Płatne Praktyki" : "Paid Apprenticeships", desc: lang==="es" ? "El modelo de aprendizaje sindical — ganar mientras aprendes, sin deuda estudiantil — es el estándar de oro de la formación laboral. Construido por sindicatos, para trabajadores." : lang==="pl" ? "Model praktyk związkowych — zarabiaj ucząc się, bez długu studenckiego — jest złotym standardem szkolenia zawodowego. Zbudowany przez związki, dla pracowników." : "The union apprenticeship model — earn while you learn, no student debt — is the gold standard of workforce training. Built by unions, for workers." },
+                  { icon: "+", title: lang==="es" ? "Seguro de Salud" : lang==="pl" ? "Ubezpieczenie Zdrowotne" : "Health Insurance", desc: lang==="es" ? "El seguro de salud proporcionado por el empleador se convirtió en estándar en América porque los sindicatos lo negociaron en los contratos — y otros empleadores tuvieron que seguir para competir por trabajadores." : lang==="pl" ? "Ubezpieczenie zdrowotne zapewniane przez pracodawcę stało się standardem w Ameryce, ponieważ związki wynegocjowały je w umowach — a inni pracodawcy musieli podążać za tym, aby konkurować o pracowników." : "Employer-provided health insurance became standard in America because unions negotiated it into contracts — and other employers had to follow to compete for workers." },
+                  { icon: "$", title: lang==="es" ? "Salario Mínimo" : lang==="pl" ? "Płaca Minimalna" : "Minimum Wage", desc: lang==="es" ? "No había salario mínimo antes de que los sindicatos lucharan por él. El primer salario mínimo federal de $0.25/hr en 1938 fue una victoria sindical." : lang==="pl" ? "Nie było płacy minimalnej zanim związki zawodowe o nią nie walczyły. Pierwsza federalna płaca minimalna w wysokości $0,25/hr w 1938 roku była zwycięstwem związkowym." : "There was no minimum wage before unions fought for it. The first federal minimum wage of $0.25/hr in 1938 was a union victory." },
+                  { icon: "✓", title: lang==="es" ? "Seguridad en el Trabajo" : lang==="pl" ? "Bezpieczeństwo w Pracy" : "Workplace Safety", desc: lang==="es" ? "OSHA, cascos, arneses de seguridad, salidas de emergencia — los trabajadores sindicalizados exigieron estas protecciones y eventualmente lograron que se convirtieran en ley para todos los trabajadores americanos." : lang==="pl" ? "OSHA, kaski, uprzęże bezpieczeństwa, wyjścia awaryjne — pracownicy związkowi domagali się tych zabezpieczeń i ostatecznie doprowadzili do ich zapisania w prawie dla wszystkich amerykańskich pracowników." : "OSHA, hard hats, safety harnesses, fire exits — union workers demanded these protections and eventually got them written into law for all American workers." },
+                  { icon: "↑", title: lang==="es" ? "Pago de Horas Extras" : lang==="pl" ? "Wynagrodzenie za Nadgodziny" : "Overtime Pay", desc: lang==="es" ? "¿Tiempo y medio por horas extras? Eso es una victoria sindical. Antes de la FLSA, los empleadores podían hacerte trabajar horas ilimitadas sin pago adicional." : lang==="pl" ? "Półtorakrotność stawki za nadgodziny? To zwycięstwo związkowe. Przed FLSA pracodawcy mogli zmuszać do nieograniczonej liczby godzin pracy bez dodatkowego wynagrodzenia." : "Time-and-a-half for overtime? That's a union win. Before the FLSA, employers could work you unlimited hours with no extra pay." },
+                  { icon: "◆", title: lang==="es" ? "Aprendizajes Pagados" : lang==="pl" ? "Płatne Praktyki" : "Paid Apprenticeships", desc: lang==="es" ? "El modelo de aprendizaje sindical — ganar mientras aprendes, sin deuda estudiantil — es el estándar de oro de la formación laboral. Construido por sindicatos, para trabajadores." : lang==="pl" ? "Model praktyk związkowych — zarabiaj ucząc się, bez długu studenckiego — jest złotym standardem szkolenia zawodowego. Zbudowany przez związki, dla pracowników." : "The union apprenticeship model — earn while you learn, no student debt — is the gold standard of workforce training. Built by unions, for workers." },
                 ].map((item, i) => (
                   <div key={i} className="impact-card">
                     <div className="impact-icon">{item.icon}</div>
@@ -5275,10 +5303,10 @@ export default function UnionPathway() {
               <div className="history-section-sub">{lang==="es" ? "Todo pagado por el contratista — no deducido de tu cheque." : lang==="pl" ? "Wszystko płacone przez wykonawcę — nie potrącane z Twojej wypłaty." : "All paid by your contractor — not deducted from your paycheck."}</div>
               <div className="impact-grid">
                 {[
-                  { icon: "🏥", title: lang==="es" ? "Seguro de Salud" : lang==="pl" ? "Ubezpieczenie Zdrowotne" : "Health Insurance", desc: lang==="es" ? "Cobertura médica, dental y de visión completa para ti y tu familia — pagada directamente por el contratista a tu fondo de salud." : lang==="pl" ? "Pełne ubezpieczenie medyczne, dentystyczne i wzrokowe dla Ciebie i Twojej rodziny — płacone bezpośrednio przez wykonawcę do Twojego funduszu zdrowotnego." : "Full medical, dental, and vision coverage for you and your family — paid directly by your contractor to your health fund.", page: "health" },
+                  { icon: "+", title: lang==="es" ? "Seguro de Salud" : lang==="pl" ? "Ubezpieczenie Zdrowotne" : "Health Insurance", desc: lang==="es" ? "Cobertura médica, dental y de visión completa para ti y tu familia — pagada directamente por el contratista a tu fondo de salud." : lang==="pl" ? "Pełne ubezpieczenie medyczne, dentystyczne i wzrokowe dla Ciebie i Twojej rodziny — płacone bezpośrednio przez wykonawcę do Twojego funduszu zdrowotnego." : "Full medical, dental, and vision coverage for you and your family — paid directly by your contractor to your health fund.", page: "health" },
                   { icon: "🏦", title: lang==="es" ? "Pensión" : lang==="pl" ? "Emerytura" : "Pension", desc: lang==="es" ? "Un cheque mensual garantizado de por vida cuando te jubiles — financiado completamente por el contratista. Sin riesgo de mercado para ti." : lang==="pl" ? "Gwarantowana miesięczna wypłata przez całe życie po przejściu na emeryturę — w pełni finansowana przez wykonawcę. Żadnego ryzyka rynkowego dla Ciebie." : "A guaranteed monthly check for life when you retire — funded entirely by your contractor. No market risk to you.", page: "retirement" },
-                  { icon: "📈", title: lang==="es" ? "Anualidad" : lang==="pl" ? "Renta Annuitetowa" : "Annuity", desc: lang==="es" ? "Una cuenta de ahorro adicional para la jubilación que crece con cada hora trabajada — financiada por el contratista además de tu pensión." : lang==="pl" ? "Dodatkowe konto oszczędnościowe na emeryturę, które rośnie z każdą przepracowaną godziną — finansowane przez wykonawcę oprócz Twojej emerytury." : "An additional retirement savings account that grows with every hour worked — funded by your contractor on top of your pension.", page: "retirement" },
-                  { icon: "🎓", title: lang==="es" ? "Aprendizaje Pagado" : lang==="pl" ? "Płatna Praktyka" : "Paid Apprenticeship", desc: lang==="es" ? "Ganas un salario completo mientras aprendes el oficio — sin deuda estudiantil. Los contratistas también contribuyen a los fondos de formación." : lang==="pl" ? "Zarabiasz pełną pensję ucząc się zawodu — bez długu studenckiego. Wykonawcy również wpłacają do funduszy szkoleniowych." : "You earn a full wage while learning the trade — no student debt. Contractors also contribute to training funds.", page: "careers" },
+                  { icon: "↑", title: lang==="es" ? "Anualidad" : lang==="pl" ? "Renta Annuitetowa" : "Annuity", desc: lang==="es" ? "Una cuenta de ahorro adicional para la jubilación que crece con cada hora trabajada — financiada por el contratista además de tu pensión." : lang==="pl" ? "Dodatkowe konto oszczędnościowe na emeryturę, które rośnie z każdą przepracowaną godziną — finansowane przez wykonawcę oprócz Twojej emerytury." : "An additional retirement savings account that grows with every hour worked — funded by your contractor on top of your pension.", page: "retirement" },
+                  { icon: "◆", title: lang==="es" ? "Aprendizaje Pagado" : lang==="pl" ? "Płatna Praktyka" : "Paid Apprenticeship", desc: lang==="es" ? "Ganas un salario completo mientras aprendes el oficio — sin deuda estudiantil. Los contratistas también contribuyen a los fondos de formación." : lang==="pl" ? "Zarabiasz pełną pensję ucząc się zawodu — bez długu studenckiego. Wykonawcy również wpłacają do funduszy szkoleniowych." : "You earn a full wage while learning the trade — no student debt. Contractors also contribute to training funds.", page: "careers" },
                   { icon: "🛡️", title: lang==="es" ? "Seguro de Discapacidad" : lang==="pl" ? "Ubezpieczenie na Wypadek Niezdolności do Pracy" : "Disability Coverage", desc: lang==="es" ? "Si te lesionas en el trabajo, los planes sindicales suelen incluir cobertura por discapacidad a corto y largo plazo — sin costo adicional para ti." : lang==="pl" ? "Jeśli doznasz obrażeń w pracy, plany związkowe zazwyczaj obejmują ubezpieczenie od niezdolności do pracy krótko- i długoterminowej — bez dodatkowych kosztów dla Ciebie." : "If you're injured on the job, union plans typically include short and long-term disability coverage — at no extra cost to you.", page: "benefits" },
                   { icon: "💼", title: lang==="es" ? "Vacaciones Pagadas" : lang==="pl" ? "Płatny Urlop" : "Vacation & Holiday Pay", desc: lang==="es" ? "Muchos contratos sindicales incluyen contribuciones a fondos de vacaciones — acumulando dinero de vacaciones pagadas con cada hora trabajada." : lang==="pl" ? "Wiele umów związkowych obejmuje składki do funduszy urlopowych — gromadząc pieniądze na płatny urlop z każdą przepracowaną godziną." : "Many union contracts include contributions to vacation funds — accumulating paid vacation money with every hour worked.", page: "benefits" },
                 ].map((item, i) => (
