@@ -4895,276 +4895,179 @@ export default function UnionPathway() {
 
         {/* ── JOIN A UNION CHECKLIST PAGE ── */}
         {page === "checklist" && (
-          <div className="page" style={{maxWidth: 780}}>
-            <div className="page-eyebrow">{lang==="es" ? "Cómo Empezar" : lang==="pl" ? "Jak Zacząć" : "Getting Started"}</div>
-            <h1 className="page-title">{lang==="es" ? "Cómo Unirse a un Oficio Sindical" : lang==="pl" ? "Jak Dołączyć do Zawodowego Związku" : "How to Join a Union Trade"}</h1>
-            <p className="page-sub">
-              {lang==="es"
-                ? "Todo lo que necesitas saber antes de aplicar — qué se requiere, qué ayuda y cómo funciona el proceso."
-                : lang==="pl"
-                ? "Wszystko, co musisz wiedzieć przed złożeniem wniosku — czego wymaga się od Ciebie, co pomaga i jak działa ten proces."
-                : "Everything you need to know before you apply — what's required, what helps, and how the process works."}
-            </p>
-
-            <div className="checklist-intro">
-              {lang==="es" ? (
-                <><strong>Lo esencial:</strong> Los aprendizajes sindicales son competitivos pero abiertos a cualquier persona que califique. No hay tarifa para aplicar, no se requiere universidad, y ganas un sueldo desde el primer día.</>
-              ) : lang==="pl" ? (
-                <><strong>Najważniejsze:</strong> Programy praktyk związkowych są konkurencyjne, ale otwarte dla każdego, kto spełnia wymagania. Nie ma opłaty za złożenie wniosku, nie jest wymagane wykształcenie wyższe, a wynagrodzenie zarabiasz od pierwszego dnia.</>
-              ) : (
-                <><strong>The bottom line:</strong> Union apprenticeships are competitive but open to anyone who qualifies. There's no fee to apply, no college required, and you earn a paycheck from day one. Most locals hold open enrollment periods — typically spring and fall — but some accept applications year-round.</>
-              )}
+          <div>
+            {/* HERO */}
+            <div className="history-hero">
+              <div className="history-eyebrow">🏗️ The Real Path Into the Trades</div>
+              <h1 className="history-title">
+                {lang==="es" ? <>{"Cómo Unirse a un "}<span className="accent">Oficio Sindical</span></> : lang==="pl" ? <>{"Jak Dołączyć do "}<span className="accent">Zawodu Związkowego</span></> : <>{"How to Join a "}<span className="accent">Union Trade</span></>}
+              </h1>
+              <p className="history-subtitle">
+                {lang==="es" ? "Sin cursos, sin intermediarios, sin relleno. Así es como la gente realmente entra a los oficios sindicales." : lang==="pl" ? "Bez kursów, bez pośredników, bez lania wody. Oto jak ludzie naprawdę wchodzą do związkowych zawodów budowlanych." : "No courses, no funnels, no fluff. This is how people actually get into the union trades."}
+              </p>
             </div>
 
-            {/* Legend */}
-            <div className="checklist-legend">
-              <div className="legend-item"><div className="legend-dot" style={{background:"var(--yellow)"}} />{lang==="es"?"Requerido — necesario para aplicar":lang==="pl"?"Wymagane — konieczne do aplikacji":"Required — must have to apply"}</div>
-              <div className="legend-item"><div className="legend-dot" style={{background:"#4a9eff"}} />{lang==="es"?"A menudo requerido — varía por local":lang==="pl"?"Często Wymagane — zależy od oddziału":"Often Required — varies by local"}</div>
-              <div className="legend-item"><div className="legend-dot" style={{background:"#22c55e"}} />{lang==="es"?"Útil — mejora tus posibilidades":lang==="pl"?"Pomocne — zwiększa Twoje szanse":"Helpful — improves your chances"}</div>
-            </div>
+            {/* 3 ROUTES */}
+            <div className="history-section">
+              <div className="history-section-title">{lang==="es" ? <>{"Las 3 Rutas "}<span className="accent">Reales</span>{" de Entrada"}</> : lang==="pl" ? <>{"3 Prawdziwe "}<span className="accent">Drogi</span>{" Wejścia"}</> : <>{"The 3 "}<span className="accent">Real</span>{" Entry Routes"}</>}</div>
+              <div className="history-section-sub">{lang==="es" ? "Clasificadas por efectividad — así es como la gente realmente entra." : lang==="pl" ? "Uszeregowane według skuteczności — tak ludzie naprawdę wchodzą do zawodów." : "Ranked by effectiveness — this is how people actually get in."}</div>
 
-            {/* Section 1 — Basic Requirements */}
-            <div className="checklist-section">
-              <div className="checklist-section-title">{lang==="es"?"Requisitos Básicos":lang==="pl"?"Podstawowe Wymagania":"Basic Requirements"}</div>
-              <div className="checklist-items">
-                <div className="checklist-item required">
-                  <div className="checklist-icon">🎂</div>
-                  <div className="checklist-text">
-                    <div className="checklist-label">{lang==="es"?"18 Años de Edad":lang==="pl"?"18 Lat":"18 Years Old"} <span className="checklist-tag tag-required">{lang==="es"?"Requerido":lang==="pl"?"Wymagane":"Required"}</span></div>
-                    <div className="checklist-desc">{lang==="es"?"Debes tener al menos 18 años para ingresar a un programa de aprendizaje registrado.":lang==="pl"?"Musisz mieć co najmniej 18 lat, aby przystąpić do zarejestrowanego programu praktyk. Niektóre zawody przyjmują 17-latków za zgodą rodzica, ale 18 lat to standard.":"You must be at least 18 to enter a registered apprenticeship program. Some trades accept 17 with a parent or guardian signature in certain states, but 18 is the standard."}</div>
+              <div style={{display:"flex", flexDirection:"column", gap:"20px"}}>
+                {/* ROUTE 1 */}
+                <div style={{background:"rgba(250,128,89,0.06)", border:"1px solid rgba(250,128,89,0.25)", borderRadius:"20px", padding:"28px 32px"}}>
+                  <div style={{display:"flex", alignItems:"center", gap:"14px", marginBottom:"16px"}}>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"32px", fontWeight:"900", color:"#FA8059"}}>🥇</div>
+                    <div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"11px", fontWeight:"700", letterSpacing:"0.12em", textTransform:"uppercase", color:"#FA8059", marginBottom:"4px"}}>{lang==="es" ? "Mejor Opción" : lang==="pl" ? "Najlepsza Opcja" : "Best Option"}</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"26px", fontWeight:"900", color:"#fff"}}>{lang==="es" ? "Aprendizaje Directo" : lang==="pl" ? "Bezpośrednia Praktyka" : "Direct Apprenticeship"}</div>
+                    </div>
+                  </div>
+                  <p style={{fontSize:"15px", color:"var(--muted)", lineHeight:"1.7", marginBottom:"16px"}}>
+                    {lang==="es" ? "Este es el estándar de oro. Aplicas directamente al programa de formación de un sindicato. Ganas mientras aprendes — sin deuda estudiantil. Sin intermediarios." : lang==="pl" ? "To złoty standard. Aplikujesz bezpośrednio do programu szkoleniowego związku. Zarabiasz ucząc się — bez długu studenckiego. Bez pośredników." : "This is the gold standard. You apply straight to a union's training program. You earn while you learn — no student debt. No middleman."}
+                  </p>
+                  <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(200px, 1fr))", gap:"12px"}}>
+                    {[
+                      { label: lang==="es" ? "Proceso" : lang==="pl" ? "Proces" : "Process", val: lang==="es" ? "Solicitud → Prueba → Entrevista → Lista de espera → Empezar" : lang==="pl" ? "Wniosek → Test → Rozmowa → Lista oczekujących → Start" : "Apply → Aptitude Test → Interview → Waitlist → Start Working" },
+                      { label: lang==="es" ? "Salario Inicial" : lang==="pl" ? "Wynagrodzenie Startowe" : "Starting Pay", val: "$18–$25/hr" },
+                      { label: lang==="es" ? "Salario Oficial" : lang==="pl" ? "Wynagrodzenie Czeladnika" : "Journeyman Pay", val: "$35–$75/hr+" },
+                      { label: lang==="es" ? "Por qué es #1" : lang==="pl" ? "Dlaczego #1" : "Why It's #1", val: lang==="es" ? "Es el pipeline real. Sin intermediarios." : lang==="pl" ? "To prawdziwy pipeline. Bez pośredników." : "It's the actual pipeline. No middleman." },
+                    ].map((item, i) => (
+                      <div key={i} style={{background:"rgba(0,0,0,0.2)", borderRadius:"10px", padding:"12px 16px"}}>
+                        <div style={{fontSize:"11px", fontWeight:"700", letterSpacing:"0.08em", textTransform:"uppercase", color:"#FA8059", marginBottom:"4px"}}>{item.label}</div>
+                        <div style={{fontSize:"13px", color:"var(--muted)", lineHeight:"1.5"}}>{item.val}</div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-                <div className="checklist-item required">
-                  <div className="checklist-icon">📄</div>
-                  <div className="checklist-text">
-                    <div className="checklist-label">{lang==="es"?"Diploma de Escuela Secundaria o GED":lang==="pl"?"Dyplom Ukończenia Szkoły Średniej lub GED":"High School Diploma or GED"} <span className="checklist-tag tag-required">{lang==="es"?"Requerido":lang==="pl"?"Wymagane":"Required"}</span></div>
-                    <div className="checklist-desc">{lang==="es"?"Los cuatro oficios requieren un diploma de escuela secundaria o GED.":lang==="pl"?"Wszystkie zawody wymagają dyplomu szkoły średniej lub GED. Jeśli jeszcze go nie masz, zdobycie GED to Twój pierwszy krok.":"All four trades require proof of a high school diploma or GED. If you don't have one yet, getting your GED is your first step. Community colleges offer GED prep programs, many for free."}</div>
+
+                {/* ROUTE 2 */}
+                <div style={{background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.1)", borderRadius:"20px", padding:"28px 32px"}}>
+                  <div style={{display:"flex", alignItems:"center", gap:"14px", marginBottom:"16px"}}>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"32px", fontWeight:"900", color:"#a0b4c4"}}>🥈</div>
+                    <div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"11px", fontWeight:"700", letterSpacing:"0.12em", textTransform:"uppercase", color:"#a0b4c4", marginBottom:"4px"}}>{lang==="es" ? "Buen Atajo" : lang==="pl" ? "Dobry Skrót" : "Good Shortcut"}</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"26px", fontWeight:"900", color:"#fff"}}>{lang==="es" ? "Programas de Pre-Aprendizaje" : lang==="pl" ? "Programy Przed-Praktyczne" : "Pre-Apprenticeship Programs"}</div>
+                    </div>
+                  </div>
+                  <p style={{fontSize:"15px", color:"var(--muted)", lineHeight:"1.7", marginBottom:"16px"}}>
+                    {lang==="es" ? "Programas legítimos que te ayudan a entrar más rápido a los sindicatos. A menudo dirigidos por colegios comunitarios, organizaciones sin fines de lucro y asociaciones sindicales." : lang==="pl" ? "Legalne programy, które pomagają szybciej wejść do związków. Często prowadzone przez community college, organizacje non-profit i partnerstwa związkowe." : "Legit programs that help you get into unions faster. Often run by community colleges, nonprofits, and union partnerships."}
+                  </p>
+                  <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(200px, 1fr))", gap:"12px"}}>
+                    {[
+                      { label: lang==="es" ? "Qué Hacen" : lang==="pl" ? "Co Robią" : "What They Do", val: lang==="es" ? "Enseñan habilidades básicas, ayudan a pasar pruebas de ingreso, a veces dan entrada directa" : lang==="pl" ? "Uczą podstawowych umiejętności, pomagają zdać testy wstępne, czasem dają bezpośrednie wejście" : "Teach basic skills, help you pass entry tests, sometimes give direct entry or priority" },
+                      { label: lang==="es" ? "Quién las Ofrece" : lang==="pl" ? "Kto Je Oferuje" : "Who Offers Them", val: lang==="es" ? "Colegios comunitarios, organizaciones sin fines de lucro, centros de formación sindicales" : lang==="pl" ? "Community college, organizacje non-profit, związkowe centra szkoleniowe" : "Community colleges, nonprofits, union training centers" },
+                    ].map((item, i) => (
+                      <div key={i} style={{background:"rgba(0,0,0,0.2)", borderRadius:"10px", padding:"12px 16px"}}>
+                        <div style={{fontSize:"11px", fontWeight:"700", letterSpacing:"0.08em", textTransform:"uppercase", color:"#a0b4c4", marginBottom:"4px"}}>{item.label}</div>
+                        <div style={{fontSize:"13px", color:"var(--muted)", lineHeight:"1.5"}}>{item.val}</div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-                <div className="checklist-item required">
-                  <div className="checklist-icon">🇺🇸</div>
-                  <div className="checklist-text">
-                    <div className="checklist-label">{lang==="es"?"Derecho Legal a Trabajar en EE.UU.":lang==="pl"?"Prawo do Pracy w USA":"Legal Right to Work in the US"} <span className="checklist-tag tag-required">{lang==="es"?"Requerido":lang==="pl"?"Wymagane":"Required"}</span></div>
-                    <div className="checklist-desc">{lang==="es"?"Debes estar legalmente autorizado para trabajar en los Estados Unidos.":lang==="pl"?"Musisz być prawnie upoważniony do pracy w Stanach Zjednoczonych. Dotyczy to obywateli USA, stałych rezydentów i posiadaczy ważnych zezwoleń na pracę.":"You must be legally authorized to work in the United States. This includes US citizens, permanent residents, and holders of valid work authorization."}</div>
+
+                {/* ROUTE 3 */}
+                <div style={{background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.1)", borderRadius:"20px", padding:"28px 32px"}}>
+                  <div style={{display:"flex", alignItems:"center", gap:"14px", marginBottom:"16px"}}>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"32px", fontWeight:"900", color:"#a0b4c4"}}>🥉</div>
+                    <div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"11px", fontWeight:"700", letterSpacing:"0.12em", textTransform:"uppercase", color:"#a0b4c4", marginBottom:"4px"}}>{lang==="es" ? "La Ruta Trasera" : lang==="pl" ? "Droga Tylnym Wejściem" : "The Backdoor Route"}</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"26px", fontWeight:"900", color:"#fff"}}>{lang==="es" ? "No Sindical → Sindical" : lang==="pl" ? "Niezwiązkowy → Związkowy" : "Non-Union → Union Flip"}</div>
+                    </div>
                   </div>
-                </div>
-                <div className="checklist-item optional">
-                  <div className="checklist-icon">🧪</div>
-                  <div className="checklist-text">
-                    <div className="checklist-label">{lang==="es"?"Pasar una Prueba de Drogas":lang==="pl"?"Zdać Test Narkotykowy":"Pass a Drug Test"} <span className="checklist-tag tag-optional">{lang==="es"?"A Menudo Requerido":lang==="pl"?"Często Wymagane":"Often Required"}</span></div>
-                    <div className="checklist-desc">{lang==="es"?"La mayoría de los locales requieren una prueba de drogas antes del empleo.":lang==="pl"?"Większość oddziałów wymaga testu narkotykowego przed zatrudnieniem. Place budowy to środowiska krytyczne dla bezpieczeństwa.":"Most locals require a pre-employment drug test. Construction sites are safety-critical environments. Know your local's policy before you apply."}</div>
-                  </div>
-                </div>
-                <div className="checklist-item optional">
-                  <div className="checklist-icon">🚗</div>
-                  <div className="checklist-text">
-                    <div className="checklist-label">{lang==="es"?"Licencia de Conducir Válida":lang==="pl"?"Ważne Prawo Jazdy":"Valid Driver's License"} <span className="checklist-tag tag-optional">{lang==="es"?"A Menudo Requerido":lang==="pl"?"Często Wymagane":"Often Required"}</span></div>
-                    <div className="checklist-desc">{lang==="es"?"Muchos locales requieren una licencia de conducir válida.":lang==="pl"?"Wiele oddziałów wymaga ważnego prawa jazdy, ponieważ place budowy mogą być poza trasami komunikacji miejskiej.":"Many locals require a valid driver's license since job sites may not be on public transit routes. Having reliable transportation is essential."}</div>
+                  <p style={{fontSize:"15px", color:"var(--muted)", lineHeight:"1.7", marginBottom:"16px"}}>
+                    {lang==="es" ? "Empieza con una empresa no sindical, gana 6-18 meses de experiencia, y luego aplica al sindicato con esa experiencia — una gran ventaja. Esta es la ruta que tomó el fundador de Union Pathways." : lang==="pl" ? "Zacznij w firmie niezwiązkowej, zdobądź 6-18 miesięcy doświadczenia, a następnie aplikuj do związku z tym doświadczeniem — ogromna przewaga. To droga, którą obrał założyciel Union Pathways." : "Start with a non-union company, gain 6–18 months of experience, then apply to the union with that experience — a huge advantage. This is the route Union Pathways' founder took."}
+                  </p>
+                  <div style={{fontSize:"13px", color:"var(--muted)", lineHeight:"1.7"}}>
+                    {lang==="es" ? "Funciona especialmente bien en: carpintería, obreros, concreto, techos, electricidad residencial." : lang==="pl" ? "Działa szczególnie dobrze w: ciesielstwie, robotnikach, betonie, pokryciach dachowych, elektryce mieszkaniowej." : "Works especially well in: carpentry, laborers, concrete, roofing, residential electrical."}
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Section 2 — Tests & Aptitude */}
-            <div className="checklist-section">
-              <div className="checklist-section-title">{lang==="es"?"Pruebas y Aptitud":lang==="pl"?"Testy i Predyspozycje":"Tests & Aptitude"}</div>
-              <div className="checklist-items">
-                <div className="checklist-item required">
-                  <div className="checklist-icon">➕</div>
-                  <div className="checklist-text">
-                    <div className="checklist-label">{lang==="es"?"Prueba de Aptitud Matemática":lang==="pl"?"Test Uzdolnień Matematycznych":"Math Aptitude Test"} <span className="checklist-tag tag-required">{lang==="es"?"Requerido":lang==="pl"?"Wymagane":"Required"}</span></div>
-                    <div className="checklist-desc">{lang==="es"?"Todos los oficios requieren una prueba básica de aptitud matemática que cubre álgebra, fracciones y matemáticas aplicadas.":lang==="pl"?"Wszystkie zawody wymagają podstawowego testu uzdolnień matematycznych obejmującego algebrę, ułamki i matematykę stosowaną. Przygotuj się wcześniej — Khan Academy oferuje darmowe kursy algebry.":"All trades require a basic math aptitude test covering algebra, fractions, and applied math. The IBEW/NECA test is well-known, but UA, SMART, and BAC have their own versions. Study ahead — Khan Academy has free algebra courses that cover everything you need."}</div>
-                  </div>
-                </div>
-                <div className="checklist-item optional">
-                  <div className="checklist-icon">📐</div>
-                  <div className="checklist-text">
-                    <div className="checklist-label">{lang==="es"?"Comprensión de Lectura":lang==="pl"?"Rozumienie Tekstu":"Reading Comprehension"} <span className="checklist-tag tag-optional">{lang==="es"?"A Menudo Requerido":lang==="pl"?"Często Wymagane":"Often Required"}</span></div>
-                    <div className="checklist-desc">{lang==="es"?"Algunos locales también evalúan la comprensión lectora y el razonamiento mecánico.":lang==="pl"?"Niektóre oddziały testują również rozumienie tekstu i rozumowanie mechaniczne. Umiejętność czytania i interpretowania instrukcji technicznych jest kluczowa.":"Some locals also test reading comprehension and mechanical reasoning. Being able to read and interpret technical instructions is key to the job."}</div>
-                  </div>
-                </div>
-                <div className="checklist-item helpful">
-                  <div className="checklist-icon">📚</div>
-                  <div className="checklist-text">
-                    <div className="checklist-label">{lang==="es"?"Estudia Antes de la Prueba":lang==="pl"?"Ucz się Przed Testem":"Study Before You Test"} <span className="checklist-tag tag-helpful">{lang==="es"?"Útil":lang==="pl"?"Pomocne":"Helpful"}</span></div>
-                    <div className="checklist-desc">{lang==="es"?"El puntaje de la prueba de matemáticas afecta mucho tu posición en la lista de espera. Hay guías de estudio gratuitas disponibles en línea.":lang==="pl"?"Wynik testu matematycznego ma duży wpływ na Twoje miejsce na liście oczekujących na praktykę. Wyższy wynik = szybsze przyjęcie.":"The math test scores heavily impact your ranking on the apprenticeship waiting list. A higher score = faster entry. Free study guides are available online — search for \"NJATC aptitude test study guide\" for IBEW or the specific trade you're targeting."}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <hr className="divider-line"/>
 
-            {/* Section 3 — Physical */}
-            <div className="checklist-section">
-              <div className="checklist-section-title">{lang==="es"?"Requisitos Físicos":lang==="pl"?"Wymagania Fizyczne":"Physical Requirements"}</div>
-              <div className="checklist-items">
-                <div className="checklist-item optional">
-                  <div className="checklist-icon">💪</div>
-                  <div className="checklist-text">
-                    <div className="checklist-label">{lang==="es"?"Condición Física":lang==="pl"?"Sprawność Fizyczna":"Physical Fitness"} <span className="checklist-tag tag-optional">{lang==="es"?"A Menudo Requerido":lang==="pl"?"Często Wymagane":"Often Required"}</span></div>
-                    <div className="checklist-desc">{lang==="es"?"Los oficios de construcción son físicamente exigentes. La mayoría de los locales requieren un examen físico.":lang==="pl"?"Zawody budowlane są wymagające fizycznie. Większość oddziałów wymaga badania lekarskiego potwierdzającego zdolność do pracy — dźwigania, wspinaczki, pracy w ciasnych przestrzeniach.":"Construction trades are physically demanding. Most locals require a physical exam or medical clearance confirming you can perform the duties of the trade — lifting, climbing, working in confined spaces, and extended time on your feet."}</div>
-                  </div>
-                </div>
-                <div className="checklist-item helpful">
-                  <div className="checklist-icon">🦺</div>
-                  <div className="checklist-text">
-                    <div className="checklist-label">{lang==="es"?"Tarjeta OSHA 10 (Recomendada)":lang==="pl"?"Karta OSHA 10 (Zalecana)":"OSHA 10 Card (Recommended)"} <span className="checklist-tag tag-helpful">{lang==="es"?"Útil":lang==="pl"?"Pomocne":"Helpful"}</span></div>
-                    <div className="checklist-desc">{lang==="es"?"Tener una certificación OSHA 10 antes de aplicar muestra iniciativa. Es un curso de 10 horas disponible en línea.":lang==="pl"?"Posiadanie certyfikatu OSHA 10 przed złożeniem wniosku świadczy o inicjatywie i świadomości bezpieczeństwa. To 10-godzinny kurs dostępny online za około 30 dolarów.":"Having an OSHA 10 certification before you apply shows initiative and safety awareness. It's a 10-hour course available online for around $30. Some locals offer it free after you're accepted."}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* STEP BY STEP */}
+            <div className="history-section">
+              <div className="history-section-title">{lang==="es" ? <>{"Guía Paso a Paso — "}<span className="accent">Este Mes</span></> : lang==="pl" ? <>{"Przewodnik Krok po Kroku — "}<span className="accent">W Tym Miesiącu</span></> : <>{"Step-by-Step — "}<span className="accent">Start This Month</span></>}</div>
+              <div className="history-section-sub">{lang==="es" ? "Si quisieras empezar este mes, esto es exactamente lo que debes hacer." : lang==="pl" ? "Jeśli chcesz zacząć w tym miesiącu, oto dokładnie co powinieneś zrobić." : "If you wanted to start this month, here's exactly what to do."}</div>
 
-            {/* Section 4 — Documents */}
-            <div className="checklist-section">
-              <div className="checklist-section-title">{lang==="es"?"Documentos que Necesitas":lang==="pl"?"Dokumenty do Przyniesienia":"Documents to Bring"}</div>
-              <div className="checklist-items">
+              <div className="timeline">
                 {[
-                  { icon:"📋", label: lang==="es"?"Solicitud Completada":lang==="pl"?"Wypełniony Wniosek":"Completed Application", desc: lang==="es"?"Descarga del sitio web de tu local o recógela en persona.":lang==="pl"?"Pobierz ze strony swojego oddziału lub odbierz osobiście. Wypełnij go w całości — niekompletne wnioski są zazwyczaj odrzucane.":"Download from your local's website or pick up in person. Fill it out completely — incomplete applications are typically rejected." },
-                  { icon:"🪪", label: lang==="es"?"Identificación con Foto del Gobierno":lang==="pl"?"Dowód Tożsamości ze Zdjęciem":"Government-Issued Photo ID", desc: lang==="es"?"Licencia de conducir, ID estatal o pasaporte.":lang==="pl"?"Prawo jazdy, dowód osobisty lub paszport.":"Driver's license, state ID, or passport." },
-                  { icon:"📜", label: lang==="es"?"Comprobante de Educación":lang==="pl"?"Potwierdzenie Wykształcenia":"Proof of Education", desc: lang==="es"?"Expediente académico oficial de secundaria o certificado GED.":lang==="pl"?"Oficjalny transkrypt ze szkoły średniej lub certyfikat GED. Wiele oddziałów nie akceptuje samego dyplomu — potrzebują transkryptów.":"Official high school transcript or GED certificate. Many locals won't accept a diploma alone — they want transcripts." },
-                  { icon:"🎖️", label: lang==="es"?"Papeles de Baja Militar (DD-214)":lang==="pl"?"Dokumenty Zwolnienia z Wojska (DD-214)":"Military Discharge Papers (DD-214)", desc: lang==="es"?"Si eres veterano, trae tu DD-214. Muchos locales dan preferencia a los veteranos.":lang==="pl"?"Jeśli jesteś weteranem, przynieś swój DD-214. Wiele oddziałów daje preferencje weteranom i niektóre zawody mają dedykowane ścieżki praktyk dla weteranów.":"If you're a veteran, bring your DD-214. Many locals give preference to veterans and some trades have dedicated veteran apprenticeship pathways." },
-                  { icon:"📷", label: lang==="es"?"Fotos Estilo Pasaporte":lang==="pl"?"Zdjęcia Paszportowe":"Passport-Style Photos", desc: lang==="es"?"Algunos locales solicitan fotos recientes con la solicitud.":lang==="pl"?"Niektóre oddziały wymagają aktualnych zdjęć wraz z wnioskiem. Sprawdź wymagania swojego oddziału.":"Some locals request recent photos with the application. Check the specific requirements for your local." },
+                  {
+                    year: lang==="es" ? "Paso 1" : lang==="pl" ? "Krok 1" : "Step 1",
+                    event: lang==="es" ? "Elige un Oficio — No te Lo Saltes" : lang==="pl" ? "Wybierz Zawód — Nie Pomijaj Tego" : "Pick a Trade — Don't Skip This",
+                    desc: lang==="es" ? "Los oficios de mayor demanda: Electricista (IBEW), Plomero/Pipefitter (UA), HVAC, Carpintero, Obrero. Usa el quiz de Union Pathways si no estás seguro." : lang==="pl" ? "Zawody o największym popycie: Elektryk (IBEW), Hydraulik/Instalator (UA), HVAC, Cieśla, Robotnik. Użyj quizu Union Pathways, jeśli nie jesteś pewien." : "Top high-demand trades: Electrician (IBEW), Plumber/Pipefitter (UA), HVAC, Carpenter, Laborer. Use the Union Pathways quiz if you're unsure."
+                  },
+                  {
+                    year: lang==="es" ? "Paso 2" : lang==="pl" ? "Krok 2" : "Step 2",
+                    event: lang==="es" ? "Aplica Directamente al Aprendizaje" : lang==="pl" ? "Aplikuj Bezpośrednio do Praktyki" : "Apply Directly to Apprenticeship",
+                    desc: lang==="es" ? "Busca: "[tu ciudad] + aprendizaje sindical" o ve directamente a los centros de formación sindical. Usa la función de búsqueda de Union Pathways para encontrar tu local más cercano." : lang==="pl" ? "Szukaj: "[twoje miasto] + praktyka związkowa" lub idź bezpośrednio do związkowych centrów szkoleniowych. Użyj funkcji wyszukiwania Union Pathways, aby znaleźć najbliższy lokal." : "Search: "[your city] + union apprenticeship" or go straight to union training centers. Use Union Pathways search to find your nearest local."
+                  },
+                  {
+                    year: lang==="es" ? "Paso 3" : lang==="pl" ? "Krok 3" : "Step 3",
+                    event: lang==="es" ? "Prepárate para la Prueba de Aptitud y Entrevista" : lang==="pl" ? "Przygotuj się na Test Predyspozycji i Rozmowę" : "Prepare for the Aptitude Test & Interview",
+                    desc: lang==="es" ? "La mayoría requiere: matemáticas básicas, comprensión lectora, y confiabilidad (factor enorme). Practica álgebra básica y fracciones — eso es lo que más importa en la prueba." : lang==="pl" ? "Większość wymaga: podstawowej matematyki, rozumienia czytanego tekstu i niezawodności (ogromny czynnik). Ćwicz podstawową algebrę i ułamki — to jest najważniejsze w teście." : "Most require: basic math, reading comprehension, and reliability (huge factor). Practice basic algebra and fractions — that's what matters most on the test."
+                  },
+                  {
+                    year: lang==="es" ? "Paso 4" : lang==="pl" ? "Krok 4" : "Step 4",
+                    event: lang==="es" ? "Aplica a MÚLTIPLES Sindicatos" : lang==="pl" ? "Aplikuj do WIELU Związków" : "Apply to MULTIPLE Unions",
+                    desc: lang==="es" ? "No esperes en uno solo — aplica a 3-5 al mismo tiempo. Esto solo puede reducir el tiempo de espera por meses o incluso años. Algunos sindicatos tienen listas de espera más cortas que otros." : lang==="pl" ? "Nie czekaj na jeden — aplikuj do 3-5 jednocześnie. Sam ten krok może skrócić czas oczekiwania o miesiące lub nawet lata. Niektóre związki mają krótsze listy oczekujących niż inne." : "Don't wait on one — apply to 3–5 at once. This alone can cut your wait time by months or years. Some unions have shorter waitlists than others."
+                  },
+                  {
+                    year: lang==="es" ? "Paso 5" : lang==="pl" ? "Krok 5" : "Step 5 (Optional but Powerful)",
+                    event: lang==="es" ? "Trabaja en Construcción Mientras Esperas" : lang==="pl" ? "Pracuj w Budownictwie Podczas Oczekiwania" : "Work Construction While You Wait",
+                    desc: lang==="es" ? "Mientras esperas: consigue un trabajo de obrero. Construye experiencia y conexiones. Cuando apliques con experiencia, tienes una gran ventaja sobre alguien que nunca ha tocado una herramienta." : lang==="pl" ? "Podczas oczekiwania: zdobądź pracę robotnika. Buduj doświadczenie i kontakty. Gdy aplikujesz z doświadczeniem, masz ogromną przewagę nad kimś, kto nigdy nie dotknął narzędzia." : "While waiting: get a laborer job. Build experience and connections. When you apply with experience, you have a huge advantage over someone who has never touched a tool."
+                  },
                 ].map((item, i) => (
-                  <div key={i} className="checklist-item required">
-                    <div className="checklist-icon">{item.icon}</div>
-                    <div className="checklist-text">
-                      <div className="checklist-label">{item.label} <span className="checklist-tag tag-required">{lang==="es"?"Requerido":lang==="pl"?"Wymagane":"Required"}</span></div>
-                      <div className="checklist-desc">{item.desc}</div>
-                    </div>
+                  <div key={i} className="timeline-item">
+                    <div className="timeline-dot"/>
+                    <div className="timeline-year">{item.year}</div>
+                    <div className="timeline-event">{item.event}</div>
+                    <div className="timeline-desc">{item.desc}</div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Section 5 — Trade Specific */}
-            <div className="checklist-section">
-              <div className="checklist-section-title">{lang==="es"?"Notas Específicas por Oficio":lang==="pl"?"Uwagi Specyficzne dla Zawodu":"Trade-Specific Notes"}</div>
-              <div className="trade-diff-grid">
-                {[
-                  { trade:"⚡ IBEW", color:"#F5C518", notes: lang==="es"?[
-                    "Prueba de aptitud NJATC requerida",
-                    "Mínimo 1 año de álgebra en secundaria",
-                    "Algunos locales requieren comprobante de álgebra",
-                    "La entrevista se puntúa como parte del ranking",
-                  ]:lang==="pl"?[
-                    "Wymagany test predyspozycji NJATC (matematyka + czytanie)",
-                    "Minimum 1 rok algebry w szkole średniej",
-                    "Niektóre oddziały wymagają dowodu zaliczenia algebry",
-                    "Rozmowa kwalifikacyjna punktowana jako część rankingu",
-                  ]:[
-                    "NJATC aptitude test required (math + reading)",
-                    "Minimum 1 year of high school algebra",
-                    "Some locals require algebra transcript proof",
-                    "Interview scored as part of application ranking",
-                  ]},
-                  { trade:"🔧 UA", color:"#3b9eff", notes: lang==="es"?[
-                    "Prueba de aptitud ATAP requerida",
-                    "Algunos locales añaden razonamiento mecánico",
-                    "Cubre plomería, tubería, HVAC y soldadura",
-                    "La entrevista sigue a un puntaje aprobatorio",
-                  ]:lang==="pl"?[
-                    "Test predyspozycji ATAP (algebra + rozumienie tekstu)",
-                    "Niektóre oddziały dodają sekcję rozumowania mechanicznego",
-                    "Obejmuje hydraulikę, monterstwo, HVAC i spawanie",
-                    "Rozmowa zwykle po pozytywnym wyniku testu",
-                  ]:[
-                    "ATAP aptitude test (algebra + reading comprehension)",
-                    "Some locals add a mechanical reasoning section",
-                    "Covers plumbing, pipefitting, HVAC, and welding paths",
-                    "Interview typically follows a passing test score",
-                  ]},
-                  { trade:"🌬️ SMART", color:"#e05a2b", notes: lang==="es"?[
-                    "La prueba de aptitud incluye matemáticas y razonamiento mecánico",
-                    "Algunos locales requieren álgebra completada",
-                    "Cubre chapistería, HVAC, techado y soldadura",
-                    "La entrevista oral es parte de la mayoría de las solicitudes",
-                  ]:lang==="pl"?[
-                    "Test predyspozycji obejmuje matematykę i rozumowanie mechaniczne",
-                    "Niektóre oddziały wymagają zaliczonego kursu algebry",
-                    "Obejmuje blacharstwo, HVAC, pokrycia dachowe i spawanie",
-                    "Rozmowa ustna jest częścią większości wniosków",
-                  ]:[
-                    "Aptitude test includes math and mechanical reasoning",
-                    "Some locals require proof of completed algebra course",
-                    "Covers sheet metal, HVAC, roofing, and welding",
-                    "Oral interview is part of most applications",
-                  ]},
-                  { trade:"🧱 BAC", color:"#f97316", notes: lang==="es"?[
-                    "La prueba de aptitud cubre matemáticas y lectura",
-                    "Algunos locales hacen una demostración práctica de habilidades",
-                    "Cubre albañilería, colocación de azulejos y enlucido",
-                    "Se enfatiza la fuerza física y la resistencia",
-                  ]:lang==="pl"?[
-                    "Pisemny test predyspozycji obejmuje matematykę i czytanie",
-                    "Niektóre oddziały przeprowadzają praktyczną demonstrację umiejętności",
-                    "Obejmuje murarstwo, kafelkarstwo, tynkarstwo",
-                    "Nacisk na siłę fizyczną i wytrzymałość",
-                  ]:[
-                    "Written aptitude test covers math and reading",
-                    "Some locals conduct a hands-on skills demonstration",
-                    "Covers bricklaying, tile setting, masonry, and plastering",
-                    "Physical strength and endurance are emphasized",
-                  ]},
-                ].map((t, i) => (
-                  <div key={i} className="trade-diff-card">
-                    <div className="trade-diff-name" style={{color: t.color}}>{t.trade}</div>
-                    <ul className="trade-diff-list">
-                      {t.notes.map((n, j) => <li key={j}>{n}</li>)}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <hr className="divider-line"/>
 
-            {/* Section 6 — The Process */}
-            <div className="checklist-section">
-              <div className="checklist-section-title">{lang==="es"?"El Proceso de Solicitud":lang==="pl"?"Proces Aplikacyjny":"The Application Process"}</div>
-              <div className="checklist-steps">
-                {(lang==="es"?[
-                  { n:"1", title:"Encuentra Tu Local", desc:"Usa la página Encontrar Local en este sitio para ubicar el local sindical más cercano para el oficio que elijas." },
-                  { n:"2", title:"Verifica la Inscripción Abierta", desc:"Llama o visita el sitio web del local para saber cuándo abre su próxima ventana de solicitud." },
-                  { n:"3", title:"Presenta Tu Solicitud", desc:"Recoge o descarga la solicitud. Preséntala con todos los documentos requeridos antes de la fecha límite." },
-                  { n:"4", title:"Toma la Prueba de Aptitud", desc:"Serás programado para una prueba de aptitud escrita. Estudia matemáticas, especialmente álgebra." },
-                  { n:"5", title:"Asiste a Tu Entrevista", desc:"Los solicitantes mejor clasificados son invitados a una entrevista oral. Sé profesional, puntual y preparado." },
-                  { n:"6", title:"Recibe Tu Despacho", desc:"Una vez aceptado, serás enviado a un sitio de trabajo e inscrito en clases de escuela de oficios. Ganas salario completo desde el primer día." },
-                ]:lang==="pl"?[
-                  { n:"1", title:"Znajdź Swój Oddział", desc:"Skorzystaj ze strony Znajdź Oddział na tej stronie, aby zlokalizować najbliższy oddział związkowy dla wybranego zawodu." },
-                  { n:"2", title:"Sprawdź Otwarte Zapisy", desc:"Zadzwoń lub odwiedź stronę oddziału, aby dowiedzieć się, kiedy otwiera się kolejne okno aplikacyjne. Większość przeprowadza zapisy 1–2 razy w roku." },
-                  { n:"3", title:"Złóż Wniosek", desc:"Odbierz lub pobierz wniosek. Złóż go ze wszystkimi wymaganymi dokumentami przed terminem. Spóźnione lub niekompletne wnioski są zazwyczaj dyskwalifikowane." },
-                  { n:"4", title:"Podejdź do Testu Predyspozycji", desc:"Zostaniesz zaplanowany na pisemny test predyspozycji. Ucz się matematyki — zwłaszcza algebry. Twój wynik określa pozycję na liście." },
-                  { n:"5", title:"Weź Udział w Rozmowie Kwalifikacyjnej", desc:"Najwyżej ocenieni kandydaci są zaproszeni na rozmowę ustną. Bądź profesjonalny, punktualny i przygotowany." },
-                  { n:"6", title:"Otrzymaj Przydział", desc:"Po przyjęciu zostaniesz przydzielony do budowy i zapisany na zajęcia szkoły zawodowej. Zarabiasz pełne wynagrodzenie od pierwszego dnia." },
-                ]:[
-                  { n:"1", title:"Find Your Local", desc:"Use the Find a Local page on this site to locate the union local nearest you for your chosen trade." },
-                  { n:"2", title:"Check Open Enrollment", desc:"Call or visit the local's website to find out when their next application window opens. Most hold enrollment 1–2 times per year, though some are open year-round." },
-                  { n:"3", title:"Submit Your Application", desc:"Pick up or download the application. Submit it with all required documents before the deadline. Late or incomplete applications are usually disqualified." },
-                  { n:"4", title:"Take the Aptitude Test", desc:"You'll be scheduled for a written aptitude test. Study your math — especially algebra. Your score determines your ranking on the list." },
-                  { n:"5", title:"Attend Your Interview", desc:"Top-ranked applicants are invited for an oral interview. Be professional, on time, and prepared to explain why you want to work in the trades." },
-                  { n:"6", title:"Get Dispatched", desc:"Once accepted, you'll be dispatched to a job site and enrolled in trade school classes. You earn full wages from day one while your training is paid for by the industry." },
-                ]).map((s, i) => (
-                  <div key={i} className="checklist-step">
-                    <div className="step-num">{s.n}</div>
-                    <div className="step-content">
-                      <div className="step-title">{s.title}</div>
-                      <div className="step-desc">{s.desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            {/* WHAT ACTUALLY MATTERS */}
+            <div className="history-section">
+              <div className="history-section-title">{lang==="es" ? <>{"Lo que "}<span className="accent">Realmente Importa</span></> : lang==="pl" ? <>{"Co "}<span className="accent">Naprawdę Ma Znaczenie</span></> : <>{"What "}<span className="accent">Actually Matters</span></>}</div>
+              <div className="history-section-sub">{lang==="es" ? "La verdad que la mayoría de la gente no sabe." : lang==="pl" ? "Prawda, której większość ludzi nie zna." : "The truth most people miss."}</div>
 
-            {/* CTA */}
-            <div className="cta-banner">
-              <h3>{lang==="es"?"¿Listo para Dar el Primer Paso?":lang==="pl"?"Gotowy na Pierwszy Krok?":"Ready to Take the First Step?"}</h3>
-              <p>{lang==="es"?"Encuentra el local sindical más cercano y comunícate directamente para comenzar el proceso de solicitud.":lang==="pl"?"Znajdź najbliższy oddział związkowy i skontaktuj się bezpośrednio, aby rozpocząć proces aplikacyjny.":"Find the local union nearest you and reach out directly to get the application process started."}</p>
-              <button className="btn-primary" onClick={() => setPage("home")}>
-                {lang==="es"?"Encontrar Mi Local Más Cercano →":lang==="pl"?"Znajdź Mój Najbliższy Oddział →":"Find My Nearest Local →"}
-              </button>
+              <div className="impact-grid">
+                <div className="impact-card" style={{borderColor:"rgba(250,128,89,0.2)"}}>
+                  <div className="impact-icon">✅</div>
+                  <div className="impact-title">{lang==="es" ? "Lo que les Importa a los Sindicatos" : lang==="pl" ? "Co Interesuje Związki" : "What Unions Actually Care About"}</div>
+                  <div className="impact-desc">{lang==="es" ? "Presentarse — pasar las pruebas — disposición para trabajar — a veces conocer a alguien. Los sindicatos no se preocupan si tomaste un curso en línea o viste videos de entrenamiento." : lang==="pl" ? "Pojawianie się — zdawanie testów — gotowość do pracy — czasem znajomość kogoś. Związki nie dbają o to, czy wziąłeś kurs online lub oglądałeś filmy szkoleniowe." : "Showing up — passing tests — willingness to work — sometimes knowing someone. Unions don't care if you took an online course or watched training videos."}</div>
+                </div>
+                <div className="impact-card">
+                  <div className="impact-icon">⏳</div>
+                  <div className="impact-title">{lang==="es" ? "La Realidad de las Listas de Espera" : lang==="pl" ? "Rzeczywistość List Oczekujących" : "The Waitlist Reality"}</div>
+                  <div className="impact-desc">{lang==="es" ? "Los pipelines sindicales pueden ser competitivos, lentos y dependientes del momento y las conexiones. Aplica pronto. Aplica a múltiples. Y trabaja mientras esperas." : lang==="pl" ? "Związkowe pipeline mogą być konkurencyjne, powolne i zależne od czasu i kontaktów. Aplikuj wcześnie. Aplikuj do wielu. I pracuj podczas oczekiwania." : "Union pipelines can be competitive, slow, and dependent on timing and connections. Apply early. Apply to multiple. And work while you wait."}</div>
+                </div>
+                <div className="impact-card">
+                  <div className="impact-icon">🎯</div>
+                  <div className="impact-title">{lang==="es" ? "Ve Directamente a la Fuente" : lang==="pl" ? "Idź Bezpośrednio do Źródła" : "Go Straight to the Source"}</div>
+                  <div className="impact-desc">{lang==="es" ? "Las plataformas solo de información — incluyendo esta — pueden enseñarte sobre el sistema. Pero los verdaderos guardianes son los locales sindicales, los centros de aprendizaje y los contratistas. Ve a verlos en persona." : lang==="pl" ? "Platformy tylko informacyjne — w tym ta — mogą nauczyć Cię o systemie. Ale prawdziwymi strażnikami są lokale związkowe, centra praktyk i wykonawcy. Idź do nich osobiście." : "Info-only platforms — including this one — can teach you about the system. But the real gatekeepers are union locals, apprenticeship centers, and contractors. Go see them in person."}</div>
+                </div>
+              </div>
+
+              <div className="quote-block" style={{marginTop:32}}>
+                <div className="quote-text">{lang==="es" ? '"Fui a una agencia temporal que me emparejó con una empresa eléctrica residencial no sindical. Después de 8 meses viendo la diferencia, di el salto al IBEW. Empecé como CW, completé el aprendizaje, me convertí en oficial y ahora soy superintendente. El mejor movimiento que hice."' : lang==="pl" ? '"Poszedłem do agencji pracy tymczasowej, która przydzieliła mnie do niezwiązkowej firmy elektrycznej. Po 8 miesiącach widzenia różnicy przeszedłem do IBEW. Zacząłem jako CW, ukończyłem praktykę, zostałem czeladnikiem i teraz jestem superintendentem. Najlepszy ruch, jaki zrobiłem."' : '"I went to a temp agency that paired me with a non-union residential electrical company. After 8 months seeing the difference, I made the jump to the IBEW. Started as a CW, completed the apprenticeship, became a journeyman, and now I work as a superintendent. Best move I ever made."'}</div>
+                <div className="quote-author">— Noah, {lang==="es" ? "Fundador de Union Pathways" : lang==="pl" ? "Założyciel Union Pathways" : "Founder of Union Pathways"}</div>
+              </div>
+
+              <div style={{textAlign:"center", marginTop:48}}>
+                <button className="btn-primary" onClick={() => setPage("home")}>
+                  {lang==="es" ? "Encuentra tu Local Sindical →" : lang==="pl" ? "Znajdź Swój Lokalny Związek →" : "Find Your Union Local →"}
+                </button>
+              </div>
             </div>
           </div>
         )}
 
-        {/* ── VETERANS / HELMETS TO HARDHATS PAGE ── */}
         {page === "history" && (
           <div>
             {/* HISTORY HERO */}
