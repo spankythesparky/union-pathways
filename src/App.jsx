@@ -4638,31 +4638,6 @@ export default function UnionPathway() {
             </h1>
             <p className="hero-sub">{t.heroSub}</p>
 
-            {/* QUICK NAV PILLS */}
-            <div style={{display:"flex", flexWrap:"wrap", gap:"10px", justifyContent:"center", margin:"28px 0 8px"}}>
-              {[
-                { label: lang==="es" ? "Encuentra tu Local" : lang==="pl" ? "Znajdź Oddział" : "Find a Local", page: "home", anchor: true },
-                { label: lang==="es" ? "¿Qué Oficio?" : lang==="pl" ? "Który Zawód?" : "Which Trade?", page: "quiz" },
-                { label: lang==="es" ? "Rutas de Carrera" : lang==="pl" ? "Ścieżki Kariery" : "Career Paths", page: "careers" },
-                { label: lang==="es" ? "Beneficios Sindicales" : lang==="pl" ? "Swiadczenia" : "Union Benefits", page: "benefits" },
-                { label: lang==="es" ? "Historia Sindical" : lang==="pl" ? "Historia" : "Union History", page: "history" },
-                { label: lang==="es" ? "Veteranos" : lang==="pl" ? "Weterani" : "Veterans", page: "veterans" },
-              ].map((item, i) => (
-                <button key={i} onClick={() => setPage(item.page)} style={{
-                  background: i === 0 ? "rgba(250,128,89,0.15)" : "rgba(255,255,255,0.04)",
-                  border: i === 0 ? "1px solid rgba(250,128,89,0.4)" : "1px solid rgba(255,255,255,0.1)",
-                  borderRadius: "50px", padding: "8px 18px",
-                  color: i === 0 ? "#FA8059" : "var(--muted)",
-                  fontSize: "13px", fontWeight: "600",
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  letterSpacing: "0.06em", textTransform: "uppercase",
-                  cursor: "pointer", transition: "all 0.2s",
-                }}>
-                  {item.label}
-                </button>
-              ))}
-            </div>
-
             {/* NOTICE BANNER */}
             <div style={{
               display: "inline-flex", alignItems: "center", gap: 8,
