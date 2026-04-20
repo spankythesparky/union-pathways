@@ -4894,7 +4894,7 @@ export default function UnionPathway() {
           <div>
             {/* HERO */}
             <div className="history-hero">
-              <div className="history-eyebrow">🏗️ The Real Path Into the Trades</div>
+              <div className="history-eyebrow">The Real Path Into the Trades</div>
               <h1 className="history-title">
                 {lang==="es" ? <>{"Cómo Unirse a un "}<span className="accent">Oficio Sindical</span></> : lang==="pl" ? <>{"Jak Dołączyć do "}<span className="accent">Zawodu Związkowego</span></> : <>{"How to Join a "}<span className="accent">Union Trade</span></>}
               </h1>
@@ -4912,9 +4912,8 @@ export default function UnionPathway() {
                 {/* ROUTE 1 */}
                 <div style={{background:"rgba(250,128,89,0.06)", border:"1px solid rgba(250,128,89,0.25)", borderRadius:"20px", padding:"28px 32px"}}>
                   <div style={{display:"flex", alignItems:"center", gap:"14px", marginBottom:"16px"}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"32px", fontWeight:"900", color:"#FA8059"}}>🥇</div>
                     <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"11px", fontWeight:"700", letterSpacing:"0.12em", textTransform:"uppercase", color:"#FA8059", marginBottom:"4px"}}>{lang==="es" ? "Mejor Opción" : lang==="pl" ? "Najlepsza Opcja" : "Best Option"}</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"11px", fontWeight:"700", letterSpacing:"0.12em", textTransform:"uppercase", color:"#FA8059", marginBottom:"6px"}}>{lang==="es" ? "01 — Mejor Opción" : lang==="pl" ? "01 — Najlepsza Opcja" : "01 — Best Option"}</div>
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"26px", fontWeight:"900", color:"#fff"}}>{lang==="es" ? "Aprendizaje Directo" : lang==="pl" ? "Bezpośrednia Praktyka" : "Direct Apprenticeship"}</div>
                     </div>
                   </div>
@@ -4939,9 +4938,8 @@ export default function UnionPathway() {
                 {/* ROUTE 2 */}
                 <div style={{background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.1)", borderRadius:"20px", padding:"28px 32px"}}>
                   <div style={{display:"flex", alignItems:"center", gap:"14px", marginBottom:"16px"}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"32px", fontWeight:"900", color:"#a0b4c4"}}>🥈</div>
                     <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"11px", fontWeight:"700", letterSpacing:"0.12em", textTransform:"uppercase", color:"#a0b4c4", marginBottom:"4px"}}>{lang==="es" ? "Buen Atajo" : lang==="pl" ? "Dobry Skrót" : "Good Shortcut"}</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"11px", fontWeight:"700", letterSpacing:"0.12em", textTransform:"uppercase", color:"#a0b4c4", marginBottom:"6px"}}>{lang==="es" ? "02 — Buen Atajo" : lang==="pl" ? "02 — Dobry Skrót" : "02 — Good Shortcut"}</div>
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"26px", fontWeight:"900", color:"#fff"}}>{lang==="es" ? "Programas de Pre-Aprendizaje" : lang==="pl" ? "Programy Przed-Praktyczne" : "Pre-Apprenticeship Programs"}</div>
                     </div>
                   </div>
@@ -4964,10 +4962,9 @@ export default function UnionPathway() {
                 {/* ROUTE 3 */}
                 <div style={{background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.1)", borderRadius:"20px", padding:"28px 32px"}}>
                   <div style={{display:"flex", alignItems:"center", gap:"14px", marginBottom:"16px"}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"32px", fontWeight:"900", color:"#a0b4c4"}}>🥉</div>
                     <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"11px", fontWeight:"700", letterSpacing:"0.12em", textTransform:"uppercase", color:"#a0b4c4", marginBottom:"4px"}}>{lang==="es" ? "La Ruta Trasera" : lang==="pl" ? "Droga Tylnym Wejściem" : "The Backdoor Route"}</div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"26px", fontWeight:"900", color:"#fff"}}>{lang==="es" ? "No Sindical → Sindical" : lang==="pl" ? "Niezwiązkowy → Związkowy" : "Non-Union → Union Flip"}</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"11px", fontWeight:"700", letterSpacing:"0.12em", textTransform:"uppercase", color:"#a0b4c4", marginBottom:"6px"}}>{lang==="es" ? "03 — La Ruta Alternativa" : lang==="pl" ? "03 — Droga Alternatywna" : "03 — The Alternative Route"}</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"26px", fontWeight:"900", color:"#fff"}}>{lang==="es" ? "No Sindical a Sindical" : lang==="pl" ? "Niezwiązkowy do Związkowego" : "Non-Union to Union"}</div>
                     </div>
                   </div>
                   <p style={{fontSize:"15px", color:"var(--muted)", lineHeight:"1.7", marginBottom:"16px"}}>
@@ -5034,17 +5031,17 @@ export default function UnionPathway() {
 
               <div className="impact-grid">
                 <div className="impact-card" style={{borderColor:"rgba(250,128,89,0.2)"}}>
-                  <div className="impact-icon">✅</div>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FA8059",marginBottom:"14px",textTransform:"uppercase"}}>01</div>
                   <div className="impact-title">{lang==="es" ? "Lo que les Importa a los Sindicatos" : lang==="pl" ? "Co Interesuje Związki" : "What Unions Actually Care About"}</div>
                   <div className="impact-desc">{lang==="es" ? "Presentarse — pasar las pruebas — disposición para trabajar — a veces conocer a alguien. Los sindicatos no se preocupan si tomaste un curso en línea o viste videos de entrenamiento." : lang==="pl" ? "Pojawianie się — zdawanie testów — gotowość do pracy — czasem znajomość kogoś. Związki nie dbają o to, czy wziąłeś kurs online lub oglądałeś filmy szkoleniowe." : "Showing up — passing tests — willingness to work — sometimes knowing someone. Unions don't care if you took an online course or watched training videos."}</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">⏳</div>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"var(--muted)",marginBottom:"14px",textTransform:"uppercase"}}>02</div>
                   <div className="impact-title">{lang==="es" ? "La Realidad de las Listas de Espera" : lang==="pl" ? "Rzeczywistość List Oczekujących" : "The Waitlist Reality"}</div>
                   <div className="impact-desc">{lang==="es" ? "Los pipelines sindicales pueden ser competitivos, lentos y dependientes del momento y las conexiones. Aplica pronto. Aplica a múltiples. Y trabaja mientras esperas." : lang==="pl" ? "Związkowe pipeline mogą być konkurencyjne, powolne i zależne od czasu i kontaktów. Aplikuj wcześnie. Aplikuj do wielu. I pracuj podczas oczekiwania." : "Union pipelines can be competitive, slow, and dependent on timing and connections. Apply early. Apply to multiple. And work while you wait."}</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">🎯</div>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"var(--muted)",marginBottom:"14px",textTransform:"uppercase"}}>03</div>
                   <div className="impact-title">{lang==="es" ? "Ve Directamente a la Fuente" : lang==="pl" ? "Idź Bezpośrednio do Źródła" : "Go Straight to the Source"}</div>
                   <div className="impact-desc">{lang==="es" ? "Las plataformas solo de información — incluyendo esta — pueden enseñarte sobre el sistema. Pero los verdaderos guardianes son los locales sindicales, los centros de aprendizaje y los contratistas. Ve a verlos en persona." : lang==="pl" ? "Platformy tylko informacyjne — w tym ta — mogą nauczyć Cię o systemie. Ale prawdziwymi strażnikami są lokale związkowe, centra praktyk i wykonawcy. Idź do nich osobiście." : "Info-only platforms — including this one — can teach you about the system. But the real gatekeepers are union locals, apprenticeship centers, and contractors. Go see them in person."}</div>
                 </div>
