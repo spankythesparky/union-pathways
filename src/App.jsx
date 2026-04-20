@@ -1741,6 +1741,8 @@ export default function UnionPathway() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [getStartedOpen, setGetStartedOpen] = useState(false);
   const [benefitsOpen, setBenefitsOpen] = useState(false);
+  const [apprenticeOpen, setApprenticeOpen] = useState(false);
+  const [learnOpen, setLearnOpen] = useState(false);
   const [selectedTrade, setSelectedTrade] = useState("IBEW_I");
   // URL-aware page state
   const getPageFromUrl = () => {
@@ -4345,81 +4347,75 @@ export default function UnionPathway() {
 
           <div className="nav-links">
             <button className={`nav-link ${page==="home"?"active":""}`} onClick={() => setPage("home")}>{t.navHome}</button>
-            <button className={`nav-link ${page==="quiz"?"active":""}`} onClick={() => { setPage("quiz"); resetQuiz(); }}>{t.navQuiz}</button>
 
-            {/* GET STARTED DROPDOWN */}
+            {/* APPRENTICE DROPDOWN */}
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
-                className={`nav-dropdown-btn${(page==="careers"||page==="checklist")?" active":""}${getStartedOpen?" open":""}`}
-                onClick={() => setGetStartedOpen(o => !o)}
-                onBlur={() => setTimeout(() => setGetStartedOpen(false), 150)}
+                className={`nav-dropdown-btn${(page==="checklist"||page==="careers"||page==="quiz")?" active":""}${apprenticeOpen?" open":""}`}
+                onClick={() => setApprenticeOpen(o => !o)}
+                onBlur={() => setTimeout(() => setApprenticeOpen(false), 150)}
               >
-                {lang==="es" ? "Empezar" : lang==="pl" ? "Zacznij" : "Get Started"}
+                {lang==="es" ? "Aprendiz" : lang==="pl" ? "Praktykant" : "Apprentice"}
                 <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                   <polyline points="6 9 12 15 18 9"/>
                 </svg>
               </button>
-              {getStartedOpen && (
+              {apprenticeOpen && (
                 <div className="nav-dropdown-menu">
-                  <div
-                    className={`nav-dropdown-item${page==="careers"?" active":""}`}
-                    onMouseDown={() => { setPage("careers"); setGetStartedOpen(false); }}
-                  >
-                    <span className="nav-dropdown-label">{t.navCareers}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "Salarios, etapas y beneficios" : lang==="pl" ? "Wynagrodzenia, etapy i świadczenia" : "Wages, stages & benefits"}</span>
+                  <div className={`nav-dropdown-item${page==="checklist"?" active":""}`} onMouseDown={() => { setPage("checklist"); setApprenticeOpen(false); }}>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Cómo Unirse" : lang==="pl" ? "Jak Dołączyć" : "How to Join"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Las 3 rutas reales de entrada" : lang==="pl" ? "3 prawdziwe drogi wejścia" : "The 3 real entry routes"}</span>
                   </div>
-                  <div
-                    className={`nav-dropdown-item${page==="checklist"?" active":""}`}
-                    onMouseDown={() => { setPage("checklist"); setGetStartedOpen(false); }}
-                  >
-                    <span className="nav-dropdown-label">{t.navChecklist}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "Requisitos y cómo aplicar" : lang==="pl" ? "Wymagania i jak aplikować" : "Requirements & how to apply"}</span>
+                  <div className={`nav-dropdown-item${page==="careers"?" active":""}`} onMouseDown={() => { setPage("careers"); setApprenticeOpen(false); }}>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Rutas de Carrera" : lang==="pl" ? "Ścieżki Kariery" : "Career Paths"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "De aprendiz a maestro" : lang==="pl" ? "Od praktykanta do mistrza" : "Apprentice to journeyman"}</span>
+                  </div>
+                  <div className={`nav-dropdown-item${page==="quiz"?" active":""}`} onMouseDown={() => { setPage("quiz"); setApprenticeOpen(false); resetQuiz(); }}>
+                    <span className="nav-dropdown-label">{lang==="es" ? "¿Qué Oficio?" : lang==="pl" ? "Który Zawód?" : "Which Trade?"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Encuentra tu oficio ideal" : lang==="pl" ? "Znajdź swój idealny zawód" : "Find your perfect trade match"}</span>
                   </div>
                 </div>
               )}
             </div>
 
-            <button className={`nav-link ${page==="history"?"active":""}`} onClick={() => setPage("history")}>{lang==="es" ? "Historia" : lang==="pl" ? "Historia" : "History"}</button>
-
-            {/* UNION BENEFITS DROPDOWN */}
+            {/* LEARN DROPDOWN */}
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
-                className={`nav-dropdown-btn${(page==="benefits"||page==="retirement"||page==="health")?" active":""}${benefitsOpen?" open":""}`}
-                onClick={() => setBenefitsOpen(o => !o)}
-                onBlur={() => setTimeout(() => setBenefitsOpen(false), 150)}
+                className={`nav-dropdown-btn${(page==="history"||page==="benefits"||page==="retirement"||page==="health"||page==="veterans")?" active":""}${learnOpen?" open":""}`}
+                onClick={() => setLearnOpen(o => !o)}
+                onBlur={() => setTimeout(() => setLearnOpen(false), 150)}
               >
-                {lang==="es" ? "Beneficios" : lang==="pl" ? "Świadczenia" : "Union Benefits"}
+                {lang==="es" ? "Aprender" : lang==="pl" ? "Nauka" : "Learn"}
                 <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                   <polyline points="6 9 12 15 18 9"/>
                 </svg>
               </button>
-              {benefitsOpen && (
+              {learnOpen && (
                 <div className="nav-dropdown-menu">
-                  <div
-                    className={`nav-dropdown-item${page==="benefits"?" active":""}`}
-                    onMouseDown={() => { setPage("benefits"); setBenefitsOpen(false); }}
-                  >
-                    <span className="nav-dropdown-label">{lang==="es" ? "Descripción General" : lang==="pl" ? "Przegląd" : "Overview"}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "Por qué los sindicatos ganan" : lang==="pl" ? "Dlaczego związki wygrywają" : "Why union benefits win"}</span>
+                  <div className={`nav-dropdown-item${page==="history"?" active":""}`} onMouseDown={() => { setPage("history"); setLearnOpen(false); }}>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Historia Sindical" : lang==="pl" ? "Historia Związkowa" : "Union History"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Cómo los sindicatos construyeron América" : lang==="pl" ? "Jak związki budowały Amerykę" : "How unions built America"}</span>
                   </div>
-                  <div
-                    className={`nav-dropdown-item${page==="retirement"?" active":""}`}
-                    onMouseDown={() => { setPage("retirement"); setBenefitsOpen(false); }}
-                  >
+                  <div className={`nav-dropdown-item${page==="benefits"?" active":""}`} onMouseDown={() => { setPage("benefits"); setLearnOpen(false); }}>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Beneficios Sindicales" : lang==="pl" ? "Świadczenia Związkowe" : "Union Benefits"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Pensión, salud, anualidad y más" : lang==="pl" ? "Emerytura, zdrowie, renta i więcej" : "Pension, health, annuity & more"}</span>
+                  </div>
+                  <div className={`nav-dropdown-item${page==="retirement"?" active":""}`} onMouseDown={() => { setPage("retirement"); setLearnOpen(false); }}>
                     <span className="nav-dropdown-label">{lang==="es" ? "Jubilación" : lang==="pl" ? "Emerytura" : "Retirement"}</span>
                     <span className="nav-dropdown-sub">{lang==="es" ? "401k vs Anualidad vs Pensión" : lang==="pl" ? "401k vs Renta vs Emerytura" : "401k vs Annuity vs Pension"}</span>
                   </div>
-                  <div
-                    className={`nav-dropdown-item${page==="health"?" active":""}`}
-                    onMouseDown={() => { setPage("health"); setBenefitsOpen(false); }}
-                  >
+                  <div className={`nav-dropdown-item${page==="health"?" active":""}`} onMouseDown={() => { setPage("health"); setLearnOpen(false); }}>
                     <span className="nav-dropdown-label">{lang==="es" ? "Seguro de Salud" : lang==="pl" ? "Ubezpieczenie Zdrowotne" : "Health Insurance"}</span>
                     <span className="nav-dropdown-sub">{lang==="es" ? "Pagado por el contratista" : lang==="pl" ? "Płacone przez wykonawcę" : "Paid by your contractor"}</span>
+                  </div>
+                  <div className={`nav-dropdown-item${page==="veterans"?" active":""}`} onMouseDown={() => { setPage("veterans"); setLearnOpen(false); }}>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Veteranos" : lang==="pl" ? "Weterani" : "Veterans"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Recursos para veteranos militares" : lang==="pl" ? "Zasoby dla weteranów wojskowych" : "Resources for military veterans"}</span>
                   </div>
                 </div>
               )}
             </div>
-            <button className={`nav-link ${page==="veterans"?"active":""}`} onClick={() => setPage("veterans")}>{t.navVets}</button>
+
             <button className={`nav-link ${page==="about"?"active":""}`} onClick={() => setPage("about")}>{lang==="es" ? "Nosotros" : lang==="pl" ? "O Nas" : "About"}</button>
             <button className={`nav-link ${page==="contact"?"active":""}`} onClick={() => { setPage("contact"); setContactSent(false); }}>{t.navContact}</button>
           </div>
