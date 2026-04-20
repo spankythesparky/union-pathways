@@ -5911,31 +5911,6 @@ export default function UnionPathway() {
               </p>
             </div>
 
-            {/* FEATURE CARDS */}
-            <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(280px, 1fr))", gap:"16px"}}>
-              {[
-                { num:"01", title: lang==="es" ? "Encuentra tu Local" : lang==="pl" ? "Znajdz Swoj Oddzial" : "Find Your Local", desc: lang==="es" ? "Busca locales sindicales de IBEW, UA, BAC, Ironworkers, UBC y mas — cerca de ti." : lang==="pl" ? "Znajdz lokale zwiazkowe IBEW, UA, BAC, Ironworkers i innych — w poblizu Ciebie." : "Search union locals from IBEW, UA, BAC, Ironworkers, UBC, and more — near you.", page: "home" },
-                { num:"02", title: lang==="es" ? "Cual Oficio es para Ti?" : lang==="pl" ? "Ktory Zawod Jest dla Ciebie?" : "Which Trade Is Right For You?", desc: lang==="es" ? "Haz nuestro cuestionario gratuito y descubre que oficio sindical se adapta mejor a tus habilidades." : lang==="pl" ? "Weź udzial w naszym darmowym quizie i odkryj, ktory zawod najlepiej odpowiada Twoim umiejetnosciom." : "Take our free quiz and find out which union trade best matches your skills and goals.", page: "quiz" },
-                { num:"03", title: lang==="es" ? "Rutas de Carrera" : lang==="pl" ? "Sciezki Kariery" : "Career Paths", desc: lang==="es" ? "Aprende sobre los salarios de aprendiz a oficial, los tiempos de progresion y beneficios de cada oficio." : lang==="pl" ? "Dowiedz sie o wynagrodzeniach od praktykanta do czeladnika i swiadczeniach w kazdym zawodzie." : "Learn about apprentice-to-journeyman wages, progression timelines, and benefits for each trade.", page: "careers" },
-                { num:"04", title: lang==="es" ? "Beneficios Sindicales" : lang==="pl" ? "Swiadczenia Zwiazowe" : "Union Benefits", desc: lang==="es" ? "Pensiones, seguros de salud, anualidades — todo pagado por el contratista. Aprende lo que vale un trabajo sindical." : lang==="pl" ? "Emerytury, ubezpieczenia zdrowotne, renty — wszystko placone przez wykonawce." : "Pensions, health insurance, annuities — all paid by your contractor. Learn what a union job is really worth.", page: "benefits" },
-                { num:"05", title: lang==="es" ? "Historia Sindical" : lang==="pl" ? "Historia Zwiazowa" : "Union History", desc: lang==="es" ? "El fin de semana, la jornada de 8 horas, el seguro medico — todo fue luchado y ganado por trabajadores sindicalizados." : lang==="pl" ? "Weekend, 8-godzinny dzien pracy, ubezpieczenie zdrowotne — o wszystko to walczyli zwiazkowcy." : "The weekend, the 8-hour day, health insurance — all fought for and won by union workers.", page: "history" },
-                { num:"06", title: lang==="es" ? "Veteranos y los Oficios" : lang==="pl" ? "Weterani i Zawody" : "Veterans & the Trades", desc: lang==="es" ? "Los veteranos militares son perfectos para los aprendizajes sindicales. Descubre Helmets to Hardhats y mas." : lang==="pl" ? "Weterani wojskowi sa doskonalymi kandydatami do zwiazowych praktyk. Poznaj Helmets to Hardhats." : "Military veterans are a natural fit for union apprenticeships. Learn about Helmets to Hardhats and more.", page: "veterans" },
-              ].map((card, i) => (
-                <div key={i} onClick={() => setPage(card.page)} style={{
-                  background:"rgba(255,255,255,0.02)",
-                  border:"1px solid rgba(255,255,255,0.07)",
-                  borderRadius:"16px", padding:"28px 24px",
-                  cursor:"pointer", transition:"all 0.2s",
-                  position:"relative", overflow:"hidden"
-                }}
-                  onMouseEnter={e => { e.currentTarget.style.background="rgba(250,128,89,0.05)"; e.currentTarget.style.borderColor="rgba(250,128,89,0.25)"; e.currentTarget.style.transform="translateY(-2px)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.background="rgba(255,255,255,0.02)"; e.currentTarget.style.borderColor="rgba(255,255,255,0.07)"; e.currentTarget.style.transform="translateY(0)"; }}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"11px", fontWeight:"700", letterSpacing:"0.15em", color:"rgba(250,128,89,0.5)", marginBottom:"12px"}}>{card.num}</div>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"20px", fontWeight:"800", color:"#fff", marginBottom:"10px", lineHeight:"1.2"}}>{card.title} <span style={{color:"#FA8059"}}>→</span></div>
-                  <div style={{fontSize:"13px", color:"var(--muted)", lineHeight:"1.65"}}>{card.desc}</div>
-                </div>
-              ))}
-            </div>
           </div>
         )}
 
