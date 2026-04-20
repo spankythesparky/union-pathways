@@ -2928,7 +2928,7 @@ export default function UnionPathway() {
       .map(l => ({ ...l, distance: getDistanceMiles(loc.lat, loc.lng, l.lat, l.lng) }))
       .sort((a, b) => a.distance - b.distance);
     const within150 = withDist.filter(l => l.distance <= 50);
-    setResults(within150.length > 0 ? within150 : withDist.slice(0, 5));
+    setResults(within150);
     setLoading(false);
   };
 
@@ -2945,7 +2945,7 @@ export default function UnionPathway() {
           .map(l => ({ ...l, distance: getDistanceMiles(lat, lng, l.lat, l.lng) }))
           .sort((a, b) => a.distance - b.distance);
         const within150 = withDist.filter(l => l.distance <= 50);
-        setResults(within150.length > 0 ? within150 : withDist.slice(0, 5));
+        setResults(within150);
         setGeoLoading(false);
       },
       () => { setError("Location access denied. Please enter your location manually."); setGeoLoading(false); }
