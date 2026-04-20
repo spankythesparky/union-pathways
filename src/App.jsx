@@ -4667,7 +4667,7 @@ export default function UnionPathway() {
                   <button
                     key={trade.abbr}
                     className={`trade-pill ${selectedTrade === trade.abbr ? "selected" : ""}`}
-                    style={selectedTrade === trade.abbr ? { background: trade.color, borderColor: trade.color, color: "#000" } : {}}
+                    style={selectedTrade === trade.abbr ? { background: "#FA8059", borderColor: "#FA8059", color: "#000" } : {}}
                     onClick={() => setSelectedTrade(trade.abbr)}
                   >
                     {trade.label}
