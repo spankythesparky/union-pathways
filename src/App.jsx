@@ -5257,7 +5257,7 @@ export default function UnionPathway() {
             <div className="history-hero">
               <div className="history-eyebrow">{lang==="es" ? "💰 Tu Futuro, Construido en el Trabajo" : lang==="pl" ? "💰 Twoja Przyszłość, Zbudowana w Pracy" : "💰 Your Future, Built on the Job"}</div>
               <h1 className="history-title">
-                401k vs Anualidad vs <span className="accent">{lang==="es" ? "Pensión" : lang==="pl" ? "Emerytura" : "Pension"}</span>
+                {lang==="es" ? "401k vs Anualidad vs" : lang==="pl" ? "401k vs Renta vs" : "401k vs Annuity vs"} <span className="accent">{lang==="es" ? "Pensión" : lang==="pl" ? "Emerytura" : "Pension"}</span>
               </h1>
               <p className="history-subtitle">
                 {lang==="es" ? "Tres formas diferentes de ahorrar para la jubilación — y los oficios de construcción sindical ofrecen las tres. Esto es lo que significa cada una en términos simples." : lang==="pl" ? "Trzy różne sposoby oszczędzania na emeryturę — a związkowe zawody budowlane oferują wszystkie trzy. Oto co każdy z nich oznacza prostymi słowami." : "Three different ways to save for retirement — and union construction trades offer all three. Here's what each one means in plain English."}
