@@ -5177,7 +5177,7 @@ export default function UnionPathway() {
               <div className="history-stats">
                 {[
                   { num: "150+", label: lang==="es" ? "Años Luchando por los Trabajadores" : lang==="pl" ? "Lat Walki o Prawa Pracowników" : "Years of Fighting for Workers" },
-                  { num: "16M+", label: lang==="es" ? "Miembros Sindicales en EE.UU." : lang==="pl" ? "Członków Związków w USA" : "Union Members in the US" },
+                  { num: "6M+", label: lang==="es" ? "Miembros Sindicales en EE.UU." : lang==="pl" ? "Członków Związków w USA" : "Union Members in the US" },
                   { num: "18%", label: lang==="es" ? "Salarios Más Altos para Sindicalistas" : lang==="pl" ? "Wyższe Wynagrodzenia dla Związkowców" : "Higher Wages for Union Workers" },
                   { num: "$0", label: lang==="es" ? "Costo para Unirse a un Aprendizaje" : lang==="pl" ? "Koszt Dołączenia do Praktyki" : "Cost to Join an Apprenticeship" },
                 ].map(s => (
