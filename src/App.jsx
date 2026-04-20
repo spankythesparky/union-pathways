@@ -4352,7 +4352,7 @@ export default function UnionPathway() {
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
                 className={`nav-dropdown-btn${(page==="checklist"||page==="careers"||page==="quiz")?" active":""}${apprenticeOpen?" open":""}`}
-                onClick={() => setApprenticeOpen(o => !o)}
+                onClick={() => { setApprenticeOpen(o => !o); setLearnOpen(false); }}
                 onBlur={() => setTimeout(() => setApprenticeOpen(false), 150)}
               >
                 {lang==="es" ? "Aprendiz" : lang==="pl" ? "Praktykant" : "Apprentice"}
@@ -4382,7 +4382,7 @@ export default function UnionPathway() {
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
                 className={`nav-dropdown-btn${(page==="history"||page==="benefits"||page==="retirement"||page==="health"||page==="veterans")?" active":""}${learnOpen?" open":""}`}
-                onClick={() => setLearnOpen(o => !o)}
+                onClick={() => { setLearnOpen(o => !o); setApprenticeOpen(false); }}
                 onBlur={() => setTimeout(() => setLearnOpen(false), 150)}
               >
                 {lang==="es" ? "Aprender" : lang==="pl" ? "Nauka" : "Learn"}
