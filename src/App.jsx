@@ -5109,7 +5109,7 @@ export default function UnionPathway() {
                   { icon: "◆", title: lang==="es" ? "Aprendizajes Pagados" : lang==="pl" ? "Płatne Praktyki" : "Paid Apprenticeships", desc: lang==="es" ? "El modelo de aprendizaje sindical — ganar mientras aprendes, sin deuda estudiantil — es el estándar de oro de la formación laboral. Construido por sindicatos, para trabajadores." : lang==="pl" ? "Model praktyk związkowych — zarabiaj ucząc się, bez długu studenckiego — jest złotym standardem szkolenia zawodowego. Zbudowany przez związki, dla pracowników." : "The union apprenticeship model — earn while you learn, no student debt — is the gold standard of workforce training. Built by unions, for workers." },
                 ].map((item, i) => (
                   <div key={i} className="impact-card">
-                    <div className="impact-icon">{item.icon}</div>
+                    
                     <div className="impact-title">{item.title}</div>
                     <div className="impact-desc">{item.desc}</div>
                   </div>
@@ -5150,7 +5150,7 @@ export default function UnionPathway() {
                   { icon: "🌎", title: lang==="es" ? "Construyendo el Futuro de América" : lang==="pl" ? "Budowanie Przyszłości Ameryki" : "Building America's Future", desc: lang==="es" ? "Cada puente, hospital, escuela y centro de datos en América es construido por trabajadores calificados. Los trabajadores sindicalizados lo construyen más seguro, mejor y para durar." : lang==="pl" ? "Każdy most, szpital, szkoła i centrum danych w Ameryce jest budowane przez wykwalifikowanych rzemieślników. Pracownicy związkowi budują to bezpieczniej, lepiej i trwalej." : "Every bridge, hospital, school, and data center in America is built by skilled tradespeople. Union workers build it safer, build it better, and build it to last." },
                 ].map((item, i) => (
                   <div key={i} className="impact-card">
-                    <div className="impact-icon">{item.icon}</div>
+                    
                     <div className="impact-title">{item.title}</div>
                     <div className="impact-desc">{item.desc}</div>
                   </div>
@@ -5185,7 +5185,7 @@ export default function UnionPathway() {
                   { icon: "💼", title: lang==="es" ? "Vacaciones Pagadas" : lang==="pl" ? "Płatny Urlop" : "Vacation & Holiday Pay", desc: lang==="es" ? "Muchos contratos sindicales incluyen contribuciones a fondos de vacaciones — acumulando dinero de vacaciones pagadas con cada hora trabajada." : lang==="pl" ? "Wiele umów związkowych obejmuje składki do funduszy urlopowych — gromadząc pieniądze na płatny urlop z każdą przepracowaną godziną." : "Many union contracts include contributions to vacation funds — accumulating paid vacation money with every hour worked.", page: "benefits" },
                 ].map((item, i) => (
                   <div key={i} className="impact-card" style={{cursor: item.page !== "benefits" ? "pointer" : "default"}} onClick={() => item.page !== "benefits" && setPage(item.page)}>
-                    <div className="impact-icon">{item.icon}</div>
+                    
                     <div className="impact-title">{item.title}{item.page !== "benefits" && <span style={{color:"#FA8059", fontSize:14, marginLeft:8}}>→</span>}</div>
                     <div className="impact-desc">{item.desc}</div>
                   </div>
@@ -5416,22 +5416,22 @@ export default function UnionPathway() {
               <div className="history-section-sub">{lang==="es" ? "El beneficio de jubilación más valioso que puedes tener — y los oficios sindicales todavía lo ofrecen." : lang==="pl" ? "Najcenniejszy świadczenie emerytalne, jakie możesz mieć — a związki zawodowe w budownictwie nadal je oferują." : "The most valuable retirement benefit you can have — and union trades still offer it."}</div>
               <div className="impact-grid">
                 <div className="impact-card">
-                  <div className="impact-icon">📋</div>
+                  
                   <div className="impact-title">What It Is</div>
                   <div className="impact-desc">A pension — also called a "defined benefit plan" — is a retirement account funded entirely by your employer. You don't contribute anything out of your paycheck. When you retire, you receive a guaranteed monthly check for the rest of your life, no matter how long you live.</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">🔢</div>
+                  
                   <div className="impact-title">How It's Calculated</div>
                   <div className="impact-desc">Your monthly pension check is typically calculated based on how many years you worked and your average wage. Example: 30 years of work × 2% × $60,000 average salary = $36,000/year pension. That's $3,000/month, every month, for life.</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">⭐</div>
+                  
                   <div className="impact-title">Why It's So Valuable</div>
                   <div className="impact-desc">Most Americans have no pension. Only about 12% of private sector workers have one. Union construction workers are among the few who still do. You can't outlive a pension — it pays until you die, and often continues for a spouse after you're gone.</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">🏗️</div>
+                  
                   <div className="impact-title">In Union Trades</div>
                   <div className="impact-desc">Nearly every major construction union — IBEW, UA, UBC, BAC, Ironworkers, Laborers, and more — offers a defined benefit pension plan. Employers contribute a set dollar amount per hour you work. After enough years of service, you retire with a guaranteed monthly check for life.</div>
                 </div>
@@ -5451,22 +5451,22 @@ export default function UnionPathway() {
               <div className="history-section-sub">{lang==="es" ? "Piénsalo como una cuenta de jubilación adicional además de tu pensión." : lang==="pl" ? "Pomyśl o tym jako dodatkowym koncie emerytalnym na szczycie Twojej emerytury." : "Think of it as a bonus retirement account on top of your pension."}</div>
               <div className="impact-grid">
                 <div className="impact-card">
-                  <div className="impact-icon">📋</div>
+                  
                   <div className="impact-title">What It Is</div>
                   <div className="impact-desc">An annuity (sometimes called a "defined contribution" plan) is an additional retirement account that your employer funds. In most union contracts, employers contribute a set amount per hour worked directly into your annuity account. It builds up over your career and pays out when you retire.</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">💵</div>
+                  
                   <div className="impact-title">How It Works</div>
                   <div className="impact-desc">Example: Your union contract says the employer contributes $3.50/hr to your annuity. If you work 2,000 hours a year, that's $7,000/year going into your account — without you contributing a single dollar. Over 30 years, that could easily grow to $400,000+.</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">🔄</div>
+                  
                   <div className="impact-title">Annuity vs. Pension</div>
                   <div className="impact-desc">The key difference: a pension pays a fixed monthly amount for life. An annuity is more like a savings account — it grows over time and you can often choose how to draw it down in retirement. Some annuities also convert to a monthly payment at retirement.</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">🏗️</div>
+                  
                   <div className="impact-title">In Union Trades</div>
                   <div className="impact-desc">Many union construction contracts include BOTH a pension AND an annuity. So you're building two separate retirement accounts simultaneously — both funded by your employer — on top of Social Security. This is extremely rare outside of union jobs.</div>
                 </div>
@@ -5481,22 +5481,22 @@ export default function UnionPathway() {
               <div className="history-section-sub">{lang==="es" ? "Probablemente hayas oído hablar de este — esto es lo que necesitas saber." : lang==="pl" ? "Prawdopodobnie już o tym słyszałeś — oto co musisz wiedzieć." : "You've probably heard of this one — here's what you need to know."}</div>
               <div className="impact-grid">
                 <div className="impact-card">
-                  <div className="impact-icon">📋</div>
+                  
                   <div className="impact-title">What It Is</div>
                   <div className="impact-desc">A 401k is a retirement savings account where YOU contribute a portion of your paycheck — before taxes — and the money grows in investments (stocks, bonds, mutual funds). Your employer may match some of your contributions, but you're doing most of the funding yourself.</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">📉</div>
+                  
                   <div className="impact-title">The Risk</div>
                   <div className="impact-desc">Your 401k balance goes up and down with the stock market. If the market crashes right before you retire — like 2008 — your savings can drop 30-40% overnight. Unlike a pension, there's no guaranteed amount. You could run out of money if you live longer than expected.</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">✅</div>
+                  
                   <div className="impact-title">The Benefits</div>
                   <div className="impact-desc">You control where your money is invested. Contributions are pre-tax, lowering your taxable income now. Employer matches are essentially free money. You can take it with you if you change jobs (unlike some pensions that require years of service to vest).</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">🏗️</div>
+                  
                   <div className="impact-title">In Union Trades</div>
                   <div className="impact-desc">Some unions offer a 401k in addition to a pension and annuity. Others don't need to — because the pension and annuity already do what a 401k does, but better. In most cases, a union pension + annuity beats a 401k because it's guaranteed and employer-funded.</div>
                 </div>
@@ -5787,17 +5787,17 @@ export default function UnionPathway() {
               <div className="history-section-title">{lang==="es" ? <>{"La "}<span className="accent">Misión</span></> : lang==="pl" ? <>{"Nasza "}<span className="accent">Misja</span></> : <>{"The "}<span className="accent">Mission</span></>}</div>
               <div className="impact-grid">
                 <div className="impact-card">
-                  <div className="impact-icon">⚡</div>
+                  
                   <div className="impact-title">{lang==="es" ? "Construido por un Trabajador" : lang==="pl" ? "Zbudowane przez Pracownika" : "Built by a Worker"}</div>
                   <div className="impact-desc">{lang==="es" ? "No somos una empresa de marketing que intenta capitalizar los oficios. Somos un electricista IBEW que ve la necesidad de una plataforma real para trabajadores reales." : lang==="pl" ? "Nie jesteśmy firmą marketingową próbującą zarabiać na zawodach budowlanych. Jesteśmy elektrykiem IBEW, który widzi potrzebę prawdziwej platformy dla prawdziwych pracowników." : "We're not a marketing company trying to capitalize on the trades. We're an IBEW electrician who sees the need for a real platform for real workers."}</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">🤝</div>
+                  
                   <div className="impact-title">{lang==="es" ? "Todo en Un Lugar" : lang==="pl" ? "Wszystko w Jednym Miejscu" : "Everything in One Place"}</div>
                   <div className="impact-desc">{lang==="es" ? "Locales sindicales, rutas de carrera, beneficios, historia, recursos para veteranos — todo lo que alguien necesita saber sobre los oficios sindicales, en una sola plataforma." : lang==="pl" ? "Lokale związkowe, ścieżki kariery, świadczenia, historia, zasoby dla weteranów — wszystko, co ktoś musi wiedzieć o związkowych zawodach budowlanych, w jednej platformie." : "Union locals, career paths, benefits, history, veteran resources — everything someone needs to know about the union trades, in one platform."}</div>
                 </div>
                 <div className="impact-card">
-                  <div className="impact-icon">💪</div>
+                  
                   <div className="impact-title">{lang==="es" ? "Por los Trabajadores" : lang==="pl" ? "Dla Pracowników" : "For the Workers"}</div>
                   <div className="impact-desc">{lang==="es" ? "Ya sea que estés buscando unirte a los oficios, ya seas un aprendiz, un oficial o un veterano — este es tu recurso. Gratis. Siempre." : lang==="pl" ? "Niezależnie od tego, czy chcesz dołączyć do zawodów, czy jesteś już praktykantem, czeladnikiem lub weteranem — to jest Twój zasób. Bezpłatnie. Zawsze." : "Whether you're looking to join the trades, you're already an apprentice, a journeyman, or a veteran — this is your resource. Free. Always."}</div>
                 </div>
