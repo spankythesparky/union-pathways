@@ -1742,6 +1742,7 @@ export default function UnionPathway() {
   const [getStartedOpen, setGetStartedOpen] = useState(false);
   const [benefitsOpen, setBenefitsOpen] = useState(false);
   const [apprenticeOpen, setApprenticeOpen] = useState(false);
+  const [vetSection, setVetSection] = useState(null);
   const [learnOpen, setLearnOpen] = useState(false);
   const [selectedTrade, setSelectedTrade] = useState("IBEW_I");
   // URL-aware page state
@@ -5467,155 +5468,131 @@ export default function UnionPathway() {
         )}
 
         {page === "veterans" && (
-          <div className="page" style={{maxWidth: 820}}>
-            <div className="page-eyebrow">{lang==="es" ? "Para Veteranos y Militares" : lang==="pl" ? "Dla Weteranów i Żołnierzy" : "For Veterans & Service Members"}</div>
-            <h1 className="page-title">{lang==="es" ? "Tu Servicio Abre la Puerta" : lang==="pl" ? "Twoja Służba Otwiera Drzwi" : "Your Service Opens the Door"}</h1>
-            <p className="page-sub">
-              {lang==="es"
-                ? "Las habilidades que desarrollaste en el servicio militar — disciplina, trabajo en equipo, conciencia de seguridad — son exactamente lo que los oficios sindicales buscan."
-                : lang==="pl"
-                ? "Umiejętności, które zdobyłeś w mundurze — dyscyplina, praca zespołowa, świadomość bezpieczeństwa, praca pod presją — to dokładnie to, czego szukają związki zawodowe. Tysiące weteranów już dokonało tej zmiany. Oto jak."
-                : "The skills you built in uniform — discipline, teamwork, safety awareness, working under pressure — are exactly what the union trades are looking for. Thousands of veterans have made the transition. Here's how."}
-            </p>
+          <div>
+            <div className="history-hero">
+              <div className="history-eyebrow">{lang==="es" ? "Para Veteranos y Militares" : lang==="pl" ? "Dla Weteranów i Żołnierzy" : "For Veterans & Service Members"}</div>
+              <h1 className="history-title">
+                {lang==="es" ? <>{"Tu Servicio "}<span className="accent">{"Abre la Puerta"}</span></> : lang==="pl" ? <>{"Twoja Służba "}<span className="accent">{"Otwiera Drzwi"}</span></> : <>{"Your Service "}<span className="accent">{"Opens the Door"}</span></>}
+              </h1>
+              <p className="history-subtitle">
+                {lang==="es" ? "Las habilidades que desarrollaste en el servicio militar son exactamente lo que los oficios sindicales buscan." : lang==="pl" ? "Umiejętności zdobyte w służbie wojskowej to dokładnie to, czego szukają związkowe zawody budowlane." : "The skills you built in uniform are exactly what the union trades are looking for. Thousands of veterans have already made the transition."}
+              </p>
+            </div>
 
-            {/* H2H Hero Card */}
-            <div className="h2h-hero">
-              <div className="h2h-logo-block">
-                <div className="h2h-emblem">🪖</div>
-                <div className="h2h-logo-text">Helmets<br/>to<br/>Hardhats</div>
-              </div>
-              <div className="h2h-hero-text">
-                <div className="h2h-hero-title">{lang==="es" ? "El Puente Oficial del Servicio Militar a las Carreras Sindicales" : lang==="pl" ? "Oficjalny Most od Służby Wojskowej do Kariery Związkowej" : "The Official Bridge from Military Service to Union Careers"}</div>
-                <p className="h2h-hero-desc">
-                  {lang==="es"
-                    ? "Helmets to Hardhats (H2H) es una organización sin fines de lucro que ha conectado a casi 50,000 veteranos con aprendizajes registrados en los oficios de construcción desde 2003."
-                    : lang==="pl"
-                    ? "Helmets to Hardhats (H2H) to organizacja non-profit 501(c)(3), która od 2003 roku połączyła prawie 50 000 weteranów z zarejestrowanymi programami praktyk w zawodach budowlanych. Jest bezpłatna, stworzona wspólnie przez pracodawców i pracowników, i poparta przez 15 międzynarodowych związków budowlanych."
-                    : "Helmets to Hardhats (H2H) is a 501(c)(3) nonprofit that has connected nearly 50,000 veterans to registered apprenticeships in the construction trades since 2003. It's free, it's built by labor and management together, and it's backed by 15 international building trades unions including IBEW, UA, SMART, and BAC."}
-                </p>
-                <div className="h2h-stat-row">
-                  {[
-                    { num: "50,000+", label: lang==="es"?"Veteranos colocados desde 2003":lang==="pl"?"Weteranów zatrudnionych od 2003":"Veterans placed since 2003" },
-                    { num: "15", label: lang==="es"?"Sindicatos internacionales socios":lang==="pl"?"Partnerskich związków międzynarodowych":"Partner international unions" },
-                    { num: "$0", label: lang==="es"?"Costo para aplicar":lang==="pl"?"Koszt aplikacji":"Cost to apply" },
-                  ].map((s,i) => (
-                    <div key={i} className="h2h-stat">
-                      <div className="h2h-stat-num">{s.num}</div>
-                      <div className="h2h-stat-label">{s.label}</div>
+            <div style={{maxWidth:820, margin:"0 auto", padding:"40px 24px 80px"}}>
+              {[
+                {
+                  id:"why",
+                  title: lang==="es" ? "Por Qué los Veteranos Prosperan en los Oficios" : lang==="pl" ? "Dlaczego Weterani Odnoszą Sukces w Zawodach" : "Why Veterans Thrive in the Trades",
+                  content: (
+                    <div className="impact-grid" style={{marginTop:16}}>
+                      {[
+                        { num:"01", title: lang==="es" ? "Disciplina y Puntualidad" : lang==="pl" ? "Dyscyplina i Punktualność" : "Discipline & Punctuality", desc: lang==="es" ? "Los oficios sindicales valoran la misma ética de trabajo que el ejército inculca." : lang==="pl" ? "Związkowe zawody budowlane cenią tę samą etykę pracy, którą wojsko wpaja." : "Union trades value the same work ethic the military instills. Show up, be ready, give 100%." },
+                        { num:"02", title: lang==="es" ? "Trabajo en Equipo" : lang==="pl" ? "Praca Zespołowa" : "Teamwork", desc: lang==="es" ? "Los veteranos entienden el trabajo en equipo desde el primer día — exactamente lo que requieren las cuadrillas de construcción." : lang==="pl" ? "Weterani rozumieją pracę zespołową od pierwszego dnia — dokładnie to, czego wymagają ekipy budowlane." : "Veterans understand teamwork from day one — exactly what construction crews require." },
+                        { num:"03", title: lang==="es" ? "Conciencia de Seguridad" : lang==="pl" ? "Świadomość Bezpieczeństwa" : "Safety Awareness", desc: lang==="es" ? "Los veteranos están entrenados para operar con protocolos de seguridad en entornos de alta presión." : lang==="pl" ? "Weterani są przeszkoleni do pracy zgodnie z protokołami bezpieczeństwa w środowiskach wysokiego ciśnienia." : "Veterans are trained to operate with safety protocols in high-pressure environments." },
+                        { num:"04", title: lang==="es" ? "Habilidades Técnicas" : lang==="pl" ? "Umiejętności Techniczne" : "Technical Skills", desc: lang==="es" ? "Muchos MOS militares se traducen directamente a habilidades comerciales — electricidad, HVAC, plomería, metalurgia." : lang==="pl" ? "Wiele wojskowych specjalności przekłada się bezpośrednio na umiejętności handlowe — elektryka, HVAC, hydraulika." : "Many military MOS codes translate directly to trade skills — electrical, HVAC, plumbing, metalwork." },
+                        { num:"05", title: lang==="es" ? "Liderazgo" : lang==="pl" ? "Przywództwo" : "Leadership", desc: lang==="es" ? "Los veteranos están naturalmente preparados para roles de capataz y superintendente en los oficios." : lang==="pl" ? "Weterani są naturalnie przygotowani do ról brygadzisty i superintendenta w zawodach budowlanych." : "Veterans who managed teams and missions are naturally prepared for foreman and superintendent roles." },
+                        { num:"06", title: lang==="es" ? "Trabajo Bajo Presión" : lang==="pl" ? "Praca Pod Presją" : "Working Under Pressure", desc: lang==="es" ? "Los sitios de construcción exigen las mismas capacidades de toma de decisiones bajo presión que el servicio militar." : lang==="pl" ? "Place budowy wymagają tych samych zdolności decyzyjnych pod presją co służba wojskowa." : "Construction sites demand the same under-pressure decision-making as military service." },
+                      ].map((item, i) => (
+                        <div key={i} className="impact-card">
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FA8059",marginBottom:"12px",textTransform:"uppercase"}}>{item.num}</div>
+                          <div className="impact-title">{item.title}</div>
+                          <div className="impact-desc">{item.desc}</div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Why Veterans Thrive */}
-            <div className="section-title">{lang==="es"?"Por Qué los Veteranos Prosperan en los Oficios":lang==="pl"?"Dlaczego Weterani Odnoszą Sukces w Zawodach Budowlanych":"Why Veterans Thrive in the Trades"}</div>
-            <div className="vet-advantage-grid">
-              {[
-                { icon:"🎖️", label: lang==="es"?"Las Habilidades Militares Transfieren":lang==="pl"?"Umiejętności Wojskowe się Przekładają":"Military Skills Transfer", desc: lang==="es"?"El liderazgo, trabajar bajo presión, atención al detalle y disciplina de seguridad se traducen directamente a los oficios de construcción.":lang==="pl"?"Przywództwo, praca pod presją, dbałość o szczegóły, dyscyplina bezpieczeństwa — wszystko to bezpośrednio przekłada się na zawody budowlane. Wielu weteranów awansuje szybciej niż inni praktykanci.":"Leadership, working under pressure, attention to detail, safety discipline — all of these directly translate to the construction trades. Many veterans advance faster than non-veteran apprentices." },
-                { icon:"🤝", label: lang==="es"?"Cultura de Hermandad":lang==="pl"?"Kultura Braterstwa":"Brotherhood Culture", desc: lang==="es"?"Los locales sindicales operan con los mismos principios que el ejército — lealtad, cuidarse mutuamente, no dejar a nadie atrás.":lang==="pl"?"Sale związkowe działają na tych samych zasadach co wojsko — lojalność, wzajemna opieka, nie zostawianie nikogo w tyle. Weterani często mówią, że kultura czuje się jak dom.":"Union halls operate on the same principles as the military — loyalty to your brothers and sisters, taking care of each other, and leaving no one behind. Veterans consistently report the culture feels like home." },
-                { icon:"📋", label: lang==="es"?"Preferencia para Veteranos":lang==="pl"?"Preferencje dla Weteranów":"Veteran Preference", desc: lang==="es"?"Muchos locales otorgan puntos de preferencia a los veteranos en el proceso de clasificación de aprendizaje. Un DD-214 puede ser una ventaja real.":lang==="pl"?"Wiele oddziałów przyznaje weteranom dodatkowe punkty w procesie rankingowym praktyk. DD-214 może być prawdziwą przewagą w konkursie o miejsca.":"Many locals give veterans preference points in the apprenticeship ranking process. A DD-214 can be a real advantage when applications are competitive." },
-                { icon:"💰", label: lang==="es"?"Combina GI Bill + Salario de Aprendiz":lang==="pl"?"Połącz GI Bill + Wynagrodzenie Praktykanta":"Stack GI Bill + Apprentice Pay", desc: lang==="es"?"Los veteranos en aprendizajes aprobados pueden usar su GI Bill para suplementar su salario de aprendiz.":lang==="pl"?"Weterani w zatwierdzonych programach praktyk mogą używać GI Bill do uzupełnienia wynagrodzenia praktykanta — dzięki czemu możesz zarabiać prawie tyle co wykwalifikowany pracownik podczas szkolenia.":"Veterans in approved apprenticeships can use their GI Bill to supplement their apprentice wage — meaning you can earn close to journey-level pay while you're still training. This is one of the most underused veteran benefits." },
-                { icon:"⚕️", label: lang==="es"?"Beneficios desde el Primer Día":lang==="pl"?"Świadczenia od Pierwszego Dnia":"Benefits from Day One", desc: lang==="es"?"Seguro médico, contribuciones de pensión y beneficios de anualidad comienzan de inmediato.":lang==="pl"?"Ubezpieczenie zdrowotne, składki emerytalne i świadczenia rentowe zaczynają się natychmiast. Nie czekasz lat na kwalifikacje — umowa związkowa obejmuje Cię od pierwszego dnia pracy.":"Health insurance, pension contributions, and annuity benefits start immediately. You're not waiting years to qualify — the union contract covers you from your first dispatch." },
-                { icon:"🏗️", label: lang==="es"?"Trayectoria Profesional Clara":lang==="pl"?"Wyraźna Ścieżka Kariery":"Clear Career Path", desc: lang==="es"?"Los oficios ofrecen el mismo tipo de estructura de rango al que los veteranos están acostumbrados — aprendiz, oficial, capataz, superintendente.":lang==="pl"?"Zawody budowlane oferują tę samą strukturę rang, do której przyzwyczajeni są weterani — praktykant, czeladnik, brygadzista, superintendant.":"The trades offer the same kind of rank structure veterans are used to — apprentice, journeyman, foreman, superintendent. You always know where you stand and what comes next." },
-              ].map((a,i) => (
-                <div key={i} className="vet-advantage-card">
-                  <div className="vet-adv-icon">{a.icon}</div>
-                  <div>
-                    <div className="vet-adv-label">{a.label}</div>
-                    <div className="vet-adv-desc">{a.desc}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* GI Bill Box */}
-            <div className="gi-bill-box">
-              <div className="gi-bill-icon">💡</div>
-              <div>
-                <div className="gi-bill-title">{lang==="es"?"La Combinación de GI Bill + Aprendizaje":lang==="pl"?"Kombinacja GI Bill + Praktykantstwo":"The GI Bill + Apprenticeship Combination"}</div>
-                <div className="gi-bill-desc">
-                  {lang==="es"
-                    ? "La mayoría de los aprendizajes de construcción sindical están aprobados para los beneficios del GI Bill. Como aprendiz, ganas un porcentaje del salario de oficial — comenzando alrededor del 45-50% y aumentando cada 6 meses. Tu subsidio de vivienda del GI Bill se paga adicionalmente. Para muchos veteranos, el ingreso combinado durante el aprendizaje iguala o supera el salario completo de oficial."
-                    : lang==="pl"
-                    ? "Większość związkowych praktyk budowlanych jest zatwierdzona do świadczeń GI Bill (Rozdział 33 Post-9/11 lub Rozdział 30 Montgomery). Jako praktykant zarabiasz procent wynagrodzenia czeladnika — zaczynając od około 45-50% i rosnąc co 6 miesięcy. Zasiłek mieszkaniowy GI Bill jest wypłacany dodatkowo. Dla wielu weteranów łączny dochód podczas praktyki dorównuje lub przekracza pełne wynagrodzenie czeladnika."
-                    : "Most union construction apprenticeships are approved for GI Bill (Chapter 33 Post-9/11 or Chapter 30 Montgomery) benefits. As an apprentice, you earn a percentage of journeyman wages — starting around 45-50% and increasing every 6 months. Your GI Bill housing allowance is paid on top of that. For many veterans, the combined income during apprenticeship matches or exceeds full journeyman pay. Contact your local VA education office or visit va.gov to verify your eligibility and calculate your benefit."}
-                </div>
-              </div>
-            </div>
-
-            {/* How H2H Works */}
-            <div className="section-title">{lang==="es"?"Cómo Funciona Helmets to Hardhats":lang==="pl"?"Jak Działa Helmets to Hardhats":"How Helmets to Hardhats Works"}</div>
-            <div className="h2h-steps">
-              {(lang==="es"?[
-                { n:"1", title:"Crea una Cuenta Gratuita", desc:"Ve a helmetstohardhats.org y crea un perfil gratuito. Ingresarás tu historial militar, habilidades, ubicación e intereses de oficio." },
-                { n:"2", title:"Conéctate con un Representante Regional", desc:"Una vez que tu cuenta esté activa, un miembro del personal de H2H en tu región toma un papel activo conectándote con oportunidades de aprendizaje cerca de ti." },
-                { n:"3", title:"Aplica a Programas de Aprendizaje", desc:"H2H te conecta directamente con locales sindicales que están aceptando solicitudes." },
-                { n:"4", title:"Toma la Prueba de Aptitud", desc:"La mayoría de los oficios requieren una prueba de aptitud matemática. H2H puede orientarte a recursos de estudio." },
-                { n:"5", title:"Comienza Tu Aprendizaje", desc:"Una vez aceptado, eres enviado a un sitio de trabajo, inscrito en la escuela de oficios y ganando beneficios completos desde el primer día." },
-              ]:lang==="pl"?[
-                { n:"1", title:"Utwórz Darmowe Konto", desc:"Przejdź do helmetstohardhats.org i utwórz bezpłatny profil. Wpiszesz swoje doświadczenie wojskowe, umiejętności, lokalizację i zainteresowania zawodowe. Zajmuje to około 10 minut." },
-                { n:"2", title:"Zostań Dopasowany do Regionalnego Przedstawiciela", desc:"Gdy Twoje konto jest aktywne, pracownik H2H w Twoim regionie aktywnie łączy Cię z ofertami praktyk i możliwościami kariery w pobliżu." },
-                { n:"3", title:"Aplikuj do Programów Praktyk", desc:"H2H łączy Cię bezpośrednio z oddziałami związkowymi przyjmującymi wnioski. Wszystkie oferty pracy pochodzą od pracodawców związkowych." },
-                { n:"4", title:"Podejdź do Testu Predyspozycji", desc:"Większość zawodów wymaga testu predyspozycji matematycznych. H2H może wskazać Ci materiały do nauki. Weterani często osiągają dobre wyniki dzięki wojskowemu przeszkoleniu technicznemu." },
-                { n:"5", title:"Rozpocznij Praktykę", desc:"Po przyjęciu zostajesz przydzielony do budowy, zapisany do szkoły zawodowej i zarabiasz pełne świadczenia od pierwszego dnia. GI Bill uzupełnia Twoje wynagrodzenie." },
-              ]:[
-                { n:"1", title:"Create a Free Account", desc:"Go to helmetstohardhats.org and create a free profile. You'll enter your military background, skills, location, and trade interests. It takes about 10 minutes." },
-                { n:"2", title:"Get Matched to a Regional Rep", desc:"Once your account is active, an H2H staff member in your region takes an active role connecting you to apprenticeship openings and career opportunities near you." },
-                { n:"3", title:"Apply to Apprenticeship Programs", desc:"H2H connects you directly to union locals that are accepting applications. All job postings come from union-signatory employers — no non-union work." },
-                { n:"4", title:"Take the Aptitude Test", desc:"Most trades require a math aptitude test. H2H can point you to study resources. Veterans often score well due to military technical training backgrounds." },
-                { n:"5", title:"Start Your Apprenticeship", desc:"Once accepted, you're dispatched to a job site, enrolled in trade school, and earning full benefits from day one. Your GI Bill kicks in to supplement your wage." },
-              ]).map((s,i) => (
-                <div key={i} className="h2h-step">
-                  <div className="h2h-step-num">{s.n}</div>
-                  <div className="h2h-step-body">
-                    <div className="h2h-step-title">{s.title}</div>
-                    <div className="h2h-step-desc">{s.desc}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Participating Trades */}
-            <div className="section-title">{lang==="es"?"Oficios Disponibles a Través de H2H":lang==="pl"?"Zawody Dostępne przez H2H":"Trades Available Through H2H"}</div>
-            <div className="trades-vet-grid">
-              {[
-                { icon:"⚡", name:"IBEW Electricians", desc: lang==="es"?"Electricistas, trabajadores de línea, telecomunicaciones":lang==="pl"?"Elektrycy wewnętrzni, monterzy linii, telekomunikacja":"Inside wiremen, lineworkers, telecom" },
-                { icon:"🔧", name:"UA Plumbers & Pipefitters", desc: lang==="es"?"Plomería, tubería, HVAC, soldadura":lang==="pl"?"Hydraulika, monterstwo, HVAC, spawanie":"Plumbing, pipefitting, HVAC, welding" },
-                { icon:"🌬️", name:"SMART Sheet Metal", desc: lang==="es"?"Conductos, fabricación HVAC, techado":lang==="pl"?"Kanały wentylacyjne, produkcja HVAC, pokrycia dachowe":"Ductwork, HVAC fabrication, roofing" },
-                { icon:"🧱", name:"BAC Bricklayers", desc: lang==="es"?"Mampostería, azulejo, piedra, terrazo":lang==="pl"?"Murarka, kafelkarstwo, kamień, lastryko":"Masonry, tile, stone, terrazzo" },
-                { icon:"🪚", name:"UBC Carpenters", desc: lang==="es"?"Marcos, ebanistería, encofrado":lang==="pl"?"Szkieletowanie, stolarstwo, szalunki, meble":"Framing, millwork, formwork, cabinetry" },
-                { icon:"🏗️", name:"IUOE Operating Engineers", desc: lang==="es"?"Equipo pesado, grúas, excavadoras":lang==="pl"?"Ciężki sprzęt, dźwigi, koparki":"Heavy equipment, cranes, excavators" },
-                { icon:"⚒️", name:"Ironworkers", desc: lang==="es"?"Acero estructural, varilla, ornamental":lang==="pl"?"Stal konstrukcyjna, zbrojenie, ornamentyka":"Structural steel, rebar, ornamental" },
-                { icon:"🚧", name:"LIUNA Laborers", desc: lang==="es"?"Construcción general, tunelería, tuberías":lang==="pl"?"Budownictwo ogólne, drążenie tuneli, rurociągi":"General construction, tunneling, pipeline" },
-              ].map((t,i) => (
-                <div key={i} className="trade-vet-card">
-                  <div className="trade-vet-icon">{t.icon}</div>
-                  <div>
-                    <div className="trade-vet-name">{t.name}</div>
-                    <div className="trade-vet-desc">{t.desc}</div>
-                  </div>
+                  )
+                },
+                {
+                  id:"h2h",
+                  title: "Helmets to Hardhats",
+                  content: (
+                    <div style={{marginTop:16}}>
+                      <p style={{fontSize:15, color:"var(--muted)", lineHeight:1.7, marginBottom:24}}>
+                        {lang==="es" ? "Helmets to Hardhats (H2H) es el puente oficial del servicio militar a las carreras sindicales de construcción. Es gratuito, está respaldado por el sindicato y está diseñado específicamente para veteranos militares." : lang==="pl" ? "Helmets to Hardhats (H2H) to oficjalny most od służby wojskowej do kariery w związkowym budownictwie. Jest bezpłatny i zaprojektowany specjalnie dla weteranów wojskowych." : "Helmets to Hardhats (H2H) is the official bridge from military service to union construction careers. Free, union-backed, and designed specifically for military veterans."}
+                      </p>
+                      <div style={{display:"flex", gap:"16px", flexWrap:"wrap", marginBottom:24}}>
+                        {[
+                          { num:"400+", label: lang==="es" ? "Sindicatos Asociados" : lang==="pl" ? "Partnerskich Związków" : "Partner Unions" },
+                          { num:"40K+", label: lang==="es" ? "Veteranos Conectados" : lang==="pl" ? "Połączonych Weteranów" : "Veterans Connected" },
+                          { num: lang==="es" ? "Gratis" : lang==="pl" ? "Bezpłatny" : "Free", label: lang==="es" ? "Para Veteranos" : lang==="pl" ? "Dla Weteranów" : "For All Veterans" },
+                        ].map((s, i) => (
+                          <div key={i} style={{background:"transparent", border:"1px solid rgba(250,128,89,0.2)", borderRadius:12, padding:"16px 24px", textAlign:"center", flex:1, minWidth:100}}>
+                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:"#FA8059", lineHeight:1}}>{s.num}</div>
+                            <div style={{fontSize:12, color:"var(--muted)", textTransform:"uppercase", letterSpacing:"0.08em", marginTop:6, fontWeight:600}}>{s.label}</div>
+                          </div>
+                        ))}
+                      </div>
+                      <a className="btn-primary" href="https://helmetstohardhats.org" target="_blank" rel="noopener noreferrer" style={{display:"inline-block", textDecoration:"none"}}>
+                        {lang==="es" ? "Visitar Helmets to Hardhats →" : lang==="pl" ? "Odwiedź Helmets to Hardhats →" : "Visit Helmets to Hardhats →"}
+                      </a>
+                    </div>
+                  )
+                },
+                {
+                  id:"skills",
+                  title: lang==="es" ? "Tus Habilidades Militares se Traducen" : lang==="pl" ? "Twoje Umiejętności Wojskowe się Przekładają" : "Your Military Skills Translate",
+                  content: (
+                    <div style={{marginTop:16, display:"flex", flexDirection:"column", gap:10}}>
+                      {[
+                        { mil: lang==="es" ? "Técnico de Electrónica de Aviación" : lang==="pl" ? "Technik Elektroniki Lotniczej" : "Aviation Electronics Technician", trade: "IBEW Electrician" },
+                        { mil: lang==="es" ? "Mecánico de Vehículos de Motor" : lang==="pl" ? "Mechanik Pojazdów Silnikowych" : "Motor Vehicle Mechanic", trade: "Sheet Metal / Ironworker" },
+                        { mil: lang==="es" ? "Especialista en Construcción" : lang==="pl" ? "Specjalista Budowlany" : "Construction Specialist (Combat Engineer)", trade: "UBC Carpenter / LIUNA Laborer" },
+                        { mil: lang==="es" ? "Especialista en Sistemas de Armas" : lang==="pl" ? "Specjalista Systemów Uzbrojenia" : "Weapons Systems Specialist", trade: "UA Pipefitter / Boilermaker" },
+                        { mil: lang==="es" ? "Especialista en HVAC" : lang==="pl" ? "Specjalista HVAC" : "HVAC Specialist", trade: "UA Plumber / Pipefitter" },
+                        { mil: lang==="es" ? "Técnico en Comunicaciones" : lang==="pl" ? "Technik Łączności" : "Communications Technician", trade: "IBEW Electrician (Low Voltage)" },
+                      ].map((item, i) => (
+                        <div key={i} style={{display:"flex", alignItems:"center", gap:16, padding:"14px 20px", background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.07)", borderRadius:10}}>
+                          <div style={{flex:1, fontSize:14, color:"var(--muted)"}}>{item.mil}</div>
+                          <div style={{color:"#FA8059", fontSize:16, fontWeight:700}}>→</div>
+                          <div style={{flex:1, fontSize:14, color:"#fff", fontWeight:600}}>{item.trade}</div>
+                        </div>
+                      ))}
+                    </div>
+                  )
+                },
+                {
+                  id:"start",
+                  title: lang==="es" ? "Cómo Empezar" : lang==="pl" ? "Jak Zacząć" : "How to Get Started",
+                  content: (
+                    <div style={{marginTop:16, display:"flex", flexDirection:"column", gap:12}}>
+                      {[
+                        { n:"01", title: "Helmets to Hardhats", desc: lang==="es" ? "Regístrate gratis en helmetstohardhats.org — toma 5 minutos." : lang==="pl" ? "Zarejestruj się bezpłatnie na helmetstohardhats.org — zajmuje 5 minut." : "Register free at helmetstohardhats.org — takes 5 minutes." },
+                        { n:"02", title: lang==="es" ? "Usa Union Pathways" : lang==="pl" ? "Użyj Union Pathways" : "Use Union Pathways Search", desc: lang==="es" ? "Encuentra los locales sindicales más cercanos y contacta coordinadores de aprendizaje directamente." : lang==="pl" ? "Znajdź najbliższe lokale związkowe i skontaktuj się bezpośrednio z koordynatorami praktyk." : "Find the nearest union locals and contact apprenticeship coordinators directly." },
+                        { n:"03", title: lang==="es" ? "Aplica a Múltiples Sindicatos" : lang==="pl" ? "Aplikuj do Wielu Związków" : "Apply to Multiple Unions", desc: lang==="es" ? "No esperes en uno. Aplica a 3-5 al mismo tiempo para maximizar tus posibilidades." : lang==="pl" ? "Nie czekaj na jeden. Aplikuj do 3-5 jednocześnie." : "Don't wait on one. Apply to 3-5 at once to maximize your chances." },
+                        { n:"04", title: lang==="es" ? "Destaca tu Experiencia Militar" : lang==="pl" ? "Podkreśl Doświadczenie Wojskowe" : "Highlight Your Military Experience", desc: lang==="es" ? "Sé específico sobre tu MOS, entrenamiento técnico y habilidades de liderazgo." : lang==="pl" ? "Bądź konkretny co do swojego MOS, szkolenia technicznego i umiejętności przywódczych." : "Be specific about your MOS, technical training, and leadership skills. This is a major advantage." },
+                      ].map((s, i) => (
+                        <div key={i} style={{display:"flex", gap:16, alignItems:"flex-start", padding:"16px 20px", background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.07)", borderRadius:12}}>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:800, color:"#FA8059", minWidth:28}}>{s.n}</div>
+                          <div>
+                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:800, color:"#fff", marginBottom:4}}>{s.title}</div>
+                            <div style={{fontSize:13, color:"var(--muted)", lineHeight:1.6}}>{s.desc}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )
+                },
+              ].map((section) => (
+                <div key={section.id} style={{marginBottom:12, border: vetSection===section.id ? "1px solid rgba(250,128,89,0.3)" : "1px solid rgba(255,255,255,0.08)", borderRadius:16, overflow:"hidden"}}>
+                  <button
+                    onClick={() => setVetSection(vetSection===section.id ? null : section.id)}
+                    style={{width:"100%", background:"rgba(255,255,255,0.02)", border:"none", padding:"20px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", cursor:"pointer", textAlign:"left"}}
+                  >
+                    <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:800, color: vetSection===section.id ? "#FA8059" : "#fff"}}>{section.title}</span>
+                    <span style={{color:"#FA8059", fontSize:22, fontWeight:700, lineHeight:1, transform: vetSection===section.id ? "rotate(45deg)" : "rotate(0deg)", display:"inline-block", transition:"transform 0.2s"}}>+</span>
+                  </button>
+                  {vetSection===section.id && (
+                    <div style={{padding:"0 24px 24px", borderTop:"1px solid rgba(255,255,255,0.06)"}}>
+                      {section.content}
+                    </div>
+                  )}
                 </div>
               ))}
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="cta-banner">
-              <h3>{lang==="es"?"¿Listo para Hacer la Transición?":lang==="pl"?"Gotowy na Zmianę?":"Ready to Make the Transition?"}</h3>
-              <p>{lang==="es"?"Comienza en Helmets to Hardhats — o encuentra tu local sindical más cercano aquí mismo.":lang==="pl"?"Zacznij od Helmets to Hardhats — lub znajdź najbliższy oddział związkowy tutaj i skontaktuj się bezpośrednio.":"Start at Helmets to Hardhats — or find your nearest union local right here and reach out directly."}</p>
-              <div style={{display:"flex", gap:"12px", justifyContent:"center", flexWrap:"wrap"}}>
-                <a className="btn-primary" href="https://helmetstohardhats.org" target="_blank" rel="noopener noreferrer">
-                  {lang==="es"?"Visitar Helmets to Hardhats →":lang==="pl"?"Odwiedź Helmets to Hardhats →":"Visit Helmets to Hardhats →"}
-                </a>
-                <button className="btn-ghost" onClick={() => setPage("home")}>
-                  {lang==="es"?"Encontrar Mi Local Más Cercano":lang==="pl"?"Znajdź Mój Najbliższy Oddział":"Find My Nearest Local"}
-                </button>
-              </div>
             </div>
           </div>
         )}
 
-        {/* ── CONTACT PAGE ── */}
         {page === "about" && (
           <div>
             {/* HERO */}
@@ -5678,6 +5655,9 @@ export default function UnionPathway() {
                   <div className="timeline-year">{lang==="es" ? "Diciembre 2024" : lang==="pl" ? "Grudzień 2024" : "December 2024"}</div>
                   <div className="timeline-event">{lang==="es" ? "Spanky The Sparky — 400 Millones de Visualizaciones" : lang==="pl" ? "Spanky The Sparky — 400 Milionów Wyświetleń" : "Spanky The Sparky — 400 Million Views"}</div>
                   <div className="timeline-desc">{lang==="es" ? "Noah lanzó Spanky The Sparky para mostrar la vida real en el oficio — sin filtros, sin exageraciones. El contenido explotó. Más de 157,000 seguidores en todas las plataformas y más de 400 millones de visualizaciones desde diciembre de 2024. La gente estaba hambrienta de información real sobre los oficios." : lang==="pl" ? "Noah uruchomił Spanky The Sparky, aby pokazać prawdziwe życie w zawodzie — bez filtrów, bez przesady. Treści eksplodowały. Ponad 157 000 obserwujących na wszystkich platformach i ponad 400 milionów wyświetleń od grudnia 2024. Ludzie byli głodni prawdziwych informacji o zawodach budowlanych." : "Noah launched Spanky The Sparky to show real life in the trade — unfiltered, no hype. The content exploded. Over 157,000 followers across all platforms and over 400 million views since December 2024. The mission was simple: bridge the gap in the union construction industry in a modern way — bringing real, accessible information to the next generation of tradespeople. Follow along: linktr.ee/spankythesparky"}</div>
+                  <a href="https://linktr.ee/spankythesparky" target="_blank" rel="noopener noreferrer" style={{display:"inline-flex", alignItems:"center", gap:"8px", marginTop:"16px", background:"rgba(250,128,89,0.1)", border:"1px solid rgba(250,128,89,0.3)", borderRadius:"50px", padding:"8px 20px", color:"#FA8059", fontSize:"13px", fontWeight:"700", fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:"0.08em", textTransform:"uppercase", textDecoration:"none"}}>
+                    linktr.ee/spankythesparky →
+                  </a>
                 </div>
 
                 <div className="timeline-item">
