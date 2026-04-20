@@ -6069,9 +6069,14 @@ export default function UnionPathway() {
         )}
 
         {/* FOOTER */}
-        <footer>
-          <span>{t.footerLeft}</span>
-          <span>{t.footerRight}</span>
+        <footer style={{flexDirection:"column", gap:"12px", textAlign:"center"}}>
+          <div style={{display:"flex", justifyContent:"space-between", width:"100%", flexWrap:"wrap", gap:8}}>
+            <span>{t.footerLeft}</span>
+            <span>{t.footerRight}</span>
+          </div>
+          <div style={{fontSize:"11px", color:"rgba(160,180,196,0.5)", maxWidth:"700px", margin:"0 auto", lineHeight:1.6}}>
+            {lang==="es" ? "Union Pathways es una plataforma de información independiente. No tenemos afiliación con ningún sindicato, organización laboral, entidad gubernamental o grupo industrial. Toda la información se proporciona solo con fines educativos." : lang==="pl" ? "Union Pathways to niezalezna platforma informacyjna. Nie jestesmy powiazani z zadnym zwiazkiem zawodowym, organizacja pracownicza, podmiotem rzadowym ani grupa branżową. Wszystkie informacje sa udostepniane wylacznie w celach edukacyjnych." : "Union Pathways is an independent information platform. We have no affiliation with any union, labor organization, government entity, or industry group. All information is provided for educational purposes only."}
+          </div>
         </footer>
       </div>
     </>
