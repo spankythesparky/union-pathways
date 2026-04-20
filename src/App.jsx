@@ -5001,7 +5001,7 @@ export default function UnionPathway() {
                   {
                     year: lang==="es" ? "Paso 2" : lang==="pl" ? "Krok 2" : "Step 2",
                     event: lang==="es" ? "Aplica Directamente al Aprendizaje" : lang==="pl" ? "Aplikuj Bezpośrednio do Praktyki" : "Apply Directly to Apprenticeship",
-                    desc: lang==="es" ? "Busca: "[tu ciudad] + aprendizaje sindical" o ve directamente a los centros de formación sindical. Usa la función de búsqueda de Union Pathways para encontrar tu local más cercano." : lang==="pl" ? "Szukaj: "[twoje miasto] + praktyka związkowa" lub idź bezpośrednio do związkowych centrów szkoleniowych. Użyj funkcji wyszukiwania Union Pathways, aby znaleźć najbliższy lokal." : "Search: "[your city] + union apprenticeship" or go straight to union training centers. Use Union Pathways search to find your nearest local."
+                    desc: lang==="es" ? "Busca: "tu ciudad + aprendizaje sindical" o ve directamente a los centros de formación sindical. Usa la función de búsqueda de Union Pathways para encontrar tu local más cercano." : lang==="pl" ? "Szukaj: "twoje miasto + praktyka związkowa" lub idź bezpośrednio do związkowych centrów szkoleniowych. Użyj funkcji wyszukiwania Union Pathways, aby znaleźć najbliższy lokal." : "Search: "YOUR CITY + union apprenticeship" or go straight to union training centers. Use Union Pathways search to find your nearest local."
                   },
                   {
                     year: lang==="es" ? "Paso 3" : lang==="pl" ? "Krok 3" : "Step 3",
