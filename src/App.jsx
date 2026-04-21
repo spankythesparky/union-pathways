@@ -5583,9 +5583,9 @@ export default function UnionPathway() {
               {/* STATS ROW */}
               <div className="history-stats" style={{marginTop:48}}>
                 {[
-                  { num: "157K+", label: lang==="es" ? "Seguidores en Todas las Plataformas" : lang==="pl" ? "Obserwujacych na Wszystkich Platformach" : "Followers Across All Platforms" },
-                  { num: "400M+", label: lang==="es" ? "Visualizaciones desde Dic. 2024" : lang==="pl" ? "Wyswietleni od Grudnia 2024" : "Views Since December 2024" },
-                  { num: "5+", label: lang==="es" ? "Anos como Electricista IBEW" : lang==="pl" ? "Lat jako Elektryk IBEW" : "Years as an IBEW Electrician" },
+                  { num: "452K+", label: lang==="es" ? "Seguidores Colectivos" : lang==="pl" ? "Lacznych Obserwujacych" : "Collective Followers" },
+                  { num: "600M+", label: lang==="es" ? "Visualizaciones Colectivas" : lang==="pl" ? "Lacznych Wyswietleni" : "Collective Views" },
+                  { num: "30+", label: lang==="es" ? "Anos de Experiencia Colectiva en Oficios" : lang==="pl" ? "Lat Lacznego Doswiadczenia w Zawodach" : "Years of Collective Trades Experience" },
                   { num: "1", label: lang==="es" ? "Mision — Todo Sindical. Un Lugar." : lang==="pl" ? "Misja — Wszystko Zwiazowe. Jedno Miejsce." : "Mission — Everything Union. One Place." },
                 ].map((s, i) => (
                   <div key={i} className="history-stat">
@@ -5675,7 +5675,7 @@ export default function UnionPathway() {
                 <div className="impact-card">
                   <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FA8059",marginBottom:"14px",textTransform:"uppercase"}}>01</div>
                   <div className="impact-title">{lang==="es" ? "Construido por Trabajadores" : lang==="pl" ? "Zbudowane przez Pracownikow" : "Built by Workers"}</div>
-                  <div className="impact-desc">{lang==="es" ? "No somos una empresa de marketing. Somos electricistas, albaniles e insuladores que ven la necesidad de una plataforma real para trabajadores reales." : lang==="pl" ? "Nie jestesmy firma marketingowa. Jestesmy elektrykami, murarzami i izolatorami, ktorzy widza potrzebe prawdziwej platformy dla prawdziwych pracownikow." : "We are not a marketing company. We are electricians, bricklayers, and insulators who see the need for a real platform for real workers."}</div>
+                  <div className="impact-desc">{lang==="es" ? "No somos una empresa de marketing. Somos electricistas, albaniles e insuladores que ven la necesidad de una plataforma real para trabajadores reales." : lang==="pl" ? "Nie jestesmy firma marketingowa. Jestesmy elektrykami, murarzami i izolatorami, ktorzy widza potrzebe prawdziwej platformy dla prawdziwych pracownikow." : "We are a small but mighty group — not a marketing agency, not a faceless brand. We are boots-on-the-ground tradespeople who clock in every day, then come home and build something better for the next generation."}</div>
                 </div>
                 <div className="impact-card">
                   <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"var(--muted)",marginBottom:"14px",textTransform:"uppercase"}}>02</div>
