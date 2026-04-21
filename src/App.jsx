@@ -5779,16 +5779,16 @@ export default function UnionPathway() {
                     <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:16, marginBottom:16}}>
                       <div style={{background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.07)", borderRadius:16, padding:"20px", textAlign:"center"}}>
                         <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"var(--muted)", marginBottom:8}}>{lang==="es" ? "Ingreso Anual" : lang==="pl" ? "Roczny Dochod" : "Annual Income"}<br/><span style={{color:"rgba(160,180,196,0.5)"}}>({calcHours.toLocaleString()} hrs)</span></div>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:34, fontWeight:900, color:"#FA8059"}}>{r.annualBase.toLocaleString(){"}"}</div>
+                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:34, fontWeight:900, color:"#FA8059"}}>{r.annualBase.toLocaleString()}</div>
                         <div style={{fontSize:12, color:"var(--muted)", marginTop:4}}>{lang==="es" ? "salario base" : lang==="pl" ? "wynagrodzenie podstawowe" : "take-home wages"}</div>
                         <div style={{borderTop:"1px solid rgba(58,80,104,0.3)", marginTop:12, paddingTop:12}}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:700, color:"rgba(250,128,89,0.6)"}}>{r.annualPkg.toLocaleString(){"}"}</div>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:700, color:"rgba(250,128,89,0.6)"}}>{r.annualPkg.toLocaleString()}</div>
                           <div style={{fontSize:12, color:"var(--muted)"}}>{lang==="es" ? "valor total del paquete" : lang==="pl" ? "calkowita wartosc pakietu" : "total package value"}</div>
                         </div>
                       </div>
                       <div style={{background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.07)", borderRadius:16, padding:"20px", textAlign:"center"}}>
                         <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"var(--muted)", marginBottom:8}}>{lang==="es" ? "Proyeccion de Pension" : lang==="pl" ? "Projekcja Emerytalna" : "Pension Projection"}<br/><span style={{color:"rgba(160,180,196,0.5)"}}>({calcYearsCareer} {lang==="es" ? "anos" : lang==="pl" ? "lat" : "years"})</span></div>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:34, fontWeight:900, color:"#FA8059"}}>{r.pensionProjection.toLocaleString(){"}"}</div>
+                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:34, fontWeight:900, color:"#FA8059"}}>{r.pensionProjection.toLocaleString()}</div>
                         <div style={{fontSize:12, color:"var(--muted)", marginTop:4}}>{lang==="es" ? "valor estimado acumulado" : lang==="pl" ? "szacowana wartosc skumulowana" : "estimated accumulated value"}</div>
                       </div>
                     </div>
@@ -5798,19 +5798,19 @@ export default function UnionPathway() {
                       <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:16, marginBottom:16}}>
                         <div style={{textAlign:"center"}}>
                           <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:"#FA8059", marginBottom:8, textTransform:"uppercase", letterSpacing:"0.08em"}}>{lang==="es" ? "Sindical" : lang==="pl" ? "Zwiazowy" : "Union"}</div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:42, fontWeight:900, color:"#FA8059"}}>{r.baseWage.toFixed(2){"}"}</div>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:42, fontWeight:900, color:"#FA8059"}}>{r.baseWage.toFixed(2)}</div>
                           <div style={{fontSize:12, color:"var(--muted)"}}>{lang==="es" ? "base/hr" : lang==="pl" ? "podstawa/godz" : "base/hr"}</div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:700, color:"rgba(250,128,89,0.6)", marginTop:6}}>{r.annualBase.toLocaleString(){"}"}/yr</div>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:700, color:"rgba(250,128,89,0.6)", marginTop:6}}>{r.annualBase.toLocaleString()}/yr</div>
                         </div>
                         <div style={{textAlign:"center"}}>
                           <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:"var(--muted)", marginBottom:8, textTransform:"uppercase", letterSpacing:"0.08em"}}>{lang==="es" ? "No Sindical" : lang==="pl" ? "Niezwiazowy" : "Non-Union (Est.)"}</div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:42, fontWeight:900, color:"var(--muted)"}}>{r.nonUnionEquiv.toFixed(2){"}"}</div>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:42, fontWeight:900, color:"var(--muted)"}}>{r.nonUnionEquiv.toFixed(2)}</div>
                           <div style={{fontSize:12, color:"var(--muted)"}}>{lang==="es" ? "estimado/hr" : lang==="pl" ? "szacowane/godz" : "estimated/hr"}</div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:700, color:"rgba(160,180,196,0.5)", marginTop:6}}>{r.nonUnionAnnual.toLocaleString(){"}"}/yr</div>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:700, color:"rgba(160,180,196,0.5)", marginTop:6}}>{r.nonUnionAnnual.toLocaleString()}/yr</div>
                         </div>
                       </div>
                       <div style={{borderTop:"1px solid rgba(58,80,104,0.4)", paddingTop:16, textAlign:"center"}}>
-                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:"#FA8059"}}>+{(r.annualBase - r.nonUnionAnnual).toLocaleString(){"}"}/yr</span>
+                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:"#FA8059"}}>+{(r.annualBase - r.nonUnionAnnual).toLocaleString()}/yr</span>
                         <span style={{fontSize:13, color:"var(--muted)", marginLeft:10}}>{lang==="es" ? "mas en salario base como miembro sindical" : lang==="pl" ? "wiecej w wynagrodzeniu jako czlonek zwiazku" : "more in base wages as a union member"}</span>
                       </div>
                     </div>
