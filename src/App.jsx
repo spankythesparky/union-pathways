@@ -5752,7 +5752,7 @@ export default function UnionPathway() {
                         {WAGE_DATA[calcTrade].name} — {r.tierName} — {calcYear === "journeyman" ? (lang==="es" ? "Oficial" : lang==="pl" ? "Czeladnik" : "Journeyman") : (lang==="es" ? "Aprendiz Ano "+calcYear : lang==="pl" ? "Praktykant Rok "+calcYear : "Apprentice Year "+calcYear)}
                       </div>
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:72, fontWeight:900, color:"#FA8059", lineHeight:1}}>
-                        {r.totalPkg.toFixed(2){"}"}<span style={{fontSize:28}}>/hr</span>
+                        {r.totalPkg.toFixed(2)}<span style={{fontSize:28}}>/hr</span>
                       </div>
                       <div style={{fontSize:14, color:"var(--muted)", marginTop:8}}>{lang==="es" ? "Valor total del paquete de compensacion" : lang==="pl" ? "Calkowita wartosc pakietu wynagrodzenia" : "Total compensation package value per hour"}</div>
                     </div>
@@ -5772,7 +5772,7 @@ export default function UnionPathway() {
                       ))}
                       <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", padding:"14px 0 0", marginTop:8, borderTop:"2px solid #FA8059"}}>
                         <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:16, fontWeight:900, color:"#fff"}}>{lang==="es" ? "TOTAL POR HORA" : lang==="pl" ? "LACZNIE NA GODZINE" : "TOTAL PER HOUR"}</span>
-                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:28, fontWeight:900, color:"#FA8059"}}>{r.totalPkg.toFixed(2){"}"}/hr</span>
+                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:28, fontWeight:900, color:"#FA8059"}}>{r.totalPkg.toFixed(2)}/hr</span>
                       </div>
                     </div>
 
