@@ -1746,6 +1746,13 @@ export default function UnionPathway() {
   const [retSection, setRetSection] = useState(null);
   const [partnerSection, setPartnerSection] = useState(null);
   const [localSection, setLocalSection] = useState(null);
+  const [calcTrade, setCalcTrade] = useState("IBEW_I");
+  const [calcYear, setCalcYear] = useState("journeyman");
+  const [calcCity, setCalcCity] = useState("");
+  const [calcTier, setCalcTier] = useState(2);
+  const [calcHours, setCalcHours] = useState(1800);
+  const [calcYearsCareer, setCalcYearsCareer] = useState(30);
+  const [showResults, setShowResults] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [globalQuery, setGlobalQuery] = useState("");
   const [learnOpen, setLearnOpen] = useState(false);
@@ -5628,14 +5635,6 @@ export default function UnionPathway() {
           };
           const MAJOR_METROS = ["new york","los angeles","chicago","san francisco","boston","seattle","washington","philadelphia","miami","houston","dallas","denver","atlanta","portland","minneapolis","detroit","baltimore","san jose","austin","las vegas","new orleans","sacramento","san diego","phoenix"];
           const MID_MARKETS = ["columbus","cleveland","cincinnati","pittsburgh","milwaukee","indianapolis","kansas city","st louis","nashville","charlotte","raleigh","richmond","salt lake","tucson","albuquerque","memphis","louisville","oklahoma city","birmingham","hartford","buffalo","rochester","albany","omaha","des moines","grand rapids","toledo","akron","dayton"];
-
-          const [calcTrade, setCalcTrade] = React.useState("IBEW_I");
-          const [calcYear, setCalcYear] = React.useState("journeyman");
-          const [calcCity, setCalcCity] = React.useState("");
-          const [calcTier, setCalcTier] = React.useState(2);
-          const [calcHours, setCalcHours] = React.useState(1800);
-          const [calcYearsCareer, setCalcYearsCareer] = React.useState(30);
-          const [showResults, setShowResults] = React.useState(false);
 
           const detectTier = (city) => {
             const c = city.toLowerCase().trim();
