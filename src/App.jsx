@@ -3677,11 +3677,9 @@ export default function UnionPathway() {
         .trade-selector {
           display: flex;
           gap: 8px;
-          overflow-x: auto;
+          flex-wrap: wrap;
           padding-bottom: 2px;
           margin-bottom: 20px;
-          scrollbar-width: none;
-          -ms-overflow-style: none;
         }
         .trade-selector::-webkit-scrollbar { display: none; }
         .trade-pill {
