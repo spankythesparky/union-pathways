@@ -1,7 +1,7 @@
 export const config = { matcher: ['/', '/quiz', '/careers', '/checklist', '/history', '/retirement', '/veterans', '/contact'] };
 
 const PAGE_META = {
-  '/':           { title: 'Union Pathways - Find Your Nearest Union Construction Local', desc: 'Find your nearest union construction local — IBEW, UA, SMART, BAC, UBC, Ironworkers, Insulators, Laborers and more. Free resource for tradespeople.' },
+  '/':           { title: 'Union Pathways - Find Your Nearest Union Construction Local', desc: 'Find your nearest union construction local — IBEW, UA, BAC, Ironworkers and more. Everything union trades, one place. Free.' },
   '/quiz':       { title: 'Union Pathways - Which Trade Is Right For You?', desc: 'Take our free quiz to find out which union construction trade matches your skills, interests, and goals. No cost, no signup.' },
   '/careers':    { title: 'Union Pathways - Career Paths in the Union Trades', desc: 'Learn about apprenticeships, wages, and career paths in union construction trades. Earn while you learn — no college debt.' },
   '/checklist':  { title: 'Union Pathways - How to Join a Union Apprenticeship', desc: 'Step-by-step guide to joining a union construction apprenticeship. Requirements, timeline, and how to apply.' },
@@ -16,7 +16,7 @@ const PAGE_META = {
   '/calculator': { title: 'Union Pathways - Union Wage Calculator', desc: 'Calculate your union wage, total compensation package, and retirement projection based on your trade and market.' },
 };
 
-const CRAWLERS = ['facebookexternalhit','Facebot','Twitterbot','LinkedInBot','WhatsApp','Slackbot','TelegramBot','Discordbot','Applebot','Pinterest','Googlebot'];
+const CRAWLERS = ['facebookexternalhit','Facebot','Twitterbot','LinkedInBot','WhatsApp','Slackbot','TelegramBot','Discordbot','Applebot','Pinterest','Googlebot','bingbot','Yahoo','DuckDuckBot','Baidu','iMessage','imessage','Messages','Instagram','SnapchatBot','redditbot','vkShare','W3C_Validator','preview','crawler','spider','bot'];
 
 export default function middleware(req) {
   const ua = req.headers.get('user-agent') || '';
