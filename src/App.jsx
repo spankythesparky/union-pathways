@@ -1849,7 +1849,7 @@ export default function UnionPathway() {
   // Interactive map initialization
   useEffect(() => {
     if (page !== "home" || results) return;
-    const mapEl = document.getElementById("home-union-map");
+    const mapEl = document.getElementById("union-map");
     if (!mapEl || mapEl._leaflet_id) return;
 
     if (!document.getElementById("leaflet-css")) {
@@ -1863,11 +1863,11 @@ export default function UnionPathway() {
     function initMap() {
       if (!window.L) { setTimeout(initMap, 200); return; }
       if (mapEl._leaflet_id) return;
-      const loadingEl = document.getElementById("home-map-loading");
+      const loadingEl = document.getElementById("map-loading");
       if (loadingEl) loadingEl.style.display = "none";
 
       const map = window.L.map(mapEl, { center:[42,-95], zoom:4, minZoom:3, maxZoom:16 });
-      window._homeMap = map;
+      window._map = map;
 
       window.L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
         attribution:"&copy; OpenStreetMap &copy; CARTO", subdomains:"abcd", maxZoom:19
@@ -1881,7 +1881,7 @@ export default function UnionPathway() {
         { key:"IW",     color:"#FF8C00", locals: IW_LOCALS },
       ];
       const offsets = { IBEW_I:[0,0], IBEW_L:[0.03,0.03], UA:[-0.03,0.03], BAC:[0.03,-0.03], IW:[-0.03,-0.03] };
-      window._homeMapLayers = {};
+      window._mapLayers = {};
 
       TRADE_DATA.forEach(trade => {
         const cluster = window.L.markerClusterGroup({
@@ -1910,7 +1910,7 @@ export default function UnionPathway() {
           m.bindPopup("<div style='background:#0a1628;color:#fff;padding:12px;min-width:180px'><div style='font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:"+trade.color+";margin-bottom:4px'>"+trade.key+"</div><div style='font-family:Barlow Condensed,sans-serif;font-size:18px;font-weight:900;margin-bottom:4px'>"+local.name+"</div><div style='font-size:12px;color:rgba(160,180,196,0.6);margin-bottom:8px'>"+local.city+", "+local.state+"</div><div style='display:flex;gap:8px'>"+links.join("")+"</div></div>", {maxWidth:260});
           cluster.addLayer(m);
         });
-        window._homeMapLayers[trade.key] = cluster;
+        window._mapLayers[trade.key] = cluster;
         map.addLayer(cluster);
       });
     }
@@ -6441,49 +6441,6 @@ export default function UnionPathway() {
 
             {/* DIVIDER */}
             <div style={{borderTop:"1px solid rgba(58,80,104,0.4)", marginBottom:"64px"}}/>
-
-            {/* INTERACTIVE MAP — 854 LOCALS */}
-            <div style={{marginBottom:"80px"}}>
-              <div style={{textAlign:"center", marginBottom:"28px"}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"13px", fontWeight:"700", letterSpacing:"0.15em", textTransform:"uppercase", color:"#FA8059", marginBottom:"10px"}}>
-                  {lang==="es" ? "854 Locales en EE.UU. y Canada" : lang==="pl" ? "854 Lokale w USA i Kanadzie" : "854 Locals Across the US and Canada"}
-                </div>
-                <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"clamp(28px,5vw,46px)", fontWeight:"900", textTransform:"uppercase", color:"#fff", lineHeight:"1", letterSpacing:"-0.02em"}}>
-                  {lang==="es" ? <span>{"Every Union Local. "}<span style={{color:"#FA8059"}}>{"One Map."}</span></span> : lang==="pl" ? <span>{"Every Union Local. "}<span style={{color:"#FA8059"}}>{"One Map."}</span></span> : <span>{"Every Union Local. "}<span style={{color:"#FA8059"}}>{"One Map."}</span></span>}
-                </h2>
-              </div>
-              <div style={{display:"flex", gap:"8px", flexWrap:"wrap", justifyContent:"center", marginBottom:"16px"}}>
-                {[
-                  {key:"IBEW_I", label:"IBEW Inside", color:"#F5C518"},
-                  {key:"IBEW_L", label:"IBEW Lineman", color:"#00E5FF"},
-                  {key:"UA", label:"UA Plumbers", color:"#69FF47"},
-                  {key:"BAC", label:"BAC Bricklayers", color:"#FF6B6B"},
-                  {key:"IW", label:"Ironworkers", color:"#FF8C00"},
-                ].map(t => (
-                  <button key={t.key} id={"hmf-"+t.key} data-active="1" onClick={() => {
-                    const el = document.getElementById("hmf-"+t.key);
-                    const isActive = el.getAttribute("data-active") === "1";
-                    el.setAttribute("data-active", isActive ? "0" : "1");
-                    el.style.opacity = isActive ? "0.3" : "1";
-                    if (window._homeMapLayers && window._homeMapLayers[t.key]) {
-                      if (isActive) window._homeMap.removeLayer(window._homeMapLayers[t.key]);
-                      else window._homeMap.addLayer(window._homeMapLayers[t.key]);
-                    }
-                  }} style={{display:"flex", alignItems:"center", gap:"6px", padding:"6px 14px", borderRadius:"50px", border:"1px solid rgba(255,255,255,0.15)", background:"rgba(255,255,255,0.05)", color:"#fff", fontFamily:"'Barlow Condensed',sans-serif", fontSize:"12px", fontWeight:"700", letterSpacing:"0.08em", textTransform:"uppercase", cursor:"pointer"}}>
-                    <span style={{width:"8px", height:"8px", borderRadius:"50%", background:t.color, display:"inline-block"}}></span>
-                    {t.label}
-                  </button>
-                ))}
-              </div>
-              <div id="home-union-map" style={{width:"100%", height:"520px", borderRadius:"20px", overflow:"hidden", border:"1px solid rgba(58,80,104,0.4)", position:"relative"}}>
-                <div id="home-map-loading" style={{position:"absolute", inset:"0", background:"rgba(10,22,40,0.9)", display:"flex", alignItems:"center", justifyContent:"center", zIndex:"1", color:"rgba(160,180,196,0.5)", fontSize:"13px", fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:"0.12em", textTransform:"uppercase"}}>
-                  {lang==="es" ? "Cargando Mapa..." : lang==="pl" ? "Ladowanie Mapy..." : "Loading Map..."}
-                </div>
-              </div>
-              <div style={{textAlign:"center", marginTop:"10px", fontSize:"11px", color:"rgba(160,180,196,0.35)", letterSpacing:"0.06em"}}>
-                {lang==="es" ? "Haz clic en cualquier cluster para expandirlo." : lang==="pl" ? "Kliknij na klaster, aby go rozwinac." : "Click any cluster to expand. Zoom in to see individual pins."}
-              </div>
-            </div>
 
             {/* SECTION TITLE */}
             <div style={{textAlign:"center", marginBottom:"40px"}}>
