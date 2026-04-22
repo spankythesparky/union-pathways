@@ -1845,6 +1845,90 @@ export default function UnionPathway() {
   const [calcHours, setCalcHours] = useState(1800);
   const [calcYearsCareer, setCalcYearsCareer] = useState(30);
   const [showResults, setShowResults] = useState(false);
+
+  // Interactive map initialization
+  useEffect(() => {
+    if (page !== "home" || results) return;
+    const mapEl = document.getElementById("union-map");
+    if (!mapEl || mapEl._leaflet_id) return;
+
+    if (!document.getElementById("leaflet-css")) {
+      const link = document.createElement("link");
+      link.id = "leaflet-css";
+      link.rel = "stylesheet";
+      link.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+      document.head.appendChild(link);
+    }
+
+    function initMap() {
+      if (!window.L) { setTimeout(initMap, 200); return; }
+      if (mapEl._leaflet_id) return;
+      const loadingEl = document.getElementById("map-loading");
+      if (loadingEl) loadingEl.style.display = "none";
+
+      const map = window.L.map(mapEl, { center:[42,-95], zoom:4, minZoom:3, maxZoom:16 });
+      window._map = map;
+
+      window.L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+        attribution:"&copy; OpenStreetMap &copy; CARTO", subdomains:"abcd", maxZoom:19
+      }).addTo(map);
+
+      const TRADE_DATA = [
+        { key:"IBEW_I", color:"#F5C518", locals: IBEW_INSIDE_LOCALS },
+        { key:"IBEW_L", color:"#00E5FF", locals: IBEW_LINEMAN_LOCALS },
+        { key:"UA",     color:"#69FF47", locals: UA_LOCALS },
+        { key:"BAC",    color:"#FF6B6B", locals: BAC_LOCALS },
+        { key:"IW",     color:"#FF8C00", locals: IW_LOCALS },
+      ];
+      const offsets = { IBEW_I:[0,0], IBEW_L:[0.03,0.03], UA:[-0.03,0.03], BAC:[0.03,-0.03], IW:[-0.03,-0.03] };
+      window._mapLayers = {};
+
+      TRADE_DATA.forEach(trade => {
+        const cluster = window.L.markerClusterGroup({
+          maxClusterRadius:35, spiderfyOnMaxZoom:true, showCoverageOnHover:false,
+          zoomToBoundsOnClick:true, disableClusteringAtZoom:11,
+          iconCreateFunction: (c) => {
+            const n = c.getChildCount();
+            const size = n < 10 ? 30 : n < 50 ? 36 : 42;
+            return window.L.divIcon({
+              html: "<div style='width:"+size+"px;height:"+size+"px;border-radius:50%;background:"+trade.color+"18;border:2px solid "+trade.color+"88;display:flex;align-items:center;justify-content:center;font-family:Barlow Condensed,sans-serif;font-size:12px;font-weight:900;color:"+trade.color+"'>"+n+"</div>",
+              className:"", iconSize:[size,size], iconAnchor:[size/2,size/2]
+            });
+          }
+        });
+        const off = offsets[trade.key] || [0,0];
+        trade.locals.forEach(local => {
+          if (!local.lat || !local.lng) return;
+          const icon = window.L.divIcon({
+            html: "<div style='width:10px;height:10px;border-radius:50%;background:"+trade.color+";border:2px solid rgba(255,255,255,0.9);box-shadow:0 0 6px "+trade.color+"99'></div>",
+            className:"", iconSize:[10,10], iconAnchor:[5,5], popupAnchor:[0,-6]
+          });
+          const m = window.L.marker([local.lat+off[0], local.lng+off[1]], {icon});
+          const links = [];
+          if (local.phone) links.push("<a href='tel:"+local.phone+"' style='font-size:11px;color:rgba(160,180,196,0.7);text-decoration:none'>"+local.phone+"</a>");
+          if (local.website) links.push("<a href='https://"+local.website+"' target='_blank' style='font-size:11px;color:#FA8059;text-decoration:none'>Website</a>");
+          m.bindPopup("<div style='background:#0a1628;color:#fff;padding:12px;min-width:180px'><div style='font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:"+trade.color+";margin-bottom:4px'>"+trade.key+"</div><div style='font-family:Barlow Condensed,sans-serif;font-size:18px;font-weight:900;margin-bottom:4px'>"+local.name+"</div><div style='font-size:12px;color:rgba(160,180,196,0.6);margin-bottom:8px'>"+local.city+", "+local.state+"</div><div style='display:flex;gap:8px'>"+links.join("")+"</div></div>", {maxWidth:260});
+          cluster.addLayer(m);
+        });
+        window._mapLayers[trade.key] = cluster;
+        map.addLayer(cluster);
+      });
+    }
+
+    if (!window.L) {
+      const s1 = document.createElement("script");
+      s1.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+      s1.onload = () => {
+        const s2 = document.createElement("script");
+        s2.src = "https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js";
+        s2.onload = initMap;
+        document.head.appendChild(s2);
+      };
+      document.head.appendChild(s1);
+    } else {
+      initMap();
+    }
+  }, [page, results]);
   const [searchOpen, setSearchOpen] = useState(false);
   const [globalQuery, setGlobalQuery] = useState("");
   const [learnOpen, setLearnOpen] = useState(false);
