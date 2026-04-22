@@ -6495,7 +6495,7 @@ export default function UnionPathway() {
             <div style={{marginBottom:"80px"}}>
               <div style={{textAlign:"center", marginBottom:"28px"}}>
                 <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"13px", fontWeight:"700", letterSpacing:"0.15em", textTransform:"uppercase", color:"#FA8059", marginBottom:"10px"}}>
-                  {lang==="es" ? "854 Locales en EE.UU. y Canada" : lang==="pl" ? "854 Lokale w USA i Kanadzie" : "854 Locals Across the US and Canada"}
+                  {lang==="es" ? "981 Locales en EE.UU. y Canada" : lang==="pl" ? "981 Lokale w USA i Kanadzie" : "981 Locals Across the US and Canada"}
                 </div>
                 <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"clamp(28px,5vw,46px)", fontWeight:"900", textTransform:"uppercase", color:"#fff", lineHeight:"1", letterSpacing:"-0.02em"}}>
                   {"Every Union Local. "}<span style={{color:"#FA8059"}}>{"One Map."}</span>
