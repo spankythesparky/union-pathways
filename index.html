@@ -1,18 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <script>
-    (function() {
-      var ua = navigator.userAgent || '';
-      var isInstagram = ua.indexOf('Instagram') > -1;
-      var isFB = ua.indexOf('FBAN') > -1 || ua.indexOf('FBAV') > -1;
-      if (isInstagram || isFB) {
-        // Write directly to document before React loads
-        document.write('<style>body{margin:0;background:#060f1a;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:Arial,sans-serif;text-align:center;padding:24px;box-sizing:border-box}</style><div style="max-width:320px"><div style="font-size:32px;font-weight:900;color:#fff;margin-bottom:16px">Union <span style=\'color:#FA8059\'>Pathways</span></div><p style="color:rgba(160,180,196,0.7);font-size:15px;line-height:1.6;margin-bottom:32px">This link works best in your browser. Tap below to open it.</p><a href="' + window.location.href + '" target="_blank" style="display:inline-block;background:#FA8059;color:#000;font-weight:700;font-size:16px;padding:16px 32px;border-radius:50px;text-decoration:none">Open in Browser</a></div>');
-        document.close();
-      }
-    })();
-  </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -27,7 +15,7 @@
     <meta property="og:site_name" content="Union Pathways"/>
     <meta property="og:image" content="https://unionpathways.com/social-preview.png"/>
     <meta property="og:image:width" content="1200"/>
-    <meta property="og:image:height" content="1200"/>
+    <meta property="og:image:height" content="630"/>
     <meta property="og:image:type" content="image/png"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="Union Pathways - Find Your Nearest Union Construction Local"/>
@@ -41,8 +29,51 @@
       gtag("js", new Date());
       gtag("config", "G-6YG0F2LQKT");
     </script>
+    <style>
+      #ig-fallback {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: #060f1a;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 24px;
+        box-sizing: border-box;
+        z-index: 99999;
+      }
+      body.is-instagram #ig-fallback { display: flex; }
+      body.is-instagram #root { display: none; }
+    </style>
+    <script>
+      (function() {
+        var ua = navigator.userAgent || '';
+        if (ua.indexOf('Instagram') > -1 || ua.indexOf('FBAN') > -1 || ua.indexOf('FBAV') > -1) {
+          document.documentElement.className += ' instagram-browser';
+          window.addEventListener('DOMContentLoaded', function() {
+            document.body.className += ' is-instagram';
+          });
+        }
+      })();
+    </script>
   </head>
   <body>
+    <div id="ig-fallback">
+      <div style="font-size:36px;font-weight:900;color:#fff;margin-bottom:16px">
+        Union <span style="color:#FA8059">Pathways</span>
+      </div>
+      <p style="color:rgba(160,180,196,0.7);font-size:16px;line-height:1.6;margin-bottom:32px;max-width:300px">
+        For the best experience, open this page in your browser.
+      </p>
+      <a id="ig-open-btn" href="https://unionpathways.com" style="display:inline-block;background:#FA8059;color:#000;font-weight:700;font-size:16px;padding:16px 36px;border-radius:50px;text-decoration:none">
+        Open in Browser
+      </a>
+      <script>
+        document.getElementById('ig-open-btn').href = window.location.href;
+      </script>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
