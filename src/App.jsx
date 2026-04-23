@@ -981,7 +981,7 @@ const UA_LOCALS = [
   { id: 20633, name: "UA Local 633", city: "Owensboro", state: "KY", phone: "270-683-1587", website: "ua.org/location/lu-633-owensboro-ky", lat: 37.7535505, lng: -87.0658491, address: "3128 ALVEY PARK DR W, OWENSBORO, KY 42303" },
   { id: 20636, name: "UA Local 636", city: "Detroit", state: "MI", phone: "248-538-6636", website: "pipefitters636.org", lat: 42.3314, lng: -83.0458, address: "30100 NORTHWESTERN HWY, FARMINGTON HILLS, MI 48334" },
   { id: 20638, name: "UA Local 638", city: "New york", state: "NY", phone: "718-392-3420", website: "steamfitters638.org", lat: 40.7128, lng: -74.0059, address: "27-08 40TH AVE 4TH FLR, LONG ISLAND CITY, NY 11101" },
-  { id: 20648, name: "UA Local 648", city: "Pocatello", state: "ID", phone: "208-232-6806", website: "ualocal648.org", lat: 42.8620287, lng: -112.450627, address: "456 N ARTHUR STE 4, POCATELLO, ID 83204" },
+  { id: 20648, name: "UA Local 648", city: "Pocatello", state: "ID", phone: "208-232-6806", lat: 42.8620287, lng: -112.450627, address: "456 N ARTHUR STE 4, POCATELLO, ID 83204" },
   { id: 20653, name: "UA Local 653", city: "Centralia", state: "IL", phone: "618-532-3351", website: "ua.org/location/lu-653-centralia-il", lat: 38.5278021, lng: -89.1367412, address: "116 S CHESTNUT ST, CENTRALIA, IL 62801" },
   { id: 20663, name: "UA Local 663", city: "Sarnia", state: "ON", phone: "519-337-6569", website: "local663.com", address: "1151 CONFEDERATION ST, SARNIA, ON N7S 3Y5" , lat: 42.9745, lng: -82.4064},
   { id: 20669, name: "UA Local 669", city: "Columbia", state: "MD", phone: "410-381-4300", website: "www.sprinklerfitters669.org", lat: 39.1938429, lng: -76.8646092, address: "7050 OAKLAND MILLS RD #200, COLUMBIA, MD 21046" },
