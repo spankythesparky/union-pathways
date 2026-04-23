@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <script>
+    (function() {
+      var ua = navigator.userAgent || '';
+      var isInstagram = ua.indexOf('Instagram') > -1;
+      var isFB = ua.indexOf('FBAN') > -1 || ua.indexOf('FBAV') > -1;
+      if (isInstagram || isFB) {
+        // Write directly to document before React loads
+        document.write('<style>body{margin:0;background:#060f1a;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:Arial,sans-serif;text-align:center;padding:24px;box-sizing:border-box}</style><div style="max-width:320px"><div style="font-size:32px;font-weight:900;color:#fff;margin-bottom:16px">Union <span style=\'color:#FA8059\'>Pathways</span></div><p style="color:rgba(160,180,196,0.7);font-size:15px;line-height:1.6;margin-bottom:32px">This link works best in your browser. Tap below to open it.</p><a href="' + window.location.href + '" target="_blank" style="display:inline-block;background:#FA8059;color:#000;font-weight:700;font-size:16px;padding:16px 32px;border-radius:50px;text-decoration:none">Open in Browser</a></div>');
+        document.close();
+      }
+    })();
+  </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -29,20 +41,6 @@
       gtag("js", new Date());
       gtag("config", "G-6YG0F2LQKT");
     </script>
-    <script>
-    (function() {
-      var ua = navigator.userAgent || '';
-      var isInstagram = ua.indexOf('Instagram') > -1;
-      if (isInstagram) {
-        document.addEventListener('DOMContentLoaded', function() {
-          var div = document.createElement('div');
-          div.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:#060f1a;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:99999;font-family:Arial,sans-serif;padding:24px;text-align:center';
-          div.innerHTML = '<div style="font-size:28px;font-weight:900;color:#fff;margin-bottom:12px">Union <span style="color:#FA8059">Pathways</span></div><p style="color:rgba(160,180,196,0.7);font-size:15px;margin-bottom:28px;max-width:280px">For the best experience, open this link in your browser.</p><a href="' + window.location.href + '" target="_blank" rel="noopener noreferrer" style="background:#FA8059;color:#000;font-weight:700;font-size:15px;padding:14px 28px;border-radius:50px;text-decoration:none;letter-spacing:0.05em">Open in Browser</a>';
-          document.body.appendChild(div);
-        });
-      }
-    })();
-  </script>
   </head>
   <body>
     <div id="root"></div>
