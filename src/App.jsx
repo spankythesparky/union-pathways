@@ -27,7 +27,7 @@ const UNION_TRADES = [
   {
     group: "Heavy Construction",
     trades: [
-      { abbr: "IUOE", name: "Operating Engineers", full: "Int'l Union of Operating Engineers", website: "www.iuoe.org", status: "coming" },
+      { abbr: "IUOE", name: "Operating Engineers", full: "Int'l Union of Operating Engineers", website: "www.iuoe.org", status: "active" },
       { abbr: "LIUNA", name: "Laborers", full: "Laborers' Int'l Union of North America", website: "www.liuna.org", status: "coming" },
       { abbr: "IW", name: "Ironworkers", full: "Int'l Association of Bridge & Structural Iron Workers", website: "www.ironworkers.org", status: "active", color: "#ef4444" },
       { abbr: "OCA", name: "Cement Masons", full: "Operative Plasterers' & Cement Masons' Int'l Association", website: "www.opcmia.org", status: "coming" },
@@ -3349,7 +3349,7 @@ export default function UnionPathway() {
     }
 
     setLocationLabel(loc.display);
-    const database = selectedTrade === "UA" ? UA_LOCALS : selectedTrade === "SMART" ? SMART_LOCALS : selectedTrade === "BAC" ? BAC_LOCALS : selectedTrade === "UBC" ? UBC_LOCALS : selectedTrade === "HFIAW" ? HFIAW_LOCALS : selectedTrade === "IUEC" ? IUEC_LOCALS : selectedTrade === "IW" ? IW_LOCALS : selectedTrade === "LIUNA" ? LIUNA_LOCALS : selectedTrade === "IBEW_L" ? IBEW_LINEMAN_LOCALS : IBEW_INSIDE_LOCALS;
+    const database = selectedTrade === "UA" ? UA_LOCALS : selectedTrade === "SMART" ? SMART_LOCALS : selectedTrade === "BAC" ? BAC_LOCALS : selectedTrade === "UBC" ? UBC_LOCALS : selectedTrade === "HFIAW" ? HFIAW_LOCALS : selectedTrade === "IUEC" ? IUEC_LOCALS : selectedTrade === "IUOE" ? IUOE_LOCALS : selectedTrade === "IW" ? IW_LOCALS : selectedTrade === "LIUNA" ? LIUNA_LOCALS : selectedTrade === "IBEW_L" ? IBEW_LINEMAN_LOCALS : IBEW_INSIDE_LOCALS;
     const withDist = database
       .map(l => ({ ...l, distance: getDistanceMiles(loc.lat, loc.lng, l.lat, l.lng) }))
       .sort((a, b) => a.distance - b.distance);
@@ -5118,6 +5118,7 @@ export default function UnionPathway() {
                   { abbr: "IW",     label: "Ironworkers",   color: "#ef4444" },
                   { abbr: "HFIAW", label: "Insulators",    color: "#a855f7" },
                   { abbr: "IUEC",  label: "Elevators",    color: "#06b6d4" },
+                  { abbr: "IUOE",  label: "Operating Engineers", color: "#10b981" },
                 ].map(trade => (
                   <button
                     key={trade.abbr}
@@ -6799,7 +6800,7 @@ export default function UnionPathway() {
               ].filter(p => p.keywords.some(k => k.includes(q) || q.includes(k) || p.label.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q)));
 
               // Search locals
-              const ALL_LOCALS = [...IBEW_INSIDE_LOCALS, ...IBEW_LINEMAN_LOCALS, ...UA_LOCALS, ...BAC_LOCALS, ...IW_LOCALS, ...HFIAW_LOCALS, ...IUEC_LOCALS];
+              const ALL_LOCALS = [...IBEW_INSIDE_LOCALS, ...IBEW_LINEMAN_LOCALS, ...UA_LOCALS, ...BAC_LOCALS, ...IW_LOCALS, ...HFIAW_LOCALS, ...IUEC_LOCALS, ...IUOE_LOCALS];
               const qWords = q.split(/\s+/).filter(Boolean);
               const localResults = ALL_LOCALS.filter(l => {
                 const haystack = [l.name, l.city, l.state, l.address || "", l.phone || ""].join(" ").toLowerCase();
