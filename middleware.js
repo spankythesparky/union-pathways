@@ -12,6 +12,7 @@ const PAGE_META = {
   '/health':     { title: 'Union Pathways — Union Health Insurance Explained', desc: 'Your contractor pays your health insurance — not you. Learn how union contractor-paid health coverage works and what it is worth.' },
   '/veterans':   { title: 'Union Pathways — Veterans and the Union Trades', desc: 'Military veterans are a perfect fit for union construction apprenticeships. Learn about Helmets to Hardhats and other veteran programs.' },
   '/about':      { title: 'Union Pathways — About Us', desc: 'Built by IBEW, BAC, and Insulators union members. Real tradespeople building a modern platform for the next generation of workers.' },
+  '/resume':     { title: 'Union Pathways — Free Union Trades Resume Template', desc: 'Download a free resume template for union trades apprenticeship applications and career updates. Built by IBEW members.' },
   '/contact':    { title: 'Union Pathways — Contact Us', desc: 'Get in touch with the Union Pathways team. We help tradespeople find their nearest union local.' },
 };
 
