@@ -2176,7 +2176,7 @@ export default function UnionPathway() {
   // URL-aware page state
   const getPageFromUrl = () => {
     const path = window.location.pathname.replace('/', '') || 'home';
-    const validPages = ['home','quiz','careers','checklist','locals','calculator','veterans','history','retirement','health','benefits','about','contact'];
+    const validPages = ['home','quiz','careers','checklist','locals','calculator','resume','veterans','history','retirement','health','benefits','about','contact'];
     return validPages.includes(path) ? path : 'home';
   };
   const [page, setPageState] = useState(getPageFromUrl);
