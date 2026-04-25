@@ -6112,7 +6112,7 @@ export default function UnionPathway() {
                     <div style={{display:"flex", flexWrap:"wrap", gap:8}}>
                       {Object.entries(WAGE_DATA).map(([key, val]) => (
                         <button key={key} onClick={() => { setCalcTrade(key); setShowResults(false); }} style={{background: calcTrade===key ? "#FA8059" : "rgba(255,255,255,0.04)", border: calcTrade===key ? "1px solid #FA8059" : "1px solid rgba(255,255,255,0.1)", borderRadius:50, padding:"8px 16px", color: calcTrade===key ? "#000" : "var(--muted)", fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.06em", textTransform:"uppercase", cursor:"pointer", transition:"all 0.15s"}}>
-                          {key === "IBEW_I" ? "IBEW Inside" : key === "IBEW_L" ? "IBEW Lineman" : key === "UA" ? "UA Plumbers" : key === "BAC" ? "Bricklayers" : "Ironworkers"}
+                          {key === "IBEW_I" ? "IBEW Inside" : key === "IBEW_L" ? "IBEW Lineman" : key === "UA" ? "UA Plumbers" : key === "BAC" ? "Bricklayers" : key === "IW" ? "Ironworkers" : key === "HFIAW" ? "Insulators" : key === "IUEC" ? "Elevators" : key === "IUOE" ? "Operating Engineers" : key}
                         </button>
                       ))}
                     </div>
@@ -6257,12 +6257,12 @@ export default function UnionPathway() {
         {page === "resume" && (
           <div>
             <div className="history-hero">
-              <div className="history-eyebrow">{lang==="es" ? "100% Gratis Sin Registro" : lang==="pl" ? "100% Darmowe Bez Rejestracji" : "100% Free. No Signup Required."}</div>
+              <div className="history-eyebrow">{lang==="es" ? "100% Gratis Sin Registro" : lang==="pl" ? "100% Darmowe Bez Rejestracji" : "Built for Every Stage of Your Union Career"}</div>
               <h1 className="history-title">
                 {lang==="es" ? <><span className="accent">{"Curriculum Sindical"}</span>{" Gratis"}</> : lang==="pl" ? <><span className="accent">{"Darmowy Szablon CV"}</span></> : <>{"Union Trades "}<span className="accent">{"Resume Template"}</span></>}
               </h1>
               <p className="history-subtitle">
-                {lang==="es" ? "Disenado para solicitudes de aprendizaje sindical. Listo para usar." : lang==="pl" ? "Zaprojektowany do podania o praktyki zwiazkowe. Gotowy do uzycia." : "Designed for union trades apprenticeship applications. Built by IBEW members for tradespeople."}
+                {lang==="es" ? "Disenado para solicitudes de aprendizaje sindical. Listo para usar." : lang==="pl" ? "Zaprojektowany do podania o praktyki zwiazkowe. Gotowy do uzycia." : "Whether you are applying to a union apprenticeship, updating your journeyman resume, or tracking your career history — this template is built for you. Download, edit, and make it your own."}
               </p>
             </div>
             <div style={{maxWidth:900, margin:"0 auto", padding:"0 24px 80px"}}>
@@ -6277,7 +6277,7 @@ export default function UnionPathway() {
                   {lang==="es" ? "Descargar PDF Gratis" : lang==="pl" ? "Pobierz PDF Za Darmo" : "Download Free PDF"}
                 </a>
                 <div style={{fontSize:12, color:"rgba(160,180,196,0.35)", marginTop:20}}>
-                  {lang==="es" ? "Sin registro. Sin correo. Sin trampa." : lang==="pl" ? "Bez rejestracji. Bez emaila." : "No signup. No email. No catch."}
+                  {lang==="es" ? "Sin registro. Sin correo. Sin trampa." : lang==="pl" ? "Bez rejestracji. Bez emaila." : "Free to download and edit. No signup. No catch."}
                 </div>
               </div>
               <div className="impact-grid">
