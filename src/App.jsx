@@ -6477,25 +6477,7 @@ export default function UnionPathway() {
                     bio: lang==="es" ? "David Knipp es un orgulloso miembro de Heat and Frost Insulators Local 1 cuya vida cambio cuando entro a los oficios sindicales en 2009. Conocido como Proud Union Guy, ha construido una creciente plataforma nacional hablando directamente a los trabajadores sobre oportunidad, equidad y el poder de los sindicatos. A traves de su contenido y discursos, David esta ayudando a liderar una nueva ola de voces de la clase trabajadora — impulsando un movimiento laboral moderno." : lang==="pl" ? "David Knipp jest dumnym czlonkiem Heat and Frost Insulators Local 1, ktorego zycie zmienilo sie, gdy w 2009 roku wkroczyl do zwiazowych zawodow budowlanych. Znany jako Proud Union Guy, zbudowal rosnaca ogolnokrajowa platforme, mowiac bezposrednio do pracownikow o mozliwosciach, sprawiedliwosci i sile zwiazkow zawodowych." : "David Knipp is a proud member of Heat and Frost Insulators Local 1 whose life changed when he entered the union trades in 2009. Known as Proud Union Guy, he has built a growing national platform by speaking directly to working people about opportunity, fairness, and the power of unions. Through his content and speaking, David is helping lead a new wave of working-class voices — pushing to spark a modern-day labor movement.",
                     linktree: null,
                   },
-                  {
-                    id:"sean",
-                    img:"/partner-sean.jpg",
-                    name:"Sean Allen",
-                    handle:"Union Proud Warrior",
-                    union: lang==="es" ? "BAC Local 21 Chicago — Presidente" : lang==="pl" ? "BAC Local 21 Chicago — Prezydent" : "BAC Local 21 Chicago — President",
-                    bio: lang==="es" ? "Sean Allen es el Presidente del Local 21 de Chicago de la union de albaniles BAC y creador de Proud Union Warrior. Como miembro de 4a generacion del BAC, conoce la importancia de organizar y hacer crecer el movimiento laboral. Union Pathways es la forma mas facil y amigable de encontrar un sindicato y aprender mas sobre ellos de las personas que lo viven todos los dias." : lang==="pl" ? "Sean Allen jest Prezydentem Local 21 w Chicago zwiazku murarzy BAC i tworca Proud Union Warrior. Jako czlonek BAC 4. pokolenia, zna znaczenie organizowania i rozwijania ruchu pracowniczego. Union Pathways to najlatwiejszy i najbardziej przyjazny dla uzytkownika sposob na znalezienie zwiazku zawodowego." : "Sean Allen is the President of BAC Local 21 Chicago and creator of Proud Union Warrior. As a 4th generation BAC member, he knows the importance of organizing and growing the labor movement. Union Pathways is the easiest, most user-friendly way to find a union and learn more about them from the people who live it every day.",
-                    linktree: null,
-                  },
-                  {
-                    id:"jimmy",
-                    img:"/partner-sean.jpg",
-                    name:"Jimmy Fulton",
-                    handle:"Union Proud Warrior",
-                    union: lang==="es" ? "BAC Local 21 Chicago — Agente de Negocios / Vicepresidente" : lang==="pl" ? "BAC Local 21 Chicago — Agent ds. Biznesu / Wiceprezes" : "BAC Local 21 Chicago — Business Agent & Vice President",
-                    bio: lang==="es" ? "Jimmy Fulton es un orgulloso colocador de azulejos sindical y miembro del BAC Local 21. Como miembro sindical de primera generacion, su carrera es prueba de lo que la oportunidad, la formacion y la hermandad en los oficios pueden lograr. Mas alla del sitio de trabajo, Jimmy es Agente de Negocios para los Colocadores de Azulejos y Acabadores del Local 21 en Chicago. Sirve como Vicepresidente y socio contribuyente de Proud Union Warrior, donde ayuda a amplificar la voz de la clase trabajadora y promover los valores sindicales." : lang==="pl" ? "Jimmy Fulton jest dumnym zwiazowym glazikiem i czlonkiem BAC Local 21. Jako czlonek zwiazku pierwszego pokolenia, jego kariera jest dowodem na to, co mozliwosci, szkolenie i braterstwo w zawodach moga naprawde zapewnic. Poza placem budowy Jimmy jest Agentem ds. Biznesu dla Glazikow i Wykanczajacych z Local 21 w Chicago. Pelni funkcje Wiceprezesa i wspolpracujacego partnera Proud Union Warrior." : "Jimmy Fulton is a proud Union Tile Setter and member of BAC Local 21. As a first-generation union member, his career stands as proof of what opportunity, training, and brotherhood in the trades can truly deliver. Beyond the jobsite, Jimmy is a Business Agent for Local 21 Tile Setters and Finishers in Chicago. He serves as Vice President and contributing partner of Proud Union Warrior, where he helps amplify the voice of the working class, promote union values, and build a platform that represents the grit, pride, and future of the trades.",
-                    linktree: null,
-                  },
-                ].map((partner) => (
+                ].map((partner)                ].map((partner) => (
                   <div key={partner.id} style={{border: partnerSection===partner.id ? "1px solid rgba(250,128,89,0.3)" : "1px solid rgba(255,255,255,0.08)", borderRadius:16, overflow:"hidden"}}>
                     <button
                       onClick={() => setPartnerSection(partnerSection===partner.id ? null : partner.id)}
