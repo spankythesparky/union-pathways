@@ -51,6 +51,7 @@ const UNION_TRADES = [
 // Source: User-provided wage data. Only verified phones/websites included.
 // All Canadian locals excluded. Zero overlap with Lineman locals.
 const IBEW_INSIDE_LOCALS = [
+  { id: 10824, name: "IBEW Local 824", city: "Tampa", state: "FL", phone: "(813) 626-5136", website: "ibew824.org", email: "jglye@ibew824.org", lat: 27.9880, lng: -82.3774, address: "6603 E Chelsea Street, Tampa, FL 33610" },
   { id: 10001, name: "IBEW Local 1", city: "St louis", state: "MO", phone: "314) 647-5900", website: "ibewlocal1.org", lat: 38.6148694, lng: -90.285719, address: "5850 Elizabeth Ave, St. Louis, MO 63110" },
   { id: 10003, name: "IBEW Local 3", city: "Ny city", state: "US", phone: "(718) 591-4000", website: "www.local3ibew.org", lat: 42.7411758, lng: -73.693106, address: "158-11 Jewel Ave 4th Floor, Flushing, NY 11365" },
   { id: 10005, name: "IBEW Local 5", city: "Pittsburgh pa", state: "PA", phone: "(412) 432-1400", website: "ibew5.org", lat: 40.4255134, lng: -79.9630139, address: "5 Hot Metal St, Pittsburgh, PA 15203" },
