@@ -51,7 +51,6 @@ const UNION_TRADES = [
 // Source: User-provided wage data. Only verified phones/websites included.
 // All Canadian locals excluded. Zero overlap with Lineman locals.
 const IBEW_INSIDE_LOCALS = [
-  { id: 11205, name: "IBEW Local 1205", city: "Gainesville", state: "FL", phone: "(352) 376-7701", website: "ibew1205.org", email: "info@ibew1205.org", lat: 29.6516, lng: -82.3248, address: "2510 NW Sixth Street, Gainesville, FL 32609" },
   { id: 10001, name: "IBEW Local 1", city: "St louis", state: "MO", phone: "314) 647-5900", website: "ibewlocal1.org", lat: 38.6148694, lng: -90.285719, address: "5850 Elizabeth Ave, St. Louis, MO 63110" },
   { id: 10003, name: "IBEW Local 3", city: "Ny city", state: "US", phone: "(718) 591-4000", website: "www.local3ibew.org", lat: 42.7411758, lng: -73.693106, address: "158-11 Jewel Ave 4th Floor, Flushing, NY 11365" },
   { id: 10005, name: "IBEW Local 5", city: "Pittsburgh pa", state: "PA", phone: "(412) 432-1400", website: "ibew5.org", lat: 40.4255134, lng: -79.9630139, address: "5 Hot Metal St, Pittsburgh, PA 15203" },
@@ -1654,6 +1653,7 @@ const CITY_COORDS = {
   "san jose": [37.3382, -121.8863],
   "austin": [30.2672, -97.7431],
   "jacksonville": [30.3322, -81.6557],
+  "gainesville": [29.6516, -82.3248],
   "fort worth": [32.7548, -97.3308],
   "columbus": [39.9612, -82.9988],
   "charlotte": [35.2271, -80.8431],
