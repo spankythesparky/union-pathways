@@ -14595,10 +14595,7 @@ TRADES.forEach(trade => {
 });
 
 // Legend
-const legend = document.createElement('div');
-legend.className = 'legend';
-legend.innerHTML = `<div class="legend-title">Union Trades</div>${TRADES.map(t=>`<div class="legend-item"><span class="legend-dot" style="background:${t.color}"></span>${t.label}<span class="legend-count">${t.locals.length}</span></div>`).join('')}`;
-document.getElementById('map').appendChild(legend);
+// legend removed
 
 // Hint
 const hint = document.createElement('div');
