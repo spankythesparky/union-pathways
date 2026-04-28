@@ -7151,7 +7151,7 @@ export default function UnionPathway() {
                 {/* SUBMIT FORM */}
                 <div style={{background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.08)", borderRadius:20, padding:"32px", marginBottom:40}}>
                   <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:"#fff", marginBottom:24}}>
-                    {lang==="es" ? "Enviar un Informe" : lang==="pl" ? "Wyslij Raport" : "Submit a Report"}
+                    {lang==="es" ? "Reporte un Local Activo" : lang==="pl" ? "Zglos Aktywny Lokal" : "Submit a Hot Spot Local"}
                   </div>
 
                   {jobSubmitted ? (
@@ -7233,7 +7233,7 @@ export default function UnionPathway() {
                       {/* Submit */}
                       {jobTrade && jobLocal && jobStatus && jobDate && (
                         <button onClick={handleJobSubmit} style={{background:"#FA8059", color:"#000", fontFamily:"'Barlow Condensed',sans-serif", fontSize:16, fontWeight:900, letterSpacing:"0.08em", textTransform:"uppercase", padding:"16px 32px", borderRadius:50, border:"none", cursor:"pointer", marginTop:8}}>
-                          {lang==="es" ? "Enviar Informe" : lang==="pl" ? "Wyslij Raport" : "Submit Report"}
+                          {lang==="es" ? "Enviar" : lang==="pl" ? "Wyslij" : "Submit Hot Spot"}
                         </button>
                       )}
 
