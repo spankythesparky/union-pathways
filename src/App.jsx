@@ -2459,7 +2459,7 @@ async function getSupabase() {
 
 
 // ── ADMIN PAGE — approve/reject/edit job board submissions ──────────────────
-const ADMIN_PASSWORD = 'CHANGEME_PASSWORD';
+const ADMIN_PASSWORD = 'Mylabelle5454!';
 
 function AdminPage() {
   const [authed, setAuthed] = useState(false);
