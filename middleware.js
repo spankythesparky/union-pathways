@@ -1,50 +1,133 @@
+// Vercel Edge Middleware — rewrite per-page <title>, description, and OG tags
+// Runs on every page request before serving HTML to the browser.
 
-const PAGE_META = {
-  '/':           { title: 'Union Pathways — Everything Union Trades. One Place.', desc: 'Find union locals, explore career paths, understand your benefits, and learn the history of the labor movement. Built by tradespeople, for tradespeople. Free.' },
-  '/quiz':       { title: 'Union Pathways — Which Trade Is Right For You?', desc: 'Take our free quiz to find out which union construction trade matches your skills, interests, and goals. No cost, no signup.' },
-  '/careers':    { title: 'Union Pathways — Career Paths in the Union Trades', desc: 'Learn about apprenticeships, wages, and career paths in union construction trades. Earn while you learn — no college debt.' },
-  '/checklist':  { title: 'Union Pathways — How to Join a Union Apprenticeship', desc: 'Step-by-step guide to joining a union construction apprenticeship. The 3 real entry routes, step-by-step.' },
-  '/locals':     { title: 'Union Pathways — Understanding Your Local', desc: 'Jurisdiction, Book 1 vs Book 2, home locals, travel work, and apprenticeship school models explained in plain English.' },
-  '/calculator': { title: 'Union Pathways — Union Wage Calculator', desc: 'Calculate your union wage, total compensation package value, and retirement projection based on your trade, market, and experience level.' },
-  '/history':    { title: 'Union Pathways — Union History in America', desc: 'The 40-hour work week, the weekend, workplace safety — every benefit workers have today was fought for and won by unions.' },
-  '/benefits':   { title: 'Union Pathways — Union Benefits Overview', desc: 'Pension, health insurance, annuity, and more — learn what a union job is really worth beyond the hourly wage.' },
-  '/retirement': { title: 'Union Pathways — 401k vs Annuity vs Pension Explained', desc: 'Learn the difference between a 401k, annuity, and pension — and why union construction trades offer some of the best retirement benefits in America.' },
-  '/health':     { title: 'Union Pathways — Union Health Insurance Explained', desc: 'Your contractor pays your health insurance — not you. Learn how union contractor-paid health coverage works and what it is worth.' },
-  '/veterans':   { title: 'Union Pathways — Veterans and the Union Trades', desc: 'Military veterans are a perfect fit for union construction apprenticeships. Learn about Helmets to Hardhats and other veteran programs.' },
-  '/about':      { title: 'Union Pathways — About Us', desc: 'Built by IBEW, BAC, and Insulators union members. Real tradespeople building a modern platform for the next generation of workers.' },
-  '/resume':     { title: 'Union Pathways — Free Union Trades Resume Template', desc: 'Download a free resume template for union trades apprenticeship applications and career updates. Built by IBEW members.' },
-  '/contact':    { title: 'Union Pathways — Contact Us', desc: 'Get in touch with the Union Pathways team. We help tradespeople find their nearest union local.' },
+export const config = {
+  matcher: '/((?!api|_next|.*\\.).*)',
 };
 
-export default function middleware(req) {
-  const path = new URL(req.url).pathname;
-  const m = PAGE_META[path] || PAGE_META['/'];
-  const url = 'https://unionpathways.com' + path;
+const PAGES = {
+  '/': {
+    title: 'Union Pathways - Find Your Nearest Union Construction Local',
+    description: 'Find your nearest union construction local — IBEW, UA, BAC, Ironworkers and more. Free resource for tradespeople.',
+  },
+  '/jobboard': {
+    title: 'Job Board · Union Pathways',
+    description: 'Real-time work outlook from union members nationwide. See which locals are busy, steady, or slow.',
+  },
+  '/careers': {
+    title: 'Career Path · Union Pathways',
+    description: 'From apprentice to journeyman to foreman — what to expect in a union construction trade career.',
+  },
+  '/checklist': {
+    title: 'Apprenticeship Checklist · Union Pathways',
+    description: 'Step-by-step guide to getting into a union apprenticeship in your area.',
+  },
+  '/quiz': {
+    title: 'Which Trade is Right for You? · Union Pathways',
+    description: 'Take the quiz to find the union construction trade that matches your interests and strengths.',
+  },
+  '/history': {
+    title: 'Union History · Union Pathways',
+    description: 'The fight that built America — union construction history from 1794 to today.',
+  },
+  '/retirement': {
+    title: '401k vs Annuity vs Pension · Union Pathways',
+    description: 'Three ways union construction trades help you retire — explained in plain English.',
+  },
+  '/veterans': {
+    title: 'Helmets to Hardhats · Union Pathways',
+    description: 'Direct pipeline from military service to a union construction trade career.',
+  },
+  '/locals': {
+    title: 'Find Your Local · Union Pathways',
+    description: 'Search by ZIP code or city to find your nearest union construction local.',
+  },
+  '/contact': {
+    title: 'Contact · Union Pathways',
+    description: 'Get in touch with Union Pathways — questions, feedback, or partnership inquiries.',
+  },
+  '/about': {
+    title: 'About · Union Pathways',
+    description: 'Built by tradespeople, for the trades. Learn what Union Pathways is and why it exists.',
+  },
+  '/calculator': {
+    title: 'Pay Calculator · Union Pathways',
+    description: 'See your union wage breakdown — base pay, benefits, total package.',
+  },
+  '/benefits': {
+    title: 'Union Benefits · Union Pathways',
+    description: 'What union construction members earn in benefits beyond base pay — health, pension, annuity.',
+  },
+  '/health': {
+    title: 'Health & Welfare · Union Pathways',
+    description: 'How union health insurance works for tradespeople and their families.',
+  },
+  '/resume': {
+    title: 'Resume Builder · Union Pathways',
+    description: 'Build a tradesperson resume designed for union halls and contractors.',
+  },
+};
 
-  const ua = req.headers.get('user-agent') || '';
-  const isCrawler = /facebookexternalhit|Facebot|Twitterbot|LinkedInBot|WhatsApp|Slackbot|TelegramBot|Discordbot|Applebot|Pinterest|Googlebot|bingbot|DuckDuckBot|redditbot|SnapchatBot|Instagram|vkShare|crawler|spider|bot|preview/i.test(ua);
+export default async function middleware(request) {
+  const url = new URL(request.url);
+  const pathname = url.pathname.replace(/\/$/, '') || '/';
 
-  if (!isCrawler) return;
+  // Skip admin entirely
+  if (pathname.startsWith('/admin')) {
+    return;
+  }
 
-  return new Response(`<!DOCTYPE html><html><head>
-<title>${m.title}</title>
-<meta charset="UTF-8"/>
-<meta name="description" content="${m.desc}"/>
-<meta property="og:title" content="${m.title}"/>
-<meta property="og:description" content="${m.desc}"/>
-<meta property="og:url" content="${url}"/>
-<meta property="og:type" content="website"/>
-<meta property="og:site_name" content="Union Pathways"/>
-<meta property="og:image" content="https://unionpathways.com/social-preview.png"/>
-<meta property="og:image:width" content="1200"/>
-<meta property="og:image:height" content="1200"/>
-<meta property="og:image:type" content="image/png"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="${m.title}"/>
-<meta name="twitter:description" content="${m.desc}"/>
-<meta name="twitter:image" content="https://unionpathways.com/social-preview.png"/>
-<link rel="canonical" href="${url}"/>
-</head><body><h1>${m.title}</h1><p>${m.desc}</p></body></html>`, {
-    headers: { 'Content-Type': 'text/html' }
+  const meta = PAGES[pathname] || PAGES['/'];
+
+  // Fetch the actual built HTML (the SPA shell)
+  const response = await fetch(new URL('/', request.url));
+  let html = await response.text();
+
+  const fullUrl = `https://unionpathways.com${pathname === '/' ? '' : pathname}`;
+
+  // Rewrite the four critical tag groups
+  html = html.replace(
+    /<title>[^<]*<\/title>/,
+    `<title>${escapeHtml(meta.title)}</title>`
+  );
+  html = html.replace(
+    /<meta name="description" content="[^"]*"\s*\/?>/,
+    `<meta name="description" content="${escapeHtml(meta.description)}"/>`
+  );
+  html = html.replace(
+    /<meta property="og:title" content="[^"]*"\s*\/?>/,
+    `<meta property="og:title" content="${escapeHtml(meta.title)}"/>`
+  );
+  html = html.replace(
+    /<meta property="og:description" content="[^"]*"\s*\/?>/,
+    `<meta property="og:description" content="${escapeHtml(meta.description)}"/>`
+  );
+  html = html.replace(
+    /<meta property="og:url" content="[^"]*"\s*\/?>/,
+    `<meta property="og:url" content="${fullUrl}"/>`
+  );
+  html = html.replace(
+    /<meta name="twitter:title" content="[^"]*"\s*\/?>/,
+    `<meta name="twitter:title" content="${escapeHtml(meta.title)}"/>`
+  );
+  html = html.replace(
+    /<meta name="twitter:description" content="[^"]*"\s*\/?>/,
+    `<meta name="twitter:description" content="${escapeHtml(meta.description)}"/>`
+  );
+  html = html.replace(
+    /<link rel="canonical" href="[^"]*"\s*\/?>/,
+    `<link rel="canonical" href="${fullUrl}"/>`
+  );
+
+  return new Response(html, {
+    status: 200,
+    headers: {
+      'content-type': 'text/html; charset=utf-8',
+      'cache-control': 'public, max-age=0, must-revalidate',
+    },
   });
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
