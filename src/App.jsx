@@ -2436,6 +2436,25 @@ const CITY_COORDS = {
 };
 
 // ─── MAIN COMPONENT ───────────────────────────────────────────────────────────
+
+// ── SUPABASE CLIENT ─────────────────────────────────────────────────────────
+const SUPABASE_URL = 'https://bonqybbmcoaujfiiwson.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_RjCnTsf0YLPVxtMNzI_p8Q_1ss3DQ8W';
+let supabaseClient = null;
+async function getSupabase() {
+  if (supabaseClient) return supabaseClient;
+  if (!window.supabase) {
+    await new Promise((resolve) => {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+      script.onload = resolve;
+      document.head.appendChild(script);
+    });
+  }
+  supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  return supabaseClient;
+}
+
 export default function UnionPathway() {
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
@@ -6636,6 +6655,25 @@ export default function UnionPathway() {
             }
 
             try {
+              // Save to Supabase database (pending approval)
+              const sb = await getSupabase();
+              await sb.from('job_submissions').insert({
+                trade: tradeName,
+                local_name: local.name,
+                local_id: local.id,
+                city: local.city,
+                state: local.state,
+                status: statusLabel,
+                job_calls: jobCalls || null,
+                report_date: jobDate,
+                phone: local.phone || null,
+                website: local.website || null,
+                local_email: local.email || null,
+                address: local.address || null,
+                approved: false,
+              });
+
+              // Also send notification email
               await window.emailjs.send('service_uy3qbna', 'template_a55dhfh', {
                 trade: tradeName,
                 local_name: local.name,
@@ -6651,7 +6689,7 @@ export default function UnionPathway() {
               });
               setJobSubmitted(true);
             } catch(err) {
-              console.error('EmailJS error:', err);
+              console.error('Submission error:', err);
               alert('Submission failed. Please try again.');
             }
           };
