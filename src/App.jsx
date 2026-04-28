@@ -2458,10 +2458,10 @@ async function getSupabase() {
 
 // ── APPROVED REPORTS FEED — Live feed from Supabase ─────────────────────────
 function ApprovedReportsFeed({ lang }) {
-  const [reports, setReports] = React.useState(null);
-  const [error, setError] = React.useState(null);
+  const [reports, setReports] = useState(null);
+  const [error, setError] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
