@@ -6622,34 +6622,38 @@ export default function UnionPathway() {
             if (!local) return;
 
             const tradeName = JOB_TRADES.find(t => t.key === jobTrade)?.label || jobTrade;
-            const statusEmoji = jobStatus === 'busy' ? '🟢 Busy' : jobStatus === 'steady' ? '🟡 Steady' : '🔴 Slow';
+            const statusLabel = jobStatus === 'busy' ? 'BUSY' : jobStatus === 'steady' ? 'STEADY' : 'SLOW';
 
-            const body = `
-New Job Board Report Submitted — Union Pathways
+            // Load EmailJS if not already loaded
+            if (!window.emailjs) {
+              await new Promise((resolve) => {
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+                script.onload = resolve;
+                document.head.appendChild(script);
+              });
+              window.emailjs.init('J8FxG05UtYq-sWLNT');
+            }
 
-Trade: ${tradeName}
-Local: ${local.name} — ${local.city}, ${local.state}
-Status: ${statusEmoji}
-Job Calls: ${jobCalls || 'None listed'}
-Report Date: ${jobDate}
-
-Local Contact Info:
-Phone: ${local.phone || 'N/A'}
-Website: ${local.website || 'N/A'}
-Email: ${local.email || 'N/A'}
-Address: ${local.address || 'N/A'}
-
-To approve this report, reply APPROVE to add it to the Job Board.
-To reject, reply REJECT.
-
-— Union Pathways Automated Submission
-            `.trim();
-
-            // Use mailto as simple submission method
-            const subject = encodeURIComponent(`[Job Board] ${local.name} — ${statusEmoji}`);
-            const bodyEncoded = encodeURIComponent(body);
-            window.location.href = `mailto:Spankythesparky@gmail.com?subject=${subject}&body=${bodyEncoded}`;
-            setJobSubmitted(true);
+            try {
+              await window.emailjs.send('service_uy3qbna', 'pk2fzz8', {
+                trade: tradeName,
+                local_name: local.name,
+                city: local.city,
+                state: local.state,
+                status: statusLabel,
+                job_calls: jobCalls || 'None listed',
+                report_date: jobDate,
+                phone: local.phone || 'N/A',
+                website: local.website || 'N/A',
+                local_email: local.email || 'N/A',
+                address: local.address || 'N/A',
+              });
+              setJobSubmitted(true);
+            } catch(err) {
+              console.error('EmailJS error:', err);
+              alert('Submission failed. Please try again.');
+            }
           };
 
           return (
