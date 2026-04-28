@@ -2688,6 +2688,7 @@ function AdminPage() {
 function ApprovedReportCard({ r, lang, statusColor, statusLabel }) {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState(false);
+
   const hasContact = r.phone || r.website || r.local_email || r.address;
   const mapsUrl = r.address ? `https://maps.google.com/?q=${encodeURIComponent(r.address)}` : null;
   const cleanPhone = r.phone ? r.phone.replace(/[^0-9+]/g, '') : null;
@@ -2695,113 +2696,69 @@ function ApprovedReportCard({ r, lang, statusColor, statusLabel }) {
   const websiteDisplay = r.website ? r.website.replace(/^https?:\/\//, '').replace(/^www\./, '') : null;
 
   const labels = {
-    en: { contact: 'Contact Info', hide: 'Hide Contact Info', call: 'Call', visit: 'Visit Website', email: 'Email', directions: 'Get Directions', reported: 'Reported:', jobCalls: 'Job Calls:' },
-    es: { contact: 'Informacion de Contacto', hide: 'Ocultar Contacto', call: 'Llamar', visit: 'Visitar Sitio Web', email: 'Correo', directions: 'Como Llegar', reported: 'Reportado:', jobCalls: 'Llamadas de Trabajo:' },
-    pl: { contact: 'Dane Kontaktowe', hide: 'Ukryj Kontakt', call: 'Zadzwon', visit: 'Strona Internetowa', email: 'Email', directions: 'Wskazowki Dojazdu', reported: 'Zgloszono:', jobCalls: 'Oferty Pracy:' },
+    en: { contact: 'Contact Info', hide: 'Hide Contact Info', call: 'Call', visit: 'Visit Website', email: 'Email', directions: 'Get Directions', reported: 'Reported:', jobCalls: 'Job Calls:', showMore: 'Show more', showLess: 'Show less' },
+    es: { contact: 'Informacion de Contacto', hide: 'Ocultar Contacto', call: 'Llamar', visit: 'Visitar Sitio Web', email: 'Correo', directions: 'Como Llegar', reported: 'Reportado:', jobCalls: 'Llamadas de Trabajo:', showMore: 'Mostrar mas', showLess: 'Mostrar menos' },
+    pl: { contact: 'Dane Kontaktowe', hide: 'Ukryj Kontakt', call: 'Zadzwon', visit: 'Strona Internetowa', email: 'Email', directions: 'Wskazowki Dojazdu', reported: 'Zgloszono:', jobCalls: 'Oferty Pracy:', showMore: 'Pokaz wiecej', showLess: 'Pokaz mniej' },
   };
   const L = labels[lang] || labels.en;
+
+  const jcLineCount = r.job_calls ? (r.job_calls.match(/\n/g) || []).length + 1 : 0;
+  const jcIsLong = r.job_calls && (jcLineCount >= 3 || r.job_calls.length > 200);
 
   return (
     <div style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.08)", borderRadius:16, padding:24}}>
       <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-start", flexWrap:"wrap", gap:12, marginBottom:12}}>
         <div>
-          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:"#fff", lineHeight:1.2}}>
-            {r.local_name}
-          </div>
-          <div style={{fontSize:13, color:"var(--muted)", marginTop:4}}>
-            {r.city}, {r.state} — {r.trade}
-          </div>
+          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:"#fff", lineHeight:1.2}}>{r.local_name}</div>
+          <div style={{fontSize:13, color:"var(--muted)", marginTop:4}}>{r.city}, {r.state} — {r.trade}</div>
         </div>
-        <div style={{padding:"6px 14px", borderRadius:999, background:statusColor(r.status)+"22", border:"1px solid "+statusColor(r.status), color:statusColor(r.status), fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:13, letterSpacing:1}}>
-          {statusLabel(r.status)}
-        </div>
+        <div style={{padding:"6px 14px", borderRadius:999, background:statusColor(r.status)+"22", border:"1px solid "+statusColor(r.status), color:statusColor(r.status), fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:13, letterSpacing:1}}>{statusLabel(r.status)}</div>
       </div>
 
-      {r.job_calls && (() => {
-        const lineCount = (r.job_calls.match(/\n/g) || []).length + 1;
-        const isLong = lineCount >= 3 || r.job_calls.length > 200;
-        const expandLabel = lang === 'es' ? 'Mostrar mas' : lang === 'pl' ? 'Pokaz wiecej' : 'Show more';
-        const collapseLabel = lang === 'es' ? 'Mostrar menos' : lang === 'pl' ? 'Pokaz mniej' : 'Show less';
-        return (
-          <div style={{marginTop:14}}>
-            <div style={{color:"var(--muted)", fontSize:11, textTransform:"uppercase", letterSpacing:1, marginBottom:6, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{L.jobCalls.replace(/:$/, '')}</div>
-            <div style={{whiteSpace:"pre-line", lineHeight:1.6, fontSize:14, color:"rgba(255,255,255,0.85)", padding:"10px 12px", background:"rgba(0,0,0,0.2)", borderRadius:8, borderLeft:"3px solid #F5C518", maxHeight: isLong && !expanded ? 60 : 'none', overflow: isLong && !expanded ? 'hidden' : 'visible', position: 'relative', WebkitMaskImage: isLong && !expanded ? 'linear-gradient(to bottom, black 60%, transparent)' : 'none', maskImage: isLong && !expanded ? 'linear-gradient(to bottom, black 60%, transparent)' : 'none'}}>{r.job_calls}</div>
-            {isLong && (
-              <button onClick={() => setExpanded(!expanded)} style={{marginTop:8, padding:"6px 14px", background:"transparent", color:"#F5C518", border:"1px solid rgba(245,197,24,0.4)", borderRadius:6, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700, fontSize:12, letterSpacing:1, cursor:"pointer", textTransform:"uppercase"}}>
-                {expanded ? collapseLabel : expandLabel}
-              </button>
-            )}
-          </div>
-        );
-      })()}
+      {r.job_calls && (
+        <div style={{marginTop:14}}>
+          <div style={{color:"var(--muted)", fontSize:11, textTransform:"uppercase", letterSpacing:1, marginBottom:6, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{L.jobCalls.replace(/:$/, '')}</div>
+          <div style={{whiteSpace:"pre-line", lineHeight:1.6, fontSize:14, color:"rgba(255,255,255,0.85)", padding:"10px 12px", background:"rgba(0,0,0,0.2)", borderRadius:8, borderLeft:"3px solid #F5C518", maxHeight: jcIsLong && !expanded ? 80 : 'none', overflow: jcIsLong && !expanded ? 'hidden' : 'visible', WebkitMaskImage: jcIsLong && !expanded ? 'linear-gradient(to bottom, black 60%, transparent)' : 'none', maskImage: jcIsLong && !expanded ? 'linear-gradient(to bottom, black 60%, transparent)' : 'none'}}>{r.job_calls}</div>
+          {jcIsLong && (
+            <button onClick={() => setExpanded(!expanded)} style={{marginTop:8, padding:"6px 14px", background:"transparent", color:"#F5C518", border:"1px solid rgba(245,197,24,0.4)", borderRadius:6, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700, fontSize:12, letterSpacing:1, cursor:"pointer", textTransform:"uppercase"}}>
+              {expanded ? L.showLess : L.showMore}
+            </button>
+          )}
+        </div>
+      )}
 
-      <div style={{marginTop:12, fontSize:12, color:"rgba(160,180,196,0.5)"}}>
-        {L.reported} {r.report_date}
-      </div>
+      <div style={{marginTop:12, fontSize:12, color:"rgba(160,180,196,0.5)"}}>{L.reported} {r.report_date}</div>
 
       {hasContact && (
         <>
-          <button
-            onClick={() => setOpen(!open)}
-            style={{
-              marginTop: 16,
-              width: "100%",
-              padding: "10px 16px",
-              background: "rgba(245,197,24,0.08)",
-              border: "1px solid rgba(245,197,24,0.3)",
-              borderRadius: 10,
-              color: "#F5C518",
-              fontFamily: "'Barlow Condensed',sans-serif",
-              fontWeight: 700,
-              fontSize: 14,
-              letterSpacing: 1,
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 8,
-            }}
-          >
+          <button onClick={() => setOpen(!open)} style={{marginTop:16, width:"100%", padding:"10px 16px", background:"rgba(245,197,24,0.08)", border:"1px solid rgba(245,197,24,0.3)", borderRadius:10, color:"#F5C518", fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700, fontSize:14, letterSpacing:1, cursor:"pointer", display:"flex", alignItems:"center", justifyContent:"center", gap:8}}>
             {open ? L.hide : L.contact}
             <span style={{fontSize:10, transform: open ? "rotate(180deg)" : "rotate(0deg)", transition:"transform 0.2s"}}>▼</span>
           </button>
-
           {open && (
             <div style={{marginTop:12, padding:16, background:"rgba(0,0,0,0.25)", borderRadius:10, display:"grid", gap:10}}>
               {cleanPhone && (
                 <a href={`tel:${cleanPhone}`} style={{display:"flex", alignItems:"center", gap:10, padding:10, background:"rgba(255,255,255,0.04)", borderRadius:8, color:"#fff", textDecoration:"none", fontSize:14}}>
                   <span style={{fontSize:18}}>📞</span>
-                  <div>
-                    <div style={{fontSize:11, color:"var(--muted)", textTransform:"uppercase", letterSpacing:1}}>{L.call}</div>
-                    <div style={{fontWeight:700}}>{r.phone}</div>
-                  </div>
+                  <div><div style={{fontSize:11, color:"var(--muted)", textTransform:"uppercase", letterSpacing:1}}>{L.call}</div><div style={{fontWeight:700}}>{r.phone}</div></div>
                 </a>
               )}
               {websiteUrl && (
                 <a href={websiteUrl} target="_blank" rel="noopener noreferrer" style={{display:"flex", alignItems:"center", gap:10, padding:10, background:"rgba(255,255,255,0.04)", borderRadius:8, color:"#fff", textDecoration:"none", fontSize:14}}>
                   <span style={{fontSize:18}}>🌐</span>
-                  <div>
-                    <div style={{fontSize:11, color:"var(--muted)", textTransform:"uppercase", letterSpacing:1}}>{L.visit}</div>
-                    <div style={{fontWeight:700}}>{websiteDisplay}</div>
-                  </div>
+                  <div><div style={{fontSize:11, color:"var(--muted)", textTransform:"uppercase", letterSpacing:1}}>{L.visit}</div><div style={{fontWeight:700}}>{websiteDisplay}</div></div>
                 </a>
               )}
               {r.local_email && (
                 <a href={`mailto:${r.local_email}`} style={{display:"flex", alignItems:"center", gap:10, padding:10, background:"rgba(255,255,255,0.04)", borderRadius:8, color:"#fff", textDecoration:"none", fontSize:14}}>
                   <span style={{fontSize:18}}>✉️</span>
-                  <div>
-                    <div style={{fontSize:11, color:"var(--muted)", textTransform:"uppercase", letterSpacing:1}}>{L.email}</div>
-                    <div style={{fontWeight:700}}>{r.local_email}</div>
-                  </div>
+                  <div><div style={{fontSize:11, color:"var(--muted)", textTransform:"uppercase", letterSpacing:1}}>{L.email}</div><div style={{fontWeight:700}}>{r.local_email}</div></div>
                 </a>
               )}
               {mapsUrl && (
                 <a href={mapsUrl} target="_blank" rel="noopener noreferrer" style={{display:"flex", alignItems:"center", gap:10, padding:10, background:"rgba(255,255,255,0.04)", borderRadius:8, color:"#fff", textDecoration:"none", fontSize:14}}>
                   <span style={{fontSize:18}}>📍</span>
-                  <div>
-                    <div style={{fontSize:11, color:"var(--muted)", textTransform:"uppercase", letterSpacing:1}}>{L.directions}</div>
-                    <div style={{fontWeight:700}}>{r.address}</div>
-                  </div>
+                  <div><div style={{fontSize:11, color:"var(--muted)", textTransform:"uppercase", letterSpacing:1}}>{L.directions}</div><div style={{fontWeight:700}}>{r.address}</div></div>
                 </a>
               )}
             </div>
@@ -2812,7 +2769,7 @@ function ApprovedReportCard({ r, lang, statusColor, statusLabel }) {
   );
 }
 
-// ── APPROVED REPORTS FEED — Live feed from Supabase ─────────────────────────
+// ── APPROVED REPORTS FEED — Live feed from Supabase with trade tabs ─────────
 function ApprovedReportsFeed({ lang }) {
   const [reports, setReports] = useState(null);
   const [error, setError] = useState(null);
@@ -2860,7 +2817,6 @@ function ApprovedReportsFeed({ lang }) {
     );
   }
 
-  // Build trade list with counts
   const tradeCounts = reports.reduce((acc, r) => {
     const t = r.trade || 'Unknown';
     acc[t] = (acc[t] || 0) + 1;
@@ -2868,7 +2824,6 @@ function ApprovedReportsFeed({ lang }) {
   }, {});
   const tradeList = Object.keys(tradeCounts).sort();
 
-  // Filter reports by active tab
   const visible = activeTrade === 'all' ? reports : reports.filter(r => r.trade === activeTrade);
 
   const statusColor = (s) => s === 'BUSY' ? '#22c55e' : s === 'STEADY' ? '#eab308' : '#ef4444';
@@ -2879,53 +2834,33 @@ function ApprovedReportsFeed({ lang }) {
   };
 
   const allLabel = lang === 'es' ? 'Todos' : lang === 'pl' ? 'Wszystkie' : 'All Trades';
+  const tabStyle = (active) => ({
+    padding: "8px 16px",
+    background: active ? '#F5C518' : 'rgba(255,255,255,0.06)',
+    color: active ? '#000' : '#fff',
+    border: 'none',
+    borderRadius: 999,
+    fontFamily: "'Barlow Condensed',sans-serif",
+    fontWeight: 700,
+    fontSize: 13,
+    letterSpacing: 1,
+    cursor: 'pointer',
+    textTransform: 'uppercase',
+  });
 
   return (
     <div>
-      {/* Trade tabs */}
       <div style={{display:"flex", gap:8, marginBottom:20, flexWrap:"wrap", paddingBottom:12, borderBottom:"1px solid rgba(255,255,255,0.08)"}}>
-        <button
-          onClick={() => setActiveTrade('all')}
-          style={{
-            padding:"8px 16px",
-            background: activeTrade === 'all' ? '#F5C518' : 'rgba(255,255,255,0.06)',
-            color: activeTrade === 'all' ? '#000' : '#fff',
-            border: 'none',
-            borderRadius: 999,
-            fontFamily: "'Barlow Condensed',sans-serif",
-            fontWeight: 700,
-            fontSize: 13,
-            letterSpacing: 1,
-            cursor: 'pointer',
-            textTransform: 'uppercase',
-          }}
-        >
+        <button onClick={() => setActiveTrade('all')} style={tabStyle(activeTrade === 'all')}>
           {allLabel} <span style={{opacity:0.7, marginLeft:4}}>({reports.length})</span>
         </button>
         {tradeList.map(trade => (
-          <button
-            key={trade}
-            onClick={() => setActiveTrade(trade)}
-            style={{
-              padding:"8px 16px",
-              background: activeTrade === trade ? '#F5C518' : 'rgba(255,255,255,0.06)',
-              color: activeTrade === trade ? '#000' : '#fff',
-              border: 'none',
-              borderRadius: 999,
-              fontFamily: "'Barlow Condensed',sans-serif",
-              fontWeight: 700,
-              fontSize: 13,
-              letterSpacing: 1,
-              cursor: 'pointer',
-              textTransform: 'uppercase',
-            }}
-          >
+          <button key={trade} onClick={() => setActiveTrade(trade)} style={tabStyle(activeTrade === trade)}>
             {trade} <span style={{opacity:0.7, marginLeft:4}}>({tradeCounts[trade]})</span>
           </button>
         ))}
       </div>
 
-      {/* Cards (filtered) */}
       {visible.length === 0 ? (
         <div style={{textAlign:"center", padding:"60px 24px", background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.06)", borderRadius:16}}>
           <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:700, color:"var(--muted)", marginBottom:8}}>
@@ -2939,55 +2874,6 @@ function ApprovedReportsFeed({ lang }) {
           ))}
         </div>
       )}
-    </div>
-  );
-}, []);
-
-  if (error) {
-    return (
-      <div style={{textAlign:"center", padding:"60px 24px", background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.06)", borderRadius:16}}>
-        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:700, color:"var(--muted)"}}>
-          {lang==="es" ? "Error al cargar informes" : lang==="pl" ? "Blad ladowania raportow" : "Error loading reports"}
-        </div>
-      </div>
-    );
-  }
-
-  if (reports === null) {
-    return (
-      <div style={{textAlign:"center", padding:"60px 24px", background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.06)", borderRadius:16}}>
-        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:700, color:"var(--muted)"}}>
-          {lang==="es" ? "Cargando..." : lang==="pl" ? "Ladowanie..." : "Loading..."}
-        </div>
-      </div>
-    );
-  }
-
-  if (reports.length === 0) {
-    return (
-      <div style={{textAlign:"center", padding:"60px 24px", background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.06)", borderRadius:16}}>
-        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:700, color:"var(--muted)", marginBottom:8}}>
-          {lang==="es" ? "No hay informes aprobados todavia" : lang==="pl" ? "Brak zatwierdzonych raportow" : "No approved reports yet"}
-        </div>
-        <div style={{fontSize:13, color:"rgba(160,180,196,0.4)"}}>
-          {lang==="es" ? "Se el primero en enviar un informe de perspectivas laborales." : lang==="pl" ? "Badz pierwszym, ktory wysle raport o perspektywach pracy." : "Be the first to submit a work outlook report for your local."}
-        </div>
-      </div>
-    );
-  }
-
-  const statusColor = (s) => s === 'BUSY' ? '#22c55e' : s === 'STEADY' ? '#eab308' : '#ef4444';
-  const statusLabel = (s) => {
-    if (lang === 'es') return s === 'BUSY' ? 'OCUPADO' : s === 'STEADY' ? 'ESTABLE' : 'LENTO';
-    if (lang === 'pl') return s === 'BUSY' ? 'ZAJETY' : s === 'STEADY' ? 'STABILNY' : 'POWOLNY';
-    return s;
-  };
-
-  return (
-    <div style={{display:"grid", gap:16}}>
-      {reports.map((r) => (
-        <ApprovedReportCard key={r.id} r={r} lang={lang} statusColor={statusColor} statusLabel={statusLabel} />
-      ))}
     </div>
   );
 }
