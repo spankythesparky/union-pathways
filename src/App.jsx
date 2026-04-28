@@ -6636,7 +6636,7 @@ export default function UnionPathway() {
             }
 
             try {
-              await window.emailjs.send('service_uy3qbna', 'pk2fzz8', {
+              await window.emailjs.send('service_uy3qbna', 'template_a55dhfh', {
                 trade: tradeName,
                 local_name: local.name,
                 city: local.city,
