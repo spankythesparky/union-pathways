@@ -6611,9 +6611,6 @@ export default function UnionPathway() {
           </div>
         )}
 
-// /home/claude/history-page.jsx — content for fix102.js to inject
-// This is a TEMPLATE STRING source. Will be loaded as text and embedded by fix102.
-
         {page === "history" && (() => {
           const useScrollProgress = () => {
             const [progress, setProgress] = useState(0);
