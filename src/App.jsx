@@ -2698,7 +2698,7 @@ function AdminPage() {
               ) : (
                 r.job_calls && <div style={{fontSize:13, color:"rgba(255,255,255,0.8)", marginTop:6}}><strong style={{color:"var(--muted)"}}>Job Calls:</strong> {r.job_calls}</div>
               )}
-              <div style={{fontSize:11, color:"rgba(160,180,196,0.5)", marginTop:8}}>{adminSection === 'wages' ? `Effective: ${r.effective_date} · Valid through: ${r.valid_through}` : `Report Date: ${r.report_date}`} · Submitted: {new Date(r.created_at).toLocaleDateString()}</div>
+              <div style={{fontSize:11, color:"rgba(160,180,196,0.5)", marginTop:8}}>{adminSection === 'wages' ? `Effective: ${r.effective_date || 'N/A'} · Valid through: ${r.valid_through || 'N/A'}` : `Report Date: ${r.report_date}`} · Submitted: {new Date(r.created_at).toLocaleDateString()}</div>
 
               {editingId === r.id ? renderEditForm(r) : (
                 <div style={{display:"flex", gap:8, marginTop:14, flexWrap:"wrap"}}>
@@ -7538,7 +7538,7 @@ export default function UnionPathway() {
           const totalPackage = num(wageHourly) + num(wageHW) + num(wageDefinedPension) + num(wageContribPension) + num(wage401k) + (isIBEW ? num(wageNEBF) : 0) + (isIUOE ? num(wageCIPF) + num(wageIUOETraining) : 0);
 
           const handleWageSubmit = async () => {
-            if (!wageTrade || !wageLocal || !wageMethod || !wageEffectiveDate || !wageValidThrough) return;
+            if (!wageTrade || !wageLocal || !wageMethod) return;
             if (wageMethod === 'image' && !wageImageFile) return;
             if (wageMethod === 'manual' && !wageHourly) return;
             const local = wageLocals.find(l => String(l.id) === String(wageLocal));
@@ -7548,7 +7548,7 @@ export default function UnionPathway() {
             try {
               const sb = await getSupabase();
               let imageUrl = null;
-              if (wageMethod === 'image' && wageImageFile) {
+              if (wageImageFile) {
                 const ext = (wageImageFile.name.split('.').pop() || 'bin').toLowerCase();
                 const fileName = `${Date.now()}_${Math.random().toString(36).slice(2, 10)}.${ext}`;
                 const { error: upErr } = await sb.storage.from('wage-sheets').upload(fileName, wageImageFile, { contentType: wageImageFile.type });
@@ -7569,7 +7569,7 @@ export default function UnionPathway() {
                 iuoe_training: wageMethod === 'manual' && isIUOE ? num(wageIUOETraining) || null : null,
                 working_dues: wageMethod === 'manual' ? num(wageWorkingDues) || null : null,
                 total_package: wageMethod === 'manual' ? totalPackage || null : null,
-                effective_date: wageEffectiveDate, valid_through: wageValidThrough,
+                effective_date: wageEffectiveDate || null, valid_through: wageValidThrough || null,
                 notes: wageNotes || null, approved: false,
               });
               if (!window.emailjs) {
@@ -7586,8 +7586,8 @@ export default function UnionPathway() {
                   trade: tradeName, local_name: local.name, city: local.city, state: local.state,
                   status: 'WAGES SUBMISSION',
                   job_calls: wageMethod === 'image' ? `Image upload: ${imageUrl}` : `Manual entry — Hourly: $${wageHourly}, Total: $${totalPackage.toFixed(2)}`,
-                  report_date: wageEffectiveDate, phone: 'N/A', website: 'N/A', local_email: 'N/A',
-                  address: `Effective ${wageEffectiveDate} - Valid through ${wageValidThrough}`,
+                  report_date: wageEffectiveDate || 'N/A', phone: 'N/A', website: 'N/A', local_email: 'N/A',
+                  address: `Effective ${wageEffectiveDate || 'N/A'} - Valid through ${wageValidThrough || 'N/A'}`,
                 });
               } catch (emailErr) { console.warn('Email failed (non-fatal):', emailErr); }
               setWageSubmitted(true);
@@ -7727,12 +7727,21 @@ export default function UnionPathway() {
                               </div>
                             </div>
                           )}
+
+                          <div>
+                            <div style={labelStyle}>{lang==="es" ? "Adjuntar Hoja de Salario" : lang==="pl" ? "Dolacz Plik ze Stawka" : "Attach Wage Sheet"}<span style={{opacity:0.5, fontWeight:400, textTransform:"none", letterSpacing:0, marginLeft:6}}>({lang==="es" ? "opcional" : lang==="pl" ? "opcjonalne" : "optional"})</span></div>
+                            <input type="file" accept="image/*,application/pdf" onChange={e => setWageImageFile(e.target.files[0])} style={{...inputStyle, cursor:"pointer", padding:"10px 12px"}} />
+                            {wageImageFile && <div style={{fontSize:12, color:"var(--muted)", marginTop:6}}>✓ {wageImageFile.name} ({(wageImageFile.size/1024/1024).toFixed(2)} MB)</div>}
+                            <div style={{fontSize:11, color:"var(--muted)", marginTop:8, lineHeight:1.4}}>
+                              {lang==="es" ? "Opcional: adjunta una foto o PDF como respaldo." : lang==="pl" ? "Opcjonalne: dolacz zdjecie lub PDF jako dowod." : "Optional: attach a photo or PDF as backup verification."}
+                            </div>
+                          </div>
                         </>
                       )}
 
                       {wageMethod && (
                         <div>
-                          <div style={labelStyle}>{lang==="es" ? "Fecha de Vigencia" : lang==="pl" ? "Data Obowiazywania" : "Effective Date"}</div>
+                          <div style={labelStyle}>{lang==="es" ? "Fecha de Vigencia" : lang==="pl" ? "Data Obowiazywania" : "Effective Date"}<span style={{opacity:0.5, fontWeight:400, textTransform:"none", letterSpacing:0, marginLeft:6}}>({lang==="es" ? "opcional" : lang==="pl" ? "opcjonalne" : "optional"})</span></div>
                           <input type="date" value={wageEffectiveDate} onChange={e => setWageEffectiveDate(e.target.value)} style={inputStyle} />
                           <div style={{fontSize:11, color:"var(--muted)", marginTop:6}}>
                             {lang==="es" ? "Cuando comenzo esta tarifa." : lang==="pl" ? "Kiedy zaczela obowiazywac ta stawka." : "When this rate started."}
@@ -7742,7 +7751,7 @@ export default function UnionPathway() {
 
                       {wageMethod && (
                         <div>
-                          <div style={labelStyle}>{lang==="es" ? "Salarios Validos Hasta" : lang==="pl" ? "Stawki Wazne Do" : "Wages Valid Through"}</div>
+                          <div style={labelStyle}>{lang==="es" ? "Salarios Validos Hasta" : lang==="pl" ? "Stawki Wazne Do" : "Wages Valid Through"}<span style={{opacity:0.5, fontWeight:400, textTransform:"none", letterSpacing:0, marginLeft:6}}>({lang==="es" ? "opcional" : lang==="pl" ? "opcjonalne" : "optional"})</span></div>
                           <input type="date" value={wageValidThrough} onChange={e => setWageValidThrough(e.target.value)} style={inputStyle} />
                           <div style={{fontSize:11, color:"var(--muted)", marginTop:6}}>
                             {lang==="es" ? "Cuando expira el contrato actual." : lang==="pl" ? "Kiedy wygasa obecna umowa." : "When the current contract expires."}
@@ -7757,7 +7766,7 @@ export default function UnionPathway() {
                         </div>
                       )}
 
-                      {wageMethod && wageEffectiveDate && wageValidThrough && ((wageMethod === 'image' && wageImageFile) || (wageMethod === 'manual' && wageHourly)) && (
+                      {wageMethod && ((wageMethod === 'image' && wageImageFile) || (wageMethod === 'manual' && wageHourly)) && (
                         <button onClick={handleWageSubmit} disabled={wageUploading} style={{background: wageUploading ? "rgba(250,128,89,0.5)" : "#FA8059", color:"#000", fontFamily:"'Barlow Condensed',sans-serif", fontSize:16, fontWeight:900, letterSpacing:"0.08em", textTransform:"uppercase", padding:"16px 32px", borderRadius:50, border:"none", cursor: wageUploading ? "wait" : "pointer", marginTop:8}}>
                           {wageUploading ? (lang==="es" ? "Enviando..." : lang==="pl" ? "Wysylanie..." : "Submitting...") : (lang==="es" ? "Enviar Salarios" : lang==="pl" ? "Wyslij Stawki" : "Submit Wages")}
                         </button>
