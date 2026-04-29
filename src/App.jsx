@@ -2868,7 +2868,12 @@ function ApprovedReportsFeed({ lang }) {
   }, {});
   const tradeList = Object.keys(tradeCounts).sort();
 
-  const visible = activeTrade === 'all' ? reports : reports.filter(r => r.trade === activeTrade);
+  const sortByLocal = (a, b) => {
+    const na = parseInt(String(a.local_id || '').match(/\d+/)?.[0] || '0', 10);
+    const nb = parseInt(String(b.local_id || '').match(/\d+/)?.[0] || '0', 10);
+    return na - nb;
+  };
+  const visible = (activeTrade === 'all' ? reports : reports.filter(r => r.trade === activeTrade)).slice().sort(sortByLocal);
 
   const statusColor = (s) => s === 'BUSY' ? '#22c55e' : s === 'STEADY' ? '#eab308' : '#ef4444';
   const statusLabel = (s) => {
@@ -2938,6 +2943,12 @@ function ApprovedWageCard({ r, lang }) {
     try { return new Date(d).toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric' }); }
     catch { return d; }
   };
+  const fmtPct = (n) => {
+    if (n === null || n === undefined || n === '') return null;
+    const num = parseFloat(n);
+    if (isNaN(num)) return null;
+    return num.toFixed(2) + '%';
+  };
   const labels = {
     en: { hourly:'Hourly', hw:'Health & Welfare', dpension:'Defined Pension', cpension:'Contribution Pension/Annuity', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'IUOE Training', dues:'Working Dues', total:'Total Package', effective:'Effective:', validThrough:'Valid Through:', viewSheet:'View Wage Sheet', expired:'EXPIRED', viewBreakdown:'View Breakdown', hideBreakdown:'Hide Breakdown', notes:'Notes:' },
     es: { hourly:'Por Hora', hw:'Salud y Bienestar', dpension:'Pension Definida', cpension:'Pension de Contribucion/Anualidad', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'Entrenamiento IUOE', dues:'Cuotas de Trabajo', total:'Paquete Total', effective:'Vigente:', validThrough:'Valido Hasta:', viewSheet:'Ver Hoja de Salario', expired:'EXPIRADO', viewBreakdown:'Ver Desglose', hideBreakdown:'Ocultar Desglose', notes:'Notas:' },
@@ -2954,8 +2965,8 @@ function ApprovedWageCard({ r, lang }) {
     { key:'nebf', val:r.nebf },
     { key:'cipf', val:r.cipf },
     { key:'iuoe', val:r.iuoe_training },
-    { key:'dues', val:r.working_dues },
-  ].filter(x => fmt(x.val) !== null);
+    { key:'dues', val:r.working_dues, pct:true },
+  ].filter(x => x.pct ? fmtPct(x.val) !== null : fmt(x.val) !== null);
 
   return (
     <div style={{background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.08)", borderRadius:14, padding:20, opacity: isExpired ? 0.6 : 1}}>
@@ -2999,10 +3010,10 @@ function ApprovedWageCard({ r, lang }) {
         <div style={{marginTop:14, padding:16, background:"rgba(0,0,0,0.25)", borderRadius:10, border:"1px solid rgba(255,255,255,0.05)"}}>
           {breakdown.length > 0 && (
             <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fill, minmax(140px, 1fr))", gap:12, marginBottom: r.image_url || r.notes ? 14 : 0}}>
-              {breakdown.map(({key, val}) => (
+              {breakdown.map(({key, val, pct}) => (
                 <div key={key}>
                   <div style={{fontSize:10, color:"var(--muted)", textTransform:"uppercase", letterSpacing:1, fontWeight:700, fontFamily:"'Barlow Condensed',sans-serif"}}>{L[key]}</div>
-                  <div style={{fontSize:15, fontWeight:700, color:"#fff", fontFamily:"'Barlow Condensed',sans-serif", marginTop:2}}>{fmt(val)}</div>
+                  <div style={{fontSize:15, fontWeight:700, color:"#fff", fontFamily:"'Barlow Condensed',sans-serif", marginTop:2}}>{pct ? fmtPct(val) : fmt(val)}</div>
                 </div>
               ))}
             </div>
@@ -3078,7 +3089,12 @@ function ApprovedWagesFeed({ lang }) {
     return acc;
   }, {});
   const tradeList = Object.keys(tradeCounts).sort();
-  const visible = activeTrade === 'all' ? reports : reports.filter(r => r.trade === activeTrade);
+  const sortByLocal = (a, b) => {
+    const na = parseInt(String(a.local_id || '').match(/\d+/)?.[0] || '0', 10);
+    const nb = parseInt(String(b.local_id || '').match(/\d+/)?.[0] || '0', 10);
+    return na - nb;
+  };
+  const visible = (activeTrade === 'all' ? reports : reports.filter(r => r.trade === activeTrade)).slice().sort(sortByLocal);
   const allLabel = lang === 'es' ? 'Todos' : lang === 'pl' ? 'Wszystkie' : 'All Trades';
   const tabStyle = (active) => ({
     padding: "8px 16px",
@@ -7715,7 +7731,16 @@ export default function UnionPathway() {
                           {isIBEW && moneyField("NEBF", wageNEBF, setWageNEBF, true)}
                           {isIUOE && moneyField("CIPF", wageCIPF, setWageCIPF, true)}
                           {isIUOE && moneyField(lang==="es" ? "Entrenamiento IUOE" : lang==="pl" ? "Szkolenie IUOE" : "IUOE National Training Fund", wageIUOETraining, setWageIUOETraining, true)}
-                          {moneyField(lang==="es" ? "Cuotas de Trabajo" : lang==="pl" ? "Skladki Pracownicze" : "Working Dues", wageWorkingDues, setWageWorkingDues, true)}
+                          <div>
+                            <div style={labelStyle}>{lang==="es" ? "Cuotas de Trabajo" : lang==="pl" ? "Skladki Pracownicze" : "Working Dues"}<span style={{opacity:0.5, fontWeight:400, textTransform:"none", letterSpacing:0, marginLeft:6}}>({lang==="es" ? "% opcional" : lang==="pl" ? "% opcjonalne" : "% optional"})</span></div>
+                            <div style={{position:"relative"}}>
+                              <input type="number" step="0.01" min="0" max="100" value={wageWorkingDues} onChange={e => setWageWorkingDues(e.target.value)} placeholder="0.00" style={{...inputStyle, paddingRight:32}} />
+                              <span style={{position:"absolute", right:14, top:"50%", transform:"translateY(-50%)", color:"var(--muted)", fontSize:14, pointerEvents:"none"}}>%</span>
+                            </div>
+                            <div style={{fontSize:11, color:"var(--muted)", marginTop:6, lineHeight:1.4}}>
+                              {lang==="es" ? "Porcentaje deducido del cheque, no incluido en el paquete." : lang==="pl" ? "Procent potracany z wyplaty, nie wliczany do pakietu." : "Percentage deducted from your check — not part of total package."}
+                            </div>
+                          </div>
 
                           {wageHourly && (
                             <div style={{padding:"16px 20px", background:"rgba(34,197,94,0.08)", border:"1px solid rgba(34,197,94,0.25)", borderRadius:12, display:"flex", justifyContent:"space-between", alignItems:"center"}}>
