@@ -3215,7 +3215,7 @@ export default function UnionPathway() {
   // URL-aware page state
   const getPageFromUrl = () => {
     const path = window.location.pathname.replace('/', '') || 'home';
-    const validPages = ['home','quiz','careers','checklist','locals','calculator','resume','veterans','history','trade-history','history-ibew-i','retirement','health','benefits','about','contact','jobboard','wages'];
+    const validPages = ['home','quiz','careers','checklist','locals','calculator','resume','veterans','history','trade-history','history-ibew','retirement','health','benefits','about','contact','jobboard','wages'];
     return validPages.includes(path) ? path : 'home';
   };
   const [page, setPageState] = useState(getPageFromUrl);
@@ -4249,7 +4249,7 @@ export default function UnionPathway() {
       jobboard:  { title: "Union Pathways — Live Job Board", desc: "Real-time work outlook reports from union locals across the country. See which halls are busy, steady, or slow before you travel for work." },
       wages:     { title: "Union Pathways — Local Wages Verified by Members", desc: "Journeyman wage rates submitted by union members from locals nationwide. Hourly, fringes, pension, total package — all in one place." },
       'trade-history': { title: "Union Pathways — Trade History (Coming Soon)", desc: "Deep-dive histories for each union trade are on the way. For now, read the general history of organized labor." },
-      'history-ibew-i': { title: "IBEW History — Wired for the Long Haul · Union Pathways", desc: "The full history of the International Brotherhood of Electrical Workers from its 1891 founding above a St. Louis dance hall to today. Henry Miller, the Reid-Murphy split, the Council on Industrial Relations, the data center boom, and the path back to one million members." },
+      'history-ibew': { title: "IBEW History — Wired for the Long Haul · Union Pathways", desc: "The full history of the International Brotherhood of Electrical Workers from its 1891 founding above a St. Louis dance hall to today. Henry Miller, the Reid-Murphy split, the Council on Industrial Relations, the data center boom, and the path back to one million members." },
     };
     const pm = PAGE_META[page] || PAGE_META.home;
     document.title = pm.title;
@@ -5990,7 +5990,7 @@ export default function UnionPathway() {
                     <span className="nav-dropdown-sub">{lang==="es" ? "El movimiento desde el siglo XII" : lang==="pl" ? "Ruch od XII wieku" : "The full movement from the 12th century"}</span>
                   </div>
                   {[
-                    {key:'IBEW_I', name:'IBEW Inside', page:'history-ibew-i', live:true},
+                    {key:'IBEW_I', name:'IBEW Inside', page:'history-ibew', live:true},
                     {key:'IBEW_L', name:'IBEW Lineman'},
                     {key:'UA', name:'UA — Plumbers & Pipefitters'},
                     {key:'SMART', name:'SMART — Sheet Metal'},
@@ -7155,7 +7155,7 @@ export default function UnionPathway() {
           );
         })()}
 
-        {page === "history-ibew-i" && (() => {
+        {page === "history-ibew" && (() => {
           const useScrollProgress = () => {
             const [progress, setProgress] = useState(0);
             useEffect(() => {
