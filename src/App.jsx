@@ -2560,7 +2560,7 @@ function AdminPage() {
         trade: r.trade || '', local_name: r.local_name || '', city: r.city || '', state: r.state || '',
         hourly: r.hourly || '', health_welfare: r.health_welfare || '', defined_pension: r.defined_pension || '',
         national_pension: r.national_pension || '', contribution_pension: r.contribution_pension || '', k401: r.k401 || '', nebf: r.nebf || '',
-        cipf: r.cipf || '', iuoe_training: r.iuoe_training || '', working_dues: r.working_dues || '',
+        cipf: r.cipf || '', iuoe_training: r.iuoe_training || '', misc_funds: r.misc_funds || '', working_dues: r.working_dues || '',
         total_package: r.total_package || '', effective_date: r.effective_date || '', valid_through: r.valid_through || '',
         notes: r.notes || '',
       });
@@ -2616,7 +2616,7 @@ function AdminPage() {
   }
 
   const renderEditForm = (r) => {
-    const wageFields = [['trade','Trade'],['local_name','Local Name'],['city','City'],['state','State'],['hourly','Hourly'],['health_welfare','Health & Welfare'],['defined_pension','Defined Pension'],['national_pension','National Pension'],['contribution_pension','Contribution Pension/Annuity'],['k401','401(k)'],['nebf','NEBF (IBEW only)'],['cipf','CIPF (IUOE only)'],['iuoe_training','IUOE Training (IUOE only)'],['working_dues','Working Dues'],['total_package','Total Package'],['effective_date','Effective Date'],['valid_through','Valid Through'],['notes','Notes']];
+    const wageFields = [['trade','Trade'],['local_name','Local Name'],['city','City'],['state','State'],['hourly','Hourly'],['health_welfare','Health & Welfare'],['defined_pension','Defined Pension'],['national_pension','National Pension'],['contribution_pension','Contribution Pension/Annuity'],['k401','401(k)'],['nebf','NEBF (IBEW only)'],['cipf','CIPF (IUOE only)'],['iuoe_training','IUOE Training (IUOE only)'],['misc_funds','Other Funds'],['working_dues','Working Dues'],['total_package','Total Package'],['effective_date','Effective Date'],['valid_through','Valid Through'],['notes','Notes']];
     const jobFields = [['trade','Trade'],['local_name','Local Name'],['city','City'],['state','State'],['status','Status (BUSY/STEADY/SLOW)'],['job_calls','Job Calls'],['report_date','Report Date'],['phone','Phone'],['website','Website'],['local_email','Email'],['address','Address']];
     const fields = adminSection === 'wages' ? wageFields : jobFields;
     return (
@@ -2950,9 +2950,9 @@ function ApprovedWageCard({ r, lang }) {
     return num.toFixed(2) + '%';
   };
   const labels = {
-    en: { hourly:'Hourly', hw:'Health & Welfare', dpension:'Defined Pension', npension:'National Pension', cpension:'Contribution Pension/Annuity', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'IUOE Training', dues:'Working Dues', total:'Total Package', effective:'Effective:', validThrough:'Contract Valid Through:', submitted:'Submitted to Union Pathways:', viewSheet:'View Wage Sheet', expired:'EXPIRED', viewBreakdown:'View Breakdown', hideBreakdown:'Hide Breakdown', notes:'Notes:' },
-    es: { hourly:'Por Hora', hw:'Salud y Bienestar', dpension:'Pension Definida', npension:'Pension Nacional', cpension:'Pension de Contribucion/Anualidad', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'Entrenamiento IUOE', dues:'Cuotas de Trabajo', total:'Paquete Total', effective:'Vigente:', validThrough:'Contrato Valido Hasta:', submitted:'Enviado a Union Pathways:', viewSheet:'Ver Hoja de Salario', expired:'EXPIRADO', viewBreakdown:'Ver Desglose', hideBreakdown:'Ocultar Desglose', notes:'Notas:' },
-    pl: { hourly:'Godzinowo', hw:'Zdrowie i Opieka', dpension:'Emerytura', npension:'Emerytura Krajowa', cpension:'Emerytura Skladkowa', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'Szkolenie IUOE', dues:'Skladki', total:'Pakiet Calkowity', effective:'Obowiazuje od:', validThrough:'Umowa Wazna Do:', submitted:'Zgloszone do Union Pathways:', viewSheet:'Zobacz Stawke', expired:'WYGASLO', viewBreakdown:'Pokaz Szczegoly', hideBreakdown:'Ukryj Szczegoly', notes:'Notatki:' },
+    en: { hourly:'Hourly', hw:'Health & Welfare', dpension:'Defined Pension', npension:'National Pension', cpension:'Contribution Pension/Annuity', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'IUOE Training', misc:'Other Funds', dues:'Working Dues', total:'Total Package', effective:'Effective:', validThrough:'Contract Valid Through:', submitted:'Submitted to Union Pathways:', viewSheet:'View Wage Sheet', expired:'EXPIRED', viewBreakdown:'View Breakdown', hideBreakdown:'Hide Breakdown', notes:'Notes:' },
+    es: { hourly:'Por Hora', hw:'Salud y Bienestar', dpension:'Pension Definida', npension:'Pension Nacional', cpension:'Pension de Contribucion/Anualidad', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'Entrenamiento IUOE', misc:'Otros Fondos', dues:'Cuotas de Trabajo', total:'Paquete Total', effective:'Vigente:', validThrough:'Contrato Valido Hasta:', submitted:'Enviado a Union Pathways:', viewSheet:'Ver Hoja de Salario', expired:'EXPIRADO', viewBreakdown:'Ver Desglose', hideBreakdown:'Ocultar Desglose', notes:'Notas:' },
+    pl: { hourly:'Godzinowo', hw:'Zdrowie i Opieka', dpension:'Emerytura', npension:'Emerytura Krajowa', cpension:'Emerytura Skladkowa', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'Szkolenie IUOE', misc:'Inne Fundusze', dues:'Skladki', total:'Pakiet Calkowity', effective:'Obowiazuje od:', validThrough:'Umowa Wazna Do:', submitted:'Zgloszone do Union Pathways:', viewSheet:'Zobacz Stawke', expired:'WYGASLO', viewBreakdown:'Pokaz Szczegoly', hideBreakdown:'Ukryj Szczegoly', notes:'Notatki:' },
   };
   const L = labels[lang] || labels.en;
 
@@ -2966,6 +2966,7 @@ function ApprovedWageCard({ r, lang }) {
     { key:'nebf', val:r.nebf },
     { key:'cipf', val:r.cipf },
     { key:'iuoe', val:r.iuoe_training },
+    { key:'misc', val:r.misc_funds },
     { key:'dues', val:r.working_dues, pct:true },
   ].filter(x => x.pct ? fmtPct(x.val) !== null : fmt(x.val) !== null);
 
@@ -3194,6 +3195,7 @@ export default function UnionPathway() {
   const [wageNEBF, setWageNEBF] = useState('');
   const [wageCIPF, setWageCIPF] = useState('');
   const [wageIUOETraining, setWageIUOETraining] = useState('');
+  const [wageMiscFunds, setWageMiscFunds] = useState('');
   const [wageWorkingDues, setWageWorkingDues] = useState('');
   const [wageEffectiveDate, setWageEffectiveDate] = useState('');
   const [wageValidThrough, setWageValidThrough] = useState('');
@@ -7555,7 +7557,7 @@ export default function UnionPathway() {
           const isIUOE = wageTrade === 'IUOE';
           const wageLocals = WAGE_TRADES.find(t => t.key === wageTrade)?.locals || [];
           const num = (v) => { const n = parseFloat(v); return isNaN(n) ? 0 : n; };
-          const totalPackage = num(wageHourly) + num(wageHW) + num(wageDefinedPension) + num(wageNationalPension) + num(wageContribPension) + num(wage401k) + (isIBEW ? num(wageNEBF) : 0) + (isIUOE ? num(wageCIPF) + num(wageIUOETraining) : 0);
+          const totalPackage = num(wageHourly) + num(wageHW) + num(wageDefinedPension) + num(wageNationalPension) + num(wageContribPension) + num(wage401k) + num(wageMiscFunds) + (isIBEW ? num(wageNEBF) : 0) + (isIUOE ? num(wageCIPF) + num(wageIUOETraining) : 0);
 
           const handleWageSubmit = async () => {
             if (!wageTrade || !wageLocal || !wageMethod) return;
@@ -7588,6 +7590,7 @@ export default function UnionPathway() {
                 nebf: wageMethod === 'manual' && isIBEW ? num(wageNEBF) || null : null,
                 cipf: wageMethod === 'manual' && isIUOE ? num(wageCIPF) || null : null,
                 iuoe_training: wageMethod === 'manual' && isIUOE ? num(wageIUOETraining) || null : null,
+                misc_funds: wageMethod === 'manual' ? num(wageMiscFunds) || null : null,
                 working_dues: wageMethod === 'manual' ? num(wageWorkingDues) || null : null,
                 total_package: wageMethod === 'manual' ? totalPackage || null : null,
                 effective_date: null, valid_through: wageValidThrough || null,
@@ -7622,7 +7625,7 @@ export default function UnionPathway() {
             setWageSubmitted(false); setWageTrade(''); setWageLocal(''); setWageMethod('');
             setWageImageFile(null); setWageHourly(''); setWageHW(''); setWageDefinedPension('');
             setWageNationalPension(''); setWageContribPension(''); setWage401k(''); setWageNEBF(''); setWageCIPF('');
-            setWageIUOETraining(''); setWageWorkingDues(''); setWageEffectiveDate('');
+            setWageIUOETraining(''); setWageMiscFunds(''); setWageWorkingDues(''); setWageEffectiveDate('');
             setWageValidThrough(''); setWageNotes('');
           };
 
@@ -7655,7 +7658,7 @@ export default function UnionPathway() {
                 <div style={{background:"rgba(250,128,89,0.06)", border:"1px solid rgba(250,128,89,0.2)", borderRadius:14, padding:"16px 20px", marginBottom:40, display:"flex", gap:12, alignItems:"flex-start"}}>
                   <div style={{color:"#FA8059", fontSize:18, flexShrink:0}}>&#9888;</div>
                   <div style={{fontSize:13, color:"var(--muted)", lineHeight:1.6}}>
-                    <><div><strong style={{color:"#FA8059", fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1}}>{lang==="es" ? "SISTEMA DE HONOR — " : lang==="pl" ? "SYSTEM HONOROWY — " : "HONOR SYSTEM — "}</strong>{lang==="es" ? "Todos los salarios son enviados por miembros del sindicato y NO son verificados por Union Pathways. Para tarifas finales y 100% precisas, siempre contacte directamente con su local sindical." : lang==="pl" ? "Wszystkie stawki sa przesylane przez czlonkow zwiazku i NIE sa weryfikowane przez Union Pathways. Aby uzyskac koncowe i w 100% dokladne stawki, zawsze skontaktuj sie bezposrednio ze swoim lokalem zwiazkowym." : "All wage data is submitted by union members and is NOT verified by Union Pathways. For final and 100% accurate rates, always contact your local hall directly."}</div><div style={{marginTop:12, fontSize:12, opacity:0.85, paddingTop:12, borderTop:"1px solid rgba(250,128,89,0.15)"}}><strong style={{color:"#FA8059", fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:0.5}}>{lang==="es" ? "NOTA — " : lang==="pl" ? "UWAGA — " : "NOTE — "}</strong>{lang==="es" ? "Los envios cubren los rubros principales: hora, salud y bienestar, pension, anualidad, NEBF/CIPF y cuotas. Las contribuciones pequenas (JATC, fondos suplementarios, etc.) varian mucho de local a local y no se rastrean aqui." : lang==="pl" ? "Zgloszenia obejmuja glowne pozycje: godzinowo, swiadczenia zdrowotne, emerytura, renta, NEBF/CIPF i skladki. Mniejsze skladki (JATC, fundusze dodatkowe itp.) bardzo sie roznia miedzy lokalami i nie sa tu wymienione." : "Submissions cover the major line items: hourly, health & welfare, pension, annuity, NEBF/CIPF, and dues. Smaller contributions like JATC and other supplemental funds vary so much from one local to the next that they aren't tracked here."}</div></>
+                    <><div><strong style={{color:"#FA8059", fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1}}>{lang==="es" ? "SISTEMA DE HONOR — " : lang==="pl" ? "SYSTEM HONOROWY — " : "HONOR SYSTEM — "}</strong>{lang==="es" ? "Todos los salarios son enviados por miembros del sindicato y NO son verificados por Union Pathways. Para tarifas finales y 100% precisas, siempre contacte directamente con su local sindical." : lang==="pl" ? "Wszystkie stawki sa przesylane przez czlonkow zwiazku i NIE sa weryfikowane przez Union Pathways. Aby uzyskac koncowe i w 100% dokladne stawki, zawsze skontaktuj sie bezposrednio ze swoim lokalem zwiazkowym." : "All wage data is submitted by union members and is NOT verified by Union Pathways. For final and 100% accurate rates, always contact your local hall directly."}</div><div style={{marginTop:12, fontSize:12, opacity:0.85, paddingTop:12, borderTop:"1px solid rgba(250,128,89,0.15)"}}><strong style={{color:"#FA8059", fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:0.5}}>{lang==="es" ? "NOTA — " : lang==="pl" ? "UWAGA — " : "NOTE — "}</strong>{lang==="es" ? "Los envios cubren los rubros principales: hora, salud y bienestar, pensiones, anualidad, NEBF/CIPF y cuotas. Las contribuciones pequenas que varian de local a local (JATC, fondos suplementarios, etc.) se pueden agrupar en el campo Otros Fondos." : lang==="pl" ? "Zgloszenia obejmuja glowne pozycje: godzinowo, swiadczenia zdrowotne, emerytury, renta, NEBF/CIPF i skladki. Mniejsze skladki ktore roznia sie miedzy lokalami (JATC, fundusze dodatkowe itp.) mozna zlaczyc w polu Inne Fundusze." : "Submissions cover the major line items: hourly, health & welfare, pensions, annuity, NEBF/CIPF, and dues. Smaller contributions that vary local to local (JATC, supplemental funds, etc.) can be rolled into the Other Funds field."}</div></>
                   </div>
                 </div>
 
@@ -7737,6 +7740,7 @@ export default function UnionPathway() {
                           {isIBEW && moneyField("NEBF", wageNEBF, setWageNEBF, true)}
                           {isIUOE && moneyField("CIPF", wageCIPF, setWageCIPF, true)}
                           {isIUOE && moneyField(lang==="es" ? "Entrenamiento IUOE" : lang==="pl" ? "Szkolenie IUOE" : "IUOE National Training Fund", wageIUOETraining, setWageIUOETraining, true)}
+                          {moneyField(lang==="es" ? "Otros Fondos" : lang==="pl" ? "Inne Fundusze" : "Other Funds", wageMiscFunds, setWageMiscFunds, true)}
                           <div>
                             <div style={labelStyle}>{lang==="es" ? "Cuotas de Trabajo" : lang==="pl" ? "Skladki Pracownicze" : "Working Dues"}<span style={{opacity:0.5, fontWeight:400, textTransform:"none", letterSpacing:0, marginLeft:6}}>({lang==="es" ? "% opcional" : lang==="pl" ? "% opcjonalne" : "% optional"})</span></div>
                             <div style={{position:"relative"}}>
