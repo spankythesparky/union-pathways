@@ -2698,7 +2698,7 @@ function AdminPage() {
               ) : (
                 r.job_calls && <div style={{fontSize:13, color:"rgba(255,255,255,0.8)", marginTop:6}}><strong style={{color:"var(--muted)"}}>Job Calls:</strong> {r.job_calls}</div>
               )}
-              <div style={{fontSize:11, color:"rgba(160,180,196,0.5)", marginTop:8}}>{adminSection === 'wages' ? `Effective: ${r.effective_date || 'N/A'} · Valid through: ${r.valid_through || 'N/A'}` : `Report Date: ${r.report_date}`} · Submitted: {new Date(r.created_at).toLocaleDateString()}</div>
+              <div style={{fontSize:11, color:"rgba(160,180,196,0.5)", marginTop:8}}>{adminSection === 'wages' ? `Contract Valid Through: ${r.valid_through || 'N/A'}` : `Report Date: ${r.report_date}`} · Submitted: {new Date(r.created_at).toLocaleDateString()}</div>
 
               {editingId === r.id ? renderEditForm(r) : (
                 <div style={{display:"flex", gap:8, marginTop:14, flexWrap:"wrap"}}>
@@ -2950,9 +2950,9 @@ function ApprovedWageCard({ r, lang }) {
     return num.toFixed(2) + '%';
   };
   const labels = {
-    en: { hourly:'Hourly', hw:'Health & Welfare', dpension:'Defined Pension', cpension:'Contribution Pension/Annuity', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'IUOE Training', dues:'Working Dues', total:'Total Package', effective:'Effective:', validThrough:'Valid Through:', viewSheet:'View Wage Sheet', expired:'EXPIRED', viewBreakdown:'View Breakdown', hideBreakdown:'Hide Breakdown', notes:'Notes:' },
-    es: { hourly:'Por Hora', hw:'Salud y Bienestar', dpension:'Pension Definida', cpension:'Pension de Contribucion/Anualidad', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'Entrenamiento IUOE', dues:'Cuotas de Trabajo', total:'Paquete Total', effective:'Vigente:', validThrough:'Valido Hasta:', viewSheet:'Ver Hoja de Salario', expired:'EXPIRADO', viewBreakdown:'Ver Desglose', hideBreakdown:'Ocultar Desglose', notes:'Notas:' },
-    pl: { hourly:'Godzinowo', hw:'Zdrowie i Opieka', dpension:'Emerytura', cpension:'Emerytura Skladkowa', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'Szkolenie IUOE', dues:'Skladki', total:'Pakiet Calkowity', effective:'Obowiazuje od:', validThrough:'Wazne Do:', viewSheet:'Zobacz Stawke', expired:'WYGASLO', viewBreakdown:'Pokaz Szczegoly', hideBreakdown:'Ukryj Szczegoly', notes:'Notatki:' },
+    en: { hourly:'Hourly', hw:'Health & Welfare', dpension:'Defined Pension', cpension:'Contribution Pension/Annuity', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'IUOE Training', dues:'Working Dues', total:'Total Package', effective:'Effective:', validThrough:'Contract Valid Through:', submitted:'Submitted to Union Pathways:', viewSheet:'View Wage Sheet', expired:'EXPIRED', viewBreakdown:'View Breakdown', hideBreakdown:'Hide Breakdown', notes:'Notes:' },
+    es: { hourly:'Por Hora', hw:'Salud y Bienestar', dpension:'Pension Definida', cpension:'Pension de Contribucion/Anualidad', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'Entrenamiento IUOE', dues:'Cuotas de Trabajo', total:'Paquete Total', effective:'Vigente:', validThrough:'Contrato Valido Hasta:', submitted:'Enviado a Union Pathways:', viewSheet:'Ver Hoja de Salario', expired:'EXPIRADO', viewBreakdown:'Ver Desglose', hideBreakdown:'Ocultar Desglose', notes:'Notas:' },
+    pl: { hourly:'Godzinowo', hw:'Zdrowie i Opieka', dpension:'Emerytura', cpension:'Emerytura Skladkowa', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'Szkolenie IUOE', dues:'Skladki', total:'Pakiet Calkowity', effective:'Obowiazuje od:', validThrough:'Umowa Wazna Do:', submitted:'Zgloszone do Union Pathways:', viewSheet:'Zobacz Stawke', expired:'WYGASLO', viewBreakdown:'Pokaz Szczegoly', hideBreakdown:'Ukryj Szczegoly', notes:'Notatki:' },
   };
   const L = labels[lang] || labels.en;
 
@@ -2996,7 +2996,7 @@ function ApprovedWageCard({ r, lang }) {
       </div>
 
       <div style={{display:"flex", gap:16, fontSize:11, color:"var(--muted)", marginTop:8, flexWrap:"wrap"}}>
-        {r.effective_date && <span><strong>{L.effective}</strong> {fmtDate(r.effective_date)}</span>}
+        {r.created_at && <span><strong>{L.submitted}</strong> {fmtDate(r.created_at)}</span>}
         {r.valid_through && <span><strong>{L.validThrough}</strong> {fmtDate(r.valid_through)}</span>}
       </div>
 
@@ -7585,7 +7585,7 @@ export default function UnionPathway() {
                 iuoe_training: wageMethod === 'manual' && isIUOE ? num(wageIUOETraining) || null : null,
                 working_dues: wageMethod === 'manual' ? num(wageWorkingDues) || null : null,
                 total_package: wageMethod === 'manual' ? totalPackage || null : null,
-                effective_date: wageEffectiveDate || null, valid_through: wageValidThrough || null,
+                effective_date: null, valid_through: wageValidThrough || null,
                 notes: wageNotes || null, approved: false,
               });
               if (!window.emailjs) {
@@ -7602,8 +7602,8 @@ export default function UnionPathway() {
                   trade: tradeName, local_name: local.name, city: local.city, state: local.state,
                   status: 'WAGES SUBMISSION',
                   job_calls: wageMethod === 'image' ? `Image upload: ${imageUrl}` : `Manual entry — Hourly: $${wageHourly}, Total: $${totalPackage.toFixed(2)}`,
-                  report_date: wageEffectiveDate || 'N/A', phone: 'N/A', website: 'N/A', local_email: 'N/A',
-                  address: `Effective ${wageEffectiveDate || 'N/A'} - Valid through ${wageValidThrough || 'N/A'}`,
+                  report_date: new Date().toLocaleDateString(), phone: 'N/A', website: 'N/A', local_email: 'N/A',
+                  address: `Contract valid through ${wageValidThrough || 'N/A'}`,
                 });
               } catch (emailErr) { console.warn('Email failed (non-fatal):', emailErr); }
               setWageSubmitted(true);
@@ -7650,7 +7650,7 @@ export default function UnionPathway() {
                 <div style={{background:"rgba(250,128,89,0.06)", border:"1px solid rgba(250,128,89,0.2)", borderRadius:14, padding:"16px 20px", marginBottom:40, display:"flex", gap:12, alignItems:"flex-start"}}>
                   <div style={{color:"#FA8059", fontSize:18, flexShrink:0}}>&#9888;</div>
                   <div style={{fontSize:13, color:"var(--muted)", lineHeight:1.6}}>
-                    {lang==="es" ? "Todos los salarios son enviados por miembros sindicales bajo un sistema de honor. Union Pathways no verifica esta informacion." : lang==="pl" ? "Wszystkie place sa przesylane przez czlonkow zwiazku w systemie honorowym. Union Pathways nie weryfikuje tych informacji." : "All wage data is submitted by union members on an honor system. Union Pathways does not verify this information. Always confirm directly with your local hall."}
+                    <><strong style={{color:"#FA8059", fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1}}>{lang==="es" ? "SISTEMA DE HONOR — " : lang==="pl" ? "SYSTEM HONOROWY — " : "HONOR SYSTEM — "}</strong>{lang==="es" ? "Todos los salarios son enviados por miembros del sindicato y NO son verificados por Union Pathways. Para tarifas finales y 100% precisas, siempre contacte directamente con su local sindical." : lang==="pl" ? "Wszystkie stawki sa przesylane przez czlonkow zwiazku i NIE sa weryfikowane przez Union Pathways. Aby uzyskac koncowe i w 100% dokladne stawki, zawsze skontaktuj sie bezposrednio ze swoim lokalem zwiazkowym." : "All wage data is submitted by union members and is NOT verified by Union Pathways. For final and 100% accurate rates, always contact your local hall directly."}</>
                   </div>
                 </div>
 
@@ -7766,20 +7766,31 @@ export default function UnionPathway() {
 
                       {wageMethod && (
                         <div>
-                          <div style={labelStyle}>{lang==="es" ? "Fecha de Vigencia" : lang==="pl" ? "Data Obowiazywania" : "Effective Date"}<span style={{opacity:0.5, fontWeight:400, textTransform:"none", letterSpacing:0, marginLeft:6}}>({lang==="es" ? "opcional" : lang==="pl" ? "opcjonalne" : "optional"})</span></div>
-                          <input type="date" value={wageEffectiveDate} onChange={e => setWageEffectiveDate(e.target.value)} style={inputStyle} />
+                          <div style={labelStyle}>{lang==="es" ? "Enviado a Union Pathways" : lang==="pl" ? "Zgloszone do Union Pathways" : "Submission to Union Pathways On"}</div>
+                          <div style={{...inputStyle, opacity:0.7, cursor:"default", userSelect:"none"}}>
+                            {new Date().toLocaleDateString(lang==="es" ? "es-ES" : lang==="pl" ? "pl-PL" : "en-US", { year:"numeric", month:"long", day:"numeric" })}
+                          </div>
                           <div style={{fontSize:11, color:"var(--muted)", marginTop:6}}>
-                            {lang==="es" ? "Cuando comenzo esta tarifa." : lang==="pl" ? "Kiedy zaczela obowiazywac ta stawka." : "When this rate started."}
+                            {lang==="es" ? "Capturada automaticamente al enviar." : lang==="pl" ? "Zapisywana automatycznie przy zgloszeniu." : "Automatically captured when you submit."}
                           </div>
                         </div>
                       )}
 
                       {wageMethod && (
                         <div>
-                          <div style={labelStyle}>{lang==="es" ? "Salarios Validos Hasta" : lang==="pl" ? "Stawki Wazne Do" : "Wages Valid Through"}<span style={{opacity:0.5, fontWeight:400, textTransform:"none", letterSpacing:0, marginLeft:6}}>({lang==="es" ? "opcional" : lang==="pl" ? "opcjonalne" : "optional"})</span></div>
+                          <div style={labelStyle}>{lang==="es" ? "Contrato Valido Hasta" : lang==="pl" ? "Umowa Wazna Do" : "Contract Valid Through"}<span style={{opacity:0.5, fontWeight:400, textTransform:"none", letterSpacing:0, marginLeft:6}}>({lang==="es" ? "opcional" : lang==="pl" ? "opcjonalne" : "optional"})</span></div>
                           <input type="date" value={wageValidThrough} onChange={e => setWageValidThrough(e.target.value)} style={inputStyle} />
                           <div style={{fontSize:11, color:"var(--muted)", marginTop:6}}>
                             {lang==="es" ? "Cuando expira el contrato actual." : lang==="pl" ? "Kiedy wygasa obecna umowa." : "When the current contract expires."}
+                          </div>
+                        </div>
+                      )}
+
+                      {wageMethod === 'manual' && !wageImageFile && (
+                        <div style={{padding:"14px 18px", background:"rgba(245,197,24,0.08)", border:"1px solid rgba(245,197,24,0.3)", borderRadius:12, display:"flex", gap:12, alignItems:"flex-start"}}>
+                          <div style={{color:"#F5C518", fontSize:18, flexShrink:0}}>&#9888;</div>
+                          <div style={{fontSize:13, color:"rgba(255,255,255,0.85)", lineHeight:1.5}}>
+                            {lang==="es" ? "Sin una hoja de salario adjunta, esta entrada es solo del sistema de honor. Siempre verifique con su local sindical para tarifas finales y 100% precisas." : lang==="pl" ? "Bez dolaczonej stawki, ten wpis jest tylko w systemie honorowym. Zawsze weryfikuj ze swoim lokalem aby uzyskac koncowe i w 100% dokladne stawki." : "Without a wage sheet attached, this entry is honor-system only. Always contact your local hall directly for final and 100% accurate rates."}
                           </div>
                         </div>
                       )}
