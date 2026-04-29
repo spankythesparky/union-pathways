@@ -6660,22 +6660,7 @@ export default function UnionPathway() {
             return <span ref={ref}>{prefix}{shown.toFixed(decimals)}{suffix}</span>;
           };
 
-          const FadeIn = ({ children, delay = 0 }) => {
-            const [visible, setVisible] = useState(false);
-            const ref = useRef(null);
-            useEffect(() => {
-              const el = ref.current;
-              if (!el) return;
-              const obs = new IntersectionObserver((entries) => {
-                entries.forEach(e => {
-                  if (e.isIntersecting) setTimeout(() => setVisible(true), delay);
-                });
-              }, { threshold: 0.15 });
-              obs.observe(el);
-              return () => obs.disconnect();
-            }, [delay]);
-            return <div ref={ref} style={{opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity 0.7s ease, transform 0.7s ease'}}>{children}</div>;
-          };
+          const FadeIn = ({ children }) => <div>{children}</div>;
 
           const ExpandableCard = ({ year, title, summary, body, accent = '#FA8059' }) => {
             const [open, setOpen] = useState(false);
@@ -6748,7 +6733,7 @@ export default function UnionPathway() {
                     <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>Forged in Conflict.</span>
                   </h1>
                   <p style={{fontSize:18, color:'rgba(255,255,255,0.7)', lineHeight:1.6, maxWidth:680, margin:'0 auto'}}>
-                    From medieval guilds to Amazon warehouses, the story of organized labor is the story of who decides the terms of a person's work. It's a centuries-long contest of riots, reforms, betrayals, and breakthroughs — and it's still being written.
+                    From medieval guilds to modern picket lines, the story of organized labor is the story of who decides the terms of a person's work. It's a centuries-long contest of riots, reforms, betrayals, and breakthroughs — and it's still being written.
                   </p>
                 </FadeIn>
               </div>
