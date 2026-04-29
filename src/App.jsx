@@ -2559,7 +2559,7 @@ function AdminPage() {
       setEditData({
         trade: r.trade || '', local_name: r.local_name || '', city: r.city || '', state: r.state || '',
         hourly: r.hourly || '', health_welfare: r.health_welfare || '', defined_pension: r.defined_pension || '',
-        contribution_pension: r.contribution_pension || '', k401: r.k401 || '', nebf: r.nebf || '',
+        national_pension: r.national_pension || '', contribution_pension: r.contribution_pension || '', k401: r.k401 || '', nebf: r.nebf || '',
         cipf: r.cipf || '', iuoe_training: r.iuoe_training || '', working_dues: r.working_dues || '',
         total_package: r.total_package || '', effective_date: r.effective_date || '', valid_through: r.valid_through || '',
         notes: r.notes || '',
@@ -2616,7 +2616,7 @@ function AdminPage() {
   }
 
   const renderEditForm = (r) => {
-    const wageFields = [['trade','Trade'],['local_name','Local Name'],['city','City'],['state','State'],['hourly','Hourly'],['health_welfare','Health & Welfare'],['defined_pension','Defined Pension'],['contribution_pension','Contribution Pension/Annuity'],['k401','401(k)'],['nebf','NEBF (IBEW only)'],['cipf','CIPF (IUOE only)'],['iuoe_training','IUOE Training (IUOE only)'],['working_dues','Working Dues'],['total_package','Total Package'],['effective_date','Effective Date'],['valid_through','Valid Through'],['notes','Notes']];
+    const wageFields = [['trade','Trade'],['local_name','Local Name'],['city','City'],['state','State'],['hourly','Hourly'],['health_welfare','Health & Welfare'],['defined_pension','Defined Pension'],['national_pension','National Pension'],['contribution_pension','Contribution Pension/Annuity'],['k401','401(k)'],['nebf','NEBF (IBEW only)'],['cipf','CIPF (IUOE only)'],['iuoe_training','IUOE Training (IUOE only)'],['working_dues','Working Dues'],['total_package','Total Package'],['effective_date','Effective Date'],['valid_through','Valid Through'],['notes','Notes']];
     const jobFields = [['trade','Trade'],['local_name','Local Name'],['city','City'],['state','State'],['status','Status (BUSY/STEADY/SLOW)'],['job_calls','Job Calls'],['report_date','Report Date'],['phone','Phone'],['website','Website'],['local_email','Email'],['address','Address']];
     const fields = adminSection === 'wages' ? wageFields : jobFields;
     return (
@@ -2950,9 +2950,9 @@ function ApprovedWageCard({ r, lang }) {
     return num.toFixed(2) + '%';
   };
   const labels = {
-    en: { hourly:'Hourly', hw:'Health & Welfare', dpension:'Defined Pension', cpension:'Contribution Pension/Annuity', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'IUOE Training', dues:'Working Dues', total:'Total Package', effective:'Effective:', validThrough:'Contract Valid Through:', submitted:'Submitted to Union Pathways:', viewSheet:'View Wage Sheet', expired:'EXPIRED', viewBreakdown:'View Breakdown', hideBreakdown:'Hide Breakdown', notes:'Notes:' },
-    es: { hourly:'Por Hora', hw:'Salud y Bienestar', dpension:'Pension Definida', cpension:'Pension de Contribucion/Anualidad', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'Entrenamiento IUOE', dues:'Cuotas de Trabajo', total:'Paquete Total', effective:'Vigente:', validThrough:'Contrato Valido Hasta:', submitted:'Enviado a Union Pathways:', viewSheet:'Ver Hoja de Salario', expired:'EXPIRADO', viewBreakdown:'Ver Desglose', hideBreakdown:'Ocultar Desglose', notes:'Notas:' },
-    pl: { hourly:'Godzinowo', hw:'Zdrowie i Opieka', dpension:'Emerytura', cpension:'Emerytura Skladkowa', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'Szkolenie IUOE', dues:'Skladki', total:'Pakiet Calkowity', effective:'Obowiazuje od:', validThrough:'Umowa Wazna Do:', submitted:'Zgloszone do Union Pathways:', viewSheet:'Zobacz Stawke', expired:'WYGASLO', viewBreakdown:'Pokaz Szczegoly', hideBreakdown:'Ukryj Szczegoly', notes:'Notatki:' },
+    en: { hourly:'Hourly', hw:'Health & Welfare', dpension:'Defined Pension', npension:'National Pension', cpension:'Contribution Pension/Annuity', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'IUOE Training', dues:'Working Dues', total:'Total Package', effective:'Effective:', validThrough:'Contract Valid Through:', submitted:'Submitted to Union Pathways:', viewSheet:'View Wage Sheet', expired:'EXPIRED', viewBreakdown:'View Breakdown', hideBreakdown:'Hide Breakdown', notes:'Notes:' },
+    es: { hourly:'Por Hora', hw:'Salud y Bienestar', dpension:'Pension Definida', npension:'Pension Nacional', cpension:'Pension de Contribucion/Anualidad', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'Entrenamiento IUOE', dues:'Cuotas de Trabajo', total:'Paquete Total', effective:'Vigente:', validThrough:'Contrato Valido Hasta:', submitted:'Enviado a Union Pathways:', viewSheet:'Ver Hoja de Salario', expired:'EXPIRADO', viewBreakdown:'Ver Desglose', hideBreakdown:'Ocultar Desglose', notes:'Notas:' },
+    pl: { hourly:'Godzinowo', hw:'Zdrowie i Opieka', dpension:'Emerytura', npension:'Emerytura Krajowa', cpension:'Emerytura Skladkowa', k401:'401(k)', nebf:'NEBF', cipf:'CIPF', iuoe:'Szkolenie IUOE', dues:'Skladki', total:'Pakiet Calkowity', effective:'Obowiazuje od:', validThrough:'Umowa Wazna Do:', submitted:'Zgloszone do Union Pathways:', viewSheet:'Zobacz Stawke', expired:'WYGASLO', viewBreakdown:'Pokaz Szczegoly', hideBreakdown:'Ukryj Szczegoly', notes:'Notatki:' },
   };
   const L = labels[lang] || labels.en;
 
@@ -2960,6 +2960,7 @@ function ApprovedWageCard({ r, lang }) {
     { key:'hourly', val:r.hourly },
     { key:'hw', val:r.health_welfare },
     { key:'dpension', val:r.defined_pension },
+    { key:'npension', val:r.national_pension },
     { key:'cpension', val:r.contribution_pension },
     { key:'k401', val:r.k401 },
     { key:'nebf', val:r.nebf },
@@ -3187,6 +3188,7 @@ export default function UnionPathway() {
   const [wageHourly, setWageHourly] = useState('');
   const [wageHW, setWageHW] = useState('');
   const [wageDefinedPension, setWageDefinedPension] = useState('');
+  const [wageNationalPension, setWageNationalPension] = useState('');
   const [wageContribPension, setWageContribPension] = useState('');
   const [wage401k, setWage401k] = useState('');
   const [wageNEBF, setWageNEBF] = useState('');
@@ -7553,7 +7555,7 @@ export default function UnionPathway() {
           const isIUOE = wageTrade === 'IUOE';
           const wageLocals = WAGE_TRADES.find(t => t.key === wageTrade)?.locals || [];
           const num = (v) => { const n = parseFloat(v); return isNaN(n) ? 0 : n; };
-          const totalPackage = num(wageHourly) + num(wageHW) + num(wageDefinedPension) + num(wageContribPension) + num(wage401k) + (isIBEW ? num(wageNEBF) : 0) + (isIUOE ? num(wageCIPF) + num(wageIUOETraining) : 0);
+          const totalPackage = num(wageHourly) + num(wageHW) + num(wageDefinedPension) + num(wageNationalPension) + num(wageContribPension) + num(wage401k) + (isIBEW ? num(wageNEBF) : 0) + (isIUOE ? num(wageCIPF) + num(wageIUOETraining) : 0);
 
           const handleWageSubmit = async () => {
             if (!wageTrade || !wageLocal || !wageMethod) return;
@@ -7580,6 +7582,7 @@ export default function UnionPathway() {
                 hourly: wageMethod === 'manual' ? num(wageHourly) || null : null,
                 health_welfare: wageMethod === 'manual' ? num(wageHW) || null : null,
                 defined_pension: wageMethod === 'manual' ? num(wageDefinedPension) || null : null,
+                national_pension: wageMethod === 'manual' ? num(wageNationalPension) || null : null,
                 contribution_pension: wageMethod === 'manual' ? num(wageContribPension) || null : null,
                 k401: wageMethod === 'manual' ? num(wage401k) || null : null,
                 nebf: wageMethod === 'manual' && isIBEW ? num(wageNEBF) || null : null,
@@ -7618,7 +7621,7 @@ export default function UnionPathway() {
           const resetWageForm = () => {
             setWageSubmitted(false); setWageTrade(''); setWageLocal(''); setWageMethod('');
             setWageImageFile(null); setWageHourly(''); setWageHW(''); setWageDefinedPension('');
-            setWageContribPension(''); setWage401k(''); setWageNEBF(''); setWageCIPF('');
+            setWageNationalPension(''); setWageContribPension(''); setWage401k(''); setWageNEBF(''); setWageCIPF('');
             setWageIUOETraining(''); setWageWorkingDues(''); setWageEffectiveDate('');
             setWageValidThrough(''); setWageNotes('');
           };
@@ -7728,6 +7731,7 @@ export default function UnionPathway() {
                           {moneyField(lang==="es" ? "Por Hora" : lang==="pl" ? "Godzinowo" : "Hourly", wageHourly, setWageHourly)}
                           {moneyField(lang==="es" ? "Salud y Bienestar" : lang==="pl" ? "Zdrowie i Opieka" : "Health & Welfare", wageHW, setWageHW, true)}
                           {moneyField(lang==="es" ? "Pension Definida" : lang==="pl" ? "Emerytura Definiowana" : "Defined Pension", wageDefinedPension, setWageDefinedPension, true)}
+                          {moneyField(lang==="es" ? "Pension Nacional" : lang==="pl" ? "Emerytura Krajowa" : "National Pension", wageNationalPension, setWageNationalPension, true)}
                           {moneyField(lang==="es" ? "Pension de Contribucion / Anualidad" : lang==="pl" ? "Emerytura Skladkowa / Renta" : "Contribution Pension / Annuity", wageContribPension, setWageContribPension, true)}
                           {moneyField("401(k)", wage401k, setWage401k, true)}
                           {isIBEW && moneyField("NEBF", wageNEBF, setWageNEBF, true)}
