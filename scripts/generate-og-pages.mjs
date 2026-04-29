@@ -4,6 +4,8 @@ import path from 'node:path';
 const PAGES = {
   '/jobboard':   { title: 'Job Board · Union Pathways', description: 'Real-time work outlook from union members nationwide. See which locals are busy, steady, or slow.' },
   '/wages':      { title: 'Local Wages · Union Pathways', description: 'Journeyman wage rates submitted by union members from locals nationwide. Hourly, fringes, pension, total package — all in one place.' },
+  '/history-ibew': { title: 'IBEW History · Union Pathways', description: 'The full history of the International Brotherhood of Electrical Workers — from Henry Miller and the 1891 St. Louis founding through the Reid-Murphy split, the Council on Industrial Relations, the AT&T breakup, and today\'s data center boom.' },
+  '/trade-history': { title: 'Trade History · Union Pathways', description: 'Deep-dive histories for each union trade are on the way. For now, read the general history of organized labor.' },
   '/careers':    { title: 'Career Path · Union Pathways', description: 'From apprentice to journeyman to foreman — what to expect in a union construction trade career.' },
   '/checklist':  { title: 'Apprenticeship Checklist · Union Pathways', description: 'Step-by-step guide to getting into a union apprenticeship in your area.' },
   '/quiz':       { title: 'Which Trade is Right for You? · Union Pathways', description: 'Take the quiz to find the union construction trade that matches your interests and strengths.' },
