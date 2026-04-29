@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const PAGES = {
   '/jobboard':   { title: 'Job Board · Union Pathways', description: 'Real-time work outlook from union members nationwide. See which locals are busy, steady, or slow.' },
+  '/wages':      { title: 'Local Wages · Union Pathways', description: 'Journeyman wage rates submitted by union members from locals nationwide. Hourly, fringes, pension, total package — all in one place.' },
   '/careers':    { title: 'Career Path · Union Pathways', description: 'From apprentice to journeyman to foreman — what to expect in a union construction trade career.' },
   '/checklist':  { title: 'Apprenticeship Checklist · Union Pathways', description: 'Step-by-step guide to getting into a union apprenticeship in your area.' },
   '/quiz':       { title: 'Which Trade is Right for You? · Union Pathways', description: 'Take the quiz to find the union construction trade that matches your interests and strengths.' },
