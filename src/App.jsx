@@ -7546,12 +7546,26 @@ export default function UnionPathway() {
                             {lang==="es" ? "Local Sindical" : lang==="pl" ? "Lokal Zwiazku" : "Union Local"}
                           </div>
                           <input
-                            type="text"
+                            type="search"
+                            inputMode="search"
+                            autoComplete="off"
+                            autoCorrect="off"
+                            autoCapitalize="none"
+                            spellCheck={false}
                             value={jobLocalSearch}
                             onChange={e => setJobLocalSearch(e.target.value)}
                             placeholder={lang==="es" ? "Buscar por numero de local o ciudad..." : lang==="pl" ? "Szukaj po numerze lub miescie..." : "Search by local number or city..."}
-                            style={{width:"100%", background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"10px 14px", color:"#fff", fontSize:13, fontFamily:"'Inter',sans-serif", marginBottom:8, boxSizing:"border-box"}}
+                            style={{width:"100%", background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"10px 14px", color:"#fff", fontSize:16, fontFamily:"'Inter',sans-serif", marginBottom:8, boxSizing:"border-box"}}
                           />
+                          {jobLocalSearch.trim() && (
+                            <div style={{fontSize:11, color:"rgba(160,180,196,0.7)", marginBottom:8, fontFamily:"'Inter',sans-serif"}}>
+                              {(() => {
+                                const q = jobLocalSearch.trim().toLowerCase();
+                                const n = selectedTradeLocals.filter(l => l.name.toLowerCase().includes(q) || l.city.toLowerCase().includes(q) || (l.state || '').toLowerCase().includes(q)).length;
+                                return n + ' ' + (lang==="es" ? "resultados" : lang==="pl" ? "wynikow" : (n === 1 ? "match" : "matches"));
+                              })()}
+                            </div>
+                          )}
                           <select value={jobLocal} onChange={e => setJobLocal(e.target.value)} size={Math.min(8, Math.max(4, [...selectedTradeLocals].filter(l => { if (!jobLocalSearch.trim()) return true; const q = jobLocalSearch.trim().toLowerCase(); return l.name.toLowerCase().includes(q) || l.city.toLowerCase().includes(q) || (l.state || '').toLowerCase().includes(q); }).length))} style={{width:"100%", background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"8px", color:jobLocal ? "#fff" : "var(--muted)", fontSize:14, fontFamily:"'Inter',sans-serif", cursor:"pointer"}}>
                             {(() => {
                               const q = jobLocalSearch.trim().toLowerCase();
@@ -7783,12 +7797,26 @@ export default function UnionPathway() {
                         <div>
                           <div style={labelStyle}>{lang==="es" ? "Local Sindical" : lang==="pl" ? "Lokal Zwiazku" : "Union Local"}</div>
                           <input
-                            type="text"
+                            type="search"
+                            inputMode="search"
+                            autoComplete="off"
+                            autoCorrect="off"
+                            autoCapitalize="none"
+                            spellCheck={false}
                             value={wageLocalSearch}
                             onChange={e => setWageLocalSearch(e.target.value)}
                             placeholder={lang==="es" ? "Buscar por numero de local o ciudad..." : lang==="pl" ? "Szukaj po numerze lub miescie..." : "Search by local number or city..."}
-                            style={{...inputStyle, fontSize:13, padding:"10px 14px", marginBottom:8}}
+                            style={{...inputStyle, fontSize:16, padding:"10px 14px", marginBottom:8}}
                           />
+                          {wageLocalSearch.trim() && (
+                            <div style={{fontSize:11, color:"rgba(160,180,196,0.7)", marginBottom:8, fontFamily:"'Inter',sans-serif"}}>
+                              {(() => {
+                                const q = wageLocalSearch.trim().toLowerCase();
+                                const n = wageLocals.filter(l => l.name.toLowerCase().includes(q) || l.city.toLowerCase().includes(q) || (l.state || '').toLowerCase().includes(q)).length;
+                                return n + ' ' + (lang==="es" ? "resultados" : lang==="pl" ? "wynikow" : (n === 1 ? "match" : "matches"));
+                              })()}
+                            </div>
+                          )}
                           <select value={wageLocal} onChange={e => setWageLocal(e.target.value)} size={Math.min(8, Math.max(4, [...wageLocals].filter(l => { if (!wageLocalSearch.trim()) return true; const q = wageLocalSearch.trim().toLowerCase(); return l.name.toLowerCase().includes(q) || l.city.toLowerCase().includes(q) || (l.state || '').toLowerCase().includes(q); }).length))} style={{...inputStyle, padding:"8px", cursor:"pointer", color: wageLocal ? "#fff" : "var(--muted)"}}>
                             {(() => {
                               const q = wageLocalSearch.trim().toLowerCase();
