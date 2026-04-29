@@ -5991,7 +5991,6 @@ export default function UnionPathway() {
                   </div>
                   {[
                     {key:'IBEW_I', name:'IBEW Inside', page:'history-ibew', live:true},
-                    {key:'IBEW_L', name:'IBEW Lineman'},
                     {key:'UA', name:'UA — Plumbers & Pipefitters'},
                     {key:'SMART', name:'SMART — Sheet Metal'},
                     {key:'BAC', name:'BAC — Bricklayers'},
