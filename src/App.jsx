@@ -7566,16 +7566,24 @@ export default function UnionPathway() {
                               })()}
                             </div>
                           )}
-                          <select value={jobLocal} onChange={e => setJobLocal(e.target.value)} size={Math.min(8, Math.max(4, [...selectedTradeLocals].filter(l => { if (!jobLocalSearch.trim()) return true; const q = jobLocalSearch.trim().toLowerCase(); return l.name.toLowerCase().includes(q) || l.city.toLowerCase().includes(q) || (l.state || '').toLowerCase().includes(q); }).length))} style={{width:"100%", background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"8px", color:jobLocal ? "#fff" : "var(--muted)", fontSize:14, fontFamily:"'Inter',sans-serif", cursor:"pointer"}}>
+                          <div style={{width:"100%", background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:6, maxHeight:260, overflowY:"auto", fontFamily:"'Inter',sans-serif"}}>
                             {(() => {
                               const q = jobLocalSearch.trim().toLowerCase();
                               const filtered = [...selectedTradeLocals]
                                 .filter(l => !q || l.name.toLowerCase().includes(q) || l.city.toLowerCase().includes(q) || (l.state || '').toLowerCase().includes(q))
                                 .sort((a,b) => { const numA = parseInt(String(a.id).match(/\d+/)?.[0] || '0', 10); const numB = parseInt(String(b.id).match(/\d+/)?.[0] || '0', 10); return numA - numB; });
-                              if (filtered.length === 0) return <option disabled value="">{lang==="es" ? "Sin resultados" : lang==="pl" ? "Brak wynikow" : "No matches"}</option>;
-                              return filtered.map(l => <option key={l.id} value={l.id} style={{background:"#0a1628"}}>{l.name} — {l.city}, {l.state}</option>);
+                              if (filtered.length === 0) return <div style={{padding:"14px 16px", color:"rgba(160,180,196,0.7)", fontSize:13, textAlign:"center"}}>{lang==="es" ? "Sin resultados" : lang==="pl" ? "Brak wynikow" : "No matches"}</div>;
+                              return filtered.map(l => {
+                                const isSelected = String(jobLocal) === String(l.id);
+                                return (
+                                  <div key={l.id} onClick={() => setJobLocal(String(l.id))} style={{padding:"10px 14px", borderRadius:8, marginBottom:2, cursor:"pointer", background: isSelected ? "rgba(250,128,89,0.2)" : "transparent", border: isSelected ? "1px solid rgba(250,128,89,0.5)" : "1px solid transparent", color: isSelected ? "#FA8059" : "#fff", fontSize:14, fontWeight: isSelected ? 700 : 500, transition:"background 0.12s"}} onMouseEnter={e => { if (!isSelected) e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }} onMouseLeave={e => { if (!isSelected) e.currentTarget.style.background = "transparent"; }}>
+                                    <div style={{fontWeight:700, fontSize:14}}>{l.name}</div>
+                                    <div style={{fontSize:12, color: isSelected ? "rgba(250,128,89,0.85)" : "rgba(160,180,196,0.85)", marginTop:2}}>{l.city}, {l.state}</div>
+                                  </div>
+                                );
+                              });
                             })()}
-                          </select>
+                          </div>
                         </div>
                       )}
 
@@ -7817,16 +7825,24 @@ export default function UnionPathway() {
                               })()}
                             </div>
                           )}
-                          <select value={wageLocal} onChange={e => setWageLocal(e.target.value)} size={Math.min(8, Math.max(4, [...wageLocals].filter(l => { if (!wageLocalSearch.trim()) return true; const q = wageLocalSearch.trim().toLowerCase(); return l.name.toLowerCase().includes(q) || l.city.toLowerCase().includes(q) || (l.state || '').toLowerCase().includes(q); }).length))} style={{...inputStyle, padding:"8px", cursor:"pointer", color: wageLocal ? "#fff" : "var(--muted)"}}>
+                          <div style={{width:"100%", background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:6, maxHeight:260, overflowY:"auto", fontFamily:"'Inter',sans-serif"}}>
                             {(() => {
                               const q = wageLocalSearch.trim().toLowerCase();
                               const filtered = [...wageLocals]
                                 .filter(l => !q || l.name.toLowerCase().includes(q) || l.city.toLowerCase().includes(q) || (l.state || '').toLowerCase().includes(q))
                                 .sort((a,b) => { const numA = parseInt(String(a.id).match(/\d+/)?.[0] || '0', 10); const numB = parseInt(String(b.id).match(/\d+/)?.[0] || '0', 10); return numA - numB; });
-                              if (filtered.length === 0) return <option disabled value="">{lang==="es" ? "Sin resultados" : lang==="pl" ? "Brak wynikow" : "No matches"}</option>;
-                              return filtered.map(l => <option key={l.id} value={l.id} style={{background:"#0a1628"}}>{l.name} — {l.city}, {l.state}</option>);
+                              if (filtered.length === 0) return <div style={{padding:"14px 16px", color:"rgba(160,180,196,0.7)", fontSize:13, textAlign:"center"}}>{lang==="es" ? "Sin resultados" : lang==="pl" ? "Brak wynikow" : "No matches"}</div>;
+                              return filtered.map(l => {
+                                const isSelected = String(wageLocal) === String(l.id);
+                                return (
+                                  <div key={l.id} onClick={() => setWageLocal(String(l.id))} style={{padding:"10px 14px", borderRadius:8, marginBottom:2, cursor:"pointer", background: isSelected ? "rgba(250,128,89,0.2)" : "transparent", border: isSelected ? "1px solid rgba(250,128,89,0.5)" : "1px solid transparent", color: isSelected ? "#FA8059" : "#fff", fontSize:14, fontWeight: isSelected ? 700 : 500, transition:"background 0.12s"}} onMouseEnter={e => { if (!isSelected) e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }} onMouseLeave={e => { if (!isSelected) e.currentTarget.style.background = "transparent"; }}>
+                                    <div style={{fontWeight:700, fontSize:14}}>{l.name}</div>
+                                    <div style={{fontSize:12, color: isSelected ? "rgba(250,128,89,0.85)" : "rgba(160,180,196,0.85)", marginTop:2}}>{l.city}, {l.state}</div>
+                                  </div>
+                                );
+                              });
                             })()}
-                          </select>
+                          </div>
                         </div>
                       )}
 
