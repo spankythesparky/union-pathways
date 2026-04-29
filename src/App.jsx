@@ -58,7 +58,7 @@ const IBEW_INSIDE_LOCALS = [
   { id: 10006, name: "IBEW Local 6", city: "San francisco", state: "US", phone: "(415) 861-5752", website: "ibew6.org", lat: 37.7879363, lng: -122.4075201, address: "55 Fillmore St #2, San Francisco, CA 94117" },
   { id: 10007, name: "IBEW Local 7", city: "Springfield", state: "MA", phone: "4137347137", website: "www.ibewlocal7.com", lat: 42.1074494, lng: -72.5943113, address: "95 Liberty Street, Springfield, MA 01103" },
   { id: 10008, name: "IBEW Local 8", city: "Toledo ohio", state: "OH", phone: "419-666-8920", website: "www.ibew8.org", lat: 41.5900966, lng: -83.5673292, address: "807 Lime City Rd, Rossford, OH 43460" },
-  { id: 10011, name: "IBEW Local 11", city: "Los Angeles", state: "CA", phone: "3235179610", website: "www.ibew11.org", lat: 33.6059066, lng: -117.8898772, address: "297 N Merengo, Pasadena, CA" },
+  { id: 10011, name: "IBEW Local 11", city: "Los Angeles", state: "CA", phone: "(626) 243-9700", website: "www.ibew11.org", lat: 34.1485, lng: -118.1445, address: "297 N Marengo Ave, Pasadena, CA 91101" },
   { id: 10012, name: "IBEW Local 12", city: "Pueblo", state: "CO", phone: "(719) 561-8000", website: "www.ibew12.org", lat: 38.2151104, lng: -104.6451832, address: "2901 Farabaugh Lane, Pueblo, CO 81005" },
   { id: 10013, name: "IBEW Local 13", city: "Burlington", state: "IA", phone: "(319) 752-0452", website: "www.ibewlocal13.com", lat: 40.8207978, lng: -91.1086516, address: "1205 N Central Avenue, Burlington, IA 52601" },
   { id: 10014, name: "IBEW Local 14", city: "Eau claire", state: "WI", phone: "(715) 878-4068", website: "www.ibew14.net", lat: 44.811349, lng: -91.4984941, address: "9480 Highway 53, Fall Creek, WI 54742" },
