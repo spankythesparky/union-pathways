@@ -3179,12 +3179,14 @@ export default function UnionPathway() {
   const [showResults, setShowResults] = useState(false);
   const [jobTrade, setJobTrade] = useState('');
   const [jobLocal, setJobLocal] = useState('');
+  const [jobLocalSearch, setJobLocalSearch] = useState('');
   const [jobStatus, setJobStatus] = useState('');
   const [jobCalls, setJobCalls] = useState('');
   const [jobDate, setJobDate] = useState('');
   const [jobSubmitted, setJobSubmitted] = useState(false);
   const [wageTrade, setWageTrade] = useState('');
   const [wageLocal, setWageLocal] = useState('');
+  const [wageLocalSearch, setWageLocalSearch] = useState('');
   const [wageMethod, setWageMethod] = useState('');
   const [wageImageFile, setWageImageFile] = useState(null);
   const [wageHourly, setWageHourly] = useState('');
@@ -7519,7 +7521,7 @@ export default function UnionPathway() {
                     <div style={{textAlign:"center", padding:"40px 0"}}>
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:28, fontWeight:900, color:"#FA8059", marginBottom:12}}>Report Submitted!</div>
                       <div style={{fontSize:14, color:"var(--muted)", marginBottom:24}}>Your report is under review. Once approved it will appear on the Job Board.</div>
-                      <button onClick={() => { setJobSubmitted(false); setJobTrade(''); setJobLocal(''); setJobStatus(''); setJobCalls(''); setJobDate(''); }} style={{background:"rgba(250,128,89,0.1)", border:"1px solid rgba(250,128,89,0.3)", borderRadius:50, padding:"10px 24px", color:"#FA8059", fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, cursor:"pointer"}}>
+                      <button onClick={() => { setJobSubmitted(false); setJobTrade(''); setJobLocal(''); setJobLocalSearch(''); setJobStatus(''); setJobCalls(''); setJobDate(''); }} style={{background:"rgba(250,128,89,0.1)", border:"1px solid rgba(250,128,89,0.3)", borderRadius:50, padding:"10px 24px", color:"#FA8059", fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, cursor:"pointer"}}>
                         Submit Another
                       </button>
                     </div>
@@ -7531,7 +7533,7 @@ export default function UnionPathway() {
                         <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FA8059", marginBottom:8}}>
                           {lang==="es" ? "Oficio" : lang==="pl" ? "Zawod" : "Trade"}
                         </div>
-                        <select value={jobTrade} onChange={e => { setJobTrade(e.target.value); setJobLocal(''); }} style={{width:"100%", background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", color:jobTrade ? "#fff" : "var(--muted)", fontSize:14, fontFamily:"'Inter',sans-serif", cursor:"pointer"}}>
+                        <select value={jobTrade} onChange={e => { setJobTrade(e.target.value); setJobLocal(''); setJobLocalSearch(''); }} style={{width:"100%", background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", color:jobTrade ? "#fff" : "var(--muted)", fontSize:14, fontFamily:"'Inter',sans-serif", cursor:"pointer"}}>
                           <option value="">{lang==="es" ? "Selecciona tu oficio..." : lang==="pl" ? "Wybierz zawod..." : "Select your trade..."}</option>
                           {JOB_TRADES.map(t => <option key={t.key} value={t.key} style={{background:"#0a1628"}}>{t.label}</option>)}
                         </select>
@@ -7543,9 +7545,22 @@ export default function UnionPathway() {
                           <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FA8059", marginBottom:8}}>
                             {lang==="es" ? "Local Sindical" : lang==="pl" ? "Lokal Zwiazku" : "Union Local"}
                           </div>
-                          <select value={jobLocal} onChange={e => setJobLocal(e.target.value)} style={{width:"100%", background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", color:jobLocal ? "#fff" : "var(--muted)", fontSize:14, fontFamily:"'Inter',sans-serif", cursor:"pointer"}}>
-                            <option value="">{lang==="es" ? "Selecciona tu local..." : lang==="pl" ? "Wybierz lokal..." : "Select your local..."}</option>
-                            {[...selectedTradeLocals].sort((a,b) => { const numA = parseInt(String(a.id).match(/\d+/)?.[0] || '0', 10); const numB = parseInt(String(b.id).match(/\d+/)?.[0] || '0', 10); return numA - numB; }).map(l => <option key={l.id} value={l.id} style={{background:"#0a1628"}}>{l.name} — {l.city}, {l.state}</option>)}
+                          <input
+                            type="text"
+                            value={jobLocalSearch}
+                            onChange={e => setJobLocalSearch(e.target.value)}
+                            placeholder={lang==="es" ? "Buscar por numero de local o ciudad..." : lang==="pl" ? "Szukaj po numerze lub miescie..." : "Search by local number or city..."}
+                            style={{width:"100%", background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"10px 14px", color:"#fff", fontSize:13, fontFamily:"'Inter',sans-serif", marginBottom:8, boxSizing:"border-box"}}
+                          />
+                          <select value={jobLocal} onChange={e => setJobLocal(e.target.value)} size={Math.min(8, Math.max(4, [...selectedTradeLocals].filter(l => { if (!jobLocalSearch.trim()) return true; const q = jobLocalSearch.trim().toLowerCase(); return l.name.toLowerCase().includes(q) || l.city.toLowerCase().includes(q) || (l.state || '').toLowerCase().includes(q); }).length))} style={{width:"100%", background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"8px", color:jobLocal ? "#fff" : "var(--muted)", fontSize:14, fontFamily:"'Inter',sans-serif", cursor:"pointer"}}>
+                            {(() => {
+                              const q = jobLocalSearch.trim().toLowerCase();
+                              const filtered = [...selectedTradeLocals]
+                                .filter(l => !q || l.name.toLowerCase().includes(q) || l.city.toLowerCase().includes(q) || (l.state || '').toLowerCase().includes(q))
+                                .sort((a,b) => { const numA = parseInt(String(a.id).match(/\d+/)?.[0] || '0', 10); const numB = parseInt(String(b.id).match(/\d+/)?.[0] || '0', 10); return numA - numB; });
+                              if (filtered.length === 0) return <option disabled value="">{lang==="es" ? "Sin resultados" : lang==="pl" ? "Brak wynikow" : "No matches"}</option>;
+                              return filtered.map(l => <option key={l.id} value={l.id} style={{background:"#0a1628"}}>{l.name} — {l.city}, {l.state}</option>);
+                            })()}
                           </select>
                         </div>
                       )}
@@ -7696,7 +7711,7 @@ export default function UnionPathway() {
           };
 
           const resetWageForm = () => {
-            setWageSubmitted(false); setWageTrade(''); setWageLocal(''); setWageMethod('');
+            setWageSubmitted(false); setWageTrade(''); setWageLocal(''); setWageLocalSearch(''); setWageMethod('');
             setWageImageFile(null); setWageHourly(''); setWageHW(''); setWageDefinedPension('');
             setWageNationalPension(''); setWageContribPension(''); setWage401k(''); setWageNEBF(''); setWageCIPF('');
             setWageIUOETraining(''); setWageMiscFunds(''); setWageWorkingDues(''); setWageEffectiveDate('');
@@ -7758,7 +7773,7 @@ export default function UnionPathway() {
 
                       <div>
                         <div style={labelStyle}>{lang==="es" ? "Oficio" : lang==="pl" ? "Zawod" : "Trade"}</div>
-                        <select value={wageTrade} onChange={e => { setWageTrade(e.target.value); setWageLocal(''); }} style={{...inputStyle, cursor:"pointer", color: wageTrade ? "#fff" : "var(--muted)"}}>
+                        <select value={wageTrade} onChange={e => { setWageTrade(e.target.value); setWageLocal(''); setWageLocalSearch(''); }} style={{...inputStyle, cursor:"pointer", color: wageTrade ? "#fff" : "var(--muted)"}}>
                           <option value="">{lang==="es" ? "Selecciona tu oficio..." : lang==="pl" ? "Wybierz zawod..." : "Select your trade..."}</option>
                           {WAGE_TRADES.map(t => <option key={t.key} value={t.key} style={{background:"#0a1628"}}>{t.label}</option>)}
                         </select>
@@ -7767,9 +7782,22 @@ export default function UnionPathway() {
                       {wageTrade && (
                         <div>
                           <div style={labelStyle}>{lang==="es" ? "Local Sindical" : lang==="pl" ? "Lokal Zwiazku" : "Union Local"}</div>
-                          <select value={wageLocal} onChange={e => setWageLocal(e.target.value)} style={{...inputStyle, cursor:"pointer", color: wageLocal ? "#fff" : "var(--muted)"}}>
-                            <option value="">{lang==="es" ? "Selecciona tu local..." : lang==="pl" ? "Wybierz lokal..." : "Select your local..."}</option>
-                            {[...wageLocals].sort((a,b) => { const numA = parseInt(String(a.id).match(/\d+/)?.[0] || '0', 10); const numB = parseInt(String(b.id).match(/\d+/)?.[0] || '0', 10); return numA - numB; }).map(l => <option key={l.id} value={l.id} style={{background:"#0a1628"}}>{l.name} — {l.city}, {l.state}</option>)}
+                          <input
+                            type="text"
+                            value={wageLocalSearch}
+                            onChange={e => setWageLocalSearch(e.target.value)}
+                            placeholder={lang==="es" ? "Buscar por numero de local o ciudad..." : lang==="pl" ? "Szukaj po numerze lub miescie..." : "Search by local number or city..."}
+                            style={{...inputStyle, fontSize:13, padding:"10px 14px", marginBottom:8}}
+                          />
+                          <select value={wageLocal} onChange={e => setWageLocal(e.target.value)} size={Math.min(8, Math.max(4, [...wageLocals].filter(l => { if (!wageLocalSearch.trim()) return true; const q = wageLocalSearch.trim().toLowerCase(); return l.name.toLowerCase().includes(q) || l.city.toLowerCase().includes(q) || (l.state || '').toLowerCase().includes(q); }).length))} style={{...inputStyle, padding:"8px", cursor:"pointer", color: wageLocal ? "#fff" : "var(--muted)"}}>
+                            {(() => {
+                              const q = wageLocalSearch.trim().toLowerCase();
+                              const filtered = [...wageLocals]
+                                .filter(l => !q || l.name.toLowerCase().includes(q) || l.city.toLowerCase().includes(q) || (l.state || '').toLowerCase().includes(q))
+                                .sort((a,b) => { const numA = parseInt(String(a.id).match(/\d+/)?.[0] || '0', 10); const numB = parseInt(String(b.id).match(/\d+/)?.[0] || '0', 10); return numA - numB; });
+                              if (filtered.length === 0) return <option disabled value="">{lang==="es" ? "Sin resultados" : lang==="pl" ? "Brak wynikow" : "No matches"}</option>;
+                              return filtered.map(l => <option key={l.id} value={l.id} style={{background:"#0a1628"}}>{l.name} — {l.city}, {l.state}</option>);
+                            })()}
                           </select>
                         </div>
                       )}
