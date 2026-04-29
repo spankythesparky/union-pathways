@@ -3158,6 +3158,7 @@ export default function UnionPathway() {
   const [error, setError] = useState("");
   const [geoLoading, setGeoLoading] = useState(false);
   const [showMap, setShowMap] = useState(false);
+  const [searchMode, setSearchMode] = useState('radius');
 
   const [locationLabel, setLocationLabel] = useState("");
   const [heroVisible, setHeroVisible] = useState(false);
@@ -4295,6 +4296,13 @@ export default function UnionPathway() {
     const qLow = q.toLowerCase();
     if (CITY_COORDS[qLow]) return { lat: CITY_COORDS[qLow][0], lng: CITY_COORDS[qLow][1], display: q };
 
+    // State-only check BEFORE Nominatim — return marker for full-state search
+    const stateAbbrEarly = STATE_NAMES[qLow] || (STATE_CENTERS[q.toUpperCase()] ? q.toUpperCase() : null);
+    if (stateAbbrEarly && STATE_CENTERS[stateAbbrEarly]) {
+      const scEarly = STATE_CENTERS[stateAbbrEarly];
+      return { lat: scEarly.lat, lng: scEarly.lng, display: q, isStateSearch: true, stateAbbr: stateAbbrEarly };
+    }
+
     // Try parsing "City, State" / "City State" / "City, ST" / "City ST" / "City, ST 12345"
     // Strip any trailing 5-digit ZIP first
     const qNoZip = qLow.replace(/\b\d{5}(?:-\d{4})?\b\s*$/, '').trim();
@@ -4360,11 +4368,11 @@ export default function UnionPathway() {
       // Fall through to local lookup
     }
 
-    // Fallback: state name only
+    // Fallback: state name only — return marker so we can show ALL locals in that state
     const stateAbbr2 = STATE_NAMES[qLow] || (STATE_CENTERS[q.toUpperCase()] ? q.toUpperCase() : null);
     if (stateAbbr2 && STATE_CENTERS[stateAbbr2]) {
       const sc2 = STATE_CENTERS[stateAbbr2];
-      return { lat: sc2.lat, lng: sc2.lng, display: q };
+      return { lat: sc2.lat, lng: sc2.lng, display: q, isStateSearch: true, stateAbbr: stateAbbr2 };
     }
 
     // Fallback: city name search across all locals
@@ -4438,8 +4446,16 @@ export default function UnionPathway() {
     const withDist = database
       .map(l => ({ ...l, distance: getDistanceMiles(loc.lat, loc.lng, l.lat, l.lng) }))
       .sort((a, b) => a.distance - b.distance);
-    const within150 = withDist.filter(l => l.distance <= 50);
-    setResults(within150);
+    let filtered;
+    if (loc.isStateSearch && loc.stateAbbr) {
+      // State-only search: return ALL locals in that state, ignore radius
+      filtered = withDist.filter(l => (l.state || '').toUpperCase() === loc.stateAbbr);
+    } else {
+      // ZIP/city/address: 50-mile radius
+      filtered = withDist.filter(l => l.distance <= 50);
+    }
+    setSearchMode(loc.isStateSearch ? 'state' : 'radius');
+    setResults(filtered);
     setLoading(false);
   };
 
@@ -6267,7 +6283,17 @@ export default function UnionPathway() {
         {results && (
           <div className="results-section">
             <div className="results-header">
-              <div className="results-title"><span>{results.length}</span> {t.nearYou}</div>
+              <div className="results-title">
+                <span>{results.length}</span>{' '}
+                {searchMode === 'state'
+                  ? (lang==="es" ? "Locales en este Estado" : lang==="pl" ? "Lokali w Tym Stanie" : "Locals in This State")
+                  : t.nearYou}
+                {searchMode === 'radius' && results.length > 0 && (
+                  <div style={{fontSize:11, fontWeight:400, color:"rgba(160,180,196,0.7)", marginTop:4, letterSpacing:0.3}}>
+                    {lang==="es" ? "Mostrando locales dentro de 50 millas. Busque por estado para ver mas." : lang==="pl" ? "Pokazuje lokale w promieniu 50 mil. Szukaj po stanie aby zobaczyc wiecej." : "Showing locals within a 50-mile radius. Search by state to see more."}
+                  </div>
+                )}
+              </div>
               <div style={{display:"flex",alignItems:"center",gap:10}}>
                 <div className="results-location">📍 {locationLabel}</div>
                 <button
