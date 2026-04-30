@@ -4405,7 +4405,7 @@ export default function UnionPathway() {
         html: '<div style="width:14px;height:14px;background:#FA8059;border-radius:50%;border:2px solid white;box-shadow:0 0 10px rgba(250,128,89,0.9);"></div>',
         iconSize: [14,14], iconAnchor: [7,7]
       });
-      const markers = results.map(local => {
+      const markers = results.filter(local => local.id !== 20404).map(local => {
         const m = L.marker([local.lat, local.lng], {icon}).addTo(map);
         m.bindPopup('<b>' + local.name + '</b><br/>' + local.city + ', ' + local.state + (local.phone ? '<br/>' + local.phone : '') + (local.address ? '<br/><small>' + local.address + '</small>' : ''));
         return m;
