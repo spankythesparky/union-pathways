@@ -1107,7 +1107,7 @@ const UA_LOCALS = [
   { id: 20400, name: "UA Local 400", city: "Appleton", state: "WI", phone: "920-462-0400", website: "ua400.org", lat: 44.2613967, lng: -88.4069744, address: "2700 NORTHRIDGE DR, KAUKAUNA, WI 54130" },
   { id: 20401, name: "UA Local 401", city: "Eastern-central", state: "ON", phone: "905-623-1666", website: "www.ualocal401.ca", address: "26 CARISTRAP ST UNIT 3, BOWMANVILLE, ON L1C 3Y7" , lat: 43.6532, lng: -79.3832},
   { id: 20403, name: "UA Local 403", city: "San luis obispo", state: "CA", phone: "805-543-2416", website: "www.ua403.org", lat: 35.2521413, lng: -120.6450368, address: "3710 BROAD ST, SAN LUIS OBISPO, CA 93401" },
-  { id: 20404, name: "UA Local 404", city: "Northwest", state: "TE", phone: "806-744-3835", website: "ualocal404.org", address: "510 AVE G, LUBBOCK, TX 79401" , lat: 62.454, lng: -114.3718},
+  { id: 20404, name: "UA Local 404", city: "Lubbock", state: "TX", phone: "806-744-3835", website: "ualocal404.org", address: "510 AVE G, LUBBOCK, TX 79401" , lat: 33.5779, lng: -101.8530},
   { id: 20412, name: "UA Local 412", city: "Albuquerque", state: "NM", phone: "505-265-1513", website: "ualocal412.org", lat: 35.0844, lng: -106.6504, address: "510 SAN PEDRO DR SE, ALBUQUERQUE, NM 87108," },
   { id: 20417, name: "UA Local 417", city: "Minneapolis", state: "MN", phone: "612-781-5804", website: "www.local417.com", lat: 44.9778, lng: -93.265, address: "529 COUNTY RD EW, SHOREVIEW, MN 55126" },
   { id: 20420, name: "UA Local 420", city: "Philadephia", state: "PA", phone: "267-350-4200", website: "www.lu420.com", lat: 40.1057144, lng: -74.9797534, address: "14420 TOWNSEND RD, PHILADELPHIA, PA 19154" },
