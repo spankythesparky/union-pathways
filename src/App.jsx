@@ -3215,7 +3215,7 @@ export default function UnionPathway() {
   // URL-aware page state
   const getPageFromUrl = () => {
     const path = window.location.pathname.replace('/', '') || 'home';
-    const validPages = ['home','quiz','careers','checklist','locals','calculator','resume','veterans','history','trade-history','history-ibew','history-ua','retirement','health','benefits','about','contact','jobboard','wages'];
+    const validPages = ['home','quiz','careers','checklist','locals','calculator','resume','veterans','history','trade-history','history-ibew','history-ua','retirement','benefits','about','contact','jobboard','wages'];
     return validPages.includes(path) ? path : 'home';
   };
   const [page, setPageState] = useState(getPageFromUrl);
@@ -5941,7 +5941,7 @@ export default function UnionPathway() {
             {/* LEARN DROPDOWN */}
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
-                className={`nav-dropdown-btn${(page==="benefits"||page==="retirement"||page==="health"||page==="veterans")?" active":""}${learnOpen?" open":""}`}
+                className={`nav-dropdown-btn${(page==="benefits"||page==="retirement"||page==="veterans")?" active":""}${learnOpen?" open":""}`}
                 onClick={() => { setLearnOpen(o => !o); setApprenticeOpen(false); }}
                 onBlur={() => setTimeout(() => setLearnOpen(false), 150)}
               >
@@ -5959,10 +5959,6 @@ export default function UnionPathway() {
                   <div className={`nav-dropdown-item${page==="retirement"?" active":""}`} onMouseDown={() => { setPage("retirement"); setLearnOpen(false); }}>
                     <span className="nav-dropdown-label">{lang==="es" ? "Jubilación" : lang==="pl" ? "Emerytura" : "Retirement"}</span>
                     <span className="nav-dropdown-sub">{lang==="es" ? "401k vs Anualidad vs Pensión" : lang==="pl" ? "401k vs Renta vs Emerytura" : "401k vs Annuity vs Pension"}</span>
-                  </div>
-                  <div className={`nav-dropdown-item${page==="health"?" active":""}`} onMouseDown={() => { setPage("health"); setLearnOpen(false); }}>
-                    <span className="nav-dropdown-label">{lang==="es" ? "Seguro de Salud" : lang==="pl" ? "Ubezpieczenie Zdrowotne" : "Health Insurance"}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "Pagado por el contratista" : lang==="pl" ? "Płacone przez wykonawcę" : "Paid by your contractor"}</span>
                   </div>
                   <div className={`nav-dropdown-item${page==="veterans"?" active":""}`} onMouseDown={() => { setPage("veterans"); setLearnOpen(false); }}>
                     <span className="nav-dropdown-label">{lang==="es" ? "Veteranos" : lang==="pl" ? "Weterani" : "Veterans"}</span>
@@ -10014,7 +10010,6 @@ export default function UnionPathway() {
                 { label: "Career Paths", desc: "Apprentice to journeyman wages and stages", page:"careers", keywords:["career","wages","salary","apprentice","journeyman","foreman","pay"] },
                 { label: "Union Benefits", desc: "Pension, health insurance, annuity overview", page:"benefits", keywords:["benefits","pension","health","annuity","insurance","retirement"] },
                 { label: "Retirement", desc: "401k vs Annuity vs Pension explained", page:"retirement", keywords:["retirement","401k","pension","annuity","401","retire"] },
-                { label: "Health Insurance", desc: "How contractor-paid health insurance works", page:"health", keywords:["health","insurance","medical","dental","vision","contractor"] },
                 { label: "Union History", desc: "How unions built America", page:"history", keywords:["history","weekend","8 hour","wagner","osha","labor","movement"] },
                 { label: "Veterans", desc: "Helmets to Hardhats and veteran resources", page:"veterans", keywords:["veteran","military","helmets","hardhats","h2h","service","army","navy"] },
                 { label: "About", desc: "The story behind Union Pathways", page:"about", keywords:["about","noah","founder","spanky","sparky","story","ibew","ohio"] },
