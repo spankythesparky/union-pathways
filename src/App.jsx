@@ -3211,6 +3211,7 @@ export default function UnionPathway() {
   const [globalQuery, setGlobalQuery] = useState("");
   const [learnOpen, setLearnOpen] = useState(false);
   const [historyOpen, setHistoryOpen] = useState(false);
+  const [getInTouchOpen, setGetInTouchOpen] = useState(false);
   const [selectedTrade, setSelectedTrade] = useState("IBEW_I");
   // URL-aware page state
   const getPageFromUrl = () => {
@@ -5924,7 +5925,7 @@ export default function UnionPathway() {
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
                 className={`nav-dropdown-btn${(page==="checklist"||page==="careers"||page==="quiz")?" active":""}${apprenticeOpen?" open":""}`}
-                onClick={() => { setApprenticeOpen(o => !o); setLearnOpen(false); }}
+                onClick={() => { setApprenticeOpen(o => !o); setLearnOpen(false); setHistoryOpen(false); setGetInTouchOpen(false); }}
                 onBlur={() => setTimeout(() => setApprenticeOpen(false), 150)}
               >
                 {lang==="es" ? "Aprendiz" : lang==="pl" ? "Praktykant" : "Apprentice"}
@@ -5966,7 +5967,7 @@ export default function UnionPathway() {
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
                 className={`nav-dropdown-btn${(page==="benefits"||page==="retirement"||page==="veterans")?" active":""}${learnOpen?" open":""}`}
-                onClick={() => { setLearnOpen(o => !o); setApprenticeOpen(false); }}
+                onClick={() => { setLearnOpen(o => !o); setApprenticeOpen(false); setHistoryOpen(false); setGetInTouchOpen(false); }}
                 onBlur={() => setTimeout(() => setLearnOpen(false), 150)}
               >
                 {lang==="es" ? "Beneficios" : lang==="pl" ? "Świadczenia" : "Benefits"}
@@ -5996,7 +5997,7 @@ export default function UnionPathway() {
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
                 className={`nav-dropdown-btn${(page==="history"||page==="trade-history")?" active":""}${historyOpen?" open":""}`}
-                onClick={() => { setHistoryOpen(o => !o); setLearnOpen(false); setApprenticeOpen(false); }}
+                onClick={() => { setHistoryOpen(o => !o); setLearnOpen(false); setApprenticeOpen(false); setGetInTouchOpen(false); }}
                 onBlur={() => setTimeout(() => setHistoryOpen(false), 150)}
               >
                 {lang==="es" ? "Historia" : lang==="pl" ? "Historia" : "History"}
@@ -6035,8 +6036,31 @@ export default function UnionPathway() {
 
             <button className={`nav-link ${page==="jobboard"?"active":""}`} onClick={() => setPage("jobboard")}>{lang==="es" ? "Bolsa de Trabajo" : lang==="pl" ? "Gielda Pracy" : "Job Board"}</button>
             <button className={`nav-link ${page==="wages"?"active":""}`} onClick={() => setPage("wages")}>{lang==="es" ? "Salarios" : lang==="pl" ? "Place" : "Wages"}</button>
-            <button className={`nav-link ${page==="about"?"active":""}`} onClick={() => setPage("about")}>{lang==="es" ? "Nosotros" : lang==="pl" ? "O Nas" : "About"}</button>
-            <button className={`nav-link ${page==="contact"?"active":""}`} onClick={() => { setPage("contact"); setContactSent(false); }}>{t.navContact}</button>
+            {/* GET IN TOUCH DROPDOWN */}
+            <div className="nav-dropdown-wrap" style={{position:"relative"}}>
+              <button
+                className={`nav-dropdown-btn${(page==="about"||page==="contact")?" active":""}${getInTouchOpen?" open":""}`}
+                onClick={() => { setGetInTouchOpen(o => !o); setApprenticeOpen(false); setLearnOpen(false); setHistoryOpen(false); }}
+                onBlur={() => setTimeout(() => setGetInTouchOpen(false), 150)}
+              >
+                {lang==="es" ? "Contáctanos" : lang==="pl" ? "Kontakt" : "Get in Touch"}
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              {getInTouchOpen && (
+                <div className="nav-dropdown-menu">
+                  <div className={`nav-dropdown-item${page==="about"?" active":""}`} onMouseDown={() => { setPage("about"); setGetInTouchOpen(false); }}>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Nosotros" : lang==="pl" ? "O Nas" : "About"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Quiénes somos y por qué" : lang==="pl" ? "Kim jesteśmy i dlaczego" : "Who we are and why"}</span>
+                  </div>
+                  <div className={`nav-dropdown-item${page==="contact"?" active":""}`} onMouseDown={() => { setPage("contact"); setContactSent(false); setGetInTouchOpen(false); }}>
+                    <span className="nav-dropdown-label">{t.navContact}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Envíanos un mensaje" : lang==="pl" ? "Wyślij nam wiadomość" : "Send us a message"}</span>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
 
           <div style={{display:"flex", alignItems:"center", gap:"6px"}}>
