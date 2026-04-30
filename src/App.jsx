@@ -3234,6 +3234,30 @@ export default function UnionPathway() {
   const inputRef = useRef(null);
   const dropdownRef = useRef(null);
 
+  // App-level scroll progress for long-form pages (history, history-ibew,
+  // history-ua, benefits). Always mounted so React's hook order stays stable
+  // across page navigations.
+  const [scrollProgress, setScrollProgress] = useState(0);
+  useEffect(() => {
+    const onScroll = () => {
+      const candidates = ['history-root','ibew-history-root','ua-history-root','benefits-root'];
+      let el = null;
+      for (const id of candidates) {
+        const found = document.getElementById(id);
+        if (found) { el = found; break; }
+      }
+      if (!el) { setScrollProgress(0); return; }
+      const rect = el.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      const scrolled = -rect.top;
+      const p = Math.max(0, Math.min(1, scrolled / Math.max(1, total)));
+      setScrollProgress(p);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [page]);
+
   // ── TRANSLATIONS ────────────────────────────────────────────────────────────
   const T = {
     en: {
@@ -6649,25 +6673,6 @@ export default function UnionPathway() {
         )}
 
         {page === "history" && (() => {
-          const useScrollProgress = () => {
-            const [progress, setProgress] = useState(0);
-            useEffect(() => {
-              const onScroll = () => {
-                const el = document.getElementById('history-root');
-                if (!el) return;
-                const rect = el.getBoundingClientRect();
-                const total = rect.height - window.innerHeight;
-                const scrolled = -rect.top;
-                const p = Math.max(0, Math.min(1, scrolled / Math.max(1, total)));
-                setProgress(p);
-              };
-              window.addEventListener('scroll', onScroll, { passive: true });
-              onScroll();
-              return () => window.removeEventListener('scroll', onScroll);
-            }, []);
-            return progress;
-          };
-
           const AnimatedNumber = ({ value, suffix = '', prefix = '', decimals = 0 }) => {
             const [shown, setShown] = useState(0);
             const ref = useRef(null);
@@ -6752,7 +6757,6 @@ export default function UnionPathway() {
             </FadeIn>
           );
 
-          const scrollProgress = useScrollProgress();
 
           return (
             <div id="history-root">
@@ -7152,25 +7156,6 @@ export default function UnionPathway() {
         })()}
 
         {page === "history-ibew" && (() => {
-          const useScrollProgress = () => {
-            const [progress, setProgress] = useState(0);
-            useEffect(() => {
-              const onScroll = () => {
-                const el = document.getElementById('ibew-history-root');
-                if (!el) return;
-                const rect = el.getBoundingClientRect();
-                const total = rect.height - window.innerHeight;
-                const scrolled = -rect.top;
-                const p = Math.max(0, Math.min(1, scrolled / Math.max(1, total)));
-                setProgress(p);
-              };
-              window.addEventListener('scroll', onScroll, { passive: true });
-              onScroll();
-              return () => window.removeEventListener('scroll', onScroll);
-            }, []);
-            return progress;
-          };
-
           const AnimatedNumber = ({ value, suffix = '', prefix = '', decimals = 0 }) => {
             const [shown, setShown] = useState(0);
             const ref = useRef(null);
@@ -7251,7 +7236,6 @@ export default function UnionPathway() {
             </div>
           );
 
-          const scrollProgress = useScrollProgress();
 
           return (
             <div id="ibew-history-root">
@@ -7564,25 +7548,6 @@ export default function UnionPathway() {
         })()}
 
         {page === "history-ua" && (() => {
-          const useScrollProgress = () => {
-            const [progress, setProgress] = useState(0);
-            useEffect(() => {
-              const onScroll = () => {
-                const el = document.getElementById('ua-history-root');
-                if (!el) return;
-                const rect = el.getBoundingClientRect();
-                const total = rect.height - window.innerHeight;
-                const scrolled = -rect.top;
-                const p = Math.max(0, Math.min(1, scrolled / Math.max(1, total)));
-                setProgress(p);
-              };
-              window.addEventListener('scroll', onScroll, { passive: true });
-              onScroll();
-              return () => window.removeEventListener('scroll', onScroll);
-            }, []);
-            return progress;
-          };
-
           const AnimatedNumber = ({ value, suffix = '', prefix = '', decimals = 0 }) => {
             const [shown, setShown] = useState(0);
             const ref = useRef(null);
@@ -7663,7 +7628,6 @@ export default function UnionPathway() {
             </div>
           );
 
-          const scrollProgress = useScrollProgress();
 
           return (
             <div id="ua-history-root">
@@ -7994,25 +7958,6 @@ export default function UnionPathway() {
         )}
 
         {page === "benefits" && (() => {
-          const useScrollProgress = () => {
-            const [progress, setProgress] = useState(0);
-            useEffect(() => {
-              const onScroll = () => {
-                const el = document.getElementById('benefits-root');
-                if (!el) return;
-                const rect = el.getBoundingClientRect();
-                const total = rect.height - window.innerHeight;
-                const scrolled = -rect.top;
-                const p = Math.max(0, Math.min(1, scrolled / Math.max(1, total)));
-                setProgress(p);
-              };
-              window.addEventListener('scroll', onScroll, { passive: true });
-              onScroll();
-              return () => window.removeEventListener('scroll', onScroll);
-            }, []);
-            return progress;
-          };
-
           const AnimatedNumber = ({ value, suffix = '', prefix = '', decimals = 0 }) => {
             const [shown, setShown] = useState(0);
             const ref = useRef(null);
@@ -8090,7 +8035,6 @@ export default function UnionPathway() {
             </div>
           );
 
-          const scrollProgress = useScrollProgress();
 
           return (
             <div id="benefits-root">
