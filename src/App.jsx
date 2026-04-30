@@ -8086,7 +8086,7 @@ export default function UnionPathway() {
           const Section = ({ tag, title, intro, color = '#FA8059', children }) => (
             <div style={{margin:'80px 0', position:'relative'}}>
               <div style={{display:'flex', alignItems:'center', gap:16, marginBottom:20, flexWrap:'wrap'}}>
-                <div style={{width:56, height:56, borderRadius:14, background:`${color}22`, border:`2px solid ${color}`, display:'flex', alignItems:'center', justifyContent:'center', fontSize:28}}>{tag}</div>
+                <div style={{width:48, height:48, borderRadius:12, background:`${color}22`, border:`2px solid ${color}`, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color}}>{tag}</div>
                 <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:0, lineHeight:1.1, flex:1, minWidth:0}}>{title}</h2>
               </div>
               {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
@@ -8138,7 +8138,7 @@ export default function UnionPathway() {
                 </div>
 
                 {/* SECTION 1 — PENSION */}
-                <Section tag="🏛️" title="The Defined-Benefit Pension" intro="A pension is a monthly check you receive every month for the rest of your life after you retire. It is the single most valuable benefit a union member receives, and it is essentially extinct outside of organized labor.">
+                <Section tag="I" title="The Defined-Benefit Pension" intro="A pension is a monthly check you receive every month for the rest of your life after you retire. It is the single most valuable benefit a union member receives, and it is essentially extinct outside of organized labor.">
                   <ExpandableCard
                     title="What 'defined benefit' actually means"
                     summary="The amount you get is calculated by formula — not by how the stock market performs."
@@ -8166,7 +8166,7 @@ export default function UnionPathway() {
                 </PullQuote>
 
                 {/* SECTION 2 — ANNUITY / DC PLAN */}
-                <Section tag="📊" title="The Annuity (or Defined-Contribution Plan)" color="#F5C518" intro="On top of the pension, most union construction members have a second retirement account — a defined-contribution annuity that functions like a 401k, except the contributions are paid by the contractor, not deducted from your wages.">
+                <Section tag="II" title="The Annuity (or Defined-Contribution Plan)" color="#F5C518" intro="On top of the pension, most union construction members have a second retirement account — a defined-contribution annuity that functions like a 401k, except the contributions are paid by the contractor, not deducted from your wages.">
                   <ExpandableCard
                     accent="#F5C518"
                     title="Why two retirement accounts instead of one"
@@ -8188,7 +8188,7 @@ export default function UnionPathway() {
                 </Section>
 
                 {/* SECTION 3 — HEALTH INSURANCE */}
-                <Section tag="🏥" title="Health Insurance" color="#22c55e" intro="Most union construction members receive health insurance fully paid by the contractor — premiums, deductibles, the works — for themselves and their families. No paycheck deductions for monthly premiums. No surprise high-deductible plans the worker has to figure out.">
+                <Section tag="III" title="Health Insurance" color="#22c55e" intro="Most union construction members receive health insurance fully paid by the contractor — premiums, deductibles, the works — for themselves and their families. No paycheck deductions for monthly premiums. No surprise high-deductible plans the worker has to figure out.">
                   <ExpandableCard
                     accent="#22c55e"
                     title="Contractor-paid premiums"
@@ -8249,7 +8249,7 @@ export default function UnionPathway() {
                 </div>
 
                 {/* SECTION 4 — APPRENTICESHIP */}
-                <Section tag="🎓" title="Apprenticeship & Training" intro="Most union trades have a 4–5 year registered apprenticeship: paid on-the-job training combined with classroom instruction, fully funded by employer contributions. You earn a journey-level credential at the end with zero student debt — and a starting wage on day one.">
+                <Section tag="IV" title="Apprenticeship & Training" intro="Most union trades have a 4–5 year registered apprenticeship: paid on-the-job training combined with classroom instruction, fully funded by employer contributions. You earn a journey-level credential at the end with zero student debt — and a starting wage on day one.">
                   <ExpandableCard
                     title="Earn while you learn"
                     summary="Apprentices work alongside journeymen on real jobs from day one and get paid a percentage of journey scale that increases each year."
@@ -8268,7 +8268,7 @@ export default function UnionPathway() {
                 </Section>
 
                 {/* SECTION 5 — BEYOND THE MONEY */}
-                <Section tag="🛡️" title="Beyond the Pension and Insurance" color="#A78BFA" intro="The big four benefits — pension, annuity, health, training — get the most attention, but they're not the whole picture. There's a layer of additional protections most union members take for granted, that simply don't exist in most non-union work.">
+                <Section tag="V" title="Beyond the Pension and Insurance" color="#A78BFA" intro="The big four benefits — pension, annuity, health, training — get the most attention, but they're not the whole picture. There's a layer of additional protections most union members take for granted, that simply don't exist in most non-union work.">
                   <ExpandableCard
                     accent="#A78BFA"
                     title="Vacation & holiday pay"
@@ -8296,7 +8296,7 @@ export default function UnionPathway() {
                 </Section>
 
                 {/* SECTION 6 — VETERANS */}
-                <Section tag="🎖️" title="A Note for Veterans" color="#3B9EFF" intro="Several major building-trades unions run programs specifically designed for transitioning service members. The most established is Helmets to Hardhats, a non-profit pathway connecting active-duty and veteran service members directly into union apprenticeships, with no fees and credit for military experience.">
+                <Section tag="VI" title="A Note for Veterans" color="#3B9EFF" intro="Several major building-trades unions run programs specifically designed for transitioning service members. The most established is Helmets to Hardhats, a non-profit pathway connecting active-duty and veteran service members directly into union apprenticeships, with no fees and credit for military experience.">
                   <ExpandableCard
                     accent="#3B9EFF"
                     title="Helmets to Hardhats"
