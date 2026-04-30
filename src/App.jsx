@@ -5945,7 +5945,7 @@ export default function UnionPathway() {
                 onClick={() => { setLearnOpen(o => !o); setApprenticeOpen(false); }}
                 onBlur={() => setTimeout(() => setLearnOpen(false), 150)}
               >
-                {lang==="es" ? "Aprender" : lang==="pl" ? "Nauka" : "Learn"}
+                {lang==="es" ? "Beneficios" : lang==="pl" ? "Świadczenia" : "Benefits"}
                 <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                   <polyline points="6 9 12 15 18 9"/>
                 </svg>
@@ -5953,7 +5953,7 @@ export default function UnionPathway() {
               {learnOpen && (
                 <div className="nav-dropdown-menu">
                   <div className={`nav-dropdown-item${page==="benefits"?" active":""}`} onMouseDown={() => { setPage("benefits"); setLearnOpen(false); }}>
-                    <span className="nav-dropdown-label">{lang==="es" ? "Beneficios Sindicales" : lang==="pl" ? "Świadczenia Związkowe" : "Union Benefits"}</span>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Resumen de Beneficios" : lang==="pl" ? "Przegląd Świadczeń" : "Benefits Overview"}</span>
                     <span className="nav-dropdown-sub">{lang==="es" ? "Pensión, salud, anualidad y más" : lang==="pl" ? "Emerytura, zdrowie, renta i więcej" : "Pension, health, annuity & more"}</span>
                   </div>
                   <div className={`nav-dropdown-item${page==="retirement"?" active":""}`} onMouseDown={() => { setPage("retirement"); setLearnOpen(false); }}>
