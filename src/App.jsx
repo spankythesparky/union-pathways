@@ -4261,6 +4261,20 @@ export default function UnionPathway() {
     return () => window.removeEventListener('keydown', handleKey);
   }, []);
 
+  // Tawk.to live chat widget — loads once on first mount.
+  useEffect(() => {
+    if (window.Tawk_API) return;
+    window.Tawk_API = window.Tawk_API || {};
+    window.Tawk_LoadStart = new Date();
+    const s1 = document.createElement("script");
+    const s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/69f2cd80db9e841c36b06cd4/1jne75fof';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
+  }, []);
+
   useEffect(() => {
     const PAGE_META = {
       home:      { title: "Union Pathways — Find Your Nearest Union Construction Local", desc: "Find your nearest union construction local — IBEW, UA, SMART, BAC, UBC, Ironworkers, Insulators, Laborers and more. Free resource for tradespeople." },
