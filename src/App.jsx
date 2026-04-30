@@ -6148,7 +6148,7 @@ export default function UnionPathway() {
                         <button className="btn-primary" onClick={() => { setSelectedTrade(["IBEW_I","IBEW_L","UA","SMART","BAC","UBC","HFIAW","IW","LIUNA"].includes(quizResult) ? quizResult : "IBEW_I"); setPage("home"); }}>
                           {lang==="es" ? "Encontrar Mi Local Más Cercano →" : lang==="pl" ? "Znajdź Mój Najbliższy Oddział →" : "Find My Nearest Local →"}
                         </button>
-                        <a className="btn-ghost" href={`https://www.${res.website}`} target="_blank" rel="noopener noreferrer">
+                        <a className="btn-ghost" href={res.website.startsWith("http") ? res.website : `https://www.${res.website}`} target="_blank" rel="noopener noreferrer">
                           {lang==="es" ? "Sitio Nacional" : lang==="pl" ? "Strona Krajowa" : "National Website"}
                         </a>
                         <button className="btn-ghost" onClick={resetQuiz}>
@@ -6373,7 +6373,7 @@ export default function UnionPathway() {
                   </div>
                   <div className="card-actions">
                     {local.website && (
-                      <a className="btn-website" href={`https://${local.website}`} target="_blank" rel="noopener noreferrer">
+                      <a className="btn-website" href={local.website.startsWith("http") ? local.website : `https://${local.website}`} target="_blank" rel="noopener noreferrer">
                         {t.visitWebsite}
                       </a>
                     )}
@@ -9406,7 +9406,7 @@ export default function UnionPathway() {
                           <div key={i} style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.08)", borderRadius:10, padding:"12px 16px"}}>
                             <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:17, fontWeight:800, color:"#fff", marginBottom:2}}>{l.name}</div>
                             <div style={{fontSize:13, color:"var(--muted)"}}>{l.city}, {l.state}{l.phone ? " · " + l.phone : ""}</div>
-                            {l.website && <a href={"https://"+l.website} target="_blank" rel="noopener noreferrer" style={{fontSize:12, color:"#FA8059", textDecoration:"none"}}>{l.website}</a>}
+                            {l.website && <a href={l.website.startsWith("http") ? l.website : "https://"+l.website} target="_blank" rel="noopener noreferrer" style={{fontSize:12, color:"#FA8059", textDecoration:"none"}}>{l.website}</a>}
                           </div>
                         ))}
                       </div>
