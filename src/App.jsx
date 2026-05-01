@@ -7215,11 +7215,16 @@ export default function UnionPathway() {
         })()}
 
         {page === "history-ibew" && (() => {
+          // window-level cache so values persist across IIFE re-renders
+          if (typeof window !== 'undefined' && !window.__ibewStatCache) window.__ibewStatCache = {};
           const AnimatedNumber = ({ value, suffix = '', prefix = '', decimals = 0 }) => {
-            const [shown, setShown] = useState(0);
+            const cacheKey = 'ibew:' + prefix + ':' + value + ':' + suffix + ':' + decimals;
+            const cached = typeof window !== 'undefined' && window.__ibewStatCache && window.__ibewStatCache[cacheKey];
+            const [shown, setShown] = useState(cached ? value : 0);
             const ref = useRef(null);
-            const animated = useRef(false);
+            const animated = useRef(!!cached);
             useEffect(() => {
+              if (animated.current) return;
               const el = ref.current;
               if (!el) return;
               const obs = new IntersectionObserver((entries) => {
@@ -7232,7 +7237,11 @@ export default function UnionPathway() {
                       const t = Math.min(1, (now - start) / dur);
                       const eased = 1 - Math.pow(1 - t, 3);
                       setShown(value * eased);
-                      if (t < 1) requestAnimationFrame(step);
+                      if (t < 1) {
+                        requestAnimationFrame(step);
+                      } else {
+                        if (typeof window !== 'undefined' && window.__ibewStatCache) window.__ibewStatCache[cacheKey] = true;
+                      }
                     };
                     requestAnimationFrame(step);
                   }
@@ -7607,11 +7616,16 @@ export default function UnionPathway() {
         })()}
 
         {page === "history-ua" && (() => {
+          // window-level cache so values persist across IIFE re-renders
+          if (typeof window !== 'undefined' && !window.__uaStatCache) window.__uaStatCache = {};
           const AnimatedNumber = ({ value, suffix = '', prefix = '', decimals = 0 }) => {
-            const [shown, setShown] = useState(0);
+            const cacheKey = 'ua:' + prefix + ':' + value + ':' + suffix + ':' + decimals;
+            const cached = typeof window !== 'undefined' && window.__uaStatCache && window.__uaStatCache[cacheKey];
+            const [shown, setShown] = useState(cached ? value : 0);
             const ref = useRef(null);
-            const animated = useRef(false);
+            const animated = useRef(!!cached);
             useEffect(() => {
+              if (animated.current) return;
               const el = ref.current;
               if (!el) return;
               const obs = new IntersectionObserver((entries) => {
@@ -7624,7 +7638,11 @@ export default function UnionPathway() {
                       const t = Math.min(1, (now - start) / dur);
                       const eased = 1 - Math.pow(1 - t, 3);
                       setShown(value * eased);
-                      if (t < 1) requestAnimationFrame(step);
+                      if (t < 1) {
+                        requestAnimationFrame(step);
+                      } else {
+                        if (typeof window !== 'undefined' && window.__uaStatCache) window.__uaStatCache[cacheKey] = true;
+                      }
                     };
                     requestAnimationFrame(step);
                   }
@@ -8000,11 +8018,16 @@ export default function UnionPathway() {
         })()}
 
         {page === "history-smart" && (() => {
+          // window-level cache so values persist across IIFE re-renders
+          if (typeof window !== 'undefined' && !window.__smartStatCache) window.__smartStatCache = {};
           const AnimatedNumber = ({ value, suffix = '', prefix = '', decimals = 0 }) => {
-            const [shown, setShown] = useState(0);
+            const cacheKey = 'smart:' + prefix + ':' + value + ':' + suffix + ':' + decimals;
+            const cached = typeof window !== 'undefined' && window.__smartStatCache && window.__smartStatCache[cacheKey];
+            const [shown, setShown] = useState(cached ? value : 0);
             const ref = useRef(null);
-            const animated = useRef(false);
+            const animated = useRef(!!cached);
             useEffect(() => {
+              if (animated.current) return;
               const el = ref.current;
               if (!el) return;
               const obs = new IntersectionObserver((entries) => {
@@ -8017,7 +8040,11 @@ export default function UnionPathway() {
                       const t = Math.min(1, (now - start) / dur);
                       const eased = 1 - Math.pow(1 - t, 3);
                       setShown(value * eased);
-                      if (t < 1) requestAnimationFrame(step);
+                      if (t < 1) {
+                        requestAnimationFrame(step);
+                      } else {
+                        if (typeof window !== 'undefined' && window.__smartStatCache) window.__smartStatCache[cacheKey] = true;
+                      }
                     };
                     requestAnimationFrame(step);
                   }
@@ -8377,11 +8404,16 @@ export default function UnionPathway() {
         })()}
 
         {page === "history-bac" && (() => {
+          // window-level cache so values persist across IIFE re-renders
+          if (typeof window !== 'undefined' && !window.__bacStatCache) window.__bacStatCache = {};
           const AnimatedNumber = ({ value, suffix = '', prefix = '', decimals = 0 }) => {
-            const [shown, setShown] = useState(0);
+            const cacheKey = 'bac:' + prefix + ':' + value + ':' + suffix + ':' + decimals;
+            const cached = typeof window !== 'undefined' && window.__bacStatCache && window.__bacStatCache[cacheKey];
+            const [shown, setShown] = useState(cached ? value : 0);
             const ref = useRef(null);
-            const animated = useRef(false);
+            const animated = useRef(!!cached);
             useEffect(() => {
+              if (animated.current) return;
               const el = ref.current;
               if (!el) return;
               const obs = new IntersectionObserver((entries) => {
@@ -8394,7 +8426,11 @@ export default function UnionPathway() {
                       const t = Math.min(1, (now - start) / dur);
                       const eased = 1 - Math.pow(1 - t, 3);
                       setShown(value * eased);
-                      if (t < 1) requestAnimationFrame(step);
+                      if (t < 1) {
+                        requestAnimationFrame(step);
+                      } else {
+                        if (typeof window !== 'undefined' && window.__bacStatCache) window.__bacStatCache[cacheKey] = true;
+                      }
                     };
                     requestAnimationFrame(step);
                   }
@@ -8766,11 +8802,16 @@ export default function UnionPathway() {
         })()}
 
         {page === "history-ufcw" && (() => {
+          // window-level cache so values persist across IIFE re-renders
+          if (typeof window !== 'undefined' && !window.__ufcwStatCache) window.__ufcwStatCache = {};
           const AnimatedNumber = ({ value, suffix = '', prefix = '', decimals = 0 }) => {
-            const [shown, setShown] = useState(0);
+            const cacheKey = 'ufcw:' + prefix + ':' + value + ':' + suffix + ':' + decimals;
+            const cached = typeof window !== 'undefined' && window.__ufcwStatCache && window.__ufcwStatCache[cacheKey];
+            const [shown, setShown] = useState(cached ? value : 0);
             const ref = useRef(null);
-            const animated = useRef(false);
+            const animated = useRef(!!cached);
             useEffect(() => {
+              if (animated.current) return;
               const el = ref.current;
               if (!el) return;
               const obs = new IntersectionObserver((entries) => {
@@ -8783,7 +8824,11 @@ export default function UnionPathway() {
                       const t = Math.min(1, (now - start) / dur);
                       const eased = 1 - Math.pow(1 - t, 3);
                       setShown(value * eased);
-                      if (t < 1) requestAnimationFrame(step);
+                      if (t < 1) {
+                        requestAnimationFrame(step);
+                      } else {
+                        if (typeof window !== 'undefined' && window.__ufcwStatCache) window.__ufcwStatCache[cacheKey] = true;
+                      }
                     };
                     requestAnimationFrame(step);
                   }
