@@ -6027,6 +6027,7 @@ export default function UnionPathway() {
                     {key:'IUOE', name:'IUOE — Operating Engineers'},
                     {key:'UBC', name:'UBC — Carpenters'},
                     {key:'LIUNA', name:'LIUNA — Laborers'},
+                    {key:'UFCW', name:'UFCW — Food & Commercial Workers'},
                   ].map(t => (
                     <div key={t.key} onMouseDown={() => { setPage(t.live ? t.page : "trade-history"); setHistoryOpen(false); }} className={`nav-dropdown-item${page===t.page?" active":""}`} style={{opacity: t.live ? 1 : 0.55, cursor:"pointer"}}>
                       <span className="nav-dropdown-label" style={{display:"flex", alignItems:"center", justifyContent:"space-between", gap:8}}>
