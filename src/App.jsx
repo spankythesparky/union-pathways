@@ -6055,6 +6055,7 @@ export default function UnionPathway() {
             <button className={`nav-link ${page==="jobboard"?"active":""}`} onClick={() => setPage("jobboard")}>{lang==="es" ? "Bolsa de Trabajo" : lang==="pl" ? "Gielda Pracy" : "Job Board"}</button>
             <button className={`nav-link ${page==="wages"?"active":""}`} onClick={() => setPage("wages")}>{lang==="es" ? "Salarios" : lang==="pl" ? "Place" : "Wages"}</button>
             <button className={`nav-link ${page==="rtw"?"active":""}`} onClick={() => setPage("rtw")}>{lang==="es" ? "Derecho al Trabajo" : lang==="pl" ? "Prawo do Pracy" : "Right to Work"}</button>
+            <button className={`nav-link ${page==="apprenticeship"||page==="apprenticeship-ibew"||page==="apprenticeship-ua"||page==="apprenticeship-smart"||page==="apprenticeship-iuec"?"active":""}`} onClick={() => setPage("apprenticeship")}>{lang==="es" ? "Aprendizaje" : lang==="pl" ? "Praktyka" : "Apprenticeship"}</button>
             {/* ORGANIZE DROPDOWN */}
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
