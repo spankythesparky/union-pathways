@@ -11775,9 +11775,8 @@ export default function UnionPathway() {
               {/* STATS ROW */}
               <div className="history-stats" style={{marginTop:48}}>
                 {[
-                  { num: "452K+", label: lang==="es" ? "Seguidores Colectivos" : lang==="pl" ? "Lacznych Obserwujacych" : "Collective Followers" },
-                  { num: "600M+", label: lang==="es" ? "Visualizaciones Colectivas" : lang==="pl" ? "Lacznych Wyswietleni" : "Collective Views" },
-                  { num: "30+", label: lang==="es" ? "Anos de Experiencia Colectiva en Oficios" : lang==="pl" ? "Lat Lacznego Doswiadczenia w Zawodach" : "Years of Collective Trades Experience" },
+                  { num: "164K", label: lang==="es" ? "Seguidores" : lang==="pl" ? "Obserwujacych" : "Followers" },
+                  { num: "400M+", label: lang==="es" ? "Visualizaciones" : lang==="pl" ? "Wyswietleni" : "Views" },
                   { num: "1", label: lang==="es" ? "Mision — Todo Sindical. Un Lugar." : lang==="pl" ? "Misja — Wszystko Zwiazowe. Jedno Miejsce." : "Mission — Everything Union. One Place." },
                 ].map((s, i) => (
                   <div key={i} className="history-stat">
