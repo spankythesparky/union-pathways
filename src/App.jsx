@@ -8796,31 +8796,9 @@ export default function UnionPathway() {
                     </div>
                   </div>
 
-                  <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:16, marginBottom:28}}>
-                    <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FA8059", marginBottom:10}}>{lang==="es" ? "04 — Horas/Ano" : lang==="pl" ? "04 — Godziny/Rok" : "04 — Hours Per Year"}</div>
-                      <select value={calcHours} onChange={e => setCalcHours(parseInt(e.target.value))} style={{width:"100%", background:"rgba(255,255,255,0.06)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", fontSize:14, color:"white", outline:"none"}}>
-                        <option value={1600}>1,600 hrs — slow year</option>
-                        <option value={1800}>1,800 hrs — typical</option>
-                        <option value={2000}>2,000 hrs — busy year</option>
-                        <option value={2200}>2,200 hrs — overtime</option>
-                      </select>
-                    </div>
-                    <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FA8059", marginBottom:10}}>{lang==="es" ? "05 — Anos de Carrera" : lang==="pl" ? "05 — Lata Kariery" : "05 — Career Years"}</div>
-                      <select value={calcYearsCareer} onChange={e => setCalcYearsCareer(parseInt(e.target.value))} style={{width:"100%", background:"rgba(255,255,255,0.06)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", fontSize:14, color:"white", outline:"none"}}>
-                        <option value={10}>10 years</option>
-                        <option value={20}>20 years</option>
-                        <option value={25}>25 years</option>
-                        <option value={30}>30 years</option>
-                        <option value={35}>35 years</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* 06 — COMPARE AGAINST (OPTIONAL) */}
+                  {/* 04 — COMPARE AGAINST (OPTIONAL) */}
                   <div style={{marginBottom:24, paddingTop:24, borderTop:"1px solid rgba(255,255,255,0.06)"}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FA8059", marginBottom:6}}>{lang==="es" ? "06 — Comparar Contra (Opcional)" : lang==="pl" ? "06 — Porownaj Z (Opcjonalne)" : "06 — Compare Against (Optional)"}</div>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FA8059", marginBottom:6}}>{lang==="es" ? "04 — Comparar Contra (Opcional)" : lang==="pl" ? "04 — Porownaj Z (Opcjonalne)" : "04 — Compare Against (Optional)"}</div>
                     <div style={{fontSize:12, color:"var(--muted)", marginBottom:12, lineHeight:1.5}}>{lang==="es" ? "Elige un trabajo para ver una comparacion lado a lado de tu salario actual contra el sindicato." : lang==="pl" ? "Wybierz prace aby zobaczyc porownanie obecnej stawki ze stawka zwiazkowa." : "Pick a job to see a side-by-side of what you make now vs union."}</div>
                     <select value={compareJob} onChange={e => { setCompareJob(e.target.value); setShowResults(false); }} style={{width:"100%", background:"rgba(255,255,255,0.06)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", fontSize:14, color:"white", outline:"none", marginBottom: compareJob === "custom" ? 12 : 0}}>
                       <option value="">{lang==="es" ? "— Saltar comparacion —" : lang==="pl" ? "— Pomin porownanie —" : "— Skip comparison —"}</option>
@@ -8949,7 +8927,7 @@ export default function UnionPathway() {
                           <span style={{fontSize:13, color:"var(--muted)", marginLeft:10}}>{lang==="es" ? "mas en salario base como miembro sindical" : lang==="pl" ? "wiecej w wynagrodzeniu jako czlonek zwiazku" : "more in base wages as a union member"}</span>
                         </div>
                         <div style={{borderTop:"1px dashed rgba(58,80,104,0.4)", marginTop:16, paddingTop:14, textAlign:"center", fontSize:12, color:"var(--muted)", fontStyle:"italic"}}>
-                          {lang==="es" ? "💡 Para una comparacion real, vuelve y elige tu trabajo actual en el paso 06." : lang==="pl" ? "💡 Aby uzyskac prawdziwe porownanie, wroc i wybierz obecna prace w kroku 06." : "💡 For a real side-by-side, go back and pick your current job in step 06."}
+                          {lang==="es" ? "💡 Para una comparacion real, vuelve y elige tu trabajo actual en el paso 04." : lang==="pl" ? "💡 Aby uzyskac prawdziwe porownanie, wroc i wybierz obecna prace w kroku 04." : "💡 For a real side-by-side, go back and pick your current job in step 04."}
                         </div>
                       </div>
                     )}
