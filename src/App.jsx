@@ -3219,7 +3219,7 @@ export default function UnionPathway() {
   // URL-aware page state
   const getPageFromUrl = () => {
     const path = window.location.pathname.replace('/', '') || 'home';
-    const validPages = ['home','quiz','careers','checklist','locals','calculator','resume','veterans','history','trade-history','history-ibew','history-ua','history-smart','history-bac','history-ufcw','history-iron','history-insul','retirement','benefits','about','contact','jobboard','wages','organize','organize-contractor'];
+    const validPages = ['home','quiz','careers','checklist','locals','calculator','resume','veterans','history','trade-history','history-ibew','history-ua','history-smart','history-bac','history-ufcw','history-iron','history-insul','history-iuec','retirement','benefits','about','contact','jobboard','wages','organize','organize-contractor'];
     return validPages.includes(path) ? path : 'home';
   };
   const [page, setPageState] = useState(getPageFromUrl);
@@ -3244,7 +3244,7 @@ export default function UnionPathway() {
   const [scrollProgress, setScrollProgress] = useState(0);
   useEffect(() => {
     const onScroll = () => {
-      const candidates = ['history-root','ibew-history-root','ua-history-root','smart-history-root','bac-history-root','ufcw-history-root','iron-history-root','insul-history-root','benefits-root'];
+      const candidates = ['history-root','ibew-history-root','ua-history-root','smart-history-root','bac-history-root','ufcw-history-root','iron-history-root','insul-history-root','iuec-history-root','benefits-root'];
       let el = null;
       for (const id of candidates) {
         const found = document.getElementById(id);
@@ -4286,6 +4286,7 @@ export default function UnionPathway() {
       'history-ufcw': { title: "UFCW History — Behind the Counter and on the Cutting Floor · Union Pathways", desc: "The full history of the United Food and Commercial Workers International Union — from the 1888 retail clerks and the 1897 Amalgamated Meat Cutters through the 1979 merger, the 2003 Southern California grocery strike, the Kroger-Albertsons fight, and the 2025 election of Milton Jones as the first African American UFCW president." },
       'history-iron': { title: "Iron Workers History — Cowboys in the Sky · Union Pathways", desc: "The full history of the International Association of Bridge, Structural, Ornamental and Reinforcing Iron Workers — from the 1896 Pittsburgh founding, through the McNamara bombings, the Golden Gate Bridge, the 2002 Jake West scandal, the bottom-up organizing model under Eric Dean, and the 2026 transition to General President Kevin Bryenton." },
       'history-insul': { title: "Insulators History — Wrapping the Pipes · Union Pathways", desc: "The full history of the International Association of Heat and Frost Insulators and Allied Workers (AWIU) — from the 1903 St. Louis founding, through World War II Pearl Harbor reconstruction, the Selikoff asbestos studies at Mount Sinai, the 1990s name change from Asbestos Workers, and the modern push for the Federal Mechanical Insulation Act." },
+      'history-iuec': { title: "IUEC History — Going Up · Union Pathways", desc: "The full history of the International Union of Elevator Constructors — from the 1854 Otis Crystal Palace demonstration and the July 1901 Griswold Hotel founding through the Atlantic City Plan, the Christensen era, and the path to becoming the highest-paid building trade in the United States." },
     };
     const pm = PAGE_META[page] || PAGE_META.home;
     document.title = pm.title;
@@ -6028,7 +6029,7 @@ export default function UnionPathway() {
                     {key:'BAC', name:'BAC — Bricklayers & Allied Craftworkers', page:'history-bac', live:true},
                     {key:'IW', name:'Iron Workers — Bridge & Structural', page:'history-iron', live:true},
                     {key:'HFIAW', name:'AWIU — Heat & Frost Insulators', page:'history-insul', live:true},
-                    {key:'IUEC', name:'IUEC — Elevator Constructors'},
+                    {key:'IUEC', name:'IUEC — Elevator Constructors', page:'history-iuec', live:true},
                     {key:'IUOE', name:'IUOE — Operating Engineers'},
                     {key:'UBC', name:'UBC — Carpenters'},
                     {key:'LIUNA', name:'LIUNA — Laborers'},
@@ -10064,6 +10065,390 @@ export default function UnionPathway() {
                     The Insulators today, 122 years after that small July convention, continue to do the same essential thing the founders set out to organize: protecting the workers who wrap the pipes that the rest of the building trades install, and ensuring that the mechanical systems of modern buildings do what they are designed to do.
                   </p>
                   <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#A8623A', fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(168,98,58,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
+                </div>
+              </div>
+            </div>
+          );
+        })()}
+
+        {page === "history-iuec" && (() => {
+          // window-level cache so headline stats stay locked after first animation
+          if (typeof window !== 'undefined' && !window.__iuecStatCache) window.__iuecStatCache = {};
+          const AnimatedNumber = ({ value, suffix = '', prefix = '', decimals = 0 }) => {
+            const cacheKey = 'iuec:' + prefix + ':' + value + ':' + suffix + ':' + decimals;
+            const cached = typeof window !== 'undefined' && window.__iuecStatCache && window.__iuecStatCache[cacheKey];
+            const [shown, setShown] = useState(cached ? value : 0);
+            const ref = useRef(null);
+            const animated = useRef(!!cached);
+            useEffect(() => {
+              if (animated.current) return;
+              const el = ref.current;
+              if (!el) return;
+              const obs = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                  if (e.isIntersecting && !animated.current) {
+                    animated.current = true;
+                    const start = performance.now();
+                    const dur = 1400;
+                    const step = (now) => {
+                      const t = Math.min(1, (now - start) / dur);
+                      const eased = 1 - Math.pow(1 - t, 3);
+                      setShown(value * eased);
+                      if (t < 1) {
+                        requestAnimationFrame(step);
+                      } else {
+                        if (typeof window !== 'undefined' && window.__iuecStatCache) window.__iuecStatCache[cacheKey] = true;
+                      }
+                    };
+                    requestAnimationFrame(step);
+                  }
+                });
+              }, { threshold: 0.3 });
+              obs.observe(el);
+              return () => obs.disconnect();
+            }, [value]);
+            return <span ref={ref}>{prefix}{shown.toFixed(decimals)}{suffix}</span>;
+          };
+
+          const ExpandableCard = ({ year, title, summary, body, accent = '#4A7B9D' }) => {
+            const [open, setOpen] = useState(false);
+            return (
+              <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
+                <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
+                  <div style={{flex:1}}>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:accent, letterSpacing:1, textTransform:'uppercase', marginBottom:6}}>{year}</div>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', lineHeight:1.2, marginBottom:8}}>{title}</div>
+                    <div style={{fontSize:14, color:'rgba(255,255,255,0.75)', lineHeight:1.6}}>{summary}</div>
+                  </div>
+                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
+                </div>
+                {open && (
+                  <div style={{marginTop:16, paddingTop:16, borderTop:'1px solid rgba(255,255,255,0.08)', fontSize:14, color:'rgba(255,255,255,0.85)', lineHeight:1.7}}>
+                    {body}
+                  </div>
+                )}
+              </div>
+            );
+          };
+
+          const PullQuote = ({ children, attribution }) => (
+            <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #F5C518', background:'linear-gradient(90deg, rgba(245,197,24,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#fff', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
+              {attribution && <div style={{fontSize:13, color:'rgba(160,180,196,0.8)', marginTop:14, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase'}}>— {attribution}</div>}
+            </div>
+          );
+
+          const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
+            <div style={{textAlign:'center', padding:'24px 16px'}}>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#4A7B9D', lineHeight:1}}>
+                <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
+              </div>
+              <div style={{fontSize:12, color:'rgba(160,180,196,0.85)', marginTop:8, textTransform:'uppercase', letterSpacing:1.5, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{label}</div>
+            </div>
+          );
+
+          const Era = ({ tag, title, years, intro, color = '#4A7B9D', children }) => (
+            <div style={{margin:'80px 0', position:'relative'}}>
+              <div style={{display:'flex', alignItems:'center', gap:16, marginBottom:20, flexWrap:'wrap'}}>
+                <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color}}>{tag}</div>
+                <div>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
+                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                </div>
+              </div>
+              {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
+              {children}
+            </div>
+          );
+
+          return (
+            <div id="iuec-history-root">
+              {/* PROGRESS BAR */}
+              <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #4A7B9D, #F5C518)', transition:'width 0.1s'}} />
+              </div>
+
+              {/* BREADCRUMB */}
+              <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
+                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}} onMouseEnter={e => e.currentTarget.style.color = '#4A7B9D'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                  General Union History
+                </div>
+              </div>
+
+              {/* HERO */}
+              <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#4A7B9D', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Union of Elevator Constructors</div>
+                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>
+                  Going<br/><span style={{color:'#4A7B9D'}}>Up.</span><br/>
+                  <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>Building the vertical city, since 1901.</span>
+                </h1>
+                <p style={{fontSize:18, color:'rgba(255,255,255,0.7)', lineHeight:1.6, maxWidth:720, margin:'0 auto'}}>
+                  There would be no skyscrapers without elevators. Eleven men met at the Griswold Hotel in Pittsburgh on July 15, 1901 with $5 charter fees and $13.90 in expenses to organize the craft that made vertical real estate possible. 124 years later, the IUEC represents 30,000+ members across 141 local unions and earns the highest wages of any building trade in the United States.
+                </p>
+              </div>
+
+              {/* HEADLINE STATS */}
+              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+                <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(160px, 1fr))', gap:16, maxWidth:1100, margin:'0 auto'}}>
+                  <StatBlock value={30} label="Active members" suffix="K+" />
+                  <StatBlock value={141} label="Local unions" />
+                  <StatBlock value={4} label="Year apprenticeship" suffix="-yr" />
+                  <StatBlock value={1901} label="Year of founding" />
+                </div>
+              </div>
+
+              <div style={{maxWidth:880, margin:'0 auto', padding:'40px 24px 80px'}}>
+
+                {/* PART I */}
+                <Era tag="I" years="1850s – 1900" title="Otis, Skyscrapers, and the Birth of a Craft" intro="The trade of elevator construction emerged in North America in the second half of the nineteenth century, in close lockstep with the development of the safety elevator itself.">
+                  <ExpandableCard
+                    year="1854"
+                    title="Otis at the Crystal Palace"
+                    summary="Elisha Otis demonstrated his safety brake by ordering an assistant to cut the rope holding his platform — the brake caught it after only a few inches."
+                    body="Elisha Otis founded the company that would carry his name in 1853 and demonstrated his safety brake at the New York Crystal Palace exhibition in 1854. The first commercial passenger elevator was installed at the Haughwout Building in Manhattan in 1857. Most observers had no real conception of what that demonstration would eventually mean. Within a generation, the safety elevator had transformed the economics of vertical real estate. Buildings could rise to ten, twenty, fifty, and eventually more than a hundred stories."
+                  />
+                  <ExpandableCard
+                    year="1880s onward"
+                    title="The Skyscraper Becomes Possible"
+                    summary="Steel-frame construction + electric motors + the safety elevator created an entirely new category of urban structure."
+                    body="By the 1880s, the combination of Otis's safety system, the development of electric motors capable of running elevators reliably, and the steel-frame construction techniques that allowed buildings to rise far higher than masonry construction permitted had created an entirely new category of urban structure: the skyscraper. The Home Insurance Building in Chicago, completed in 1885 and generally considered the first true skyscraper, rose ten stories on a steel-frame structure with elevators at its core. Within fifteen years, buildings of fifteen, twenty, and even thirty stories were under construction in Chicago and New York."
+                  />
+                  <ExpandableCard
+                    year="1894 – 1900"
+                    title="The First Locals"
+                    summary="New York 1894, Chicago 1897, St. Louis 1898, Boston 1899, Philadelphia 1900 — six cities organized before the international did."
+                    body="By the 1890s, elevator workers had begun forming local unions. New York City's Elevator Constructors and Millwrights of New York City was founded on June 7, 1894 — the first organized elevator constructors' local in North America. Chicago's Elevator Protective Association of Chicago followed on March 12, 1897. The United Elevator Constructors Association of St. Louis was formed on August 12, 1898. Boston's Elevator Constructors Union of Boston came on March 2, 1899. Philadelphia's Elevator Erector's Association of Philadelphia was founded on January 10, 1900. Pittsburgh's local was the sixth, formed in 1901. Each operated independently with its own wage scales and work rules, while a small group of major manufacturers — Otis, Westinghouse, the early predecessors of Schindler and Kone — operated across multiple cities and frequently played local unions against each other."
+                  />
+                </Era>
+
+                {/* PART II */}
+                <Era tag="II" years="July 1901" title="Pittsburgh, the Griswold Hotel, and the Three-Day Convention" intro="The convention that produced today's IUEC met at the Griswold Hotel in downtown Pittsburgh on July 15, 1901. Eleven men attended, representing six cities. They left three days later with a constitution, an AFL charter application, and a treasury balance of $16.10.">
+                  <ExpandableCard
+                    year="July 15, 1901"
+                    title="Eleven Men, Six Cities, Three Days"
+                    summary="From New York: McLaughlin and Oliver. From Chicago: Holmes and Lally. St. Louis: Doyle. Boston: McIntire and Moxon. Philadelphia: Young and Giberson. Pittsburgh hosts: Porter and Barnett."
+                    body="The founding convention took three days. The delegates drafted a constitution and bylaws, elected officers, and applied for a charter and membership in the National Building Trades Council of the American Federation of Labor. By the close of the convention, the National Union of Elevator Constructors had been formally established. Each of the six locals paid a $5 charter fee. Total convention expenses came to $13.90. The new union closed its first convention with a treasury balance of $16.10. John Lally of Chicago was appointed temporary Secretary at the convention's outset and was subsequently elected the union's first General Vice-President."
+                  />
+                  <ExpandableCard
+                    year="1901"
+                    title="A Cleaner Jurisdiction Than Most"
+                    summary="Within weeks of founding, the IUEC produced a letter of mutual agreement that only IUEC members would construct elevators — an outcome most building trades fought for decades to achieve."
+                    body="What distinguished the IUEC's founding from most other building trades unions was the speed and clarity with which the new organization established its institutional position. Within weeks of the convention, the union had opened negotiations with elevator manufacturers and the broader building trades on the question of jurisdiction. Early meetings produced a letter of mutual agreement that stated only IUEC members would construct elevators — a remarkably clean jurisdictional outcome that most other building trades unions of the era spent decades fighting to achieve. The AFL granted the IUEC's charter shortly after."
+                  />
+                  <ExpandableCard
+                    year="1903"
+                    title="National Becomes International"
+                    summary="The union financially supported striking electrical workers in Canada in 1903, formally bringing Canadian locals into the international structure."
+                    body="The union's name changed to reflect its growing scope. The 'National' Union of Elevator Constructors became the 'International' Union of Elevator Constructors after the union financially supported striking electrical workers in Canada in 1903 — an early demonstration of cross-border solidarity that formally brought Canadian locals into the international structure and gave the union the name it would carry for the next century-plus."
+                  />
+                </Era>
+
+                {/* PART III */}
+                <Era tag="III" years="1901 – 1932" title="Jurisdictional Defense and the Pre-Wagner Era" intro="The IUEC's first three decades were defined by sustained institutional growth and successful defense of its narrow craft jurisdiction. The union faced multiple takeover attempts by larger building trades organizations and successfully resisted each.">
+                  <ExpandableCard
+                    year="1901 – 1930s"
+                    title="Mechanics, Electricians, and Repelled Takeovers"
+                    summary="The Association of Mechanics and the Association of Electricians both argued at various points that elevator work belonged within their broader jurisdictions. The IUEC defended successfully."
+                    body="The union faced multiple takeover attempts by larger building trades organizations — most prominently the Association of Mechanics and the Association of Electricians, both of which argued at various points that elevator work properly belonged within their broader jurisdictions. The IUEC successfully resisted each of these challenges, maintaining its position as the sole AFL-chartered organization with jurisdiction over elevator construction, modernization, and service."
+                  />
+                  <ExpandableCard
+                    year="early 20th century"
+                    title="Cooperation Over Confrontation"
+                    summary="The IUEC's institutional culture emphasized close working relationships with employers rather than confrontation — and the major manufacturers preferred dealing with a single national union."
+                    body="The union's institutional culture, established in the founding decade, emphasized close working relationships with employers rather than confrontation. The major elevator manufacturers — Otis dominated the early industry, with Westinghouse and a handful of regional competitors as significant players — preferred dealing with a single national union over fragmented local bargaining, and the IUEC's leadership preferred stable national agreements over the kind of jurisdictional warfare that consumed much of the rest of the early-twentieth-century building trades. The result was a labor-management relationship that, while not without conflict, operated more cooperatively than was typical for the era."
+                  />
+                  <ExpandableCard
+                    year="1932"
+                    title="The Strike Threat That Settled in the Depression"
+                    summary="Faced with a national work stoppage that would shut down elevator service in essentially every commercial building, the manufacturers raised wages rather than risk it."
+                    body="The 1932 strike threat became the union's first major bargaining showdown with the Elevator Manufacturers Association. Faced with the prospect of a coordinated national work stoppage during the depths of the Great Depression — which would have shut down elevator service in essentially every major commercial building in North America — the manufacturers raised wages rather than risk the strike. The episode established a pattern that would define the IUEC's bargaining culture for the rest of the twentieth century: credible strike threats, made by a union with absolute jurisdictional control over a safety-critical craft, were generally sufficient to produce settlements without actually requiring members to walk out."
+                  />
+                  <ExpandableCard
+                    year="1903 – 1955"
+                    title="Feeney, MacDonald, and the Long Continuity"
+                    summary="Frank Feeney served 24 years before his death. John C. MacDonald served from 1938 until his death in 1955."
+                    body="Frank Feeney served as the union's General President for 24 years before his death, providing the long executive continuity that anchored the IUEC through the early decades of the twentieth century. He was succeeded in 1938 by John C. MacDonald of Boston, who had served as Local 4's business agent for 33 years before joining the international leadership and had been a Vice-President of the union since 1903. MacDonald's tenure took the IUEC through World War II and the early postwar period, ending only with his death in 1955."
+                  />
+                </Era>
+
+                {/* PART IV */}
+                <Era tag="IV" years="1940s – 1950s" title="A Quiet Battle for Paid Holidays" intro="One of the more distinctive episodes in IUEC history came during the Korean War-era wage and price controls. The IUEC was the only union in the construction trades to have negotiated paid national holidays as a contractual benefit — and the federal Wage Stabilization Board ordered them banned.">
+                  <ExpandableCard
+                    year="1950 – 1953"
+                    title="The Wage Stabilization Board Says No"
+                    summary="The IUEC became the first union in any sector of the American economy to formally petition for paid holidays as a recognized employment standard. The petitions were continually denied through the controls period."
+                    body="The federal Wage Stabilization Board, established to control inflation during the Korean War, froze most wage increases across the American economy. The IUEC was the only union in the construction trades to have negotiated paid national holidays as a contractual benefit — a benefit the Commission ordered banned under its general wage-control authority. Seeking to retain the benefit, the IUEC became the first union in any sector of the American economy to formally petition for paid holidays as a recognized employment standard. The petitions were continually denied through the controls period."
+                  />
+                  <ExpandableCard
+                    year="1953"
+                    title="Eisenhower Lifts Controls, Atlantic City Returns"
+                    summary="When wage controls were finally suspended under an Executive Order, the IUEC immediately returned to the Atlantic City Plan — its regular wage-increase framework with the major manufacturers."
+                    body="When wage controls were finally suspended in 1953 — under an Executive Order signed by President Eisenhower stating that 'the production of materials and services and consumer demand in the national economy are approaching a practical balance' — the IUEC immediately returned to what it called the Atlantic City Plan, a regular wage-increase framework negotiated with the major elevator manufacturers. The episode established the IUEC's reputation as an unusually effective negotiating force on behalf of its members, willing to fight regulatory restrictions through patient institutional advocacy rather than dramatic public action."
+                  />
+                  <ExpandableCard
+                    year="1955 – 1962"
+                    title="Smith, Then Allen"
+                    summary="Edward A. Smith of New York City succeeded MacDonald in 1955 — at the time he had been an IUEC member for 58 years. Thomas Allen of Pittsburgh died of a heart attack in 1962 while preparing to attend negotiations."
+                    body="Edward A. Smith of New York City succeeded John MacDonald as General President in 1955, having been an IUEC member for 58 years at the time. Smith retired from the presidency in 1959 for medical reasons and was given the title of 'President Emeritus of the International Union of Elevator Constructors' by the Executive Board. Thomas Allen of Pittsburgh filled the unexpired term until his sudden death of a heart attack in 1962, while preparing to attend union negotiations."
+                  />
+                </Era>
+
+                <PullQuote attribution="The structural reality of the trade">
+                  Non-union elevator construction was, and remains, almost negligible in major commercial markets. The work is too technical, too safety-sensitive, and too closely regulated by building codes.
+                </PullQuote>
+
+                {/* PART V */}
+                <Era tag="V" years="1950s – 1970s" title="The Postwar Boom and the Atlantic City Plan" intro="The quarter-century following World War II was the IUEC's golden age. Suburban expansion, the interstate highway system's commercial corridors, the cold-war defense build-up, urban downtown redevelopment, and the steady upward expansion of commercial real estate all drove sustained demand.">
+                  <ExpandableCard
+                    year="postwar"
+                    title="The Steadiest Pipeline in the Building Trades"
+                    summary="New commercial high-rise construction in essentially every major American and Canadian city, plus modernization work generated by the aging stock of pre-war elevators."
+                    body="Suburban expansion, the interstate highway system's commercial corridors, the cold-war defense build-up, urban downtown redevelopment, the construction of new universities and hospitals, the postwar shopping mall boom, and the steady upward expansion of commercial real estate all drove sustained demand for elevator construction work. The combination of new commercial high-rise construction in essentially every major American and Canadian city, plus the modernization and replacement work generated by the aging stock of pre-war elevators, gave the union one of the steadiest work pipelines of any building trade."
+                  />
+                  <ExpandableCard
+                    year="postwar"
+                    title="NEIEP and the Joint Apprenticeship"
+                    summary="A four-year program combining classroom instruction with paid on-the-job training, followed by ongoing continuing-education requirements throughout a member's career."
+                    body="The institutional infrastructure was substantially completed during this period. The National Elevator Industry Educational Program (NEIEP), the union's joint apprenticeship program with signatory contractors, was developed into one of the most rigorous training programs in the building trades. The IUEC's apprenticeship structure — a four-year program combining classroom instruction with paid on-the-job training, followed by ongoing continuing-education requirements throughout a member's career — produced journey-level mechanics whose technical capabilities were essentially impossible to match outside the union. The National Elevator Industry Health Benefit Plan and the union's pension funds were built out into substantial multi-employer benefit programs."
+                  />
+                  <ExpandableCard
+                    year="1947 onward"
+                    title="Why Taft-Hartley Didn't Break the IUEC"
+                    summary="The union's deep specialization, absolute jurisdictional control, and the safety-critical nature of the craft gave it structural advantages that survived the new legal framework."
+                    body="The 1947 Taft-Hartley Act imposed real costs, as it did on every American building trade. But the IUEC's deep specialization, its absolute jurisdictional control over elevator work, and the safety-critical nature of the craft gave the union structural advantages that survived the new legal framework. Non-union elevator construction was, and remains, almost negligible in major commercial markets. The work is too technical, too safety-sensitive, and too closely regulated by building codes that effectively require trained, certified mechanics to be possible at scale outside the union."
+                  />
+                </Era>
+
+                {/* PART VI */}
+                <Era tag="VI" years="1970s – 2000s" title="Industry Consolidation and the Russell-Sullivan Era" intro="The most consequential shift in the IUEC's modern history was not internal but industry-wide. Between the 1970s and the 2000s, the elevator manufacturing industry underwent dramatic consolidation, eventually leaving the U.S. market dominated by a small number of multinational firms.">
+                  <ExpandableCard
+                    year="1970s – 2000s"
+                    title="The Big Five Form"
+                    summary="Otis, Schindler (Switzerland), Kone (Finland), ThyssenKrupp / TK Elevator (Germany), and Mitsubishi Electric (Japan) — bargaining with the manufacturers became bargaining with five companies."
+                    body="The U.S. market consolidated to a small number of multinational firms — Otis Elevator (a longtime division of United Technologies before becoming an independent public company in 2020), Schindler Holding AG (Switzerland), Kone Corporation (Finland), ThyssenKrupp Elevator (Germany; renamed TK Elevator after a 2020 sale to a private-equity consortium), and Mitsubishi Electric (Japan). A small number of significant regional and specialty firms operated alongside these 'Big Five' majors as of early 2026, pending the proposed KONE-TKE deal announced on April 29, 2026, which if completed would further consolidate the industry into an even smaller number of dominant global players."
+                  />
+                  <ExpandableCard
+                    year="1999 / 2020"
+                    title="The Two Big ThyssenKrupp Deals"
+                    summary="The 1999 acquisition of Dover Elevator for $1.1 billion. The 2020 sale of ThyssenKrupp's elevator division to a private-equity consortium for $19.214 billion at 17.3 times EBITDA."
+                    body="The 1999 ThyssenKrupp acquisition of Dover Elevator for $1.1 billion was a particularly significant consolidation event, propelling Thyssen to third place worldwide in the elevator industry. The 2020 sale of ThyssenKrupp's elevator division to a consortium of private-equity buyers and sovereign-wealth funds for $19.214 billion — at 17.3 times EBITDA — reflected just how valuable the consolidated industry had become."
+                  />
+                  <ExpandableCard
+                    year="1990s – 2000s"
+                    title="Russell, Sullivan, and the BCTD Presidency"
+                    summary="John N. Russell of Local 6 in Pittsburgh through the 1990s. Edward C. Sullivan of Boston Local 4 succeeded him and was elected President of the AFL-CIO Building and Construction Trades Department in 2000."
+                    body="John N. Russell of Local 6 in Pittsburgh served as General President through the 1990s before retiring in 1998 due to ill health. Edward C. Sullivan of Boston Local 4, who had served as Assistant to the General President, completed Russell's unexpired term and served as General President until July 2000, when he was elected President of the AFL-CIO Building and Construction Trades Department, presiding over what was at the time fifteen international unions. Sullivan's elevation to the BCTD presidency reflected the IUEC's outsized institutional respect within the broader building trades movement, despite the union's relatively small size."
+                  />
+                  <ExpandableCard
+                    year="post-2000"
+                    title="NEBA and ECA — The Bargaining Architecture"
+                    summary="The major employers continued to honor the National Elevator Bargaining Association framework. The Elevator Contractors of America provided a parallel structure for independent signatory contractors."
+                    body="For the IUEC, the consolidation was largely manageable. The union's relationship with the major manufacturers, anchored in the Atlantic City Plan and the broader institutional culture established during the postwar era, transitioned reasonably smoothly across ownership changes and corporate reorganizations. The major employers continued to honor the National Elevator Bargaining Association (NEBA) framework — the formal organization through which Otis, Schindler, Fujitec America, Kone, Mitsubishi, North American Elevator Service, and TKE collectively bargain with the union. The Elevator Contractors of America (ECA), an employer group of independent signatory contractors, provided a parallel bargaining structure for the smaller contractor segment of the industry."
+                  />
+                </Era>
+
+                {/* PART VII */}
+                <Era tag="VII" years="2012 – Present" title="The Christensen Era" intro="Frank J. Christensen, who had joined IUEC Local 2 in Chicago in 1979 directly after high school graduation, became General President of the IUEC on September 11, 2012, upon unanimous election by the General Executive Board. His tenure has been defined by safety, growth, and global standards leadership.">
+                  <ExpandableCard
+                    year="September 11, 2012"
+                    title="From Local 2 Business Manager to General President"
+                    summary="Christensen had risen through Local 2's officer ranks, serving as the longest-serving business manager in Local 2's hundred-year history before joining the international leadership."
+                    body="Christensen had risen through Local 2's officer ranks, serving as the longest-serving business manager in Local 2's hundred-year history before joining the international leadership. He was appointed Vice President of the AFL-CIO Building and Construction Trades Department in December 2012 and has been re-elected to the IUEC presidency at multiple subsequent conventions."
+                  />
+                  <ExpandableCard
+                    year="2010s – 2020s"
+                    title="Safety as the First Priority"
+                    summary="Falls, electrical injuries, entrapment, and crush injuries account for a steady stream of member fatalities. The fatality rate has trended downward through Christensen's presidency."
+                    body="Elevator construction is one of the most dangerous trades in the construction industry — falls, electrical injuries, entrapment, and crush injuries account for a steady stream of member fatalities and serious injuries. The IUEC under Christensen established a formal Safety Committee to serve as a liaison between the union and signatory companies, and the union's fatality rate has trended downward through his presidency. The IUEC member memorial at the union's Columbia, Maryland headquarters honors members who have died on the job, and the union's institutional emphasis on safety extends through training, equipment standards, and joint labor-management safety initiatives."
+                  />
+                  <ExpandableCard
+                    year="April 28-29, 2026"
+                    title="The Global Safety Summit in Las Vegas"
+                    summary="Brings elevator industry safety experts from around the world to advance international safety standards. NEIEP curriculum has expanded to address destination dispatch, machine-room-less elevators, and regenerative drives."
+                    body="The IUEC Global Safety Summit, scheduled for April 28-29, 2026 in Las Vegas, brings elevator industry safety experts from around the world to advance international safety standards. The union's National Elevator Industry Educational Program (NEIEP) has expanded its curriculum to address modern elevator technologies including destination dispatch systems, machine-room-less elevators, regenerative drives, and the broader integration of building automation systems with vertical transportation. By the early 2020s, the union reported more than 31,000 members at its 2022 collective bargaining convention."
+                  />
+                </Era>
+
+                {/* PART VIII */}
+                <Era tag="VIII" years="April 2022" title="The 31,000-Member Contract" intro="In early April 2022, hundreds of delegates representing the more than 31,000 IUEC members gathered in Washington, D.C., to review and ratify a new collective bargaining agreement covering the union's contracts with both NEBA and the ECA.">
+                  <ExpandableCard
+                    year="April 2022"
+                    title="Wages, Benefits, and a First-Ever Industry Safety Committee"
+                    summary="The new contract included substantial wage increases, robust healthcare and retirement benefits, and the establishment of a first-ever labor-management safety committee covering the entire industry."
+                    body="The 2022 contract reflected several broader industry trends that have shaped the union's bargaining environment. The new contract, ratified after extensive debate, included substantial wage increases, robust healthcare and retirement benefits, and the establishment of a first-ever labor-management safety committee covering the entire industry."
+                  />
+                  <ExpandableCard
+                    year="2020s"
+                    title="Smart Elevators, MULTI, and Robotic Installation"
+                    summary="ThyssenKrupp's rope-free MULTI elevator. Schindler's Robotic Installation System. Predictive-maintenance algorithms reducing downtime 14-19% and repair costs 5-10%."
+                    body="Elevator technology has been transforming rapidly, with the major manufacturers investing heavily in smart elevator systems, Internet of Things integration, predictive maintenance, augmented-reality service tools, and entirely new vertical-transportation concepts like ThyssenKrupp's rope-free MULTI elevator (operating multiple cabs in single shafts, including horizontal movement) and Schindler's Robotic Installation System for Elevators. Predictive-maintenance algorithms have reduced elevator downtime by 14 to 19 percent and produced 5 to 10 percent cost savings on repairs in markets where they have been deployed at scale."
+                  />
+                  <ExpandableCard
+                    year="2020s"
+                    title="The Defense of Skill"
+                    summary="Modern elevator systems are more technically demanding to install, modernize, and service than traditional systems — which favors the union's highly trained workforce."
+                    body="For the IUEC, these changes have produced both opportunity and challenge. Modern elevator systems are more technically demanding to install, modernize, and service than traditional systems, which favors the union's highly trained workforce over potential non-union competitors. At the same time, the modular and prefabricated approaches some manufacturers have pursued — particularly in residential and lower-rise commercial markets — have created some pressure on traditional installation work. The union's response has emphasized continued investment in NEIEP training, expanded coverage of modernization and service work, and aggressive defense of its jurisdiction over the new technologies."
+                  />
+                </Era>
+
+                {/* PART IX */}
+                <Era tag="IX" years="2024 – 2026" title="The Highest-Paid Building Trade" intro="The 2024-2026 period has been defined for the IUEC by the unusual combination of strong work pipeline, rising wages, and a more challenging federal political environment.">
+                  <ExpandableCard
+                    year="May 2024"
+                    title="$106,580 Median, $51+/Hour Before Benefits"
+                    summary="The Bureau of Labor Statistics reported a median annual wage of $106,580 for elevator and escalator installers and repairers — the highest of any building trade in the United States."
+                    body="Elevator construction wages remain the highest of any building trade in the United States. The Bureau of Labor Statistics reported a median annual wage of $106,580 for elevator and escalator installers and repairers in May 2024, which works out to just over $51 per hour before benefits — reflective of both the technical demands of the work and the union's strong bargaining position. Total compensation, including the IUEC's pension and health benefits, places elevator constructors among the most highly compensated skilled workers in the broader American economy."
+                  />
+                  <ExpandableCard
+                    year="2024 – 2025"
+                    title="Modernization Anchors the Pipeline"
+                    summary="The aging stock of postwar elevators continued to drive sustained modernization work — historically the most stable segment of IUEC employment because it depends less on new construction cycles."
+                    body="The work pipeline through 2024 and 2025 remained robust. New commercial construction in major U.S. and Canadian metropolitan areas continued to drive demand for new elevator installations. The aging stock of elevators in older buildings — a substantial portion of which dates from the postwar boom and is now reaching the end of its operational life — continued to drive sustained modernization work, which has historically been the most stable segment of the IUEC's employment profile. Healthcare facility expansion, university construction, hospital modernization, and the broader build-out of public and institutional buildings provided steady work across multiple regions."
+                  />
+                  <ExpandableCard
+                    year="2025"
+                    title="CHIPS, Data Centers, and Federal Policy"
+                    summary="CHIPS Act-funded semiconductor fabs and major data-center campuses have generated additional elevator and lift work. PLA requirements for federal projects over $35M were preserved with clarified exceptions."
+                    body="The CHIPS Act-funded semiconductor fabs and major data-center campuses have generated additional elevator and lift work, though these projects are less elevator-intensive per square foot than traditional commercial high-rises. The 2025 federal policy environment has been mixed for the IUEC's strategic agenda. PLA requirements for federal construction projects over $35 million were preserved with clarified exceptions, and the broader weakening of registered-apprenticeship standards has applied unevenly across federal programs. But the IUEC's underlying market position is anchored in the technical requirements of elevator work and the building codes that effectively require trained mechanics, neither of which depends on federal policy preferences."
+                  />
+                </Era>
+
+                {/* PART X */}
+                <Era tag="X" years="2026" title="The Present Day" intro="Walking into 2026, the IUEC occupies a position of significant institutional strength navigating an industry in continued transformation. The union's market position in elevator construction, modernization, and service work remains essentially unmatched.">
+                  <ExpandableCard
+                    year="2026"
+                    title="30,000+ Members, 141 Locals"
+                    summary="129 U.S. locals and 12 Canadian locals. Major locals: Local 1 (NYC), Local 2 (Chicago), Local 4 (Boston), Local 6 (Pittsburgh) — each with more than a thousand members."
+                    body="The IUEC reports more than 30,000 members across approximately 141 local unions in the United States and Canada — 129 U.S. locals and 12 Canadian locals. Major locals include Local 1 (New York City), Local 2 (Chicago), Local 4 (Boston), and Local 6 (Pittsburgh), each of which has more than a thousand members and serves as a central institutional anchor in its region. Headquarters operations are based in Columbia, Maryland. Members are predominantly male but with growing women's representation, predominantly U.S.-born but with increasing membership diversity reflecting the broader demographic changes in major metropolitan construction labor markets."
+                  />
+                  <ExpandableCard
+                    year="2026"
+                    title="NEIEP, CEIEP, and Modern Curriculum"
+                    summary="Four-year apprenticeship combining classroom + paid OJT. Curriculum now covers destination dispatch, machine-room-less elevators, regenerative drives, gearless traction, and building automation integration."
+                    body="The National Elevator Industry Educational Program (NEIEP) operates training centers across the United States and Canada, with curriculum focused on elevator construction, modernization, and service work. The four-year apprenticeship program combines classroom instruction with paid on-the-job training, follows registered-apprenticeship standards, and produces journey-level credentials recognized across IUEC jurisdictions throughout the United States and Canada. The Canadian Elevator Industry Educational Program (CEIEP) provides parallel training infrastructure for Canadian members. NEIEP's curriculum has expanded substantially to address modern elevator technologies — destination dispatch systems, machine-room-less elevators, regenerative drives, gearless traction systems, and the integration of elevator systems with broader building automation."
+                  />
+                  <ExpandableCard
+                    year="2026"
+                    title="Christensen, Chapman, McGann"
+                    summary="Frank J. Christensen continues as General President. James Chapman III appointed Assistant General President in January 2024. Larry J. McGann has served as General Secretary-Treasurer since 2011."
+                    body="Frank J. Christensen has served as General President since 2012, having been re-elected at multiple subsequent conventions. James Chapman III was appointed Assistant General President in January 2024, succeeding James K. Bender II upon the latter's retirement. Larry J. McGann has served as General Secretary-Treasurer since his unanimous election at the 2011 General Convention, with subsequent unanimous re-elections at the 2016 and 2021 General Conventions. The General Executive Board includes regional vice presidents covering both U.S. and Canadian jurisdictions. The IUEC's institutional culture continues to emphasize the same priorities established at the 1901 founding convention: close working relationships with employers, rigorous craft training, absolute defense of jurisdiction, and member safety as the union's first institutional priority."
+                  />
+                </Era>
+
+                {/* CLOSING */}
+                <div style={{margin:'80px 0 40px', padding:'40px', background:'linear-gradient(135deg, rgba(74,123,157,0.10), rgba(245,197,24,0.04))', border:'1px solid rgba(74,123,157,0.25)', borderRadius:20, textAlign:'center'}}>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#4A7B9D', letterSpacing:3, textTransform:'uppercase', marginBottom:12}}>The Continuity Beneath the Change</div>
+                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:'0 0 20px 0', lineHeight:1.1}}>
+                    There would be no skyscrapers<br/><span style={{color:'#4A7B9D'}}>without elevators.</span>
+                  </h2>
+                  <p style={{fontSize:16, color:'rgba(255,255,255,0.8)', lineHeight:1.7, maxWidth:680, margin:'0 auto 16px'}}>
+                    When eleven men met in a hotel room in downtown Pittsburgh on July 15, 1901, the trade they imagined organizing was just beginning to take its modern form. The skyscraper was a recent invention. The safety elevator had existed for less than fifty years. The federal labor law framework was thirty-four years away.
+                  </p>
+                  <p style={{fontSize:16, color:'rgba(255,255,255,0.8)', lineHeight:1.7, maxWidth:680, margin:'0 auto 24px'}}>
+                    The IUEC today, 124 years after the Griswold Hotel, continues to do the same essential thing the eleven founders set out to do: organizing the workers who install and maintain the machines that make modern vertical living possible. The institution that began with $5 charter fees and $13.90 in convention expenses has built, across twelve decades, the institutional architecture that keeps that trade going.
+                  </p>
+                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#4A7B9D', fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(74,123,157,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
                 </div>
               </div>
             </div>
