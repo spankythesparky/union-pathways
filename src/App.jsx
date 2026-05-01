@@ -6366,6 +6366,14 @@ export default function UnionPathway() {
             <div className="mobile-drawer-section-label">{lang==="es" ? "Historia" : lang==="pl" ? "Historia" : "History"}</div>
             <button className={`mobile-drawer-link${page==="history" ? " active" : ""}`} onClick={() => { setPage("history"); setMobileNavOpen(false); }}>{lang==="es" ? "Historia General" : lang==="pl" ? "Historia Ogolna" : "General Union History"}</button>
             <button className={`mobile-drawer-link${page==="trade-history" ? " active" : ""}`} onClick={() => { setPage("trade-history"); setMobileNavOpen(false); }}>{lang==="es" ? "Historias de Oficios" : lang==="pl" ? "Historie Zawodow" : "Trade Histories"}</button>
+            <button className={`mobile-drawer-link${page==="history-ibew" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("history-ibew"); setMobileNavOpen(false); }}>· IBEW · Electricians</button>
+            <button className={`mobile-drawer-link${page==="history-ua" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("history-ua"); setMobileNavOpen(false); }}>· UA · Plumbers & Pipefitters</button>
+            <button className={`mobile-drawer-link${page==="history-smart" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("history-smart"); setMobileNavOpen(false); }}>· SMART · Sheet Metal</button>
+            <button className={`mobile-drawer-link${page==="history-bac" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("history-bac"); setMobileNavOpen(false); }}>· BAC · Bricklayers</button>
+            <button className={`mobile-drawer-link${page==="history-iron" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("history-iron"); setMobileNavOpen(false); }}>· Iron Workers</button>
+            <button className={`mobile-drawer-link${page==="history-insul" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("history-insul"); setMobileNavOpen(false); }}>· Insulators (HFIAW)</button>
+            <button className={`mobile-drawer-link${page==="history-iuec" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("history-iuec"); setMobileNavOpen(false); }}>· IUEC · Elevator Constructors</button>
+            <button className={`mobile-drawer-link${page==="history-ufcw" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("history-ufcw"); setMobileNavOpen(false); }}>· UFCW · Food & Commercial</button>
           </div>
 
           <div className="mobile-drawer-section">
