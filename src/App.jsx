@@ -3219,7 +3219,7 @@ export default function UnionPathway() {
   // URL-aware page state
   const getPageFromUrl = () => {
     const path = window.location.pathname.replace('/', '') || 'home';
-    const validPages = ['home','quiz','careers','checklist','locals','calculator','resume','veterans','history','trade-history','history-ibew','history-ua','history-smart','history-bac','history-ufcw','history-iron','history-insul','history-iuec','retirement','benefits','about','contact','jobboard','wages','organize','organize-contractor','rtw'];
+    const validPages = ['home','quiz','careers','checklist','locals','calculator','resume','veterans','history','trade-history','history-ibew','history-ua','history-smart','history-bac','history-ufcw','history-iron','history-insul','history-iuec','retirement','benefits','about','contact','jobboard','wages','organize','organize-contractor','rtw','apprenticeship','apprenticeship-ibew','apprenticeship-ua','apprenticeship-smart','apprenticeship-iuec'];
     return validPages.includes(path) ? path : 'home';
   };
   const [page, setPageState] = useState(getPageFromUrl);
@@ -3244,7 +3244,7 @@ export default function UnionPathway() {
   const [scrollProgress, setScrollProgress] = useState(0);
   useEffect(() => {
     const onScroll = () => {
-      const candidates = ['history-root','ibew-history-root','ua-history-root','smart-history-root','bac-history-root','ufcw-history-root','iron-history-root','insul-history-root','iuec-history-root','rtw-root','benefits-root'];
+      const candidates = ['history-root','ibew-history-root','ua-history-root','smart-history-root','bac-history-root','ufcw-history-root','iron-history-root','insul-history-root','iuec-history-root','rtw-root','apprenticeship-root','apprenticeship-ibew-root','apprenticeship-ua-root','apprenticeship-smart-root','apprenticeship-iuec-root','benefits-root'];
       let el = null;
       for (const id of candidates) {
         const found = document.getElementById(id);
@@ -4288,6 +4288,11 @@ export default function UnionPathway() {
       'history-insul': { title: "Insulators History — Wrapping the Pipes · Union Pathways", desc: "The full history of the International Association of Heat and Frost Insulators and Allied Workers (AWIU) — from the 1903 St. Louis founding, through World War II Pearl Harbor reconstruction, the Selikoff asbestos studies at Mount Sinai, the 1990s name change from Asbestos Workers, and the modern push for the Federal Mechanical Insulation Act." },
       'history-iuec': { title: "IUEC History — Going Up · Union Pathways", desc: "The full history of the International Union of Elevator Constructors — from the 1854 Otis Crystal Palace demonstration and the July 1901 Griswold Hotel founding through the Atlantic City Plan, the Christensen era, and the path to becoming the highest-paid building trade in the United States." },
       'rtw': { title: "Right to Work — The Price of \"Freedom\" to Opt Out · Union Pathways", desc: "An interactive investigation into right-to-work laws across the 50 states. Compare wages, union density, workplace fatality rates, household income, poverty, and uninsured rates between RTW and non-RTW states. State-by-state map, head-to-head comparisons, dashboard, and 80-year timeline from 1944 to Michigan's 2024 repeal." },
+      'apprenticeship': { title: "Apprenticeship Aptitude Tests — How to Get In · Union Pathways", desc: "What's actually on every union apprenticeship aptitude test, by trade. IBEW NJATC, UA GAN, SMART Sheet Metal, IUEC EIAT, and more. Test sections, scoring, study tips, and the things nobody tells you. No prep-course paywall." },
+      'apprenticeship-ibew': { title: "IBEW Aptitude Test (NJATC) — Full Breakdown · Union Pathways", desc: "Everything that's actually on the IBEW Inside Wireman aptitude test. Algebra & functions, reading comprehension, scoring on the 1-9 scale, study resources, and what the interview actually asks. Free, no upsell." },
+      'apprenticeship-ua': { title: "UA Plumbers & Pipefitters Aptitude Test (GAN) — Full Breakdown · Union Pathways", desc: "The full Piping Industry Entry Level Assessment broken down by section. Reading, math, mechanical, spatial, problem solving — what's tested, scoring, study tips, and the application window trap nobody warns you about." },
+      'apprenticeship-smart': { title: "SMART Sheet Metal Apprenticeship Test — Full Breakdown · Union Pathways", desc: "What's on the SMART Sheet Metal apprenticeship test — math, reading, mechanical reasoning, spatial visualization. Local-by-local variation including SMART Local 36, Southern California JATC, Western Washington, and Local 20." },
+      'apprenticeship-iuec': { title: "IUEC EIAT — Elevator Industry Aptitude Test Breakdown · Union Pathways", desc: "Full breakdown of the NEIEP Elevator Industry Aptitude Test for IUEC apprenticeships. Arithmetic, reading comprehension, mechanical comprehension, the tool recognition assessment, the four-tier scoring system, and how to prep." },
     };
     const pm = PAGE_META[page] || PAGE_META.home;
     document.title = pm.title;
@@ -11061,6 +11066,646 @@ export default function UnionPathway() {
           );
           };
           return <RTWPage />;
+        })()}
+
+        {page === "apprenticeship" && (() => {
+          const TRADES = [
+            { key:'ibew', name:'IBEW Electricians', test:'NJATC / Electrical Training Alliance Aptitude Test', sections:'Algebra & Functions · Reading Comprehension', live:true, color:'#4A7B9D', sub:'69 questions · 96 minutes · scored 1–9 · need 4+ to interview' },
+            { key:'ua', name:'UA Plumbers & Pipefitters', test:'GAN / Piping Industry Entry Level Assessment', sections:'Reading · Math · Mechanical · Spatial · Folding · Problem Solving', live:true, color:'#7C9D4A', sub:'~140 questions · 120 minutes · need ~70% to pass' },
+            { key:'smart', name:'SMART Sheet Metal', test:'Sheet Metal Apprenticeship Test (varies by local)', sections:'Math · Reading · Mechanical · Spatial / Abstract', live:true, color:'#9D6B4A', sub:'Varies by local · most need 70%+ · ranking-based selection' },
+            { key:'iuec', name:'IUEC Elevator Constructors', test:'EIAT — Elevator Industry Aptitude Test', sections:'Arithmetic · Reading Comprehension · Mechanical Comprehension', live:true, color:'#4A7B9D', sub:'100 questions · 90 minutes · need 70% to pass + tool recognition test' },
+            { key:'iw', name:'Iron Workers', test:'Ironworker Apprenticeship Aptitude Test', sections:'Reading Comprehension · Math (algebra, geometry)', live:false, color:'#9D4A4A', sub:'Coming soon' },
+            { key:'bac', name:'BAC Bricklayers', test:'Local-administered aptitude assessment', sections:'Math · Reading · Mechanical', live:false, color:'#9D4A6B', sub:'Coming soon' },
+            { key:'hfiaw', name:'Insulators (HFIAW)', test:'AWIU Apprenticeship Aptitude Test', sections:'Reading · Mechanical · Math', live:false, color:'#7C4A9D', sub:'Coming soon' },
+            { key:'iuoe', name:'IUOE Operating Engineers', test:'NCCER Trade Assessments', sections:'Math · Reading · Spatial · Mechanical', live:false, color:'#4A9D7C', sub:'Coming soon' },
+            { key:'ubc', name:'UBC Carpenters', test:'Carpentry Math Test + Local screening', sections:'Math · Reading · Mechanical', live:false, color:'#9D7C4A', sub:'Coming soon' },
+          ];
+
+          return (
+            <div id="apprenticeship-root">
+              {/* PROGRESS BAR */}
+              <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #4A7B9D, #F5C518)', transition:'width 0.1s'}} />
+              </div>
+
+              {/* BREADCRUMB */}
+              <div style={{padding:'24px 24px 0', maxWidth:1100, margin:'0 auto'}}>
+                <div onClick={() => setPage('home')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                  Home
+                </div>
+              </div>
+
+              {/* HERO */}
+              <div style={{padding:'40px 24px 60px', maxWidth:1100, margin:'0 auto'}}>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>How To Get In</div>
+                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(44px, 8vw, 96px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 28px 0', letterSpacing:'-0.01em'}}>
+                  The Apprenticeship<br/><span style={{color:'#F5C518'}}>Aptitude Test.</span>
+                </h1>
+                <p style={{fontSize:20, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:720, margin:0}}>
+                  Every union apprenticeship starts with a test. Each trade uses a different one — different sections, different scoring, different cutoff. This is what's actually on each one. No prep-course paywall, no gatekeeping, no fluff. Pick your trade.
+                </p>
+              </div>
+
+              {/* BIG NUMBERS */}
+              <div style={{padding:'40px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+                <div style={{maxWidth:1100, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(180px, 1fr))', gap:24}}>
+                  {[
+                    { v:'$0', l:'Tuition cost. Paid to learn.' },
+                    { v:'4-5 yr', l:'Typical apprenticeship length' },
+                    { v:'10,000+', l:'Hours of paid OJT by graduation' },
+                    { v:'$50+/hr', l:'Median journeyman wage in the trades' }
+                  ].map((s, i) => (
+                    <div key={i}>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(36px, 4.5vw, 56px)', fontWeight:900, color:'#F5C518', lineHeight:1, marginBottom:8}}>{s.v}</div>
+                      <div style={{fontSize:13, color:'rgba(255,255,255,0.65)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{s.l}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* TRADE CARDS */}
+              <div style={{padding:'80px 24px', maxWidth:1100, margin:'0 auto'}}>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>Pick Your Trade</div>
+                <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4.5vw, 44px)', fontWeight:900, color:'#fff', margin:'0 0 40px 0', lineHeight:1.05}}>Every trade tests differently.</h2>
+                <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(320px, 1fr))', gap:16}}>
+                  {TRADES.map(t => (
+                    <div
+                      key={t.key}
+                      onClick={() => t.live && setPage('apprenticeship-' + t.key)}
+                      style={{
+                        background: t.live ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.02)',
+                        border:'1px solid '+(t.live ? 'rgba(255,255,255,0.10)' : 'rgba(255,255,255,0.05)'),
+                        borderLeft:'4px solid '+t.color,
+                        borderRadius:14,
+                        padding:'24px 26px',
+                        cursor: t.live ? 'pointer' : 'default',
+                        opacity: t.live ? 1 : 0.55,
+                        transition:'all 0.2s'
+                      }}
+                      onMouseEnter={e => { if (t.live) { e.currentTarget.style.background = 'rgba(255,255,255,0.07)'; e.currentTarget.style.transform = 'translateY(-2px)'; } }}
+                      onMouseLeave={e => { if (t.live) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.transform = 'translateY(0)'; } }}
+                    >
+                      <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:12, marginBottom:10}}>
+                        <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', margin:0, lineHeight:1.15}}>{t.name}</h3>
+                        {t.live ? (
+                          <div style={{flexShrink:0, fontSize:9, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700, color:t.color, letterSpacing:1.5, textTransform:'uppercase', padding:'4px 8px', border:'1px solid '+t.color, borderRadius:50}}>Live</div>
+                        ) : (
+                          <div style={{flexShrink:0, fontSize:9, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700, color:'rgba(255,255,255,0.45)', letterSpacing:1.5, textTransform:'uppercase', padding:'4px 8px', border:'1px solid rgba(255,255,255,0.15)', borderRadius:50}}>Coming Soon</div>
+                        )}
+                      </div>
+                      <div style={{fontSize:13, color:'rgba(255,255,255,0.7)', fontStyle:'italic', marginBottom:12}}>{t.test}</div>
+                      <div style={{fontSize:12, color:'rgba(255,255,255,0.55)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:600, marginBottom:14}}>{t.sections}</div>
+                      <div style={{fontSize:12, color:t.color, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:0.5, fontWeight:600}}>{t.sub}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* GENERAL ADVICE */}
+              <div style={{padding:'80px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+                <div style={{maxWidth:900, margin:'0 auto'}}>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>True for Every Trade</div>
+                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4.5vw, 44px)', fontWeight:900, color:'#fff', margin:'0 0 32px 0', lineHeight:1.05}}>Things nobody tells you.</h2>
+                  <div style={{display:'flex', flexDirection:'column', gap:18, fontSize:16, lineHeight:1.7, color:'rgba(255,255,255,0.85)'}}>
+                    <p style={{margin:0}}><strong style={{color:'#F5C518'}}>The test isn't the hard part — the math under time pressure is.</strong> Most apprenticeship tests are 8th-to-10th-grade math. The catch is no calculator and a tight clock. Practice doing arithmetic and algebra fast, on paper, with a stopwatch.</p>
+                    <p style={{margin:0}}><strong style={{color:'#F5C518'}}>Reading comprehension is half your score. Don't sleep on it.</strong> Most candidates over-prep math and ignore reading. The reading section is usually weighted equal to (or more than) math. Practice reading dense technical passages and summarizing in your own words.</p>
+                    <p style={{margin:0}}><strong style={{color:'#F5C518'}}>Passing isn't the same as getting in.</strong> Most locals rank applicants by combined test + interview score and fill spots top-down. A "passing" 70 might not get an interview if 200 people scored 85+. Aim for the highest score you can — not the minimum.</p>
+                    <p style={{margin:0}}><strong style={{color:'#F5C518'}}>The interview matters as much as the test.</strong> Once you're in the interview pool, ranking is dominated by interview performance. Have a real answer for "why this trade." Have references. Show up early, dressed appropriately. Ask questions that show you researched the local.</p>
+                    <p style={{margin:0}}><strong style={{color:'#F5C518'}}>Khan Academy is free and works.</strong> For algebra, fractions, decimals, percentages, and basic geometry — the core of every trade test — Khan Academy has clean, free video lessons. Many JATCs literally recommend it as their official prep resource. Don't pay for a "secret" course.</p>
+                    <p style={{margin:0}}><strong style={{color:'#F5C518'}}>You can retake. But don't plan on it.</strong> Most locals make you wait 6 months to a year between attempts, and you go to the back of the line. Treat the first attempt like your only attempt.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* BACK */}
+              <div style={{padding:'40px 24px 80px', maxWidth:1100, margin:'0 auto', textAlign:'center'}}>
+                <button onClick={() => setPage('home')} style={{background:'transparent', color:'#F5C518', fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(245,197,24,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to Home</button>
+              </div>
+            </div>
+          );
+        })()}
+
+        {page === "apprenticeship-ibew" && (() => {
+          const ACCENT = '#4A7B9D';
+          const Section = ({ eyebrow, title, children }) => (
+            <div style={{margin:'56px 0'}}>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
+              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              {children}
+            </div>
+          );
+          const Card = ({ children }) => (
+            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>
+              {children}
+            </div>
+          );
+          const Stat = ({ v, l }) => (
+            <div>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
+              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+            </div>
+          );
+          return (
+            <div id="apprenticeship-ibew-root">
+              <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+              </div>
+              <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                  Apprenticeship Tests
+                </div>
+              </div>
+              <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>IBEW · Inside Wireman</div>
+                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The NJATC<br/><span style={{color:ACCENT}}>Aptitude Test.</span></h1>
+                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>Officially the <em>Electrical Training Alliance Aptitude Test</em>, still called the NJATC test by everyone who's taken it. Used by virtually every IBEW local to screen Inside Wireman apprenticeship candidates. Two sections, 96 minutes, no calculator.</p>
+              </div>
+
+              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+                <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
+                  <Stat v="69" l="Total Questions" />
+                  <Stat v="96" l="Minutes" />
+                  <Stat v="1–9" l="Score Scale" />
+                  <Stat v="4+" l="Score Needed to Interview" />
+                </div>
+              </div>
+
+              <div style={{maxWidth:900, margin:'0 auto', padding:'0 24px 80px'}}>
+
+                <Section eyebrow="What's Actually On It" title="Two sections. Two clocks.">
+                  <Card>
+                    <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff'}}>Algebra & Functions</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>33 Questions · 46 Minutes</div>
+                    </div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Algebraic expressions, equations, inequalities, functions and graphs, polynomials, number sequences, word problems. Goes beyond standard high-school algebra in difficulty. Roughly 84 seconds per question. <strong style={{color:'#F5C518'}}>No calculator.</strong></p>
+                  </Card>
+                  <Card>
+                    <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff'}}>Reading Comprehension</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>36 Questions · 51 Minutes</div>
+                    </div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Multi-paragraph technical passages followed by questions. Tests main idea, supporting details, inference, and vocabulary in context. No prior electrical knowledge required, but passages tend to be technical or scientific in tone. About 85 seconds per question.</p>
+                  </Card>
+                  <Card>
+                    <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color:'#fff'}}>Mechanical Comprehension <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>(some locals)</span></div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, color:'rgba(255,255,255,0.55)', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Varies</div>
+                    </div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>A handful of locals — Local 134 (Chicago) is the most well-known — add a mechanical reasoning section. Pulleys, levers, gears, load distribution. If you're applying to a major metro local, check directly with the JATC about whether this section applies.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="The Math" title="What 'algebra' actually means here.">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>The math section is harder than most candidates expect. Going in with rusty middle-school skills will burn the clock. Be fluent in:</p>
+                    <ul style={{margin:'0 0 4px 0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li>Linear and quadratic equations — solving for x, factoring, the quadratic formula</li>
+                      <li>Functions and graphs — slope, intercepts, reading values off a graph</li>
+                      <li>Polynomial operations — adding, subtracting, multiplying, factoring</li>
+                      <li>Number series — finding the next term, finding the rule</li>
+                      <li>Inequalities — solving and graphing on a number line</li>
+                      <li>Word problems — translating English into algebra under time pressure</li>
+                      <li>Fractions, decimals, percentages — fluently, no calculator</li>
+                    </ul>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="How They Score It" title="The 1-9 scale, demystified.">
+                  <Card>
+                    <p style={{margin:'0 0 14px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Your raw correct count gets converted to a score from 1 to 9. There's no penalty for wrong answers — answer every question, even if you have to guess. Scores break down roughly like this:</p>
+                    <div style={{display:'grid', gap:8, marginTop:8}}>
+                      <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'rgba(74,123,157,0.15)', borderRadius:8, borderLeft:'3px solid '+ACCENT}}>
+                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#fff'}}>1–3</span>
+                        <span style={{fontSize:13, color:'rgba(255,255,255,0.7)'}}>Below qualifying — no interview, 6-month wait to retest</span>
+                      </div>
+                      <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'rgba(255,255,255,0.04)', borderRadius:8}}>
+                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#fff'}}>4</span>
+                        <span style={{fontSize:13, color:'rgba(255,255,255,0.7)'}}>Qualifying — eligible for interview, but bottom of the pile</span>
+                      </div>
+                      <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'rgba(255,255,255,0.04)', borderRadius:8}}>
+                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#fff'}}>5–7</span>
+                        <span style={{fontSize:13, color:'rgba(255,255,255,0.7)'}}>Competitive — strong interview can place you</span>
+                      </div>
+                      <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'rgba(245,197,24,0.10)', borderRadius:8, borderLeft:'3px solid #F5C518'}}>
+                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#fff'}}>8–9</span>
+                        <span style={{fontSize:13, color:'#F5C518', fontWeight:700}}>Top tier — virtually guaranteed an interview slot</span>
+                      </div>
+                    </div>
+                    <p style={{margin:'14px 0 0 0', fontSize:13, color:'rgba(255,255,255,0.6)', fontStyle:'italic', lineHeight:1.6}}>Note: locals with high applicant volume sometimes only interview top-scoring applicants. A 4 in NYC Local 3 may not get an interview the same year a 4 would in a smaller local.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="How to Prep" title="Free resources that actually work.">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Don't pay for a $200 prep course. The Electrical Training Alliance maintains an official sample test, and most JATCs explicitly recommend Khan Academy as their prep resource of choice.</p>
+                    <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li><strong style={{color:'#F5C518'}}>Khan Academy Algebra 1 + Algebra 2.</strong> Free, video-based, covers the full math section curriculum. Most JATCs reference this directly.</li>
+                      <li><strong style={{color:'#F5C518'}}>Electrical Training Alliance sample page</strong> — short but it shows you the actual question style.</li>
+                      <li><strong style={{color:'#F5C518'}}>Library copy of any "GED math" or "ACCUPLACER algebra" study book.</strong> Same content, free if you have a library card.</li>
+                      <li><strong style={{color:'#F5C518'}}>Practice without a calculator.</strong> Whatever you study, do it on paper. Calculator-free arithmetic is a skill you have to rebuild.</li>
+                      <li><strong style={{color:'#F5C518'}}>Time yourself.</strong> 84 seconds per math question, 85 seconds per reading question. Practice at that pace.</li>
+                    </ul>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="The Interview" title="The actual gatekeeper.">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Most candidates think the test is the hard part. The interview is. Final ranking is usually 50/50 test-and-interview, and at large locals the interview tilts the outcome more than the test does.</p>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#F5C518'}}>The single hardest interview question:</strong> <em>"Why electrical work? Why not carpentry, plumbing, or sheet metal?"</em> If you don't have a real, specific answer, you will lose points. The committee is looking for people who chose this trade — not people who'll bounce after a year.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Other things they care about: documented work history (any work, not just electrical), references, mechanical aptitude shown through hobbies or prior work, fitness/willingness to do physical labor, basic math fluency under pressure, and showing up on time dressed like you take it seriously.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="After You Pass" title="What the apprenticeship actually looks like.">
+                  <Card>
+                    <p style={{margin:'0 0 10px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Inside Wireman apprenticeship is <strong style={{color:'#fff'}}>5 years</strong>, ~8,000 hours of paid on-the-job training plus 900+ classroom hours. You start at roughly 40-50% of journeyman scale and step up every 6 months. By Year 5 you're at 85-90% of scale.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>You graduate with a journeyman card recognized in any IBEW jurisdiction in the country, full health insurance from day one, and a defined-benefit pension. No student debt. Many JATCs partner with community colleges so you accumulate associate-degree credits along the way.</p>
+                  </Card>
+                </Section>
+
+              </div>
+
+              <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(74,123,157,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+              </div>
+            </div>
+          );
+        })()}
+
+        {page === "apprenticeship-ua" && (() => {
+          const ACCENT = '#7C9D4A';
+          const Section = ({ eyebrow, title, children }) => (
+            <div style={{margin:'56px 0'}}>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
+              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              {children}
+            </div>
+          );
+          const Card = ({ children }) => (
+            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+          );
+          const Stat = ({ v, l }) => (
+            <div>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
+              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+            </div>
+          );
+          const SectionRow = ({ name, q, t, desc }) => (
+            <Card>
+              <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:10, flexWrap:'wrap', gap:8}}>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:'#fff'}}>{name}</div>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{q} Questions · {t}</div>
+              </div>
+              <p style={{margin:0, fontSize:14, color:'rgba(255,255,255,0.8)', lineHeight:1.6}}>{desc}</p>
+            </Card>
+          );
+          return (
+            <div id="apprenticeship-ua-root">
+              <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+              </div>
+              <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                  Apprenticeship Tests
+                </div>
+              </div>
+              <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>UA · Plumbers, Pipefitters, Steamfitters</div>
+                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The GAN<br/><span style={{color:ACCENT}}>Aptitude Test.</span></h1>
+                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>Officially the <em>Piping Industry Entry Level Assessment</em>, administered by GAN Human Resources for UA locals across the U.S. and Canada. Six sections, two hours, no calculator — and the broadest aptitude test in the building trades.</p>
+              </div>
+
+              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+                <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
+                  <Stat v="~140" l="Total Questions" />
+                  <Stat v="120" l="Minutes" />
+                  <Stat v="6" l="Sections" />
+                  <Stat v="70%" l="Typical Pass Threshold" />
+                </div>
+              </div>
+
+              <div style={{maxWidth:900, margin:'0 auto', padding:'0 24px 80px'}}>
+
+                <Section eyebrow="What's Actually On It" title="Six sections covering the full skill range.">
+                  <SectionRow name="Reading Comprehension" q="42" t="25 min" desc="Technical and general passages followed by questions on main idea, detail, inference. Heaviest question count of any section. Pace: about 36 seconds per question." />
+                  <SectionRow name="Numerical Computation" q="—" t="—" desc="Pure arithmetic — fractions, decimals, percentages, basic operations. Fluent paper-and-pencil math against a clock. No calculator." />
+                  <SectionRow name="Numerical Reasoning" q="—" t="—" desc="Word problems and applied math. Translating English into numbers. Common formulas, ratios, and proportions." />
+                  <SectionRow name="Folding (Spatial)" q="—" t="—" desc="2D nets folded into 3D shapes — pick which 3D object the unfolded pattern would make. Pure spatial visualization. Practice flat-pattern visualization for boxes, prisms, and pipe layouts." />
+                  <SectionRow name="Problem Solving" q="35" t="35 min" desc="Mixed numerical, abstract, and verbal reasoning. Pattern recognition and logic chains. About one minute per question." />
+                  <SectionRow name="Mechanical Comprehension" q="—" t="—" desc="Pulleys, gears, levers, hydraulics, fluid flow — the basic mechanical principles a pipefitter actually uses. The most trade-relevant section." />
+                </Section>
+
+                <Section eyebrow="The Math" title="Eighth-grade level — but fast, and on paper.">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>UA test math is calibrated lower than the IBEW test — most locals describe it as "8th-grade pre-algebra." The catch is volume and speed under no-calculator conditions. Be fluent in:</p>
+                    <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li>Fractions — adding, subtracting, multiplying, dividing, including mixed numbers</li>
+                      <li>Decimals and percentages — conversions and operations both directions</li>
+                      <li>Ratios and proportions — what fraction of the pipe, what scale of the drawing</li>
+                      <li>Basic algebra — solve for x, simple linear equations</li>
+                      <li>Word problems — distance/rate/time, mixture, work problems</li>
+                      <li>Geometry basics — area, perimeter, volume of basic shapes</li>
+                      <li>Reading a ruler — fractions of an inch, both 1/16 and 1/32 increments</li>
+                    </ul>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="How They Score It" title="Pass-fail at 70 — but ranking decides admission.">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Most UA locals set 70% as the passing threshold. But "passing" is not "getting in." Locals rank all passing applicants by combined test score and interview score, and fill apprenticeship slots from the top down. In a 4-year cycle with 800 applicants and 60 slots, a 75% may not advance even though it passed.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Aim for 85%+ if you want to be confident of an interview at a major-metro local. Some locals — especially in California, the NYC area, and Chicago — effectively need 90%+ to advance.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="How to Prep" title="Six sections need a six-section plan.">
+                  <Card>
+                    <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li><strong style={{color:'#F5C518'}}>Khan Academy Pre-Algebra and 8th-grade math.</strong> Covers ~70% of the math content. Free.</li>
+                      <li><strong style={{color:'#F5C518'}}>Mechanical aptitude practice.</strong> Barron's "How to Prepare for the Mechanical Aptitude and Spatial Relations Test" — many UA training centers literally recommend this book by name.</li>
+                      <li><strong style={{color:'#F5C518'}}>Spatial / paper-folding drills.</strong> Search "paper folding aptitude test practice" — there are dozens of free online generators. The folding section trips up candidates who skip practice.</li>
+                      <li><strong style={{color:'#F5C518'}}>Read dense technical text.</strong> Plumbing code books, OSHA fact sheets, scientific articles. The reading section moves fast — you have to extract the main idea quickly.</li>
+                      <li><strong style={{color:'#F5C518'}}>Reading a ruler — actually practice this.</strong> 1/16 and 1/32 increments, on paper, until you can read any mark in under a second.</li>
+                      <li><strong style={{color:'#F5C518'}}>Time yourself.</strong> 36-60 seconds per question depending on section. The clock is the real test.</li>
+                    </ul>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="Application Windows" title="The trap nobody warns you about.">
+                  <Card>
+                    <p style={{margin:'0 0 10px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#F5C518'}}>Most UA locals open applications once a year — sometimes once every two years.</strong> Miss the window and you wait until the next cycle. There's no central calendar. Each local advertises on its own website (and many don't advertise well).</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Call the local hall directly — don't rely on web searches. Ask: "When does the next apprenticeship application window open? What documents do I need to bring? Where can I get a sample test?" Most coordinators are helpful when you call respectfully.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="After You Pass" title="A 5-year program with built-in college credit.">
+                  <Card>
+                    <p style={{margin:'0 0 10px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>UA apprenticeships run <strong style={{color:'#fff'}}>5 years</strong>, ~10,000 hours of paid on-the-job training plus 1,500+ classroom hours. You start at 40-50% of journeyman scale, step up every 6 to 12 months. By Year 5 you're at ~90%.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Many UA training centers partner with community colleges, so you accumulate associate-degree credit along the way. You graduate with a journeyman license, full UA health and pension benefits, and a credential recognized in any UA jurisdiction in North America. No student loans.</p>
+                  </Card>
+                </Section>
+
+              </div>
+
+              <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(124,157,74,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+              </div>
+            </div>
+          );
+        })()}
+
+        {page === "apprenticeship-smart" && (() => {
+          const ACCENT = '#9D6B4A';
+          const Section = ({ eyebrow, title, children }) => (
+            <div style={{margin:'56px 0'}}>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
+              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              {children}
+            </div>
+          );
+          const Card = ({ children }) => (
+            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+          );
+          const Stat = ({ v, l }) => (
+            <div>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
+              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+            </div>
+          );
+          return (
+            <div id="apprenticeship-smart-root">
+              <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+              </div>
+              <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                  Apprenticeship Tests
+                </div>
+              </div>
+              <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>SMART · Sheet Metal Workers</div>
+                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The Sheet Metal<br/><span style={{color:ACCENT}}>Apprenticeship Test.</span></h1>
+                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>SMART doesn't have a single national aptitude test — each local JATC chooses its own. The sections below are the ones you'll see in some combination at most major locals: Math, Reading, Mechanical, and Spatial Reasoning. <strong style={{color:'#F5C518'}}>Always confirm the exact format with your local before taking it.</strong></p>
+              </div>
+
+              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+                <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
+                  <Stat v="2-4" l="Sections (varies)" />
+                  <Stat v="2-3 hr" l="Typical Length" />
+                  <Stat v="70%" l="Typical Pass Threshold" />
+                  <Stat v="4 yr" l="Apprenticeship Length" />
+                </div>
+              </div>
+
+              <div style={{maxWidth:900, margin:'0 auto', padding:'0 24px 80px'}}>
+
+                <Section eyebrow="The Sections You'll See" title="Four core skills, every variation tests at least two.">
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:'#fff', marginBottom:8}}>Mathematics</div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Whole numbers, fractions, decimals, percentages, basic algebra. Some locals add geometry (area, perimeter, volume of basic shapes). Sheet metal layouts demand fraction fluency — you'll be cutting to 1/16" tolerances on the job, so the test reflects that. <strong style={{color:'#F5C518'}}>Calculator policy varies — check with your local.</strong></p>
+                  </Card>
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:'#fff', marginBottom:8}}>Reading Comprehension</div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Technical passages with multiple-choice questions on main idea, detail, and inference. Some locals integrate "graphic literacy" — using charts, blueprints, floor plans, and diagrams to answer questions, which is closer to actual sheet metal work than pure prose comprehension.</p>
+                  </Card>
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:'#fff', marginBottom:8}}>Mechanical Comprehension</div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Levers, pulleys, gears, mechanical advantage. Standard mechanical reasoning content — same general format as Bennett Mechanical Comprehension or Wiesen tests. Some locals also include basic electrical principles (Ohm's law, circuit basics) in this section.</p>
+                  </Card>
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:'#fff', marginBottom:8}}>Spatial Reasoning / Abstract Reasoning</div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>The most distinctively sheet-metal section. Includes 2D-to-3D visualization (which 3D shape does this flat pattern fold into?), pattern matching, and rotation problems. <strong style={{color:'#F5C518'}}>This is core sheet metal work</strong> — you're literally turning flat patterns into 3D ductwork on the job. Practice this section more than you think you need to.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="Local Variations" title="A few of the bigger locals, for reference.">
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color:'#fff', marginBottom:8}}>SMART Local 36 (St. Louis)</div>
+                    <p style={{margin:0, fontSize:14, color:'rgba(255,255,255,0.8)', lineHeight:1.6}}>Four sections: Problem-Solving, Mathematics, Spatial Relations, Mechanical Aptitude. Among the most comprehensive sheet metal tests in the country.</p>
+                  </Card>
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color:'#fff', marginBottom:8}}>Southern California Sheet Metal JATC</div>
+                    <p style={{margin:0, fontSize:14, color:'rgba(255,255,255,0.8)', lineHeight:1.6}}>Two-section format. Math (25 questions in 15 minutes — fast pace) followed by a written section split into Mental Ability, Mechanical Comprehension, and Paper Board (spatial). One of the harder sheet metal exams.</p>
+                  </Card>
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color:'#fff', marginBottom:8}}>Western Washington Sheet Metal JATC</div>
+                    <p style={{margin:0, fontSize:14, color:'rgba(255,255,255,0.8)', lineHeight:1.6}}>Two sections only: Math and Reading. Among the more streamlined formats. Higher score = higher placement priority on the apprenticeship eligibility list.</p>
+                  </Card>
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color:'#fff', marginBottom:8}}>SMART Local 20 (Indiana)</div>
+                    <p style={{margin:0, fontSize:14, color:'rgba(255,255,255,0.8)', lineHeight:1.6}}>Four-section format using the WorkKeys-style assessment: Applied Mathematics, Applied Technology, Graphic Literacy, and Workplace Observation. Tested through state WorkOne facilities.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="How to Prep" title="Train all four core areas, plus visualization.">
+                  <Card>
+                    <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li><strong style={{color:'#F5C518'}}>Khan Academy Pre-Algebra and Algebra 1.</strong> Covers the math content for any local's test. Free.</li>
+                      <li><strong style={{color:'#F5C518'}}>Read a ruler — to 1/16 and 1/32.</strong> Sheet metal work is fraction-of-an-inch precise. Build muscle memory.</li>
+                      <li><strong style={{color:'#F5C518'}}>Spatial visualization apps.</strong> Google "paper folding aptitude test" or "shape rotation practice" — dozens of free practice generators exist. This is the section candidates underprepare for.</li>
+                      <li><strong style={{color:'#F5C518'}}>Bennett Mechanical Comprehension Test prep.</strong> Free practice questions widely available; covers the mechanical reasoning content nearly identically to the SMART version.</li>
+                      <li><strong style={{color:'#F5C518'}}>Practice reading blueprints.</strong> Even a basic intro to architectural plans helps with the graphic literacy sections some locals use.</li>
+                      <li><strong style={{color:'#F5C518'}}>Confirm calculator policy with your local.</strong> Some allow it, some don't. The difference matters for math prep.</li>
+                    </ul>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="After You Pass" title="A 4-year apprenticeship — and one of the most varied trades.">
+                  <Card>
+                    <p style={{margin:'0 0 10px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>SMART apprenticeships are <strong style={{color:'#fff'}}>4-5 years</strong> depending on local — typically 800-900 classroom hours plus 6,000-8,000 hours of paid OJT. You start at 40-50% of journeyman scale, with regular step increases.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Sheet metal is one of the most varied trades — work ranges from architectural metals (roofing, cladding) to HVAC ductwork to industrial fabrication to specialty work like aerospace and shipbuilding. Many SMART members specialize over time. The training equips you for any of those paths.</p>
+                  </Card>
+                </Section>
+
+              </div>
+
+              <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(157,107,74,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+              </div>
+            </div>
+          );
+        })()}
+
+        {page === "apprenticeship-iuec" && (() => {
+          const ACCENT = '#4A7B9D';
+          const Section = ({ eyebrow, title, children }) => (
+            <div style={{margin:'56px 0'}}>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
+              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              {children}
+            </div>
+          );
+          const Card = ({ children }) => (
+            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+          );
+          const Stat = ({ v, l }) => (
+            <div>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
+              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+            </div>
+          );
+          return (
+            <div id="apprenticeship-iuec-root">
+              <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+              </div>
+              <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                  Apprenticeship Tests
+                </div>
+              </div>
+              <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>IUEC · Elevator Constructors</div>
+                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The EIAT.</h1>
+                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>The <em>Elevator Industry Aptitude Test</em>, developed by NEIEP (National Elevator Industry Educational Program) for the IUEC. Three sections, 100 questions, ~90 minutes — followed by a separate tool recognition assessment that doesn't count toward your EIAT score but feeds into your interview ranking.</p>
+              </div>
+
+              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+                <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
+                  <Stat v="100" l="Total Questions" />
+                  <Stat v="3" l="Sections" />
+                  <Stat v="70%" l="Pass Threshold" />
+                  <Stat v="2 yr" l="Score Validity" />
+                </div>
+              </div>
+
+              <div style={{maxWidth:900, margin:'0 auto', padding:'0 24px 80px'}}>
+
+                <Section eyebrow="What's Actually On It" title="Three sections, three skills.">
+                  <Card>
+                    <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff'}}>Arithmetic Computation</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>30 Questions · 40 Minutes</div>
+                    </div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Basic arithmetic, fractions, decimals, percentages, simple algebra, and unit conversions. 8th-to-9th-grade math difficulty. About 80 seconds per question. <strong style={{color:'#F5C518'}}>No calculator.</strong></p>
+                  </Card>
+                  <Card>
+                    <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff'}}>Reading Comprehension</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>35 Questions · 25 Minutes</div>
+                    </div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Sentence completion, vocabulary, grammar, and reading comprehension. About 43 seconds per question — faster pace than the math section. NEIEP includes vocabulary in this section, so don't skip word study.</p>
+                  </Card>
+                  <Card>
+                    <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff'}}>Mechanical Comprehension</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>35 Questions · 25 Minutes</div>
+                    </div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Pulleys, gears, levers, mechanical advantage, basic electrical circuits, hydraulics. The most trade-relevant section — elevator mechanics live in this material on the job. About 43 seconds per question.</p>
+                  </Card>
+                  <Card>
+                    <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color:'#F5C518'}}>+ Tool Recognition Assessment</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, color:'rgba(255,255,255,0.55)', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Separate</div>
+                    </div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Administered immediately after the EIAT. Identify common hand tools by photo or description — Phillips screwdriver, lineman's pliers, diagonal cutters, crimpers, tape measure, level. Includes basic tape-measure reading. <strong style={{color:'#F5C518'}}>This score doesn't roll into your EIAT score, but it feeds your interview ranking.</strong></p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="How They Score It" title="Tier system. Top tier wins.">
+                  <Card>
+                    <p style={{margin:'0 0 14px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>EIAT is pass/fail at 70%. After passing, your combined score (EIAT + tool assessment + interview) places you in one of four tiers, and locals interview/hire from the top tier first:</p>
+                    <div style={{display:'grid', gap:8}}>
+                      <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'rgba(245,197,24,0.10)', borderRadius:8, borderLeft:'3px solid #F5C518'}}>
+                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#fff'}}>Tier 1 · 96–100</span>
+                        <span style={{fontSize:13, color:'#F5C518', fontWeight:700}}>First in line for any opening</span>
+                      </div>
+                      <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'rgba(74,123,157,0.15)', borderRadius:8, borderLeft:'3px solid '+ACCENT}}>
+                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#fff'}}>Tier 2 · 90–95</span>
+                        <span style={{fontSize:13, color:'rgba(255,255,255,0.75)'}}>Strong placement chances</span>
+                      </div>
+                      <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'rgba(255,255,255,0.04)', borderRadius:8}}>
+                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#fff'}}>Tier 3 · 80–89</span>
+                        <span style={{fontSize:13, color:'rgba(255,255,255,0.7)'}}>Possible, depends on cycle volume</span>
+                      </div>
+                      <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'rgba(255,255,255,0.04)', borderRadius:8}}>
+                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#fff'}}>Tier 4 · 70–79</span>
+                        <span style={{fontSize:13, color:'rgba(255,255,255,0.6)'}}>Passing but rarely placed</span>
+                      </div>
+                    </div>
+                    <p style={{margin:'14px 0 0 0', fontSize:13, color:'rgba(255,255,255,0.6)', fontStyle:'italic', lineHeight:1.6}}>Score validity: 2 years from test date. After that you reapply and retest.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="How to Prep" title="Three sections, three different tactics.">
+                  <Card>
+                    <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li><strong style={{color:'#F5C518'}}>NEIEP's official EIAT Study Guide.</strong> Free PDF on neiep.org. It's brief but it shows you the actual test format and a few sample questions. Read it first.</li>
+                      <li><strong style={{color:'#F5C518'}}>Khan Academy basic math + pre-algebra.</strong> Covers the arithmetic section in full.</li>
+                      <li><strong style={{color:'#F5C518'}}>Vocabulary practice.</strong> Sentence-completion questions are heavy here. Apps like Vocabulary.com or just SAT/GRE word-list flashcards build the vocabulary base.</li>
+                      <li><strong style={{color:'#F5C518'}}>Bennett Mechanical Comprehension Test sample questions.</strong> Same content as the EIAT mechanical section, widely available free online.</li>
+                      <li><strong style={{color:'#F5C518'}}>Learn your tools by sight.</strong> Search image results for Phillips/flathead screwdriver, lineman's pliers, side cutters, diagonal cutters, crimpers, channel locks, multi-meter, tape measure.</li>
+                      <li><strong style={{color:'#F5C518'}}>Practice reading a tape measure.</strong> 1/16 increments, both above and below standard inch marks. The tool assessment includes this.</li>
+                    </ul>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="Application Reality" title="The IUEC is small. The window is narrow.">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#F5C518'}}>The IUEC is the smallest building trades union — about 30,000 members across 141 locals.</strong> Apprenticeship slots are limited. Most locals open recruitment for 1-2 weeks per cycle, sometimes only every 18-24 months.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Watch your local's recruitment page or call the local hall directly. Applications are often online via the NEIEP recruitment portal once a window opens. Failing the EIAT means waiting until the next recruitment period — typically 6 to 24 months.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="Why It's Worth It" title="Highest-paid building trade in the U.S.">
+                  <Card>
+                    <p style={{margin:'0 0 10px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Elevator constructors are the <strong style={{color:'#fff'}}>highest-paid building trade in the United States</strong>. Bureau of Labor Statistics put the median wage at $106,580 in May 2024 — about $51/hr before benefits. Total package including health and pension puts elevator constructors near the top of all skilled trades.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>The apprenticeship is <strong style={{color:'#fff'}}>4 years</strong>. You start at ~50% of journeyman scale, with regular step increases. Apprentices in major metros (NYC, Chicago, Boston, LA) earn well into the $25-30/hr range from day one. By Year 4 you're approaching journeyman wages.</p>
+                  </Card>
+                </Section>
+
+              </div>
+
+              <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(74,123,157,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+              </div>
+            </div>
+          );
         })()}
 
         {page === "trade-history" && (
