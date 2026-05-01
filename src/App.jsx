@@ -10625,6 +10625,11 @@ export default function UnionPathway() {
           });
 
           // ============================================================
+          // RTW PAGE COMPONENT — wrapped so hooks are scoped to its lifecycle
+          // (top-level hooks inside the IIFE caused white-screen-on-first-click)
+          // ============================================================
+          const RTWPage = () => {
+          // ============================================================
           // PAGE-LEVEL STATE (interactive controls)
           // ============================================================
           const [selectedState, setSelectedState] = useState('TX');
@@ -11054,6 +11059,8 @@ export default function UnionPathway() {
               </div>
             </div>
           );
+          };
+          return <RTWPage />;
         })()}
 
         {page === "trade-history" && (
