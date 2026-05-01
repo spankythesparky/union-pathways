@@ -11790,8 +11790,8 @@ export default function UnionPathway() {
 
             {/* TEAM SECTION */}
             <div className="history-section">
-              <div className="history-section-title">{lang==="es" ? <>{"Las Personas "}<span className="accent">{"Detras de la Plataforma"}</span></> : lang==="pl" ? <>{"Ludzie "}<span className="accent">{"Za Platforma"}</span></> : <>{"The People "}<span className="accent">{"Behind the Platform"}</span></>}</div>
-              <div className="history-section-sub">{lang==="es" ? "Electricistas, albaniles, aisladores — voces reales del movimiento laboral moderno." : lang==="pl" ? "Elektrycy, murarze, izolatorzy — prawdziwe glosy nowoczesnego ruchu pracowniczego." : "Electricians, bricklayers, insulators — real voices of the modern labor movement."}</div>
+              <div className="history-section-title">{lang==="es" ? <>{"Conoce al "}<span className="accent">{"Fundador"}</span></> : lang==="pl" ? <>{"Poznaj "}<span className="accent">{"Założyciela"}</span></> : <>{"Meet the "}<span className="accent">{"Founder"}</span></>}</div>
+              <div className="history-section-sub">{lang==="es" ? "De la Universidad de Ohio al sector residencial no sindical, al IBEW como oficial y superintendente — el electricista que esta construyendo la plataforma que deseaba que existiera cuando empezó." : lang==="pl" ? "Od Ohio University, przez niezwiązkowy sektor mieszkaniowy, do IBEW jako czeladnik i superintendent — elektryk budujący platformę, której brakowało mu na początku drogi." : "From Ohio University to non-union residential to IBEW journeyman and superintendent — the electrician building the platform he wished existed when he started."}</div>
 
               {/* FEATURED PROFILE — magazine-style, always visible */}
               <div style={{
@@ -11936,6 +11936,8 @@ export default function UnionPathway() {
                     </div>
                     <div style={{display:'flex', alignItems:'center', flexWrap:'wrap', gap:8}}>
                       {[
+                        lang==="es" ? "Universidad de Ohio" : lang==="pl" ? "Ohio University" : "Ohio University",
+                        lang==="es" ? "Residencial No Sindical" : lang==="pl" ? "Niezwiązkowy Mieszkaniowy" : "Non-Union Residential",
                         lang==="es" ? "CW" : lang==="pl" ? "CW" : "CW",
                         lang==="es" ? "Aprendiz" : lang==="pl" ? "Praktykant" : "Apprentice",
                         lang==="es" ? "Oficial" : lang==="pl" ? "Czeladnik" : "Journeyman",
