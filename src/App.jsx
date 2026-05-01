@@ -5395,7 +5395,8 @@ export default function UnionPathway() {
         .mobile-drawer {
           position: fixed;
           top: 0; right: 0;
-          height: 100vh;
+          height: 100vh;            /* fallback */
+          height: 100dvh;            /* respects iOS Safari chrome */
           width: min(360px, 88vw);
           background: var(--steel);
           border-left: 1px solid rgba(255,255,255,0.1);
@@ -5403,6 +5404,9 @@ export default function UnionPathway() {
           transform: translateX(100%);
           transition: transform 0.25s ease;
           overflow-y: auto;
+          -webkit-overflow-scrolling: touch;  /* momentum scroll on iOS */
+          overscroll-behavior: contain;       /* don't bubble scroll to body */
+          padding-bottom: env(safe-area-inset-bottom, 32px);  /* iPhone home indicator */
           box-shadow: -8px 0 24px rgba(0,0,0,0.4);
         }
         .mobile-drawer.open { transform: translateX(0); }
