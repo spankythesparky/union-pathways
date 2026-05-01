@@ -9137,11 +9137,16 @@ export default function UnionPathway() {
         })()}
 
         {page === "history-iron" && (() => {
+          // window-level cache so values persist across IIFE re-renders
+          if (typeof window !== 'undefined' && !window.__ironStatCache) window.__ironStatCache = {};
           const AnimatedNumber = ({ value, suffix = '', prefix = '', decimals = 0 }) => {
-            const [shown, setShown] = useState(0);
+            const cacheKey = 'iron:' + prefix + ':' + value + ':' + suffix + ':' + decimals;
+            const cached = typeof window !== 'undefined' && window.__ironStatCache && window.__ironStatCache[cacheKey];
+            const [shown, setShown] = useState(cached ? value : 0);
             const ref = useRef(null);
-            const animated = useRef(false);
+            const animated = useRef(!!cached);
             useEffect(() => {
+              if (animated.current) return;
               const el = ref.current;
               if (!el) return;
               const obs = new IntersectionObserver((entries) => {
@@ -9154,7 +9159,11 @@ export default function UnionPathway() {
                       const t = Math.min(1, (now - start) / dur);
                       const eased = 1 - Math.pow(1 - t, 3);
                       setShown(value * eased);
-                      if (t < 1) requestAnimationFrame(step);
+                      if (t < 1) {
+                        requestAnimationFrame(step);
+                      } else {
+                        if (typeof window !== 'undefined' && window.__ironStatCache) window.__ironStatCache[cacheKey] = true;
+                      }
                     };
                     requestAnimationFrame(step);
                   }
@@ -9166,24 +9175,36 @@ export default function UnionPathway() {
             return <span ref={ref}>{prefix}{shown.toFixed(decimals)}{suffix}</span>;
           };
 
-          // Scroll-reveal: cards slide up + fade in when entering viewport
+          // Scroll-reveal: cards slide up + fade in when entering viewport.
+          // Each call gets a sequential id so we can remember which ones have
+          // already revealed (across IIFE re-renders) and skip the fade-in
+          // if they have. Counter resets on each IIFE run, but the cache is
+          // window-scoped so the lookup matches across renders.
+          if (typeof window !== 'undefined' && !window.__ironRevealCache) window.__ironRevealCache = {};
+          let __ironRevealCounter = 0;
           const useReveal = () => {
+            const idRef = useRef(null);
+            if (idRef.current === null) idRef.current = ++__ironRevealCounter;
+            const cacheKey = 'iron-reveal:' + idRef.current;
+            const cached = typeof window !== 'undefined' && window.__ironRevealCache && window.__ironRevealCache[cacheKey];
             const ref = useRef(null);
-            const [revealed, setRevealed] = useState(false);
+            const [revealed, setRevealed] = useState(!!cached);
             useEffect(() => {
+              if (revealed) return;
               const el = ref.current;
               if (!el) return;
               const obs = new IntersectionObserver((entries) => {
                 entries.forEach(e => {
                   if (e.isIntersecting) {
                     setRevealed(true);
+                    if (typeof window !== 'undefined' && window.__ironRevealCache) window.__ironRevealCache[cacheKey] = true;
                     obs.disconnect();
                   }
                 });
               }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
               obs.observe(el);
               return () => obs.disconnect();
-            }, []);
+            }, [revealed]);
             return [ref, revealed];
           };
 
