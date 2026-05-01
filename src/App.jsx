@@ -8676,17 +8676,16 @@ export default function UnionPathway() {
             IUOE: { name: "IUOE Operating Engineer", tiers: { 1: { base:58, health:13, pension:10.5, annuity:5, vacation:4.5, other:2 }, 2: { base:48, health:12, pension:9, annuity:4.5, vacation:4, other:1.5 }, 3: { base:38, health:11, pension:7.5, annuity:4, vacation:3.5, other:1.5 } }, appScale:[0.60,0.65,0.75,0.85,0.90] },
           };
           const COMPARE_JOBS = {
-            retail:       { name: { en:"Retail Sales Associate", es:"Vendedor Minorista", pl:"Sprzedawca Detaliczny" }, hourly: 16.50 },
-            food:         { name: { en:"Restaurant / Food Service", es:"Restaurante / Servicio de Comida", pl:"Restauracja / Gastronomia" }, hourly: 15.00 },
-            warehouse:    { name: { en:"Warehouse / Delivery Driver", es:"Almacen / Repartidor", pl:"Magazyn / Kierowca Dostawczy" }, hourly: 20.00 },
             laborer:      { name: { en:"Construction Laborer (Non-Union)", es:"Obrero de Construccion (No Sindical)", pl:"Robotnik Budowlany (Niezwiazowy)" }, hourly: 20.50 },
-            helper:       { name: { en:"Electrician's Helper (Non-Union)", es:"Ayudante de Electricista (No Sindical)", pl:"Pomocnik Elektryka (Niezwiazowy)" }, hourly: 18.00 },
-            elec_nu:      { name: { en:"Non-Union Journeyman Electrician", es:"Electricista Oficial (No Sindical)", pl:"Elektryk Czeladnik (Niezwiazowy)" }, hourly: 32.00 },
-            plumb_nu:     { name: { en:"Non-Union Plumber", es:"Plomero (No Sindical)", pl:"Hydraulik (Niezwiazowy)" }, hourly: 30.00 },
+            helper:       { name: { en:"Electrician's Helper / Trade Helper (Non-Union)", es:"Ayudante de Oficio (No Sindical)", pl:"Pomocnik (Niezwiazowy)" }, hourly: 18.00 },
+            elec_nu:      { name: { en:"Non-Union Electrician", es:"Electricista (No Sindical)", pl:"Elektryk (Niezwiazowy)" }, hourly: 32.00 },
+            plumb_nu:     { name: { en:"Non-Union Plumber / Pipefitter", es:"Plomero / Tuberia (No Sindical)", pl:"Hydraulik / Monter (Niezwiazowy)" }, hourly: 30.00 },
             carp_nu:      { name: { en:"Non-Union Carpenter", es:"Carpintero (No Sindical)", pl:"Stolarz (Niezwiazowy)" }, hourly: 26.00 },
+            sm_nu:        { name: { en:"Non-Union Sheet Metal Worker", es:"Hojalatero (No Sindical)", pl:"Blacharz (Niezwiazowy)" }, hourly: 27.00 },
+            iw_nu:        { name: { en:"Non-Union Ironworker", es:"Trabajador del Hierro (No Sindical)", pl:"Hutnik (Niezwiazowy)" }, hourly: 26.00 },
             hvac_nu:      { name: { en:"Non-Union HVAC Technician", es:"Tecnico HVAC (No Sindical)", pl:"Technik HVAC (Niezwiazowy)" }, hourly: 28.00 },
-            office:       { name: { en:"Office / Administrative", es:"Oficina / Administrativo", pl:"Biuro / Administracja" }, hourly: 22.00 },
-            factory:      { name: { en:"Manufacturing / Factory", es:"Fabricacion / Fabrica", pl:"Produkcja / Fabryka" }, hourly: 22.00 },
+            mason_nu:     { name: { en:"Non-Union Bricklayer / Mason", es:"Albañil (No Sindical)", pl:"Murarz (Niezwiazowy)" }, hourly: 25.00 },
+            op_nu:        { name: { en:"Non-Union Heavy Equipment Operator", es:"Operador de Equipo Pesado (No Sindical)", pl:"Operator Sprzetu Ciezkiego (Niezwiazowy)" }, hourly: 28.00 },
             custom:       { name: { en:"Custom (enter your wage)", es:"Personalizado (introduce tu salario)", pl:"Wlasna (wprowadz swoja stawke)" }, hourly: null },
           };
 
