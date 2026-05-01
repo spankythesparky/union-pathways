@@ -3219,7 +3219,7 @@ export default function UnionPathway() {
   // URL-aware page state
   const getPageFromUrl = () => {
     const path = window.location.pathname.replace('/', '') || 'home';
-    const validPages = ['home','quiz','careers','checklist','locals','calculator','resume','veterans','history','trade-history','history-ibew','history-ua','history-smart','history-bac','history-ufcw','history-iron','history-insul','history-iuec','retirement','benefits','about','contact','jobboard','wages','organize','organize-contractor','rtw','apprenticeship','apprenticeship-ibew','apprenticeship-ua','apprenticeship-smart','apprenticeship-iuec'];
+    const validPages = ['home','quiz','careers','checklist','locals','calculator','resume','veterans','history','trade-history','history-ibew','history-ua','history-smart','history-bac','history-ufcw','history-iron','history-insul','history-iuec','retirement','benefits','about','contact','jobboard','wages','organize','organize-contractor','rtw','apprenticeship','apprenticeship-ibew','apprenticeship-ua','apprenticeship-smart','apprenticeship-iuec','apprenticeship-iw','apprenticeship-bac','apprenticeship-hfiaw','apprenticeship-iuoe','apprenticeship-ubc'];
     return validPages.includes(path) ? path : 'home';
   };
   const [page, setPageState] = useState(getPageFromUrl);
@@ -3244,7 +3244,7 @@ export default function UnionPathway() {
   const [scrollProgress, setScrollProgress] = useState(0);
   useEffect(() => {
     const onScroll = () => {
-      const candidates = ['history-root','ibew-history-root','ua-history-root','smart-history-root','bac-history-root','ufcw-history-root','iron-history-root','insul-history-root','iuec-history-root','rtw-root','apprenticeship-root','apprenticeship-ibew-root','apprenticeship-ua-root','apprenticeship-smart-root','apprenticeship-iuec-root','benefits-root'];
+      const candidates = ['history-root','ibew-history-root','ua-history-root','smart-history-root','bac-history-root','ufcw-history-root','iron-history-root','insul-history-root','iuec-history-root','rtw-root','apprenticeship-root','apprenticeship-ibew-root','apprenticeship-ua-root','apprenticeship-smart-root','apprenticeship-iuec-root','apprenticeship-iw-root','apprenticeship-bac-root','apprenticeship-hfiaw-root','apprenticeship-iuoe-root','apprenticeship-ubc-root','benefits-root'];
       let el = null;
       for (const id of candidates) {
         const found = document.getElementById(id);
@@ -4293,6 +4293,11 @@ export default function UnionPathway() {
       'apprenticeship-ua': { title: "UA Plumbers & Pipefitters Aptitude Test (GAN) — Full Breakdown · Union Pathways", desc: "The full Piping Industry Entry Level Assessment broken down by section. Reading, math, mechanical, spatial, problem solving — what's tested, scoring, study tips, and the application window trap nobody warns you about." },
       'apprenticeship-smart': { title: "SMART Sheet Metal Apprenticeship Test — Full Breakdown · Union Pathways", desc: "What's on the SMART Sheet Metal apprenticeship test — math, reading, mechanical reasoning, spatial visualization. Local-by-local variation including SMART Local 36, Southern California JATC, Western Washington, and Local 20." },
       'apprenticeship-iuec': { title: "IUEC EIAT — Elevator Industry Aptitude Test Breakdown · Union Pathways", desc: "Full breakdown of the NEIEP Elevator Industry Aptitude Test for IUEC apprenticeships. Arithmetic, reading comprehension, mechanical comprehension, the tool recognition assessment, the four-tier scoring system, and how to prep." },
+      'apprenticeship-iw': { title: "Iron Workers Aptitude Test — Full Breakdown · Union Pathways", desc: "What's actually on the Iron Workers apprenticeship aptitude test. Math (often including trig), reading comprehension, the physical assessment with beam-walking and ladder climbing, scoring, application cycles, and the four trades within iron working — Structural, Reinforcing, Ornamental, and Rigging." },
+      'apprenticeship-bac': { title: "BAC Bricklayers Aptitude Test — Full Breakdown · Union Pathways", desc: "What's on the BAC Bricklayers and Allied Craftworkers apprenticeship test. Math, reading, the physical assessment, the 12-week unpaid pre-apprenticeship some locals require, and the seven crafts within BAC — bricklayer, stone mason, PCC, tile setter, tile finisher, terrazzo, plasterer." },
+      'apprenticeship-hfiaw': { title: "HFIAW Insulators Aptitude Test — Full Breakdown · Union Pathways", desc: "Full breakdown of the Heat & Frost Insulators apprenticeship aptitude test. Reading comprehension, math, mechanical reasoning, physical and drug screen, the retake bonus several locals offer, and what insulators actually do — industrial, commercial, cryogenics, and asbestos abatement work." },
+      'apprenticeship-iuoe': { title: "IUOE Operating Engineers Aptitude Test — Full Breakdown · Union Pathways", desc: "What's on the IUOE Operating Engineers aptitude test. Math, reading, mechanical reasoning, the WorkKeys path some locals use (Local 324, others), CDL requirements, the three IUOE branches — Hoisting, Stationary, and Heavy Equipment Mechanic — and the elite Local 150 training facility." },
+      'apprenticeship-ubc': { title: "UBC Carpenters Aptitude Test — Full Breakdown · Union Pathways", desc: "What's on the UBC Carpenters apprenticeship test, with detail on all 11 trade specialties — General Carpenter, Concrete Form Builder, Floor Coverer, Mill Cabinet, Millwright (the most technical), Pile Driver, Lathing, Drywall Finisher, Insulation Applicator, Bridge/Dock/Wharf Carpenter, Maintenance Carpenter." },
     };
     const pm = PAGE_META[page] || PAGE_META.home;
     document.title = pm.title;
@@ -6055,7 +6060,7 @@ export default function UnionPathway() {
             <button className={`nav-link ${page==="jobboard"?"active":""}`} onClick={() => setPage("jobboard")}>{lang==="es" ? "Bolsa de Trabajo" : lang==="pl" ? "Gielda Pracy" : "Job Board"}</button>
             <button className={`nav-link ${page==="wages"?"active":""}`} onClick={() => setPage("wages")}>{lang==="es" ? "Salarios" : lang==="pl" ? "Place" : "Wages"}</button>
             <button className={`nav-link ${page==="rtw"?"active":""}`} onClick={() => setPage("rtw")}>{lang==="es" ? "Derecho al Trabajo" : lang==="pl" ? "Prawo do Pracy" : "Right to Work"}</button>
-            <button className={`nav-link ${page==="apprenticeship"||page==="apprenticeship-ibew"||page==="apprenticeship-ua"||page==="apprenticeship-smart"||page==="apprenticeship-iuec"?"active":""}`} onClick={() => setPage("apprenticeship")}>{lang==="es" ? "Aprendizaje" : lang==="pl" ? "Praktyka" : "Apprenticeship"}</button>
+            <button className={`nav-link ${page==="apprenticeship"||page==="apprenticeship-ibew"||page==="apprenticeship-ua"||page==="apprenticeship-smart"||page==="apprenticeship-iuec"||page==="apprenticeship-iw"||page==="apprenticeship-bac"||page==="apprenticeship-hfiaw"||page==="apprenticeship-iuoe"||page==="apprenticeship-ubc"?"active":""}`} onClick={() => setPage("apprenticeship")}>{lang==="es" ? "Aprendizaje" : lang==="pl" ? "Praktyka" : "Apprenticeship"}</button>
             {/* ORGANIZE DROPDOWN */}
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
@@ -11075,11 +11080,11 @@ export default function UnionPathway() {
             { key:'ua', name:'UA Plumbers & Pipefitters', test:'GAN / Piping Industry Entry Level Assessment', sections:'Reading · Math · Mechanical · Spatial · Folding · Problem Solving', live:true, color:'#7C9D4A', sub:'~140 questions · 120 minutes · need ~70% to pass' },
             { key:'smart', name:'SMART Sheet Metal', test:'Sheet Metal Apprenticeship Test (varies by local)', sections:'Math · Reading · Mechanical · Spatial / Abstract', live:true, color:'#9D6B4A', sub:'Varies by local · most need 70%+ · ranking-based selection' },
             { key:'iuec', name:'IUEC Elevator Constructors', test:'EIAT — Elevator Industry Aptitude Test', sections:'Arithmetic · Reading Comprehension · Mechanical Comprehension', live:true, color:'#4A7B9D', sub:'100 questions · 90 minutes · need 70% to pass + tool recognition test' },
-            { key:'iw', name:'Iron Workers', test:'Ironworker Apprenticeship Aptitude Test', sections:'Reading Comprehension · Math (algebra, geometry)', live:false, color:'#9D4A4A', sub:'Coming soon' },
-            { key:'bac', name:'BAC Bricklayers', test:'Local-administered aptitude assessment', sections:'Math · Reading · Mechanical', live:false, color:'#9D4A6B', sub:'Coming soon' },
-            { key:'hfiaw', name:'Insulators (HFIAW)', test:'AWIU Apprenticeship Aptitude Test', sections:'Reading · Mechanical · Math', live:false, color:'#7C4A9D', sub:'Coming soon' },
-            { key:'iuoe', name:'IUOE Operating Engineers', test:'NCCER Trade Assessments', sections:'Math · Reading · Spatial · Mechanical', live:false, color:'#4A9D7C', sub:'Coming soon' },
-            { key:'ubc', name:'UBC Carpenters', test:'Carpentry Math Test + Local screening', sections:'Math · Reading · Mechanical', live:false, color:'#9D7C4A', sub:'Coming soon' },
+            { key:'iw', name:'Iron Workers', test:'Ironworker Apprenticeship Aptitude Test', sections:'Math · Reading · Physical Assessment', live:true, color:'#9D4A4A', sub:'2 written sections + physical · 70%+ to pass · 1-2 yr cycles' },
+            { key:'bac', name:'BAC Bricklayers', test:'Local-administered aptitude assessment', sections:'Math · Reading · Physical · Often 12-wk pre-apprenticeship', live:true, color:'#9D4A6B', sub:'7 craft tracks · oldest North American union (1865)' },
+            { key:'hfiaw', name:'Insulators (HFIAW)', test:'Local Aptitude Test + Interview', sections:'Reading · Math · Mechanical · Physical', live:true, color:'#7C4A9D', sub:'Some locals award retake bonus · 4-yr program · 160 cls hrs/yr' },
+            { key:'iuoe', name:'IUOE Operating Engineers', test:'Local test or ACT WorkKeys', sections:'Math · Reading · Mechanical · Often CDL pre-req', live:true, color:'#4A9D7C', sub:'3 branches: Hoisting, Stationary, Mechanics · seasonal up north' },
+            { key:'ubc', name:'UBC Carpenters', test:'Regional Council aptitude test', sections:'Math · Reading · Mechanical · Spatial', live:true, color:'#9D7C4A', sub:'11 trade specialties · 70-80% to pass · 500K+ members' },
           ];
 
           return (
@@ -11704,6 +11709,657 @@ export default function UnionPathway() {
 
               <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
                 <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(74,123,157,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+              </div>
+            </div>
+          );
+        })()}
+
+        {page === "apprenticeship-iw" && (() => {
+          const ACCENT = '#9D4A4A';
+          const Section = ({ eyebrow, title, children }) => (
+            <div style={{margin:'56px 0'}}>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
+              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              {children}
+            </div>
+          );
+          const Card = ({ children }) => (
+            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+          );
+          const Stat = ({ v, l }) => (
+            <div>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
+              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+            </div>
+          );
+          return (
+            <div id="apprenticeship-iw-root">
+              <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+              </div>
+              <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                  Apprenticeship Tests
+                </div>
+              </div>
+              <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>Iron Workers</div>
+                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The Iron Worker<br/><span style={{color:ACCENT}}>Aptitude Test.</span></h1>
+                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>The Iron Workers Union doesn't have a single national test — each local writes its own. The format is consistent across major locals (Local 3, Local 12, Local 40, Local 433, etc.) with a math section and a reading section, and the math is harder than most other building trades. Plus a physical test you actually can't fake your way through.</p>
+              </div>
+
+              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+                <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
+                  <Stat v="2" l="Sections (Most Locals)" />
+                  <Stat v="70%" l="Typical Pass Threshold" />
+                  <Stat v="3-4 yr" l="Apprenticeship Length" />
+                  <Stat v="1-2 yr" l="Typical Application Cycle" />
+                </div>
+              </div>
+
+              <div style={{maxWidth:900, margin:'0 auto', padding:'0 24px 80px'}}>
+
+                <Section eyebrow="What's Actually On It" title="Two written sections. One physical.">
+                  <Card>
+                    <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff'}}>Mathematics</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>No Calculator</div>
+                    </div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>The Iron Workers test math goes deeper than UA or SMART. Expect basic arithmetic and fractions, but also high-school-level algebra, geometry, and word problems. Some major locals (notably Local 3 in Philadelphia, Local 40 in NYC, Local 12 in Albany) include trigonometry — basic sine/cosine/tangent for figuring beam angles. <strong style={{color:'#F5C518'}}>If your local includes trig, that alone trips up half of applicants.</strong></p>
+                  </Card>
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', marginBottom:8}}>Reading Comprehension</div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Standard format — technical and general passages followed by multiple-choice questions on main idea, detail, and inference. Some locals integrate spelling and grammar questions. The passages tend toward construction-related topics (safety, materials, work procedures) but no prior knowledge is required.</p>
+                  </Card>
+                  <Card>
+                    <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#F5C518'}}>The Physical Test</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, color:'rgba(255,255,255,0.55)', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Make-or-Break</div>
+                    </div>
+                    <p style={{margin:'0 0 10px 0', fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}><strong style={{color:'#F5C518'}}>This is what makes the Iron Workers test different from every other trade.</strong> After passing the written test, candidates take a physical assessment that typically includes:</p>
+                    <ul style={{margin:'0', paddingLeft:24, fontSize:14, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li>Walking across a steel beam at low height to test balance</li>
+                      <li>Climbing a ladder with weighted gear</li>
+                      <li>Lifting and carrying weight (often 50-75 lbs)</li>
+                      <li>A test of grip strength</li>
+                      <li>Sometimes: a fear-of-heights screening</li>
+                    </ul>
+                    <p style={{margin:'10px 0 0 0', fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>If you're seriously afraid of heights, this trade is not for you — and the physical test will surface that fact quickly. That's a feature, not a bug. You'll be working at 200+ feet on day one of the job.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="The Math" title="Why Iron Workers math is harder.">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Iron work is full of practical geometry — beam angles, rebar layouts, rigging math, load calculations. The test reflects that. Be solid in:</p>
+                    <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li>Fractions — adding, subtracting, multiplying, dividing</li>
+                      <li>Decimals and percentages — fluent conversion</li>
+                      <li>Basic algebra — solve for x, simple equations</li>
+                      <li>Geometry — area, perimeter, volume, Pythagorean theorem (hypotenuse calculations are common)</li>
+                      <li>Trigonometry basics (some locals) — sine, cosine, tangent for right triangles</li>
+                      <li>Word problems — load distributions, beam-cut calculations, conversions</li>
+                      <li>Number series — finding the next term, finding the rule</li>
+                      <li>Reading a tape measure to 1/16 of an inch</li>
+                    </ul>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="How They Score It" title="Pass and tier — same playbook as the other trades.">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Most Iron Workers locals set 70% as passing. Top-scoring applicants are tiered, and locals interview from the top tier first. <strong style={{color:'#F5C518'}}>The big locals (Local 40 NYC, Local 3 Philly, Local 12 Albany) often only interview applicants who scored 85%+</strong>, because they get hundreds more applicants than apprenticeship slots in any given cycle.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Some locals stack the application — your written score, physical test score, and interview score all combine into a final ranking. Some give a small "tenure bonus" for re-applicants (e.g., +2.5 points per year up to a max), which is worth knowing if you're prepared to take the long view.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="How to Prep" title="Algebra, geometry, and a tape measure.">
+                  <Card>
+                    <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li><strong style={{color:'#F5C518'}}>Iron Workers Local 3 publishes a free practice test PDF online.</strong> Search "Iron Workers Local 3 practice test" — it's the closest thing to an official sample available, and the format is similar to most major locals' tests.</li>
+                      <li><strong style={{color:'#F5C518'}}>Khan Academy Algebra 1 + Geometry.</strong> Free, video-based. Covers the math content for any local's test.</li>
+                      <li><strong style={{color:'#F5C518'}}>If your local tests trig:</strong> Khan Academy Trigonometry, focusing on right-triangle trig and SOH-CAH-TOA.</li>
+                      <li><strong style={{color:'#F5C518'}}>Read a tape measure to 1/16.</strong> Build muscle memory until you can read any mark in under a second.</li>
+                      <li><strong style={{color:'#F5C518'}}>Practice the Pythagorean theorem cold.</strong> Iron work uses it constantly — beam diagonals, rigging triangles, brace lengths. Should be reflex.</li>
+                      <li><strong style={{color:'#F5C518'}}>Get in shape before the physical test.</strong> Cardio, grip strength, balance work. The physical isn't designed to be hard for people who do regular labor; it's designed to weed out the unprepared.</li>
+                      <li><strong style={{color:'#F5C518'}}>Test your fear of heights honestly.</strong> Go to a tall building. Look down from a balcony. If you panic, this isn't your trade — that's not a moral failing, it's a self-preservation signal.</li>
+                    </ul>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="The Trades Within Iron Working" title="It's not one job.">
+                  <Card>
+                    <p style={{margin:'0 0 10px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Iron Workers cover four core specialties. Most apprentices learn all of them; some locals split apprenticeship tracks:</p>
+                    <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li><strong style={{color:'#fff'}}>Structural</strong> — Erecting steel skeletons of buildings and bridges. The classic "high steel" work.</li>
+                      <li><strong style={{color:'#fff'}}>Reinforcing (Rebar)</strong> — Tying steel rebar mats inside concrete forms before the pour. Lower altitude, higher volume.</li>
+                      <li><strong style={{color:'#fff'}}>Ornamental</strong> — Architectural metals — railings, stairs, decorative steel.</li>
+                      <li><strong style={{color:'#fff'}}>Rigging / Machinery Movers</strong> — Crane work, heavy machinery placement, signaling.</li>
+                    </ul>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="After You Pass" title="A 3-4 year program. The trade with the highest fatality risk.">
+                  <Card>
+                    <p style={{margin:'0 0 10px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Iron Workers apprenticeships run <strong style={{color:'#fff'}}>3-4 years</strong>, ~6,000-8,000 hours of paid OJT plus 600-800 hours of classroom instruction. You start at 50-60% of journeyman scale, with regular step increases every 6 months.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>This is also the trade with the <strong style={{color:'#F5C518'}}>highest workplace fatality rate of any building trade</strong> — falls and struck-by accidents make it consistently dangerous. The training emphasizes safety relentlessly. Pay attention. The journeymen who taught your instructors are still alive because they took the safety stuff seriously when they were apprentices.</p>
+                  </Card>
+                </Section>
+
+              </div>
+
+              <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(157,74,74,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+              </div>
+            </div>
+          );
+        })()}
+
+        {page === "apprenticeship-bac" && (() => {
+          const ACCENT = '#9D4A6B';
+          const Section = ({ eyebrow, title, children }) => (
+            <div style={{margin:'56px 0'}}>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
+              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              {children}
+            </div>
+          );
+          const Card = ({ children }) => (
+            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+          );
+          const Stat = ({ v, l }) => (
+            <div>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
+              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+            </div>
+          );
+          return (
+            <div id="apprenticeship-bac-root">
+              <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+              </div>
+              <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                  Apprenticeship Tests
+                </div>
+              </div>
+              <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>BAC · Bricklayers and Allied Craftworkers</div>
+                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The BAC<br/><span style={{color:ACCENT}}>Aptitude Test.</span></h1>
+                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>BAC is the oldest labor union in North America (founded 1865). It's also unusual in that the testing format is <strong style={{color:'#F5C518'}}>almost entirely local-controlled</strong> — there is no national BAC aptitude test. Most locals use a combination of basic math, reading, and a physical assessment, plus a 12-week unpaid pre-apprenticeship at some training centers.</p>
+              </div>
+
+              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+                <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
+                  <Stat v="3-4 yr" l="Apprenticeship Length" />
+                  <Stat v="6,700" l="OJT Hours Required" />
+                  <Stat v="160" l="Classroom Hours / Year" />
+                  <Stat v="$20" l="Typical Application Fee" />
+                </div>
+              </div>
+
+              <div style={{maxWidth:900, margin:'0 auto', padding:'0 24px 80px'}}>
+
+                <Section eyebrow="What's Actually On It" title="A simpler test than most. The bar is the work, not the paper.">
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', marginBottom:8}}>Mathematics</div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Basic arithmetic — addition, subtraction, multiplication, division. Fractions and decimals. Percentages. Reading a measuring tape and basic geometry (area and perimeter calculations are common because masons calculate brick counts constantly). The math is calibrated lower than IBEW, UA, or Iron Workers — typically 7th-to-9th-grade level. Calculator policy varies; check with your local.</p>
+                  </Card>
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', marginBottom:8}}>Reading Comprehension</div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Standard reading comprehension passages with multiple-choice questions. Some locals integrate basic blueprint reading or instruction-following questions. Tests your ability to follow written directions accurately — which matters because masonry plans are precise.</p>
+                  </Card>
+                  <Card>
+                    <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#F5C518'}}>Physical Assessment</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, color:'rgba(255,255,255,0.55)', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Most Locals</div>
+                    </div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Brick is heavy. A standard brick weighs about 4-5 pounds; a concrete block weighs 30-40 pounds; a piece of stone facing can be 100+ pounds. The physical assessment typically tests your ability to lift weight repeatedly, work in awkward positions, and handle bending and squatting throughout the day. <strong style={{color:'#F5C518'}}>Most BAC apprentices wash out for physical reasons, not mental ones.</strong></p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="Pre-Apprenticeship" title="The 12-week unpaid program (some locals).">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>BAC is unusual among the building trades in that <strong style={{color:'#F5C518'}}>several major locals require an unpaid 12-week pre-apprenticeship before formal apprenticeship begins</strong>. The pre-apprenticeship is essentially a working trial — instructors evaluate whether you have the physical aptitude, the work ethic, and the manual dexterity to make it as a mason.</p>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>If you make it through the pre-apprenticeship, you're indentured into the formal 4-year program at a paid apprenticeship rate. If you don't, you wash out — but you get to keep your tools, and BAC frequently offers job-placement help into related work even for non-completers.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>This makes BAC notably different from other trades where you pass a test and immediately enter paid apprenticeship. Plan accordingly — the 12 weeks of unpaid training is a real financial barrier, and BAC locals know it. <strong style={{color:'#F5C518'}}>Some locals are working to shift this model</strong>; check your local's specific policy.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="The Crafts Within BAC" title="It's not just bricks.">
+                  <Card>
+                    <p style={{margin:'0 0 10px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>BAC covers seven distinct crafts. You'll declare your specialty at application:</p>
+                    <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li><strong style={{color:'#fff'}}>Bricklayer / Mason</strong> — Bricks, concrete blocks, structural tile</li>
+                      <li><strong style={{color:'#fff'}}>Stone Mason</strong> — Granite, marble, fieldstone, dimensional stone</li>
+                      <li><strong style={{color:'#fff'}}>PCC (Pointer / Cleaner / Caulker)</strong> — Tuckpointing, masonry restoration, sealants. Highly diversified.</li>
+                      <li><strong style={{color:'#fff'}}>Tile Setter</strong> — Ceramic, mosaic, porcelain, decorative tile installation</li>
+                      <li><strong style={{color:'#fff'}}>Tile Finisher</strong> — Grouting, cleanup, support work for tile setters</li>
+                      <li><strong style={{color:'#fff'}}>Terrazzo Worker</strong> — Decorative cement-and-aggregate flooring; specialty grinding and polishing</li>
+                      <li><strong style={{color:'#fff'}}>Plasterer</strong> — Wall and ceiling plaster, ornamental plasterwork</li>
+                    </ul>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="How to Prep" title="Pre-algebra and a strong back.">
+                  <Card>
+                    <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li><strong style={{color:'#F5C518'}}>Khan Academy Pre-Algebra.</strong> Covers the math content with room to spare.</li>
+                      <li><strong style={{color:'#F5C518'}}>Practice fraction-to-decimal conversion.</strong> Brick coursing is laid out in inches and fractions; conversion fluency saves time.</li>
+                      <li><strong style={{color:'#F5C518'}}>Read a tape measure cold.</strong> 1/16 increments. Brick spacing is measured to the fraction.</li>
+                      <li><strong style={{color:'#F5C518'}}>Get physically prepared.</strong> Carry weight on your shoulders. Squat and stand repeatedly. Do farmer's walks with two heavy buckets. Build the muscles you'll actually use.</li>
+                      <li><strong style={{color:'#F5C518'}}>Learn basic blueprint symbols.</strong> The Brick Industry Association website (gobrick.com) has free TEK Notes covering masonry layout fundamentals.</li>
+                      <li><strong style={{color:'#F5C518'}}>Be honest with yourself about the work.</strong> Masonry is heavy, dirty, and often outdoors in the cold. If you hate cold weather and physical work, you will hate this trade. That's worth knowing now.</li>
+                    </ul>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="Application Cycles" title="Some locals take applications continuously.">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Unlike IBEW, UA, or IUEC where most locals open windows once a year or once every two years, <strong style={{color:'#F5C518'}}>many BAC locals accept applications continuously, Monday-Friday at the local training center.</strong> Some locals run multiple intake cycles per year (NJ Local 4 has 3-4 review periods annually).</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>That said, applications can sit on a list for months. Call the local hall and ask about current intake and expected timing. The smaller, less-publicized BAC locals often have the shortest waits.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="After You Pass" title="3-4 years, 6,700 OJT hours.">
+                  <Card>
+                    <p style={{margin:'0 0 10px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>BAC apprenticeships are typically <strong style={{color:'#fff'}}>3-4 years</strong>, with about 6,700 hours of paid OJT (1,250-1,675 per year) and 160 hours of classroom training each year. You start around 50% of journeyman scale, advancing every 6-12 months.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>BAC is one of the older trades — the work itself is ancient — but the union also runs strong continuing-education programs through the International Masonry Institute (IMI). Foreman certifications, blueprint reading, welding/cutting, OSHA training all happen as you go. Many BAC members go on to start their own union-signatory businesses.</p>
+                  </Card>
+                </Section>
+
+              </div>
+
+              <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(157,74,107,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+              </div>
+            </div>
+          );
+        })()}
+
+        {page === "apprenticeship-hfiaw" && (() => {
+          const ACCENT = '#7C4A9D';
+          const Section = ({ eyebrow, title, children }) => (
+            <div style={{margin:'56px 0'}}>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
+              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              {children}
+            </div>
+          );
+          const Card = ({ children }) => (
+            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+          );
+          const Stat = ({ v, l }) => (
+            <div>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
+              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+            </div>
+          );
+          return (
+            <div id="apprenticeship-hfiaw-root">
+              <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+              </div>
+              <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                  Apprenticeship Tests
+                </div>
+              </div>
+              <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>HFIAW · Heat &amp; Frost Insulators</div>
+                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The Insulators<br/><span style={{color:ACCENT}}>Aptitude Test.</span></h1>
+                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>The International Association of Heat and Frost Insulators and Allied Workers (HFIAW, also called AWIU) doesn't run a single national aptitude test. Each local JATC writes its own. The format is consistent across major locals: a general aptitude test covering reading, math, and mechanical reasoning, plus an interview, drug screen, and physical exam.</p>
+              </div>
+
+              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+                <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
+                  <Stat v="3" l="Sections (Most Locals)" />
+                  <Stat v="4 yr" l="Apprenticeship Length" />
+                  <Stat v="160" l="Classroom Hours / Year" />
+                  <Stat v="$25" l="Typical Testing Fee" />
+                </div>
+              </div>
+
+              <div style={{maxWidth:900, margin:'0 auto', padding:'0 24px 80px'}}>
+
+                <Section eyebrow="What's Actually On It" title="Three sections, plus the interview.">
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', marginBottom:8}}>Reading Comprehension</div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Multiple-choice questions on technical and general passages. Tests main idea, supporting detail, and inference. Some locals integrate basic technical-vocabulary questions because the trade uses a lot of specialized terminology (mechanical insulation, vapor barriers, thermal coefficient, cryogenics).</p>
+                  </Card>
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', marginBottom:8}}>Mathematics</div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Fractions, decimals, percentages, basic geometry. Insulators measure pipe diameters and circumferences constantly — expect questions on calculating circumferences, surface areas, and material quantities. Math is calibrated to roughly 8th-grade level. Calculator policy varies by local.</p>
+                  </Card>
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', marginBottom:8}}>Mechanical Reasoning</div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Standard mechanical aptitude content — gears, pulleys, levers, mechanical advantage. Insulators work around mechanical systems constantly (boilers, HVAC, refrigeration), so understanding how things mechanically connect is essential to the work even if you don't operate the systems yourself.</p>
+                  </Card>
+                  <Card>
+                    <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#F5C518'}}>Physical Exam + Drug Screen</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, color:'rgba(255,255,255,0.55)', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Required</div>
+                    </div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Insulator work involves tight, confined spaces (sometimes underground), heights up to 10 feet routinely with occasional work at extreme heights, and exposure to varying weather conditions from below freezing to 95+ degrees. The physical exam screens for the ability to handle these conditions. Pre-employment drug screen is universal — most locals also do random testing throughout your career.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="The Trade Itself" title="What insulators actually do.">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Insulators are the trade nobody else thinks about — but every modern building, ship, refinery, and power plant relies on. Mechanical insulation is the single most cost-effective energy-efficiency intervention available.</p>
+                    <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li><strong style={{color:'#fff'}}>Industrial</strong> — Petrochemical plants, refineries, power generation, chemical processing</li>
+                      <li><strong style={{color:'#fff'}}>Commercial</strong> — Office buildings, hospitals, schools, refrigerated warehouses</li>
+                      <li><strong style={{color:'#fff'}}>Cryogenics</strong> — Liquefied gases (LNG, oxygen) operating below -100°F</li>
+                      <li><strong style={{color:'#fff'}}>Asbestos abatement</strong> — EPA-certified removal in older buildings</li>
+                      <li><strong style={{color:'#fff'}}>Firestopping</strong> — Sealing penetrations in fire-rated walls</li>
+                      <li><strong style={{color:'#fff'}}>Specialty fabrication</strong> — Custom insulation work, sound attenuation</li>
+                    </ul>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="How They Score It" title="The retake bonus that nobody tells you about.">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Most HFIAW locals use a ranked-list system: pass the test, score-rank the applicants, fill apprenticeship slots from the top down.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#F5C518'}}>One thing unique to several HFIAW locals:</strong> they award a small score bonus for each year you reapply. Local 2 in Pennsylvania, for example, adds 2.5 points per successive year (max 10 points total). If you don't get in this year, your score effectively goes up next year — making patience a real strategic asset. Few other trades have this provision.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="How to Prep" title="Three sections, no calculator (most locals).">
+                  <Card>
+                    <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li><strong style={{color:'#F5C518'}}>Khan Academy Pre-Algebra and basic Geometry.</strong> Covers the math content. Free.</li>
+                      <li><strong style={{color:'#F5C518'}}>Practice circumference and surface area calculations.</strong> π × diameter for circumferences. The work centers on cylinders (pipes, vessels, ducts) so these formulas come up constantly.</li>
+                      <li><strong style={{color:'#F5C518'}}>Read a tape measure to 1/16.</strong> Insulation is cut to fit pipe runs precisely.</li>
+                      <li><strong style={{color:'#F5C518'}}>Bennett Mechanical Comprehension Test sample questions.</strong> Free practice questions widely available; covers the mechanical reasoning content.</li>
+                      <li><strong style={{color:'#F5C518'}}>Read about the trade.</strong> Visit the National Insulation Association (insulation.org) and read a few articles on mechanical insulation. The interview will go better if you can speak about why the trade matters, not just "I need a job."</li>
+                      <li><strong style={{color:'#F5C518'}}>Get reliable transportation.</strong> Many locals require it as an explicit application qualification. Insulator job sites are often industrial facilities not on transit lines.</li>
+                    </ul>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="Application Cycles" title="When to watch.">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>HFIAW application cycles are highly local. Boston Local 6 typically opens applications in March only (one month per year). Detroit Local 25 takes apprentices "as the need arises" with new classes typically starting in fall. Pennsylvania Local 2 has its own schedule. <strong style={{color:'#F5C518'}}>There is no central calendar.</strong></p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Best move: find your local's website and email list early. Sign up for whatever notification list they offer — many HFIAW locals announce open recruitment via email or a printed monthly newsletter.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="After You Pass" title="A 4-year program. The 'energy conservation' trade.">
+                  <Card>
+                    <p style={{margin:'0 0 10px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>HFIAW apprenticeships are <strong style={{color:'#fff'}}>4 years</strong>, with 160 hours of classroom training per year and 1,600-1,800 hours of paid OJT per year. Most locals run classes one evening per week (4 hours) plus the OJT during the day. You earn a stipend equal to about 4 hours of pay for each class you attend.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>HFIAW members refer to themselves as the "Energy Conservation Specialists" — and the math backs it up. Mechanical insulation is one of the most cost-effective energy-saving investments in any building. Federal climate and infrastructure spending has been steadily expanding insulator work since 2022.</p>
+                  </Card>
+                </Section>
+
+              </div>
+
+              <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(124,74,157,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+              </div>
+            </div>
+          );
+        })()}
+
+        {page === "apprenticeship-iuoe" && (() => {
+          const ACCENT = '#4A9D7C';
+          const Section = ({ eyebrow, title, children }) => (
+            <div style={{margin:'56px 0'}}>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
+              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              {children}
+            </div>
+          );
+          const Card = ({ children }) => (
+            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+          );
+          const Stat = ({ v, l }) => (
+            <div>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
+              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+            </div>
+          );
+          return (
+            <div id="apprenticeship-iuoe-root">
+              <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+              </div>
+              <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                  Apprenticeship Tests
+                </div>
+              </div>
+              <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>IUOE · Operating Engineers</div>
+                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The Heavy Equipment<br/><span style={{color:ACCENT}}>Operator Test.</span></h1>
+                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>The International Union of Operating Engineers represents heavy equipment operators, mechanics, surveyors, and stationary engineers. Each local writes its own apprenticeship test — and several major locals (Local 324 in Michigan, others) use the <strong style={{color:'#F5C518'}}>WorkKeys assessment</strong> instead of a custom written test.</p>
+              </div>
+
+              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+                <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
+                  <Stat v="3-4 yr" l="Apprenticeship Length" />
+                  <Stat v="6,000+" l="OJT Hours Required" />
+                  <Stat v="Once / yr" l="Typical Application Window" />
+                  <Stat v="CDL" l="Often Required Pre-Test" />
+                </div>
+              </div>
+
+              <div style={{maxWidth:900, margin:'0 auto', padding:'0 24px 80px'}}>
+
+                <Section eyebrow="What's Actually On It" title="Three written sections — but the format varies more than other trades.">
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', marginBottom:8}}>Mathematical Reasoning</div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Basic arithmetic, fractions, decimals, percentages, basic and intermediate algebra, geometry, unit conversions, and word problems. Operators do real-world calculations all day — load weight, fuel volume, dirt cubic yardage, time-and-distance — so the math is applied. Calibrated similar to UA or Iron Workers difficulty.</p>
+                  </Card>
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', marginBottom:8}}>Reading Comprehension</div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Standard reading comprehension. Some locals use <strong style={{color:'#F5C518'}}>"Workplace Documents"</strong> (the WorkKeys-equivalent) which tests your ability to read and follow technical/procedural written material — work orders, equipment manuals, safety procedures. More applied than abstract.</p>
+                  </Card>
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', marginBottom:8}}>Mechanical Reasoning</div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Tools, gears, pulleys, levers, weight distribution, hydraulics, basic vehicle/engine mechanics. Operators run hydraulically-actuated heavy machines — understanding how the systems work matters. Some locals add <strong style={{color:'#F5C518'}}>graphic literacy</strong> (charts, tables, diagrams, floor plans) which is essentially the same skill from a different angle.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="The WorkKeys Path" title="Some locals use a third-party national test instead.">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Several major IUOE locals (Local 324 in Michigan is the clearest example) require ACT WorkKeys scores instead of a custom written test. WorkKeys is administered at Michigan Works, community colleges, and other state workforce centers — not at the union hall.</p>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>The required scores typically are:</p>
+                    <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li><strong style={{color:'#fff'}}>Applied Mathematics</strong> — Level 3 (Heavy Equipment Operator/Technician) or Level 4 (Stationary)</li>
+                      <li><strong style={{color:'#fff'}}>Graphic Literacy</strong> (formerly "Locating Information") — Level 4</li>
+                      <li><strong style={{color:'#fff'}}>Workplace Documents</strong> (formerly "Reading for Information") — Level 4</li>
+                    </ul>
+                    <p style={{margin:'12px 0 0 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#F5C518'}}>WorkKeys scores don't expire</strong> — you can take it once and use it for multiple applications over several years. ACT publishes free WorkKeys practice tests on their website.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="The Three Branches of IUOE" title="Hoisting / Construction · Stationary · Mechanics">
+                  <Card>
+                    <p style={{margin:'0 0 10px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>IUOE apprenticeships split into three distinct tracks. The aptitude test format and physical demands differ substantially between them:</p>
+                    <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li><strong style={{color:'#fff'}}>Hoisting / Heavy Equipment Operator</strong> — Bulldozers, cranes, excavators, graders, loaders. The big-iron operators on construction sites. Requires steady hand-eye coordination and judgment under pressure.</li>
+                      <li><strong style={{color:'#fff'}}>Stationary Engineer</strong> — Operates and maintains building HVAC, boilers, generators, refrigeration. Indoor work in commercial buildings, hospitals, schools. Requires the most technical/mechanical knowledge.</li>
+                      <li><strong style={{color:'#fff'}}>Heavy Equipment Mechanic / Technician</strong> — Diagnostic and repair work on the equipment that operators use. Sometimes called "field mechanics."</li>
+                    </ul>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="The CDL Reality" title="You'll likely need it before you start.">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#F5C518'}}>Most IUOE Heavy Equipment Operator locals require a Commercial Driver's License (CDL) — typically Class A — either before you apply or before you can be dispatched to your first job.</strong> Operators frequently drive their own equipment to job sites or operate trucks as part of equipment-relocation work.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>If you don't have a CDL yet, look into it before you apply. Many state workforce programs and some community colleges offer subsidized or free CDL training. A few IUOE locals offer pre-apprenticeship CDL programs for accepted candidates, but most expect you to arrive with the CDL in hand or at minimum a CDL permit.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="How to Prep" title="Math, mechanical reasoning, and a tape measure.">
+                  <Card>
+                    <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li><strong style={{color:'#F5C518'}}>If your local uses WorkKeys:</strong> ACT publishes free WorkKeys practice tests at workkeys.act.org. Take the practice tests until you're consistently scoring above the threshold.</li>
+                      <li><strong style={{color:'#F5C518'}}>If your local has a custom test:</strong> Khan Academy Pre-Algebra and Algebra 1 cover the math content. Free.</li>
+                      <li><strong style={{color:'#F5C518'}}>Practice unit conversions cold.</strong> Cubic yards to cubic feet, gallons to barrels, tons to pounds. Operators calculate these constantly.</li>
+                      <li><strong style={{color:'#F5C518'}}>Bennett Mechanical Comprehension Test sample questions.</strong> Standard prep for the mechanical reasoning section.</li>
+                      <li><strong style={{color:'#F5C518'}}>Read load charts.</strong> If you're applying for crane work, even basic familiarity with how a load chart reads will impress in the interview.</li>
+                      <li><strong style={{color:'#F5C518'}}>Get the CDL or at least the permit before you apply.</strong> It's a stronger application than "I'll get it later."</li>
+                    </ul>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="The Local 150 Standard" title="Why some locals are training powerhouses.">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>IUOE Local 150 (Illinois/Indiana/Iowa) runs the William E. Dugan Training Center on 300+ acres in Wilmington, Illinois — 342,000 square feet of indoor training space, over 200 pieces of heavy equipment, simulator labs, a 200-seat auditorium. It's widely considered the most advanced operator training facility in North America.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Local 139 (Wisconsin) operates the Joseph J. Goetz training site on 400 acres of Kettle Moraine. Local 132 (West Virginia) trains on 230 acres outside Charleston. <strong style={{color:'#F5C518'}}>The training infrastructure is one of the strongest selling points of the IUOE apprenticeship.</strong> Apprentices spend significant time in actual seat-time on real equipment before they go to job sites.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="After You Pass" title="3-4 year program. Cycles tied to construction season.">
+                  <Card>
+                    <p style={{margin:'0 0 10px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>IUOE apprenticeships run <strong style={{color:'#fff'}}>3-4 years</strong> depending on local and track, with at least 6,000 hours of paid OJT plus regular classroom training. You start at 50-60% of journeyman scale, advancing every 1,500 hours (typically every year for full-time apprentices).</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Operating engineer work is heavily seasonal in northern markets — summer/fall is busy season, winter is slower. Many operators relocate seasonally or pick up other work in the off-season. Southern markets (Texas, Florida, the Southwest) work year-round.</p>
+                  </Card>
+                </Section>
+
+              </div>
+
+              <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(74,157,124,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+              </div>
+            </div>
+          );
+        })()}
+
+        {page === "apprenticeship-ubc" && (() => {
+          const ACCENT = '#9D7C4A';
+          const Section = ({ eyebrow, title, children }) => (
+            <div style={{margin:'56px 0'}}>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
+              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              {children}
+            </div>
+          );
+          const Card = ({ children }) => (
+            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+          );
+          const Stat = ({ v, l }) => (
+            <div>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
+              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+            </div>
+          );
+          return (
+            <div id="apprenticeship-ubc-root">
+              <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+              </div>
+              <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                  Apprenticeship Tests
+                </div>
+              </div>
+              <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>UBC · Carpenters and Joiners</div>
+                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The Carpenter<br/><span style={{color:ACCENT}}>Apprenticeship Test.</span></h1>
+                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>The United Brotherhood of Carpenters is one of North America's largest building-trades unions — over half a million members across 11 specialty trades. There's no single national UBC aptitude test; each Regional Council and JATC writes its own, with passing scores ranging from 70-80% depending on local. The trades within UBC vary widely; the test you take depends on which one you choose.</p>
+              </div>
+
+              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+                <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
+                  <Stat v="3-4 yr" l="Apprenticeship Length" />
+                  <Stat v="8,000" l="OJT Hours (Most Trades)" />
+                  <Stat v="70-80%" l="Pass Threshold (Varies)" />
+                  <Stat v="11" l="Trades Within UBC" />
+                </div>
+              </div>
+
+              <div style={{maxWidth:900, margin:'0 auto', padding:'0 24px 80px'}}>
+
+                <Section eyebrow="What's Actually On It" title="The core test, before specialty differences.">
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', marginBottom:8}}>Mathematics</div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Carpentry math is fraction-heavy. Reading rulers and tape measures down to 1/16 of an inch fluently. Adding and subtracting fractions. Converting fractions to decimals and back. Basic algebra and geometry — area, perimeter, volume, the Pythagorean theorem (used constantly for square corners and roof pitch). Some locals add basic trigonometry for stairs, roof angles, and rafters.</p>
+                  </Card>
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', marginBottom:8}}>Reading Comprehension</div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Standard reading passages with multiple-choice questions. Tests main idea, detail, inference, and ability to follow written procedures. Carpentry is heavily plan-driven; following written specifications precisely is core to the trade.</p>
+                  </Card>
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', marginBottom:8}}>Mechanical Reasoning</div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Standard mechanical reasoning content — gears, pulleys, levers, tools, mechanical advantage. Some locals (especially Millwright JATCs) lean heavier on this section than others. Often includes basic electrical concepts (Ohm's law) for the more technical specialties.</p>
+                  </Card>
+                  <Card>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', marginBottom:8}}>Spatial Reasoning</div>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>2D-to-3D visualization, paper folding, and pattern recognition. Critical for blueprint reading. Some locals (notably Millwright tracks) weight this section heavily; some carpenter tracks include only a few questions.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="The 11 Trades Within UBC" title="Different specialty, different test, different work.">
+                  <Card>
+                    <p style={{margin:'0 0 10px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>UBC is unusually broad — 11 distinct specialty tracks, each with its own apprenticeship curriculum and testing emphasis:</p>
+                    <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li><strong style={{color:'#fff'}}>General Carpenter</strong> — Framing, finish work, formwork. The classic trade.</li>
+                      <li><strong style={{color:'#fff'}}>Concrete Form Builder</strong> — Building forms for poured concrete (heavy commercial)</li>
+                      <li><strong style={{color:'#fff'}}>Floor Coverer</strong> — Hardwood, vinyl, carpet, tile installation</li>
+                      <li><strong style={{color:'#fff'}}>Mill Cabinet</strong> — Cabinetry, custom millwork, finish woodworking</li>
+                      <li><strong style={{color:'#fff'}}>Millwright</strong> — Industrial machinery installation and alignment. <strong style={{color:'#F5C518'}}>The most technical UBC track</strong> — separate certification through National Millwright Apprenticeship Program (NMAP).</li>
+                      <li><strong style={{color:'#fff'}}>Pile Driver</strong> — Foundation pile installation; often combined with bridge work</li>
+                      <li><strong style={{color:'#fff'}}>Lathing / Acoustical / Drywall Systems</strong> — Wall and ceiling systems</li>
+                      <li><strong style={{color:'#fff'}}>Drywall Finisher / Taper</strong> — Joint compound, taping, finishing</li>
+                      <li><strong style={{color:'#fff'}}>Insulation Applicator</strong> — Building insulation (separate from HFIAW mechanical insulation)</li>
+                      <li><strong style={{color:'#fff'}}>Bridge / Dock / Wharf Carpenter, Shipwright</strong> — Marine and bridge carpentry</li>
+                      <li><strong style={{color:'#fff'}}>Maintenance Carpenter</strong> — In-house repair work for institutional clients</li>
+                    </ul>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="The Millwright Difference" title="It's a different test for a different career.">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>If you're applying for a UBC <strong style={{color:'#F5C518'}}>Millwright</strong> apprenticeship, the test format leans much harder on math (especially geometry and trigonometry), spatial reasoning, mechanical aptitude, and tool recognition. The work itself is industrial machinery installation, alignment, and repair — closer to mechanical engineering than to traditional carpentry.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Millwrights complete a separate qualification beyond the apprenticeship: passing both written and manipulative tests with 80% or higher in five categories — math, print reading, machinery installation, general knowledge/tools, and hands-on alignment. Plan for it as a more technically demanding track.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="How They Score It" title="Pass thresholds vary more than other trades.">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>UBC pass thresholds vary considerably by local. Some locals require <strong style={{color:'#F5C518'}}>75%</strong> minimum (e.g., Carpenters Local 93). Some major Regional Councils set their threshold at 70%. The Millwright qualification process requires 80% in each category. <strong style={{color:'#F5C518'}}>Always check with your specific local before testing.</strong></p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Drug screening is universal in UBC apprenticeships. Some Regional Councils have strict policies — Washington State UBC, for example, requires that applicants who fail wait 90 days before retesting at their own expense, and after two failures the application is deactivated for 180 days. Marijuana policy varies by local and by state law.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="How to Prep" title="Math fluency, with fractions front and center.">
+                  <Card>
+                    <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
+                      <li><strong style={{color:'#F5C518'}}>Khan Academy Pre-Algebra and Algebra 1.</strong> Plus Geometry. Free, video-based.</li>
+                      <li><strong style={{color:'#F5C518'}}>Read a tape measure to 1/16 fluently.</strong> Carpentry is fraction work. This is non-negotiable.</li>
+                      <li><strong style={{color:'#F5C518'}}>Practice the Pythagorean theorem until it's reflex.</strong> Used for square corners (3-4-5 rule), rafters, stair stringers, roof pitch.</li>
+                      <li><strong style={{color:'#F5C518'}}>If you're going Millwright track:</strong> add basic trigonometry (SOH-CAH-TOA), and study mechanical principles in depth. Bennett Mechanical Comprehension Test prep is essential.</li>
+                      <li><strong style={{color:'#F5C518'}}>Learn basic blueprint symbols.</strong> Architectural plan reading is core to most UBC trades. Free intro resources from the AIA and many trade school websites.</li>
+                      <li><strong style={{color:'#F5C518'}}>Get hand tools and use them.</strong> The interview will go better if you can speak to actual experience cutting wood, measuring, framing — even hobby projects count.</li>
+                      <li><strong style={{color:'#F5C518'}}>Look at job openings in your local before applying.</strong> If your area is busy with concrete formwork right now, applying for the Form Builder track may be faster than General Carpenter.</li>
+                    </ul>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="Application Cycles" title="Most UBC Regional Councils take applications in waves.">
+                  <Card>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>UBC's structure runs through Regional Councils — large geographic units that cover multiple states or provinces. Most Regional Councils accept applications continuously through a JATC training office, but only review them in waves (every 2-4 months) when there's contractor demand for new apprentices.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Find your Regional Council at <strong style={{color:'#F5C518'}}>carpenters.org</strong> and contact the local JATC directly. Some Councils maintain wait lists with periodic call-ups; others run cohort-based intake with hard application windows. The Council site will tell you which.</p>
+                  </Card>
+                </Section>
+
+                <Section eyebrow="After You Pass" title="3-4 year program. Half-million member union.">
+                  <Card>
+                    <p style={{margin:'0 0 10px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>UBC apprenticeships run <strong style={{color:'#fff'}}>3-4 years</strong> depending on track — General Carpenter is typically 8,000 hours OJT + classroom, Millwright is the same hours with denser technical content. You start at 50% of journeyman scale and step up every 6 months to 1 year.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>UBC also runs the International Training Center in Las Vegas — one of the largest construction trade training facilities in the world, used for advanced training across all 11 specialty tracks. Apprentices who excel may be selected for advanced training there at union expense.</p>
+                  </Card>
+                </Section>
+
+              </div>
+
+              <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(157,124,74,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
               </div>
             </div>
           );
