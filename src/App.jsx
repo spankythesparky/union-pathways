@@ -6076,38 +6076,37 @@ export default function UnionPathway() {
             </svg>
           </button>
 
+          {/* CONSOLIDATED NAV */}
           <div className="nav-links">
             <button className={`nav-link ${page==="home"?"active":""}`} onClick={() => setPage("home")}>{t.navHome}</button>
 
-            {/* APPRENTICE DROPDOWN */}
+            {/* GET STARTED DROPDOWN (uses apprenticeOpen) */}
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
-                className={`nav-dropdown-btn${(page==="checklist"||page==="careers"||page==="quiz")?" active":""}${apprenticeOpen?" open":""}`}
-                onClick={() => { setApprenticeOpen(o => !o); setLearnOpen(false); setHistoryOpen(false); setGetInTouchOpen(false); setOrganizeOpen(false); }}
+                className={`nav-dropdown-btn${(page==="checklist"||page==="careers"||page==="quiz"||page==="apprenticeship"||page.startsWith("apprenticeship-")||page==="calculator"||page==="resume")?" active":""}${apprenticeOpen?" open":""}`}
+                onClick={() => { setApprenticeOpen(o => !o); setLearnOpen(false); setHistoryOpen(false); setResourcesOpen(false); setGetInTouchOpen(false); }}
                 onBlur={() => setTimeout(() => setApprenticeOpen(false), 150)}
               >
-                {lang==="es" ? "Aprendiz" : lang==="pl" ? "Praktykant" : "Apprentice"}
-                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
+                {lang==="es" ? "Empezar" : lang==="pl" ? "Zacznij" : "Get Started"}
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
               {apprenticeOpen && (
                 <div className="nav-dropdown-menu">
                   <div className={`nav-dropdown-item${page==="checklist"?" active":""}`} onMouseDown={() => { setPage("checklist"); setApprenticeOpen(false); }}>
-                    <span className="nav-dropdown-label">{lang==="es" ? "Cómo Unirse" : lang==="pl" ? "Jak Dołączyć" : "How to Join"}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "Las 3 rutas reales de entrada" : lang==="pl" ? "3 prawdziwe drogi wejścia" : "The 3 real entry routes"}</span>
-                  </div>
-                  <div className={`nav-dropdown-item${page==="locals"?" active":""}`} onMouseDown={() => { setPage("locals"); setApprenticeOpen(false); }}>
-                    <span className="nav-dropdown-label">{lang==="es" ? "Entendiendo tu Local" : lang==="pl" ? "Rozumienie Oddziału" : "Understanding Your Local"}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "Jurisdicción, Libro 1 vs 2, trabajo de viaje" : lang==="pl" ? "Jurysdykcja, Księga 1 vs 2, praca w trasie" : "Jurisdiction, Book 1 vs 2, travel work & school"}</span>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Como Unirse" : lang==="pl" ? "Jak Dolaczyc" : "How to Join"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Las 3 rutas reales de entrada" : lang==="pl" ? "3 prawdziwe drogi wejscia" : "The 3 real entry routes"}</span>
                   </div>
                   <div className={`nav-dropdown-item${page==="careers"?" active":""}`} onMouseDown={() => { setPage("careers"); setApprenticeOpen(false); }}>
-                    <span className="nav-dropdown-label">{lang==="es" ? "Rutas de Carrera" : lang==="pl" ? "Ścieżki Kariery" : "Career Paths"}</span>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Rutas de Carrera" : lang==="pl" ? "Sciezki Kariery" : "Career Paths"}</span>
                     <span className="nav-dropdown-sub">{lang==="es" ? "De aprendiz a maestro" : lang==="pl" ? "Od praktykanta do mistrza" : "Apprentice to journeyman"}</span>
                   </div>
                   <div className={`nav-dropdown-item${page==="quiz"?" active":""}`} onMouseDown={() => { setPage("quiz"); setApprenticeOpen(false); resetQuiz(); }}>
-                    <span className="nav-dropdown-label">{lang==="es" ? "¿Qué Oficio?" : lang==="pl" ? "Który Zawód?" : "Which Trade?"}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "Encuentra tu oficio ideal" : lang==="pl" ? "Znajdź swój idealny zawód" : "Find your perfect trade match"}</span>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Que Oficio?" : lang==="pl" ? "Ktory Zawod?" : "Which Trade?"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Encuentra tu oficio ideal" : lang==="pl" ? "Znajdz swoj idealny zawod" : "Find your perfect trade match"}</span>
+                  </div>
+                  <div className={`nav-dropdown-item${page==="apprenticeship"||page.startsWith("apprenticeship-")?" active":""}`} onMouseDown={() => { setPage("apprenticeship"); setApprenticeOpen(false); }}>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Pruebas de Aprendizaje" : lang==="pl" ? "Testy Praktyk" : "Apprenticeship Tests"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "NJATC, EIAT, GAN y mas" : lang==="pl" ? "NJATC, EIAT, GAN i wiecej" : "NJATC, EIAT, GAN, and more"}</span>
                   </div>
                   <div className={`nav-dropdown-item${page==="calculator"?" active":""}`} onMouseDown={() => { setPage("calculator"); setApprenticeOpen(false); }}>
                     <span className="nav-dropdown-label">{lang==="es" ? "Calculadora de Salarios" : lang==="pl" ? "Kalkulator Wynagrodzen" : "Wage Calculator"}</span>
@@ -6121,47 +6120,83 @@ export default function UnionPathway() {
               )}
             </div>
 
-            {/* LEARN DROPDOWN */}
+            {/* MEMBERSHIP DROPDOWN (uses learnOpen) */}
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
-                className={`nav-dropdown-btn${(page==="benefits"||page==="retirement"||page==="veterans")?" active":""}${learnOpen?" open":""}`}
-                onClick={() => { setLearnOpen(o => !o); setApprenticeOpen(false); setHistoryOpen(false); setGetInTouchOpen(false); setOrganizeOpen(false); }}
+                className={`nav-dropdown-btn${(page==="benefits"||page==="retirement"||page==="veterans"||page==="locals"||page==="wages"||page==="jobboard")?" active":""}${learnOpen?" open":""}`}
+                onClick={() => { setLearnOpen(o => !o); setApprenticeOpen(false); setHistoryOpen(false); setResourcesOpen(false); setGetInTouchOpen(false); }}
                 onBlur={() => setTimeout(() => setLearnOpen(false), 150)}
               >
-                {lang==="es" ? "Beneficios" : lang==="pl" ? "Świadczenia" : "Benefits"}
-                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
+                {lang==="es" ? "Membresia" : lang==="pl" ? "Czlonkostwo" : "Membership"}
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
               {learnOpen && (
                 <div className="nav-dropdown-menu">
                   <div className={`nav-dropdown-item${page==="benefits"?" active":""}`} onMouseDown={() => { setPage("benefits"); setLearnOpen(false); }}>
-                    <span className="nav-dropdown-label">{lang==="es" ? "Resumen de Beneficios" : lang==="pl" ? "Przegląd Świadczeń" : "Benefits Overview"}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "Pensión, salud, anualidad y más" : lang==="pl" ? "Emerytura, zdrowie, renta i więcej" : "Pension, health, annuity & more"}</span>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Resumen de Beneficios" : lang==="pl" ? "Przeglad Swiadczen" : "Benefits Overview"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Pension, salud, anualidad y mas" : lang==="pl" ? "Emerytura, zdrowie, renta i wiecej" : "Pension, health, annuity & more"}</span>
                   </div>
                   <div className={`nav-dropdown-item${page==="retirement"?" active":""}`} onMouseDown={() => { setPage("retirement"); setLearnOpen(false); }}>
-                    <span className="nav-dropdown-label">{lang==="es" ? "Jubilación" : lang==="pl" ? "Emerytura" : "Retirement"}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "401k vs Anualidad vs Pensión" : lang==="pl" ? "401k vs Renta vs Emerytura" : "401k vs Annuity vs Pension"}</span>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Jubilacion" : lang==="pl" ? "Emerytura" : "Retirement"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "401k vs Anualidad vs Pension" : lang==="pl" ? "401k vs Renta vs Emerytura" : "401k vs Annuity vs Pension"}</span>
                   </div>
                   <div className={`nav-dropdown-item${page==="veterans"?" active":""}`} onMouseDown={() => { setPage("veterans"); setLearnOpen(false); }}>
                     <span className="nav-dropdown-label">{lang==="es" ? "Veteranos" : lang==="pl" ? "Weterani" : "Veterans"}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "Recursos para veteranos militares" : lang==="pl" ? "Zasoby dla weteranów wojskowych" : "Resources for military veterans"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Recursos para veteranos militares" : lang==="pl" ? "Zasoby dla weteranow wojskowych" : "Resources for military veterans"}</span>
+                  </div>
+                  <div className={`nav-dropdown-item${page==="locals"?" active":""}`} onMouseDown={() => { setPage("locals"); setLearnOpen(false); }}>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Entendiendo tu Local" : lang==="pl" ? "Rozumienie Oddzialu" : "Understanding Your Local"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Jurisdiccion, Libro 1 vs 2, trabajo de viaje" : lang==="pl" ? "Jurysdykcja, Ksiega 1 vs 2, praca w trasie" : "Jurisdiction, Book 1 vs 2, travel work"}</span>
+                  </div>
+                  <div className={`nav-dropdown-item${page==="wages"?" active":""}`} onMouseDown={() => { setPage("wages"); setLearnOpen(false); }}>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Salarios" : lang==="pl" ? "Place" : "Wages"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Datos salariales por oficio" : lang==="pl" ? "Dane place wedlug zawodu" : "Wage data by trade"}</span>
+                  </div>
+                  <div className={`nav-dropdown-item${page==="jobboard"?" active":""}`} onMouseDown={() => { setPage("jobboard"); setLearnOpen(false); }}>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Bolsa de Trabajo" : lang==="pl" ? "Gielda Pracy" : "Job Board"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Trabajos sindicales activos" : lang==="pl" ? "Aktywne oferty pracy" : "Active union job postings"}</span>
                   </div>
                 </div>
               )}
             </div>
 
-            {/* HISTORY DROPDOWN */}
+            {/* RESOURCES DROPDOWN (uses resourcesOpen) */}
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
-                className={`nav-dropdown-btn${(page==="history"||page==="trade-history")?" active":""}${historyOpen?" open":""}`}
-                onClick={() => { setHistoryOpen(o => !o); setLearnOpen(false); setApprenticeOpen(false); setGetInTouchOpen(false); setOrganizeOpen(false); }}
+                className={`nav-dropdown-btn${(page==="rtw"||page==="organize"||page==="organize-contractor")?" active":""}${resourcesOpen?" open":""}`}
+                onClick={() => { setResourcesOpen(o => !o); setApprenticeOpen(false); setLearnOpen(false); setHistoryOpen(false); setGetInTouchOpen(false); }}
+                onBlur={() => setTimeout(() => setResourcesOpen(false), 150)}
+              >
+                {lang==="es" ? "Recursos" : lang==="pl" ? "Zasoby" : "Resources"}
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              {resourcesOpen && (
+                <div className="nav-dropdown-menu">
+                  <div className={`nav-dropdown-item${page==="rtw"?" active":""}`} onMouseDown={() => { setPage("rtw"); setResourcesOpen(false); }}>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Derecho al Trabajo" : lang==="pl" ? "Prawo do Pracy" : "Right to Work"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Comparacion de los 50 estados" : lang==="pl" ? "Porownanie 50 stanow" : "All 50 states compared"}</span>
+                  </div>
+                  <div className={`nav-dropdown-item${page==="organize"?" active":""}`} onMouseDown={() => { setPage("organize"); setResourcesOpen(false); }}>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Organizar Tu Trabajo" : lang==="pl" ? "Organizuj Prace" : "Workplace Organizing"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Como organizar tu lugar de trabajo" : lang==="pl" ? "Jak zorganizowac swoje miejsce pracy" : "How to organize your job"}</span>
+                  </div>
+                  <div className={`nav-dropdown-item${page==="organize-contractor"?" active":""}`} onMouseDown={() => { setPage("organize-contractor"); setResourcesOpen(false); }}>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Organizar un Contratista" : lang==="pl" ? "Organizowanie Wykonawcy" : "Organizing a Contractor"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Que un contratista no sindical firme" : lang==="pl" ? "Pozyskanie wykonawcy do zwiazku" : "Get a non-union contractor to sign"}</span>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* HISTORY DROPDOWN (uses historyOpen — unchanged contents) */}
+            <div className="nav-dropdown-wrap" style={{position:"relative"}}>
+              <button
+                className={`nav-dropdown-btn${(page==="history"||page==="trade-history"||page.startsWith("history-"))?" active":""}${historyOpen?" open":""}`}
+                onClick={() => { setHistoryOpen(o => !o); setLearnOpen(false); setApprenticeOpen(false); setResourcesOpen(false); setGetInTouchOpen(false); }}
                 onBlur={() => setTimeout(() => setHistoryOpen(false), 150)}
               >
                 {lang==="es" ? "Historia" : lang==="pl" ? "Historia" : "History"}
-                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
               {historyOpen && (
                 <div className="nav-dropdown-menu" style={{minWidth:240}}>
@@ -6193,79 +6228,25 @@ export default function UnionPathway() {
               )}
             </div>
 
-            <button className={`nav-link ${page==="jobboard"?"active":""}`} onClick={() => setPage("jobboard")}>{lang==="es" ? "Bolsa de Trabajo" : lang==="pl" ? "Gielda Pracy" : "Job Board"}</button>
-            <button className={`nav-link ${page==="wages"?"active":""}`} onClick={() => setPage("wages")}>{lang==="es" ? "Salarios" : lang==="pl" ? "Place" : "Wages"}</button>
-            {/* RESOURCES DROPDOWN — RTW + Apprenticeship */}
-            <div className="nav-dropdown-wrap" style={{position:"relative"}}>
-              <button
-                className={`nav-dropdown-btn${(page==="rtw"||page==="apprenticeship"||page==="apprenticeship-ibew"||page==="apprenticeship-ua"||page==="apprenticeship-smart"||page==="apprenticeship-iuec"||page==="apprenticeship-iw"||page==="apprenticeship-bac"||page==="apprenticeship-hfiaw"||page==="apprenticeship-iuoe"||page==="apprenticeship-ubc")?" active":""}${resourcesOpen?" open":""}`}
-                onClick={() => { setResourcesOpen(o => !o); setApprenticeOpen(false); setLearnOpen(false); setHistoryOpen(false); setGetInTouchOpen(false); setOrganizeOpen(false); }}
-                onBlur={() => setTimeout(() => setResourcesOpen(false), 150)}
-              >
-                {lang==="es" ? "Recursos" : lang==="pl" ? "Zasoby" : "Resources"}
-                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </button>
-              {resourcesOpen && (
-                <div className="nav-dropdown-menu">
-                  <div className={`nav-dropdown-item${page==="apprenticeship"||page.startsWith("apprenticeship-")?" active":""}`} onMouseDown={() => { setPage("apprenticeship"); setResourcesOpen(false); }}>
-                    <span className="nav-dropdown-label">{lang==="es" ? "Pruebas de Aprendizaje" : lang==="pl" ? "Testy Praktyk" : "Apprenticeship Tests"}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "Por oficio: NJATC, EIAT, GAN y mas" : lang==="pl" ? "Wedlug zawodu: NJATC, EIAT, GAN i wiecej" : "By trade: NJATC, EIAT, GAN, and more"}</span>
-                  </div>
-                  <div className={`nav-dropdown-item${page==="rtw"?" active":""}`} onMouseDown={() => { setPage("rtw"); setResourcesOpen(false); }}>
-                    <span className="nav-dropdown-label">{lang==="es" ? "Derecho al Trabajo" : lang==="pl" ? "Prawo do Pracy" : "Right to Work"}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "Comparacion de los 50 estados" : lang==="pl" ? "Porownanie 50 stanow" : "All 50 states compared"}</span>
-                  </div>
-                </div>
-              )}
-            </div>
-            {/* ORGANIZE DROPDOWN */}
-            <div className="nav-dropdown-wrap" style={{position:"relative"}}>
-              <button
-                className={`nav-dropdown-btn${(page==="organize"||page==="organize-contractor")?" active":""}${organizeOpen?" open":""}`}
-                onClick={() => { setOrganizeOpen(o => !o); setApprenticeOpen(false); setLearnOpen(false); setHistoryOpen(false); setGetInTouchOpen(false); }}
-                onBlur={() => setTimeout(() => setOrganizeOpen(false), 150)}
-              >
-                {lang==="es" ? "Organizar" : lang==="pl" ? "Organizuj" : "Organize"}
-                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </button>
-              {organizeOpen && (
-                <div className="nav-dropdown-menu">
-                  <div className={`nav-dropdown-item${page==="organize"?" active":""}`} onMouseDown={() => { setPage("organize"); setOrganizeOpen(false); }}>
-                    <span className="nav-dropdown-label">{lang==="es" ? "Organizar Tu Trabajo" : lang==="pl" ? "Organizuj Pracę" : "Workplace Organizing"}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "Cómo organizar tu lugar de trabajo" : lang==="pl" ? "Jak zorganizować swoje miejsce pracy" : "How to organize your job"}</span>
-                  </div>
-                  <div className={`nav-dropdown-item${page==="organize-contractor"?" active":""}`} onMouseDown={() => { setPage("organize-contractor"); setOrganizeOpen(false); }}>
-                    <span className="nav-dropdown-label">{lang==="es" ? "Organizar un Contratista" : lang==="pl" ? "Organizowanie Wykonawcy" : "Organizing a Contractor"}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "Que un contratista no sindical firme" : lang==="pl" ? "Pozyskanie wykonawcy do związku" : "Get a non-union contractor to sign"}</span>
-                  </div>
-                </div>
-              )}
-            </div>
-            {/* GET IN TOUCH DROPDOWN */}
+            {/* ABOUT DROPDOWN (uses getInTouchOpen, label changed) */}
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
                 className={`nav-dropdown-btn${(page==="about"||page==="contact")?" active":""}${getInTouchOpen?" open":""}`}
-                onClick={() => { setGetInTouchOpen(o => !o); setApprenticeOpen(false); setLearnOpen(false); setHistoryOpen(false); setOrganizeOpen(false); }}
+                onClick={() => { setGetInTouchOpen(o => !o); setApprenticeOpen(false); setLearnOpen(false); setHistoryOpen(false); setResourcesOpen(false); }}
                 onBlur={() => setTimeout(() => setGetInTouchOpen(false), 150)}
               >
-                {lang==="es" ? "Contáctanos" : lang==="pl" ? "Kontakt" : "Get in Touch"}
-                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
+                {lang==="es" ? "Nosotros" : lang==="pl" ? "O Nas" : "About"}
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
               {getInTouchOpen && (
                 <div className="nav-dropdown-menu">
                   <div className={`nav-dropdown-item${page==="about"?" active":""}`} onMouseDown={() => { setPage("about"); setGetInTouchOpen(false); }}>
-                    <span className="nav-dropdown-label">{lang==="es" ? "Nosotros" : lang==="pl" ? "O Nas" : "About"}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "Quiénes somos y por qué" : lang==="pl" ? "Kim jesteśmy i dlaczego" : "Who we are and why"}</span>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Sobre Nosotros" : lang==="pl" ? "O Nas" : "Our Story"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Quienes somos y por que" : lang==="pl" ? "Kim jestesmy i dlaczego" : "Who we are and why"}</span>
                   </div>
                   <div className={`nav-dropdown-item${page==="contact"?" active":""}`} onMouseDown={() => { setPage("contact"); setContactSent(false); setGetInTouchOpen(false); }}>
                     <span className="nav-dropdown-label">{t.navContact}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "Envíanos un mensaje" : lang==="pl" ? "Wyślij nam wiadomość" : "Send us a message"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Envianos un mensaje" : lang==="pl" ? "Wyslij nam wiadomosc" : "Send us a message"}</span>
                   </div>
                 </div>
               )}
@@ -6370,24 +6351,10 @@ export default function UnionPathway() {
           <button className={`mobile-drawer-link${page==="home" ? " active" : ""}`} onClick={() => { setPage("home"); setMobileNavOpen(false); setResults(null); setQuery(""); }}>{t.navHome}</button>
 
           <div className="mobile-drawer-section">
-            <div className="mobile-drawer-section-label">{lang==="es" ? "Aprendiz" : lang==="pl" ? "Praktykant" : "Apprentice"}</div>
+            <div className="mobile-drawer-section-label">{lang==="es" ? "Empezar" : lang==="pl" ? "Zacznij" : "Get Started"}</div>
             <button className={`mobile-drawer-link${page==="checklist" ? " active" : ""}`} onClick={() => { setPage("checklist"); setMobileNavOpen(false); }}>{lang==="es" ? "Como Unirse" : lang==="pl" ? "Jak Dolaczyc" : "How to Join"}</button>
-            <button className={`mobile-drawer-link${page==="locals" ? " active" : ""}`} onClick={() => { setPage("locals"); setMobileNavOpen(false); }}>{lang==="es" ? "Entendiendo tu Local" : lang==="pl" ? "Rozumienie Oddzialu" : "Understanding Your Local"}</button>
             <button className={`mobile-drawer-link${page==="careers" ? " active" : ""}`} onClick={() => { setPage("careers"); setMobileNavOpen(false); }}>{lang==="es" ? "Rutas de Carrera" : lang==="pl" ? "Sciezki Kariery" : "Career Paths"}</button>
             <button className={`mobile-drawer-link${page==="quiz" ? " active" : ""}`} onClick={() => { setPage("quiz"); setMobileNavOpen(false); resetQuiz(); }}>{lang==="es" ? "Que Oficio?" : lang==="pl" ? "Ktory Zawod?" : "Which Trade?"}</button>
-            <button className={`mobile-drawer-link${page==="calculator" ? " active" : ""}`} onClick={() => { setPage("calculator"); setMobileNavOpen(false); }}>{lang==="es" ? "Calculadora de Salarios" : lang==="pl" ? "Kalkulator Wynagrodzen" : "Wage Calculator"}</button>
-            <button className={`mobile-drawer-link${page==="resume" ? " active" : ""}`} onClick={() => { setPage("resume"); setMobileNavOpen(false); }}>{lang==="es" ? "Plantilla de Curriculum" : lang==="pl" ? "Szablon CV" : "Resume Template"}</button>
-          </div>
-
-          <div className="mobile-drawer-section">
-            <div className="mobile-drawer-section-label">{lang==="es" ? "Aprender" : lang==="pl" ? "Ucz Sie" : "Learn"}</div>
-            <button className={`mobile-drawer-link${page==="benefits" ? " active" : ""}`} onClick={() => { setPage("benefits"); setMobileNavOpen(false); }}>{lang==="es" ? "Resumen de Beneficios" : lang==="pl" ? "Przeglad Swiadczen" : "Benefits Overview"}</button>
-            <button className={`mobile-drawer-link${page==="retirement" ? " active" : ""}`} onClick={() => { setPage("retirement"); setMobileNavOpen(false); }}>{lang==="es" ? "Jubilacion" : lang==="pl" ? "Emerytura" : "Retirement"}</button>
-            <button className={`mobile-drawer-link${page==="veterans" ? " active" : ""}`} onClick={() => { setPage("veterans"); setMobileNavOpen(false); }}>{lang==="es" ? "Veteranos" : lang==="pl" ? "Weterani" : "Veterans"}</button>
-          </div>
-
-          <div className="mobile-drawer-section">
-            <div className="mobile-drawer-section-label">{lang==="es" ? "Recursos" : lang==="pl" ? "Zasoby" : "Resources"}</div>
             <button
               className={`mobile-drawer-toggle${page==="apprenticeship"||page.startsWith("apprenticeship-") ? " active" : ""}${drawerTestsOpen ? " open" : ""}`}
               onClick={() => setDrawerTestsOpen(o => !o)}
@@ -6409,7 +6376,25 @@ export default function UnionPathway() {
                 <button className={`mobile-drawer-link${page==="apprenticeship-ubc" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("apprenticeship-ubc"); setMobileNavOpen(false); }}>· UBC · Carpenters</button>
               </>
             )}
+            <button className={`mobile-drawer-link${page==="calculator" ? " active" : ""}`} onClick={() => { setPage("calculator"); setMobileNavOpen(false); }}>{lang==="es" ? "Calculadora de Salarios" : lang==="pl" ? "Kalkulator Wynagrodzen" : "Wage Calculator"}</button>
+            <button className={`mobile-drawer-link${page==="resume" ? " active" : ""}`} onClick={() => { setPage("resume"); setMobileNavOpen(false); }}>{lang==="es" ? "Plantilla de Curriculum" : lang==="pl" ? "Szablon CV" : "Resume Template"}</button>
+          </div>
+
+          <div className="mobile-drawer-section">
+            <div className="mobile-drawer-section-label">{lang==="es" ? "Membresia" : lang==="pl" ? "Czlonkostwo" : "Membership"}</div>
+            <button className={`mobile-drawer-link${page==="benefits" ? " active" : ""}`} onClick={() => { setPage("benefits"); setMobileNavOpen(false); }}>{lang==="es" ? "Resumen de Beneficios" : lang==="pl" ? "Przeglad Swiadczen" : "Benefits Overview"}</button>
+            <button className={`mobile-drawer-link${page==="retirement" ? " active" : ""}`} onClick={() => { setPage("retirement"); setMobileNavOpen(false); }}>{lang==="es" ? "Jubilacion" : lang==="pl" ? "Emerytura" : "Retirement"}</button>
+            <button className={`mobile-drawer-link${page==="veterans" ? " active" : ""}`} onClick={() => { setPage("veterans"); setMobileNavOpen(false); }}>{lang==="es" ? "Veteranos" : lang==="pl" ? "Weterani" : "Veterans"}</button>
+            <button className={`mobile-drawer-link${page==="locals" ? " active" : ""}`} onClick={() => { setPage("locals"); setMobileNavOpen(false); }}>{lang==="es" ? "Entendiendo tu Local" : lang==="pl" ? "Rozumienie Oddzialu" : "Understanding Your Local"}</button>
+            <button className={`mobile-drawer-link${page==="wages" ? " active" : ""}`} onClick={() => { setPage("wages"); setMobileNavOpen(false); }}>{lang==="es" ? "Salarios" : lang==="pl" ? "Place" : "Wages"}</button>
+            <button className={`mobile-drawer-link${page==="jobboard" ? " active" : ""}`} onClick={() => { setPage("jobboard"); setMobileNavOpen(false); }}>{lang==="es" ? "Bolsa de Trabajo" : lang==="pl" ? "Gielda Pracy" : "Job Board"}</button>
+          </div>
+
+          <div className="mobile-drawer-section">
+            <div className="mobile-drawer-section-label">{lang==="es" ? "Recursos" : lang==="pl" ? "Zasoby" : "Resources"}</div>
             <button className={`mobile-drawer-link${page==="rtw" ? " active" : ""}`} onClick={() => { setPage("rtw"); setMobileNavOpen(false); }}>{lang==="es" ? "Derecho al Trabajo" : lang==="pl" ? "Prawo do Pracy" : "Right to Work"}</button>
+            <button className={`mobile-drawer-link${page==="organize" ? " active" : ""}`} onClick={() => { setPage("organize"); setMobileNavOpen(false); }}>{lang==="es" ? "Organizar Tu Trabajo" : lang==="pl" ? "Organizuj Prace" : "Workplace Organizing"}</button>
+            <button className={`mobile-drawer-link${page==="organize-contractor" ? " active" : ""}`} onClick={() => { setPage("organize-contractor"); setMobileNavOpen(false); }}>{lang==="es" ? "Organizar un Contratista" : lang==="pl" ? "Organizowanie Wykonawcy" : "Organizing a Contractor"}</button>
           </div>
 
           <div className="mobile-drawer-section">
@@ -6438,20 +6423,8 @@ export default function UnionPathway() {
           </div>
 
           <div className="mobile-drawer-section">
-            <div className="mobile-drawer-section-label">{lang==="es" ? "Herramientas" : lang==="pl" ? "Narzedzia" : "Tools"}</div>
-            <button className={`mobile-drawer-link${page==="jobboard" ? " active" : ""}`} onClick={() => { setPage("jobboard"); setMobileNavOpen(false); }}>{lang==="es" ? "Bolsa de Trabajo" : lang==="pl" ? "Gielda Pracy" : "Job Board"}</button>
-            <button className={`mobile-drawer-link${page==="wages" ? " active" : ""}`} onClick={() => { setPage("wages"); setMobileNavOpen(false); }}>{lang==="es" ? "Salarios" : lang==="pl" ? "Place" : "Wages"}</button>
-          </div>
-
-          <div className="mobile-drawer-section">
-            <div className="mobile-drawer-section-label">{lang==="es" ? "Organizar" : lang==="pl" ? "Organizuj" : "Organize"}</div>
-            <button className={`mobile-drawer-link${page==="organize" ? " active" : ""}`} onClick={() => { setPage("organize"); setMobileNavOpen(false); }}>{lang==="es" ? "Organizar Tu Trabajo" : lang==="pl" ? "Organizuj Prace" : "Workplace Organizing"}</button>
-            <button className={`mobile-drawer-link${page==="organize-contractor" ? " active" : ""}`} onClick={() => { setPage("organize-contractor"); setMobileNavOpen(false); }}>{lang==="es" ? "Organizar un Contratista" : lang==="pl" ? "Organizowanie Wykonawcy" : "Organizing a Contractor"}</button>
-          </div>
-
-          <div className="mobile-drawer-section">
-            <div className="mobile-drawer-section-label">{lang==="es" ? "Contactanos" : lang==="pl" ? "Kontakt" : "Get In Touch"}</div>
-            <button className={`mobile-drawer-link${page==="about" ? " active" : ""}`} onClick={() => { setPage("about"); setMobileNavOpen(false); }}>{lang==="es" ? "Nosotros" : lang==="pl" ? "O Nas" : "About"}</button>
+            <div className="mobile-drawer-section-label">{lang==="es" ? "Nosotros" : lang==="pl" ? "O Nas" : "About"}</div>
+            <button className={`mobile-drawer-link${page==="about" ? " active" : ""}`} onClick={() => { setPage("about"); setMobileNavOpen(false); }}>{lang==="es" ? "Sobre Nosotros" : lang==="pl" ? "O Nas" : "Our Story"}</button>
             <button className={`mobile-drawer-link${page==="contact" ? " active" : ""}`} onClick={() => { setPage("contact"); setContactSent(false); setMobileNavOpen(false); }}>{t.navContact}</button>
           </div>
         </aside>
