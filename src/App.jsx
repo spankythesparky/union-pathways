@@ -7500,19 +7500,35 @@ export default function UnionPathway() {
             </div>
           );
 
-          const Era = ({ tag, title, years, intro, color = '#F5C518', children }) => (
-            <div style={{margin:'80px 0', position:'relative'}}>
-              <div style={{display:'flex', alignItems:'center', gap:16, marginBottom:20, flexWrap:'wrap'}}>
-                <div style={{width:48, height:48, borderRadius:12, background:`${color}22`, border:`2px solid ${color}`, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color}}>{tag}</div>
-                <div>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
-                </div>
+          const Era = ({ tag, title, years, intro, color = '#F5C518', children }) => {
+            // COLLAPSIBLE ERA — fix164
+            const [eraOpen, setEraOpen] = useState(false);
+            return (
+              <div style={{margin:'40px 0', position:'relative'}}>
+                <button
+                  onClick={() => setEraOpen(o => !o)}
+                  style={{
+                    width:'100%', display:'flex', alignItems:'center', gap:16, flexWrap:'wrap',
+                    background:'transparent', border:'none', padding:0, cursor:'pointer', textAlign:'left',
+                    marginBottom: eraOpen ? 20 : 0
+                  }}
+                >
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color, flexShrink:0}}>{tag}</div>
+                  <div style={{flex:1, minWidth:0}}>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                  </div>
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                </button>
+                {eraOpen && (
+                  <div style={{paddingTop:8, paddingLeft: 64}}>
+                    {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
+                    {children}
+                  </div>
+                )}
               </div>
-              {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
-              {children}
-            </div>
-          );
+            );
+          };
 
 
           return (
@@ -7901,19 +7917,35 @@ export default function UnionPathway() {
             </div>
           );
 
-          const Era = ({ tag, title, years, intro, color = '#3B9EFF', children }) => (
-            <div style={{margin:'80px 0', position:'relative'}}>
-              <div style={{display:'flex', alignItems:'center', gap:16, marginBottom:20, flexWrap:'wrap'}}>
-                <div style={{width:48, height:48, borderRadius:12, background:`${color}22`, border:`2px solid ${color}`, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color}}>{tag}</div>
-                <div>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
-                </div>
+          const Era = ({ tag, title, years, intro, color = '#3B9EFF', children }) => {
+            // COLLAPSIBLE ERA — fix164
+            const [eraOpen, setEraOpen] = useState(false);
+            return (
+              <div style={{margin:'40px 0', position:'relative'}}>
+                <button
+                  onClick={() => setEraOpen(o => !o)}
+                  style={{
+                    width:'100%', display:'flex', alignItems:'center', gap:16, flexWrap:'wrap',
+                    background:'transparent', border:'none', padding:0, cursor:'pointer', textAlign:'left',
+                    marginBottom: eraOpen ? 20 : 0
+                  }}
+                >
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color, flexShrink:0}}>{tag}</div>
+                  <div style={{flex:1, minWidth:0}}>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                  </div>
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                </button>
+                {eraOpen && (
+                  <div style={{paddingTop:8, paddingLeft: 64}}>
+                    {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
+                    {children}
+                  </div>
+                )}
               </div>
-              {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
-              {children}
-            </div>
-          );
+            );
+          };
 
 
           return (
@@ -8303,19 +8335,35 @@ export default function UnionPathway() {
             </div>
           );
 
-          const Era = ({ tag, title, years, intro, color = '#B0BEC5', children }) => (
-            <div style={{margin:'80px 0', position:'relative'}}>
-              <div style={{display:'flex', alignItems:'center', gap:16, marginBottom:20, flexWrap:'wrap'}}>
-                <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color}}>{tag}</div>
-                <div>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
-                </div>
+          const Era = ({ tag, title, years, intro, color = '#B0BEC5', children }) => {
+            // COLLAPSIBLE ERA — fix164
+            const [eraOpen, setEraOpen] = useState(false);
+            return (
+              <div style={{margin:'40px 0', position:'relative'}}>
+                <button
+                  onClick={() => setEraOpen(o => !o)}
+                  style={{
+                    width:'100%', display:'flex', alignItems:'center', gap:16, flexWrap:'wrap',
+                    background:'transparent', border:'none', padding:0, cursor:'pointer', textAlign:'left',
+                    marginBottom: eraOpen ? 20 : 0
+                  }}
+                >
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color, flexShrink:0}}>{tag}</div>
+                  <div style={{flex:1, minWidth:0}}>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                  </div>
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                </button>
+                {eraOpen && (
+                  <div style={{paddingTop:8, paddingLeft: 64}}>
+                    {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
+                    {children}
+                  </div>
+                )}
               </div>
-              {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
-              {children}
-            </div>
-          );
+            );
+          };
 
           return (
             <div id="smart-history-root">
@@ -8689,19 +8737,35 @@ export default function UnionPathway() {
             </div>
           );
 
-          const Era = ({ tag, title, years, intro, color = '#C04A36', children }) => (
-            <div style={{margin:'80px 0', position:'relative'}}>
-              <div style={{display:'flex', alignItems:'center', gap:16, marginBottom:20, flexWrap:'wrap'}}>
-                <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color}}>{tag}</div>
-                <div>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
-                </div>
+          const Era = ({ tag, title, years, intro, color = '#C04A36', children }) => {
+            // COLLAPSIBLE ERA — fix164
+            const [eraOpen, setEraOpen] = useState(false);
+            return (
+              <div style={{margin:'40px 0', position:'relative'}}>
+                <button
+                  onClick={() => setEraOpen(o => !o)}
+                  style={{
+                    width:'100%', display:'flex', alignItems:'center', gap:16, flexWrap:'wrap',
+                    background:'transparent', border:'none', padding:0, cursor:'pointer', textAlign:'left',
+                    marginBottom: eraOpen ? 20 : 0
+                  }}
+                >
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color, flexShrink:0}}>{tag}</div>
+                  <div style={{flex:1, minWidth:0}}>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                  </div>
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                </button>
+                {eraOpen && (
+                  <div style={{paddingTop:8, paddingLeft: 64}}>
+                    {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
+                    {children}
+                  </div>
+                )}
               </div>
-              {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
-              {children}
-            </div>
-          );
+            );
+          };
 
           return (
             <div id="bac-history-root">
@@ -9087,19 +9151,35 @@ export default function UnionPathway() {
             </div>
           );
 
-          const Era = ({ tag, title, years, intro, color = '#10A37F', children }) => (
-            <div style={{margin:'80px 0', position:'relative'}}>
-              <div style={{display:'flex', alignItems:'center', gap:16, marginBottom:20, flexWrap:'wrap'}}>
-                <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color}}>{tag}</div>
-                <div>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
-                </div>
+          const Era = ({ tag, title, years, intro, color = '#10A37F', children }) => {
+            // COLLAPSIBLE ERA — fix164
+            const [eraOpen, setEraOpen] = useState(false);
+            return (
+              <div style={{margin:'40px 0', position:'relative'}}>
+                <button
+                  onClick={() => setEraOpen(o => !o)}
+                  style={{
+                    width:'100%', display:'flex', alignItems:'center', gap:16, flexWrap:'wrap',
+                    background:'transparent', border:'none', padding:0, cursor:'pointer', textAlign:'left',
+                    marginBottom: eraOpen ? 20 : 0
+                  }}
+                >
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color, flexShrink:0}}>{tag}</div>
+                  <div style={{flex:1, minWidth:0}}>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                  </div>
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                </button>
+                {eraOpen && (
+                  <div style={{paddingTop:8, paddingLeft: 64}}>
+                    {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
+                    {children}
+                  </div>
+                )}
               </div>
-              {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
-              {children}
-            </div>
-          );
+            );
+          };
 
           return (
             <div id="ufcw-history-root">
@@ -9523,15 +9603,24 @@ export default function UnionPathway() {
           );
 
           const Era = ({ tag, title, years, intro, color = '#D85F2E', children }) => {
+            // COLLAPSIBLE ERA — fix164 (with reveal anim preserved on entry)
             const [ref, revealed] = useReveal();
+            const [eraOpen, setEraOpen] = useState(false);
             return (
               <div ref={ref} style={{
-                margin:'80px 0', position:'relative',
+                margin:'40px 0', position:'relative',
                 transition:'opacity 0.8s, transform 0.8s',
                 opacity: revealed ? 1 : 0,
                 transform: revealed ? 'translateY(0)' : 'translateY(40px)',
               }}>
-                <div style={{display:'flex', alignItems:'center', gap:16, marginBottom:20, flexWrap:'wrap'}}>
+                <button
+                  onClick={() => setEraOpen(o => !o)}
+                  style={{
+                    width:'100%', display:'flex', alignItems:'center', gap:16, flexWrap:'wrap',
+                    background:'transparent', border:'none', padding:0, cursor:'pointer', textAlign:'left',
+                    marginBottom: eraOpen ? 20 : 0
+                  }}
+                >
                   <div style={{
                     width:48, height:48, borderRadius:12,
                     background:color+'22', border:'2px solid '+color,
@@ -9539,14 +9628,20 @@ export default function UnionPathway() {
                     fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color,
                     boxShadow: revealed ? '0 0 0 6px '+color+'15, 0 0 24px '+color+'40' : 'none',
                     animation: revealed ? 'iron-rivet-pulse 3s ease-in-out infinite' : 'none',
+                    flexShrink:0,
                   }}>{tag}</div>
-                  <div>
+                  <div style={{flex:1, minWidth:0}}>
                     <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
                   </div>
-                </div>
-                {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
-                {children}
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                </button>
+                {eraOpen && (
+                  <div style={{paddingTop:8, paddingLeft:64}}>
+                    {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
+                    {children}
+                  </div>
+                )}
               </div>
             );
           };
@@ -9993,19 +10088,35 @@ export default function UnionPathway() {
             </div>
           );
 
-          const Era = ({ tag, title, years, intro, color = '#A8623A', children }) => (
-            <div style={{margin:'80px 0', position:'relative'}}>
-              <div style={{display:'flex', alignItems:'center', gap:16, marginBottom:20, flexWrap:'wrap'}}>
-                <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color}}>{tag}</div>
-                <div>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
-                </div>
+          const Era = ({ tag, title, years, intro, color = '#A8623A', children }) => {
+            // COLLAPSIBLE ERA — fix164
+            const [eraOpen, setEraOpen] = useState(false);
+            return (
+              <div style={{margin:'40px 0', position:'relative'}}>
+                <button
+                  onClick={() => setEraOpen(o => !o)}
+                  style={{
+                    width:'100%', display:'flex', alignItems:'center', gap:16, flexWrap:'wrap',
+                    background:'transparent', border:'none', padding:0, cursor:'pointer', textAlign:'left',
+                    marginBottom: eraOpen ? 20 : 0
+                  }}
+                >
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color, flexShrink:0}}>{tag}</div>
+                  <div style={{flex:1, minWidth:0}}>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                  </div>
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                </button>
+                {eraOpen && (
+                  <div style={{paddingTop:8, paddingLeft: 64}}>
+                    {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
+                    {children}
+                  </div>
+                )}
               </div>
-              {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
-              {children}
-            </div>
-          );
+            );
+          };
 
           return (
             <div id="insul-history-root">
@@ -10355,19 +10466,35 @@ export default function UnionPathway() {
             </div>
           );
 
-          const Era = ({ tag, title, years, intro, color = '#4A7B9D', children }) => (
-            <div style={{margin:'80px 0', position:'relative'}}>
-              <div style={{display:'flex', alignItems:'center', gap:16, marginBottom:20, flexWrap:'wrap'}}>
-                <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color}}>{tag}</div>
-                <div>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
-                </div>
+          const Era = ({ tag, title, years, intro, color = '#4A7B9D', children }) => {
+            // COLLAPSIBLE ERA — fix164
+            const [eraOpen, setEraOpen] = useState(false);
+            return (
+              <div style={{margin:'40px 0', position:'relative'}}>
+                <button
+                  onClick={() => setEraOpen(o => !o)}
+                  style={{
+                    width:'100%', display:'flex', alignItems:'center', gap:16, flexWrap:'wrap',
+                    background:'transparent', border:'none', padding:0, cursor:'pointer', textAlign:'left',
+                    marginBottom: eraOpen ? 20 : 0
+                  }}
+                >
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color, flexShrink:0}}>{tag}</div>
+                  <div style={{flex:1, minWidth:0}}>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                  </div>
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                </button>
+                {eraOpen && (
+                  <div style={{paddingTop:8, paddingLeft: 64}}>
+                    {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
+                    {children}
+                  </div>
+                )}
               </div>
-              {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
-              {children}
-            </div>
-          );
+            );
+          };
 
           return (
             <div id="iuec-history-root">
