@@ -6388,6 +6388,18 @@ export default function UnionPathway() {
             <button className={`mobile-drawer-link${page==="jobboard" ? " active" : ""}`} onClick={() => { setPage("jobboard"); setMobileNavOpen(false); }}>{lang==="es" ? "Bolsa de Trabajo" : lang==="pl" ? "Gielda Pracy" : "Job Board"}</button>
             <button className={`mobile-drawer-link${page==="wages" ? " active" : ""}`} onClick={() => { setPage("wages"); setMobileNavOpen(false); }}>{lang==="es" ? "Salarios" : lang==="pl" ? "Place" : "Wages"}</button>
           </div>
+
+          <div className="mobile-drawer-section">
+            <div className="mobile-drawer-section-label">{lang==="es" ? "Organizar" : lang==="pl" ? "Organizuj" : "Organize"}</div>
+            <button className={`mobile-drawer-link${page==="organize" ? " active" : ""}`} onClick={() => { setPage("organize"); setMobileNavOpen(false); }}>{lang==="es" ? "Organizar Tu Trabajo" : lang==="pl" ? "Organizuj Prace" : "Workplace Organizing"}</button>
+            <button className={`mobile-drawer-link${page==="organize-contractor" ? " active" : ""}`} onClick={() => { setPage("organize-contractor"); setMobileNavOpen(false); }}>{lang==="es" ? "Organizar un Contratista" : lang==="pl" ? "Organizowanie Wykonawcy" : "Organizing a Contractor"}</button>
+          </div>
+
+          <div className="mobile-drawer-section">
+            <div className="mobile-drawer-section-label">{lang==="es" ? "Contactanos" : lang==="pl" ? "Kontakt" : "Get In Touch"}</div>
+            <button className={`mobile-drawer-link${page==="about" ? " active" : ""}`} onClick={() => { setPage("about"); setMobileNavOpen(false); }}>{lang==="es" ? "Nosotros" : lang==="pl" ? "O Nas" : "About"}</button>
+            <button className={`mobile-drawer-link${page==="contact" ? " active" : ""}`} onClick={() => { setPage("contact"); setContactSent(false); setMobileNavOpen(false); }}>{t.navContact}</button>
+          </div>
         </aside>
 
         </nav>
