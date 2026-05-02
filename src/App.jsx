@@ -11028,436 +11028,518 @@ export default function UnionPathway() {
           // (top-level hooks inside the IIFE caused white-screen-on-first-click)
           // ============================================================
           const RTWPage = () => {
-          // ============================================================
-          // PAGE-LEVEL STATE (interactive controls)
-          // ============================================================
-          const [selectedState, setSelectedState] = useState('TX');
-          const [hoveredState, setHoveredState] = useState(null);
-          const [stateA, setStateA] = useState('TX');
-          const [stateB, setStateB] = useState('CA');
-          const [activeMetric, setActiveMetric] = useState('wage');
+            // ============================================================
+            // PAGE-LEVEL STATE
+            // ============================================================
+            const [selectedState, setSelectedState] = useState('TX');
+            const [hoveredState, setHoveredState] = useState(null);
+            const [stateA, setStateA] = useState('TX');
+            const [stateB, setStateB] = useState('CA');
+            const [activeMetric, setActiveMetric] = useState('wage');
+            const [activeTool, setActiveTool] = useState('map');
+            const [activeSection, setActiveSection] = useState('what');
 
-          // ============================================================
-          // INLINE COMPONENTS
-          // ============================================================
-          const SectionHeader = ({ eyebrow, title, sub, color = '#F5C518' }) => (
-            <div style={{marginBottom:32}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>{eyebrow}</div>
-              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 5vw, 48px)', fontWeight:900, color:'#fff', margin:0, lineHeight:1.05}}>{title}</h2>
-              {sub && <p style={{fontSize:16, color:'rgba(255,255,255,0.7)', lineHeight:1.6, marginTop:14, maxWidth:760}}>{sub}</p>}
-            </div>
-          );
+            // ============================================================
+            // SECTION REFS (for sticky nav scroll-to + active highlight)
+            // ============================================================
+            const whatRef = useRef(null);
+            const headlineRef = useRef(null);
+            const exploreRef = useRef(null);
+            const historyRef = useRef(null);
+            const bottomRef = useRef(null);
+            const refMap = { what: whatRef, headline: headlineRef, explore: exploreRef, history: historyRef, bottom: bottomRef };
 
-          // STATE TILE MAP
-          const TileMap = () => (
-            <div style={{padding:'16px', overflowX:'auto'}}>
-              <div style={{display:'inline-block'}}>
-                {TILE_MAP.map((row, ri) => (
-                  <div key={ri} style={{display:'flex', justifyContent:'center', gap:5, marginBottom:5}}>
-                    {row.map((code, ci) => {
-                      if (!code) return <div key={ci} style={{width:42, height:42}} />;
-                      const st = RTW_STATES[code];
-                      const isSel = selectedState === code;
-                      const isHov = hoveredState === code;
-                      const bg = st.rtw ? RTW_COLOR : NRTW_COLOR;
+            useEffect(() => {
+              const observer = new IntersectionObserver(
+                (entries) => {
+                  entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                      const id = entry.target.dataset.section;
+                      if (id) setActiveSection(id);
+                    }
+                  });
+                },
+                { rootMargin: '-30% 0px -60% 0px', threshold: 0 }
+              );
+              Object.values(refMap).forEach(ref => { if (ref.current) observer.observe(ref.current); });
+              return () => observer.disconnect();
+            }, []);
+
+            const scrollToSection = (id) => {
+              const ref = refMap[id];
+              if (ref?.current) {
+                const top = ref.current.getBoundingClientRect().top + window.pageYOffset - 70;
+                window.scrollTo({ top, behavior: 'smooth' });
+              }
+            };
+
+            // ============================================================
+            // INLINE COMPONENTS
+            // ============================================================
+            const SectionHeader = ({ eyebrow, title, sub, color = '#F5C518' }) => (
+              <div style={{marginBottom:32}}>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>{eyebrow}</div>
+                <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 5vw, 48px)', fontWeight:900, color:'#fff', margin:0, lineHeight:1.05}}>{title}</h2>
+                {sub && <p style={{fontSize:16, color:'rgba(255,255,255,0.7)', lineHeight:1.6, marginTop:14, maxWidth:760}}>{sub}</p>}
+              </div>
+            );
+
+            const TileMap = () => (
+              <div style={{padding:'16px', overflowX:'auto'}}>
+                <div style={{display:'inline-block'}}>
+                  {TILE_MAP.map((row, ri) => (
+                    <div key={ri} style={{display:'flex', justifyContent:'center', gap:5, marginBottom:5}}>
+                      {row.map((code, ci) => {
+                        if (!code) return <div key={ci} style={{width:42, height:42}} />;
+                        const st = RTW_STATES[code];
+                        const isSel = selectedState === code;
+                        const isHov = hoveredState === code;
+                        const bg = st.rtw ? RTW_COLOR : NRTW_COLOR;
+                        return (
+                          <button
+                            key={ci}
+                            onClick={() => setSelectedState(code)}
+                            onMouseEnter={() => setHoveredState(code)}
+                            onMouseLeave={() => setHoveredState(null)}
+                            style={{
+                              width:42, height:42, position:'relative', display:'flex', alignItems:'center', justifyContent:'center',
+                              background: isSel ? '#fff' : bg,
+                              color: isSel ? '#000' : '#fff',
+                              border:'none', borderRadius:6, cursor:'pointer',
+                              fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:900,
+                              transform: isHov && !isSel ? 'scale(1.1)' : 'scale(1)',
+                              boxShadow: isSel ? '0 4px 16px rgba(255,255,255,0.25)' : isHov ? '0 2px 8px rgba(0,0,0,0.4)' : 'none',
+                              transition:'transform 0.15s, box-shadow 0.15s'
+                            }}
+                          >
+                            {code}
+                            {st.repealed && <span style={{position:'absolute', top:3, right:3, width:6, height:6, borderRadius:'50%', background:REPEAL_COLOR, border:'1px solid rgba(0,0,0,0.4)'}} />}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+
+            const StateDetail = () => {
+              const code = selectedState;
+              const st = RTW_STATES[code];
+              const m = RTW_METRICS[code];
+              if (!st || !m) return null;
+              const accent = st.rtw ? RTW_COLOR : NRTW_COLOR;
+              const compareKey = st.rtw ? 'nrtw' : 'rtw';
+              const compareLabel = st.rtw ? 'non-RTW avg' : 'RTW avg';
+              const wageDiff = ((m.wage - AGG[compareKey].wage) / AGG[compareKey].wage * 100);
+              const incomeDiff = ((m.hhIncome - AGG[compareKey].hhIncome) / AGG[compareKey].hhIncome * 100);
+              const Row = ({ label, value, diff }) => (
+                <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', borderBottom:'1px solid rgba(255,255,255,0.08)', padding:'14px 0'}}>
+                  <div>
+                    <div style={{fontSize:11, fontFamily:"'Barlow Condensed',sans-serif", textTransform:'uppercase', letterSpacing:1.5, color:'rgba(255,255,255,0.6)', fontWeight:700}}>{label}</div>
+                    {diff != null && <div style={{fontSize:10, fontFamily:"'Barlow Condensed',sans-serif", color:'rgba(255,255,255,0.5)', marginTop:3, letterSpacing:1}}>{diff >= 0 ? '+' : ''}{diff.toFixed(1)}% vs {compareLabel}</div>}
+                  </div>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontWeight:900, color:'#fff'}}>{value}</div>
+                </div>
+              );
+              return (
+                <div style={{padding:'28px 28px 32px'}}>
+                  <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:6}}>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:accent, letterSpacing:2.5, textTransform:'uppercase'}}>{st.rtw ? 'Right-to-Work' : 'Non-RTW'}</div>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:1.5}}>{code}</div>
+                  </div>
+                  <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:'0 0 8px 0', lineHeight:1.05}}>{st.name}</h3>
+                  <div style={{fontSize:13, color:'rgba(255,255,255,0.55)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, marginBottom:18}}>
+                    {st.region} · {st.popMil}M residents
+                    {st.year && <> · RTW since {st.year}</>}
+                    {st.repealed && <> · <span style={{color:REPEAL_COLOR}}>Repealed {st.repealed}</span></>}
+                  </div>
+                  {st.note && (
+                    <div style={{padding:'10px 14px', borderLeft:'3px solid '+REPEAL_COLOR, background:'rgba(245,197,24,0.06)', borderRadius:'0 8px 8px 0', fontSize:13, fontStyle:'italic', color:'rgba(255,255,255,0.85)', marginBottom:18, lineHeight:1.5}}>{st.note}</div>
+                  )}
+                  <div style={{marginTop:8}}>
+                    <Row label="Median hourly wage" value={'$'+m.wage.toFixed(2)} diff={wageDiff} />
+                    <Row label="Union density" value={m.unionDensity+'%'} />
+                    <Row label="Workplace fatality rate" value={m.fatalRate+' / 100k'} />
+                    <Row label="Median household income" value={'$'+m.hhIncome.toLocaleString()} diff={incomeDiff} />
+                    <Row label="Poverty rate" value={m.poverty+'%'} />
+                    <Row label="Uninsured rate" value={m.uninsured+'%'} />
+                  </div>
+                </div>
+              );
+            };
+
+            const ComparisonTool = () => {
+              const codes = Object.keys(RTW_STATES).filter(c => c !== 'DC').sort((a,b) => RTW_STATES[a].name.localeCompare(RTW_STATES[b].name));
+              const a = { ...RTW_STATES[stateA], ...RTW_METRICS[stateA], code: stateA };
+              const b = { ...RTW_STATES[stateB], ...RTW_METRICS[stateB], code: stateB };
+              const metrics = [
+                { key:'wage', label:'Median hourly wage', invert:false, fmt:v => '$'+v.toFixed(2) },
+                { key:'unionDensity', label:'Union density', invert:false, fmt:v => v.toFixed(1)+'%' },
+                { key:'hhIncome', label:'Median household income', invert:false, fmt:v => '$'+v.toLocaleString() },
+                { key:'fatalRate', label:'Workplace fatality rate / 100k', invert:true, fmt:v => v.toFixed(1) },
+                { key:'poverty', label:'Poverty rate', invert:true, fmt:v => v.toFixed(1)+'%' },
+                { key:'uninsured', label:'Uninsured rate', invert:true, fmt:v => v.toFixed(1)+'%' }
+              ];
+              const StateCard = ({ s, side, onChange }) => (
+                <div>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color: s.rtw ? RTW_COLOR : NRTW_COLOR, letterSpacing:2.5, textTransform:'uppercase', marginBottom:10}}>State {side}</div>
+                  <select value={s.code} onChange={onChange} style={{width:'100%', fontFamily:"'Barlow Condensed',sans-serif", fontSize:28, fontWeight:900, color:'#fff', background:'transparent', border:'none', borderBottom:'2px solid '+(s.rtw ? RTW_COLOR : NRTW_COLOR), padding:'8px 0', outline:'none', cursor:'pointer'}}>
+                    {codes.map(c => <option key={c} value={c} style={{background:'#0F1620', color:'#fff'}}>{RTW_STATES[c].name}</option>)}
+                  </select>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color: s.rtw ? RTW_COLOR : NRTW_COLOR, letterSpacing:2, textTransform:'uppercase', marginTop:8}}>
+                    {s.rtw ? 'Right-to-Work' : 'Non-RTW'}
+                    {s.repealed && <span style={{color:REPEAL_COLOR}}> · Repealed {s.repealed}</span>}
+                  </div>
+                </div>
+              );
+              return (
+                <div>
+                  <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:32, marginBottom:40}}>
+                    <StateCard s={a} side="A" onChange={e => setStateA(e.target.value)} />
+                    <StateCard s={b} side="B" onChange={e => setStateB(e.target.value)} />
+                  </div>
+                  <div>
+                    {metrics.map(mt => {
+                      const va = a[mt.key], vb = b[mt.key];
+                      const max = Math.max(va, vb);
+                      const aBetter = mt.invert ? va < vb : va > vb;
+                      const bBetter = mt.invert ? vb < va : vb > va;
                       return (
-                        <button
-                          key={ci}
-                          onClick={() => setSelectedState(code)}
-                          onMouseEnter={() => setHoveredState(code)}
-                          onMouseLeave={() => setHoveredState(null)}
-                          style={{
-                            width:42, height:42, position:'relative', display:'flex', alignItems:'center', justifyContent:'center',
-                            background: isSel ? '#fff' : bg,
-                            color: isSel ? '#000' : '#fff',
-                            border:'none', borderRadius:6, cursor:'pointer',
-                            fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:900,
-                            transform: isHov && !isSel ? 'scale(1.1)' : 'scale(1)',
-                            boxShadow: isSel ? '0 4px 16px rgba(255,255,255,0.25)' : isHov ? '0 2px 8px rgba(0,0,0,0.4)' : 'none',
-                            transition:'transform 0.15s, box-shadow 0.15s'
-                          }}
-                        >
-                          {code}
-                          {st.repealed && <span style={{position:'absolute', top:3, right:3, width:6, height:6, borderRadius:'50%', background:REPEAL_COLOR, border:'1px solid rgba(0,0,0,0.4)'}} />}
-                        </button>
+                        <div key={mt.key} style={{padding:'18px 0', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
+                          <div style={{textAlign:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.6)', letterSpacing:2, textTransform:'uppercase', marginBottom:14}}>{mt.label}</div>
+                          <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:24, alignItems:'center'}}>
+                            <div style={{textAlign:'right'}}>
+                              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:30, fontWeight:900, color: aBetter ? '#fff' : 'rgba(255,255,255,0.55)'}}>{mt.fmt(va)}</div>
+                              <div style={{display:'flex', justifyContent:'flex-end', marginTop:6}}>
+                                <div style={{height:6, borderRadius:3, width: ((va/max)*100)+'%', maxWidth:'100%', background: a.rtw ? RTW_COLOR : NRTW_COLOR, opacity: aBetter ? 1 : 0.5}} />
+                              </div>
+                            </div>
+                            <div style={{textAlign:'left'}}>
+                              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:30, fontWeight:900, color: bBetter ? '#fff' : 'rgba(255,255,255,0.55)'}}>{mt.fmt(vb)}</div>
+                              <div style={{marginTop:6}}>
+                                <div style={{height:6, borderRadius:3, width: ((vb/max)*100)+'%', maxWidth:'100%', background: b.rtw ? RTW_COLOR : NRTW_COLOR, opacity: bBetter ? 1 : 0.5}} />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       );
                     })}
                   </div>
+                </div>
+              );
+            };
+
+            const Dashboard = () => {
+              const metricDefs = {
+                wage:        { label:'Median Hourly Wage',        fmt:v => '$'+v.toFixed(2),         favorHigh:true  },
+                unionDensity:{ label:'Union Density',             fmt:v => v.toFixed(1)+'%',         favorHigh:true  },
+                hhIncome:    { label:'Median Household Income',   fmt:v => '$'+Math.round(v).toLocaleString(), favorHigh:true },
+                fatalRate:   { label:'Workplace Fatality Rate',   fmt:v => v.toFixed(2)+' / 100k',   favorHigh:false },
+                poverty:     { label:'Poverty Rate',              fmt:v => v.toFixed(1)+'%',         favorHigh:false },
+                uninsured:   { label:'Uninsured Rate',            fmt:v => v.toFixed(1)+'%',         favorHigh:false }
+              };
+              const md = metricDefs[activeMetric];
+              const data = Object.keys(RTW_STATES).filter(c => c !== 'DC').map(c => ({
+                code:c, name:RTW_STATES[c].name, value:RTW_METRICS[c][activeMetric], rtw:RTW_STATES[c].rtw
+              })).sort((x,y) => y.value - x.value);
+              const maxV = Math.max(...data.map(d => d.value));
+              const aggMax = Math.max(AGG.rtw[activeMetric], AGG.nrtw[activeMetric]);
+              const diff = ((AGG.nrtw[activeMetric] - AGG.rtw[activeMetric]) / AGG.rtw[activeMetric] * 100);
+              return (
+                <div>
+                  <div style={{display:'flex', flexWrap:'wrap', gap:8, marginBottom:32}}>
+                    {Object.entries(metricDefs).map(([k, m]) => (
+                      <button key={k} onClick={() => setActiveMetric(k)} style={{
+                        padding:'10px 16px', fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase',
+                        background: activeMetric === k ? '#fff' : 'transparent',
+                        color: activeMetric === k ? '#000' : 'rgba(255,255,255,0.85)',
+                        border:'1px solid '+(activeMetric === k ? '#fff' : 'rgba(255,255,255,0.15)'),
+                        borderRadius:50, cursor:'pointer', transition:'all 0.15s'
+                      }}>{m.label}</button>
+                    ))}
+                  </div>
+
+                  <div style={{display:'grid', gridTemplateColumns:'1fr', gap:40}}>
+                    <div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.55)', letterSpacing:2, textTransform:'uppercase', marginBottom:16}}>Population-Weighted Average · {md.label}</div>
+                      <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:24, marginBottom:24}}>
+                        {[
+                          { lbl:'RTW States', val:AGG.rtw[activeMetric], color:RTW_COLOR, count:rtwCodes.length },
+                          { lbl:'Non-RTW States', val:AGG.nrtw[activeMetric], color:NRTW_COLOR, count:nrtwCodes.length }
+                        ].map(g => (
+                          <div key={g.lbl}>
+                            <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:8}}>
+                              <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:g.color, letterSpacing:1.5, textTransform:'uppercase'}}>{g.lbl}</span>
+                              <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:1}}>{g.count} states</span>
+                            </div>
+                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:900, color:'#fff', lineHeight:1, marginBottom:10}}>{md.fmt(g.val)}</div>
+                            <div style={{height:8, borderRadius:4, background:g.color, opacity:0.85, width:((g.val / aggMax) * 100)+'%'}} />
+                          </div>
+                        ))}
+                      </div>
+                      <div style={{padding:'18px 22px', background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:12, fontSize:14, color:'rgba(255,255,255,0.85)', lineHeight:1.6, fontStyle:'italic'}}>
+                        Non-RTW states show <span style={{fontStyle:'normal', fontWeight:900, color: (md.favorHigh ? (diff > 0 ? NRTW_COLOR : RTW_COLOR) : (diff < 0 ? NRTW_COLOR : RTW_COLOR))}}>{Math.abs(diff).toFixed(1)}% {diff > 0 ? 'higher' : 'lower'}</span> {md.label.toLowerCase()} than RTW states.
+                      </div>
+                    </div>
+
+                    <div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.55)', letterSpacing:2, textTransform:'uppercase', marginBottom:16}}>All 50 States · Sorted High to Low</div>
+                      <div>
+                        {data.map(d => (
+                          <div key={d.code} style={{display:'flex', alignItems:'center', gap:12, padding:'4px 0'}}>
+                            <div style={{width:32, fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:'rgba(255,255,255,0.55)', letterSpacing:1}}>{d.code}</div>
+                            <div style={{flex:1, position:'relative'}}>
+                              <div style={{height:18, borderRadius:3, background: d.rtw ? RTW_COLOR : NRTW_COLOR, opacity:0.85, width:((d.value/maxV)*100)+'%'}} />
+                            </div>
+                            <div style={{width:90, textAlign:'right', fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'rgba(255,255,255,0.85)'}}>{md.fmt(d.value)}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            };
+
+            const Timeline = () => (
+              <div>
+                {RTW_TIMELINE.map((ev, i) => (
+                  <div key={i} style={{display:'grid', gridTemplateColumns:'90px 1fr', gap:24, padding:'14px 0', borderBottom:'1px solid rgba(255,255,255,0.06)', alignItems:'baseline'}}>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, color: ev.major ? '#F5C518' : 'rgba(255,255,255,0.5)', fontSize: ev.major ? 30 : 18, lineHeight:1}}>{ev.year}</div>
+                    <div style={{fontSize: ev.major ? 16 : 14, fontWeight: ev.major ? 600 : 400, color: ev.major ? '#fff' : 'rgba(255,255,255,0.7)', lineHeight:1.5}}>{ev.label}</div>
+                  </div>
                 ))}
               </div>
-            </div>
-          );
-
-          // STATE DETAIL PANEL
-          const StateDetail = () => {
-            const code = selectedState;
-            const st = RTW_STATES[code];
-            const m = RTW_METRICS[code];
-            if (!st || !m) return null;
-            const accent = st.rtw ? RTW_COLOR : NRTW_COLOR;
-            const compareKey = st.rtw ? 'nrtw' : 'rtw';
-            const compareLabel = st.rtw ? 'non-RTW avg' : 'RTW avg';
-            const wageDiff = ((m.wage - AGG[compareKey].wage) / AGG[compareKey].wage * 100);
-            const incomeDiff = ((m.hhIncome - AGG[compareKey].hhIncome) / AGG[compareKey].hhIncome * 100);
-            const Row = ({ label, value, diff }) => (
-              <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', borderBottom:'1px solid rgba(255,255,255,0.08)', padding:'14px 0'}}>
-                <div>
-                  <div style={{fontSize:11, fontFamily:"'Barlow Condensed',sans-serif", textTransform:'uppercase', letterSpacing:1.5, color:'rgba(255,255,255,0.6)', fontWeight:700}}>{label}</div>
-                  {diff != null && <div style={{fontSize:10, fontFamily:"'Barlow Condensed',sans-serif", color:'rgba(255,255,255,0.5)', marginTop:3, letterSpacing:1}}>{diff >= 0 ? '+' : ''}{diff.toFixed(1)}% vs {compareLabel}</div>}
-                </div>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontWeight:900, color:'#fff'}}>{value}</div>
-              </div>
             );
-            return (
-              <div style={{padding:'28px 28px 32px'}}>
-                <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:6}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:accent, letterSpacing:2.5, textTransform:'uppercase'}}>{st.rtw ? 'Right-to-Work' : 'Non-RTW'}</div>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:1.5}}>{code}</div>
-                </div>
-                <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:'0 0 8px 0', lineHeight:1.05}}>{st.name}</h3>
-                <div style={{fontSize:13, color:'rgba(255,255,255,0.55)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, marginBottom:18}}>
-                  {st.region} · {st.popMil}M residents
-                  {st.year && <> · RTW since {st.year}</>}
-                  {st.repealed && <> · <span style={{color:REPEAL_COLOR}}>Repealed {st.repealed}</span></>}
-                </div>
-                {st.note && (
-                  <div style={{padding:'10px 14px', borderLeft:'3px solid '+REPEAL_COLOR, background:'rgba(245,197,24,0.06)', borderRadius:'0 8px 8px 0', fontSize:13, fontStyle:'italic', color:'rgba(255,255,255,0.85)', marginBottom:18, lineHeight:1.5}}>{st.note}</div>
-                )}
-                <div style={{marginTop:8}}>
-                  <Row label="Median hourly wage" value={'$'+m.wage.toFixed(2)} diff={wageDiff} />
-                  <Row label="Union density" value={m.unionDensity+'%'} />
-                  <Row label="Workplace fatality rate" value={m.fatalRate+' / 100k'} />
-                  <Row label="Median household income" value={'$'+m.hhIncome.toLocaleString()} diff={incomeDiff} />
-                  <Row label="Poverty rate" value={m.poverty+'%'} />
-                  <Row label="Uninsured rate" value={m.uninsured+'%'} />
-                </div>
-              </div>
-            );
-          };
 
-          // COMPARISON TOOL
-          const ComparisonTool = () => {
-            const codes = Object.keys(RTW_STATES).filter(c => c !== 'DC').sort((a,b) => RTW_STATES[a].name.localeCompare(RTW_STATES[b].name));
-            const a = { ...RTW_STATES[stateA], ...RTW_METRICS[stateA], code: stateA };
-            const b = { ...RTW_STATES[stateB], ...RTW_METRICS[stateB], code: stateB };
-            const metrics = [
-              { key:'wage', label:'Median hourly wage', invert:false, fmt:v => '$'+v.toFixed(2) },
-              { key:'unionDensity', label:'Union density', invert:false, fmt:v => v.toFixed(1)+'%' },
-              { key:'hhIncome', label:'Median household income', invert:false, fmt:v => '$'+v.toLocaleString() },
-              { key:'fatalRate', label:'Workplace fatality rate / 100k', invert:true, fmt:v => v.toFixed(1) },
-              { key:'poverty', label:'Poverty rate', invert:true, fmt:v => v.toFixed(1)+'%' },
-              { key:'uninsured', label:'Uninsured rate', invert:true, fmt:v => v.toFixed(1)+'%' }
+            // ============================================================
+            // COMPUTED HEADLINE STATS
+            // ============================================================
+            const wageGap = ((AGG.nrtw.wage - AGG.rtw.wage) / AGG.rtw.wage * 100).toFixed(1);
+            const incomeGap = (AGG.nrtw.hhIncome - AGG.rtw.hhIncome).toFixed(0);
+            const densityRatio = (AGG.nrtw.unionDensity / AGG.rtw.unionDensity).toFixed(1);
+            const fatalGap = (((AGG.rtw.fatalRate - AGG.nrtw.fatalRate) / AGG.nrtw.fatalRate) * 100).toFixed(0);
+
+            // ============================================================
+            // PAGE RENDER
+            // ============================================================
+            const sections = [
+              { id: 'what', label: 'What It Is' },
+              { id: 'headline', label: 'The Numbers' },
+              { id: 'explore', label: 'Explore' },
+              { id: 'history', label: 'History' },
+              { id: 'bottom', label: 'Bottom Line' }
             ];
-            const StateCard = ({ s, side, onChange }) => (
-              <div>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color: s.rtw ? RTW_COLOR : NRTW_COLOR, letterSpacing:2.5, textTransform:'uppercase', marginBottom:10}}>State {side}</div>
-                <select value={s.code} onChange={onChange} style={{width:'100%', fontFamily:"'Barlow Condensed',sans-serif", fontSize:28, fontWeight:900, color:'#fff', background:'transparent', border:'none', borderBottom:'2px solid '+(s.rtw ? RTW_COLOR : NRTW_COLOR), padding:'8px 0', outline:'none', cursor:'pointer'}}>
-                  {codes.map(c => <option key={c} value={c} style={{background:'#0F1620', color:'#fff'}}>{RTW_STATES[c].name}</option>)}
-                </select>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color: s.rtw ? RTW_COLOR : NRTW_COLOR, letterSpacing:2, textTransform:'uppercase', marginTop:8}}>
-                  {s.rtw ? 'Right-to-Work' : 'Non-RTW'}
-                  {s.repealed && <span style={{color:REPEAL_COLOR}}> · Repealed {s.repealed}</span>}
-                </div>
-              </div>
-            );
+
             return (
-              <div>
-                <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:32, marginBottom:40}}>
-                  <StateCard s={a} side="A" onChange={e => setStateA(e.target.value)} />
-                  <StateCard s={b} side="B" onChange={e => setStateB(e.target.value)} />
+              <div id="rtw-root">
+                {/* PROGRESS BAR */}
+                <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
+                  <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+RTW_COLOR+', '+NRTW_COLOR+')', transition:'width 0.1s'}} />
                 </div>
-                <div>
-                  {metrics.map(mt => {
-                    const va = a[mt.key], vb = b[mt.key];
-                    const max = Math.max(va, vb);
-                    const aBetter = mt.invert ? va < vb : va > vb;
-                    const bBetter = mt.invert ? vb < va : vb > va;
-                    return (
-                      <div key={mt.key} style={{padding:'18px 0', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
-                        <div style={{textAlign:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.6)', letterSpacing:2, textTransform:'uppercase', marginBottom:14}}>{mt.label}</div>
-                        <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:24, alignItems:'center'}}>
-                          <div style={{textAlign:'right'}}>
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:30, fontWeight:900, color: aBetter ? '#fff' : 'rgba(255,255,255,0.55)'}}>{mt.fmt(va)}</div>
-                            <div style={{display:'flex', justifyContent:'flex-end', marginTop:6}}>
-                              <div style={{height:6, borderRadius:3, width: ((va/max)*100)+'%', maxWidth:'100%', background: a.rtw ? RTW_COLOR : NRTW_COLOR, opacity: aBetter ? 1 : 0.5}} />
-                            </div>
-                          </div>
-                          <div style={{textAlign:'left'}}>
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:30, fontWeight:900, color: bBetter ? '#fff' : 'rgba(255,255,255,0.55)'}}>{mt.fmt(vb)}</div>
-                            <div style={{marginTop:6}}>
-                              <div style={{height:6, borderRadius:3, width: ((vb/max)*100)+'%', maxWidth:'100%', background: b.rtw ? RTW_COLOR : NRTW_COLOR, opacity: bBetter ? 1 : 0.5}} />
-                            </div>
-                          </div>
-                        </div>
+
+                {/* BREADCRUMB */}
+                <div style={{padding:'24px 24px 0', maxWidth:1200, margin:'0 auto'}}>
+                  <div onClick={() => setPage('home')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                    Home
+                  </div>
+                </div>
+
+                {/* HERO */}
+                <div style={{padding:'40px 24px 60px', maxWidth:1200, margin:'0 auto'}}>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>An Investigation · 2026</div>
+                  <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(44px, 8vw, 96px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 28px 0', letterSpacing:'-0.01em'}}>
+                    The price of <span style={{color:RTW_COLOR, fontStyle:'italic'}}>"freedom"</span><br/>to opt out.
+                  </h1>
+                  <div style={{display:'grid', gridTemplateColumns:'2fr 1fr', gap:60, marginTop:32}}>
+                    <p style={{fontSize:20, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>
+                      Twenty-six states have so-called <em style={{color:'#F5C518', fontStyle:'normal'}}>right-to-work</em> laws on the books. Their workers earn less. Their unions are weaker. Their workplaces are deadlier. Their poverty is higher. This is what the data says.
+                    </p>
+                    <div style={{borderLeft:'1px solid rgba(255,255,255,0.12)', paddingLeft:32, display:'flex', flexDirection:'column', gap:24}}>
+                      <div>
+                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:48, fontWeight:900, color:RTW_COLOR, lineHeight:1}}>26</div>
+                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, color:'rgba(255,255,255,0.65)', letterSpacing:2, textTransform:'uppercase', marginTop:4}}>RTW states</div>
                       </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          };
-
-          // DASHBOARD
-          const Dashboard = () => {
-            const metricDefs = {
-              wage:        { label:'Median Hourly Wage',        fmt:v => '$'+v.toFixed(2),         favorHigh:true  },
-              unionDensity:{ label:'Union Density',             fmt:v => v.toFixed(1)+'%',         favorHigh:true  },
-              hhIncome:    { label:'Median Household Income',   fmt:v => '$'+Math.round(v).toLocaleString(), favorHigh:true },
-              fatalRate:   { label:'Workplace Fatality Rate',   fmt:v => v.toFixed(2)+' / 100k',   favorHigh:false },
-              poverty:     { label:'Poverty Rate',              fmt:v => v.toFixed(1)+'%',         favorHigh:false },
-              uninsured:   { label:'Uninsured Rate',            fmt:v => v.toFixed(1)+'%',         favorHigh:false }
-            };
-            const md = metricDefs[activeMetric];
-            const data = Object.keys(RTW_STATES).filter(c => c !== 'DC').map(c => ({
-              code:c, name:RTW_STATES[c].name, value:RTW_METRICS[c][activeMetric], rtw:RTW_STATES[c].rtw
-            })).sort((x,y) => y.value - x.value);
-            const maxV = Math.max(...data.map(d => d.value));
-            const aggMax = Math.max(AGG.rtw[activeMetric], AGG.nrtw[activeMetric]);
-            const diff = ((AGG.nrtw[activeMetric] - AGG.rtw[activeMetric]) / AGG.rtw[activeMetric] * 100);
-            return (
-              <div>
-                {/* Metric tabs */}
-                <div style={{display:'flex', flexWrap:'wrap', gap:8, marginBottom:32}}>
-                  {Object.entries(metricDefs).map(([k, m]) => (
-                    <button key={k} onClick={() => setActiveMetric(k)} style={{
-                      padding:'10px 16px', fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase',
-                      background: activeMetric === k ? '#fff' : 'transparent',
-                      color: activeMetric === k ? '#000' : 'rgba(255,255,255,0.85)',
-                      border:'1px solid '+(activeMetric === k ? '#fff' : 'rgba(255,255,255,0.15)'),
-                      borderRadius:50, cursor:'pointer', transition:'all 0.15s'
-                    }}>{m.label}</button>
-                  ))}
-                </div>
-
-                <div style={{display:'grid', gridTemplateColumns:'1fr', gap:40}}>
-                  {/* Aggregate comparison */}
-                  <div>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.55)', letterSpacing:2, textTransform:'uppercase', marginBottom:16}}>Population-Weighted Average · {md.label}</div>
-                    <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:24, marginBottom:24}}>
-                      {[
-                        { lbl:'RTW States', val:AGG.rtw[activeMetric], color:RTW_COLOR, count:rtwCodes.length },
-                        { lbl:'Non-RTW States', val:AGG.nrtw[activeMetric], color:NRTW_COLOR, count:nrtwCodes.length }
-                      ].map(g => (
-                        <div key={g.lbl}>
-                          <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:8}}>
-                            <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:g.color, letterSpacing:1.5, textTransform:'uppercase'}}>{g.lbl}</span>
-                            <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:1}}>{g.count} states</span>
-                          </div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:900, color:'#fff', lineHeight:1, marginBottom:10}}>{md.fmt(g.val)}</div>
-                          <div style={{height:8, borderRadius:4, background:g.color, opacity:0.85, width:((g.val / aggMax) * 100)+'%'}} />
-                        </div>
-                      ))}
-                    </div>
-                    <div style={{padding:'18px 22px', background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:12, fontSize:14, color:'rgba(255,255,255,0.85)', lineHeight:1.6, fontStyle:'italic'}}>
-                      Non-RTW states show <span style={{fontStyle:'normal', fontWeight:900, color: (md.favorHigh ? (diff > 0 ? NRTW_COLOR : RTW_COLOR) : (diff < 0 ? NRTW_COLOR : RTW_COLOR))}}>{Math.abs(diff).toFixed(1)}% {diff > 0 ? 'higher' : 'lower'}</span> {md.label.toLowerCase()} than RTW states.
-                    </div>
-                  </div>
-
-                  {/* All-states bar chart */}
-                  <div>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.55)', letterSpacing:2, textTransform:'uppercase', marginBottom:16}}>All 50 States · Sorted High to Low</div>
-                    <div>
-                      {data.map(d => (
-                        <div key={d.code} style={{display:'flex', alignItems:'center', gap:12, padding:'4px 0'}}>
-                          <div style={{width:32, fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:'rgba(255,255,255,0.55)', letterSpacing:1}}>{d.code}</div>
-                          <div style={{flex:1, position:'relative'}}>
-                            <div style={{height:18, borderRadius:3, background: d.rtw ? RTW_COLOR : NRTW_COLOR, opacity:0.85, width:((d.value/maxV)*100)+'%'}} />
-                          </div>
-                          <div style={{width:90, textAlign:'right', fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'rgba(255,255,255,0.85)'}}>{md.fmt(d.value)}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          };
-
-          // TIMELINE
-          const Timeline = () => (
-            <div>
-              {RTW_TIMELINE.map((ev, i) => (
-                <div key={i} style={{display:'grid', gridTemplateColumns:'90px 1fr', gap:24, padding:'14px 0', borderBottom:'1px solid rgba(255,255,255,0.06)', alignItems:'baseline'}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, color: ev.major ? '#F5C518' : 'rgba(255,255,255,0.5)', fontSize: ev.major ? 30 : 18, lineHeight:1}}>{ev.year}</div>
-                  <div style={{fontSize: ev.major ? 16 : 14, fontWeight: ev.major ? 600 : 400, color: ev.major ? '#fff' : 'rgba(255,255,255,0.7)', lineHeight:1.5}}>{ev.label}</div>
-                </div>
-              ))}
-            </div>
-          );
-
-          // ============================================================
-          // PAGE RENDER
-          // ============================================================
-          const wageGap = ((AGG.nrtw.wage - AGG.rtw.wage) / AGG.rtw.wage * 100).toFixed(1);
-          const incomeGap = (AGG.nrtw.hhIncome - AGG.rtw.hhIncome).toFixed(0);
-          const densityRatio = (AGG.nrtw.unionDensity / AGG.rtw.unionDensity).toFixed(1);
-          const fatalGap = (((AGG.rtw.fatalRate - AGG.nrtw.fatalRate) / AGG.nrtw.fatalRate) * 100).toFixed(0);
-
-          return (
-            <div id="rtw-root">
-              {/* PROGRESS BAR */}
-              <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+RTW_COLOR+', '+NRTW_COLOR+')', transition:'width 0.1s'}} />
-              </div>
-
-              {/* BREADCRUMB */}
-              <div style={{padding:'24px 24px 0', maxWidth:1200, margin:'0 auto'}}>
-                <div onClick={() => setPage('home')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-                  Home
-                </div>
-              </div>
-
-              {/* HERO */}
-              <div style={{padding:'40px 24px 60px', maxWidth:1200, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>An Investigation · 2026</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(44px, 8vw, 96px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 28px 0', letterSpacing:'-0.01em'}}>
-                  The price of <span style={{color:RTW_COLOR, fontStyle:'italic'}}>"freedom"</span><br/>to opt out.
-                </h1>
-                <div style={{display:'grid', gridTemplateColumns:'2fr 1fr', gap:60, marginTop:32}}>
-                  <p style={{fontSize:20, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>
-                    Twenty-six states have so-called <em style={{color:'#F5C518', fontStyle:'normal'}}>right-to-work</em> laws on the books. Their workers earn less. Their unions are weaker. Their workplaces are deadlier. Their poverty is higher. This is what the data says.
-                  </p>
-                  <div style={{borderLeft:'1px solid rgba(255,255,255,0.12)', paddingLeft:32, display:'flex', flexDirection:'column', gap:24}}>
-                    <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:48, fontWeight:900, color:RTW_COLOR, lineHeight:1}}>26</div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, color:'rgba(255,255,255,0.65)', letterSpacing:2, textTransform:'uppercase', marginTop:4}}>RTW states</div>
-                    </div>
-                    <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:48, fontWeight:900, color:NRTW_COLOR, lineHeight:1}}>24</div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, color:'rgba(255,255,255,0.65)', letterSpacing:2, textTransform:'uppercase', marginTop:4}}>Non-RTW states</div>
-                    </div>
-                    <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:48, fontWeight:900, color:REPEAL_COLOR, lineHeight:1}}>1</div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, color:'rgba(255,255,255,0.65)', letterSpacing:2, textTransform:'uppercase', marginTop:4}}>Repealed (Michigan, 2024)</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* HEADLINE GAPS */}
-              <div style={{padding:'56px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
-                <div style={{maxWidth:1200, margin:'0 auto'}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>The Headline Numbers</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4.5vw, 44px)', fontWeight:900, color:'#fff', margin:'0 0 40px 0', maxWidth:780, lineHeight:1.1}}>How non-RTW states compare to RTW states <em style={{color:'#F5C518', fontStyle:'normal'}}>on average:</em></h2>
-                  <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))', gap:32}}>
-                    {[
-                      { k:'Hourly wages', v:'+'+wageGap+'%', s:'higher in non-RTW', col:NRTW_COLOR },
-                      { k:'Union density', v:densityRatio+'×', s:'as many union workers', col:NRTW_COLOR },
-                      { k:'Workplace fatalities', v:fatalGap+'%', s:'higher in RTW states', col:RTW_COLOR },
-                      { k:'Median household income', v:'+$'+Number(incomeGap).toLocaleString(), s:'higher in non-RTW', col:NRTW_COLOR }
-                    ].map((x, i) => (
-                      <div key={i}>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.55)', letterSpacing:2.5, textTransform:'uppercase', marginBottom:14}}>{x.k}</div>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 5vw, 64px)', fontWeight:900, color:x.col, lineHeight:1, marginBottom:10}}>{x.v}</div>
-                        <div style={{fontSize:14, color:'rgba(255,255,255,0.7)', fontStyle:'italic'}}>{x.s}</div>
+                      <div>
+                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:48, fontWeight:900, color:NRTW_COLOR, lineHeight:1}}>24</div>
+                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, color:'rgba(255,255,255,0.65)', letterSpacing:2, textTransform:'uppercase', marginTop:4}}>Non-RTW states</div>
                       </div>
+                      <div>
+                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:48, fontWeight:900, color:REPEAL_COLOR, lineHeight:1}}>1</div>
+                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, color:'rgba(255,255,255,0.65)', letterSpacing:2, textTransform:'uppercase', marginTop:4}}>Repealed (Michigan, 2024)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* STICKY SECTION NAV */}
+                <div style={{position:'sticky', top:0, zIndex:50, background:'rgba(15, 22, 32, 0.92)', backdropFilter:'blur(8px)', WebkitBackdropFilter:'blur(8px)', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
+                  <div style={{maxWidth:1200, margin:'0 auto', padding:'12px 16px', display:'flex', gap:8, overflowX:'auto', whiteSpace:'nowrap', scrollbarWidth:'none', justifyContent:'center'}}>
+                    {sections.map(s => (
+                      <button
+                        key={s.id}
+                        onClick={() => scrollToSection(s.id)}
+                        style={{
+                          padding:'8px 14px',
+                          fontFamily:"'Barlow Condensed',sans-serif",
+                          fontSize:12,
+                          fontWeight:800,
+                          letterSpacing:1.5,
+                          textTransform:'uppercase',
+                          background: activeSection === s.id ? '#F5C518' : 'transparent',
+                          color: activeSection === s.id ? '#000' : 'rgba(255,255,255,0.75)',
+                          border:'1px solid '+(activeSection === s.id ? '#F5C518' : 'rgba(255,255,255,0.15)'),
+                          borderRadius:50,
+                          cursor:'pointer',
+                          transition:'all 0.15s',
+                          flexShrink:0
+                        }}
+                      >
+                        {s.label}
+                      </button>
                     ))}
                   </div>
                 </div>
-              </div>
 
-              {/* WHAT IS RTW */}
-              <div style={{padding:'80px 24px', maxWidth:1200, margin:'0 auto'}}>
-                <div style={{display:'grid', gridTemplateColumns:'1fr 2fr', gap:60}}>
-                  <div>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>Background</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(32px, 4.5vw, 48px)', fontWeight:900, color:'#fff', margin:0, lineHeight:1.05}}>What "right-to-work" actually means.</h2>
-                  </div>
-                  <div style={{display:'flex', flexDirection:'column', gap:18, fontSize:16, lineHeight:1.7, color:'rgba(255,255,255,0.85)'}}>
-                    <p style={{margin:0}}>The phrase suggests a fundamental American liberty. The reality is narrower and more technical. A right-to-work law prohibits collective bargaining agreements from requiring workers to pay any union dues or fees as a condition of employment — even if those workers receive the wages, benefits, and contract protections the union negotiates on their behalf.</p>
-                    <p style={{margin:0}}>This is not a question of compelled union membership, which has been illegal under federal law since the 1947 Taft-Hartley Act. The question is whether workers who benefit from a union contract must contribute to the cost of negotiating and enforcing it. RTW laws answer no.</p>
-                    <p style={{margin:0}}>The labor movement calls these statutes "right-to-freeload" laws because they let some workers receive union-negotiated wages and protections while the dues-paying members shoulder the full cost. The empirical record across decades is consistent: weaker unions, lower wages, and slower growth in worker protections.</p>
-                    <div style={{padding:'24px 28px', borderLeft:'4px solid '+RTW_COLOR, background:'linear-gradient(90deg, rgba(209,75,63,0.08) 0%, transparent 100%)', borderRadius:'0 12px 12px 0', marginTop:8}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontStyle:'italic', color:'#fff', lineHeight:1.4, fontWeight:500}}>"Right-to-work is a misleading slogan invented to disguise a law that weakens unions and lowers everyone's wages."</div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, color:'rgba(160,180,196,0.85)', marginTop:14, letterSpacing:1.5, textTransform:'uppercase'}}>— Economic Policy Institute</div>
+                {/* WHAT IS RTW (moved up — definition before data) */}
+                <div ref={whatRef} data-section="what" style={{padding:'80px 24px', maxWidth:1200, margin:'0 auto', scrollMarginTop:80}}>
+                  <div style={{display:'grid', gridTemplateColumns:'1fr 2fr', gap:60}}>
+                    <div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>Background</div>
+                      <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(32px, 4.5vw, 48px)', fontWeight:900, color:'#fff', margin:0, lineHeight:1.05}}>What "right-to-work" actually means.</h2>
                     </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* MAP */}
-              <div style={{padding:'80px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
-                <div style={{maxWidth:1200, margin:'0 auto'}}>
-                  <SectionHeader eyebrow="The Map" title="Click any state to see its labor profile." sub="Twenty-six states (rust) have right-to-work laws. Twenty-four (green) do not. Michigan repealed its RTW law in 2024 — the first state to do so since Indiana in 1965." />
-                  <div style={{display:'grid', gridTemplateColumns:'minmax(0,1.3fr) minmax(0,1fr)', gap:32, alignItems:'flex-start'}}>
-                    <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 16px'}}>
-                      <TileMap />
-                      <div style={{display:'flex', flexWrap:'wrap', gap:24, padding:'18px 12px 0', borderTop:'1px solid rgba(255,255,255,0.08)', marginTop:16}}>
-                        <div style={{display:'flex', alignItems:'center', gap:8}}><div style={{width:14, height:14, borderRadius:3, background:RTW_COLOR}}/><span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.7)', letterSpacing:1.5, textTransform:'uppercase'}}>Right-to-work</span></div>
-                        <div style={{display:'flex', alignItems:'center', gap:8}}><div style={{width:14, height:14, borderRadius:3, background:NRTW_COLOR}}/><span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.7)', letterSpacing:1.5, textTransform:'uppercase'}}>Non-RTW</span></div>
-                        <div style={{display:'flex', alignItems:'center', gap:8}}><div style={{width:8, height:8, borderRadius:'50%', background:REPEAL_COLOR}}/><span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.7)', letterSpacing:1.5, textTransform:'uppercase'}}>Recently repealed</span></div>
+                    <div style={{display:'flex', flexDirection:'column', gap:18, fontSize:16, lineHeight:1.7, color:'rgba(255,255,255,0.85)'}}>
+                      <p style={{margin:0}}>The phrase suggests a fundamental American liberty. The reality is narrower and more technical. A right-to-work law prohibits collective bargaining agreements from requiring workers to pay any union dues or fees as a condition of employment — even if those workers receive the wages, benefits, and contract protections the union negotiates on their behalf.</p>
+                      <p style={{margin:0}}>This is not a question of compelled union membership, which has been illegal under federal law since the 1947 Taft-Hartley Act. The question is whether workers who benefit from a union contract must contribute to the cost of negotiating and enforcing it. RTW laws answer no.</p>
+                      <p style={{margin:0}}>The labor movement calls these statutes "right-to-freeload" laws because they let some workers receive union-negotiated wages and protections while the dues-paying members shoulder the full cost. The empirical record across decades is consistent: weaker unions, lower wages, and slower growth in worker protections.</p>
+                      <div style={{padding:'24px 28px', borderLeft:'4px solid '+RTW_COLOR, background:'linear-gradient(90deg, rgba(209,75,63,0.08) 0%, transparent 100%)', borderRadius:'0 12px 12px 0', marginTop:8}}>
+                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontStyle:'italic', color:'#fff', lineHeight:1.4, fontWeight:500}}>"Right-to-work is a misleading slogan invented to disguise a law that weakens unions and lowers everyone's wages."</div>
+                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, color:'rgba(160,180,196,0.85)', marginTop:14, letterSpacing:1.5, textTransform:'uppercase'}}>— Economic Policy Institute</div>
                       </div>
                     </div>
-                    <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16}}>
-                      <StateDetail />
+                  </div>
+                </div>
+
+                {/* HEADLINE GAPS */}
+                <div ref={headlineRef} data-section="headline" style={{padding:'56px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)', scrollMarginTop:80}}>
+                  <div style={{maxWidth:1200, margin:'0 auto'}}>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>The Headline Numbers</div>
+                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4.5vw, 44px)', fontWeight:900, color:'#fff', margin:'0 0 40px 0', maxWidth:780, lineHeight:1.1}}>How non-RTW states compare to RTW states <em style={{color:'#F5C518', fontStyle:'normal'}}>on average:</em></h2>
+                    <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))', gap:32}}>
+                      {[
+                        { k:'Hourly wages', v:'+'+wageGap+'%', s:'higher in non-RTW', col:NRTW_COLOR },
+                        { k:'Union density', v:densityRatio+'×', s:'as many union workers', col:NRTW_COLOR },
+                        { k:'Workplace fatalities', v:fatalGap+'%', s:'higher in RTW states', col:RTW_COLOR },
+                        { k:'Median household income', v:'+$'+Number(incomeGap).toLocaleString(), s:'higher in non-RTW', col:NRTW_COLOR }
+                      ].map((x, i) => (
+                        <div key={i}>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.55)', letterSpacing:2.5, textTransform:'uppercase', marginBottom:14}}>{x.k}</div>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 5vw, 64px)', fontWeight:900, color:x.col, lineHeight:1, marginBottom:10}}>{x.v}</div>
+                          <div style={{fontSize:14, color:'rgba(255,255,255,0.7)', fontStyle:'italic'}}>{x.s}</div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* COMPARISON */}
-              <div style={{padding:'80px 24px', maxWidth:1200, margin:'0 auto'}}>
-                <SectionHeader eyebrow="Head to Head" title="Compare any two states." sub="Pick your states. The bolder number wins on each metric — higher is better for wages, density, and income; lower is better for fatalities, poverty, and uninsured rate." />
-                <ComparisonTool />
-              </div>
+                {/* EXPLORE THE DATA — TABBED */}
+                <div ref={exploreRef} data-section="explore" style={{padding:'80px 24px', maxWidth:1200, margin:'0 auto', scrollMarginTop:80}}>
+                  <SectionHeader eyebrow="Explore the Data" title="Three views, one dataset." sub="Pick a tool. Tap any state on the map to see its labor profile, run a head-to-head comparison between any two states, or sort all 50 states by metric." />
 
-              {/* DASHBOARD */}
-              <div style={{padding:'80px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
-                <div style={{maxWidth:1200, margin:'0 auto'}}>
-                  <SectionHeader eyebrow="The Dashboard" title="Filter by metric. Watch the gap." sub="Population-weighted averages across each group, plus a state-by-state ranking for the metric you select." />
-                  <Dashboard />
+                  {/* Tool tabs */}
+                  <div style={{display:'flex', flexWrap:'wrap', gap:8, marginBottom:32}}>
+                    {[
+                      { id:'map', label:'State Map' },
+                      { id:'compare', label:'Compare Two States' },
+                      { id:'dashboard', label:'All 50 Ranked' }
+                    ].map(t => (
+                      <button key={t.id} onClick={() => setActiveTool(t.id)} style={{
+                        padding:'12px 22px',
+                        fontFamily:"'Barlow Condensed',sans-serif",
+                        fontSize:13,
+                        fontWeight:800,
+                        letterSpacing:1.5,
+                        textTransform:'uppercase',
+                        background: activeTool === t.id ? '#fff' : 'transparent',
+                        color: activeTool === t.id ? '#000' : 'rgba(255,255,255,0.85)',
+                        border:'1px solid '+(activeTool === t.id ? '#fff' : 'rgba(255,255,255,0.2)'),
+                        borderRadius:50,
+                        cursor:'pointer',
+                        transition:'all 0.15s'
+                      }}>{t.label}</button>
+                    ))}
+                  </div>
+
+                  {/* Active tool */}
+                  {activeTool === 'map' && (
+                    <div style={{display:'grid', gridTemplateColumns:'minmax(0,1.3fr) minmax(0,1fr)', gap:32, alignItems:'flex-start'}}>
+                      <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 16px'}}>
+                        <TileMap />
+                        <div style={{display:'flex', flexWrap:'wrap', gap:24, padding:'18px 12px 0', borderTop:'1px solid rgba(255,255,255,0.08)', marginTop:16}}>
+                          <div style={{display:'flex', alignItems:'center', gap:8}}><div style={{width:14, height:14, borderRadius:3, background:RTW_COLOR}}/><span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.7)', letterSpacing:1.5, textTransform:'uppercase'}}>Right-to-work</span></div>
+                          <div style={{display:'flex', alignItems:'center', gap:8}}><div style={{width:14, height:14, borderRadius:3, background:NRTW_COLOR}}/><span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.7)', letterSpacing:1.5, textTransform:'uppercase'}}>Non-RTW</span></div>
+                          <div style={{display:'flex', alignItems:'center', gap:8}}><div style={{width:8, height:8, borderRadius:'50%', background:REPEAL_COLOR}}/><span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.7)', letterSpacing:1.5, textTransform:'uppercase'}}>Recently repealed</span></div>
+                        </div>
+                      </div>
+                      <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16}}>
+                        <StateDetail />
+                      </div>
+                    </div>
+                  )}
+                  {activeTool === 'compare' && <ComparisonTool />}
+                  {activeTool === 'dashboard' && <Dashboard />}
+                </div>
+
+                {/* HISTORY */}
+                <div ref={historyRef} data-section="history" style={{padding:'80px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)', scrollMarginTop:80}}>
+                  <div style={{maxWidth:1200, margin:'0 auto', display:'grid', gridTemplateColumns:'1fr 2fr', gap:60}}>
+                    <div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>The History</div>
+                      <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(32px, 4.5vw, 48px)', fontWeight:900, color:'#fff', margin:'0 0 18px 0', lineHeight:1.05}}>Eighty years of erosion <em style={{color:'#F5C518', fontStyle:'normal'}}>and pushback.</em></h2>
+                      <p style={{fontSize:15, color:'rgba(255,255,255,0.7)', lineHeight:1.65, margin:0}}>From the first RTW laws in Florida and Arkansas in 1944, through the Taft-Hartley authorization in 1947, to Michigan's historic 2024 repeal — the right-to-work movement and the labor movement's response have shaped American work for eight decades.</p>
+                    </div>
+                    <Timeline />
+                  </div>
+                </div>
+
+                {/* BOTTOM LINE */}
+                <div ref={bottomRef} data-section="bottom" style={{padding:'80px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', background:'linear-gradient(180deg, rgba(209,75,63,0.08), rgba(74,154,110,0.04))', scrollMarginTop:80}}>
+                  <div style={{maxWidth:900, margin:'0 auto'}}>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>Bottom Line</div>
+                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:900, color:'#fff', margin:'0 0 32px 0', lineHeight:1.05}}>Right-to-work laws don't deliver the freedom they advertise.</h2>
+                    <div style={{display:'flex', flexDirection:'column', gap:18, fontSize:17, lineHeight:1.7, color:'rgba(255,255,255,0.85)'}}>
+                      <p style={{margin:0}}>They deliver lower wages. Weaker benefits. Higher poverty. More uninsured workers. Deadlier workplaces. And a labor movement that, after eight decades of being told these laws were about individual choice, has watched its institutional power slowly hollowed out — paycheck by paycheck, contract by contract, state by state.</p>
+                      <p style={{margin:0}}>The story of right-to-work is the story of how a careful piece of political marketing, rolled out by anti-union employer associations beginning in the 1940s, gradually became the dominant labor framework across more than half of American states. And it is also, increasingly, the story of how that consensus is starting to crack.</p>
+                      <p style={{margin:0}}>Missouri voters rejected RTW by a 2-to-1 margin in 2018. Michigan repealed its law in 2024 — the first state to do so in six decades. The labor movement that built the American middle class is fighting to dismantle the laws that have spent eighty years dismantling it back.</p>
+                      <p style={{margin:'14px 0 0 0', fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(24px, 3.5vw, 36px)', fontStyle:'italic', color:'#F5C518', fontWeight:500, lineHeight:1.2}}>The numbers were always going to win.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* METHODOLOGY */}
+                <div style={{padding:'60px 24px', maxWidth:1200, margin:'0 auto'}}>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'rgba(255,255,255,0.55)', letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>Methodology &amp; Sources</div>
+                  <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(240px, 1fr))', gap:32, fontSize:13, lineHeight:1.65, color:'rgba(255,255,255,0.7)'}}>
+                    <div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'#F5C518', letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Wages &amp; Income</div>
+                      <p style={{margin:0}}>Median hourly wages derived from BLS Quarterly Census of Employment and Wages. Median household income from U.S. Census American Community Survey. Aggregate group averages are population-weighted.</p>
+                    </div>
+                    <div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'#F5C518', letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Union Density</div>
+                      <p style={{margin:0}}>Annual estimates from the BLS Union Membership and Coverage Database. Reflects the share of all wage and salary workers who are union members in each state.</p>
+                    </div>
+                    <div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'#F5C518', letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Workplace Fatalities</div>
+                      <p style={{margin:0}}>Workplace fatality rates from the BLS Census of Fatal Occupational Injuries (CFOI), expressed per 100,000 full-time-equivalent workers. Comparisons consistent with AFL-CIO Death on the Job annual reports.</p>
+                    </div>
+                  </div>
+                  <p style={{marginTop:32, fontSize:12, fontStyle:'italic', color:'rgba(255,255,255,0.5)', maxWidth:900, lineHeight:1.6}}>State-level numbers are illustrative figures consistent with publicly available federal data circa 2023–2024. Aggregate gaps are consistent with peer-reviewed research from the Economic Policy Institute, the Center for Economic and Policy Research, and the AFL-CIO. RTW status reflects state law as of April 2026 following Michigan's February 2024 repeal.</p>
+                  <button onClick={() => setPage('home')} style={{marginTop:32, background:'transparent', color:'#F5C518', fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(245,197,24,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to Home</button>
                 </div>
               </div>
-
-              {/* TIMELINE */}
-              <div style={{padding:'80px 24px', maxWidth:1200, margin:'0 auto'}}>
-                <div style={{display:'grid', gridTemplateColumns:'1fr 2fr', gap:60}}>
-                  <div>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>The History</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(32px, 4.5vw, 48px)', fontWeight:900, color:'#fff', margin:'0 0 18px 0', lineHeight:1.05}}>Eighty years of erosion <em style={{color:'#F5C518', fontStyle:'normal'}}>and pushback.</em></h2>
-                    <p style={{fontSize:15, color:'rgba(255,255,255,0.7)', lineHeight:1.65, margin:0}}>From the first RTW laws in Florida and Arkansas in 1944, through the Taft-Hartley authorization in 1947, to Michigan's historic 2024 repeal — the right-to-work movement and the labor movement's response have shaped American work for eight decades.</p>
-                  </div>
-                  <Timeline />
-                </div>
-              </div>
-
-              {/* CLOSING */}
-              <div style={{padding:'80px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', background:'linear-gradient(180deg, rgba(209,75,63,0.08), rgba(74,154,110,0.04))'}}>
-                <div style={{maxWidth:900, margin:'0 auto'}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>What the Data Shows</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:900, color:'#fff', margin:'0 0 32px 0', lineHeight:1.05}}>Right-to-work laws don't deliver the freedom they advertise.</h2>
-                  <div style={{display:'flex', flexDirection:'column', gap:18, fontSize:17, lineHeight:1.7, color:'rgba(255,255,255,0.85)'}}>
-                    <p style={{margin:0}}>They deliver lower wages. Weaker benefits. Higher poverty. More uninsured workers. Deadlier workplaces. And a labor movement that, after eight decades of being told these laws were about individual choice, has watched its institutional power slowly hollowed out — paycheck by paycheck, contract by contract, state by state.</p>
-                    <p style={{margin:0}}>The story of right-to-work is the story of how a careful piece of political marketing, rolled out by anti-union employer associations beginning in the 1940s, gradually became the dominant labor framework across more than half of American states. And it is also, increasingly, the story of how that consensus is starting to crack.</p>
-                    <p style={{margin:0}}>Missouri voters rejected RTW by a 2-to-1 margin in 2018. Michigan repealed its law in 2024 — the first state to do so in six decades. The labor movement that built the American middle class is fighting to dismantle the laws that have spent eighty years dismantling it back.</p>
-                    <p style={{margin:'14px 0 0 0', fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(24px, 3.5vw, 36px)', fontStyle:'italic', color:'#F5C518', fontWeight:500, lineHeight:1.2}}>The numbers were always going to win.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* METHODOLOGY */}
-              <div style={{padding:'60px 24px', maxWidth:1200, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'rgba(255,255,255,0.55)', letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>Methodology &amp; Sources</div>
-                <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(240px, 1fr))', gap:32, fontSize:13, lineHeight:1.65, color:'rgba(255,255,255,0.7)'}}>
-                  <div>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'#F5C518', letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Wages &amp; Income</div>
-                    <p style={{margin:0}}>Median hourly wages derived from BLS Quarterly Census of Employment and Wages. Median household income from U.S. Census American Community Survey. Aggregate group averages are population-weighted.</p>
-                  </div>
-                  <div>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'#F5C518', letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Union Density</div>
-                    <p style={{margin:0}}>Annual estimates from the BLS Union Membership and Coverage Database. Reflects the share of all wage and salary workers who are union members in each state.</p>
-                  </div>
-                  <div>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'#F5C518', letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Workplace Fatalities</div>
-                    <p style={{margin:0}}>Workplace fatality rates from the BLS Census of Fatal Occupational Injuries (CFOI), expressed per 100,000 full-time-equivalent workers. Comparisons consistent with AFL-CIO Death on the Job annual reports.</p>
-                  </div>
-                </div>
-                <p style={{marginTop:32, fontSize:12, fontStyle:'italic', color:'rgba(255,255,255,0.5)', maxWidth:900, lineHeight:1.6}}>State-level numbers are illustrative figures consistent with publicly available federal data circa 2023–2024. Aggregate gaps are consistent with peer-reviewed research from the Economic Policy Institute, the Center for Economic and Policy Research, and the AFL-CIO. RTW status reflects state law as of April 2026 following Michigan's February 2024 repeal.</p>
-                <button onClick={() => setPage('home')} style={{marginTop:32, background:'transparent', color:'#F5C518', fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(245,197,24,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to Home</button>
-              </div>
-            </div>
-          );
+            );
           };
           return <RTWPage />;
         })()}
