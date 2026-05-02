@@ -3188,10 +3188,6 @@ export default function UnionPathway() {
   const [jobCalls, setJobCalls] = useState('');
   const [jobDate, setJobDate] = useState('');
   const [jobSubmitted, setJobSubmitted] = useState(false);
-  const [jobContactName, setJobContactName] = useState('');
-  const [jobContactEmail, setJobContactEmail] = useState('');
-  const [wageContactName, setWageContactName] = useState('');
-  const [wageContactEmail, setWageContactEmail] = useState('');
   const [wageTrade, setWageTrade] = useState('');
   const [wageLocal, setWageLocal] = useState('');
   const [wageLocalSearch, setWageLocalSearch] = useState('');
@@ -13626,8 +13622,6 @@ export default function UnionPathway() {
                 website: local.website || 'N/A',
                 local_email: local.email || 'N/A',
                 address: local.address || 'N/A',
-                submitter_name: jobContactName || 'Not provided',
-                submitter_email: jobContactEmail || 'Not provided',
               });
               setJobSubmitted(true);
             } catch(err) {
@@ -13775,22 +13769,6 @@ export default function UnionPathway() {
                         </div>
                       )}
 
-                      {/* CONTACT INFO — optional, private */}
-                      {jobTrade && jobLocal && jobStatus && jobDate && (
-                        <div style={{marginTop:8, padding:"18px 20px", background:"rgba(245,197,24,0.04)", border:"1px solid rgba(245,197,24,0.18)", borderRadius:12}}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:"#F5C518", marginBottom:6}}>
-                            {lang==="es" ? "Contacto (opcional, privado)" : lang==="pl" ? "Kontakt (opcjonalny, prywatny)" : "Contact (optional, private)"}
-                          </div>
-                          <div style={{fontSize:12, color:"rgba(255,255,255,0.6)", lineHeight:1.55, marginBottom:14}}>
-                            {lang==="es" ? "Solo para que pueda hacer seguimiento si tengo preguntas. Nunca se publicara en el sitio." : lang==="pl" ? "Tylko abym mogl sie z Toba skontaktowac jesli mam pytania. Nigdy nie zostanie opublikowane na stronie." : "Just so I can follow up if I have questions. This will never be posted on the site."}
-                          </div>
-                          <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:10}}>
-                            <input type="text" value={jobContactName} onChange={e => setJobContactName(e.target.value)} placeholder={lang==="es" ? "Nombre" : lang==="pl" ? "Imie" : "Name"} style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"10px 14px", color:"#fff", fontSize:13, fontFamily:"'Inter',sans-serif"}} />
-                            <input type="email" value={jobContactEmail} onChange={e => setJobContactEmail(e.target.value)} placeholder={lang==="es" ? "Correo electronico" : lang==="pl" ? "Email" : "Email"} style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"10px 14px", color:"#fff", fontSize:13, fontFamily:"'Inter',sans-serif"}} />
-                          </div>
-                        </div>
-                      )}
-
                       {/* Submit */}
                       {jobTrade && jobLocal && jobStatus && jobDate && (
                         <button onClick={handleJobSubmit} style={{background:"#FA8059", color:"#000", fontFamily:"'Barlow Condensed',sans-serif", fontSize:16, fontWeight:900, letterSpacing:"0.08em", textTransform:"uppercase", padding:"16px 32px", borderRadius:50, border:"none", cursor:"pointer", marginTop:8}}>
@@ -13886,8 +13864,6 @@ export default function UnionPathway() {
                   job_calls: wageMethod === 'image' ? `Image upload: ${imageUrl}` : `Manual entry — Hourly: $${wageHourly}, Total: $${totalPackage.toFixed(2)}`,
                   report_date: new Date().toLocaleDateString(), phone: 'N/A', website: 'N/A', local_email: 'N/A',
                   address: `Contract valid through ${wageValidThrough || 'N/A'}`,
-                  submitter_name: wageContactName || 'Not provided',
-                  submitter_email: wageContactEmail || 'Not provided',
                 });
               } catch (emailErr) { console.warn('Email failed (non-fatal):', emailErr); }
               setWageSubmitted(true);
@@ -13903,7 +13879,6 @@ export default function UnionPathway() {
             setWageNationalPension(''); setWageContribPension(''); setWage401k(''); setWageNEBF(''); setWageCIPF('');
             setWageIUOETraining(''); setWageMiscFunds(''); setWageWorkingDues(''); setWageEffectiveDate('');
             setWageValidThrough(''); setWageNotes('');
-            setWageContactName(''); setWageContactEmail('');
           };
 
           const labelStyle = {fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FA8059", marginBottom:8};
@@ -14121,22 +14096,6 @@ export default function UnionPathway() {
                         <div>
                           <div style={labelStyle}>{lang==="es" ? "Notas (opcional)" : lang==="pl" ? "Notatki (opcjonalne)" : "Notes (optional)"}</div>
                           <textarea value={wageNotes} onChange={e => setWageNotes(e.target.value)} placeholder={lang==="es" ? "Detalles adicionales sobre el contrato..." : lang==="pl" ? "Dodatkowe informacje o umowie..." : "Any additional details about the contract..."} rows={2} style={{...inputStyle, resize:"vertical"}} />
-                        </div>
-                      )}
-
-                      {/* CONTACT INFO — optional, private */}
-                      {wageMethod && ((wageMethod === 'image' && wageImageFile) || (wageMethod === 'manual' && wageHourly)) && (
-                        <div style={{marginTop:8, padding:"18px 20px", background:"rgba(245,197,24,0.04)", border:"1px solid rgba(245,197,24,0.18)", borderRadius:12}}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:"#F5C518", marginBottom:6}}>
-                            {lang==="es" ? "Contacto (opcional, privado)" : lang==="pl" ? "Kontakt (opcjonalny, prywatny)" : "Contact (optional, private)"}
-                          </div>
-                          <div style={{fontSize:12, color:"rgba(255,255,255,0.6)", lineHeight:1.55, marginBottom:14}}>
-                            {lang==="es" ? "Solo para que pueda hacer seguimiento si tengo preguntas. Nunca se publicara en el sitio." : lang==="pl" ? "Tylko abym mogl sie z Toba skontaktowac jesli mam pytania. Nigdy nie zostanie opublikowane na stronie." : "Just so I can follow up if I have questions. This will never be posted on the site."}
-                          </div>
-                          <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:10}}>
-                            <input type="text" value={wageContactName} onChange={e => setWageContactName(e.target.value)} placeholder={lang==="es" ? "Nombre" : lang==="pl" ? "Imie" : "Name"} style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"10px 14px", color:"#fff", fontSize:13, fontFamily:"'Inter',sans-serif"}} />
-                            <input type="email" value={wageContactEmail} onChange={e => setWageContactEmail(e.target.value)} placeholder={lang==="es" ? "Correo electronico" : lang==="pl" ? "Email" : "Email"} style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"10px 14px", color:"#fff", fontSize:13, fontFamily:"'Inter',sans-serif"}} />
-                          </div>
                         </div>
                       )}
 
