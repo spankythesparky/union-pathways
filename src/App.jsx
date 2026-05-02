@@ -13880,7 +13880,7 @@ export default function UnionPathway() {
                 window.emailjs.init('J8FxG05UtYq-sWLNT');
               }
               try {
-                await window.emailjs.send('service_uy3qbna', 'template_a55dhfh', {
+                await window.emailjs.send('service_uy3qbna', 'template_8fxawbm', {
                   trade: tradeName, local_name: local.name, city: local.city, state: local.state,
                   status: 'WAGES SUBMISSION',
                   job_calls: wageMethod === 'image' ? `Image upload: ${imageUrl}` : `Manual entry — Hourly: $${wageHourly}, Total: $${totalPackage.toFixed(2)}`,
