@@ -11524,9 +11524,15 @@ export default function UnionPathway() {
 
         {page === "weingarten" && (() => {
           // ============================================================
+          // FULL-COLLAPSIBLE WEINGARTEN
           // INLINE COMPONENT (own scope so hooks are clean)
           // ============================================================
           const WeingartenPage = () => {
+            // Each top-level section gets its own boolean. All start closed.
+            const [openSections, setOpenSections] = useState({});
+            const toggle = (k) => setOpenSections(s => ({ ...s, [k]: !s[k] }));
+
+            // Sub-collapses inside sections (steward checklist phases, myths)
             const [openStep, setOpenStep] = useState(null);
             const [openMyth, setOpenMyth] = useState(null);
             const [copied, setCopied] = useState(false);
@@ -11539,6 +11545,58 @@ export default function UnionPathway() {
                 setCopied(true);
                 setTimeout(() => setCopied(false), 2000);
               } catch (e) {}
+            };
+
+            // Reusable section card — header is always visible, body shows when open
+            const CollapsibleSection = ({ id, title, children }) => {
+              const isOpen = !!openSections[id];
+              return (
+                <div style={{
+                  background: "rgba(255,255,255,0.03)",
+                  border: "1px solid " + (isOpen ? "rgba(245,197,24,0.3)" : "rgba(255,255,255,0.08)"),
+                  borderRadius: 12,
+                  marginBottom: 14,
+                  overflow: "hidden",
+                  transition: "border-color 0.2s"
+                }}>
+                  <button
+                    onClick={() => toggle(id)}
+                    style={{
+                      width: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      gap: 16,
+                      padding: "20px 24px",
+                      background: "transparent",
+                      border: "none",
+                      cursor: "pointer",
+                      textAlign: "left",
+                      color: "#fff"
+                    }}
+                  >
+                    <span style={{
+                      fontFamily: "'Barlow Condensed',sans-serif",
+                      fontSize: 20,
+                      fontWeight: 800,
+                      lineHeight: 1.2
+                    }}>{title}</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{
+                      transition: "transform 0.2s",
+                      transform: isOpen ? "rotate(180deg)" : "none",
+                      color: isOpen ? "#F5C518" : "rgba(255,255,255,0.55)",
+                      flexShrink: 0
+                    }}>
+                      <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                  </button>
+                  {isOpen && (
+                    <div style={{padding: "0 24px 24px"}}>
+                      {children}
+                    </div>
+                  )}
+                </div>
+              );
             };
 
             const conditions = [
@@ -11609,7 +11667,7 @@ export default function UnionPathway() {
 
             return (
               <div>
-                {/* HERO */}
+                {/* HERO — always visible */}
                 <div className="history-hero">
                   <div className="history-eyebrow">{lang==="es" ? "Tus Derechos en el Trabajo" : lang==="pl" ? "Twoje Prawa w Pracy" : "Your Rights at Work"}</div>
                   <h1 className="history-title">
@@ -11624,218 +11682,225 @@ export default function UnionPathway() {
                   </p>
                 </div>
 
-                <div style={{maxWidth:820, margin:"0 auto", padding:"40px 24px 0"}}>
+                <div style={{maxWidth:820, margin:"0 auto", padding:"32px 24px 0"}}>
+                  <p style={{fontSize:13, color:"rgba(255,255,255,0.55)", fontStyle:"italic", textAlign:"center", marginBottom:24, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:"uppercase"}}>
+                    {lang==="es" ? "Toca cualquier sección para abrirla" : lang==="pl" ? "Dotknij sekcji aby ją otworzyć" : "Tap any section to open it"}
+                  </p>
 
-                  {/* DEFINITION CARD */}
-                  <div style={{background:"rgba(245,197,24,0.06)", border:"1px solid rgba(245,197,24,0.2)", borderRadius:12, padding:"24px 28px", marginBottom:32}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:"#F5C518", letterSpacing:1.5, textTransform:"uppercase", marginBottom:12}}>What it is</div>
-                    <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontWeight:900, color:"#fff", margin:"0 0 12px 0"}}>The right to a union rep during a workplace investigation</h3>
-                    <p style={{fontSize:15, color:"rgba(255,255,255,0.85)", lineHeight:1.75, marginBottom:12}}>
+                  {/* SECTION 1: WHAT IT IS */}
+                  <CollapsibleSection id="what" title={lang==="es" ? "Qué es" : lang==="pl" ? "Co to jest" : "What it is"}>
+                    <p style={{fontSize:15, color:"rgba(255,255,255,0.85)", lineHeight:1.75, marginBottom:12, marginTop:0}}>
                       Named for the 1975 Supreme Court case <i>NLRB v. J. Weingarten, Inc.</i>, this rule says that when management is interviewing you about your own conduct and you reasonably believe discipline could follow, you can demand a union representative be present.
                     </p>
                     <p style={{fontSize:15, color:"rgba(255,255,255,0.85)", lineHeight:1.75, margin:0}}>
                       It comes from <strong style={{color:"#fff"}}>Section 7 of the National Labor Relations Act</strong> — the same provision that protects all "concerted activities for mutual aid or protection." The Court reasoned that one worker against the company's investigation is an unfair fight; representation evens the field.
                     </p>
-                  </div>
+                  </CollapsibleSection>
 
-                  {/* MIRANDA COMPARISON */}
-                  <div style={{background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.08)", borderRadius:12, padding:"24px 28px", marginBottom:48}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:"rgba(255,255,255,0.7)", letterSpacing:1.5, textTransform:"uppercase", marginBottom:14}}>Weingarten vs. Miranda</div>
+                  {/* SECTION 2: WEINGARTEN VS MIRANDA */}
+                  <CollapsibleSection id="miranda" title={lang==="es" ? "Weingarten vs. Miranda" : lang==="pl" ? "Weingarten vs. Miranda" : "Weingarten vs. Miranda"}>
                     <p style={{fontSize:15, color:"rgba(255,255,255,0.85)", lineHeight:1.75, margin:0}}>
                       People often compare Weingarten to Miranda rights. Both involve representation during questioning where serious consequences may follow. But there's one critical difference: <strong style={{color:"#FA8059"}}>the employer doesn't have to tell you about your Weingarten rights.</strong> The police must read you Miranda. Your boss does not have to read you Weingarten. The burden of knowing — and asking — is entirely on you.
                     </p>
-                  </div>
+                  </CollapsibleSection>
 
-                  {/* THE 4 CONDITIONS */}
-                  <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:26, fontWeight:900, color:"#fff", margin:"0 0 12px 0"}}>The 4 conditions that trigger the right</h3>
-                  <p style={{fontSize:15, color:"rgba(255,255,255,0.85)", lineHeight:1.75, marginBottom:24}}>
-                    All four must be present. If any one is missing, Weingarten does not attach.
-                  </p>
-                  <div style={{display:"grid", gridTemplateColumns:"1fr", gap:14, marginBottom:48}}>
-                    {conditions.map((c, i) => (
-                      <div key={i} style={{display:"flex", gap:18, padding:"20px 22px", background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.08)", borderRadius:12}}>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:"#F5C518", lineHeight:1, minWidth:48}}>{c.n}</div>
-                        <div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:800, color:"#fff", marginBottom:8}}>{c.t}</div>
-                          <div style={{fontSize:14, color:"rgba(255,255,255,0.8)", lineHeight:1.65}}>{c.d}</div>
+                  {/* SECTION 3: THE 4 CONDITIONS */}
+                  <CollapsibleSection id="conditions" title={lang==="es" ? "Las 4 condiciones que activan el derecho" : lang==="pl" ? "4 warunki uruchamiające prawo" : "The 4 conditions that trigger the right"}>
+                    <p style={{fontSize:14, color:"rgba(255,255,255,0.7)", lineHeight:1.65, marginBottom:18, marginTop:0, fontStyle:"italic"}}>
+                      All four must be present. If any one is missing, Weingarten does not attach.
+                    </p>
+                    <div style={{display:"grid", gridTemplateColumns:"1fr", gap:12}}>
+                      {conditions.map((c, i) => (
+                        <div key={i} style={{display:"flex", gap:18, padding:"18px 20px", background:"rgba(0,0,0,0.2)", border:"1px solid rgba(255,255,255,0.06)", borderRadius:10}}>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:28, fontWeight:900, color:"#F5C518", lineHeight:1, minWidth:42}}>{c.n}</div>
+                          <div>
+                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:17, fontWeight:800, color:"#fff", marginBottom:6}}>{c.t}</div>
+                            <div style={{fontSize:14, color:"rgba(255,255,255,0.8)", lineHeight:1.65}}>{c.d}</div>
+                          </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
+                      ))}
+                    </div>
+                  </CollapsibleSection>
 
-                  {/* WHAT COUNTS / DOESN'T */}
-                  <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:26, fontWeight:900, color:"#fff", margin:"0 0 24px 0"}}>What counts as an investigatory interview</h3>
-                  <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(280px, 1fr))", gap:16, marginBottom:48}}>
-                    {counts.map((g, gi) => (
-                      <div key={gi} style={{background:"rgba(255,255,255,0.03)", border:"1px solid "+g.color+"33", borderRadius:12, padding:"20px 22px"}}>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:g.color, letterSpacing:1.5, textTransform:"uppercase", marginBottom:14}}>{g.label}</div>
+                  {/* SECTION 4: WHAT COUNTS */}
+                  <CollapsibleSection id="counts" title={lang==="es" ? "Qué cuenta como entrevista de investigación" : lang==="pl" ? "Co liczy się jako przesłuchanie śledcze" : "What counts as an investigatory interview"}>
+                    <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(240px, 1fr))", gap:14}}>
+                      {counts.map((g, gi) => (
+                        <div key={gi} style={{background:"rgba(0,0,0,0.2)", border:"1px solid "+g.color+"33", borderRadius:10, padding:"18px 20px"}}>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:g.color, letterSpacing:1.5, textTransform:"uppercase", marginBottom:14}}>{g.label}</div>
+                          <ul style={{margin:0, padding:"0 0 0 18px", listStyle:"none"}}>
+                            {g.items.map((it, ii) => (
+                              <li key={ii} style={{position:"relative", fontSize:14, color:"rgba(255,255,255,0.8)", lineHeight:1.55, marginBottom:10, paddingLeft:6}}>
+                                <span style={{position:"absolute", left:-14, color:g.color, fontWeight:900}}>·</span>
+                                {it}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </CollapsibleSection>
+
+                  {/* SECTION 5: WALLET CARD */}
+                  <CollapsibleSection id="card" title={lang==="es" ? "Qué decir cuando lo pidas (Tarjeta de Cartera)" : lang==="pl" ? "Co powiedzieć (Karta Portfela)" : "What to say when you ask (Wallet card)"}>
+                    <p style={{fontSize:14, color:"rgba(255,255,255,0.8)", lineHeight:1.7, marginBottom:18, marginTop:0}}>
+                      You don't need to say "Weingarten" — any reasonable request for union representation works. Most stewards carry a wallet card with this script. Print it, save it, memorize it.
+                    </p>
+                    <div style={{position:"relative", background:"linear-gradient(135deg, #1a2332 0%, #0f1620 100%)", border:"2px solid #F5C518", borderRadius:12, padding:"24px 26px", boxShadow:"0 8px 24px rgba(0,0,0,0.3)"}}>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:"#F5C518", letterSpacing:2, textTransform:"uppercase", marginBottom:14}}>Weingarten Request — Wallet Card</div>
+                      <p style={{fontSize:15, color:"#fff", lineHeight:1.7, fontStyle:"italic", margin:0, fontWeight:500}}>
+                        "{cardScript}"
+                      </p>
+                      <button onClick={handleCopy} style={{marginTop:18, padding:"10px 20px", fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:800, letterSpacing:1.5, textTransform:"uppercase", background: copied ? "#4A9A6E" : "#F5C518", color:"#000", border:"none", borderRadius:50, cursor:"pointer", transition:"all 0.15s"}}>
+                        {copied ? "✓ Copied" : "Copy script"}
+                      </button>
+                    </div>
+                    <p style={{fontSize:13, color:"rgba(255,255,255,0.6)", lineHeight:1.6, marginTop:14, marginBottom:0, fontStyle:"italic"}}>
+                      Once you've asked, you don't need to ask again throughout the meeting. The request stands.
+                    </p>
+                  </CollapsibleSection>
+
+                  {/* SECTION 6: WHAT HAPPENS AFTER */}
+                  <CollapsibleSection id="after" title={lang==="es" ? "Qué pasa después de que lo pides" : lang==="pl" ? "Co się dzieje po zapytaniu" : "What happens after you ask"}>
+                    <p style={{fontSize:14, color:"rgba(255,255,255,0.8)", lineHeight:1.7, marginBottom:18, marginTop:0}}>
+                      Once you've requested representation, the employer has exactly three lawful options. They <strong style={{color:"#fff"}}>cannot</strong> simply continue questioning over your objection — that's an unfair labor practice.
+                    </p>
+                    <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(220px, 1fr))", gap:12}}>
+                      {[
+                        {t:"1. Grant the request", d:"Pause the interview until your representative arrives. The investigation continues with the rep present."},
+                        {t:"2. End the interview", d:"Stop questioning entirely and proceed without your input. The employer can still investigate by other means."},
+                        {t:"3. Offer you a choice", d:"Let you choose between continuing without a rep or ending the interview. The choice has to be yours, freely made."}
+                      ].map((o, i) => (
+                        <div key={i} style={{background:"rgba(0,0,0,0.2)", border:"1px solid rgba(255,255,255,0.06)", borderRadius:10, padding:"16px 18px"}}>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:15, fontWeight:800, color:"#F5C518", marginBottom:8}}>{o.t}</div>
+                          <div style={{fontSize:13, color:"rgba(255,255,255,0.8)", lineHeight:1.6}}>{o.d}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </CollapsibleSection>
+
+                  {/* SECTION 7: STEWARD'S CHECKLIST */}
+                  <CollapsibleSection id="steward" title={lang==="es" ? "Lista del Delegado" : lang==="pl" ? "Lista Delegata" : "Steward's checklist"}>
+                    <p style={{fontSize:14, color:"rgba(255,255,255,0.8)", lineHeight:1.7, marginBottom:18, marginTop:0}}>
+                      If you're the rep being called in, here's what the work looks like.
+                    </p>
+                    <div>
+                      {checklist.map((phase, pi) => {
+                        const isOpen = openStep === pi;
+                        return (
+                          <div key={pi} style={{borderTop:"1px solid rgba(255,255,255,0.08)", borderBottom: pi === checklist.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none"}}>
+                            <button onClick={() => setOpenStep(isOpen ? null : pi)} style={{width:"100%", display:"flex", alignItems:"center", justifyContent:"space-between", gap:16, padding:"16px 0", background:"transparent", border:"none", cursor:"pointer", textAlign:"left", color:"#fff", fontFamily:"'Barlow Condensed',sans-serif", fontSize:16, fontWeight:700}}>
+                              <span>{phase.phase}</span>
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{transition:"transform 0.2s", transform: isOpen ? "rotate(180deg)" : "none", color:"#F5C518", flexShrink:0}}><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            {isOpen && (
+                              <ul style={{margin:"0 0 16px 0", padding:"0 0 0 4px", listStyle:"none"}}>
+                                {phase.items.map((it, ii) => (
+                                  <li key={ii} style={{position:"relative", fontSize:14, color:"rgba(255,255,255,0.85)", lineHeight:1.65, marginBottom:8, paddingLeft:22}}>
+                                    <span style={{position:"absolute", left:0, top:7, width:6, height:6, borderRadius:"50%", background:"#F5C518"}} />
+                                    {it}
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </CollapsibleSection>
+
+                  {/* SECTION 8: REP CAN/CAN'T DO */}
+                  <CollapsibleSection id="rep" title={lang==="es" ? "Lo que tu representante puede y no puede hacer" : lang==="pl" ? "Co może i czego nie może twój przedstawiciel" : "What your rep can and can't do"}>
+                    <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(240px, 1fr))", gap:14}}>
+                      <div style={{background:"rgba(0,0,0,0.2)", border:"1px solid rgba(74,154,110,0.3)", borderRadius:10, padding:"18px 20px"}}>
+                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:"#4A9A6E", letterSpacing:1.5, textTransform:"uppercase", marginBottom:14}}>Can do</div>
                         <ul style={{margin:0, padding:"0 0 0 18px", listStyle:"none"}}>
-                          {g.items.map((it, ii) => (
+                          {["Confer with you privately before the interview", "Ask for clarification of unclear questions", "Advise you during the interview", "Suggest other witnesses or evidence", "Take notes", "Object to harassing or unfair questions"].map((it, ii) => (
                             <li key={ii} style={{position:"relative", fontSize:14, color:"rgba(255,255,255,0.8)", lineHeight:1.55, marginBottom:10, paddingLeft:6}}>
-                              <span style={{position:"absolute", left:-14, color:g.color, fontWeight:900}}>·</span>
+                              <span style={{position:"absolute", left:-14, color:"#4A9A6E", fontWeight:900}}>·</span>
                               {it}
                             </li>
                           ))}
                         </ul>
                       </div>
-                    ))}
-                  </div>
+                      <div style={{background:"rgba(0,0,0,0.2)", border:"1px solid rgba(209,75,63,0.3)", borderRadius:10, padding:"18px 20px"}}>
+                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:"#D14B3F", letterSpacing:1.5, textTransform:"uppercase", marginBottom:14}}>Can't do</div>
+                        <ul style={{margin:0, padding:"0 0 0 18px", listStyle:"none"}}>
+                          {["Answer questions on your behalf", "Tell you not to answer (you can decline on your own)", "Disrupt the interview or block legitimate questions", "Turn the meeting into an adversarial contest"].map((it, ii) => (
+                            <li key={ii} style={{position:"relative", fontSize:14, color:"rgba(255,255,255,0.8)", lineHeight:1.55, marginBottom:10, paddingLeft:6}}>
+                              <span style={{position:"absolute", left:-14, color:"#D14B3F", fontWeight:900}}>·</span>
+                              {it}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </CollapsibleSection>
 
-                  {/* WALLET CARD */}
-                  <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:26, fontWeight:900, color:"#fff", margin:"0 0 12px 0"}}>What to say when you ask</h3>
-                  <p style={{fontSize:15, color:"rgba(255,255,255,0.85)", lineHeight:1.75, marginBottom:20}}>
-                    You don't need to say "Weingarten" — any reasonable request for union representation works. Most stewards carry a wallet card with this script. Print it, save it, memorize it.
-                  </p>
-                  <div style={{position:"relative", background:"linear-gradient(135deg, #1a2332 0%, #0f1620 100%)", border:"2px solid #F5C518", borderRadius:14, padding:"28px 32px", marginBottom:20, boxShadow:"0 8px 24px rgba(0,0,0,0.3)"}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:"#F5C518", letterSpacing:2, textTransform:"uppercase", marginBottom:14}}>Weingarten Request — Wallet Card</div>
-                    <p style={{fontSize:16, color:"#fff", lineHeight:1.7, fontStyle:"italic", margin:0, fontWeight:500}}>
-                      "{cardScript}"
+                  {/* SECTION 9: COMMON MISCONCEPTIONS */}
+                  <CollapsibleSection id="myths" title={lang==="es" ? "Conceptos erróneos comunes" : lang==="pl" ? "Częste nieporozumienia" : "Common misconceptions"}>
+                    <p style={{fontSize:14, color:"rgba(255,255,255,0.8)", lineHeight:1.7, marginBottom:18, marginTop:0}}>
+                      Six things people get wrong about Weingarten.
                     </p>
-                    <button onClick={handleCopy} style={{marginTop:18, padding:"10px 20px", fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:800, letterSpacing:1.5, textTransform:"uppercase", background: copied ? "#4A9A6E" : "#F5C518", color:"#000", border:"none", borderRadius:50, cursor:"pointer", transition:"all 0.15s"}}>
-                      {copied ? "✓ Copied" : "Copy script"}
-                    </button>
-                  </div>
-                  <p style={{fontSize:13, color:"rgba(255,255,255,0.6)", lineHeight:1.6, marginBottom:48, fontStyle:"italic"}}>
-                    Once you've asked, you don't need to ask again throughout the meeting. The request stands.
-                  </p>
-
-                  {/* EMPLOYER'S 3 OPTIONS */}
-                  <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:26, fontWeight:900, color:"#fff", margin:"0 0 12px 0"}}>What happens after you ask</h3>
-                  <p style={{fontSize:15, color:"rgba(255,255,255,0.85)", lineHeight:1.75, marginBottom:24}}>
-                    Once you've requested representation, the employer has exactly three lawful options. They <strong style={{color:"#fff"}}>cannot</strong> simply continue questioning over your objection — that's an unfair labor practice.
-                  </p>
-                  <div className="impact-grid" style={{marginTop:0, marginBottom:48}}>
-                    {[
-                      {t:"1. Grant the request", d:"Pause the interview until your representative arrives. The investigation continues with the rep present."},
-                      {t:"2. End the interview", d:"Stop questioning entirely and proceed without your input. The employer can still investigate by other means."},
-                      {t:"3. Offer you a choice", d:"Let you choose between continuing without a rep or ending the interview. The choice has to be yours, freely made."}
-                    ].map((o, i) => (
-                      <div key={i} className="impact-card">
-                        <div className="impact-title">{o.t}</div>
-                        <div className="impact-desc">{o.d}</div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* STEWARD'S CHECKLIST */}
-                  <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:26, fontWeight:900, color:"#fff", margin:"0 0 12px 0"}}>Steward's checklist</h3>
-                  <p style={{fontSize:15, color:"rgba(255,255,255,0.85)", lineHeight:1.75, marginBottom:24}}>
-                    If you're the rep being called in, here's what the work looks like.
-                  </p>
-                  <div style={{marginBottom:48}}>
-                    {checklist.map((phase, pi) => {
-                      const isOpen = openStep === pi;
-                      return (
-                        <div key={pi} style={{borderTop:"1px solid rgba(255,255,255,0.08)", borderBottom: pi === checklist.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none"}}>
-                          <button onClick={() => setOpenStep(isOpen ? null : pi)} style={{width:"100%", display:"flex", alignItems:"center", justifyContent:"space-between", gap:16, padding:"20px 0", background:"transparent", border:"none", cursor:"pointer", textAlign:"left", color:"#fff", fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:800}}>
-                            <span>{phase.phase}</span>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{transition:"transform 0.2s", transform: isOpen ? "rotate(180deg)" : "none", color:"#F5C518", flexShrink:0}}><polyline points="6 9 12 15 18 9"/></svg>
-                          </button>
-                          {isOpen && (
-                            <ul style={{margin:"0 0 18px 0", padding:"0 0 0 4px", listStyle:"none"}}>
-                              {phase.items.map((it, ii) => (
-                                <li key={ii} style={{position:"relative", fontSize:14, color:"rgba(255,255,255,0.85)", lineHeight:1.65, marginBottom:10, paddingLeft:22}}>
-                                  <span style={{position:"absolute", left:0, top:7, width:6, height:6, borderRadius:"50%", background:"#F5C518"}} />
-                                  {it}
-                                </li>
-                              ))}
-                            </ul>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-
-                  {/* WHAT THE REP CAN/CAN'T DO */}
-                  <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:26, fontWeight:900, color:"#fff", margin:"0 0 24px 0"}}>What your rep can and can't do</h3>
-                  <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(280px, 1fr))", gap:16, marginBottom:48}}>
-                    <div style={{background:"rgba(255,255,255,0.03)", border:"1px solid rgba(74,154,110,0.3)", borderRadius:12, padding:"20px 22px"}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:"#4A9A6E", letterSpacing:1.5, textTransform:"uppercase", marginBottom:14}}>Can do</div>
-                      <ul style={{margin:0, padding:"0 0 0 18px", listStyle:"none"}}>
-                        {["Confer with you privately before the interview", "Ask for clarification of unclear questions", "Advise you during the interview", "Suggest other witnesses or evidence", "Take notes", "Object to harassing or unfair questions"].map((it, ii) => (
-                          <li key={ii} style={{position:"relative", fontSize:14, color:"rgba(255,255,255,0.8)", lineHeight:1.55, marginBottom:10, paddingLeft:6}}>
-                            <span style={{position:"absolute", left:-14, color:"#4A9A6E", fontWeight:900}}>·</span>
-                            {it}
-                          </li>
-                        ))}
-                      </ul>
+                    <div>
+                      {myths.map((m, i) => {
+                        const isOpen = openMyth === i;
+                        return (
+                          <div key={i} style={{borderTop:"1px solid rgba(255,255,255,0.08)", borderBottom: i === myths.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none"}}>
+                            <button onClick={() => setOpenMyth(isOpen ? null : i)} style={{width:"100%", display:"flex", alignItems:"flex-start", justifyContent:"space-between", gap:16, padding:"16px 0", background:"transparent", border:"none", cursor:"pointer", textAlign:"left"}}>
+                              <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:15, fontWeight:700, color:"#fff", lineHeight:1.4}}>"{m.q}"</span>
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{transition:"transform 0.2s", transform: isOpen ? "rotate(180deg)" : "none", color:"#FA8059", flexShrink:0, marginTop:5}}><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            {isOpen && (
+                              <p style={{fontSize:14, color:"rgba(255,255,255,0.85)", lineHeight:1.7, margin:"0 0 16px 0", paddingRight:30}}>{m.a}</p>
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
-                    <div style={{background:"rgba(255,255,255,0.03)", border:"1px solid rgba(209,75,63,0.3)", borderRadius:12, padding:"20px 22px"}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:"#D14B3F", letterSpacing:1.5, textTransform:"uppercase", marginBottom:14}}>Can't do</div>
-                      <ul style={{margin:0, padding:"0 0 0 18px", listStyle:"none"}}>
-                        {["Answer questions on your behalf", "Tell you not to answer (you can decline on your own)", "Disrupt the interview or block legitimate questions", "Turn the meeting into an adversarial contest"].map((it, ii) => (
-                          <li key={ii} style={{position:"relative", fontSize:14, color:"rgba(255,255,255,0.8)", lineHeight:1.55, marginBottom:10, paddingLeft:6}}>
-                            <span style={{position:"absolute", left:-14, color:"#D14B3F", fontWeight:900}}>·</span>
-                            {it}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
+                  </CollapsibleSection>
 
-                  {/* MYTHS */}
-                  <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:26, fontWeight:900, color:"#fff", margin:"0 0 12px 0"}}>Common misconceptions</h3>
-                  <p style={{fontSize:15, color:"rgba(255,255,255,0.85)", lineHeight:1.75, marginBottom:24}}>
-                    Six things people get wrong about Weingarten.
-                  </p>
-                  <div style={{marginBottom:48}}>
-                    {myths.map((m, i) => {
-                      const isOpen = openMyth === i;
-                      return (
-                        <div key={i} style={{borderTop:"1px solid rgba(255,255,255,0.08)", borderBottom: i === myths.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none"}}>
-                          <button onClick={() => setOpenMyth(isOpen ? null : i)} style={{width:"100%", display:"flex", alignItems:"flex-start", justifyContent:"space-between", gap:16, padding:"18px 0", background:"transparent", border:"none", cursor:"pointer", textAlign:"left"}}>
-                            <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:16, fontWeight:700, color:"#fff", lineHeight:1.4}}>"{m.q}"</span>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{transition:"transform 0.2s", transform: isOpen ? "rotate(180deg)" : "none", color:"#FA8059", flexShrink:0, marginTop:5}}><polyline points="6 9 12 15 18 9"/></svg>
-                          </button>
-                          {isOpen && (
-                            <p style={{fontSize:14, color:"rgba(255,255,255,0.85)", lineHeight:1.7, margin:"0 0 18px 0", paddingRight:30}}>{m.a}</p>
-                          )}
+                  {/* SECTION 10: NON-UNION QUESTION */}
+                  <CollapsibleSection id="nonunion" title={lang==="es" ? "La cuestión de los no sindicalizados" : lang==="pl" ? "Kwestia niezrzeszonych" : "The non-union question"}>
+                    <p style={{fontSize:14, color:"rgba(255,255,255,0.85)", lineHeight:1.75, marginBottom:18, marginTop:0}}>
+                      Whether non-union workers have Weingarten rights has been one of the most politically contested questions in modern labor law. The NLRB has flipped on it four times in 40 years.
+                    </p>
+                    <div style={{background:"rgba(0,0,0,0.2)", border:"1px solid rgba(255,255,255,0.06)", borderRadius:10, overflow:"hidden", marginBottom:18}}>
+                      {[
+                        {y:"1982", c:"Materials Research Corp.", e:"Extended to non-union", color:"#4A9A6E"},
+                        {y:"1985", c:"Sears, Roebuck & Co.", e:"Retracted", color:"#D14B3F"},
+                        {y:"2000", c:"Epilepsy Foundation of NE Ohio", e:"Extended again", color:"#4A9A6E"},
+                        {y:"2004", c:"IBM Corp.", e:"Retracted — current rule", color:"#D14B3F"}
+                      ].map((row, ri) => (
+                        <div key={ri} style={{display:"grid", gridTemplateColumns:"60px 1fr auto", gap:14, padding:"12px 16px", borderBottom: ri < 3 ? "1px solid rgba(255,255,255,0.06)" : "none", alignItems:"center"}}>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:17, fontWeight:900, color:"#F5C518"}}>{row.y}</div>
+                          <div style={{fontSize:13, color:"rgba(255,255,255,0.85)", fontStyle:"italic"}}>{row.c}</div>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:row.color, letterSpacing:1.5, textTransform:"uppercase"}}>{row.e}</div>
                         </div>
-                      );
-                    })}
-                  </div>
+                      ))}
+                    </div>
+                    <p style={{fontSize:13, color:"rgba(255,255,255,0.7)", lineHeight:1.7, margin:0, fontStyle:"italic"}}>
+                      Bottom line: only union-represented employees have Weingarten rights right now. Non-union workers may request a coworker's presence, but the employer is not legally required to honor that request. A 2022 decision (<i>Troy Grove</i>) extended the right to strike replacements working under a union-represented unit, suggesting the Board may be willing to revisit this.
+                    </p>
+                  </CollapsibleSection>
 
-                  {/* NON-UNION SECTION */}
-                  <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:26, fontWeight:900, color:"#fff", margin:"0 0 12px 0"}}>The non-union question</h3>
-                  <p style={{fontSize:15, color:"rgba(255,255,255,0.85)", lineHeight:1.75, marginBottom:20}}>
-                    Whether non-union workers have Weingarten rights has been one of the most politically contested questions in modern labor law. The NLRB has flipped on it four times in 40 years.
-                  </p>
-                  <div style={{background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.08)", borderRadius:12, overflow:"hidden", marginBottom:20}}>
-                    {[
-                      {y:"1982", c:"Materials Research Corp.", e:"Extended to non-union workers", color:"#4A9A6E"},
-                      {y:"1985", c:"Sears, Roebuck & Co.", e:"Retracted", color:"#D14B3F"},
-                      {y:"2000", c:"Epilepsy Foundation of NE Ohio", e:"Extended again", color:"#4A9A6E"},
-                      {y:"2004", c:"IBM Corp.", e:"Retracted again — current rule", color:"#D14B3F"}
-                    ].map((row, ri) => (
-                      <div key={ri} style={{display:"grid", gridTemplateColumns:"60px 1fr auto", gap:16, padding:"14px 18px", borderBottom: ri < 3 ? "1px solid rgba(255,255,255,0.06)" : "none", alignItems:"center"}}>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color:"#F5C518"}}>{row.y}</div>
-                        <div style={{fontSize:14, color:"rgba(255,255,255,0.85)", fontStyle:"italic"}}>{row.c}</div>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:row.color, letterSpacing:1.5, textTransform:"uppercase"}}>{row.e}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <p style={{fontSize:14, color:"rgba(255,255,255,0.7)", lineHeight:1.7, marginBottom:48, fontStyle:"italic"}}>
-                    Bottom line: only union-represented employees have Weingarten rights right now. Non-union workers may request a coworker's presence, but the employer is not legally required to honor that request. A 2022 decision (<i>Troy Grove</i>) extended the right to strike replacements working under a union-represented unit, suggesting the Board may be willing to revisit this. Watch the Board.
-                  </p>
-
-                  {/* FEDERAL EMPLOYEES */}
-                  <div style={{background:"rgba(74,123,157,0.08)", border:"1px solid rgba(74,123,157,0.25)", borderRadius:12, padding:"20px 24px", marginBottom:48}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:"#4A7B9D", letterSpacing:1.5, textTransform:"uppercase", marginBottom:10}}>Federal employees</div>
+                  {/* SECTION 11: FEDERAL EMPLOYEES */}
+                  <CollapsibleSection id="federal" title={lang==="es" ? "Empleados federales" : lang==="pl" ? "Pracownicy federalni" : "Federal employees"}>
                     <p style={{fontSize:14, color:"rgba(255,255,255,0.85)", lineHeight:1.7, margin:0}}>
                       Federal workers are covered under a parallel statute: <strong>5 U.S.C. § 7114(a)(2)(B)</strong>, the Federal Service Labor-Management Relations Statute. The Federal Labor Relations Authority (FLRA) — not the NLRB — enforces it. The right exists only for employees in a bargaining unit, and the union (not the individual) designates the representative. State and local government workers are covered under varying state laws and CBAs.
                     </p>
-                  </div>
+                  </CollapsibleSection>
 
-                  {/* REMEDIES */}
-                  <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:26, fontWeight:900, color:"#fff", margin:"0 0 12px 0"}}>If your rights are violated</h3>
-                  <p style={{fontSize:15, color:"rgba(255,255,255,0.85)", lineHeight:1.75, marginBottom:24}}>
-                    File an unfair labor practice charge with the NLRB through your union. Available remedies include cease-and-desist orders, posted notices acknowledging the violation, reinstatement if discipline resulted, back pay and benefits, and "make-whole" remedies. The discipline itself is not automatically void — but evidence obtained from the tainted interview can be excluded, and discipline that flowed directly from it can be set aside.
-                  </p>
+                  {/* SECTION 12: REMEDIES */}
+                  <CollapsibleSection id="remedies" title={lang==="es" ? "Si se violan tus derechos" : lang==="pl" ? "Jeśli twoje prawa zostaną naruszone" : "If your rights are violated"}>
+                    <p style={{fontSize:14, color:"rgba(255,255,255,0.85)", lineHeight:1.75, margin:0}}>
+                      File an unfair labor practice charge with the NLRB through your union. Available remedies include cease-and-desist orders, posted notices acknowledging the violation, reinstatement if discipline resulted, back pay and benefits, and "make-whole" remedies. The discipline itself is not automatically void — but evidence obtained from the tainted interview can be excluded, and discipline that flowed directly from it can be set aside.
+                    </p>
+                  </CollapsibleSection>
 
-                  {/* CITATIONS */}
-                  <div style={{borderTop:"1px solid rgba(255,255,255,0.1)", paddingTop:32, marginBottom:48}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:"rgba(255,255,255,0.55)", letterSpacing:2, textTransform:"uppercase", marginBottom:18}}>Key citations</div>
-                    <ul style={{margin:0, padding:"0 0 0 18px", listStyle:"none", fontSize:13, color:"rgba(255,255,255,0.7)", lineHeight:1.85}}>
+                  {/* SECTION 13: CITATIONS */}
+                  <CollapsibleSection id="citations" title={lang==="es" ? "Citas legales clave" : lang==="pl" ? "Kluczowe odniesienia prawne" : "Key citations"}>
+                    <ul style={{margin:0, padding:"0 0 0 18px", listStyle:"none", fontSize:13, color:"rgba(255,255,255,0.75)", lineHeight:1.85}}>
                       {[
                         <><i>NLRB v. J. Weingarten, Inc.</i>, 420 U.S. 251 (1975) — the original case</>,
                         <><i>International Ladies' Garment Workers' Union v. Quality Manufacturing Co.</i>, 420 U.S. 276 (1975) — companion case</>,
@@ -11852,9 +11917,11 @@ export default function UnionPathway() {
                         </li>
                       ))}
                     </ul>
-                  </div>
+                  </CollapsibleSection>
 
-                  <button onClick={() => setPage("home")} style={{marginBottom:48, background:"transparent", color:"#F5C518", fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:"uppercase", padding:"12px 28px", border:"1px solid rgba(245,197,24,0.4)", borderRadius:50, cursor:"pointer"}}>← Back to Home</button>
+                  <div style={{textAlign:"center", marginTop:32, marginBottom:48}}>
+                    <button onClick={() => setPage("home")} style={{background:"transparent", color:"#F5C518", fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:"uppercase", padding:"12px 28px", border:"1px solid rgba(245,197,24,0.4)", borderRadius:50, cursor:"pointer"}}>← Back to Home</button>
+                  </div>
                 </div>
               </div>
             );
