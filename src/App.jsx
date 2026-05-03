@@ -6975,6 +6975,7 @@ export default function UnionPathway() {
                   { abbr: "IUEC",  label: "Elevators",    color: "#06b6d4" },
                   { abbr: "IUOE",  label: "Operating Engineers", color: "#10b981" },
                   { abbr: "UBC",   label: "Carpenters",          color: "#8b5cf6" },
+                  { abbr: "IUPAT", label: "Painters",             color: "#ec4899" },
                 ].map(trade => (
                   <button
                     key={trade.abbr}
