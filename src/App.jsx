@@ -3169,6 +3169,8 @@ export default function UnionPathway() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [drawerHistoryOpen, setDrawerHistoryOpen] = useState(false);
   const [drawerTestsOpen, setDrawerTestsOpen] = useState(false);
+  const [drawerSecOpen, setDrawerSecOpen] = useState({});
+  const toggleDrawerSec = (k) => setDrawerSecOpen(s => ({ ...s, [k]: !s[k] }));
   const [vetSection, setVetSection] = useState(null);
   const [retSection, setRetSection] = useState(null);
   const [partnerSection, setPartnerSection] = useState(null);
@@ -5480,6 +5482,29 @@ export default function UnionPathway() {
           opacity: 0.6;
         }
         .mobile-drawer-toggle.open svg { transform: rotate(180deg); opacity: 1; }
+        .mobile-drawer-section-toggle {
+          display: flex; align-items: center; justify-content: space-between;
+          width: 100%;
+          background: transparent; border: none;
+          padding: 16px 20px;
+          font-family: 'Barlow Condensed', sans-serif;
+          font-size: 13px; font-weight: 800;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.6);
+          text-align: left;
+          cursor: pointer;
+          transition: background 0.15s, color 0.15s;
+        }
+        .mobile-drawer-section-toggle:hover { background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.85); }
+        .mobile-drawer-section-toggle.active { color: var(--yellow); }
+        .mobile-drawer-section-toggle svg {
+          flex-shrink: 0;
+          transition: transform 0.2s ease;
+          opacity: 0.6;
+        }
+        .mobile-drawer-section-toggle.open svg { transform: rotate(180deg); opacity: 1; }
+        .mobile-drawer-section-toggle.open { color: rgba(255,255,255,0.95); }
         .nav-link {
           background: transparent; border: none;
           color: var(--muted); cursor: pointer;
@@ -6355,7 +6380,14 @@ export default function UnionPathway() {
           <button className={`mobile-drawer-link${page==="home" ? " active" : ""}`} onClick={() => { setPage("home"); setMobileNavOpen(false); setResults(null); setQuery(""); }}>{t.navHome}</button>
 
           <div className="mobile-drawer-section">
-            <div className="mobile-drawer-section-label">{lang==="es" ? "Empezar" : lang==="pl" ? "Zacznij" : "Get Started"}</div>
+            <button
+              className={`mobile-drawer-section-toggle${(page==="checklist"||page==="careers"||page==="quiz"||page==="apprenticeship"||page.startsWith("apprenticeship-")||page==="calculator"||page==="resume") ? " active" : ""}${drawerSecOpen.gs ? " open" : ""}`}
+              onClick={() => toggleDrawerSec("gs")}
+            >
+              <span>{lang==="es" ? "Empezar" : lang==="pl" ? "Zacznij" : "Get Started"}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            {drawerSecOpen.gs && (<>
             <button className={`mobile-drawer-link${page==="checklist" ? " active" : ""}`} onClick={() => { setPage("checklist"); setMobileNavOpen(false); }}>{lang==="es" ? "Como Unirse" : lang==="pl" ? "Jak Dolaczyc" : "How to Join"}</button>
             <button className={`mobile-drawer-link${page==="careers" ? " active" : ""}`} onClick={() => { setPage("careers"); setMobileNavOpen(false); }}>{lang==="es" ? "Rutas de Carrera" : lang==="pl" ? "Sciezki Kariery" : "Career Paths"}</button>
             <button className={`mobile-drawer-link${page==="quiz" ? " active" : ""}`} onClick={() => { setPage("quiz"); setMobileNavOpen(false); resetQuiz(); }}>{lang==="es" ? "Que Oficio?" : lang==="pl" ? "Ktory Zawod?" : "Which Trade?"}</button>
@@ -6382,28 +6414,52 @@ export default function UnionPathway() {
             )}
             <button className={`mobile-drawer-link${page==="calculator" ? " active" : ""}`} onClick={() => { setPage("calculator"); setMobileNavOpen(false); }}>{lang==="es" ? "Calculadora de Salarios" : lang==="pl" ? "Kalkulator Wynagrodzen" : "Wage Calculator"}</button>
             <button className={`mobile-drawer-link${page==="resume" ? " active" : ""}`} onClick={() => { setPage("resume"); setMobileNavOpen(false); }}>{lang==="es" ? "Plantilla de Curriculum" : lang==="pl" ? "Szablon CV" : "Resume Template"}</button>
+            </>)}
           </div>
 
           <div className="mobile-drawer-section">
-            <div className="mobile-drawer-section-label">{lang==="es" ? "Membresia" : lang==="pl" ? "Czlonkostwo" : "Membership"}</div>
+            <button
+              className={`mobile-drawer-section-toggle${(page==="benefits"||page==="retirement"||page==="veterans"||page==="locals"||page==="wages"||page==="jobboard") ? " active" : ""}${drawerSecOpen.mb ? " open" : ""}`}
+              onClick={() => toggleDrawerSec("mb")}
+            >
+              <span>{lang==="es" ? "Membresia" : lang==="pl" ? "Czlonkostwo" : "Membership"}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            {drawerSecOpen.mb && (<>
             <button className={`mobile-drawer-link${page==="benefits" ? " active" : ""}`} onClick={() => { setPage("benefits"); setMobileNavOpen(false); }}>{lang==="es" ? "Resumen de Beneficios" : lang==="pl" ? "Przeglad Swiadczen" : "Benefits Overview"}</button>
             <button className={`mobile-drawer-link${page==="retirement" ? " active" : ""}`} onClick={() => { setPage("retirement"); setMobileNavOpen(false); }}>{lang==="es" ? "Jubilacion" : lang==="pl" ? "Emerytura" : "Retirement"}</button>
             <button className={`mobile-drawer-link${page==="veterans" ? " active" : ""}`} onClick={() => { setPage("veterans"); setMobileNavOpen(false); }}>{lang==="es" ? "Veteranos" : lang==="pl" ? "Weterani" : "Veterans"}</button>
             <button className={`mobile-drawer-link${page==="locals" ? " active" : ""}`} onClick={() => { setPage("locals"); setMobileNavOpen(false); }}>{lang==="es" ? "Entendiendo tu Local" : lang==="pl" ? "Rozumienie Oddzialu" : "Understanding Your Local"}</button>
             <button className={`mobile-drawer-link${page==="wages" ? " active" : ""}`} onClick={() => { setPage("wages"); setMobileNavOpen(false); }}>{lang==="es" ? "Salarios" : lang==="pl" ? "Place" : "Wages"}</button>
             <button className={`mobile-drawer-link${page==="jobboard" ? " active" : ""}`} onClick={() => { setPage("jobboard"); setMobileNavOpen(false); }}>{lang==="es" ? "Bolsa de Trabajo" : lang==="pl" ? "Gielda Pracy" : "Job Board"}</button>
+            </>)}
           </div>
 
           <div className="mobile-drawer-section">
-            <div className="mobile-drawer-section-label">{lang==="es" ? "Recursos" : lang==="pl" ? "Zasoby" : "Resources"}</div>
+            <button
+              className={`mobile-drawer-section-toggle${(page==="rtw"||page==="weingarten"||page==="organize"||page==="organize-contractor") ? " active" : ""}${drawerSecOpen.rs ? " open" : ""}`}
+              onClick={() => toggleDrawerSec("rs")}
+            >
+              <span>{lang==="es" ? "Recursos" : lang==="pl" ? "Zasoby" : "Resources"}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            {drawerSecOpen.rs && (<>
             <button className={`mobile-drawer-link${page==="rtw" ? " active" : ""}`} onClick={() => { setPage("rtw"); setMobileNavOpen(false); }}>{lang==="es" ? "Derecho al Trabajo" : lang==="pl" ? "Prawo do Pracy" : "Right to Work"}</button>
             <button className={`mobile-drawer-link${page==="weingarten" ? " active" : ""}`} onClick={() => { setPage("weingarten"); setMobileNavOpen(false); }}>{lang==="es" ? "Derechos Weingarten" : lang==="pl" ? "Prawa Weingarten" : "Weingarten Rights"}</button>
             <button className={`mobile-drawer-link${page==="organize" ? " active" : ""}`} onClick={() => { setPage("organize"); setMobileNavOpen(false); }}>{lang==="es" ? "Organizar Tu Trabajo" : lang==="pl" ? "Organizuj Prace" : "Workplace Organizing"}</button>
             <button className={`mobile-drawer-link${page==="organize-contractor" ? " active" : ""}`} onClick={() => { setPage("organize-contractor"); setMobileNavOpen(false); }}>{lang==="es" ? "Organizar un Contratista" : lang==="pl" ? "Organizowanie Wykonawcy" : "Organizing a Contractor"}</button>
+            </>)}
           </div>
 
           <div className="mobile-drawer-section">
-            <div className="mobile-drawer-section-label">{lang==="es" ? "Historia" : lang==="pl" ? "Historia" : "History"}</div>
+            <button
+              className={`mobile-drawer-section-toggle${(page==="history"||page==="trade-history"||page.startsWith("history-")) ? " active" : ""}${drawerSecOpen.hi ? " open" : ""}`}
+              onClick={() => toggleDrawerSec("hi")}
+            >
+              <span>{lang==="es" ? "Historia" : lang==="pl" ? "Historia" : "History"}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            {drawerSecOpen.hi && (<>
             <button className={`mobile-drawer-link${page==="history" ? " active" : ""}`} onClick={() => { setPage("history"); setMobileNavOpen(false); }}>{lang==="es" ? "Historia General" : lang==="pl" ? "Historia Ogolna" : "General Union History"}</button>
             <button
               className={`mobile-drawer-toggle${page==="trade-history"||page.startsWith("history-") ? " active" : ""}${drawerHistoryOpen ? " open" : ""}`}
@@ -6425,12 +6481,21 @@ export default function UnionPathway() {
                 <button className={`mobile-drawer-link${page==="history-ufcw" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("history-ufcw"); setMobileNavOpen(false); }}>· UFCW · Food & Commercial</button>
               </>
             )}
+            </>)}
           </div>
 
           <div className="mobile-drawer-section">
-            <div className="mobile-drawer-section-label">{lang==="es" ? "Nosotros" : lang==="pl" ? "O Nas" : "About"}</div>
+            <button
+              className={`mobile-drawer-section-toggle${(page==="about"||page==="contact") ? " active" : ""}${drawerSecOpen.ab ? " open" : ""}`}
+              onClick={() => toggleDrawerSec("ab")}
+            >
+              <span>{lang==="es" ? "Nosotros" : lang==="pl" ? "O Nas" : "About"}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            {drawerSecOpen.ab && (<>
             <button className={`mobile-drawer-link${page==="about" ? " active" : ""}`} onClick={() => { setPage("about"); setMobileNavOpen(false); }}>{lang==="es" ? "Sobre Nosotros" : lang==="pl" ? "O Nas" : "Our Story"}</button>
             <button className={`mobile-drawer-link${page==="contact" ? " active" : ""}`} onClick={() => { setPage("contact"); setContactSent(false); setMobileNavOpen(false); }}>{t.navContact}</button>
+            </>)}
           </div>
         </aside>
 
