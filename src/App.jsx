@@ -3223,6 +3223,7 @@ export default function UnionPathway() {
   const [learnOpen, setLearnOpen] = useState(false);
   const [historyOpen, setHistoryOpen] = useState(false);
   const [getInTouchOpen, setGetInTouchOpen] = useState(false);
+  const [apprenticeshipOpen, setApprenticeshipOpen] = useState(false);
   const [organizeOpen, setOrganizeOpen] = useState(false);
   const [selectedTrade, setSelectedTrade] = useState("IBEW_I");
   // URL-aware page state
@@ -6108,8 +6109,8 @@ export default function UnionPathway() {
             {/* GET STARTED DROPDOWN (uses apprenticeOpen) */}
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
-                className={`nav-dropdown-btn${(page==="checklist"||page==="careers"||page==="quiz"||page==="apprenticeship"||page.startsWith("apprenticeship-")||page==="calculator"||page==="resume")?" active":""}${apprenticeOpen?" open":""}`}
-                onClick={() => { setApprenticeOpen(o => !o); setLearnOpen(false); setHistoryOpen(false); setResourcesOpen(false); setGetInTouchOpen(false); }}
+                className={`nav-dropdown-btn${(page==="checklist"||page==="careers"||page==="quiz"||page==="calculator"||page==="resume")?" active":""}${apprenticeOpen?" open":""}`}
+                onClick={() => { setApprenticeOpen(o => !o); setLearnOpen(false); setHistoryOpen(false); setResourcesOpen(false); setGetInTouchOpen(false); setApprenticeshipOpen(false); }}
                 onBlur={() => setTimeout(() => setApprenticeOpen(false), 150)}
               >
                 {lang==="es" ? "Empezar" : lang==="pl" ? "Zacznij" : "Get Started"}
@@ -6129,10 +6130,6 @@ export default function UnionPathway() {
                     <span className="nav-dropdown-label">{lang==="es" ? "Que Oficio?" : lang==="pl" ? "Ktory Zawod?" : "Which Trade?"}</span>
                     <span className="nav-dropdown-sub">{lang==="es" ? "Encuentra tu oficio ideal" : lang==="pl" ? "Znajdz swoj idealny zawod" : "Find your perfect trade match"}</span>
                   </div>
-                  <div className={`nav-dropdown-item${page==="apprenticeship"||page.startsWith("apprenticeship-")?" active":""}`} onMouseDown={() => { setPage("apprenticeship"); setApprenticeOpen(false); }}>
-                    <span className="nav-dropdown-label">{lang==="es" ? "Pruebas de Aprendizaje" : lang==="pl" ? "Testy Praktyk" : "Apprenticeship Tests"}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "NJATC, EIAT, GAN y mas" : lang==="pl" ? "NJATC, EIAT, GAN i wiecej" : "NJATC, EIAT, GAN, and more"}</span>
-                  </div>
                   <div className={`nav-dropdown-item${page==="calculator"?" active":""}`} onMouseDown={() => { setPage("calculator"); setApprenticeOpen(false); }}>
                     <span className="nav-dropdown-label">{lang==="es" ? "Calculadora de Salarios" : lang==="pl" ? "Kalkulator Wynagrodzen" : "Wage Calculator"}</span>
                     <span className="nav-dropdown-sub">{lang==="es" ? "Calcula tu paquete completo" : lang==="pl" ? "Oblicz swoj pelny pakiet" : "Calculate your full package value"}</span>
@@ -6145,11 +6142,46 @@ export default function UnionPathway() {
               )}
             </div>
 
-            {/* MEMBERSHIP DROPDOWN (uses learnOpen) */}
+            {/* APPRENTICESHIP DROPDOWN (uses apprenticeshipOpen) */}
+            <div className="nav-dropdown-wrap" style={{position:"relative"}}>
+              <button
+                className={`nav-dropdown-btn${(page==="apprenticeship"||page.startsWith("apprenticeship-"))?" active":""}${apprenticeshipOpen?" open":""}`}
+                onClick={() => { setApprenticeshipOpen(o => !o); setApprenticeOpen(false); setLearnOpen(false); setHistoryOpen(false); setResourcesOpen(false); setGetInTouchOpen(false); }}
+                onBlur={() => setTimeout(() => setApprenticeshipOpen(false), 150)}
+              >
+                {lang==="es" ? "Aprendizaje" : lang==="pl" ? "Praktyka" : "Apprenticeship"}
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              {apprenticeshipOpen && (
+                <div className="nav-dropdown-menu" style={{minWidth:240}}>
+                  <div className={`nav-dropdown-item${page==="apprenticeship"?" active":""}`} onMouseDown={() => { setPage("apprenticeship"); setApprenticeshipOpen(false); }}>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Todas las Pruebas" : lang==="pl" ? "Wszystkie Testy" : "All Trade Tests"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Vista general por oficio" : lang==="pl" ? "Przeglad wedlug zawodu" : "Overview of every trade test"}</span>
+                  </div>
+                  {[
+                    {key:'ibew',  page:'apprenticeship-ibew',  name:'IBEW · NJATC'},
+                    {key:'ua',    page:'apprenticeship-ua',    name:'UA · GAN'},
+                    {key:'smart', page:'apprenticeship-smart', name:'SMART · Sheet Metal'},
+                    {key:'iuec',  page:'apprenticeship-iuec',  name:'IUEC · EIAT'},
+                    {key:'iw',    page:'apprenticeship-iw',    name:'Iron Workers'},
+                    {key:'bac',   page:'apprenticeship-bac',   name:'BAC · Bricklayers'},
+                    {key:'hfiaw', page:'apprenticeship-hfiaw', name:'HFIAW · Insulators'},
+                    {key:'iuoe',  page:'apprenticeship-iuoe',  name:'IUOE · Operating Engineers'},
+                    {key:'ubc',   page:'apprenticeship-ubc',   name:'UBC · Carpenters'},
+                  ].map(t => (
+                    <div key={t.key} onMouseDown={() => { setPage(t.page); setApprenticeshipOpen(false); }} className={`nav-dropdown-item${page===t.page?" active":""}`}>
+                      <span className="nav-dropdown-label">{t.name}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+                        {/* MEMBERSHIP DROPDOWN (uses learnOpen) */}
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
                 className={`nav-dropdown-btn${(page==="benefits"||page==="retirement"||page==="veterans"||page==="locals"||page==="wages"||page==="jobboard")?" active":""}${learnOpen?" open":""}`}
-                onClick={() => { setLearnOpen(o => !o); setApprenticeOpen(false); setHistoryOpen(false); setResourcesOpen(false); setGetInTouchOpen(false); }}
+                onClick={() => { setLearnOpen(o => !o); setApprenticeOpen(false); setHistoryOpen(false); setResourcesOpen(false); setGetInTouchOpen(false); setApprenticeshipOpen(false); }}
                 onBlur={() => setTimeout(() => setLearnOpen(false), 150)}
               >
                 {lang==="es" ? "Membresia" : lang==="pl" ? "Czlonkostwo" : "Membership"}
@@ -6189,7 +6221,7 @@ export default function UnionPathway() {
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
                 className={`nav-dropdown-btn${(page==="rtw"||page==="weingarten"||page==="organize"||page==="organize-contractor")?" active":""}${resourcesOpen?" open":""}`}
-                onClick={() => { setResourcesOpen(o => !o); setApprenticeOpen(false); setLearnOpen(false); setHistoryOpen(false); setGetInTouchOpen(false); }}
+                onClick={() => { setResourcesOpen(o => !o); setApprenticeOpen(false); setLearnOpen(false); setHistoryOpen(false); setGetInTouchOpen(false); setApprenticeshipOpen(false); }}
                 onBlur={() => setTimeout(() => setResourcesOpen(false), 150)}
               >
                 {lang==="es" ? "Recursos" : lang==="pl" ? "Zasoby" : "Resources"}
@@ -6221,7 +6253,7 @@ export default function UnionPathway() {
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
                 className={`nav-dropdown-btn${(page==="history"||page==="trade-history"||page.startsWith("history-"))?" active":""}${historyOpen?" open":""}`}
-                onClick={() => { setHistoryOpen(o => !o); setLearnOpen(false); setApprenticeOpen(false); setResourcesOpen(false); setGetInTouchOpen(false); }}
+                onClick={() => { setHistoryOpen(o => !o); setLearnOpen(false); setApprenticeOpen(false); setResourcesOpen(false); setGetInTouchOpen(false); setApprenticeshipOpen(false); }}
                 onBlur={() => setTimeout(() => setHistoryOpen(false), 150)}
               >
                 {lang==="es" ? "Historia" : lang==="pl" ? "Historia" : "History"}
@@ -6261,7 +6293,7 @@ export default function UnionPathway() {
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
                 className={`nav-dropdown-btn${(page==="about"||page==="contact")?" active":""}${getInTouchOpen?" open":""}`}
-                onClick={() => { setGetInTouchOpen(o => !o); setApprenticeOpen(false); setLearnOpen(false); setHistoryOpen(false); setResourcesOpen(false); }}
+                onClick={() => { setGetInTouchOpen(o => !o); setApprenticeOpen(false); setLearnOpen(false); setHistoryOpen(false); setResourcesOpen(false); setApprenticeshipOpen(false); }}
                 onBlur={() => setTimeout(() => setGetInTouchOpen(false), 150)}
               >
                 {lang==="es" ? "Nosotros" : lang==="pl" ? "O Nas" : "About"}
@@ -6381,7 +6413,7 @@ export default function UnionPathway() {
 
           <div className="mobile-drawer-section">
             <button
-              className={`mobile-drawer-section-toggle${(page==="checklist"||page==="careers"||page==="quiz"||page==="apprenticeship"||page.startsWith("apprenticeship-")||page==="calculator"||page==="resume") ? " active" : ""}${drawerSecOpen.gs ? " open" : ""}`}
+              className={`mobile-drawer-section-toggle${(page==="checklist"||page==="careers"||page==="quiz"||page==="calculator"||page==="resume") ? " active" : ""}${drawerSecOpen.gs ? " open" : ""}`}
               onClick={() => toggleDrawerSec("gs")}
             >
               <span>{lang==="es" ? "Empezar" : lang==="pl" ? "Zacznij" : "Get Started"}</span>
@@ -6391,29 +6423,30 @@ export default function UnionPathway() {
             <button className={`mobile-drawer-link${page==="checklist" ? " active" : ""}`} onClick={() => { setPage("checklist"); setMobileNavOpen(false); }}>{lang==="es" ? "Como Unirse" : lang==="pl" ? "Jak Dolaczyc" : "How to Join"}</button>
             <button className={`mobile-drawer-link${page==="careers" ? " active" : ""}`} onClick={() => { setPage("careers"); setMobileNavOpen(false); }}>{lang==="es" ? "Rutas de Carrera" : lang==="pl" ? "Sciezki Kariery" : "Career Paths"}</button>
             <button className={`mobile-drawer-link${page==="quiz" ? " active" : ""}`} onClick={() => { setPage("quiz"); setMobileNavOpen(false); resetQuiz(); }}>{lang==="es" ? "Que Oficio?" : lang==="pl" ? "Ktory Zawod?" : "Which Trade?"}</button>
-            <button
-              className={`mobile-drawer-toggle${page==="apprenticeship"||page.startsWith("apprenticeship-") ? " active" : ""}${drawerTestsOpen ? " open" : ""}`}
-              onClick={() => setDrawerTestsOpen(o => !o)}
-            >
-              <span>{lang==="es" ? "Pruebas de Aprendizaje" : lang==="pl" ? "Testy Praktyk" : "Apprenticeship Tests"}</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            {drawerTestsOpen && (
-              <>
-                <button className={`mobile-drawer-link${page==="apprenticeship" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("apprenticeship"); setMobileNavOpen(false); }}>{lang==="es" ? "Todas las Pruebas" : lang==="pl" ? "Wszystkie Testy" : "All Trade Tests"}</button>
-                <button className={`mobile-drawer-link${page==="apprenticeship-ibew" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("apprenticeship-ibew"); setMobileNavOpen(false); }}>· IBEW · NJATC</button>
-                <button className={`mobile-drawer-link${page==="apprenticeship-ua" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("apprenticeship-ua"); setMobileNavOpen(false); }}>· UA · GAN</button>
-                <button className={`mobile-drawer-link${page==="apprenticeship-smart" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("apprenticeship-smart"); setMobileNavOpen(false); }}>· SMART · Sheet Metal</button>
-                <button className={`mobile-drawer-link${page==="apprenticeship-iuec" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("apprenticeship-iuec"); setMobileNavOpen(false); }}>· IUEC · EIAT</button>
-                <button className={`mobile-drawer-link${page==="apprenticeship-iw" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("apprenticeship-iw"); setMobileNavOpen(false); }}>· Iron Workers</button>
-                <button className={`mobile-drawer-link${page==="apprenticeship-bac" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("apprenticeship-bac"); setMobileNavOpen(false); }}>· BAC · Bricklayers</button>
-                <button className={`mobile-drawer-link${page==="apprenticeship-hfiaw" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("apprenticeship-hfiaw"); setMobileNavOpen(false); }}>· HFIAW · Insulators</button>
-                <button className={`mobile-drawer-link${page==="apprenticeship-iuoe" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("apprenticeship-iuoe"); setMobileNavOpen(false); }}>· IUOE · Operating Engineers</button>
-                <button className={`mobile-drawer-link${page==="apprenticeship-ubc" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("apprenticeship-ubc"); setMobileNavOpen(false); }}>· UBC · Carpenters</button>
-              </>
-            )}
             <button className={`mobile-drawer-link${page==="calculator" ? " active" : ""}`} onClick={() => { setPage("calculator"); setMobileNavOpen(false); }}>{lang==="es" ? "Calculadora de Salarios" : lang==="pl" ? "Kalkulator Wynagrodzen" : "Wage Calculator"}</button>
             <button className={`mobile-drawer-link${page==="resume" ? " active" : ""}`} onClick={() => { setPage("resume"); setMobileNavOpen(false); }}>{lang==="es" ? "Plantilla de Curriculum" : lang==="pl" ? "Szablon CV" : "Resume Template"}</button>
+            </>)}
+          </div>
+
+          <div className="mobile-drawer-section">
+            <button
+              className={`mobile-drawer-section-toggle${(page==="apprenticeship"||page.startsWith("apprenticeship-")) ? " active" : ""}${drawerSecOpen.ap ? " open" : ""}`}
+              onClick={() => toggleDrawerSec("ap")}
+            >
+              <span>{lang==="es" ? "Aprendizaje" : lang==="pl" ? "Praktyka" : "Apprenticeship"}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            {drawerSecOpen.ap && (<>
+              <button className={`mobile-drawer-link${page==="apprenticeship" ? " active" : ""}`} onClick={() => { setPage("apprenticeship"); setMobileNavOpen(false); }}>{lang==="es" ? "Todas las Pruebas" : lang==="pl" ? "Wszystkie Testy" : "All Trade Tests"}</button>
+              <button className={`mobile-drawer-link${page==="apprenticeship-ibew" ? " active" : ""}`} onClick={() => { setPage("apprenticeship-ibew"); setMobileNavOpen(false); }}>· IBEW · NJATC</button>
+              <button className={`mobile-drawer-link${page==="apprenticeship-ua" ? " active" : ""}`} onClick={() => { setPage("apprenticeship-ua"); setMobileNavOpen(false); }}>· UA · GAN</button>
+              <button className={`mobile-drawer-link${page==="apprenticeship-smart" ? " active" : ""}`} onClick={() => { setPage("apprenticeship-smart"); setMobileNavOpen(false); }}>· SMART · Sheet Metal</button>
+              <button className={`mobile-drawer-link${page==="apprenticeship-iuec" ? " active" : ""}`} onClick={() => { setPage("apprenticeship-iuec"); setMobileNavOpen(false); }}>· IUEC · EIAT</button>
+              <button className={`mobile-drawer-link${page==="apprenticeship-iw" ? " active" : ""}`} onClick={() => { setPage("apprenticeship-iw"); setMobileNavOpen(false); }}>· Iron Workers</button>
+              <button className={`mobile-drawer-link${page==="apprenticeship-bac" ? " active" : ""}`} onClick={() => { setPage("apprenticeship-bac"); setMobileNavOpen(false); }}>· BAC · Bricklayers</button>
+              <button className={`mobile-drawer-link${page==="apprenticeship-hfiaw" ? " active" : ""}`} onClick={() => { setPage("apprenticeship-hfiaw"); setMobileNavOpen(false); }}>· HFIAW · Insulators</button>
+              <button className={`mobile-drawer-link${page==="apprenticeship-iuoe" ? " active" : ""}`} onClick={() => { setPage("apprenticeship-iuoe"); setMobileNavOpen(false); }}>· IUOE · Operating Engineers</button>
+              <button className={`mobile-drawer-link${page==="apprenticeship-ubc" ? " active" : ""}`} onClick={() => { setPage("apprenticeship-ubc"); setMobileNavOpen(false); }}>· UBC · Carpenters</button>
             </>)}
           </div>
 
