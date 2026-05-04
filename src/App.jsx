@@ -3434,6 +3434,7 @@ export default function UnionPathway() {
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [drawerHistoryOpen, setDrawerHistoryOpen] = useState(false);
+  const [drawerIndustrialOpen, setDrawerIndustrialOpen] = useState(false);
   const [drawerTestsOpen, setDrawerTestsOpen] = useState(false);
   const [drawerSecOpen, setDrawerSecOpen] = useState({});
   const toggleDrawerSec = (k) => setDrawerSecOpen(s => ({ ...s, [k]: !s[k] }));
@@ -6569,7 +6570,7 @@ export default function UnionPathway() {
                     );
                     return (
                       <>
-                        <div style={{padding:"6px 14px 4px", fontFamily:"'Barlow Condensed',sans-serif", fontSize:10, fontWeight:700, color:"#F5C518", letterSpacing:2, textTransform:"uppercase"}}>{lang==="es" ? "Oficios de Construcción" : lang==="pl" ? "Zawody Budowlane" : "Construction Trades"}</div>
+                        <div style={{padding:"6px 14px 4px", fontFamily:"'Barlow Condensed',sans-serif", fontSize:10, fontWeight:700, color:"#F5C518", letterSpacing:2, textTransform:"uppercase"}}>{lang==="es" ? "Historias por Oficio" : lang==="pl" ? "Historia Wedlug Zawodu" : "Trade Histories"}</div>
                         {construction.map(renderItem)}
                         <div style={{margin:"6px 14px", height:1, background:"rgba(255,255,255,0.08)"}} />
                         <div style={{padding:"6px 14px 4px", fontFamily:"'Barlow Condensed',sans-serif", fontSize:10, fontWeight:700, color:"#10A37F", letterSpacing:2, textTransform:"uppercase"}}>{lang==="es" ? "Sindicatos Industriales" : lang==="pl" ? "Związki Przemysłowe" : "Industrial Unions"}</div>
@@ -6788,7 +6789,7 @@ export default function UnionPathway() {
             {drawerSecOpen.hi && (<>
             <button className={`mobile-drawer-link${page==="history" ? " active" : ""}`} onClick={() => { setPage("history"); setMobileNavOpen(false); }}>{lang==="es" ? "Historia General" : lang==="pl" ? "Historia Ogolna" : "General Union History"}</button>
             <button
-              className={`mobile-drawer-toggle${page==="trade-history"||page.startsWith("history-") ? " active" : ""}${drawerHistoryOpen ? " open" : ""}`}
+              className={`mobile-drawer-toggle${page==="trade-history"||(page.startsWith("history-") && page !== "history-ufcw") ? " active" : ""}${drawerHistoryOpen ? " open" : ""}`}
               onClick={() => setDrawerHistoryOpen(o => !o)}
             >
               <span>{lang==="es" ? "Historias por Oficio" : lang==="pl" ? "Historia Wedlug Zawodu" : "Trade Histories"}</span>
@@ -6797,7 +6798,6 @@ export default function UnionPathway() {
             {drawerHistoryOpen && (
               <>
                 <button className={`mobile-drawer-link${page==="trade-history" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("trade-history"); setMobileNavOpen(false); }}>{lang==="es" ? "Todas" : lang==="pl" ? "Wszystkie" : "All Trades"}</button>
-                <div style={{padding:"10px 24px 4px 36px", fontFamily:"'Barlow Condensed',sans-serif", fontSize:10, fontWeight:700, color:"#F5C518", letterSpacing:1.8, textTransform:"uppercase"}}>{lang==="es" ? "Oficios de Construcción" : lang==="pl" ? "Zawody Budowlane" : "Construction Trades"}</div>
                 <button className={`mobile-drawer-link${page==="history-ibew" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("history-ibew"); setMobileNavOpen(false); }}>· IBEW · Electricians</button>
                 <button className={`mobile-drawer-link${page==="history-ua" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("history-ua"); setMobileNavOpen(false); }}>· UA · Plumbers & Pipefitters</button>
                 <button className={`mobile-drawer-link${page==="history-smart" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("history-smart"); setMobileNavOpen(false); }}>· SMART · Sheet Metal</button>
@@ -6806,7 +6806,17 @@ export default function UnionPathway() {
                 <button className={`mobile-drawer-link${page==="history-insul" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("history-insul"); setMobileNavOpen(false); }}>· Insulators (HFIAW)</button>
                 <button className={`mobile-drawer-link${page==="history-iuec" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("history-iuec"); setMobileNavOpen(false); }}>· IUEC · Elevator Constructors</button>
                 <button className={`mobile-drawer-link${page==="history-iupat" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("history-iupat"); setMobileNavOpen(false); }}>· IUPAT · Painters & Allied Trades</button>
-                <div style={{padding:"10px 24px 4px 36px", fontFamily:"'Barlow Condensed',sans-serif", fontSize:10, fontWeight:700, color:"#10A37F", letterSpacing:1.8, textTransform:"uppercase", marginTop:4}}>{lang==="es" ? "Sindicatos Industriales" : lang==="pl" ? "Związki Przemysłowe" : "Industrial Unions"}</div>
+              </>
+            )}
+            <button
+              className={`mobile-drawer-toggle${page==="history-ufcw" ? " active" : ""}${drawerIndustrialOpen ? " open" : ""}`}
+              onClick={() => setDrawerIndustrialOpen(o => !o)}
+            >
+              <span>{lang==="es" ? "Sindicatos Industriales" : lang==="pl" ? "Związki Przemysłowe" : "Industrial Unions"}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            {drawerIndustrialOpen && (
+              <>
                 <button className={`mobile-drawer-link${page==="history-ufcw" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("history-ufcw"); setMobileNavOpen(false); }}>· UFCW · Food & Commercial</button>
               </>
             )}
@@ -14103,7 +14113,7 @@ export default function UnionPathway() {
 
                 return (
                   <>
-                    {/* CONSTRUCTION TRADES GROUP */}
+                    {/* CONSTRUCTION TRADES GROUP — Industrial Unions moved to its own sub-menu (fix185) */}
                     <div style={{padding:'40px 24px 16px', maxWidth:1100, margin:'0 auto'}}>
                       <div style={{display:'flex', alignItems:'baseline', gap:12, marginBottom:24, flexWrap:'wrap'}}>
                         <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:2.5, textTransform:'uppercase'}}>{constructionLabel}</div>
@@ -14111,17 +14121,6 @@ export default function UnionPathway() {
                       </div>
                       <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(320px, 1fr))', gap:16}}>
                         {TRADES_CONSTRUCTION.map(t => <TradeCard key={t.key} t={t} />)}
-                      </div>
-                    </div>
-
-                    {/* INDUSTRIAL UNIONS GROUP */}
-                    <div style={{padding:'40px 24px 16px', maxWidth:1100, margin:'0 auto'}}>
-                      <div style={{display:'flex', alignItems:'baseline', gap:12, marginBottom:24, flexWrap:'wrap'}}>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#10A37F', letterSpacing:2.5, textTransform:'uppercase'}}>{industrialLabel}</div>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.5)', letterSpacing:1.5, textTransform:'uppercase'}}>· {TRADES_INDUSTRIAL.length} {lang==="es" ? "Disponibles" : lang==="pl" ? "Dostepne" : "Live"}</div>
-                      </div>
-                      <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(320px, 1fr))', gap:16}}>
-                        {TRADES_INDUSTRIAL.map(t => <TradeCard key={t.key} t={t} />)}
                       </div>
                     </div>
                   </>
