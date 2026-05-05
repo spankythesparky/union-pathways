@@ -3496,7 +3496,7 @@ export default function UnionPathway() {
   // URL-aware page state
   const getPageFromUrl = () => {
     const path = window.location.pathname.replace('/', '') || 'home';
-    const validPages = ['home','quiz','careers','checklist','locals','calculator','resume','veterans','history','trade-history','history-ibew','history-ua','history-smart','history-bac','history-ufcw','history-iron','history-insul','history-iuec','retirement','benefits','about','contact','jobboard','wages','organize','organize-contractor','rtw','apprenticeship','apprenticeship-ibew','apprenticeship-ua','apprenticeship-smart','apprenticeship-iuec','apprenticeship-iw','apprenticeship-bac','apprenticeship-hfiaw','apprenticeship-iuoe','apprenticeship-ubc','apprenticeship-iupat','weingarten','history-iupat'];
+    const validPages = ['home','quiz','careers','checklist','locals','calculator','resume','veterans','history','trade-history','history-ibew','history-ua','history-smart','history-bac','history-ufcw','history-iron','history-insul','history-iuec','retirement','benefits','about','contact','jobboard','wages','organize','organize-contractor','rtw','apprenticeship','apprenticeship-ibew','apprenticeship-ua','apprenticeship-smart','apprenticeship-iuec','apprenticeship-iw','apprenticeship-bac','apprenticeship-hfiaw','apprenticeship-iuoe','apprenticeship-ubc','apprenticeship-iupat','weingarten','history-iupat','history-nnu','downpayment'];
     return validPages.includes(path) ? path : 'home';
   };
   const [page, setPageState] = useState(getPageFromUrl);
@@ -4580,6 +4580,8 @@ export default function UnionPathway() {
       'apprenticeship-ubc': { title: "UBC Carpenters Aptitude Test — Full Breakdown · Union Pathways", desc: "What's on the UBC Carpenters apprenticeship test, with detail on all 11 trade specialties — General Carpenter, Concrete Form Builder, Floor Coverer, Mill Cabinet, Millwright (the most technical), Pile Driver, Lathing, Drywall Finisher, Insulation Applicator, Bridge/Dock/Wharf Carpenter, Maintenance Carpenter." },
       'apprenticeship-iupat': { title: "IUPAT Apprenticeship Test — Full Breakdown · Union Pathways", desc: "What's on the IUPAT apprenticeship test — math, reading, mechanical, spatial, and (for painters) color perception. Coverage of the 8+ trades under IUPAT including glaziers, drywall finishers, and industrial painters, plus the wide regional variation between District Councils. There's no single national IUPAT test — each region runs its own." },
       'history-iupat': { title: "IUPAT History — Brushes, Glass, and Brotherhood · Union Pathways", desc: "From the half-empty Baltimore meeting hall where Jack Elliott chartered the union in 1887 to the modern Hanover campus and the iFTI training institute. The East-West split, the absorption of glaziers and drywall finishers, the Schonfeld reform era, the 1999 IUPAT name change, and the Williams-era organizing strategy. 139 years of finishing trades history." },
+      'history-nnu': { title: "NNU History — By the Bedside · Union Pathways", desc: "How direct-care nurses built the largest registered nurses union in American history. The 2009 Phoenix merger of CNA, UAN, and MNA, the Kaiser strike, California's landmark AB 394 staffing ratios law, the COVID-19 pandemic, and the path from Shirley Titus's 1945 East Bay agreement to the modern 225,000-member union." },
+      'downpayment': { title: "Down Payment Calculator — From Apprentice to Journeyman · Union Pathways", desc: "For fifth-year apprentices about to make journeyman. Calculate the gross raise from apprentice scale to full journeyman rate, then see how big a down payment you can save by living like an apprentice for a few more years. Built for the trades. Discipline not included — bring your own." },
       weingarten: { title: "Weingarten Rights — Your Right to a Union Rep · Union Pathways", desc: "If your boss is questioning you about something that could lead to discipline, you have the right to a union representative present. The full breakdown — what triggers it, what counts as an investigatory interview, the wallet card script, what your rep can and can't do, and the four-decade flip-flop on whether non-union workers have the same right." },
       benefits: { title: "Union Benefits Overview — Pension, Health, Annuity & More · Union Pathways", desc: "What union members actually get — multiemployer pension, health and welfare, defined-contribution annuity, training trust, supplemental coverage. The full benefits package broken down so apprentices and journeymen can see what their hours are buying." },
       retirement: { title: "Union Retirement — 401k vs Annuity vs Pension · Union Pathways", desc: "How union retirement actually works. The difference between a 401(k), a multiemployer pension, and a defined-contribution annuity. What vesting means, why portability matters, and how three benefit streams stack into one paycheck after you hang it up." },
@@ -6422,7 +6424,7 @@ export default function UnionPathway() {
             {/* APPRENTICESHIP DROPDOWN (uses apprenticeshipOpen) */}
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
-                className={`nav-dropdown-btn${(page==="apprenticeship"||page.startsWith("apprenticeship-"))?" active":""}${apprenticeshipOpen?" open":""}`}
+                className={`nav-dropdown-btn${(page==="apprenticeship"||page.startsWith("apprenticeship-")||page==="downpayment")?" active":""}${apprenticeshipOpen?" open":""}`}
                 onClick={() => { setApprenticeshipOpen(o => !o); setApprenticeOpen(false); setLearnOpen(false); setHistoryOpen(false); setResourcesOpen(false); setGetInTouchOpen(false); }}
                 onBlur={() => setTimeout(() => setApprenticeshipOpen(false), 150)}
               >
@@ -6451,6 +6453,11 @@ export default function UnionPathway() {
                       <span className="nav-dropdown-label">{t.name}</span>
                     </div>
                   ))}
+                  <div style={{margin:"6px 14px", height:1, background:"rgba(255,255,255,0.08)"}} />
+                  <div className={`nav-dropdown-item${page==="downpayment"?" active":""}`} onMouseDown={() => { setPage("downpayment"); setApprenticeshipOpen(false); }}>
+                    <span className="nav-dropdown-label">{lang==="es" ? "Calculadora de Pago Inicial" : lang==="pl" ? "Kalkulator Wpłaty" : "Down Payment Calculator"}</span>
+                    <span className="nav-dropdown-sub">{lang==="es" ? "Aprendiz a oficial — calcula tu casa" : lang==="pl" ? "Praktykant do mistrza — oblicz swój dom" : "Apprentice to journeyman — calculate your home"}</span>
+                  </div>
                 </div>
               )}
             </div>
@@ -6559,6 +6566,7 @@ export default function UnionPathway() {
                     ];
                     const industrial = [
                       {key:'UFCW', name:'UFCW — Food & Commercial Workers', page:'history-ufcw', live:true},
+                      {key:'NNU', name:'NNU — National Nurses United', page:'history-nnu', live:true},
                     ];
                     const renderItem = t => (
                       <div key={t.key} onMouseDown={() => { if (t.live) { setPage(t.page); setHistoryOpen(false); } }} className={`nav-dropdown-item${page===t.page?" active":""}`} style={{opacity: t.live ? 1 : 0.55, cursor: t.live ? "pointer" : "not-allowed"}}>
@@ -6741,6 +6749,7 @@ export default function UnionPathway() {
               <button className={`mobile-drawer-link${page==="apprenticeship-iuoe" ? " active" : ""}`} onClick={() => { setPage("apprenticeship-iuoe"); setMobileNavOpen(false); }}>· IUOE · Operating Engineers</button>
               <button className={`mobile-drawer-link${page==="apprenticeship-ubc" ? " active" : ""}`} onClick={() => { setPage("apprenticeship-ubc"); setMobileNavOpen(false); }}>· UBC · Carpenters</button>
               <button className={`mobile-drawer-link${page==="apprenticeship-iupat" ? " active" : ""}`} onClick={() => { setPage("apprenticeship-iupat"); setMobileNavOpen(false); }}>· IUPAT · Painters & Allied Trades</button>
+              <button className={`mobile-drawer-link${page==="downpayment" ? " active" : ""}`} onClick={() => { setPage("downpayment"); setMobileNavOpen(false); }}>{lang==="es" ? "Calculadora de Pago Inicial" : lang==="pl" ? "Kalkulator Wpłaty" : "Down Payment Calculator"}</button>
             </>)}
           </div>
 
@@ -6818,6 +6827,7 @@ export default function UnionPathway() {
             {drawerIndustrialOpen && (
               <>
                 <button className={`mobile-drawer-link${page==="history-ufcw" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("history-ufcw"); setMobileNavOpen(false); }}>· UFCW · Food & Commercial</button>
+                <button className={`mobile-drawer-link${page==="history-nnu" ? " active" : ""}`} style={{paddingLeft:36, fontSize:14}} onClick={() => { setPage("history-nnu"); setMobileNavOpen(false); }}>· NNU · National Nurses United</button>
               </>
             )}
             </>)}
@@ -11478,6 +11488,232 @@ export default function UnionPathway() {
           );
         })()}
 
+        {page === "history-nnu" && (() => {
+          if (typeof window !== 'undefined' && !window.__nnuStatCache) window.__nnuStatCache = {};
+          const AnimatedNumber = ({ value, suffix = '', prefix = '', decimals = 0 }) => {
+            const cacheKey = 'nnu:' + prefix + ':' + value + ':' + suffix + ':' + decimals;
+            const cached = typeof window !== 'undefined' && window.__nnuStatCache && window.__nnuStatCache[cacheKey];
+            const [shown, setShown] = useState(cached ? value : 0);
+            const ref = useRef(null);
+            const animated = useRef(!!cached);
+            useEffect(() => {
+              if (animated.current) return;
+              const el = ref.current;
+              if (!el) return;
+              const obs = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                  if (e.isIntersecting && !animated.current) {
+                    animated.current = true;
+                    const start = performance.now();
+                    const dur = 1400;
+                    const step = (now) => {
+                      const t = Math.min(1, (now - start) / dur);
+                      const eased = 1 - Math.pow(1 - t, 3);
+                      setShown(value * eased);
+                      if (t < 1) requestAnimationFrame(step);
+                      else if (typeof window !== 'undefined' && window.__nnuStatCache) window.__nnuStatCache[cacheKey] = true;
+                    };
+                    requestAnimationFrame(step);
+                  }
+                });
+              }, { threshold: 0.5 });
+              obs.observe(el);
+              return () => obs.disconnect();
+            }, [value]);
+            return <span ref={ref}>{prefix}{shown.toFixed(decimals)}{suffix}</span>;
+          };
+
+          const PullQuote = ({ children, attribution }) => (
+            <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #10A37F', background:'linear-gradient(90deg, rgba(16,163,127,0.1) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#fff', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
+              {attribution && <div style={{fontSize:13, color:'rgba(160,180,196,0.8)', marginTop:14, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase'}}>— {attribution}</div>}
+            </div>
+          );
+
+          const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
+            <div style={{textAlign:'center', padding:'24px 16px'}}>
+              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#10A37F', lineHeight:1}}>
+                <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
+              </div>
+              <div style={{fontSize:12, color:'rgba(160,180,196,0.85)', marginTop:8, textTransform:'uppercase', letterSpacing:1.5, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{label}</div>
+            </div>
+          );
+
+          const Era = ({ tag, title, years, intro, color = '#10A37F', children }) => {
+            const [eraOpen, setEraOpen] = useState(false);
+            return (
+              <div style={{margin:'40px 0', position:'relative'}}>
+                <button
+                  onClick={() => setEraOpen(o => !o)}
+                  style={{width:'100%', display:'flex', alignItems:'center', gap:16, flexWrap:'wrap', background:'transparent', border:'none', padding:0, cursor:'pointer', textAlign:'left', marginBottom: eraOpen ? 20 : 0}}
+                >
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color, flexShrink:0}}>{tag}</div>
+                  <div style={{flex:1, minWidth:0}}>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                  </div>
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                </button>
+                {eraOpen && (
+                  <div style={{paddingTop:8, paddingLeft: 64}}>
+                    {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
+                    {children}
+                  </div>
+                )}
+              </div>
+            );
+          };
+
+          const Para = ({ children }) => (
+            <p style={{fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:18, maxWidth:780}}>{children}</p>
+          );
+
+          return (
+            <div id="nnu-history-root">
+              <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #10A37F, #F5C518)', transition:'width 0.1s'}} />
+              </div>
+
+              {/* BREADCRUMB */}
+              <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
+                <div onClick={() => setPage('trade-history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}} onMouseEnter={e => e.currentTarget.style.color = '#10A37F'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                  Back to Histories
+                </div>
+              </div>
+
+              {/* HERO */}
+              <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#10A37F', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>National Nurses United · Industrial Union</div>
+                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>
+                  By the <span style={{color:'#10A37F'}}>Bedside.</span><br/>
+                  <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>How direct-care nurses built the largest registered nurses union in American history.</span>
+                </h1>
+                <p style={{fontSize:18, color:'rgba(255,255,255,0.7)', lineHeight:1.6, maxWidth:680, margin:'0 auto'}}>
+                  Three independent nursing organizations, one shared enemy in the hospital industry, and a 2009 merger in a Phoenix hotel ballroom that produced the largest organization of direct-care registered nurses in the United States. NNU has won the only mandatory staffing ratios law in American history, defended it for two decades, and held the line through a global pandemic that killed thousands of healthcare workers.
+                </p>
+              </div>
+
+              {/* HEADLINE STATS */}
+              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+                <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(160px, 1fr))', gap:16, maxWidth:1100, margin:'0 auto'}}>
+                  <StatBlock value={225} label="Registered nurses" suffix="K+" />
+                  <StatBlock value={50} label="States represented" />
+                  <StatBlock value={14} label="Countries (Global Nurses United)" />
+                  <StatBlock value={2009} label="Founded" />
+                </div>
+              </div>
+
+              <PullQuote attribution="NNU founding principle, December 2009">
+                Safe staffing saves lives.
+              </PullQuote>
+
+              <div style={{maxWidth:880, margin:'0 auto', padding:'40px 24px 80px'}}>
+
+                <Era tag="I" years="Before 2009" title="Before the Union" intro="Why nurses had to leave the American Nurses Association.">
+                  <Para>For most of the twentieth century, American registered nurses had a national organization, and that national organization was emphatically not a union. The American Nurses Association, founded in 1896, was a professional association run largely by nurse executives, educators, and managers. It set educational standards, lobbied for licensure, and credentialed the profession. What it did not do — what it actively resisted doing for decades — was bargain collectively with hospital employers on behalf of staff nurses at the bedside.</Para>
+                  <Para>The contradiction at the heart of the ANA was structural. The association was funded almost entirely by direct-care nurses paying dues, but it was governed by people whose jobs depended on hospital management. When staff nurses pushed for stronger workplace protections, safer staffing, or higher pay, the ANA leadership tended to side with the institutions paying its governing class. State nurses associations, chartered as ANA affiliates, mostly followed the same pattern.</Para>
+                  <Para>By the 1990s, registered nurses across the country were waking up to the same realization: their professional association was not built to fight for them, and in some cases was actively built to keep them from fighting for themselves. The reckoning came in stages. The California Nurses Association disaffiliated from the ANA in 1995. The Massachusetts Nurses Association followed in 2001 after a special meeting in Worcester that drew the largest gathering of registered nurses in Massachusetts history. The United American Nurses, formed in 1999 as the ANA's own internal labor arm, was itself terminated by the ANA in 2008 after years of friction. Within fifteen years, the three largest organized forces of bedside RNs in America had each, separately, walked out of the institution that was supposed to represent them. The question was what they would build instead.</Para>
+                </Era>
+
+                <Era tag="II" years="1903 – 1992" title="Shirley Titus and the California Original" color="#FA8059" intro="A 1903 association becomes a 1945 union — and then drifts back.">
+                  <Para>The California Nurses Association was the oldest of the three founding bodies that would eventually merge into NNU. Chartered in 1903 as the California State Nurses Association, it spent its first four decades as a fairly conventional state nursing society — credentialing, continuing education, and the kind of professional networking that defined the era. Then, in the years immediately after World War II, it did something almost no other American nursing association would do for another half century. It became a real union.</Para>
+                  <Para>The transformation came largely through one woman: <strong style={{color:'#fff'}}>Shirley Carew Titus</strong>, a CNA executive director who came out of the Vanderbilt nursing program and brought a thoroughly different vision of what a nursing association could be. In 1945, with American hospitals scrambling for staff in the postwar boom and registered nurses leaving the profession in droves over wages and conditions, Titus engineered the first collective bargaining agreement for registered nurses in American history — a master agreement with the East Bay Hospital Conference covering minimum salaries, time-and-a-half overtime, shift differentials for night and weekend work, the 40-hour workweek, paid holidays, paid vacation, and severance pay.</Para>
+                  <Para>No one had ever done this for nurses before. The agreement was technically negotiated under the auspices of the ANA's "no-strike pledge," which the ANA used to justify collective bargaining only as long as nurses promised never to actually walk off the job. But the East Bay agreement set a precedent the rest of American nursing would spend the next forty years either ignoring or running from.</Para>
+                  <Para>CNA itself, after Titus's era, drifted back into the same nurse-executive-dominated pattern as every other state association. By 1992, CNA had dwindled to just 17,000 members, run by managers, marginal in the politics of California healthcare, and almost completely separated from the staff nurses at the bedside whose dues paid for it.</Para>
+                </Era>
+
+                <Era tag="III" years="1993 – 1995" title="The 1993 Revolution" intro="Staff nurses take back their own union.">
+                  <Para>In September of 1993, after years of internal pressure, a new staff-nurse majority took office on the CNA Board of Directors. Their first major decision was to hire a former Teamsters and SEIU organizer named <strong style={{color:'#fff'}}>RoseAnn DeMoro</strong> as CNA's executive director. DeMoro was not a nurse. She was an organizer who understood, as Forbes magazine would later put it, that her job was to play "Florence Nightingale, meet Mother Jones." She would hold the role for the next 32 years.</Para>
+                  <Para>DeMoro and the new staff-nurse board moved quickly. In 1994, CNA launched an aggressive public campaign against hospital restructuring plans that were cutting RN positions and replacing them with lower-paid, less-trained personnel. The union held educational workshops for nurses across the state. It built a Patient Watch program for tracking and exposing unsafe hospital practices. In 1995, CNA formally disaffiliated from the American Nurses Association — the first state nursing association to do so, and the model that the Massachusetts Nurses Association and others would follow over the next decade.</Para>
+                  <Para>The strategic logic of the 1993 revolution was simple. Hospitals were consolidating into massive corporate chains. HMOs were squeezing budgets. Hospital executives were paying themselves seven-figure salaries while telling staff nurses there was no money for safer staffing levels. The old CNA — a polite professional association — was structurally incapable of confronting any of this. The new CNA was built specifically to fight it. Within five years, the union would more than double in size, win the most important nursing law in American history, and become the model that every militant nursing organization in the country would copy.</Para>
+                </Era>
+
+                <Era tag="IV" years="1997 – 1998" title="The Kaiser War" color="#FA8059" intro="How a strike against an HMO giant changed everything.">
+                  <Para>Kaiser Permanente, the largest nonprofit HMO in California, had been one of CNA's biggest signatory employers for decades. In 1997, Kaiser came to the bargaining table demanding sweeping concessions — pay cuts, weakened staffing language, the ability to close hospitals without RN consultation. CNA's answer was to call a strike. Over the course of 1997 and 1998, <strong style={{color:'#fff'}}>7,500 registered nurses walked off the job at 47 Kaiser hospitals and clinics</strong> across Northern and Central California. It was, at the time, the largest RN strike in American history.</Para>
+                  <Para>The Kaiser fight was the proving ground for everything CNA had built since 1993. Strike lines held in dozens of cities. Public opinion swung sharply behind the nurses. Kaiser's plan to close hospitals in Oakland, Richmond, and Martinez — a key flashpoint of the dispute — collapsed under public pressure orchestrated by CNA. By the time the dust settled, the union had not just defeated the concessions; it had established itself as a political force in California capable of taking on the largest healthcare corporations in the state and winning.</Para>
+                  <Para>More importantly, the Kaiser war taught CNA a lesson that would shape the next twenty years of strategy: <strong style={{color:'#10A37F'}}>the most powerful weapon in nursing was not abstract advocacy. It was the credible threat of staff nurses, in identifiable scrubs, walking off identifiable hospital units.</strong> The public understood that. Politicians understood it. Hospital boards definitely understood it. Once you had a union willing to actually use that weapon, the political territory of what was achievable expanded enormously. Within twelve months, CNA would prove just how far that territory extended.</Para>
+                </Era>
+
+                <Era tag="V" years="October 10, 1999" title="Ratios" intro="AB 394 and the most important nursing law in American history.">
+                  <Para>On October 10, 1999, California Governor Gray Davis signed Assembly Bill 394 into law. The bill was short. Its core demand was simple: every hospital in the state of California would, at all times, have to maintain a minimum number of registered nurses for every patient on every unit. No averaging. No exceptions for budget reasons. No waivers for short-staffing. <strong style={{color:'#10A37F'}}>For the first time in American history — and as it would turn out, in world history — a jurisdiction had legally required hospitals to staff their units safely.</strong></Para>
+                  <Para>AB 394 was almost entirely a CNA project. The union had been pushing for some version of staffing ratios for nearly a decade, with multiple attempts dying in the legislature under pressure from the California Hospital Association. The 1999 winning effort was the result of an unprecedented grassroots campaign — thousands of letters and phone calls, packed committee hearings, a massive rally on the Capitol steps in Sacramento on the day of the final vote. Hospital lobbyists swarmed Sacramento. The bill passed anyway.</Para>
+                  <Para>The numbers tell the story. California's medical-surgical nurse-to-patient ratio is 1:5. According to a landmark 2010 University of Pennsylvania study by Linda Aiken, the country's foremost nursing researcher, if California ratios were matched in surgical units in New Jersey, NJ hospitals would have <strong style={{color:'#fff'}}>14 percent fewer deaths</strong>. In Pennsylvania, <strong style={{color:'#fff'}}>11 percent fewer</strong>. The math is brutal. Tens of thousands of American patients have died over the past two decades from inadequate hospital staffing — deaths that would not have happened if more states had passed laws like AB 394.</Para>
+                  <Para>The ratios were implemented in 2004. When Governor Arnold Schwarzenegger tried to roll them back later that year at the request of the hospital industry, CNA mounted a year-long public campaign that tracked Schwarzenegger to baseball games, rock concerts, and even the San Francisco Ritz-Carlton, with members in scrubs chanting and waving signs everywhere he went. By the end of 2005, Schwarzenegger's rollback effort had collapsed. The ratios survived. They have been the model — fought for, defended, and so far still unmatched — in every American jurisdiction since.</Para>
+                </Era>
+
+                <Era tag="VI" years="2005 – 2009" title="Going National" color="#FA8059" intro="Three unions, one direction.">
+                  <Para>By the mid-2000s, CNA was no longer just a California union. In 2005, with the ratios law implemented and the Schwarzenegger fight largely won, CNA created a sister organization called the National Nurses Organizing Committee — NNOC — explicitly to organize RNs outside California using the same model that had worked at home. NNOC chartered in Florida, Illinois, Maine, Missouri, Pennsylvania, and Texas. By 2008, the combined CNA/NNOC organization represented 83,000 nurses.</Para>
+                  <Para>In Massachusetts, the story tracked a similar arc. The Massachusetts Nurses Association, founded in 1903 like CNA, had spent the first century of its existence as a conventional state professional association. In 2001, after years of internal pressure, MNA disaffiliated from the ANA at a special meeting in Worcester — the largest gathering of registered nurses in Massachusetts history. MNA then spent the next several years building itself into a genuine bargaining union for Massachusetts RNs, particularly in the Boston hospital system, and growing toward roughly 23,000 members by the end of the decade.</Para>
+                  <Para>The third strand was the United American Nurses. UAN had been created by the ANA in 1999 as its internal labor affiliate — an attempt to keep collective-bargaining-minded state associations inside the tent. The strategy backfired. Once the UAN existed, it began asserting independence almost immediately. By 2003-04 it had its own constitution, its own finances, and its own dues. In 2008, the ANA unilaterally terminated its relationship with UAN. The break was bitter and final. UAN now represented somewhere between 40,000 and 50,000 nurses, mostly in Minnesota, Michigan, Ohio, and other Midwestern states, with no national infrastructure of its own.</Para>
+                  <Para>Three independent organizations. The same broad goals. The same enemy in the hospital industry, and increasingly in the SEIU, which had been pursuing aggressive raids and questionable management-friendly recognition deals across multiple states. The merger conversation began in 2008. By February of 2009, CNA/NNOC, UAN, and MNA had publicly announced an agreement to combine into a single 150,000-member national nurses union.</Para>
+                </Era>
+
+                <Era tag="VII" years="December 7, 2009" title="Phoenix" intro="The founding convention of National Nurses United.">
+                  <Para>On December 7, 2009, in a hotel ballroom in Phoenix, Arizona, delegates from CNA/NNOC, the United American Nurses, and the Massachusetts Nurses Association ratified the new constitution and formally founded <strong style={{color:'#10A37F'}}>National Nurses United</strong>. It was the largest union and professional association of registered nurses in American history. The combined membership was roughly 150,000 RNs across all 50 states.</Para>
+                  <Para>The merger had not been easy. The Illinois Nurses Association, a UAN affiliate, had filed an unsuccessful lawsuit attempting to block the entire process. Three of the seven members of the UAN executive council voted against unification. Some MNA delegates worried about losing local control. The dues structures of the three founding organizations were wildly different — CNA used a percentage-of-wages formula capped at $95 per month, UAN charged $130 per year, MNA had its own structure entirely. The merged union had to reconcile all of it. By December, the work was done.</Para>
+                  <Para>The Phoenix convention adopted a founding statement that committed the new union to four specific goals: building a nationwide RN movement organized by and for direct-care nurses; aggressively organizing the substantial majority of American RNs who did not yet belong to any union; winning federal-level safe staffing ratios on the California model; and creating a national Taft-Hartley pension for union RNs — a defined-benefit pension structure many other union trades had enjoyed for generations but that nurses, fragmented as they had always been, had never been able to build for themselves.</Para>
+                  <Para>The founding convention also established the unusual leadership structure NNU still uses today: a <strong style={{color:'#fff'}}>Council of Presidents</strong> — multiple co-presidents serving simultaneously, all of them working RNs, all of them elected by the membership at biennial conventions. The structure reflects a core NNU principle: the union is led by direct-care nurses, full stop. Supervisors, managers, and administrators are explicitly excluded from leadership roles. The original co-presidents were Deborah Burger, Karen Higgins, and Jean Ross. RoseAnn DeMoro became NNU's first executive director, transferring over from her CNA role.</Para>
+                </Era>
+
+                <Era tag="VIII" years="2010 – 2019" title="The Ratios Decade" color="#FA8059" intro="Defending California, exporting the model.">
+                  <Para>The 2010s were NNU's ratios decade. The strategic question for the new union was whether AB 394 — California's landmark staffing law — could be exported to other states or to the federal level. The hospital industry had spent the entire decade since 1999 fighting to make sure the answer was no. Every state legislative attempt to copy the California model had been blocked by a coordinated lobbying effort from the American Hospital Association and its state affiliates.</Para>
+                  <Para>NNU's strategy was to fight on multiple fronts simultaneously. At the federal level, the union pushed for the Registered Nurse Safe Staffing Act and a series of related bills in Congress, none of which has yet passed. At the state level, NNU and its affiliates organized in Texas, Pennsylvania, Massachusetts, and Minnesota for state-specific staffing legislation. <strong style={{color:'#10A37F'}}>At the contract level — and this is where most of the actual gains came — NNU locals across the country began writing California-style staffing language directly into their collective bargaining agreements with hospital employers, hospital by hospital, unit by unit.</strong> By the end of the decade, hundreds of NNU contracts contained enforceable staffing ratios.</Para>
+                  <Para>The 2010 Aiken study at the University of Pennsylvania was a turning point. By demonstrating that California ratios saved measurable numbers of patient lives, the study moved the conversation out of pure labor politics and into public health. Every NNU campaign for staffing legislation after 2010 carried the Aiken numbers as ammunition. The hospital industry could no longer credibly claim that mandatory ratios were a self-interested union demand divorced from patient outcomes. The data said otherwise.</Para>
+                  <Para>NNU also broadened its political portfolio dramatically during the 2010s. The union became the most aggressive labor advocate in the country for single-payer healthcare — Medicare for All — backing legislation in Congress and state legislatures, sponsoring rallies, and eventually endorsing Bernie Sanders's 2016 presidential campaign as one of the few national unions to do so. NNU also founded the Registered Nurse Response Network in 2005 as the first disaster relief organization built by and for RNs, deploying volunteer NNU members to Hurricane Katrina in 2005, the Haiti earthquake in 2010, Typhoon Haiyan in 2013, and dozens of other disasters since.</Para>
+                </Era>
+
+                <Era tag="IX" years="2020 – 2022" title="The COVID Years" intro="PPE, body bags, and the fight for the bedside.">
+                  <Para>In late February of 2020, NNU began publicly warning American hospitals and federal regulators that the novel coronavirus emerging out of China was going to overwhelm the U.S. healthcare system unless personal protective equipment supplies, isolation protocols, and respiratory protections were dramatically scaled up. By March, the warnings had become press releases and lawsuits and pickets outside hospitals from California to New York. By April, NNU was reporting that its own members were dying.</Para>
+                  <Para>The COVID-19 pandemic was the largest crisis NNU had ever faced, and it put every founding principle of the union to the test simultaneously. Hospitals, faced with PPE shortages they had spent decades refusing to plan for, instructed nurses to reuse single-use N95 respirators for entire shifts, sometimes for entire weeks. NNU called the practice what it was: deadly. The union sent letters to the CDC. It published surveys of more than 23,000 nurses documenting the conditions on the ground. It demanded — and eventually won — emergency temporary OSHA standards covering healthcare workplaces.</Para>
+                  <Para>The cost was staggering. Thousands of American healthcare workers died of COVID-19 over the course of the pandemic. NNU itself lost members in numbers it has never fully tallied. The union responded by publishing a running report — <strong style={{color:'#fff'}}>Sins of Omission</strong> — documenting the failures of local, state, and federal governments to track healthcare worker deaths and the resistance of hospital corporations to disclose infection data. The first edition came out in September of 2020. The updated edition came out in March of 2021. Both were brutal.</Para>
+                  <Para>And yet the pandemic also accelerated NNU's organizing. Hospitals that had spent decades treating their nurses as interchangeable cost centers discovered, under the lights of a global emergency, that their nurses were the entire point of the institution. Nurses discovered the same thing about each other. Strike activity surged across the U.S. healthcare sector from 2021 onward. NNU contracts negotiated during and after the pandemic carried stronger staffing language, stronger workplace violence protections, and stronger pandemic-preparedness clauses than anything the union had won before. The membership, which had been growing steadily for a decade, accelerated past 225,000.</Para>
+                </Era>
+
+                <Era tag="X" years="2018 – Today" title="The Castillo Era and What Comes Next" color="#FA8059" intro="A union built for the next pandemic.">
+                  <Para>In early 2018, after 32 years at the helm of CNA and then NNU, <strong style={{color:'#fff'}}>RoseAnn DeMoro</strong> retired. Her successor as NNU executive director was <strong style={{color:'#fff'}}>Bonnie Castillo</strong>, a longtime CNA leader and registered nurse herself who had headed the Registered Nurse Response Network through its first decade of disaster deployments. Castillo's arrival represented something the union had been building toward for a long time: leadership by working RNs, drawn from the bedside, governing the institution they had built.</Para>
+                  <Para>The Castillo era was defined almost entirely by the COVID-19 pandemic. NNU expanded aggressively during her tenure, both in raw membership and in political reach. The union led the largest healthcare worker advocacy effort in American history during the pandemic, pushing the federal government on PPE, on aerosol transmission, on workplace standards, and on the long-term question of how the country would prepare for the next outbreak. By the time NNU's 2024-2027 leadership term began, the Council of Presidents — Jamie Brown, Nancy Hagans, Cathy Kennedy, and Mary Turner, all working RNs — was running the largest registered nurses union in American history.</Para>
+                  <Para>In August of 2025, NNU welcomed <strong style={{color:'#fff'}}>Puneet Maharaj</strong> as its new executive director, succeeding Castillo. The transition marked another generational handover for the union — and another step in the project of building an organization that could outlast any individual leader, that could confront not just the next contract fight but the structural transformation of American healthcare itself.</Para>
+                  <Para>NNU today represents over 225,000 registered nurses across all 50 states, organized through major affiliates including CNA/NNOC, the Minnesota Nurses Association, the Michigan Nurses Association, the New York State Nurses Association, the DC Nurses Association, and VA nurses, along with its international sister network, Global Nurses United (representing nursing unions in 14 countries). It is the largest organization of direct-care registered nurses in the United States. Its policy goals — mandatory federal staffing ratios, Medicare for All, workplace violence protections, aerosol-transmissible disease standards, climate action, and the abolition of mandatory overtime — are unchanged from the Phoenix founding in 2009.</Para>
+                  <Para>The fight is unchanged too. American hospitals are more consolidated than they were in 2009, more financialized, more dependent on corporate executives whose compensation is tied to cost-cutting at the bedside. The technologies arrayed against staff nurses now include artificial intelligence systems being marketed to hospital administrators as substitutes for human nursing judgment. The political environment for organized labor has whipsawed through Trump, Biden, and back again. Through all of it, NNU has done what it was built to do: keep registered nurses at the center of American healthcare, by force if necessary, by strike if necessary, by federal lobbying and state legislation and contract bargaining and direct action all at once.</Para>
+                </Era>
+
+                <PullQuote attribution="NNU member tagline">
+                  Caring is fierce.
+                </PullQuote>
+
+                {/* AFFILIATES SUMMARY CARD */}
+                <div style={{margin:'56px 0 32px', padding:'32px', background:'rgba(255,255,255,0.03)', border:'1px solid rgba(16,163,127,0.2)', borderRadius:16}}>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#10A37F', letterSpacing:2.5, textTransform:'uppercase', marginBottom:14}}>NNU Today · The Affiliates</div>
+                  <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'0 0 24px 0'}}>One union, six affiliates, fifty states.</h3>
+                  <ul style={{margin:0, paddingLeft:24, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.85, listStyle:'none'}}>
+                    {[
+                      ['CNA/NNOC', 'Over 100,000 RNs across 200+ California facilities, plus NNOC organizing in FL, IL, ME, MO, PA, and TX. Founded 1903. Largest NNU affiliate.'],
+                      ['Minnesota Nurses Association', 'RNs across Minnesota hospitals, including major systems in the Twin Cities and Duluth.'],
+                      ['Michigan Nurses Association', 'Registered nurses across Michigan hospitals and healthcare systems.'],
+                      ['New York State Nurses Association', 'RNs across New York State, including major NYC hospital systems. Affiliated with NNU in 2022.'],
+                      ['DC Nurses Association', 'Registered nurses across the District of Columbia healthcare system.'],
+                      ['VA Nurses Affiliate', 'Nurses working in the Veterans Administration system nationwide.'],
+                      ['Global Nurses United', 'International sister network — federation of nursing unions in 14 countries worldwide.'],
+                    ].map(([n, d], i) => (
+                      <li key={i} style={{position:'relative', paddingLeft:14, marginBottom:8}}>
+                        <span style={{position:'absolute', left:-10, color:'#10A37F', fontWeight:900}}>·</span>
+                        <strong style={{color:'#fff'}}>{n}</strong> — {d}
+                      </li>
+                    ))}
+                  </ul>
+                  <p style={{margin:'18px 0 0 0', fontSize:13, color:'rgba(255,255,255,0.6)', fontStyle:'italic'}}>Over 225,000 registered nurses. 50 states represented. Founded December 2009 in Phoenix, Arizona. Oldest affiliate (CNA) founded 1903.</p>
+                </div>
+
+              </div>
+
+              <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
+                <button onClick={() => setPage('trade-history')} style={{background:'transparent', color:'#10A37F', fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(16,163,127,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to Histories</button>
+              </div>
+            </div>
+          );
+        })()}
+
         {page === "rtw" && (() => {
           // ============================================================
           // DATA
@@ -12571,6 +12807,168 @@ export default function UnionPathway() {
             );
           };
           return <WeingartenPage />;
+        })()}
+
+        {page === "downpayment" && (() => {
+          const DownPaymentCalculator = () => {
+            const [hourlyWage, setHourlyWage] = useState(45);
+            const [apprenticePercent, setApprenticePercent] = useState(75);
+            const [apprenticeHours, setApprenticeHours] = useState(32);
+            const [journeymanHours, setJourneymanHours] = useState(40);
+            const [years, setYears] = useState(3.5);
+            const [homePrice, setHomePrice] = useState(350000);
+
+            const weeks = 52;
+            const apprenticeAnnual = hourlyWage * (apprenticePercent / 100) * apprenticeHours * weeks;
+            const journeymanAnnual = hourlyWage * journeymanHours * weeks;
+            const annualRaise = journeymanAnnual - apprenticeAnnual;
+            const monthlyRaise = annualRaise / 12;
+            const totalSaved = annualRaise * years;
+            const pctOfHome = homePrice > 0 ? (totalSaved / homePrice) * 100 : 0;
+            const homeAt20Down = totalSaved / 0.2;
+            const fmt = (n) => '$' + Math.round(n).toLocaleString();
+
+            const monoFont = { fontFamily: "'IBM Plex Mono', ui-monospace, monospace" };
+            const displayFont = { fontFamily: "'Barlow Condensed', Impact, sans-serif", letterSpacing: '0.01em', fontWeight: 900 };
+
+            const SectionHeader = ({ label }) => (
+              <div style={{display:'flex', alignItems:'center', gap:12, marginBottom:20}}>
+                <div style={{...monoFont, fontSize:11, fontWeight:700, color:'#FA8059', letterSpacing:'0.35em'}}>{label}</div>
+                <div style={{flex:1, height:1, background:'rgba(255,255,255,0.1)'}} />
+              </div>
+            );
+
+            const Field = ({ label, value, onChange, prefix, suffix, step = 1 }) => (
+              <div style={{borderBottom:'1px solid rgba(255,255,255,0.08)', paddingBottom:16, marginBottom:16}}>
+                <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'rgba(255,255,255,0.6)', textTransform:'uppercase', marginBottom:8}}>{label}</label>
+                <div style={{display:'flex', alignItems:'baseline', gap:8}}>
+                  {prefix && <span style={{...monoFont, fontSize:24, color:'rgba(255,255,255,0.4)'}}>{prefix}</span>}
+                  <input
+                    type="number"
+                    step={step}
+                    value={value}
+                    onChange={(e) => onChange(parseFloat(e.target.value) || 0)}
+                    style={{...monoFont, background:'transparent', fontSize:32, color:'#fff', width:'100%', border:'none', outline:'none'}}
+                  />
+                  {suffix && <span style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>{suffix}</span>}
+                </div>
+              </div>
+            );
+
+            const Stat = ({ tag, label, value, dim, accent }) => (
+              <div style={{padding:20, background: accent ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.3)'}}>
+                <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', marginBottom:8, color: accent ? '#FA8059' : 'rgba(255,255,255,0.4)'}}>{tag}</div>
+                <div style={{...displayFont, fontSize:32, marginBottom:4, color: dim ? 'rgba(255,255,255,0.5)' : '#fff'}}>{value}</div>
+                <div style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)'}}>{label}</div>
+              </div>
+            );
+
+            return (
+              <div style={{minHeight:'100vh', background:'#0F1620', position:'relative', overflow:'hidden'}}>
+                {/* blueprint grid background */}
+                <div style={{
+                  position:'fixed', inset:0, opacity:0.04, pointerEvents:'none',
+                  backgroundImage:'linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)',
+                  backgroundSize:'32px 32px'
+                }} />
+                {/* corner glow */}
+                <div style={{
+                  position:'fixed', top:0, right:0, width:500, height:500,
+                  background:'radial-gradient(circle, rgba(250,128,89,0.12) 0%, transparent 60%)',
+                  filter:'blur(40px)', pointerEvents:'none'
+                }} />
+
+                <div style={{position:'relative', maxWidth:760, margin:'0 auto', padding:'40px 24px 80px'}}>
+                  {/* breadcrumb */}
+                  <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:12, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700, marginBottom:32}}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                    Apprenticeship
+                  </div>
+
+                  {/* Header */}
+                  <div style={{marginBottom:48}}>
+                    <div style={{display:'flex', alignItems:'center', gap:12, marginBottom:14}}>
+                      <div style={{height:1, width:32, background:'#FA8059'}} />
+                      <div style={{...monoFont, fontSize:10, fontWeight:700, color:'#FA8059', letterSpacing:'0.35em'}}>FIELD MANUAL · NO. 001</div>
+                    </div>
+                    <h1 style={{...displayFont, fontSize:'clamp(48px, 9vw, 96px)', lineHeight:0.9, marginBottom:18, color:'#fff', margin:0}}>
+                      THE DOWN<br/>PAYMENT<br/><span style={{color:'#FA8059'}}>CALCULATOR.</span>
+                    </h1>
+                    <p style={{fontSize:15, color:'rgba(255,255,255,0.6)', lineHeight:1.55, maxWidth:540, marginTop:18}}>
+                      For fifth-year apprentices about to make journeyman. Before you buy the truck — run the numbers.
+                    </p>
+                  </div>
+
+                  {/* INPUTS */}
+                  <div style={{marginBottom:40}}>
+                    <SectionHeader label="01 · INPUTS" />
+                    <Field label="Journeyman hourly rate" value={hourlyWage} onChange={setHourlyWage} prefix="$" suffix="/ HR" step={1} />
+                    <Field label="Apprentice % of scale" value={apprenticePercent} onChange={setApprenticePercent} suffix="%" step={1} />
+                    <Field label="Apprentice hrs / week" value={apprenticeHours} onChange={setApprenticeHours} suffix="HRS" step={1} />
+                    <Field label="Journeyman hrs / week" value={journeymanHours} onChange={setJourneymanHours} suffix="HRS" step={1} />
+                    <Field label="Years of discipline" value={years} onChange={setYears} suffix="YRS" step={0.5} />
+                  </div>
+
+                  {/* THE RAISE */}
+                  <div style={{marginBottom:40}}>
+                    <SectionHeader label="02 · THE RAISE" />
+                    <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:1, background:'rgba(255,255,255,0.08)', marginBottom:24}}>
+                      <Stat tag="NOW" label="Apprentice / yr" value={fmt(apprenticeAnnual)} dim />
+                      <Stat tag="AFTER" label="Journeyman / yr" value={fmt(journeymanAnnual)} accent />
+                    </div>
+                    <div style={{border:'1px solid rgba(250,128,89,0.4)', background:'rgba(250,128,89,0.06)', padding:'24px 28px'}}>
+                      <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'#FA8059', marginBottom:8}}>GROSS RAISE</div>
+                      <div style={{display:'flex', alignItems:'baseline', gap:14, flexWrap:'wrap'}}>
+                        <div style={{...displayFont, fontSize:'clamp(48px, 8vw, 64px)', color:'#FA8059'}}>{fmt(annualRaise)}</div>
+                        <div style={{fontSize:14, color:'rgba(255,255,255,0.5)'}}>/ year</div>
+                      </div>
+                      <div style={{...monoFont, marginTop:8, fontSize:13, color:'rgba(255,255,255,0.5)'}}>≈ {fmt(monthlyRaise)} / month</div>
+                    </div>
+                  </div>
+
+                  {/* THE PLAY */}
+                  <div style={{marginBottom:40}}>
+                    <SectionHeader label="03 · THE PLAY" />
+                    <div style={{border:'1px solid rgba(255,255,255,0.1)', background:'rgba(255,255,255,0.02)', padding:28}}>
+                      <p style={{fontSize:15, lineHeight:1.65, color:'rgba(255,255,255,0.85)', marginBottom:24, marginTop:0}}>
+                        Keep living like a fifth-year apprentice. Don't upgrade the truck. Don't upgrade everything. Save the entire raise for{' '}
+                        <span style={{...monoFont, color:'#FA8059'}}>{years} years</span>.
+                      </p>
+                      <div style={{borderTop:'1px solid rgba(255,255,255,0.08)', paddingTop:24}}>
+                        <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'rgba(255,255,255,0.5)', marginBottom:10}}>TOTAL SAVED</div>
+                        <div style={{...displayFont, fontSize:'clamp(64px, 14vw, 112px)', lineHeight:1, color:'#fff'}}>{fmt(totalSaved)}</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* THE HOUSE */}
+                  <div style={{marginBottom:40}}>
+                    <SectionHeader label="04 · THE HOUSE" />
+                    <Field label="Target home price" value={homePrice} onChange={setHomePrice} prefix="$" step={5000} />
+                    <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))', gap:1, background:'rgba(255,255,255,0.08)', marginTop:20}}>
+                      <div style={{padding:24, background:'#0F1620'}}>
+                        <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'rgba(255,255,255,0.5)', marginBottom:8}}>YOUR DOWN PAYMENT</div>
+                        <div style={{...displayFont, fontSize:48, marginBottom:6, color:'#fff'}}>{pctOfHome.toFixed(1)}%</div>
+                        <div style={{...monoFont, fontSize:13, color:'rgba(255,255,255,0.5)'}}>of {fmt(homePrice)}</div>
+                      </div>
+                      <div style={{padding:24, background:'#0F1620'}}>
+                        <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'#FA8059', marginBottom:8}}>OR · 20% DOWN BUYS</div>
+                        <div style={{...displayFont, fontSize:48, marginBottom:6, color:'#FA8059'}}>{fmt(homeAt20Down)}</div>
+                        <div style={{...monoFont, fontSize:13, color:'rgba(255,255,255,0.5)'}}>home value</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Footer */}
+                  <div style={{marginTop:48, paddingTop:24, borderTop:'1px solid rgba(255,255,255,0.08)', ...monoFont, fontSize:11, lineHeight:1.65, color:'rgba(255,255,255,0.4)'}}>
+                    GROSS FIGURES · TAXES & WITHHOLDING NOT INCLUDED · ASSUMES 52 WORK WEEKS<br/>
+                    DISCIPLINE NOT INCLUDED — BRING YOUR OWN.
+                  </div>
+                </div>
+              </div>
+            );
+          };
+          return <DownPaymentCalculator />;
         })()}
 
         {page === "apprenticeship" && (() => {
@@ -14067,6 +14465,7 @@ export default function UnionPathway() {
           ];
           const TRADES_INDUSTRIAL = [
             { key:'ufcw',  name:'UFCW',         full:'United Food and Commercial Workers International Union',                                   page:'history-ufcw',  founded:1979, members:'1.2M+', color:'#10A37F', sub:'Grocery, retail, and meatpacking. Strike Twenty-Six, Smithfield, and the largest private-sector union.' },
+            { key:'nnu',   name:'NNU',          full:'National Nurses United',                                                                   page:'history-nnu',   founded:2009, members:'225K+', color:'#10A37F', sub:'Bedside RNs, Phoenix 2009, and the only mandatory nurse-staffing ratios law in American history.' },
           ];
           const COMING = [
             { name:'IUOE — Operating Engineers',    sub:'Heavy equipment, stationary engineers, and mechanics.' },
