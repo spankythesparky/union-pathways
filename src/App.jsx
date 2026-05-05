@@ -12810,165 +12810,242 @@ export default function UnionPathway() {
         })()}
 
         {page === "downpayment" && (() => {
-          const DownPaymentCalculator = () => {
-            const [hourlyWage, setHourlyWage] = useState(45);
-            const [apprenticePercent, setApprenticePercent] = useState(75);
-            const [apprenticeHours, setApprenticeHours] = useState(32);
-            const [journeymanHours, setJourneymanHours] = useState(40);
-            const [years, setYears] = useState(3.5);
-            const [homePrice, setHomePrice] = useState(350000);
+// fix187 inlined — helpers inlined to prevent input remount on every keystroke
+          const monoFont = { fontFamily: "'IBM Plex Mono', ui-monospace, monospace" };
+          const displayFont = { fontFamily: "'Barlow Condensed', Impact, sans-serif", letterSpacing: '0.01em', fontWeight: 900 };
+          const [hourlyWage, setHourlyWage] = useState(45);
+          const [apprenticePercent, setApprenticePercent] = useState(75);
+          const [apprenticeHours, setApprenticeHours] = useState(32);
+          const [journeymanHours, setJourneymanHours] = useState(40);
+          const [years, setYears] = useState(3.5);
+          const [homePrice, setHomePrice] = useState(350000);
 
-            const weeks = 52;
-            const apprenticeAnnual = hourlyWage * (apprenticePercent / 100) * apprenticeHours * weeks;
-            const journeymanAnnual = hourlyWage * journeymanHours * weeks;
-            const annualRaise = journeymanAnnual - apprenticeAnnual;
-            const monthlyRaise = annualRaise / 12;
-            const totalSaved = annualRaise * years;
-            const pctOfHome = homePrice > 0 ? (totalSaved / homePrice) * 100 : 0;
-            const homeAt20Down = totalSaved / 0.2;
-            const fmt = (n) => '$' + Math.round(n).toLocaleString();
+          const weeks = 52;
+          const apprenticeAnnual = hourlyWage * (apprenticePercent / 100) * apprenticeHours * weeks;
+          const journeymanAnnual = hourlyWage * journeymanHours * weeks;
+          const annualRaise = journeymanAnnual - apprenticeAnnual;
+          const monthlyRaise = annualRaise / 12;
+          const totalSaved = annualRaise * years;
+          const pctOfHome = homePrice > 0 ? (totalSaved / homePrice) * 100 : 0;
+          const homeAt20Down = totalSaved / 0.2;
+          const fmt = (n) => '$' + Math.round(n).toLocaleString();
 
-            const monoFont = { fontFamily: "'IBM Plex Mono', ui-monospace, monospace" };
-            const displayFont = { fontFamily: "'Barlow Condensed', Impact, sans-serif", letterSpacing: '0.01em', fontWeight: 900 };
+          // Reusable inline-style helper for a section header.
+          // We render this as a JSX expression rather than a component to avoid
+          // the keystroke-remount bug.
+          const renderSection = (label) => (
+            <div style={{display:'flex', alignItems:'center', gap:12, marginBottom:20}}>
+              <div style={{...monoFont, fontSize:11, fontWeight:700, color:'#FA8059', letterSpacing:'0.35em'}}>{label}</div>
+              <div style={{flex:1, height:1, background:'rgba(255,255,255,0.1)'}} />
+            </div>
+          );
 
-            const SectionHeader = ({ label }) => (
-              <div style={{display:'flex', alignItems:'center', gap:12, marginBottom:20}}>
-                <div style={{...monoFont, fontSize:11, fontWeight:700, color:'#FA8059', letterSpacing:'0.35em'}}>{label}</div>
-                <div style={{flex:1, height:1, background:'rgba(255,255,255,0.1)'}} />
-              </div>
-            );
+          // Reusable inline-style helper for a stat card. Same idea — JSX
+          // expression, not a component definition.
+          const renderStat = (tag, label, value, dim, accent) => (
+            <div style={{padding:20, background: accent ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.3)'}}>
+              <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', marginBottom:8, color: accent ? '#FA8059' : 'rgba(255,255,255,0.4)'}}>{tag}</div>
+              <div style={{...displayFont, fontSize:32, marginBottom:4, color: dim ? 'rgba(255,255,255,0.5)' : '#fff'}}>{value}</div>
+              <div style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)'}}>{label}</div>
+            </div>
+          );
 
-            const Field = ({ label, value, onChange, prefix, suffix, step = 1 }) => (
-              <div style={{borderBottom:'1px solid rgba(255,255,255,0.08)', paddingBottom:16, marginBottom:16}}>
-                <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'rgba(255,255,255,0.6)', textTransform:'uppercase', marginBottom:8}}>{label}</label>
-                <div style={{display:'flex', alignItems:'baseline', gap:8}}>
-                  {prefix && <span style={{...monoFont, fontSize:24, color:'rgba(255,255,255,0.4)'}}>{prefix}</span>}
-                  <input
-                    type="number"
-                    step={step}
-                    value={value}
-                    onChange={(e) => onChange(parseFloat(e.target.value) || 0)}
-                    style={{...monoFont, background:'transparent', fontSize:32, color:'#fff', width:'100%', border:'none', outline:'none'}}
-                  />
-                  {suffix && <span style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>{suffix}</span>}
+          return (
+            <div style={{minHeight:'100vh', background:'#0F1620', position:'relative', overflow:'hidden'}}>
+              {/* blueprint grid background */}
+              <div style={{
+                position:'fixed', inset:0, opacity:0.04, pointerEvents:'none',
+                backgroundImage:'linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)',
+                backgroundSize:'32px 32px'
+              }} />
+              {/* corner glow */}
+              <div style={{
+                position:'fixed', top:0, right:0, width:500, height:500,
+                background:'radial-gradient(circle, rgba(250,128,89,0.12) 0%, transparent 60%)',
+                filter:'blur(40px)', pointerEvents:'none'
+              }} />
+
+              <div style={{position:'relative', maxWidth:760, margin:'0 auto', padding:'40px 24px 80px'}}>
+                {/* breadcrumb */}
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:12, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700, marginBottom:32}}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+                  Apprenticeship
                 </div>
-              </div>
-            );
 
-            const Stat = ({ tag, label, value, dim, accent }) => (
-              <div style={{padding:20, background: accent ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.3)'}}>
-                <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', marginBottom:8, color: accent ? '#FA8059' : 'rgba(255,255,255,0.4)'}}>{tag}</div>
-                <div style={{...displayFont, fontSize:32, marginBottom:4, color: dim ? 'rgba(255,255,255,0.5)' : '#fff'}}>{value}</div>
-                <div style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)'}}>{label}</div>
-              </div>
-            );
+                {/* Header */}
+                <div style={{marginBottom:48}}>
+                  <div style={{display:'flex', alignItems:'center', gap:12, marginBottom:14}}>
+                    <div style={{height:1, width:32, background:'#FA8059'}} />
+                    <div style={{...monoFont, fontSize:10, fontWeight:700, color:'#FA8059', letterSpacing:'0.35em'}}>FIELD MANUAL · NO. 001</div>
+                  </div>
+                  <h1 style={{...displayFont, fontSize:'clamp(48px, 9vw, 96px)', lineHeight:0.9, marginBottom:18, color:'#fff', margin:0}}>
+                    THE DOWN<br/>PAYMENT<br/><span style={{color:'#FA8059'}}>CALCULATOR.</span>
+                  </h1>
+                  <p style={{fontSize:15, color:'rgba(255,255,255,0.6)', lineHeight:1.55, maxWidth:540, marginTop:18}}>
+                    For fifth-year apprentices about to make journeyman. Before you buy the truck — run the numbers.
+                  </p>
+                </div>
 
-            return (
-              <div style={{minHeight:'100vh', background:'#0F1620', position:'relative', overflow:'hidden'}}>
-                {/* blueprint grid background */}
-                <div style={{
-                  position:'fixed', inset:0, opacity:0.04, pointerEvents:'none',
-                  backgroundImage:'linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)',
-                  backgroundSize:'32px 32px'
-                }} />
-                {/* corner glow */}
-                <div style={{
-                  position:'fixed', top:0, right:0, width:500, height:500,
-                  background:'radial-gradient(circle, rgba(250,128,89,0.12) 0%, transparent 60%)',
-                  filter:'blur(40px)', pointerEvents:'none'
-                }} />
+                {/* INPUTS — all inputs inlined directly, no Field component */}
+                <div style={{marginBottom:40}}>
+                  {renderSection("01 · INPUTS")}
 
-                <div style={{position:'relative', maxWidth:760, margin:'0 auto', padding:'40px 24px 80px'}}>
-                  {/* breadcrumb */}
-                  <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:12, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700, marginBottom:32}}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-                    Apprenticeship
+                  {/* Journeyman hourly rate */}
+                  <div style={{borderBottom:'1px solid rgba(255,255,255,0.08)', paddingBottom:16, marginBottom:16}}>
+                    <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'rgba(255,255,255,0.6)', textTransform:'uppercase', marginBottom:8}}>Journeyman hourly rate</label>
+                    <div style={{display:'flex', alignItems:'baseline', gap:8}}>
+                      <span style={{...monoFont, fontSize:24, color:'rgba(255,255,255,0.4)'}}>$</span>
+                      <input
+                        type="number"
+                        inputMode="decimal"
+                        step={1}
+                        value={hourlyWage}
+                        onChange={(e) => setHourlyWage(parseFloat(e.target.value) || 0)}
+                        style={{...monoFont, background:'transparent', fontSize:32, color:'#fff', width:'100%', border:'none', outline:'none'}}
+                      />
+                      <span style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>/ HR</span>
+                    </div>
                   </div>
 
-                  {/* Header */}
-                  <div style={{marginBottom:48}}>
-                    <div style={{display:'flex', alignItems:'center', gap:12, marginBottom:14}}>
-                      <div style={{height:1, width:32, background:'#FA8059'}} />
-                      <div style={{...monoFont, fontSize:10, fontWeight:700, color:'#FA8059', letterSpacing:'0.35em'}}>FIELD MANUAL · NO. 001</div>
+                  {/* Apprentice % of scale */}
+                  <div style={{borderBottom:'1px solid rgba(255,255,255,0.08)', paddingBottom:16, marginBottom:16}}>
+                    <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'rgba(255,255,255,0.6)', textTransform:'uppercase', marginBottom:8}}>Apprentice % of scale</label>
+                    <div style={{display:'flex', alignItems:'baseline', gap:8}}>
+                      <input
+                        type="number"
+                        inputMode="decimal"
+                        step={1}
+                        value={apprenticePercent}
+                        onChange={(e) => setApprenticePercent(parseFloat(e.target.value) || 0)}
+                        style={{...monoFont, background:'transparent', fontSize:32, color:'#fff', width:'100%', border:'none', outline:'none'}}
+                      />
+                      <span style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>%</span>
                     </div>
-                    <h1 style={{...displayFont, fontSize:'clamp(48px, 9vw, 96px)', lineHeight:0.9, marginBottom:18, color:'#fff', margin:0}}>
-                      THE DOWN<br/>PAYMENT<br/><span style={{color:'#FA8059'}}>CALCULATOR.</span>
-                    </h1>
-                    <p style={{fontSize:15, color:'rgba(255,255,255,0.6)', lineHeight:1.55, maxWidth:540, marginTop:18}}>
-                      For fifth-year apprentices about to make journeyman. Before you buy the truck — run the numbers.
+                  </div>
+
+                  {/* Apprentice hrs / week */}
+                  <div style={{borderBottom:'1px solid rgba(255,255,255,0.08)', paddingBottom:16, marginBottom:16}}>
+                    <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'rgba(255,255,255,0.6)', textTransform:'uppercase', marginBottom:8}}>Apprentice hrs / week</label>
+                    <div style={{display:'flex', alignItems:'baseline', gap:8}}>
+                      <input
+                        type="number"
+                        inputMode="decimal"
+                        step={1}
+                        value={apprenticeHours}
+                        onChange={(e) => setApprenticeHours(parseFloat(e.target.value) || 0)}
+                        style={{...monoFont, background:'transparent', fontSize:32, color:'#fff', width:'100%', border:'none', outline:'none'}}
+                      />
+                      <span style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>HRS</span>
+                    </div>
+                  </div>
+
+                  {/* Journeyman hrs / week */}
+                  <div style={{borderBottom:'1px solid rgba(255,255,255,0.08)', paddingBottom:16, marginBottom:16}}>
+                    <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'rgba(255,255,255,0.6)', textTransform:'uppercase', marginBottom:8}}>Journeyman hrs / week</label>
+                    <div style={{display:'flex', alignItems:'baseline', gap:8}}>
+                      <input
+                        type="number"
+                        inputMode="decimal"
+                        step={1}
+                        value={journeymanHours}
+                        onChange={(e) => setJourneymanHours(parseFloat(e.target.value) || 0)}
+                        style={{...monoFont, background:'transparent', fontSize:32, color:'#fff', width:'100%', border:'none', outline:'none'}}
+                      />
+                      <span style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>HRS</span>
+                    </div>
+                  </div>
+
+                  {/* Years of discipline */}
+                  <div style={{borderBottom:'1px solid rgba(255,255,255,0.08)', paddingBottom:16, marginBottom:16}}>
+                    <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'rgba(255,255,255,0.6)', textTransform:'uppercase', marginBottom:8}}>Years of discipline</label>
+                    <div style={{display:'flex', alignItems:'baseline', gap:8}}>
+                      <input
+                        type="number"
+                        inputMode="decimal"
+                        step={0.5}
+                        value={years}
+                        onChange={(e) => setYears(parseFloat(e.target.value) || 0)}
+                        style={{...monoFont, background:'transparent', fontSize:32, color:'#fff', width:'100%', border:'none', outline:'none'}}
+                      />
+                      <span style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>YRS</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* THE RAISE */}
+                <div style={{marginBottom:40}}>
+                  {renderSection("02 · THE RAISE")}
+                  <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:1, background:'rgba(255,255,255,0.08)', marginBottom:24}}>
+                    {renderStat("NOW", "Apprentice / yr", fmt(apprenticeAnnual), true, false)}
+                    {renderStat("AFTER", "Journeyman / yr", fmt(journeymanAnnual), false, true)}
+                  </div>
+                  <div style={{border:'1px solid rgba(250,128,89,0.4)', background:'rgba(250,128,89,0.06)', padding:'24px 28px'}}>
+                    <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'#FA8059', marginBottom:8}}>GROSS RAISE</div>
+                    <div style={{display:'flex', alignItems:'baseline', gap:14, flexWrap:'wrap'}}>
+                      <div style={{...displayFont, fontSize:'clamp(48px, 8vw, 64px)', color:'#FA8059'}}>{fmt(annualRaise)}</div>
+                      <div style={{fontSize:14, color:'rgba(255,255,255,0.5)'}}>/ year</div>
+                    </div>
+                    <div style={{...monoFont, marginTop:8, fontSize:13, color:'rgba(255,255,255,0.5)'}}>≈ {fmt(monthlyRaise)} / month</div>
+                  </div>
+                </div>
+
+                {/* THE PLAY */}
+                <div style={{marginBottom:40}}>
+                  {renderSection("03 · THE PLAY")}
+                  <div style={{border:'1px solid rgba(255,255,255,0.1)', background:'rgba(255,255,255,0.02)', padding:28}}>
+                    <p style={{fontSize:15, lineHeight:1.65, color:'rgba(255,255,255,0.85)', marginBottom:24, marginTop:0}}>
+                      Keep living like a fifth-year apprentice. Don't upgrade the truck. Don't upgrade everything. Save the entire raise for{' '}
+                      <span style={{...monoFont, color:'#FA8059'}}>{years} years</span>.
                     </p>
-                  </div>
-
-                  {/* INPUTS */}
-                  <div style={{marginBottom:40}}>
-                    <SectionHeader label="01 · INPUTS" />
-                    <Field label="Journeyman hourly rate" value={hourlyWage} onChange={setHourlyWage} prefix="$" suffix="/ HR" step={1} />
-                    <Field label="Apprentice % of scale" value={apprenticePercent} onChange={setApprenticePercent} suffix="%" step={1} />
-                    <Field label="Apprentice hrs / week" value={apprenticeHours} onChange={setApprenticeHours} suffix="HRS" step={1} />
-                    <Field label="Journeyman hrs / week" value={journeymanHours} onChange={setJourneymanHours} suffix="HRS" step={1} />
-                    <Field label="Years of discipline" value={years} onChange={setYears} suffix="YRS" step={0.5} />
-                  </div>
-
-                  {/* THE RAISE */}
-                  <div style={{marginBottom:40}}>
-                    <SectionHeader label="02 · THE RAISE" />
-                    <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:1, background:'rgba(255,255,255,0.08)', marginBottom:24}}>
-                      <Stat tag="NOW" label="Apprentice / yr" value={fmt(apprenticeAnnual)} dim />
-                      <Stat tag="AFTER" label="Journeyman / yr" value={fmt(journeymanAnnual)} accent />
+                    <div style={{borderTop:'1px solid rgba(255,255,255,0.08)', paddingTop:24}}>
+                      <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'rgba(255,255,255,0.5)', marginBottom:10}}>TOTAL SAVED</div>
+                      <div style={{...displayFont, fontSize:'clamp(64px, 14vw, 112px)', lineHeight:1, color:'#fff'}}>{fmt(totalSaved)}</div>
                     </div>
-                    <div style={{border:'1px solid rgba(250,128,89,0.4)', background:'rgba(250,128,89,0.06)', padding:'24px 28px'}}>
-                      <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'#FA8059', marginBottom:8}}>GROSS RAISE</div>
-                      <div style={{display:'flex', alignItems:'baseline', gap:14, flexWrap:'wrap'}}>
-                        <div style={{...displayFont, fontSize:'clamp(48px, 8vw, 64px)', color:'#FA8059'}}>{fmt(annualRaise)}</div>
-                        <div style={{fontSize:14, color:'rgba(255,255,255,0.5)'}}>/ year</div>
-                      </div>
-                      <div style={{...monoFont, marginTop:8, fontSize:13, color:'rgba(255,255,255,0.5)'}}>≈ {fmt(monthlyRaise)} / month</div>
-                    </div>
-                  </div>
-
-                  {/* THE PLAY */}
-                  <div style={{marginBottom:40}}>
-                    <SectionHeader label="03 · THE PLAY" />
-                    <div style={{border:'1px solid rgba(255,255,255,0.1)', background:'rgba(255,255,255,0.02)', padding:28}}>
-                      <p style={{fontSize:15, lineHeight:1.65, color:'rgba(255,255,255,0.85)', marginBottom:24, marginTop:0}}>
-                        Keep living like a fifth-year apprentice. Don't upgrade the truck. Don't upgrade everything. Save the entire raise for{' '}
-                        <span style={{...monoFont, color:'#FA8059'}}>{years} years</span>.
-                      </p>
-                      <div style={{borderTop:'1px solid rgba(255,255,255,0.08)', paddingTop:24}}>
-                        <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'rgba(255,255,255,0.5)', marginBottom:10}}>TOTAL SAVED</div>
-                        <div style={{...displayFont, fontSize:'clamp(64px, 14vw, 112px)', lineHeight:1, color:'#fff'}}>{fmt(totalSaved)}</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* THE HOUSE */}
-                  <div style={{marginBottom:40}}>
-                    <SectionHeader label="04 · THE HOUSE" />
-                    <Field label="Target home price" value={homePrice} onChange={setHomePrice} prefix="$" step={5000} />
-                    <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))', gap:1, background:'rgba(255,255,255,0.08)', marginTop:20}}>
-                      <div style={{padding:24, background:'#0F1620'}}>
-                        <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'rgba(255,255,255,0.5)', marginBottom:8}}>YOUR DOWN PAYMENT</div>
-                        <div style={{...displayFont, fontSize:48, marginBottom:6, color:'#fff'}}>{pctOfHome.toFixed(1)}%</div>
-                        <div style={{...monoFont, fontSize:13, color:'rgba(255,255,255,0.5)'}}>of {fmt(homePrice)}</div>
-                      </div>
-                      <div style={{padding:24, background:'#0F1620'}}>
-                        <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'#FA8059', marginBottom:8}}>OR · 20% DOWN BUYS</div>
-                        <div style={{...displayFont, fontSize:48, marginBottom:6, color:'#FA8059'}}>{fmt(homeAt20Down)}</div>
-                        <div style={{...monoFont, fontSize:13, color:'rgba(255,255,255,0.5)'}}>home value</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Footer */}
-                  <div style={{marginTop:48, paddingTop:24, borderTop:'1px solid rgba(255,255,255,0.08)', ...monoFont, fontSize:11, lineHeight:1.65, color:'rgba(255,255,255,0.4)'}}>
-                    GROSS FIGURES · TAXES & WITHHOLDING NOT INCLUDED · ASSUMES 52 WORK WEEKS<br/>
-                    DISCIPLINE NOT INCLUDED — BRING YOUR OWN.
                   </div>
                 </div>
+
+                {/* THE HOUSE */}
+                <div style={{marginBottom:40}}>
+                  {renderSection("04 · THE HOUSE")}
+
+                  {/* Target home price */}
+                  <div style={{borderBottom:'1px solid rgba(255,255,255,0.08)', paddingBottom:16, marginBottom:16}}>
+                    <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'rgba(255,255,255,0.6)', textTransform:'uppercase', marginBottom:8}}>Target home price</label>
+                    <div style={{display:'flex', alignItems:'baseline', gap:8}}>
+                      <span style={{...monoFont, fontSize:24, color:'rgba(255,255,255,0.4)'}}>$</span>
+                      <input
+                        type="number"
+                        inputMode="decimal"
+                        step={5000}
+                        value={homePrice}
+                        onChange={(e) => setHomePrice(parseFloat(e.target.value) || 0)}
+                        style={{...monoFont, background:'transparent', fontSize:32, color:'#fff', width:'100%', border:'none', outline:'none'}}
+                      />
+                    </div>
+                  </div>
+
+                  <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))', gap:1, background:'rgba(255,255,255,0.08)', marginTop:20}}>
+                    <div style={{padding:24, background:'#0F1620'}}>
+                      <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'rgba(255,255,255,0.5)', marginBottom:8}}>YOUR DOWN PAYMENT</div>
+                      <div style={{...displayFont, fontSize:48, marginBottom:6, color:'#fff'}}>{pctOfHome.toFixed(1)}%</div>
+                      <div style={{...monoFont, fontSize:13, color:'rgba(255,255,255,0.5)'}}>of {fmt(homePrice)}</div>
+                    </div>
+                    <div style={{padding:24, background:'#0F1620'}}>
+                      <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'#FA8059', marginBottom:8}}>OR · 20% DOWN BUYS</div>
+                      <div style={{...displayFont, fontSize:48, marginBottom:6, color:'#FA8059'}}>{fmt(homeAt20Down)}</div>
+                      <div style={{...monoFont, fontSize:13, color:'rgba(255,255,255,0.5)'}}>home value</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Footer */}
+                <div style={{marginTop:48, paddingTop:24, borderTop:'1px solid rgba(255,255,255,0.08)', ...monoFont, fontSize:11, lineHeight:1.65, color:'rgba(255,255,255,0.4)'}}>
+                  GROSS FIGURES · TAXES & WITHHOLDING NOT INCLUDED · ASSUMES 52 WORK WEEKS<br/>
+                  DISCIPLINE NOT INCLUDED — BRING YOUR OWN.
+                </div>
               </div>
-            );
-          };
-          return <DownPaymentCalculator />;
+            </div>
+          );
         })()}
 
         {page === "apprenticeship" && (() => {
