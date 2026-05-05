@@ -12838,9 +12838,10 @@ export default function UnionPathway() {
         })()}
 
         {page === "downpayment" && (() => {
-// fix187 inlined — helpers inlined to prevent input remount on every keystroke
-          const monoFont = { fontFamily: "'IBM Plex Mono', ui-monospace, monospace" };
-          const displayFont = { fontFamily: "'Barlow Condensed', Impact, sans-serif", letterSpacing: '0.01em', fontWeight: 900 };
+          // fix189 — wrap hooks in a real component (was IIFE-direct, caused white screen)
+          const DownPaymentCalculator = () => {
+            const monoFont = { fontFamily: "'IBM Plex Mono', ui-monospace, monospace" };
+            const displayFont = { fontFamily: "'Barlow Condensed', Impact, sans-serif", letterSpacing: '0.01em', fontWeight: 900 };
           const [hourlyWage, setHourlyWage] = useState(45);
           const [apprenticePercent, setApprenticePercent] = useState(75);
           const [apprenticeHours, setApprenticeHours] = useState(32);
@@ -13073,7 +13074,9 @@ export default function UnionPathway() {
                 </div>
               </div>
             </div>
-          );
+            );
+          };
+          return <DownPaymentCalculator />;
         })()}
 
         {page === "apprenticeship" && (() => {
