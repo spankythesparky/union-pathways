@@ -4865,6 +4865,20 @@ export default function UnionPathway() {
         @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap');
 
 
+        /* fix192 — dark color scheme for native form controls (fixes white-out <select> dropdowns) */
+        html, body { color-scheme: dark; }
+        select, option, optgroup {
+          background-color: #1a1a1a;
+          color: #fff;
+        }
+        select option:hover,
+        select option:checked,
+        select option:focus {
+          background-color: #FA8059;
+          color: #0F1620;
+        }
+
+
         .map-toggle-btn {
           display: inline-flex; align-items: center; gap: 6px;
           background: rgba(250,128,89,0.08);
