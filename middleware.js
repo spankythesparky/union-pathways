@@ -66,6 +66,7 @@ const PAGE_META = {
   'calculator':  { title: "Union Wage Calculator — Total Package Value · Union Pathways", desc: "Calculate your full union wage package — base hourly, fringes, health, pension, annuity, vacation, training. See your true hourly value and annual earnings, then compare against non-union work or other locals." },
   'resume':      { title: "Union Apprenticeship Resume Template — Free Download · Union Pathways", desc: "A clean, focused resume template built for union apprenticeship applications. Highlights the things JATC committees actually score on — work history, mechanical experience, references, math credit. Free download, no signup." },
   'downpayment': { title: "Down Payment Calculator — From Apprentice to Journeyman · Union Pathways", desc: "For fifth-year apprentices about to make journeyman. Calculate the gross raise from apprentice scale to full journeyman rate, then see how big a down payment you can save by living like an apprentice for a few more years. Built for the trades. Discipline not included — bring your own." },
+  'caucus': { title: "How to Form a Union Caucus — A Field Guide for Members · Union Pathways", desc: "Every reform victory in modern American labor began the same way — a few members talking in a break room, deciding their union could be better, and getting organized. The 10-step field guide to caucus building, drawn from TDU, CORE, UAWD, and the rest of the modern reform tradition." },
 };
 
 // Escape HTML special characters so meta values can't break out of attribute
