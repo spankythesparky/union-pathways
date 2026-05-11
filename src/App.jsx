@@ -17183,16 +17183,17 @@ export default function UnionPathway() {
                         zIndex:0,
                       }} />
                       <img
-                        src="/partner-noah.png"
-                        alt="Noah Alassaf"
+                        src="/spanky-the-sparky.png"
+                        alt="Spanky the Sparky"
                         style={{
                           position:'relative',
                           width:'100%',
                           height:'100%',
-                          objectFit:'cover',
+                          objectFit:'contain',
                           borderRadius:20,
                           border:'1px solid rgba(250,128,89,0.35)',
                           background:'#000',
+                          padding:18,
                           zIndex:1,
                         }}
                       />
