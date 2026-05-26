@@ -17355,6 +17355,39 @@ export default function UnionPathway() {
                   .about-feature-grid { grid-template-columns: 1fr !important; }
                 }
               `}</style>
+
+              {/* Founder story video — IG embed (college -> trades) */}
+              <div style={{marginTop:32, display:'flex', flexDirection:'column', alignItems:'center', gap:16}}>
+                <div style={{
+                  fontFamily:"'Barlow Condensed',sans-serif",
+                  fontSize:13,
+                  fontWeight:800,
+                  letterSpacing:'0.18em',
+                  color:'#FA8059',
+                  textTransform:'uppercase',
+                }}>
+                  {lang==="es" ? "Mira la Historia" : lang==="pl" ? "Zobacz Historię" : "Watch the Story"}
+                </div>
+                <div style={{
+                  width:'100%',
+                  maxWidth:340,
+                  borderRadius:20,
+                  overflow:'hidden',
+                  border:'1px solid rgba(250,128,89,0.25)',
+                  background:'#000',
+                  boxShadow:'0 18px 50px rgba(0,0,0,0.30)',
+                }}>
+                  <iframe
+                    src="https://www.instagram.com/p/DYqaEdOtTyy/embed"
+                    title="From college to the trades"
+                    style={{width:'100%', height:720, border:'none', display:'block'}}
+                    loading="lazy"
+                    scrolling="no"
+                    allow="encrypted-media; clipboard-write; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
             </div>
 
             <hr className="divider-line"/>
