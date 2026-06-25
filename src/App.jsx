@@ -3499,7 +3499,7 @@ export default function UnionPathway() {
   const getPageFromUrl = () => {
     const path = window.location.pathname.replace('/', '') || 'home';
     /* fix194 audit-corrected */
-    const validPages = ['home','quiz','careers','checklist','locals','calculator','resume','veterans','history','trade-history','history-ibew','history-ua','history-smart','history-bac','history-ufcw','history-iron','history-insul','history-iuec','retirement','benefits','about','contact','jobboard','wages','organize','organize-contractor','rtw','apprenticeship','apprenticeship-ibew','apprenticeship-ua','apprenticeship-smart','apprenticeship-iuec','apprenticeship-iw','apprenticeship-bac','apprenticeship-hfiaw','apprenticeship-iuoe','apprenticeship-ubc','apprenticeship-iupat','weingarten','history-iupat','history-nnu','downpayment','caucus','mental-health'];
+    const validPages = ['home','home-v2','quiz','careers','checklist','locals','calculator','resume','veterans','history','trade-history','history-ibew','history-ua','history-smart','history-bac','history-ufcw','history-iron','history-insul','history-iuec','retirement','benefits','about','contact','jobboard','wages','organize','organize-contractor','rtw','apprenticeship','apprenticeship-ibew','apprenticeship-ua','apprenticeship-smart','apprenticeship-iuec','apprenticeship-iw','apprenticeship-bac','apprenticeship-hfiaw','apprenticeship-iuoe','apprenticeship-ubc','apprenticeship-iupat','weingarten','history-iupat','history-nnu','downpayment','caucus','mental-health'];
     return validPages.includes(path) ? path : 'home';
   };
   const [page, setPageState] = useState(getPageFromUrl);
@@ -7285,6 +7285,273 @@ export default function UnionPathway() {
           </div>
         )}
         </>)}
+
+        {page === "home-v2" && (<>
+        {/* ─── DESIGN PREVIEW BANNER ─── */}
+        <div style={{
+          background:'rgba(245,197,24,0.08)', borderBottom:'1px solid rgba(245,197,24,0.18)',
+          padding:'10px 24px', textAlign:'center',
+          fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700,
+          color:'#F5C518', letterSpacing:'0.15em', textTransform:'uppercase'
+        }}>
+          Design Preview · <span style={{color:'rgba(255,255,255,0.7)', fontWeight:600}}>This is a redesigned home page. Current home unchanged.</span>
+        </div>
+
+        {/* ─── HERO ─── */}
+        <section style={{padding:'120px 24px 80px', maxWidth:1200, margin:'0 auto'}}>
+          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:'0.28em', textTransform:'uppercase', marginBottom:36}}>
+            {lang==="es" ? "Para cada trabajador sindical" : lang==="pl" ? "Dla kazdego pracownika zwiazkowego" : t.tagline}
+          </div>
+          <h1 style={{
+            fontFamily:"'Barlow Condensed',sans-serif",
+            fontSize:'clamp(64px, 12vw, 144px)',
+            fontWeight:900,
+            color:'#fff',
+            lineHeight:0.9,
+            letterSpacing:'-0.025em',
+            margin:'0 0 40px 0',
+            maxWidth:900
+          }}>
+            {lang==="es" ? <>{t.heroTitle1}<br/><span style={{color:'#F5C518'}}>{t.heroAccent}</span>{t.heroTitle2}</> :
+             lang==="pl" ? <>{t.heroTitle1}<br/><span style={{color:'#F5C518'}}>{t.heroAccent}</span>{t.heroTitle2}</> :
+             <>{t.heroTitle1}<br/><span style={{color:'#F5C518'}}>{t.heroAccent}</span>{t.heroTitle2}</>}
+          </h1>
+          <p style={{fontSize:22, color:'rgba(255,255,255,0.8)', lineHeight:1.6, maxWidth:720, margin:0, fontWeight:400}}>
+            {t.heroSub}
+          </p>
+
+          <div style={{
+            marginTop:32, display:'inline-flex', alignItems:'center', gap:10,
+            fontSize:13, color:'rgba(255,255,255,0.55)'
+          }}>
+            <span style={{width:6, height:6, borderRadius:'50%', background:'#FA8059'}} />
+            {lang==="es" ? "Locales sindicales se agregan y actualizan continuamente." : lang==="pl" ? "Oddzialy sa stale dodawane i aktualizowane." : "Union locals are continuously being added & updated."}
+          </div>
+        </section>
+
+        {/* ─── SEARCH ─── */}
+        <section style={{padding:'40px 24px 100px', maxWidth:1200, margin:'0 auto'}}>
+          {/* Trade selector */}
+          <div style={{marginBottom:32}}>
+            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:'rgba(255,255,255,0.55)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>
+              {lang==="es" ? "Elige tu oficio" : lang==="pl" ? "Wybierz zawod" : "Pick your trade"}
+            </div>
+            <div style={{display:'flex', flexWrap:'wrap', gap:8}}>
+              {[
+                { abbr:"IBEW_I", label:"IBEW Inside" },
+                { abbr:"IBEW_L", label:"IBEW Lineman" },
+                { abbr:"UA",     label:"Plumbers & Pipefitters" },
+                { abbr:"BAC",    label:"Bricklayers" },
+                { abbr:"IW",     label:"Ironworkers" },
+                { abbr:"HFIAW",  label:"Insulators" },
+                { abbr:"IUEC",   label:"Elevators" },
+                { abbr:"IUOE",   label:"Operating Engineers" },
+                { abbr:"UBC",    label:"Carpenters" },
+                { abbr:"IUPAT",  label:"Painters" },
+              ].map(tr => (
+                <button
+                  key={tr.abbr}
+                  onClick={() => setSelectedTrade(tr.abbr)}
+                  style={{
+                    background: selectedTrade === tr.abbr ? '#F5C518' : 'transparent',
+                    color: selectedTrade === tr.abbr ? '#0F1620' : 'rgba(255,255,255,0.85)',
+                    border: '1px solid '+(selectedTrade === tr.abbr ? '#F5C518' : 'rgba(255,255,255,0.18)'),
+                    borderRadius: 50,
+                    padding: '9px 18px',
+                    fontFamily: "'Barlow Condensed',sans-serif",
+                    fontSize: 13,
+                    fontWeight: 700,
+                    letterSpacing: '0.05em',
+                    cursor: 'pointer',
+                    transition: 'all 0.15s'
+                  }}
+                >
+                  {tr.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Search row */}
+          <div style={{display:'flex', gap:12, flexWrap:'wrap', alignItems:'stretch'}}>
+            <input
+              ref={inputRef}
+              type="text"
+              placeholder={lang==="es" ? "ej. 60614 o Chicago, IL" : lang==="pl" ? "np. 60614 lub Chicago, IL" : "Enter your ZIP or city, state"}
+              value={query}
+              onChange={e => setQuery(e.target.value)}
+              onKeyDown={handleKey}
+              style={{
+                flex:'1 1 320px',
+                background:'transparent',
+                border:'none',
+                borderBottom:'2px solid rgba(255,255,255,0.18)',
+                color:'#fff',
+                fontSize:24,
+                fontFamily:"'Barlow Condensed',sans-serif",
+                fontWeight:500,
+                padding:'14px 0',
+                outline:'none'
+              }}
+              onFocus={e => e.currentTarget.style.borderBottomColor = '#F5C518'}
+              onBlur={e => e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.18)'}
+            />
+            <button
+              onClick={() => handleSearch()}
+              disabled={loading || !query.trim()}
+              style={{
+                background: loading || !query.trim() ? 'rgba(245,197,24,0.3)' : '#F5C518',
+                color:'#0F1620',
+                fontFamily:"'Barlow Condensed',sans-serif",
+                fontSize:15,
+                fontWeight:900,
+                letterSpacing:'0.1em',
+                textTransform:'uppercase',
+                padding:'0 32px',
+                border:'none',
+                borderRadius:50,
+                cursor: loading || !query.trim() ? 'not-allowed' : 'pointer'
+              }}
+            >
+              {loading ? "..." : t.searchBtn}
+            </button>
+          </div>
+
+          {/* Geolocate as text link */}
+          <button
+            onClick={handleGeolocate}
+            disabled={geoLoading}
+            style={{
+              marginTop:20,
+              background:'transparent',
+              color:'rgba(255,255,255,0.7)',
+              border:'none',
+              padding:0,
+              fontSize:14,
+              fontFamily:"'Inter',sans-serif",
+              cursor: geoLoading ? 'wait' : 'pointer',
+              textDecoration:'underline',
+              textUnderlineOffset:4
+            }}
+          >
+            {geoLoading ? t.locating : "or use my current location"}
+          </button>
+
+          {error && (
+            <div style={{marginTop:16, fontSize:13, color:'#FA8059'}}>{t.errorMsg}</div>
+          )}
+        </section>
+
+        {/* ─── RESULTS (if any) ─── */}
+        {results && (
+          <section style={{padding:'40px 24px 80px', maxWidth:1200, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
+            <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', flexWrap:'wrap', gap:16, marginBottom:32}}>
+              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(32px, 5vw, 48px)', fontWeight:900, color:'#fff', margin:0, lineHeight:1}}>
+                <span style={{color:'#F5C518'}}>{results.length}</span> {searchMode === 'state'
+                  ? (lang==="es" ? "locales en este estado" : lang==="pl" ? "lokali w tym stanie" : "locals in this state")
+                  : (lang==="es" ? "locales cerca de ti" : lang==="pl" ? "lokali w poblizu" : "locals near you")}
+              </h2>
+              <div style={{fontSize:13, color:'rgba(255,255,255,0.6)'}}>📍 {locationLabel}</div>
+            </div>
+            <div style={{display:'flex', flexDirection:'column', gap:0}}>
+              {results.map((local, i) => (
+                <div key={`${local.id}-${i}`} style={{
+                  padding:'28px 0',
+                  borderBottom:'1px solid rgba(255,255,255,0.08)',
+                  display:'grid',
+                  gridTemplateColumns:'auto 1fr auto',
+                  gap:24,
+                  alignItems:'flex-start'
+                }}>
+                  <div style={{
+                    fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900,
+                    color: i===0 ? '#F5C518' : 'rgba(255,255,255,0.4)',
+                    lineHeight:1, minWidth:48
+                  }}>#{i+1}</div>
+                  <div>
+                    <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontWeight:900, color:'#fff', margin:'0 0 4px 0'}}>{local.name}</h3>
+                    <div style={{fontSize:14, color:'rgba(255,255,255,0.7)', marginBottom:12}}>{local.city}, {local.state}</div>
+                    <div style={{display:'flex', gap:16, flexWrap:'wrap', fontSize:13, color:'rgba(255,255,255,0.65)'}}>
+                      {local.phone && (
+                        <a href={`tel:${local.phone}`} style={{color:'inherit', textDecoration:'none'}}>📞 {local.phone}</a>
+                      )}
+                      <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(local.address || local.city + ", " + local.state)}`} target="_blank" rel="noopener noreferrer" style={{color:'inherit', textDecoration:'none'}}>
+                        📍 {local.address || local.city + ", " + local.state}
+                      </a>
+                    </div>
+                    {local.website && (
+                      <a href={local.website.startsWith("http") ? local.website : `https://${local.website}`} target="_blank" rel="noopener noreferrer" style={{
+                        display:'inline-block', marginTop:14,
+                        background:'transparent', color:'#F5C518',
+                        fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, letterSpacing:'0.1em', textTransform:'uppercase',
+                        padding:'8px 18px', border:'1px solid rgba(245,197,24,0.4)', borderRadius:50, textDecoration:'none'
+                      }}>{t.visitWebsite} →</a>
+                    )}
+                  </div>
+                  <div style={{textAlign:'right'}}>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:48, fontWeight:900, color:'#fff', lineHeight:1}}>{Math.round(local.distance)}</div>
+                    <div style={{fontSize:11, color:'rgba(255,255,255,0.5)', textTransform:'uppercase', letterSpacing:'0.15em', fontWeight:700, marginTop:4}}>{t.milesAway}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ─── STATS (when no results) ─── */}
+        {!results && (
+          <section style={{padding:'80px 24px 120px', maxWidth:1200, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
+            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:48}}>
+              {lang==="es" ? "Por los numeros" : lang==="pl" ? "W liczbach" : "By the numbers"}
+            </div>
+            <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))', gap:60}}>
+              {[
+                { num:"1,000+", label: lang==="es" ? "Locales sindicales" : lang==="pl" ? "Oddzialow zwiazkowych" : "Union locals" },
+                { num:"17",     label: lang==="es" ? "Oficios de construccion" : lang==="pl" ? "Zawodow budowlanych" : "Construction trades" },
+                { num:"50",     label: lang==="es" ? "Estados cubiertos" : lang==="pl" ? "Stanow objetych" : "States covered" },
+                { num:"$0",     label: lang==="es" ? "Costo para usar" : lang==="pl" ? "Koszt korzystania" : "Cost to use" },
+              ].map((s, i) => (
+                <div key={i}>
+                  <div style={{
+                    fontFamily:"'Barlow Condensed',sans-serif",
+                    fontSize:'clamp(56px, 8vw, 96px)',
+                    fontWeight:900,
+                    color:'#F5C518',
+                    lineHeight:0.95,
+                    letterSpacing:'-0.02em',
+                    marginBottom:12
+                  }}>{s.num}</div>
+                  <div style={{fontSize:14, color:'rgba(255,255,255,0.65)', lineHeight:1.5, fontWeight:500}}>{s.label}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* ─── MISSION ─── */}
+        {!results && (
+          <section style={{padding:'100px 24px 140px', maxWidth:900, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
+            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:32}}>
+              {lang==="es" ? "Construido por" : lang==="pl" ? "Stworzone przez" : "Built by"}
+            </div>
+            <h2 style={{
+              fontFamily:"'Barlow Condensed',sans-serif",
+              fontSize:'clamp(36px, 6vw, 64px)',
+              fontWeight:900,
+              color:'#fff',
+              lineHeight:1.0,
+              letterSpacing:'-0.015em',
+              margin:'0 0 32px 0'
+            }}>
+              {lang==="es" ? "Trabajadores del oficio, para trabajadores del oficio." : lang==="pl" ? "Rzemieslnicy, dla rzemieslnikow." : "Union tradespeople, for union tradespeople."}
+            </h2>
+            <p style={{fontSize:18, color:'rgba(255,255,255,0.75)', lineHeight:1.75, maxWidth:680, margin:0}}>
+              {lang==="es" ? "Union Pathways es un recurso gratuito, sin publicidad y sin afiliacion. Solo datos reales para ayudarte a encontrar tu local mas cercano y empezar tu carrera en los oficios." : lang==="pl" ? "Union Pathways to bezplatne, wolne od reklam i bezstronne narzedzie. Tylko prawdziwe dane, ktore pomoga Ci znalezc najblizszy oddzial i zaczac kariere w zawodach budowlanych." : "Union Pathways is free, ad-free, and unaffiliated. Just real data to help you find your nearest local and start your career in the trades."}
+            </p>
+          </section>
+        )}
+        </>)}
+
 
         {/* ── JOIN A UNION CHECKLIST PAGE ── */}
         {page === "checklist" && (
