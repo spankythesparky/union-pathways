@@ -7089,266 +7089,323 @@ export default function UnionPathway() {
 
         {/* ── HOME PAGE ── */}
         {page === "home" && (<>
-        {/* HERO */}
-        <section className="hero">
-          <div className="hero-grid" />
-          <div className="hero-glow" />
-          <div className={`hero-content ${heroVisible ? "visible" : ""}`}>
-            <div className="hero-eyebrow">
-              <span className="eyebrow-line" />
-              {t.tagline}
-              <span className="eyebrow-line" />
-            </div>
-            <h1 className="hero-title">
-              {t.heroTitle1}<br />
-              <span className="accent">{t.heroAccent}</span>
-              {t.heroTitle2}
-            </h1>
-            <p className="hero-sub">{t.heroSub}</p>
-
-            {/* NOTICE BANNER */}
-            <div style={{
-              display: "inline-flex", alignItems: "center", gap: 8,
-              background: "rgba(250,128,89,0.1)",
-              border: "1px solid rgba(250,128,89,0.25)",
-              borderRadius: 50, padding: "8px 18px",
-              marginBottom: 24, fontSize: 13, color: "var(--muted)"
-            }}>
-              <span style={{color: "#FA8059", fontSize: 16}}>🔄</span>
-              {lang === "es"
-                ? "Locales sindicales se agregan y actualizan continuamente."
-                : lang === "pl"
-                ? "Oddziały są stale dodawane i aktualizowane. Dziękujemy!"
-                : "Union locals are continuously being added & updated — thank you for your patience!"}
-            </div>
-
-            {/* SEARCH CARD */}
-            <div className="search-card">
-              {/* INLINE TRADE SELECTOR */}
-              <div className="trade-selector">
-                {[
-                  { abbr: "IBEW_I", label: "IBEW Inside",   color: "#F5C518" },
-                  { abbr: "IBEW_L", label: "IBEW Lineman",  color: "#FFD700" },
-                  { abbr: "UA",     label: "Plumbers & Pipefitters", color: "#3b9eff" },
-                  { abbr: "BAC",    label: "Bricklayers",   color: "#f97316" },
-                  { abbr: "IW",     label: "Ironworkers",   color: "#ef4444" },
-                  { abbr: "HFIAW", label: "Insulators",    color: "#a855f7" },
-                  { abbr: "IUEC",  label: "Elevators",    color: "#06b6d4" },
-                  { abbr: "IUOE",  label: "Operating Engineers", color: "#10b981" },
-                  { abbr: "UBC",   label: "Carpenters",          color: "#8b5cf6" },
-                  { abbr: "IUPAT", label: "Painters",             color: "#ec4899" },
-                ].map(trade => (
-                  <button
-                    key={trade.abbr}
-                    className={`trade-pill ${selectedTrade === trade.abbr ? "selected" : ""}`}
-                    style={selectedTrade === trade.abbr ? { background: "#FA8059", borderColor: "#FA8059", color: "#000" } : {}}
-                    onClick={() => setSelectedTrade(trade.abbr)}
-                  >
-                    {trade.label}
-                  </button>
-                ))}
-              </div>
-              <span className="search-label">
-                {selectedTrade === "UA" ? t.uaLabel : selectedTrade === "SMART" ? t.smartLabel : selectedTrade === "BAC" ? t.bacLabel : selectedTrade === "UBC" ? t.ubcLabel : selectedTrade === "LIUNA" ? t.liunaLabel : selectedTrade === "IW" ? t.iwLabel : selectedTrade === "IBEW_L" ? t.ibewLinLabel : selectedTrade === "IUEC" ? t.iuecLabel : selectedTrade === "IUOE" ? "Operating Engineers" : selectedTrade === "HFIAW" ? t.hfiawLabel : selectedTrade === "IUPAT" ? t.iupatLabel : selectedTrade === "SF" ? t.sfLabel : t.ibewLabel}
-                {" "}{t.searchLabel}
-              </span>
-              <div className="search-row">
-                <input
-                  ref={inputRef}
-                  className="search-input"
-                  type="text"
-                  placeholder={lang==="es" ? "ej. 60614 o Chicago, IL" : lang==="pl" ? "np. 60614 lub Chicago, IL" : "e.g. 60614 or Chicago, IL"}
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  onKeyDown={handleKey}
-                />
-                <button className="btn-search" onClick={() => handleSearch()} disabled={loading || !query.trim()}>
-                  {loading ? <span className="spinner" /> : t.searchBtn}
-                </button>
-              </div>
-
-              <div className="search-divider">{lang==="es" ? "o" : lang==="pl" ? "lub" : "or"}</div>
-
-              <button className="btn-geo" onClick={handleGeolocate} disabled={geoLoading}>
-                {geoLoading ? (
-                  <><span className="spinner" /> {t.locating}</>
-                ) : (
-                  <>
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/>
-                      <line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/>
-                      <line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/>
-                    </svg>
-                    {t.geoBtn}
-                  </>
-                )}
-              </button>
-
-              {error && <div className="error-msg">{t.errorMsg}</div>}
-            </div>
+        {/* ─── HERO ─── */}
+        <section style={{padding:'80px 24px 60px', maxWidth:1280, margin:'0 auto'}}>
+          <div style={{display:'inline-flex', alignItems:'center', gap:14, fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:40}}>
+            <span style={{width:32, height:1, background:'#FA8059', opacity:0.6}} />
+            {t.tagline}
+          </div>
+          <h1 style={{
+            fontFamily:"'Space Grotesk', sans-serif",
+            fontSize:'clamp(54px, 10vw, 132px)',
+            fontWeight:500,
+            color:'#fff',
+            lineHeight:0.96,
+            letterSpacing:'-0.035em',
+            margin:'0 0 40px 0',
+            maxWidth:1000
+          }}>
+            {t.heroTitle1}<br />
+            <span style={{color:'#FA8059', fontStyle:'italic', fontWeight:600}}>{t.heroAccent}</span>{t.heroTitle2}
+          </h1>
+          <p style={{
+            fontFamily:"'Inter',sans-serif",
+            fontSize:'clamp(17px, 2vw, 21px)',
+            color:'rgba(255,255,255,0.7)',
+            lineHeight:1.65,
+            maxWidth:660,
+            margin:'0 0 36px 0'
+          }}>{t.heroSub}</p>
+          <div style={{display:'inline-flex', alignItems:'center', gap:12, fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.08em', textTransform:'uppercase'}}>
+            <span style={{width:6, height:6, borderRadius:'50%', background:'#FA8059', boxShadow:'0 0 10px #FA8059'}} />
+            {lang === "es" ? "Locales agregados y actualizados continuamente" : lang === "pl" ? "Oddzialy stale dodawane i aktualizowane" : "Locals continuously added & updated"}
           </div>
         </section>
 
-        {/* RESULTS */}
+        {/* ─── SEARCH ─── */}
+        <section style={{padding:'40px 24px 100px', maxWidth:1280, margin:'0 auto'}}>
+          <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:20}}>
+            // {lang==="es" ? "Elige tu oficio" : lang==="pl" ? "Wybierz zawod" : "Pick your trade"}
+          </div>
+          <div style={{display:'flex', flexWrap:'wrap', gap:8, marginBottom:44}}>
+            {[
+              { abbr:"IBEW_I", label:"IBEW Inside" },
+              { abbr:"IBEW_L", label:"IBEW Lineman" },
+              { abbr:"UA",     label:"Plumbers & Pipefitters" },
+              { abbr:"BAC",    label:"Bricklayers" },
+              { abbr:"IW",     label:"Ironworkers" },
+              { abbr:"HFIAW",  label:"Insulators" },
+              { abbr:"IUEC",   label:"Elevators" },
+              { abbr:"IUOE",   label:"Operating Engineers" },
+              { abbr:"UBC",    label:"Carpenters" },
+              { abbr:"IUPAT",  label:"Painters" },
+            ].map(tr => (
+              <button
+                key={tr.abbr}
+                onClick={() => setSelectedTrade(tr.abbr)}
+                style={{
+                  background: selectedTrade === tr.abbr ? '#FA8059' : 'transparent',
+                  color: selectedTrade === tr.abbr ? '#000' : 'rgba(255,255,255,0.78)',
+                  border: '1px solid '+(selectedTrade === tr.abbr ? '#FA8059' : 'rgba(255,255,255,0.14)'),
+                  borderRadius: 50, padding: '10px 20px',
+                  fontFamily:"'Inter',sans-serif",
+                  fontSize: 13, fontWeight: 500,
+                  cursor: 'pointer', transition: 'all 0.18s',
+                  boxShadow: selectedTrade === tr.abbr ? '0 0 24px rgba(250,128,89,0.4)' : 'none'
+                }}
+              >
+                {tr.label}
+              </button>
+            ))}
+          </div>
+
+          <div style={{display:'flex', gap:16, flexWrap:'wrap', alignItems:'stretch'}}>
+            <input
+              ref={inputRef}
+              type="text"
+              placeholder={lang==="es" ? "ZIP, ciudad o estado" : lang==="pl" ? "Kod, miasto lub stan" : "ZIP, city, or state"}
+              value={query}
+              onChange={e => setQuery(e.target.value)}
+              onKeyDown={handleKey}
+              style={{
+                flex:'1 1 320px',
+                background:'transparent', border:'none',
+                borderBottom:'1px solid rgba(255,255,255,0.18)',
+                color:'#fff',
+                fontSize:22,
+                fontFamily:"'Space Grotesk',sans-serif",
+                padding:'14px 0', outline:'none', transition:'border-color 0.18s'
+              }}
+              onFocus={e => e.currentTarget.style.borderBottomColor = '#FA8059'}
+              onBlur={e => e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.18)'}
+            />
+            <button
+              onClick={() => handleSearch()}
+              disabled={loading || !query.trim()}
+              style={{
+                background: loading || !query.trim() ? 'rgba(250,128,89,0.3)' : '#FA8059',
+                color:'#000',
+                fontFamily:"'Inter',sans-serif",
+                fontSize:14, fontWeight:700, letterSpacing:'0.04em',
+                padding:'0 36px', border:'none', borderRadius:50,
+                cursor: loading || !query.trim() ? 'not-allowed' : 'pointer',
+                transition:'all 0.18s', minHeight:48
+              }}
+            >
+              {loading ? "..." : t.searchBtn}
+            </button>
+          </div>
+
+          <button
+            onClick={handleGeolocate}
+            disabled={geoLoading}
+            style={{
+              marginTop:26, background:'transparent', border:'none',
+              color:'rgba(255,255,255,0.7)',
+              fontFamily:"'Inter',sans-serif", fontSize:14,
+              cursor: geoLoading ? 'wait' : 'pointer', padding:0
+            }}
+          >
+            {geoLoading ? t.locating : (lang==="es" ? "usar mi ubicacion actual" : lang==="pl" ? "uzyj mojej lokalizacji" : "use my current location")}
+            <span style={{color:'#FA8059', marginLeft:8}}>→</span>
+          </button>
+
+          {error && (
+            <div style={{marginTop:16, fontSize:14, color:'#FA8059', fontFamily:"'Inter',sans-serif"}}>{t.errorMsg}</div>
+          )}
+        </section>
+
+        {/* ─── RESULTS ─── */}
         {results && (
-          <div className="results-section">
-            <div className="results-header">
-              <div className="results-title">
-                <span>{results.length}</span>{' '}
-                {searchMode === 'state'
-                  ? (lang==="es" ? "Locales en este Estado" : lang==="pl" ? "Lokali w Tym Stanie" : "Locals in This State")
-                  : t.nearYou}
+          <section style={{padding:'40px 24px 80px', maxWidth:1280, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
+            <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', flexWrap:'wrap', gap:16, marginBottom:40}}>
+              <div>
+                <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:12}}>
+                  // {lang==="es" ? "Resultados" : lang==="pl" ? "Wyniki" : "Results"}
+                </div>
+                <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#fff', margin:0, lineHeight:1, letterSpacing:'-0.025em'}}>
+                  <span style={{color:'#FA8059', fontStyle:'italic'}}>{results.length}</span>{' '}
+                  {searchMode === 'state'
+                    ? (lang==="es" ? "locales en este estado" : lang==="pl" ? "lokali w tym stanie" : "locals in this state")
+                    : (lang==="es" ? "locales cerca de ti" : lang==="pl" ? "lokali w poblizu" : "locals near you")}
+                </h2>
                 {searchMode === 'radius' && results.length > 0 && (
-                  <div style={{fontSize:11, fontWeight:400, color:"rgba(160,180,196,0.7)", marginTop:4, letterSpacing:0.3}}>
+                  <div style={{fontSize:13, color:'rgba(255,255,255,0.5)', marginTop:8, fontFamily:"'Inter',sans-serif"}}>
                     {lang==="es" ? "Mostrando locales dentro de 50 millas. Busque por estado para ver mas." : lang==="pl" ? "Pokazuje lokale w promieniu 50 mil. Szukaj po stanie aby zobaczyc wiecej." : "Showing locals within a 50-mile radius. Search by state to see more."}
                   </div>
                 )}
               </div>
-              <div style={{display:"flex",alignItems:"center",gap:10}}>
-                <div className="results-location">📍 {locationLabel}</div>
+              <div style={{display:'flex', alignItems:'center', gap:14, flexWrap:'wrap'}}>
+                <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', letterSpacing:'0.08em'}}>📍 {locationLabel}</div>
                 <button
-                  className={"map-toggle-btn" + (showMap ? " active" : "")}
                   onClick={() => setShowMap(v => !v)}
+                  style={{
+                    background: showMap ? '#FA8059' : 'transparent',
+                    color: showMap ? '#000' : '#FA8059',
+                    border:'1px solid '+(showMap ? '#FA8059' : 'rgba(250,128,89,0.4)'),
+                    borderRadius:50, padding:'8px 18px',
+                    fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:600,
+                    cursor:'pointer', transition:'all 0.18s'
+                  }}
                 >
-                  {showMap ? "🖺️ List" : "🗺️ Map"}
+                  {showMap ? (lang==="es" ? "📋 Lista" : lang==="pl" ? "📋 Lista" : "📋 List") : (lang==="es" ? "🗺️ Mapa" : lang==="pl" ? "🗺️ Mapa" : "🗺️ Map")}
                 </button>
               </div>
             </div>
             {showMap && (
-              <div id="union-map" className="map-container" />
+              <div id="union-map" style={{width:'100%', height:520, borderRadius:16, overflow:'hidden', marginBottom:24, border:'1px solid rgba(250,128,89,0.2)', boxShadow:'0 0 60px rgba(250,128,89,0.08)'}} />
             )}
-            {!showMap && results.map((local, i) => (
-              <div className="local-card" key={`${local.id}-${i}`}>
-                <div className="card-rank">#{i + 1}</div>
-                <div className="card-body">
-                  <div className="card-name">{local.name}</div>
-                  <div className="card-location">{local.city}, {local.state}</div>
-                  {local.tradeType && (
-                    <div style={{display:"inline-block", marginTop:6, fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, letterSpacing:1.5, textTransform:"uppercase", color:"#ec4899", background:"rgba(236,72,153,0.08)", border:"1px solid rgba(236,72,153,0.3)", borderRadius:50, padding:"3px 10px"}}>{local.tradeType}</div>
-                  )}
-                  <div className="card-info">
-                    {local.phone && (
-                      <span className="info-chip">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14h0z"/>
-                        </svg>
-                        <a href={`tel:${local.phone}`} style={{color:"inherit",textDecoration:"none"}}>{local.phone}</a>
-                      </span>
-                    )}
-                    <span className="info-chip">
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
-                      </svg>
-                      <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(local.address || local.city + ", " + local.state)}`} target="_blank" rel="noopener noreferrer" style={{color:"inherit",textDecoration:"none"}}>{local.address || `${local.city}, ${local.state}`}</a>
-                    </span>
+            {!showMap && (
+              <div style={{display:'flex', flexDirection:'column'}}>
+                {results.map((local, i) => (
+                  <div key={`${local.id}-${i}`} style={{
+                    padding:'32px 0',
+                    borderBottom:'1px solid rgba(255,255,255,0.08)',
+                    display:'grid',
+                    gridTemplateColumns:'auto 1fr auto',
+                    gap:28, alignItems:'flex-start'
+                  }}>
+                    <div style={{
+                      fontFamily:"'Space Grotesk',sans-serif",
+                      fontSize: i === 0 ? 48 : 32,
+                      fontWeight: 500,
+                      color: i === 0 ? '#FA8059' : 'rgba(255,255,255,0.35)',
+                      lineHeight:1, minWidth:56, letterSpacing:'-0.03em'
+                    }}>#{i+1}</div>
+                    <div>
+                      {i === 0 && (
+                        <div style={{display:'inline-block', fontFamily:"'Space Mono',monospace", fontSize:10, color:'#FA8059', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:10, padding:'4px 10px', border:'1px solid rgba(250,128,89,0.3)', borderRadius:50}}>
+                          {t.nearest}
+                        </div>
+                      )}
+                      <h3 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 2.5vw, 28px)', fontWeight:500, color:'#fff', margin:'0 0 6px 0', letterSpacing:'-0.015em'}}>{local.name}</h3>
+                      <div style={{fontSize:14, color:'rgba(255,255,255,0.65)', marginBottom:12, fontFamily:"'Inter',sans-serif"}}>{local.city}, {local.state}</div>
+                      {local.tradeType && (
+                        <div style={{display:'inline-block', fontFamily:"'Space Mono',monospace", fontSize:10, color:'#FA8059', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:10, padding:'3px 10px', background:'rgba(250,128,89,0.08)', borderRadius:50}}>
+                          {local.tradeType}
+                        </div>
+                      )}
+                      <div style={{display:'flex', gap:18, flexWrap:'wrap', fontSize:13, color:'rgba(255,255,255,0.6)', marginBottom:14, fontFamily:"'Inter',sans-serif"}}>
+                        {local.phone && (
+                          <a href={`tel:${local.phone}`} style={{color:'inherit', textDecoration:'none'}}>📞 {local.phone}</a>
+                        )}
+                        <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(local.address || local.city + ", " + local.state)}`} target="_blank" rel="noopener noreferrer" style={{color:'inherit', textDecoration:'none'}}>
+                          📍 {local.address || local.city + ", " + local.state}
+                        </a>
+                      </div>
+                      <div style={{display:'flex', gap:10, flexWrap:'wrap', alignItems:'center'}}>
+                        {local.website && (
+                          <a href={local.website.startsWith("http") ? local.website : `https://${local.website}`} target="_blank" rel="noopener noreferrer" style={{
+                            color:'#FA8059', textDecoration:'none',
+                            fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:600,
+                            borderBottom:'1px solid rgba(250,128,89,0.4)', paddingBottom:3,
+                            transition:'all 0.18s'
+                          }}>{t.visitWebsite} →</a>
+                        )}
+                        {local.email && (
+                          <a href={`mailto:${local.email}`} style={{
+                            color:'rgba(255,255,255,0.7)', textDecoration:'none',
+                            fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:500,
+                            borderBottom:'1px solid rgba(255,255,255,0.18)', paddingBottom:3
+                          }}>✉ Email Local →</a>
+                        )}
+                        <button onClick={() => {
+                          const text = `${local.name} — ${local.city}, ${local.state}${local.phone ? ` | ${local.phone}` : ""}${local.website ? ` | https://${local.website}` : ""} | Found on Union Pathways`;
+                          if (navigator.share) { navigator.share({ title: local.name, text }); }
+                          else { navigator.clipboard.writeText(text).then(() => alert(lang==="es" ? "¡Info copiada!" : lang==="pl" ? "Skopiowano informacje!" : "Local info copied!")); }
+                        }} style={{
+                          background:'transparent', border:'none',
+                          color:'rgba(255,255,255,0.6)',
+                          fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:500,
+                          padding:'4px 0', cursor:'pointer', borderBottom:'1px solid rgba(255,255,255,0.18)'
+                        }}>{lang==="es" ? "Compartir" : lang==="pl" ? "Udostepnij" : "Share"}</button>
+                        <button onClick={() => {
+                          setPage("contact"); setContactSent(false);
+                          setTimeout(() => setContactForm(f => ({ ...f, subject: "local-info", message: `I'd like to submit a correction or update for:\n\n${local.name}\n${local.city}, ${local.state}\n\nCorrection:\n` })), 100);
+                        }} style={{
+                          background:'transparent', border:'none',
+                          color:'rgba(255,255,255,0.5)',
+                          fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:500,
+                          padding:'4px 0', cursor:'pointer', borderBottom:'1px solid rgba(255,255,255,0.18)'
+                        }}>{lang==="es" ? "✏ Sugerir Correccion" : lang==="pl" ? "✏ Zaproponuj Korekte" : "✏ Suggest Correction"}</button>
+                      </div>
+                    </div>
+                    <div style={{textAlign:'right'}}>
+                      <div style={{
+                        fontFamily:"'Space Grotesk',sans-serif",
+                        fontSize:'clamp(40px, 5vw, 64px)',
+                        fontWeight:500,
+                        background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)',
+                        WebkitBackgroundClip:'text', backgroundClip:'text',
+                        WebkitTextFillColor:'transparent',
+                        lineHeight:1, letterSpacing:'-0.04em'
+                      }}>{Math.round(local.distance)}</div>
+                      <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color:'rgba(255,255,255,0.45)', letterSpacing:'0.2em', textTransform:'uppercase', marginTop:6}}>{t.milesAway}</div>
+                    </div>
                   </div>
-                  <div className="card-actions">
-                    {local.website && (
-                      <a className="btn-website" href={local.website.startsWith("http") ? local.website : `https://${local.website}`} target="_blank" rel="noopener noreferrer">
-                        {t.visitWebsite}
-                      </a>
-                    )}
-                    {local.email && (
-                      <a className="btn-website" href={`mailto:${local.email}`} style={{background:"rgba(59,158,255,0.08)", borderColor:"rgba(59,158,255,0.3)", color:"#3b9eff"}}>
-                        ✉ Email Local
-                      </a>
-                    )}
-                    <button className="btn-share" onClick={() => {
-                      const text = `${local.name} — ${local.city}, ${local.state}${local.phone ? ` | ${local.phone}` : ""}${local.website ? ` | https://${local.website}` : ""} | Found on Union Pathways`;
-                      if (navigator.share) {
-                        navigator.share({ title: local.name, text });
-                      } else {
-                        navigator.clipboard.writeText(text).then(() => alert(lang==="es" ? "¡Info copiada!" : lang==="pl" ? "Skopiowano informacje!" : "Local info copied!"));
-                      }
-                    }}>
-                      {lang==="es" ? "Compartir" : lang==="pl" ? "Udostępnij" : "Share"}
-                    </button>
-                    <button className="btn-correction" onClick={() => {
-                      setPage("contact");
-                      setContactSent(false);
-                      setTimeout(() => setContactForm(f => ({
-                        ...f,
-                        subject: "local-info",
-                        message: `I'd like to submit a correction or update for:\n\n${local.name}\n${local.city}, ${local.state}\n\nCorrection:\n`
-                      })), 100);
-                    }}>
-                      {lang==="es" ? "✏ Sugerir una Corrección" : lang==="pl" ? "✏ Zaproponuj Korektę" : "✏ Suggest a Correction"}
-                    </button>
-                  </div>
-                </div>
-                <div className="card-distance">
-                  {i === 0 && <div className="nearest-badge">{t.nearest}</div>}
-                  <div className="distance-num">{Math.round(local.distance)}</div>
-                  <div className="distance-unit">{t.milesAway}</div>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
+            )}
+          </section>
         )}
 
-        {/* TRADES BANNER */}
+        {/* ─── STATS (when no results) ─── */}
         {!results && (
-          <div style={{
-            maxWidth: 860, margin: "0 auto 64px", padding: "0 24px",
-            textAlign: "center"
-          }}>
-            {/* Stats Row */}
-            <div style={{
-              display: "flex", justifyContent: "center", gap: 12,
-              flexWrap: "wrap", marginBottom: 32
-            }}>
+          <section style={{padding:'80px 24px 100px', maxWidth:1280, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
+            <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:48}}>
+              // {lang==="es" ? "Por los numeros" : lang==="pl" ? "W liczbach" : "By the numbers"}
+            </div>
+            <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))', gap:60}}>
               {[
-                { num: "1,000+", label: lang==="es" ? "Locales sindicales" : lang==="pl" ? "Oddziałów związkowych" : "Union Locals" },
-                { num: "17", label: lang==="es" ? "Oficios de construcción" : lang==="pl" ? "Zawodów budowlanych" : "Construction Trades" },
-                { num: "50", label: lang==="es" ? "Estados cubiertos" : lang==="pl" ? "Stanów objętych" : "States Covered" },
-                { num: "$0", label: lang==="es" ? "Costo para usar" : lang==="pl" ? "Koszt korzystania" : "Cost to Use" },
-              ].map(({ num, label }) => (
-                <div key={label} style={{
-                  background: "rgba(245,197,24,0.06)",
-                  border: "1px solid rgba(245,197,24,0.18)",
-                  borderRadius: 12, padding: "18px 28px",
-                  minWidth: 130, flex: "1 1 120px", maxWidth: 180
-                }}>
+                { num:"1,000+", label: lang==="es" ? "Locales sindicales en el pais" : lang==="pl" ? "Oddzialow zwiazkowych" : "Union locals across the country" },
+                { num:"17",     label: lang==="es" ? "Oficios de construccion" : lang==="pl" ? "Zawodow budowlanych" : "Construction trades covered" },
+                { num:"50",     label: lang==="es" ? "Estados cubiertos" : lang==="pl" ? "Stanow objetych" : "States mapped" },
+                { num:"$0",     label: lang==="es" ? "Gratis para siempre" : lang==="pl" ? "Zawsze za darmo" : "Free forever, no ads" },
+              ].map((s, i) => (
+                <div key={i}>
                   <div style={{
-                    fontFamily: "'Barlow Condensed', sans-serif",
-                    fontSize: 36, fontWeight: 900,
-                    color: "var(--yellow)", lineHeight: 1
-                  }}>{num}</div>
-                  <div style={{
-                    fontSize: 12, color: "var(--muted)",
-                    textTransform: "uppercase", letterSpacing: "0.08em",
-                    marginTop: 6, fontWeight: 600
-                  }}>{label}</div>
+                    fontFamily:"'Space Grotesk',sans-serif",
+                    fontSize:'clamp(64px, 9vw, 112px)',
+                    fontWeight:500,
+                    background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)',
+                    WebkitBackgroundClip:'text', backgroundClip:'text',
+                    WebkitTextFillColor:'transparent',
+                    lineHeight:0.92, letterSpacing:'-0.045em', marginBottom:18
+                  }}>{s.num}</div>
+                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:14, color:'rgba(255,255,255,0.6)', lineHeight:1.5}}>{s.label}</div>
                 </div>
               ))}
             </div>
+          </section>
+        )}
 
-            {/* Tagline */}
-            <div style={{
-              fontFamily: "'Barlow Condensed', sans-serif",
-              fontSize: 22, fontWeight: 800,
-              textTransform: "uppercase", letterSpacing: "0.06em",
-              color: "var(--text)", marginBottom: 10
-            }}>
-              {lang==="es"
-                ? "Hecho por trabajadores del oficio, para trabajadores del oficio"
-                : lang==="pl"
-                ? "Stworzone przez rzemieślników, dla rzemieślników"
-                : "Built by union tradespeople, for union tradespeople"}
+        {/* ─── MISSION (when no results) ─── */}
+        {!results && (
+          <section style={{padding:'80px 24px 140px', maxWidth:900, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
+            <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#FA8059', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:32}}>
+              // {lang==="es" ? "Construido por" : lang==="pl" ? "Stworzone przez" : "Built by"}
             </div>
-            <p style={{
-              fontSize: 14, color: "var(--muted)",
-              lineHeight: 1.7, maxWidth: 560, margin: "0 auto"
+            <h2 style={{
+              fontFamily:"'Space Grotesk',sans-serif",
+              fontSize:'clamp(36px, 5.5vw, 64px)',
+              fontWeight:500,
+              color:'#fff',
+              lineHeight:1.04,
+              letterSpacing:'-0.025em',
+              margin:'0 0 36px 0',
+              maxWidth:720
             }}>
-              {lang==="es"
-                ? "Union Pathways es un recurso gratuito, sin publicidad y sin afiliación. Solo datos reales para ayudarte a encontrar tu local más cercano."
-                : lang==="pl"
-                ? "Union Pathways to bezpłatne, wolne od reklam i bezstronne narzędzie. Tylko prawdziwe dane, które pomogą Ci znaleźć najbliższy oddział."
-                : "Union Pathways is free and unaffiliated. Just real data to help you find your nearest local and start your career in the trades."}
+              {lang==="es" ? <>Trabajadores del oficio, <span style={{color:'#FA8059', fontStyle:'italic'}}>para trabajadores del oficio.</span></> :
+               lang==="pl" ? <>Rzemieslnicy, <span style={{color:'#FA8059', fontStyle:'italic'}}>dla rzemieslnikow.</span></> :
+               <>Union tradespeople, <span style={{color:'#FA8059', fontStyle:'italic'}}>for tradespeople.</span></>}
+            </h2>
+            <p style={{fontFamily:"'Inter',sans-serif", fontSize:18, color:'rgba(255,255,255,0.7)', lineHeight:1.75, maxWidth:640, margin:0}}>
+              {lang==="es" ? "Union Pathways es un recurso gratuito, sin publicidad y sin afiliacion. Solo datos reales para ayudarte a encontrar tu local mas cercano y empezar tu carrera en los oficios." : lang==="pl" ? "Union Pathways to bezplatne, wolne od reklam i bezstronne narzedzie. Tylko prawdziwe dane, ktore pomoga Ci znalezc najblizszy oddzial i zaczac kariere." : "Union Pathways is free, ad-free, and unaffiliated. Just real data to help you find your nearest local, learn what your trade actually pays, and start your career on the right foot."}
             </p>
-          </div>
+          </section>
         )}
         </>)}
+
 
         {page === "home-v2" && (<>
         {/* ─── DESIGN PREVIEW BANNER ─── */}
