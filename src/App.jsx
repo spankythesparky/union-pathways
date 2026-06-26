@@ -7969,7 +7969,7 @@ export default function UnionPathway() {
               <div style={{padding:'80px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
                 <FadeIn>
                   <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The Long Arc of Organized Labor</div>
-                  <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>
+                  <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#fff', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
                     Built by <span style={{color:'#FA8059'}}>Union Hands.</span><br/>
                     <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>Forged in Conflict.</span>
                   </h1>
@@ -8480,7 +8480,7 @@ export default function UnionPathway() {
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
                 <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Brotherhood of Electrical Workers</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#fff', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
                   Wired for the <span style={{color:'#FA8059'}}>Long Haul.</span><br/>
                   <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>Born in a St. Louis dance hall, 1891.</span>
                 </h1>
@@ -8897,8 +8897,8 @@ export default function UnionPathway() {
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
                 <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#3B9EFF', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The United Association</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>
-                  The Pipe Trades' <span style={{color:'#3B9EFF'}}>Long Brotherhood.</span><br/>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#fff', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  The Pipe Trades' <span style={{color:'#FA8059', fontStyle:'italic', fontWeight:600}}>Long Brotherhood.</span><br/>
                   <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>Born in Washington, D.C., 1889.</span>
                 </h1>
                 <p style={{fontSize:18, color:'rgba(255,255,255,0.7)', lineHeight:1.6, maxWidth:680, margin:'0 auto'}}>
@@ -9314,8 +9314,8 @@ export default function UnionPathway() {
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
                 <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#B0BEC5', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>Sheet Metal · Air · Rail · Transportation</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>
-                  Sheet, Rail, and<br/><span style={{color:'#B0BEC5'}}>The Air Itself.</span><br/>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#fff', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  Sheet, Rail, and<br/><span style={{color:'#FA8059', fontStyle:'italic', fontWeight:600}}>The Air Itself.</span><br/>
                   <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>Two unions, one charter, since 2008.</span>
                 </h1>
                 <p style={{fontSize:18, color:'rgba(255,255,255,0.7)', lineHeight:1.6, maxWidth:680, margin:'0 auto'}}>
@@ -9577,7 +9577,7 @@ export default function UnionPathway() {
                 <div style={{margin:'80px 0 40px', padding:'40px', background:'linear-gradient(135deg, rgba(176,190,197,0.08), rgba(250,128,89,0.04))', border:'1px solid rgba(176,190,197,0.2)', borderRadius:20, textAlign:'center'}}>
                   <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#B0BEC5', letterSpacing:3, textTransform:'uppercase', marginBottom:12}}>The Continuity Beneath the Change</div>
                   <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:'0 0 20px 0', lineHeight:1.1}}>
-                    Two crafts. One charter.<br/><span style={{color:'#B0BEC5'}}>The institutional logic is unchanged.</span>
+                    Two crafts. One charter.<br/><span style={{color:'#FA8059', fontStyle:'italic', fontWeight:600}}>The institutional logic is unchanged.</span>
                   </h2>
                   <p style={{fontSize:16, color:'rgba(255,255,255,0.8)', lineHeight:1.7, maxWidth:680, margin:'0 auto 16px'}}>
                     When eleven delegates met in a Toledo hall in January 1888 to draft a constitution for a national tinsmiths' union, the country they imagined organizing did not yet exist. Most American cities had no electrical service. Most commercial buildings had no air conditioning. Most homes had coal stoves rather than central heating.
@@ -9716,8 +9716,8 @@ export default function UnionPathway() {
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
                 <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#C04A36', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Union of Bricklayers and Allied Craftworkers</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>
-                  The Trowel and<br/><span style={{color:'#C04A36'}}>The Long Memory.</span><br/>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#fff', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  The Trowel and<br/><span style={{color:'#FA8059', fontStyle:'italic', fontWeight:600}}>The Long Memory.</span><br/>
                   <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>Founded in Philadelphia, October 1865.</span>
                 </h1>
                 <p style={{fontSize:18, color:'rgba(255,255,255,0.7)', lineHeight:1.6, maxWidth:680, margin:'0 auto'}}>
@@ -9991,7 +9991,7 @@ export default function UnionPathway() {
                 <div style={{margin:'80px 0 40px', padding:'40px', background:'linear-gradient(135deg, rgba(192,74,54,0.08), rgba(250,128,89,0.04))', border:'1px solid rgba(192,74,54,0.2)', borderRadius:20, textAlign:'center'}}>
                   <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#C04A36', letterSpacing:3, textTransform:'uppercase', marginBottom:12}}>The Continuity Beneath the Change</div>
                   <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:'0 0 20px 0', lineHeight:1.1}}>
-                    The materials evolved.<br/><span style={{color:'#C04A36'}}>The trade did not.</span>
+                    The materials evolved.<br/><span style={{color:'#FA8059', fontStyle:'italic', fontWeight:600}}>The trade did not.</span>
                   </h2>
                   <p style={{fontSize:16, color:'rgba(255,255,255,0.8)', lineHeight:1.7, maxWidth:680, margin:'0 auto 16px'}}>
                     When the delegates met in Philadelphia in October 1865 to found the BMPIU, the country they imagined organizing was still being rebuilt from the Civil War. Most American cities were largely constructed of brick and stone laid by hand. The masonry trades were among the most skilled and best-paid building crafts.
@@ -10130,8 +10130,8 @@ export default function UnionPathway() {
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
                 <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#10A37F', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The United Food and Commercial Workers International Union</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>
-                  Behind the Counter,<br/><span style={{color:'#10A37F'}}>On the Cutting Floor.</span><br/>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#fff', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  Behind the Counter,<br/><span style={{color:'#FA8059', fontStyle:'italic', fontWeight:600}}>On the Cutting Floor.</span><br/>
                   <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>The workers who feed the country.</span>
                 </h1>
                 <p style={{fontSize:18, color:'rgba(255,255,255,0.7)', lineHeight:1.6, maxWidth:720, margin:'0 auto'}}>
@@ -10387,7 +10387,7 @@ export default function UnionPathway() {
                 <div style={{margin:'80px 0 40px', padding:'40px', background:'linear-gradient(135deg, rgba(16,163,127,0.08), rgba(250,128,89,0.04))', border:'1px solid rgba(16,163,127,0.2)', borderRadius:20, textAlign:'center'}}>
                   <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#10A37F', letterSpacing:3, textTransform:'uppercase', marginBottom:12}}>The Continuity Beneath the Change</div>
                   <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:'0 0 20px 0', lineHeight:1.1}}>
-                    The economy transformed.<br/><span style={{color:'#10A37F'}}>The institutional logic did not.</span>
+                    The economy transformed.<br/><span style={{color:'#FA8059', fontStyle:'italic', fontWeight:600}}>The institutional logic did not.</span>
                   </h2>
                   <p style={{fontSize:16, color:'rgba(255,255,255,0.8)', lineHeight:1.7, maxWidth:680, margin:'0 auto 16px'}}>
                     When delegates of the Retail Clerks and the Amalgamated Meat Cutters met in Washington, D.C. in June 1979 to formally approve the merger that created the UFCW, the food and retail economy they imagined organizing was already being transformed. Walmart was a regional discount chain. Cannabis was illegal in every state. Amazon did not exist.
@@ -10676,7 +10676,7 @@ export default function UnionPathway() {
 
                 <div style={{position:'relative', zIndex:1}}>
                   <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#D85F2E', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Association of Bridge, Structural, Ornamental and Reinforcing Iron Workers</div>
-                  <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>
+                  <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#fff', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
                     Cowboys in<br/><span className="iron-shimmer-text">The Sky.</span><br/>
                     <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>Founded above an alley in Pittsburgh, 1896.</span>
                   </h1>
@@ -11067,8 +11067,8 @@ export default function UnionPathway() {
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
                 <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#A8623A', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Association of Heat and Frost Insulators and Allied Workers</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>
-                  Wrapping<br/><span style={{color:'#A8623A'}}>The Pipes.</span><br/>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#fff', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  Wrapping<br/><span style={{color:'#FA8059', fontStyle:'italic', fontWeight:600}}>The Pipes.</span><br/>
                   <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>Behind walls and above ceilings, since 1903.</span>
                 </h1>
                 <p style={{fontSize:18, color:'rgba(255,255,255,0.7)', lineHeight:1.6, maxWidth:720, margin:'0 auto'}}>
@@ -11306,7 +11306,7 @@ export default function UnionPathway() {
                 <div style={{margin:'80px 0 40px', padding:'40px', background:'linear-gradient(135deg, rgba(168,98,58,0.10), rgba(245,197,24,0.04))', border:'1px solid rgba(168,98,58,0.25)', borderRadius:20, textAlign:'center'}}>
                   <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#A8623A', letterSpacing:3, textTransform:'uppercase', marginBottom:12}}>The Continuity Beneath the Change</div>
                   <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:'0 0 20px 0', lineHeight:1.1}}>
-                    Almost no one sees the work.<br/><span style={{color:'#A8623A'}}>Everyone depends on it.</span>
+                    Almost no one sees the work.<br/><span style={{color:'#FA8059', fontStyle:'italic', fontWeight:600}}>Everyone depends on it.</span>
                   </h2>
                   <p style={{fontSize:16, color:'rgba(255,255,255,0.8)', lineHeight:1.7, maxWidth:680, margin:'0 auto 16px'}}>
                     When the locals that responded to St. Louis Local No. 1's 1903 invitation met for their first convention on July 7 of that year, the trade they imagined organizing was just beginning to take its modern form. Steam systems were the dominant industrial heat source. Asbestos was the universal insulating material. The men who did the work were dying of occupational diseases that no one yet understood.
@@ -11445,8 +11445,8 @@ export default function UnionPathway() {
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
                 <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#4A7B9D', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Union of Elevator Constructors</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>
-                  Going<br/><span style={{color:'#4A7B9D'}}>Up.</span><br/>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#fff', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  Going<br/><span style={{color:'#FA8059', fontStyle:'italic', fontWeight:600}}>Up.</span><br/>
                   <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>Building the vertical city, since 1901.</span>
                 </h1>
                 <p style={{fontSize:18, color:'rgba(255,255,255,0.7)', lineHeight:1.6, maxWidth:720, margin:'0 auto'}}>
@@ -11706,7 +11706,7 @@ export default function UnionPathway() {
                 <div style={{margin:'80px 0 40px', padding:'40px', background:'linear-gradient(135deg, rgba(74,123,157,0.10), rgba(245,197,24,0.04))', border:'1px solid rgba(74,123,157,0.25)', borderRadius:20, textAlign:'center'}}>
                   <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#4A7B9D', letterSpacing:3, textTransform:'uppercase', marginBottom:12}}>The Continuity Beneath the Change</div>
                   <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:'0 0 20px 0', lineHeight:1.1}}>
-                    There would be no skyscrapers<br/><span style={{color:'#4A7B9D'}}>without elevators.</span>
+                    There would be no skyscrapers<br/><span style={{color:'#FA8059', fontStyle:'italic', fontWeight:600}}>without elevators.</span>
                   </h2>
                   <p style={{fontSize:16, color:'rgba(255,255,255,0.8)', lineHeight:1.7, maxWidth:680, margin:'0 auto 16px'}}>
                     When eleven men met in a hotel room in downtown Pittsburgh on July 15, 1901, the trade they imagined organizing was just beginning to take its modern form. The skyscraper was a recent invention. The safety elevator had existed for less than fifty years. The federal labor law framework was thirty-four years away.
@@ -11825,8 +11825,8 @@ export default function UnionPathway() {
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
                 <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#ec4899', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Union of Painters and Allied Trades</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>
-                  Brushes, Glass, <span style={{color:'#ec4899'}}>and Brotherhood.</span><br/>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#fff', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  Brushes, Glass, <span style={{color:'#FA8059', fontStyle:'italic', fontWeight:600}}>and Brotherhood.</span><br/>
                   <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>From a Baltimore meeting hall, 1887.</span>
                 </h1>
                 <p style={{fontSize:18, color:'rgba(255,255,255,0.7)', lineHeight:1.6, maxWidth:680, margin:'0 auto'}}>
@@ -12054,8 +12054,8 @@ export default function UnionPathway() {
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
                 <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#10A37F', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>National Nurses United · Industrial Union</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>
-                  By the <span style={{color:'#10A37F'}}>Bedside.</span><br/>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#fff', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  By the <span style={{color:'#FA8059', fontStyle:'italic', fontWeight:600}}>Bedside.</span><br/>
                   <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>How direct-care nurses built the largest registered nurses union in American history.</span>
                 </h1>
                 <p style={{fontSize:18, color:'rgba(255,255,255,0.7)', lineHeight:1.6, maxWidth:680, margin:'0 auto'}}>
@@ -16011,7 +16011,7 @@ export default function UnionPathway() {
               {/* HERO */}
               <div style={{padding:'80px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
                 <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>More Than Just a Paycheck</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#fff', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
                   Union <span style={{color:'#FA8059'}}>Benefits.</span><br/>
                   <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>What you actually get.</span>
                 </h1>
