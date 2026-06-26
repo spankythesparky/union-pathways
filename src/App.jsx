@@ -4902,30 +4902,45 @@ export default function UnionPathway() {
           border: 1px solid rgba(250,128,89,0.2);
         }
 
+        /* PHASE 4 HERO REDESIGN */
         .history-hero {
-          background: linear-gradient(180deg, rgba(250,128,89,0.12) 0%, transparent 100%);
-          border-bottom: 1px solid rgba(250,128,89,0.15);
-          padding: 80px 24px 64px;
-          text-align: center;
+          background: transparent;
+          border-bottom: 1px solid rgba(255,255,255,0.08);
+          padding: 56px 24px 48px;
+          max-width: 1280px;
+          margin: 0 auto;
+          text-align: left;
         }
         .history-eyebrow {
-          font-family: 'Barlow Condensed', sans-serif;
-          font-size: 13px; font-weight: 700;
-          letter-spacing: 0.15em; text-transform: uppercase;
-          color: #FA8059; margin-bottom: 16px;
+          font-family: 'Space Mono', monospace;
+          font-size: 12px; font-weight: 400;
+          letter-spacing: 0.22em; text-transform: uppercase;
+          color: #FA8059; margin-bottom: 28px;
+          display: inline-flex; align-items: center; gap: 14px;
+        }
+        .history-eyebrow::before {
+          content: ''; width: 32px; height: 1px;
+          background: #FA8059; opacity: 0.6;
         }
         .history-title {
-          font-family: 'Barlow Condensed', sans-serif;
-          font-size: clamp(42px, 8vw, 80px);
-          font-weight: 900; line-height: 0.95;
-          text-transform: uppercase; letter-spacing: -0.02em;
-          color: #fff; margin-bottom: 24px;
+          font-family: 'Space Grotesk', sans-serif;
+          font-size: clamp(34px, 5vw, 60px);
+          font-weight: 500; line-height: 0.96;
+          text-transform: none; letter-spacing: -0.03em;
+          color: #fff; margin-bottom: 28px;
+          max-width: 900px;
         }
-        .history-title .accent { color: #FA8059; }
+        .history-title .accent {
+          color: #FA8059;
+          font-style: italic;
+          font-weight: 600;
+        }
         .history-subtitle {
-          font-size: 18px; color: var(--muted);
-          max-width: 600px; margin: 0 auto;
-          line-height: 1.6;
+          font-family: 'Inter', sans-serif;
+          font-size: clamp(14px, 1.3vw, 16px);
+          color: rgba(255,255,255,0.7);
+          max-width: 660px; margin: 0;
+          line-height: 1.65;
         }
         .history-stats {
           display: flex; justify-content: center;
@@ -16997,7 +17012,7 @@ export default function UnionPathway() {
                     <div style={{textAlign:"center", padding:"40px 0"}}>
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:28, fontWeight:900, color:"#FA8059", marginBottom:12}}>Report Submitted!</div>
                       <div style={{fontSize:14, color:"var(--muted)", marginBottom:24}}>Your report is under review. Once approved it will appear on the Job Board.</div>
-                      <button onClick={() => { setJobSubmitted(false); setJobTrade(''); setJobLocal(''); setJobLocalSearch(''); setJobStatus(''); setJobCalls(''); setJobDate(''); }} style={{background:"rgba(250,128,89,0.1)", border:"1px solid rgba(250,128,89,0.3)", borderRadius:50, padding:"10px 24px", color:"#FA8059", fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, cursor:"pointer"}}>
+                      <button onClick={() => { setJobSubmitted(false); setJobTrade(''); setJobLocal(''); setJobLocalSearch(''); setJobStatus(''); setJobCalls(''); setJobDate(''); }} style={{background:"#FA8059", border:"none", borderRadius:50, padding:"12px 28px", color:"#000", fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, letterSpacing:"0.04em", cursor:"pointer"}}>
                         Submit Another
                       </button>
                     </div>
@@ -17006,10 +17021,10 @@ export default function UnionPathway() {
 
                       {/* Trade selector */}
                       <div>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FA8059", marginBottom:8}}>
+                        <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:"rgba(255,255,255,0.5)", letterSpacing:"0.2em", textTransform:"uppercase", marginBottom:10}}>
                           {lang==="es" ? "Oficio" : lang==="pl" ? "Zawod" : "Trade"}
                         </div>
-                        <select value={jobTrade} onChange={e => { setJobTrade(e.target.value); setJobLocal(''); setJobLocalSearch(''); }} style={{width:"100%", background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", color:jobTrade ? "#fff" : "var(--muted)", fontSize:14, fontFamily:"'Inter',sans-serif", cursor:"pointer"}}>
+                        <select value={jobTrade} onChange={e => { setJobTrade(e.target.value); setJobLocal(''); setJobLocalSearch(''); }} style={{width:"100%", background:"transparent", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", color:jobTrade ? "#fff" : "var(--muted)", fontSize:14, fontFamily:"'Inter',sans-serif", cursor:"pointer"}}>
                           <option value="">{lang==="es" ? "Selecciona tu oficio..." : lang==="pl" ? "Wybierz zawod..." : "Select your trade..."}</option>
                           {JOB_TRADES.map(t => <option key={t.key} value={t.key} style={{background:"#0a1628"}}>{t.label}</option>)}
                         </select>
@@ -17018,7 +17033,7 @@ export default function UnionPathway() {
                       {/* Local selector */}
                       {jobTrade && (
                         <div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FA8059", marginBottom:8}}>
+                          <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:"rgba(255,255,255,0.5)", letterSpacing:"0.2em", textTransform:"uppercase", marginBottom:10}}>
                             {lang==="es" ? "Local Sindical" : lang==="pl" ? "Lokal Zwiazku" : "Union Local"}
                           </div>
                           <input
@@ -17031,7 +17046,7 @@ export default function UnionPathway() {
                             value={jobLocalSearch}
                             onChange={e => setJobLocalSearch(e.target.value)}
                             placeholder={lang==="es" ? "Buscar por numero de local o ciudad..." : lang==="pl" ? "Szukaj po numerze lub miescie..." : "Search by local number or city..."}
-                            style={{width:"100%", background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"10px 14px", color:"#fff", fontSize:16, fontFamily:"'Inter',sans-serif", marginBottom:8, boxSizing:"border-box"}}
+                            style={{width:"100%", background:"transparent", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"10px 14px", color:"#fff", fontSize:16, fontFamily:"'Inter',sans-serif", marginBottom:8, boxSizing:"border-box"}}
                           />
                           {jobLocalSearch.trim() && (
                             <div style={{fontSize:11, color:"rgba(160,180,196,0.7)", marginBottom:8, fontFamily:"'Inter',sans-serif"}}>
@@ -17066,7 +17081,7 @@ export default function UnionPathway() {
                       {/* Status */}
                       {jobLocal && (
                         <div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FA8059", marginBottom:8}}>
+                          <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:"rgba(255,255,255,0.5)", letterSpacing:"0.2em", textTransform:"uppercase", marginBottom:10}}>
                             {lang==="es" ? "Estado del Trabajo" : lang==="pl" ? "Status Pracy" : "Work Status"}
                           </div>
                           <div style={{display:"flex", gap:10}}>
@@ -17087,17 +17102,17 @@ export default function UnionPathway() {
                       {/* Job Calls */}
                       {jobStatus && (
                         <div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FA8059", marginBottom:8}}>
+                          <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:"rgba(255,255,255,0.5)", letterSpacing:"0.2em", textTransform:"uppercase", marginBottom:10}}>
                             {lang==="es" ? "Lista de Llamadas de Trabajo" : lang==="pl" ? "Lista Ofert Pracy" : "List Job Calls"}
                           </div>
-                          <textarea value={jobCalls} onChange={e => setJobCalls(e.target.value)} placeholder={lang==="es" ? "Ej: Trabajo comercial disponible, proyectos de data center, sin trabajo residencial..." : lang==="pl" ? "Np: Praca komercyjna dostepna, projekty data center, brak pracy mieszkaniowej..." : "e.g. Commercial work available, data center projects, no residential work..."} rows={3} style={{width:"100%", background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", color:"#fff", fontSize:14, fontFamily:"'Inter',sans-serif", resize:"vertical", boxSizing:"border-box"}}/>
+                          <textarea value={jobCalls} onChange={e => setJobCalls(e.target.value)} placeholder={lang==="es" ? "Ej: Trabajo comercial disponible, proyectos de data center, sin trabajo residencial..." : lang==="pl" ? "Np: Praca komercyjna dostepna, projekty data center, brak pracy mieszkaniowej..." : "e.g. Commercial work available, data center projects, no residential work..."} rows={3} style={{width:"100%", background:"transparent", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", color:"#fff", fontSize:14, fontFamily:"'Inter',sans-serif", resize:"vertical", boxSizing:"border-box"}}/>
                         </div>
                       )}
 
                       {/* Date */}
                       {jobStatus && (
                         <div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FA8059", marginBottom:8}}>
+                          <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:"rgba(255,255,255,0.5)", letterSpacing:"0.2em", textTransform:"uppercase", marginBottom:10}}>
                             {lang==="es" ? "Fecha del Informe" : lang==="pl" ? "Data Raportu" : "Report Date"}
                           </div>
                           <input type="date" value={jobDate} onChange={e => setJobDate(e.target.value)} style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", color:"#fff", fontSize:14, fontFamily:"'Inter',sans-serif", width:"100%", boxSizing:"border-box"}}/>
@@ -17236,8 +17251,8 @@ export default function UnionPathway() {
             setWageContactName(''); setWageContactEmail('');
           };
 
-          const labelStyle = {fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FA8059", marginBottom:8};
-          const inputStyle = {width:"100%", background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", color:"#fff", fontSize:14, fontFamily:"'Inter',sans-serif", boxSizing:"border-box"};
+          const labelStyle = {fontFamily:"'Space Mono',monospace", fontSize:11, color:"rgba(255,255,255,0.5)", letterSpacing:"0.2em", textTransform:"uppercase", marginBottom:10};
+          const inputStyle = {width:"100%", background:"transparent", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", color:"#fff", fontSize:14, fontFamily:"'Inter',sans-serif", boxSizing:"border-box", transition:"border-color 0.18s"};
           const moneyField = (label, value, setter, optional = false) => (
             <div>
               <div style={labelStyle}>{label}{optional && <span style={{opacity:0.5, fontWeight:400, textTransform:"none", letterSpacing:0, marginLeft:6}}>(optional)</span>}</div>
@@ -17282,7 +17297,7 @@ export default function UnionPathway() {
                       <div style={{fontSize:14, color:"var(--muted)", marginBottom:24}}>
                         {lang==="es" ? "Tu informacion esta siendo revisada. Una vez aprobada aparecera aqui." : lang==="pl" ? "Twoja informacja jest sprawdzana. Po zatwierdzeniu pojawi sie tutaj." : "Your wage info is under review. Once approved it will appear here."}
                       </div>
-                      <button onClick={resetWageForm} style={{background:"rgba(250,128,89,0.1)", border:"1px solid rgba(250,128,89,0.3)", borderRadius:50, padding:"10px 24px", color:"#FA8059", fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, cursor:"pointer"}}>
+                      <button onClick={resetWageForm} style={{background:"#FA8059", border:"none", borderRadius:50, padding:"12px 28px", color:"#000", fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, letterSpacing:"0.04em", cursor:"pointer"}}>
                         {lang==="es" ? "Enviar Otro" : lang==="pl" ? "Wyslij Kolejny" : "Submit Another"}
                       </button>
                     </div>
