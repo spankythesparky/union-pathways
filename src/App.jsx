@@ -5154,6 +5154,10 @@ export default function UnionPathway() {
         }
         @media (max-width: 720px) {
           .home-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 32px !important; }
+          .appr-hub-stats { grid-template-columns: repeat(2, 1fr) !important; gap: 32px !important; }
+        }
+        @media (max-width: 480px) {
+          .appr-advice-row { grid-template-columns: 1fr !important; gap: 4px !important; }
         }
         @media (max-width: 400px) {
           .home-stats-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
@@ -14225,119 +14229,223 @@ export default function UnionPathway() {
 
         {page === "apprenticeship" && (() => {
           const TRADES = [
-            { key:'ibew', name:'IBEW Electricians', test:'NJATC / Electrical Training Alliance Aptitude Test', sections:'Algebra & Functions · Reading Comprehension', live:true, color:'#4A7B9D', sub:'69 questions · 96 minutes · scored 1–9 · need 4+ to interview' },
-            { key:'ua', name:'UA Plumbers & Pipefitters', test:'GAN / Piping Industry Entry Level Assessment', sections:'Reading · Math · Mechanical · Spatial · Folding · Problem Solving', live:true, color:'#7C9D4A', sub:'~140 questions · 120 minutes · need ~70% to pass' },
-            { key:'smart', name:'SMART Sheet Metal', test:'Sheet Metal Apprenticeship Test (varies by local)', sections:'Math · Reading · Mechanical · Spatial / Abstract', live:true, color:'#9D6B4A', sub:'Varies by local · most need 70%+ · ranking-based selection' },
-            { key:'iuec', name:'IUEC Elevator Constructors', test:'EIAT — Elevator Industry Aptitude Test', sections:'Arithmetic · Reading Comprehension · Mechanical Comprehension', live:true, color:'#4A7B9D', sub:'100 questions · 90 minutes · need 70% to pass + tool recognition test' },
-            { key:'iw', name:'Iron Workers', test:'Ironworker Apprenticeship Aptitude Test', sections:'Math · Reading · Physical Assessment', live:true, color:'#9D4A4A', sub:'2 written sections + physical · 70%+ to pass · 1-2 yr cycles' },
-            { key:'bac', name:'BAC Bricklayers', test:'Local-administered aptitude assessment', sections:'Math · Reading · Physical · Often 12-wk pre-apprenticeship', live:true, color:'#9D4A6B', sub:'7 craft tracks · oldest North American union (1865)' },
-            { key:'hfiaw', name:'Insulators (HFIAW)', test:'Local Aptitude Test + Interview', sections:'Reading · Math · Mechanical · Physical', live:true, color:'#7C4A9D', sub:'Some locals award retake bonus · 4-yr program · 160 cls hrs/yr' },
-            { key:'iuoe', name:'IUOE Operating Engineers', test:'Local test or ACT WorkKeys', sections:'Math · Reading · Mechanical · Often CDL pre-req', live:true, color:'#4A9D7C', sub:'3 branches: Hoisting, Stationary, Mechanics · seasonal up north' },
-            { key:'ubc', name:'UBC Carpenters', test:'Regional Council aptitude test', sections:'Math · Reading · Mechanical · Spatial', live:true, color:'#9D7C4A', sub:'11 trade specialties · 70-80% to pass · 500K+ members' },
-            { key:'iupat', name:'IUPAT Painters & Allied Trades', test:'District Council aptitude test (varies by region)', sections:'Math · Reading · Mechanical · Spatial · Color (painters)', live:true, color:'#ec4899', sub:'No national standard test · interview-weighted · 8 trades incl. glaziers, drywall, painters' },
+            { key:'ibew', name:'IBEW Electricians', test:'NJATC / Electrical Training Alliance Aptitude Test', sections:'Algebra & Functions · Reading Comprehension', live:true, color:'#FA8059', sub:'69 questions · 96 minutes · scored 1–9 · need 4+ to interview' },
+            { key:'ua', name:'UA Plumbers & Pipefitters', test:'GAN / Piping Industry Entry Level Assessment', sections:'Reading · Math · Mechanical · Spatial · Folding · Problem Solving', live:true, color:'#FA8059', sub:'~140 questions · 120 minutes · need ~70% to pass' },
+            { key:'smart', name:'SMART Sheet Metal', test:'Sheet Metal Apprenticeship Test (varies by local)', sections:'Math · Reading · Mechanical · Spatial / Abstract', live:true, color:'#FA8059', sub:'Varies by local · most need 70%+ · ranking-based selection' },
+            { key:'iuec', name:'IUEC Elevator Constructors', test:'EIAT — Elevator Industry Aptitude Test', sections:'Arithmetic · Reading Comprehension · Mechanical Comprehension', live:true, color:'#FA8059', sub:'100 questions · 90 minutes · need 70% to pass + tool recognition test' },
+            { key:'iw', name:'Iron Workers', test:'Ironworker Apprenticeship Aptitude Test', sections:'Math · Reading · Physical Assessment', live:true, color:'#FA8059', sub:'2 written sections + physical · 70%+ to pass · 1-2 yr cycles' },
+            { key:'bac', name:'BAC Bricklayers', test:'Local-administered aptitude assessment', sections:'Math · Reading · Physical · Often 12-wk pre-apprenticeship', live:true, color:'#FA8059', sub:'7 craft tracks · oldest North American union (1865)' },
+            { key:'hfiaw', name:'Insulators (HFIAW)', test:'Local Aptitude Test + Interview', sections:'Reading · Math · Mechanical · Physical', live:true, color:'#FA8059', sub:'Some locals award retake bonus · 4-yr program · 160 cls hrs/yr' },
+            { key:'iuoe', name:'IUOE Operating Engineers', test:'Local test or ACT WorkKeys', sections:'Math · Reading · Mechanical · Often CDL pre-req', live:true, color:'#FA8059', sub:'3 branches: Hoisting, Stationary, Mechanics · seasonal up north' },
+            { key:'ubc', name:'UBC Carpenters', test:'Regional Council aptitude test', sections:'Math · Reading · Mechanical · Spatial', live:true, color:'#FA8059', sub:'11 trade specialties · 70-80% to pass · 500K+ members' },
+            { key:'iupat', name:'IUPAT Painters & Allied Trades', test:'District Council aptitude test (varies by region)', sections:'Math · Reading · Mechanical · Spatial · Color (painters)', live:true, color:'#FA8059', sub:'No national standard test · interview-weighted · 8 trades incl. glaziers, drywall, painters' },
+          ];
+
+          const ADVICE = [
+            { num:'01', title:'The test isn\'t the hard part — the math under time pressure is.', body:'Most apprenticeship tests are 8th-to-10th-grade math. The catch is no calculator and a tight clock. Practice doing arithmetic and algebra fast, on paper, with a stopwatch.' },
+            { num:'02', title:'Reading comprehension is half your score. Don\'t sleep on it.', body:'Most candidates over-prep math and ignore reading. The reading section is usually weighted equal to (or more than) math. Practice reading dense technical passages and summarizing in your own words.' },
+            { num:'03', title:'Passing isn\'t the same as getting in.', body:'Most locals rank applicants by combined test + interview score and fill spots top-down. A "passing" 70 might not get an interview if 200 people scored 85+. Aim for the highest score you can — not the minimum.' },
+            { num:'04', title:'The interview matters as much as the test.', body:'Once you\'re in the interview pool, ranking is dominated by interview performance. Have a real answer for "why this trade." Have references. Show up early, dressed appropriately. Ask questions that show you researched the local.' },
+            { num:'05', title:'Khan Academy is free and works.', body:'For algebra, fractions, decimals, percentages, and basic geometry — the core of every trade test — Khan Academy has clean, free video lessons. Many JATCs literally recommend it as their official prep resource. Don\'t pay for a "secret" course.' },
+            { num:'06', title:'You can retake. But don\'t plan on it.', body:'Most locals make you wait 6 months to a year between attempts, and you go to the back of the line. Treat the first attempt like your only attempt.' },
           ];
 
           return (
             <div id="apprenticeship-root">
               {/* PROGRESS BAR */}
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #4A7B9D, #F5C518)', transition:'width 0.1s'}} />
-              </div>
-
-              {/* BREADCRUMB */}
-              <div style={{padding:'24px 24px 0', maxWidth:1100, margin:'0 auto'}}>
-                <div onClick={() => setPage('home')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-                  Home
-                </div>
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #F4A276)', transition:'width 0.1s'}} />
               </div>
 
               {/* HERO */}
-              <div style={{padding:'40px 24px 60px', maxWidth:1100, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>How To Get In</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(44px, 8vw, 96px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 28px 0', letterSpacing:'-0.01em'}}>
-                  The Apprenticeship<br/><span style={{color:'#F5C518'}}>Aptitude Test.</span>
+              <section style={{padding:'56px 24px 40px', maxWidth:1280, margin:'0 auto'}}>
+                <div style={{display:'inline-flex', alignItems:'center', gap:14, fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>
+                  <span style={{width:32, height:1, background:'#FA8059', opacity:0.6}} />
+                  How to get in
+                </div>
+                <h1 style={{
+                  fontFamily:"'Space Grotesk',sans-serif",
+                  fontSize:'clamp(34px, 5vw, 60px)',
+                  fontWeight:500,
+                  color:'#fff',
+                  lineHeight:0.96,
+                  letterSpacing:'-0.03em',
+                  margin:'0 0 28px 0',
+                  maxWidth:900
+                }}>
+                  The apprenticeship<br/>
+                  <span style={{color:'#FA8059', fontStyle:'italic', fontWeight:600}}>aptitude test.</span>
                 </h1>
-                <p style={{fontSize:20, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:720, margin:0}}>
-                  Every union apprenticeship starts with a test. Each trade uses a different one — different sections, different scoring, different cutoff. This is what's actually on each one. No prep-course paywall, no gatekeeping, no fluff. Pick your trade.
+                <p style={{
+                  fontFamily:"'Inter',sans-serif",
+                  fontSize:'clamp(14px, 1.3vw, 16px)',
+                  color:'rgba(255,255,255,0.7)',
+                  lineHeight:1.65,
+                  maxWidth:660,
+                  margin:0
+                }}>
+                  Every union apprenticeship starts with a test. Each trade uses a different one — different sections, different scoring, different cutoff. This is what's actually on each one. No prep-course paywall, no gatekeeping, no fluff.
                 </p>
-              </div>
+              </section>
 
               {/* BIG NUMBERS */}
-              <div style={{padding:'40px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
-                <div style={{maxWidth:1100, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(180px, 1fr))', gap:24}}>
+              <section style={{padding:'60px 24px 60px', maxWidth:1280, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
+                <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:32}}>
+                  // The deal
+                </div>
+                <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:24}} className="appr-hub-stats">
                   {[
                     { v:'$0', l:'Tuition cost. Paid to learn.' },
-                    { v:'4-5 yr', l:'Typical apprenticeship length' },
+                    { v:'4–5 yr', l:'Typical apprenticeship length' },
                     { v:'10,000+', l:'Hours of paid OJT by graduation' },
-                    { v:'$50+/hr', l:'Median journeyman wage in the trades' }
+                    { v:'$50+/hr', l:'Median journeyman wage' }
                   ].map((s, i) => (
                     <div key={i}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(36px, 4.5vw, 56px)', fontWeight:900, color:'#F5C518', lineHeight:1, marginBottom:8}}>{s.v}</div>
-                      <div style={{fontSize:13, color:'rgba(255,255,255,0.65)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{s.l}</div>
+                      <div style={{
+                        fontFamily:"'Space Grotesk',sans-serif",
+                        fontSize:'clamp(28px, 4vw, 48px)',
+                        fontWeight:500,
+                        background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)',
+                        WebkitBackgroundClip:'text', backgroundClip:'text',
+                        WebkitTextFillColor:'transparent',
+                        lineHeight:1, letterSpacing:'-0.03em', marginBottom:8
+                      }}>{s.v}</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'rgba(255,255,255,0.6)', lineHeight:1.45}}>{s.l}</div>
                     </div>
                   ))}
                 </div>
-              </div>
+              </section>
 
-              {/* TRADE CARDS */}
-              <div style={{padding:'80px 24px', maxWidth:1100, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>Pick Your Trade</div>
-                <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4.5vw, 44px)', fontWeight:900, color:'#fff', margin:'0 0 40px 0', lineHeight:1.05}}>Every trade tests differently.</h2>
-                <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(320px, 1fr))', gap:16}}>
+              {/* PICK YOUR TRADE */}
+              <section style={{padding:'60px 24px 80px', maxWidth:1280, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
+                <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:18}}>
+                  // Pick your trade
+                </div>
+                <h2 style={{
+                  fontFamily:"'Space Grotesk',sans-serif",
+                  fontSize:'clamp(24px, 3vw, 36px)',
+                  fontWeight:500,
+                  color:'#fff',
+                  margin:'0 0 36px 0',
+                  lineHeight:1.1,
+                  letterSpacing:'-0.02em',
+                  maxWidth:600
+                }}>
+                  Every trade <span style={{color:'#FA8059', fontStyle:'italic'}}>tests differently.</span>
+                </h2>
+                <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(320px, 1fr))', gap:12}}>
                   {TRADES.map(t => (
                     <div
                       key={t.key}
                       onClick={() => t.live && setPage('apprenticeship-' + t.key)}
                       style={{
-                        background: t.live ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.02)',
-                        border:'1px solid '+(t.live ? 'rgba(255,255,255,0.10)' : 'rgba(255,255,255,0.05)'),
-                        borderLeft:'4px solid '+t.color,
+                        background:'transparent',
+                        border:'1px solid rgba(255,255,255,0.08)',
                         borderRadius:14,
                         padding:'24px 26px',
                         cursor: t.live ? 'pointer' : 'default',
-                        opacity: t.live ? 1 : 0.55,
+                        opacity: t.live ? 1 : 0.5,
                         transition:'all 0.2s'
                       }}
-                      onMouseEnter={e => { if (t.live) { e.currentTarget.style.background = 'rgba(255,255,255,0.07)'; e.currentTarget.style.transform = 'translateY(-2px)'; } }}
-                      onMouseLeave={e => { if (t.live) { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.transform = 'translateY(0)'; } }}
+                      onMouseEnter={e => {
+                        if (t.live) {
+                          e.currentTarget.style.background = 'rgba(250,128,89,0.05)';
+                          e.currentTarget.style.borderColor = 'rgba(250,128,89,0.3)';
+                          e.currentTarget.style.transform = 'translateY(-2px)';
+                          e.currentTarget.style.boxShadow = '0 8px 32px rgba(250,128,89,0.08)';
+                        }
+                      }}
+                      onMouseLeave={e => {
+                        if (t.live) {
+                          e.currentTarget.style.background = 'transparent';
+                          e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
+                          e.currentTarget.style.transform = 'translateY(0)';
+                          e.currentTarget.style.boxShadow = 'none';
+                        }
+                      }}
                     >
                       <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:12, marginBottom:10}}>
-                        <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', margin:0, lineHeight:1.15}}>{t.name}</h3>
+                        <h3 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:18, fontWeight:500, color:'#fff', margin:0, lineHeight:1.2, letterSpacing:'-0.015em'}}>{t.name}</h3>
                         {t.live ? (
-                          <div style={{flexShrink:0, fontSize:9, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700, color:t.color, letterSpacing:1.5, textTransform:'uppercase', padding:'4px 8px', border:'1px solid '+t.color, borderRadius:50}}>Live</div>
+                          <div style={{flexShrink:0, fontSize:9, fontFamily:"'Space Mono',monospace", color:'#FA8059', letterSpacing:'0.15em', textTransform:'uppercase', padding:'3px 8px', border:'1px solid rgba(250,128,89,0.4)', borderRadius:50}}>Live</div>
                         ) : (
-                          <div style={{flexShrink:0, fontSize:9, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700, color:'rgba(255,255,255,0.45)', letterSpacing:1.5, textTransform:'uppercase', padding:'4px 8px', border:'1px solid rgba(255,255,255,0.15)', borderRadius:50}}>Coming Soon</div>
+                          <div style={{flexShrink:0, fontSize:9, fontFamily:"'Space Mono',monospace", color:'rgba(255,255,255,0.45)', letterSpacing:'0.15em', textTransform:'uppercase', padding:'3px 8px', border:'1px solid rgba(255,255,255,0.15)', borderRadius:50}}>Soon</div>
                         )}
                       </div>
-                      <div style={{fontSize:13, color:'rgba(255,255,255,0.7)', fontStyle:'italic', marginBottom:12}}>{t.test}</div>
-                      <div style={{fontSize:12, color:'rgba(255,255,255,0.55)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:600, marginBottom:14}}>{t.sections}</div>
-                      <div style={{fontSize:12, color:t.color, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:0.5, fontWeight:600}}>{t.sub}</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, color:'rgba(255,255,255,0.6)', fontStyle:'italic', marginBottom:14, lineHeight:1.5}}>{t.test}</div>
+                      <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color:'rgba(255,255,255,0.4)', letterSpacing:'0.1em', textTransform:'uppercase', marginBottom:14}}>{t.sections}</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FA8059', lineHeight:1.5}}>{t.sub}</div>
                     </div>
                   ))}
                 </div>
-              </div>
+              </section>
 
-              {/* GENERAL ADVICE */}
-              <div style={{padding:'80px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
-                <div style={{maxWidth:900, margin:'0 auto'}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>True for Every Trade</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4.5vw, 44px)', fontWeight:900, color:'#fff', margin:'0 0 32px 0', lineHeight:1.05}}>Things nobody tells you.</h2>
-                  <div style={{display:'flex', flexDirection:'column', gap:18, fontSize:16, lineHeight:1.7, color:'rgba(255,255,255,0.85)'}}>
-                    <p style={{margin:0}}><strong style={{color:'#F5C518'}}>The test isn't the hard part — the math under time pressure is.</strong> Most apprenticeship tests are 8th-to-10th-grade math. The catch is no calculator and a tight clock. Practice doing arithmetic and algebra fast, on paper, with a stopwatch.</p>
-                    <p style={{margin:0}}><strong style={{color:'#F5C518'}}>Reading comprehension is half your score. Don't sleep on it.</strong> Most candidates over-prep math and ignore reading. The reading section is usually weighted equal to (or more than) math. Practice reading dense technical passages and summarizing in your own words.</p>
-                    <p style={{margin:0}}><strong style={{color:'#F5C518'}}>Passing isn't the same as getting in.</strong> Most locals rank applicants by combined test + interview score and fill spots top-down. A "passing" 70 might not get an interview if 200 people scored 85+. Aim for the highest score you can — not the minimum.</p>
-                    <p style={{margin:0}}><strong style={{color:'#F5C518'}}>The interview matters as much as the test.</strong> Once you're in the interview pool, ranking is dominated by interview performance. Have a real answer for "why this trade." Have references. Show up early, dressed appropriately. Ask questions that show you researched the local.</p>
-                    <p style={{margin:0}}><strong style={{color:'#F5C518'}}>Khan Academy is free and works.</strong> For algebra, fractions, decimals, percentages, and basic geometry — the core of every trade test — Khan Academy has clean, free video lessons. Many JATCs literally recommend it as their official prep resource. Don't pay for a "secret" course.</p>
-                    <p style={{margin:0}}><strong style={{color:'#F5C518'}}>You can retake. But don't plan on it.</strong> Most locals make you wait 6 months to a year between attempts, and you go to the back of the line. Treat the first attempt like your only attempt.</p>
-                  </div>
+              {/* THINGS NOBODY TELLS YOU */}
+              <section style={{padding:'60px 24px 80px', maxWidth:1280, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
+                <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:18}}>
+                  // True for every trade
                 </div>
-              </div>
+                <h2 style={{
+                  fontFamily:"'Space Grotesk',sans-serif",
+                  fontSize:'clamp(24px, 3vw, 36px)',
+                  fontWeight:500,
+                  color:'#fff',
+                  margin:'0 0 48px 0',
+                  lineHeight:1.1,
+                  letterSpacing:'-0.02em'
+                }}>
+                  Things nobody <span style={{color:'#FA8059', fontStyle:'italic'}}>tells you.</span>
+                </h2>
+                <div style={{display:'flex', flexDirection:'column'}}>
+                  {ADVICE.map((a, i) => (
+                    <div key={i} style={{
+                      padding:'32px 0',
+                      borderTop: i === 0 ? 'none' : '1px solid rgba(255,255,255,0.08)',
+                      display:'grid',
+                      gridTemplateColumns:'72px 1fr',
+                      gap:24,
+                      alignItems:'flex-start'
+                    }} className="appr-advice-row">
+                      <div style={{
+                        fontFamily:"'Space Grotesk',sans-serif",
+                        fontSize:'clamp(20px, 2.5vw, 28px)',
+                        fontWeight:500,
+                        color:'rgba(255,255,255,0.35)',
+                        lineHeight:1, letterSpacing:'-0.02em'
+                      }}>{a.num}</div>
+                      <div>
+                        <h3 style={{
+                          fontFamily:"'Space Grotesk',sans-serif",
+                          fontSize:'clamp(17px, 2vw, 22px)',
+                          fontWeight:500,
+                          color:'#fff',
+                          margin:'0 0 10px 0',
+                          lineHeight:1.3,
+                          letterSpacing:'-0.015em'
+                        }}>{a.title}</h3>
+                        <p style={{
+                          fontFamily:"'Inter',sans-serif",
+                          fontSize:15,
+                          color:'rgba(255,255,255,0.7)',
+                          lineHeight:1.65,
+                          margin:0,
+                          maxWidth:720
+                        }}>{a.body}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
 
-              {/* BACK */}
-              <div style={{padding:'40px 24px 80px', maxWidth:1100, margin:'0 auto', textAlign:'center'}}>
-                <button onClick={() => setPage('home')} style={{background:'transparent', color:'#F5C518', fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(245,197,24,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to Home</button>
-              </div>
+              {/* CTA */}
+              <section style={{padding:'40px 24px 100px', maxWidth:1280, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
+                <button onClick={() => setPage('home')} style={{
+                  background:'#FA8059', color:'#000',
+                  fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, letterSpacing:'0.04em',
+                  padding:'14px 32px', border:'none', borderRadius:50,
+                  cursor:'pointer', transition:'all 0.18s'
+                }}>← Back to home</button>
+              </section>
             </div>
           );
         })()}
