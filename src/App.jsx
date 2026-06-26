@@ -5106,6 +5106,7 @@ export default function UnionPathway() {
         }
 
         /* PHASE 1 FOUNDATION */
+        /* PHASE 5 HISTORY BODY */
         html { scroll-behavior: smooth; }
         body {
           font-family: 'Inter', 'Barlow', system-ui, sans-serif;
@@ -7906,11 +7907,11 @@ export default function UnionPathway() {
           const ExpandableCard = ({ year, title, summary, body, accent = '#FA8059' }) => {
             const [open, setOpen] = useState(false);
             return (
-              <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:`4px solid ${accent}`}}>
+              <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14, transition:'all 0.3s', borderLeft:`2px solid ${accent}`}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:accent, letterSpacing:1, textTransform:'uppercase', marginBottom:6}}>{year}</div>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', lineHeight:1.2, marginBottom:8}}>{title}</div>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
+                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#fff', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'rgba(255,255,255,0.75)', lineHeight:1.6}}>{summary}</div>
                   </div>
                   <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:`${accent}22`, color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
@@ -7927,7 +7928,7 @@ export default function UnionPathway() {
           const PullQuote = ({ children, attribution }) => (
             <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #FA8059', background:'linear-gradient(90deg, rgba(250,128,89,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#fff', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontSize:13, color:'rgba(160,180,196,0.8)', marginTop:14, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase'}}>— {attribution}</div>}
+              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
@@ -7936,7 +7937,7 @@ export default function UnionPathway() {
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#FA8059', lineHeight:1}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontSize:12, color:'rgba(160,180,196,0.85)', marginTop:8, textTransform:'uppercase', letterSpacing:1.5, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{label}</div>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -7946,7 +7947,7 @@ export default function UnionPathway() {
                 <div style={{display:'flex', alignItems:'center', gap:16, marginBottom:20, flexWrap:'wrap'}}>
                   <div style={{width:48, height:48, borderRadius:12, background:`${color}22`, border:`2px solid ${color}`, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color}}>{tag}</div>
                   <div>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
                     <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
                   </div>
                 </div>
@@ -7961,7 +7962,7 @@ export default function UnionPathway() {
             <div id="history-root">
               {/* PROGRESS BAR */}
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #F5C518)', transition:'width 0.1s'}} />
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #FA8059)', transition:'width 0.1s'}} />
               </div>
 
               {/* HERO */}
@@ -8024,17 +8025,17 @@ export default function UnionPathway() {
                 </PullQuote>
 
                 {/* PART II */}
-                <Era tag="II" years="Late 1700s – Mid 1800s" title="The Industrial Revolution" color="#F5C518" intro="The Industrial Revolution transformed the workshop into the factory and the artisan into the wage worker. Hours stretched to twelve, fourteen, sometimes sixteen per day. Children as young as six worked in mines and mills. Wages floated at subsistence. In response, workers built new institutions adapted to factory life — and faced down the same legal hostility that confronted their counterparts a generation earlier.">
+                <Era tag="II" years="Late 1700s – Mid 1800s" title="The Industrial Revolution" color="#FA8059" intro="The Industrial Revolution transformed the workshop into the factory and the artisan into the wage worker. Hours stretched to twelve, fourteen, sometimes sixteen per day. Children as young as six worked in mines and mills. Wages floated at subsistence. In response, workers built new institutions adapted to factory life — and faced down the same legal hostility that confronted their counterparts a generation earlier.">
                   <ExpandableCard
                     year="1834"
-                    accent="#F5C518"
+                    accent="#FA8059"
                     title="The Tolpuddle Martyrs"
                     summary="Six Dorset farm laborers transported to Australia for forming a union."
                     body="Their crime was swearing a secret oath to form a friendly society of agricultural laborers. They became early martyrs of the British movement and rallying figures for organized labor across the English-speaking world. The case made clear that even where Combination Acts had been repealed, the state had other tools to crush organizing — and that workers would have to push back politically as well as industrially."
                   />
                   <ExpandableCard
                     year="1848"
-                    accent="#F5C518"
+                    accent="#FA8059"
                     title="The Communist Manifesto"
                     summary="Karl Marx and Friedrich Engels reframed workers as a class with shared interests across borders."
                     body="The manifesto's most enduring legacy on the labor movement was less its specific program than its reframing of workers as a coherent class with shared interests across borders, industries, and trades. That idea would resurface again and again in union organizing — from the Knights of Labor's inclusive vision to the IWW's 'One Big Union' to today's cross-border solidarity campaigns."
@@ -8276,7 +8277,7 @@ export default function UnionPathway() {
                   <div style={{margin:'80px 0 40px', padding:'40px 28px', background:'linear-gradient(135deg, rgba(250,128,89,0.08) 0%, rgba(245,197,24,0.08) 100%)', borderRadius:24, border:'1px solid rgba(250,128,89,0.2)'}}>
                     <div style={{textAlign:'center', marginBottom:32}}>
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase'}}>Where We Are Now</div>
-                      <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(32px, 5vw, 48px)', fontWeight:900, color:'#fff', margin:'12px 0 0 0'}}>The Movement in 2026</h2>
+                      <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(26px, 3.5vw, 36px)', fontWeight:500, color:'#fff', margin:'12px 0 0 0', letterSpacing:'-0.02em', lineHeight:1.15}}>The Movement in 2026</h2>
                       <p style={{fontSize:15, color:'rgba(255,255,255,0.7)', maxWidth:600, margin:'12px auto 0', lineHeight:1.6}}>High-profile, energetic, popularly supported, and politically embattled to a degree not seen in decades.</p>
                     </div>
                     <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(180px, 1fr))', gap:16, marginBottom:24}}>
@@ -8286,7 +8287,7 @@ export default function UnionPathway() {
                       <StatBlock value={32.9} label="Public sector density" suffix="%" decimals={1} />
                     </div>
                     <div style={{padding:'24px', background:'rgba(0,0,0,0.25)', borderRadius:16, marginTop:8}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:2, textTransform:'uppercase', marginBottom:12}}>The Wage Premium</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:2, textTransform:'uppercase', marginBottom:12}}>The Wage Premium</div>
                       <div style={{display:'flex', gap:24, flexWrap:'wrap', alignItems:'center'}}>
                         <div style={{flex:'1 1 180px'}}>
                           <div style={{fontSize:12, color:'rgba(160,180,196,0.8)', marginBottom:4}}>Median weekly earnings — UNION</div>
@@ -8306,24 +8307,24 @@ export default function UnionPathway() {
                 </FadeIn>
 
                 {/* PART X — Crossroads */}
-                <Era tag="X" years="2025 – 2026" title="A Movement at a Crossroads" color="#F5C518" intro="The 2026 picture is one of sharp contrasts. Public approval of unions remains historically high. NLRB union election petitions have doubled since 2021. Reform movements in the UAW and Teamsters have produced more militant leadership and bigger contracts. New organizing has reached previously off-limits sectors: coffee retail, tech, video games, graduate education, museums, journalism, Amazon warehouses.">
+                <Era tag="X" years="2025 – 2026" title="A Movement at a Crossroads" color="#FA8059" intro="The 2026 picture is one of sharp contrasts. Public approval of unions remains historically high. NLRB union election petitions have doubled since 2021. Reform movements in the UAW and Teamsters have produced more militant leadership and bigger contracts. New organizing has reached previously off-limits sectors: coffee retail, tech, video games, graduate education, museums, journalism, Amazon warehouses.">
                   <ExpandableCard
                     year="2025"
-                    accent="#F5C518"
+                    accent="#FA8059"
                     title="The Federal Workforce Confrontation"
                     summary="Executive orders ended collective bargaining for over one million federal workers."
                     body="Citing national security concerns, the Trump administration excluded large portions of the federal workforce from federal labor-management relations protections — affecting roughly 84 percent of the unionized federal workforce. Federal employee unions filed roughly a dozen lawsuits, scoring early wins at the district court level only to see federal appeals courts overturn preliminary injunctions. In an outcome that likely surprised the executive branch, union density among federal workers actually rose from 29.9 percent to 31.1 percent — the largest single-year increase since 2011, as federal employees flocked to unions for protection during mass layoffs and policy upheaval."
                   />
                   <ExpandableCard
                     year="2024-25"
-                    accent="#F5C518"
+                    accent="#FA8059"
                     title="The Strike Wave Continues"
                     summary="Boeing, Longshoremen, Starbucks, Republic Services, Corewell."
                     body="271,500 workers participated in 31 major strikes in 2024. The October 2024 International Longshoremen's Association strike — the union's first since 1977 — shut down East and Gulf Coast ports for two days before yielding a tentative agreement that included a 62 percent pay increase over six years. The fall 2024 Boeing machinists' strike secured a 38 percent wage increase. In November 2024, 10,000 nurses at Corewell hospitals won the largest unionization election in recent memory."
                   />
                   <ExpandableCard
                     year="2025"
-                    accent="#F5C518"
+                    accent="#FA8059"
                     title="The Generational Shift"
                     summary="Workers under 45 are doing nearly all the new organizing."
                     body="Union coverage among workers under 45 increased by 428,000 in 2025, compared with just 35,000 among workers 45 and over. The South alone accounted for 46 percent of all net gains nationwide. The center of gravity of new organizing is shifting younger, more diverse, and — surprisingly to many — Southern."
@@ -8334,7 +8335,7 @@ export default function UnionPathway() {
                 <FadeIn>
                   <div style={{margin:'80px 0 40px', padding:'48px 32px', background:'rgba(255,255,255,0.03)', borderRadius:24, border:'1px solid rgba(255,255,255,0.08)', textAlign:'center'}}>
                     <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The Long Arc</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4.5vw, 42px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.15}}>What Endures</h2>
+                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(24px, 3vw, 34px)', fontWeight:500, color:'#fff', margin:'0 0 24px 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>What Endures</h2>
                     <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.8, maxWidth:720, margin:'0 auto 20px'}}>
                       The history of organized labor is not a clean story of progress, nor of inevitable decline. It is a series of moments — Tolpuddle, Haymarket, Triangle, Flint, Memphis, PATCO, Buffalo, Chattanooga — in which workers and employers tested each other's strength, and the political balance shifted in response.
                     </p>
@@ -8396,11 +8397,11 @@ export default function UnionPathway() {
           const ExpandableCard = ({ year, title, summary, body, accent = '#FA8059' }) => {
             const [open, setOpen] = useState(false);
             return (
-              <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:`4px solid ${accent}`}}>
+              <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14, transition:'all 0.3s', borderLeft:`2px solid ${accent}`}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:accent, letterSpacing:1, textTransform:'uppercase', marginBottom:6}}>{year}</div>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', lineHeight:1.2, marginBottom:8}}>{title}</div>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
+                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#fff', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'rgba(255,255,255,0.75)', lineHeight:1.6}}>{summary}</div>
                   </div>
                   <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:`${accent}22`, color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
@@ -8415,22 +8416,22 @@ export default function UnionPathway() {
           };
 
           const PullQuote = ({ children, attribution }) => (
-            <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #F5C518', background:'linear-gradient(90deg, rgba(245,197,24,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
+            <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #FA8059', background:'linear-gradient(90deg, rgba(245,197,24,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#fff', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontSize:13, color:'rgba(160,180,196,0.8)', marginTop:14, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase'}}>— {attribution}</div>}
+              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#F5C518', lineHeight:1}}>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontSize:12, color:'rgba(160,180,196,0.85)', marginTop:8, textTransform:'uppercase', letterSpacing:1.5, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{label}</div>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
-          const Era = ({ tag, title, years, intro, color = '#F5C518', children }) => {
+          const Era = ({ tag, title, years, intro, color = '#FA8059', children }) => {
             // COLLAPSIBLE ERA — fix164
             const [eraOpen, setEraOpen] = useState(false);
             return (
@@ -8443,10 +8444,10 @@ export default function UnionPathway() {
                     marginBottom: eraOpen ? 20 : 0
                   }}
                 >
-                  <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color, flexShrink:0}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Space Grotesk',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#fff', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -8465,12 +8466,12 @@ export default function UnionPathway() {
             <div id="ibew-history-root">
               {/* PROGRESS BAR */}
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #F5C518, #FA8059)', transition:'width 0.1s'}} />
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #FA8059)', transition:'width 0.1s'}} />
               </div>
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#F5C518'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#FA8059'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   General Union History
                 </div>
@@ -8478,9 +8479,9 @@ export default function UnionPathway() {
 
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Brotherhood of Electrical Workers</div>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Brotherhood of Electrical Workers</div>
                 <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>
-                  Wired for the <span style={{color:'#F5C518'}}>Long Haul.</span><br/>
+                  Wired for the <span style={{color:'#FA8059'}}>Long Haul.</span><br/>
                   <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>Born in a St. Louis dance hall, 1891.</span>
                 </h1>
                 <p style={{fontSize:18, color:'rgba(255,255,255,0.7)', lineHeight:1.6, maxWidth:680, margin:'0 auto'}}>
@@ -8626,7 +8627,7 @@ export default function UnionPathway() {
                 {/* MID PEAK STATS */}
                 <div style={{margin:'80px -8px', padding:'40px 24px', background:'linear-gradient(180deg, rgba(245,197,24,0.06) 0%, rgba(250,128,89,0.06) 100%)', borderRadius:24, border:'1px solid rgba(255,255,255,0.08)'}}>
                   <div style={{textAlign:'center', marginBottom:24}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:2, textTransform:'uppercase'}}>The Peak — 1972</div>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:2, textTransform:'uppercase'}}>The Peak — 1972</div>
                     <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'8px 0'}}>One Million Strong</h3>
                   </div>
                   <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(160px, 1fr))', gap:8}}>
@@ -8705,8 +8706,8 @@ export default function UnionPathway() {
                 {/* CURRENT-DAY DASHBOARD */}
                 <div style={{margin:'80px 0 40px', padding:'40px 28px', background:'linear-gradient(135deg, rgba(245,197,24,0.08) 0%, rgba(250,128,89,0.08) 100%)', borderRadius:24, border:'1px solid rgba(245,197,24,0.2)'}}>
                   <div style={{textAlign:'center', marginBottom:32}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase'}}>Where the IBEW Stands Now</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(32px, 5vw, 48px)', fontWeight:900, color:'#fff', margin:'12px 0 0 0'}}>The Brotherhood in 2026</h2>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase'}}>Where the IBEW Stands Now</div>
+                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(26px, 3.5vw, 36px)', fontWeight:500, color:'#fff', margin:'12px 0 0 0', letterSpacing:'-0.02em', lineHeight:1.15}}>The Brotherhood in 2026</h2>
                     <p style={{fontSize:15, color:'rgba(255,255,255,0.7)', maxWidth:600, margin:'12px auto 0', lineHeight:1.6}}>Industries booming, political environment hostile, growth trajectory the steepest in fifty years.</p>
                   </div>
                   <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(180px, 1fr))', gap:16, marginBottom:24}}>
@@ -8753,8 +8754,8 @@ export default function UnionPathway() {
 
                 {/* CONCLUSION */}
                 <div style={{margin:'80px 0 40px', padding:'48px 32px', background:'rgba(255,255,255,0.03)', borderRadius:24, border:'1px solid rgba(255,255,255,0.08)', textAlign:'center'}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The Continuity Beneath the Change</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4.5vw, 42px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.15}}>134 Years In, Still Following the Electrons</h2>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The Continuity Beneath the Change</div>
+                  <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(24px, 3vw, 34px)', fontWeight:500, color:'#fff', margin:'0 0 24px 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>134 Years In, Still Following the Electrons</h2>
                   <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.8, maxWidth:720, margin:'0 auto 20px'}}>
                     When Henry Miller and nine other men gathered above Stolley's Dance Hall in November 1891, the United States produced almost no electricity. The country they imagined wiring up did not yet exist. The technologies they would spend their careers installing were either brand new or still on the drawing board. The trade itself was so dangerous that Miller would be dead within five years, and the union he founded would nearly die with him.
                   </p>
@@ -8764,7 +8765,7 @@ export default function UnionPathway() {
                   <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.8, maxWidth:720, margin:'0 auto 32px'}}>
                     The work that 2026 demands — wiring data centers for an AI economy, building out transmission for renewable generation, electrifying the vehicle fleet, constructing the next generation of nuclear plants, fabricating semiconductors — is, fundamentally, the same work the founders set out to organize. The technologies are unrecognizable to anyone who climbed a pole in 1891. The trade is not.
                   </p>
-                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#F5C518', fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(245,197,24,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
+                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#FA8059', fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(245,197,24,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
                 </div>
               </div>
             </div>
@@ -8813,11 +8814,11 @@ export default function UnionPathway() {
           const ExpandableCard = ({ year, title, summary, body, accent = '#3B9EFF' }) => {
             const [open, setOpen] = useState(false);
             return (
-              <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:`4px solid ${accent}`}}>
+              <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14, transition:'all 0.3s', borderLeft:`2px solid ${accent}`}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:accent, letterSpacing:1, textTransform:'uppercase', marginBottom:6}}>{year}</div>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', lineHeight:1.2, marginBottom:8}}>{title}</div>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
+                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#fff', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'rgba(255,255,255,0.75)', lineHeight:1.6}}>{summary}</div>
                   </div>
                   <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:`${accent}22`, color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
@@ -8834,7 +8835,7 @@ export default function UnionPathway() {
           const PullQuote = ({ children, attribution }) => (
             <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #3B9EFF', background:'linear-gradient(90deg, rgba(59,158,255,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#fff', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontSize:13, color:'rgba(160,180,196,0.8)', marginTop:14, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase'}}>— {attribution}</div>}
+              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
@@ -8843,7 +8844,7 @@ export default function UnionPathway() {
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#3B9EFF', lineHeight:1}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontSize:12, color:'rgba(160,180,196,0.85)', marginTop:8, textTransform:'uppercase', letterSpacing:1.5, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{label}</div>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -8860,10 +8861,10 @@ export default function UnionPathway() {
                     marginBottom: eraOpen ? 20 : 0
                   }}
                 >
-                  <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color, flexShrink:0}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Space Grotesk',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#fff', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -9114,7 +9115,7 @@ export default function UnionPathway() {
                 <div style={{margin:'80px 0 40px', padding:'40px 28px', background:'linear-gradient(135deg, rgba(59,158,255,0.08) 0%, rgba(250,128,89,0.08) 100%)', borderRadius:24, border:'1px solid rgba(59,158,255,0.2)'}}>
                   <div style={{textAlign:'center', marginBottom:32}}>
                     <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#3B9EFF', letterSpacing:3, textTransform:'uppercase'}}>Where the UA Stands Now</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(32px, 5vw, 48px)', fontWeight:900, color:'#fff', margin:'12px 0 0 0'}}>The Brotherhood in 2026</h2>
+                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(26px, 3.5vw, 36px)', fontWeight:500, color:'#fff', margin:'12px 0 0 0', letterSpacing:'-0.02em', lineHeight:1.15}}>The Brotherhood in 2026</h2>
                     <p style={{fontSize:15, color:'rgba(255,255,255,0.7)', maxWidth:600, margin:'12px auto 0', lineHeight:1.6}}>Work pipeline among the strongest in the building trades. Membership rebuilding. Political relationships being tested.</p>
                   </div>
                   <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(180px, 1fr))', gap:16, marginBottom:24}}>
@@ -9172,7 +9173,7 @@ export default function UnionPathway() {
                 {/* CONCLUSION */}
                 <div style={{margin:'80px 0 40px', padding:'48px 32px', background:'rgba(255,255,255,0.03)', borderRadius:24, border:'1px solid rgba(255,255,255,0.08)', textAlign:'center'}}>
                   <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#3B9EFF', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The Continuity Beneath the Change</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4.5vw, 42px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.15}}>137 Years In, Still Following the Pipe</h2>
+                  <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(24px, 3vw, 34px)', fontWeight:500, color:'#fff', margin:'0 0 24px 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>137 Years In, Still Following the Pipe</h2>
                   <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.8, maxWidth:720, margin:'0 auto 20px'}}>
                     When P.J. Quinlan wrote to Richard A. O'Brien in early 1889 proposing a "United Brotherhood" of pipe trades workers, the United States was a country still being plumbed. Indoor sanitary fixtures were spreading from urban mansions to middle-class row houses. Steam heating was replacing coal stoves. Natural gas distribution networks were being built city by city. Each of these changes was being installed by tradesmen whose unions were small, fragmented, and frequently at odds with one another.
                   </p>
@@ -9234,8 +9235,8 @@ export default function UnionPathway() {
               <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:accent, letterSpacing:1, textTransform:'uppercase', marginBottom:6}}>{year}</div>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', lineHeight:1.2, marginBottom:8}}>{title}</div>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
+                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#fff', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'rgba(255,255,255,0.75)', lineHeight:1.6}}>{summary}</div>
                   </div>
                   <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
@@ -9250,9 +9251,9 @@ export default function UnionPathway() {
           };
 
           const PullQuote = ({ children, attribution }) => (
-            <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #F5C518', background:'linear-gradient(90deg, rgba(245,197,24,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
+            <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #FA8059', background:'linear-gradient(90deg, rgba(245,197,24,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#fff', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontSize:13, color:'rgba(160,180,196,0.8)', marginTop:14, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase'}}>— {attribution}</div>}
+              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
@@ -9261,7 +9262,7 @@ export default function UnionPathway() {
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#B0BEC5', lineHeight:1}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontSize:12, color:'rgba(160,180,196,0.85)', marginTop:8, textTransform:'uppercase', letterSpacing:1.5, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{label}</div>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -9278,10 +9279,10 @@ export default function UnionPathway() {
                     marginBottom: eraOpen ? 20 : 0
                   }}
                 >
-                  <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color, flexShrink:0}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Space Grotesk',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#fff', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -9636,8 +9637,8 @@ export default function UnionPathway() {
               <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:accent, letterSpacing:1, textTransform:'uppercase', marginBottom:6}}>{year}</div>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', lineHeight:1.2, marginBottom:8}}>{title}</div>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
+                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#fff', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'rgba(255,255,255,0.75)', lineHeight:1.6}}>{summary}</div>
                   </div>
                   <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
@@ -9652,9 +9653,9 @@ export default function UnionPathway() {
           };
 
           const PullQuote = ({ children, attribution }) => (
-            <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #F5C518', background:'linear-gradient(90deg, rgba(245,197,24,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
+            <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #FA8059', background:'linear-gradient(90deg, rgba(245,197,24,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#fff', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontSize:13, color:'rgba(160,180,196,0.8)', marginTop:14, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase'}}>— {attribution}</div>}
+              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
@@ -9663,7 +9664,7 @@ export default function UnionPathway() {
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#C04A36', lineHeight:1}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontSize:12, color:'rgba(160,180,196,0.85)', marginTop:8, textTransform:'uppercase', letterSpacing:1.5, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{label}</div>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -9680,10 +9681,10 @@ export default function UnionPathway() {
                     marginBottom: eraOpen ? 20 : 0
                   }}
                 >
-                  <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color, flexShrink:0}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Space Grotesk',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#fff', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -10050,8 +10051,8 @@ export default function UnionPathway() {
               <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:accent, letterSpacing:1, textTransform:'uppercase', marginBottom:6}}>{year}</div>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', lineHeight:1.2, marginBottom:8}}>{title}</div>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
+                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#fff', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'rgba(255,255,255,0.75)', lineHeight:1.6}}>{summary}</div>
                   </div>
                   <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
@@ -10066,9 +10067,9 @@ export default function UnionPathway() {
           };
 
           const PullQuote = ({ children, attribution }) => (
-            <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #F5C518', background:'linear-gradient(90deg, rgba(245,197,24,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
+            <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #FA8059', background:'linear-gradient(90deg, rgba(245,197,24,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#fff', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontSize:13, color:'rgba(160,180,196,0.8)', marginTop:14, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase'}}>— {attribution}</div>}
+              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
@@ -10077,7 +10078,7 @@ export default function UnionPathway() {
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#10A37F', lineHeight:1}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontSize:12, color:'rgba(160,180,196,0.85)', marginTop:8, textTransform:'uppercase', letterSpacing:1.5, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{label}</div>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -10094,10 +10095,10 @@ export default function UnionPathway() {
                     marginBottom: eraOpen ? 20 : 0
                   }}
                 >
-                  <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color, flexShrink:0}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Space Grotesk',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#fff', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -10490,8 +10491,8 @@ export default function UnionPathway() {
               }}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:accent, letterSpacing:1, textTransform:'uppercase', marginBottom:6}}>{year}</div>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', lineHeight:1.2, marginBottom:8}}>{title}</div>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
+                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#fff', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'rgba(255,255,255,0.75)', lineHeight:1.6}}>{summary}</div>
                   </div>
                   <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
@@ -10510,7 +10511,7 @@ export default function UnionPathway() {
             return (
               <div ref={ref} style={{
                 margin:'40px auto', maxWidth:760, padding:'30px 36px',
-                borderLeft:'4px solid #F5C518',
+                borderLeft:'4px solid #FA8059',
                 background:'linear-gradient(90deg, rgba(245,197,24,0.08) 0%, transparent 100%)',
                 borderRadius:'0 16px 16px 0',
                 transition:'opacity 0.8s, transform 0.8s',
@@ -10518,7 +10519,7 @@ export default function UnionPathway() {
                 transform: revealed ? 'translateY(0)' : 'translateY(24px)',
               }}>
                 <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#fff', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-                {attribution && <div style={{fontSize:13, color:'rgba(160,180,196,0.8)', marginTop:14, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase'}}>— {attribution}</div>}
+                {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
               </div>
             );
           };
@@ -10528,7 +10529,7 @@ export default function UnionPathway() {
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#D85F2E', lineHeight:1}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontSize:12, color:'rgba(160,180,196,0.85)', marginTop:8, textTransform:'uppercase', letterSpacing:1.5, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{label}</div>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -10561,8 +10562,8 @@ export default function UnionPathway() {
                     flexShrink:0,
                   }}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#fff', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -10638,7 +10639,7 @@ export default function UnionPathway() {
 
               {/* PROGRESS BAR */}
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #D85F2E, #F5C518)', transition:'width 0.1s'}} />
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #D85F2E, #FA8059)', transition:'width 0.1s'}} />
               </div>
 
               {/* BREADCRUMB */}
@@ -10987,8 +10988,8 @@ export default function UnionPathway() {
               <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:accent, letterSpacing:1, textTransform:'uppercase', marginBottom:6}}>{year}</div>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', lineHeight:1.2, marginBottom:8}}>{title}</div>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
+                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#fff', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'rgba(255,255,255,0.75)', lineHeight:1.6}}>{summary}</div>
                   </div>
                   <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
@@ -11003,9 +11004,9 @@ export default function UnionPathway() {
           };
 
           const PullQuote = ({ children, attribution }) => (
-            <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #F5C518', background:'linear-gradient(90deg, rgba(245,197,24,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
+            <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #FA8059', background:'linear-gradient(90deg, rgba(245,197,24,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#fff', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontSize:13, color:'rgba(160,180,196,0.8)', marginTop:14, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase'}}>— {attribution}</div>}
+              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
@@ -11014,7 +11015,7 @@ export default function UnionPathway() {
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#A8623A', lineHeight:1}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontSize:12, color:'rgba(160,180,196,0.85)', marginTop:8, textTransform:'uppercase', letterSpacing:1.5, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{label}</div>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -11031,10 +11032,10 @@ export default function UnionPathway() {
                     marginBottom: eraOpen ? 20 : 0
                   }}
                 >
-                  <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color, flexShrink:0}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Space Grotesk',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#fff', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -11052,7 +11053,7 @@ export default function UnionPathway() {
             <div id="insul-history-root">
               {/* PROGRESS BAR */}
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #A8623A, #F5C518)', transition:'width 0.1s'}} />
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #A8623A, #FA8059)', transition:'width 0.1s'}} />
               </div>
 
               {/* BREADCRUMB */}
@@ -11365,8 +11366,8 @@ export default function UnionPathway() {
               <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:accent, letterSpacing:1, textTransform:'uppercase', marginBottom:6}}>{year}</div>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', lineHeight:1.2, marginBottom:8}}>{title}</div>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
+                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#fff', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'rgba(255,255,255,0.75)', lineHeight:1.6}}>{summary}</div>
                   </div>
                   <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
@@ -11381,9 +11382,9 @@ export default function UnionPathway() {
           };
 
           const PullQuote = ({ children, attribution }) => (
-            <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #F5C518', background:'linear-gradient(90deg, rgba(245,197,24,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
+            <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #FA8059', background:'linear-gradient(90deg, rgba(245,197,24,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#fff', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontSize:13, color:'rgba(160,180,196,0.8)', marginTop:14, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase'}}>— {attribution}</div>}
+              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
@@ -11392,7 +11393,7 @@ export default function UnionPathway() {
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#4A7B9D', lineHeight:1}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontSize:12, color:'rgba(160,180,196,0.85)', marginTop:8, textTransform:'uppercase', letterSpacing:1.5, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{label}</div>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -11409,10 +11410,10 @@ export default function UnionPathway() {
                     marginBottom: eraOpen ? 20 : 0
                   }}
                 >
-                  <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color, flexShrink:0}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Space Grotesk',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#fff', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -11430,7 +11431,7 @@ export default function UnionPathway() {
             <div id="iuec-history-root">
               {/* PROGRESS BAR */}
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #4A7B9D, #F5C518)', transition:'width 0.1s'}} />
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #4A7B9D, #FA8059)', transition:'width 0.1s'}} />
               </div>
 
               {/* BREADCRUMB */}
@@ -11761,7 +11762,7 @@ export default function UnionPathway() {
           const PullQuote = ({ children, attribution }) => (
             <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #ec4899', background:'linear-gradient(90deg, rgba(236,72,153,0.1) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#fff', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontSize:13, color:'rgba(160,180,196,0.8)', marginTop:14, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase'}}>— {attribution}</div>}
+              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
@@ -11770,7 +11771,7 @@ export default function UnionPathway() {
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#ec4899', lineHeight:1}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontSize:12, color:'rgba(160,180,196,0.85)', marginTop:8, textTransform:'uppercase', letterSpacing:1.5, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{label}</div>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -11786,10 +11787,10 @@ export default function UnionPathway() {
                     marginBottom: eraOpen ? 20 : 0
                   }}
                 >
-                  <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color, flexShrink:0}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Space Grotesk',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#fff', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -11994,7 +11995,7 @@ export default function UnionPathway() {
           const PullQuote = ({ children, attribution }) => (
             <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #10A37F', background:'linear-gradient(90deg, rgba(16,163,127,0.1) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#fff', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontSize:13, color:'rgba(160,180,196,0.8)', marginTop:14, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase'}}>— {attribution}</div>}
+              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
@@ -12003,7 +12004,7 @@ export default function UnionPathway() {
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#10A37F', lineHeight:1}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontSize:12, color:'rgba(160,180,196,0.85)', marginTop:8, textTransform:'uppercase', letterSpacing:1.5, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{label}</div>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -12015,10 +12016,10 @@ export default function UnionPathway() {
                   onClick={() => setEraOpen(o => !o)}
                   style={{width:'100%', display:'flex', alignItems:'center', gap:16, flexWrap:'wrap', background:'transparent', border:'none', padding:0, cursor:'pointer', textAlign:'left', marginBottom: eraOpen ? 20 : 0}}
                 >
-                  <div style={{width:48, height:48, borderRadius:12, background:color+'22', border:'2px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color, flexShrink:0}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Space Grotesk',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color, letterSpacing:2, textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#fff', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : 'rgba(255,255,255,0.05)', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : 'rgba(255,255,255,0.15)'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -12039,7 +12040,7 @@ export default function UnionPathway() {
           return (
             <div id="nnu-history-root">
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #10A37F, #F5C518)', transition:'width 0.1s'}} />
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #10A37F, #FA8059)', transition:'width 0.1s'}} />
               </div>
 
               {/* BREADCRUMB */}
@@ -13050,7 +13051,7 @@ export default function UnionPathway() {
           // ============================================================
           const RTW_COLOR = '#D14B3F';   // RTW states (rust red)
           const NRTW_COLOR = '#4A9A6E';  // non-RTW states (sage green)
-          const REPEAL_COLOR = '#F5C518';// repealed marker
+          const REPEAL_COLOR = '#FA8059';// repealed marker
 
           // ============================================================
           // COMPUTED AGGREGATES (population-weighted)
@@ -13125,7 +13126,7 @@ export default function UnionPathway() {
             // ============================================================
             // INLINE COMPONENTS
             // ============================================================
-            const SectionHeader = ({ eyebrow, title, sub, color = '#F5C518' }) => (
+            const SectionHeader = ({ eyebrow, title, sub, color = '#FA8059' }) => (
               <div style={{marginBottom:32}}>
                 <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>{eyebrow}</div>
                 <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 5vw, 48px)', fontWeight:900, color:'#fff', margin:0, lineHeight:1.05}}>{title}</h2>
@@ -13355,7 +13356,7 @@ export default function UnionPathway() {
               <div>
                 {RTW_TIMELINE.map((ev, i) => (
                   <div key={i} style={{display:'grid', gridTemplateColumns:'90px 1fr', gap:24, padding:'14px 0', borderBottom:'1px solid rgba(255,255,255,0.06)', alignItems:'baseline'}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, color: ev.major ? '#F5C518' : 'rgba(255,255,255,0.5)', fontSize: ev.major ? 30 : 18, lineHeight:1}}>{ev.year}</div>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, color: ev.major ? '#FA8059' : 'rgba(255,255,255,0.5)', fontSize: ev.major ? 30 : 18, lineHeight:1}}>{ev.year}</div>
                     <div style={{fontSize: ev.major ? 16 : 14, fontWeight: ev.major ? 600 : 400, color: ev.major ? '#fff' : 'rgba(255,255,255,0.7)', lineHeight:1.5}}>{ev.label}</div>
                   </div>
                 ))}
@@ -13398,13 +13399,13 @@ export default function UnionPathway() {
 
                 {/* HERO */}
                 <div style={{padding:'40px 24px 60px', maxWidth:1200, margin:'0 auto'}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>An Investigation · 2026</div>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>An Investigation · 2026</div>
                   <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(44px, 8vw, 96px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 28px 0', letterSpacing:'-0.01em'}}>
                     The price of <span style={{color:RTW_COLOR, fontStyle:'italic'}}>"freedom"</span><br/>to opt out.
                   </h1>
                   <div style={{display:'grid', gridTemplateColumns:'2fr 1fr', gap:60, marginTop:32}}>
                     <p style={{fontSize:20, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>
-                      Twenty-six states have so-called <em style={{color:'#F5C518', fontStyle:'normal'}}>right-to-work</em> laws on the books. Their workers earn less. Their unions are weaker. Their workplaces are deadlier. Their poverty is higher. This is what the data says.
+                      Twenty-six states have so-called <em style={{color:'#FA8059', fontStyle:'normal'}}>right-to-work</em> laws on the books. Their workers earn less. Their unions are weaker. Their workplaces are deadlier. Their poverty is higher. This is what the data says.
                     </p>
                     <div style={{borderLeft:'1px solid rgba(255,255,255,0.12)', paddingLeft:32, display:'flex', flexDirection:'column', gap:24}}>
                       <div>
@@ -13437,9 +13438,9 @@ export default function UnionPathway() {
                           fontWeight:800,
                           letterSpacing:1.5,
                           textTransform:'uppercase',
-                          background: activeSection === s.id ? '#F5C518' : 'transparent',
+                          background: activeSection === s.id ? '#FA8059' : 'transparent',
                           color: activeSection === s.id ? '#000' : 'rgba(255,255,255,0.75)',
-                          border:'1px solid '+(activeSection === s.id ? '#F5C518' : 'rgba(255,255,255,0.15)'),
+                          border:'1px solid '+(activeSection === s.id ? '#FA8059' : 'rgba(255,255,255,0.15)'),
                           borderRadius:50,
                           cursor:'pointer',
                           transition:'all 0.15s',
@@ -13456,7 +13457,7 @@ export default function UnionPathway() {
                 <div ref={whatRef} data-section="what" style={{padding:'80px 24px', maxWidth:1200, margin:'0 auto', scrollMarginTop:80}}>
                   <div style={{display:'grid', gridTemplateColumns:'1fr 2fr', gap:60}}>
                     <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>Background</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>Background</div>
                       <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(32px, 4.5vw, 48px)', fontWeight:900, color:'#fff', margin:0, lineHeight:1.05}}>What "right-to-work" actually means.</h2>
                     </div>
                     <div style={{display:'flex', flexDirection:'column', gap:18, fontSize:16, lineHeight:1.7, color:'rgba(255,255,255,0.85)'}}>
@@ -13474,8 +13475,8 @@ export default function UnionPathway() {
                 {/* HEADLINE GAPS */}
                 <div ref={headlineRef} data-section="headline" style={{padding:'56px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)', scrollMarginTop:80}}>
                   <div style={{maxWidth:1200, margin:'0 auto'}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>The Headline Numbers</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4.5vw, 44px)', fontWeight:900, color:'#fff', margin:'0 0 40px 0', maxWidth:780, lineHeight:1.1}}>How non-RTW states compare to RTW states <em style={{color:'#F5C518', fontStyle:'normal'}}>on average:</em></h2>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>The Headline Numbers</div>
+                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4.5vw, 44px)', fontWeight:900, color:'#fff', margin:'0 0 40px 0', maxWidth:780, lineHeight:1.1}}>How non-RTW states compare to RTW states <em style={{color:'#FA8059', fontStyle:'normal'}}>on average:</em></h2>
                     <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))', gap:32}}>
                       {[
                         { k:'Hourly wages', v:'+'+wageGap+'%', s:'higher in non-RTW', col:NRTW_COLOR },
@@ -13545,8 +13546,8 @@ export default function UnionPathway() {
                 <div ref={historyRef} data-section="history" style={{padding:'80px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)', scrollMarginTop:80}}>
                   <div style={{maxWidth:1200, margin:'0 auto', display:'grid', gridTemplateColumns:'1fr 2fr', gap:60}}>
                     <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>The History</div>
-                      <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(32px, 4.5vw, 48px)', fontWeight:900, color:'#fff', margin:'0 0 18px 0', lineHeight:1.05}}>Eighty years of erosion <em style={{color:'#F5C518', fontStyle:'normal'}}>and pushback.</em></h2>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>The History</div>
+                      <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(32px, 4.5vw, 48px)', fontWeight:900, color:'#fff', margin:'0 0 18px 0', lineHeight:1.05}}>Eighty years of erosion <em style={{color:'#FA8059', fontStyle:'normal'}}>and pushback.</em></h2>
                       <p style={{fontSize:15, color:'rgba(255,255,255,0.7)', lineHeight:1.65, margin:0}}>From the first RTW laws in Florida and Arkansas in 1944, through the Taft-Hartley authorization in 1947, to Michigan's historic 2024 repeal — the right-to-work movement and the labor movement's response have shaped American work for eight decades.</p>
                     </div>
                     <Timeline />
@@ -13556,13 +13557,13 @@ export default function UnionPathway() {
                 {/* BOTTOM LINE */}
                 <div ref={bottomRef} data-section="bottom" style={{padding:'80px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', background:'linear-gradient(180deg, rgba(209,75,63,0.08), rgba(74,154,110,0.04))', scrollMarginTop:80}}>
                   <div style={{maxWidth:900, margin:'0 auto'}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>Bottom Line</div>
+                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>Bottom Line</div>
                     <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:900, color:'#fff', margin:'0 0 32px 0', lineHeight:1.05}}>Right-to-work laws don't deliver the freedom they advertise.</h2>
                     <div style={{display:'flex', flexDirection:'column', gap:18, fontSize:17, lineHeight:1.7, color:'rgba(255,255,255,0.85)'}}>
                       <p style={{margin:0}}>They deliver lower wages. Weaker benefits. Higher poverty. More uninsured workers. Deadlier workplaces. And a labor movement that, after eight decades of being told these laws were about individual choice, has watched its institutional power slowly hollowed out — paycheck by paycheck, contract by contract, state by state.</p>
                       <p style={{margin:0}}>The story of right-to-work is the story of how a careful piece of political marketing, rolled out by anti-union employer associations beginning in the 1940s, gradually became the dominant labor framework across more than half of American states. And it is also, increasingly, the story of how that consensus is starting to crack.</p>
                       <p style={{margin:0}}>Missouri voters rejected RTW by a 2-to-1 margin in 2018. Michigan repealed its law in 2024 — the first state to do so in six decades. The labor movement that built the American middle class is fighting to dismantle the laws that have spent eighty years dismantling it back.</p>
-                      <p style={{margin:'14px 0 0 0', fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(24px, 3.5vw, 36px)', fontStyle:'italic', color:'#F5C518', fontWeight:500, lineHeight:1.2}}>The numbers were always going to win.</p>
+                      <p style={{margin:'14px 0 0 0', fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(24px, 3.5vw, 36px)', fontStyle:'italic', color:'#FA8059', fontWeight:500, lineHeight:1.2}}>The numbers were always going to win.</p>
                     </div>
                   </div>
                 </div>
@@ -13572,20 +13573,20 @@ export default function UnionPathway() {
                   <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'rgba(255,255,255,0.55)', letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>Methodology &amp; Sources</div>
                   <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(240px, 1fr))', gap:32, fontSize:13, lineHeight:1.65, color:'rgba(255,255,255,0.7)'}}>
                     <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'#F5C518', letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Wages &amp; Income</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'#FA8059', letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Wages &amp; Income</div>
                       <p style={{margin:0}}>Median hourly wages derived from BLS Quarterly Census of Employment and Wages. Median household income from U.S. Census American Community Survey. Aggregate group averages are population-weighted.</p>
                     </div>
                     <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'#F5C518', letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Union Density</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'#FA8059', letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Union Density</div>
                       <p style={{margin:0}}>Annual estimates from the BLS Union Membership and Coverage Database. Reflects the share of all wage and salary workers who are union members in each state.</p>
                     </div>
                     <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'#F5C518', letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Workplace Fatalities</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'#FA8059', letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Workplace Fatalities</div>
                       <p style={{margin:0}}>Workplace fatality rates from the BLS Census of Fatal Occupational Injuries (CFOI), expressed per 100,000 full-time-equivalent workers. Comparisons consistent with AFL-CIO Death on the Job annual reports.</p>
                     </div>
                   </div>
                   <p style={{marginTop:32, fontSize:12, fontStyle:'italic', color:'rgba(255,255,255,0.5)', maxWidth:900, lineHeight:1.6}}>State-level numbers are illustrative figures consistent with publicly available federal data circa 2023–2024. Aggregate gaps are consistent with peer-reviewed research from the Economic Policy Institute, the Center for Economic and Policy Research, and the AFL-CIO. RTW status reflects state law as of April 2026 following Michigan's February 2024 repeal.</p>
-                  <button onClick={() => setPage('home')} style={{marginTop:32, background:'transparent', color:'#F5C518', fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(245,197,24,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to Home</button>
+                  <button onClick={() => setPage('home')} style={{marginTop:32, background:'transparent', color:'#FA8059', fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(245,197,24,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to Home</button>
                 </div>
               </div>
             );
@@ -13655,7 +13656,7 @@ export default function UnionPathway() {
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{
                       transition: "transform 0.2s",
                       transform: isOpen ? "rotate(180deg)" : "none",
-                      color: isOpen ? "#F5C518" : "rgba(255,255,255,0.55)",
+                      color: isOpen ? "#FA8059" : "rgba(255,255,255,0.55)",
                       flexShrink: 0
                     }}>
                       <polyline points="6 9 12 15 18 9"/>
@@ -13783,7 +13784,7 @@ export default function UnionPathway() {
                     <div style={{display:"grid", gridTemplateColumns:"1fr", gap:12}}>
                       {conditions.map((c, i) => (
                         <div key={i} style={{display:"flex", gap:18, padding:"18px 20px", background:"rgba(0,0,0,0.2)", border:"1px solid rgba(255,255,255,0.06)", borderRadius:10}}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:28, fontWeight:900, color:"#F5C518", lineHeight:1, minWidth:42}}>{c.n}</div>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:28, fontWeight:900, color:"#FA8059", lineHeight:1, minWidth:42}}>{c.n}</div>
                           <div>
                             <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:17, fontWeight:800, color:"#fff", marginBottom:6}}>{c.t}</div>
                             <div style={{fontSize:14, color:"rgba(255,255,255,0.8)", lineHeight:1.65}}>{c.d}</div>
@@ -13817,12 +13818,12 @@ export default function UnionPathway() {
                     <p style={{fontSize:14, color:"rgba(255,255,255,0.8)", lineHeight:1.7, marginBottom:18, marginTop:0}}>
                       You don't need to say "Weingarten" — any reasonable request for union representation works. Most stewards carry a wallet card with this script. Print it, save it, memorize it.
                     </p>
-                    <div style={{position:"relative", background:"linear-gradient(135deg, #1a2332 0%, #0f1620 100%)", border:"2px solid #F5C518", borderRadius:12, padding:"24px 26px", boxShadow:"0 8px 24px rgba(0,0,0,0.3)"}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:"#F5C518", letterSpacing:2, textTransform:"uppercase", marginBottom:14}}>Weingarten Request — Wallet Card</div>
+                    <div style={{position:"relative", background:"linear-gradient(135deg, #1a2332 0%, #0f1620 100%)", border:"2px solid #FA8059", borderRadius:12, padding:"24px 26px", boxShadow:"0 8px 24px rgba(0,0,0,0.3)"}}>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:"#FA8059", letterSpacing:2, textTransform:"uppercase", marginBottom:14}}>Weingarten Request — Wallet Card</div>
                       <p style={{fontSize:15, color:"#fff", lineHeight:1.7, fontStyle:"italic", margin:0, fontWeight:500}}>
                         "{cardScript}"
                       </p>
-                      <button onClick={handleCopy} style={{marginTop:18, padding:"10px 20px", fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:800, letterSpacing:1.5, textTransform:"uppercase", background: copied ? "#4A9A6E" : "#F5C518", color:"#000", border:"none", borderRadius:50, cursor:"pointer", transition:"all 0.15s"}}>
+                      <button onClick={handleCopy} style={{marginTop:18, padding:"10px 20px", fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:800, letterSpacing:1.5, textTransform:"uppercase", background: copied ? "#4A9A6E" : "#FA8059", color:"#000", border:"none", borderRadius:50, cursor:"pointer", transition:"all 0.15s"}}>
                         {copied ? "✓ Copied" : "Copy script"}
                       </button>
                     </div>
@@ -13843,7 +13844,7 @@ export default function UnionPathway() {
                         {t:"3. Offer you a choice", d:"Let you choose between continuing without a rep or ending the interview. The choice has to be yours, freely made."}
                       ].map((o, i) => (
                         <div key={i} style={{background:"rgba(0,0,0,0.2)", border:"1px solid rgba(255,255,255,0.06)", borderRadius:10, padding:"16px 18px"}}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:15, fontWeight:800, color:"#F5C518", marginBottom:8}}>{o.t}</div>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:15, fontWeight:800, color:"#FA8059", marginBottom:8}}>{o.t}</div>
                           <div style={{fontSize:13, color:"rgba(255,255,255,0.8)", lineHeight:1.6}}>{o.d}</div>
                         </div>
                       ))}
@@ -13862,13 +13863,13 @@ export default function UnionPathway() {
                           <div key={pi} style={{borderTop:"1px solid rgba(255,255,255,0.08)", borderBottom: pi === checklist.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none"}}>
                             <button onClick={() => setOpenStep(isOpen ? null : pi)} style={{width:"100%", display:"flex", alignItems:"center", justifyContent:"space-between", gap:16, padding:"16px 0", background:"transparent", border:"none", cursor:"pointer", textAlign:"left", color:"#fff", fontFamily:"'Barlow Condensed',sans-serif", fontSize:16, fontWeight:700}}>
                               <span>{phase.phase}</span>
-                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{transition:"transform 0.2s", transform: isOpen ? "rotate(180deg)" : "none", color:"#F5C518", flexShrink:0}}><polyline points="6 9 12 15 18 9"/></svg>
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{transition:"transform 0.2s", transform: isOpen ? "rotate(180deg)" : "none", color:"#FA8059", flexShrink:0}}><polyline points="6 9 12 15 18 9"/></svg>
                             </button>
                             {isOpen && (
                               <ul style={{margin:"0 0 16px 0", padding:"0 0 0 4px", listStyle:"none"}}>
                                 {phase.items.map((it, ii) => (
                                   <li key={ii} style={{position:"relative", fontSize:14, color:"rgba(255,255,255,0.85)", lineHeight:1.65, marginBottom:8, paddingLeft:22}}>
-                                    <span style={{position:"absolute", left:0, top:7, width:6, height:6, borderRadius:"50%", background:"#F5C518"}} />
+                                    <span style={{position:"absolute", left:0, top:7, width:6, height:6, borderRadius:"50%", background:"#FA8059"}} />
                                     {it}
                                   </li>
                                 ))}
@@ -13944,7 +13945,7 @@ export default function UnionPathway() {
                         {y:"2004", c:"IBM Corp.", e:"Retracted — current rule", color:"#D14B3F"}
                       ].map((row, ri) => (
                         <div key={ri} style={{display:"grid", gridTemplateColumns:"60px 1fr auto", gap:14, padding:"12px 16px", borderBottom: ri < 3 ? "1px solid rgba(255,255,255,0.06)" : "none", alignItems:"center"}}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:17, fontWeight:900, color:"#F5C518"}}>{row.y}</div>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:17, fontWeight:900, color:"#FA8059"}}>{row.y}</div>
                           <div style={{fontSize:13, color:"rgba(255,255,255,0.85)", fontStyle:"italic"}}>{row.c}</div>
                           <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:row.color, letterSpacing:1.5, textTransform:"uppercase"}}>{row.e}</div>
                         </div>
@@ -13991,7 +13992,7 @@ export default function UnionPathway() {
                   </CollapsibleSection>
 
                   <div style={{textAlign:"center", marginTop:32, marginBottom:48}}>
-                    <button onClick={() => setPage("home")} style={{background:"transparent", color:"#F5C518", fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:"uppercase", padding:"12px 28px", border:"1px solid rgba(245,197,24,0.4)", borderRadius:50, cursor:"pointer"}}>← Back to Home</button>
+                    <button onClick={() => setPage("home")} style={{background:"transparent", color:"#FA8059", fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:"uppercase", padding:"12px 28px", border:"1px solid rgba(245,197,24,0.4)", borderRadius:50, cursor:"pointer"}}>← Back to Home</button>
                   </div>
                 </div>
               </div>
@@ -15954,11 +15955,11 @@ export default function UnionPathway() {
           const ExpandableCard = ({ year, title, summary, body, accent = '#FA8059' }) => {
             const [open, setOpen] = useState(false);
             return (
-              <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:`4px solid ${accent}`}}>
+              <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14, transition:'all 0.3s', borderLeft:`2px solid ${accent}`}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    {year && <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:accent, letterSpacing:1, textTransform:'uppercase', marginBottom:6}}>{year}</div>}
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', lineHeight:1.2, marginBottom:8}}>{title}</div>
+                    {year && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>}
+                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#fff', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'rgba(255,255,255,0.75)', lineHeight:1.6}}>{summary}</div>
                   </div>
                   <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:`${accent}22`, color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
@@ -15975,7 +15976,7 @@ export default function UnionPathway() {
           const PullQuote = ({ children, attribution }) => (
             <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #FA8059', background:'linear-gradient(90deg, rgba(250,128,89,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#fff', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontSize:13, color:'rgba(160,180,196,0.8)', marginTop:14, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase'}}>— {attribution}</div>}
+              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
@@ -15984,7 +15985,7 @@ export default function UnionPathway() {
               <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#FA8059', lineHeight:1}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontSize:12, color:'rgba(160,180,196,0.85)', marginTop:8, textTransform:'uppercase', letterSpacing:1.5, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{label}</div>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -16218,7 +16219,7 @@ export default function UnionPathway() {
                 {/* CLOSING — WHAT THIS MEANS */}
                 <div style={{margin:'80px 0 40px', padding:'48px 32px', background:'rgba(255,255,255,0.03)', borderRadius:24, border:'1px solid rgba(255,255,255,0.08)', textAlign:'center'}}>
                   <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The Bottom Line</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4.5vw, 42px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.15}}>What This All Adds Up To</h2>
+                  <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(24px, 3vw, 34px)', fontWeight:500, color:'#fff', margin:'0 0 24px 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>What This All Adds Up To</h2>
                   <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.8, maxWidth:720, margin:'0 auto 20px'}}>
                     The wage on a union paycheck tells you part of the story. The pension contributions, the health-fund deposits, the annuity accruals, and the training-fund deposits running alongside it tell you the rest. For a typical journey-level union member working 1,500-2,000 hours per year, the value of contractor-paid benefits often equals 30–40% of the hourly wage on top of the wage itself.
                   </p>
