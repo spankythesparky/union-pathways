@@ -7934,7 +7934,7 @@ export default function UnionPathway() {
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#FA8059', lineHeight:1}}>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
               <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
@@ -8841,7 +8841,7 @@ export default function UnionPathway() {
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#3B9EFF', lineHeight:1}}>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
               <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
@@ -9259,7 +9259,7 @@ export default function UnionPathway() {
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#B0BEC5', lineHeight:1}}>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
               <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
@@ -9661,7 +9661,7 @@ export default function UnionPathway() {
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#C04A36', lineHeight:1}}>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
               <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
@@ -10075,7 +10075,7 @@ export default function UnionPathway() {
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#10A37F', lineHeight:1}}>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
               <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
@@ -10526,7 +10526,7 @@ export default function UnionPathway() {
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#D85F2E', lineHeight:1}}>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
               <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
@@ -11012,7 +11012,7 @@ export default function UnionPathway() {
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#A8623A', lineHeight:1}}>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
               <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
@@ -11390,7 +11390,7 @@ export default function UnionPathway() {
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#4A7B9D', lineHeight:1}}>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
               <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
@@ -11768,7 +11768,7 @@ export default function UnionPathway() {
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#ec4899', lineHeight:1}}>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
               <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
@@ -12001,7 +12001,7 @@ export default function UnionPathway() {
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#10A37F', lineHeight:1}}>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
               <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
@@ -15982,7 +15982,7 @@ export default function UnionPathway() {
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:56, fontWeight:900, color:'#FA8059', lineHeight:1}}>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
               <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
