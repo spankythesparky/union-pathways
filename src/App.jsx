@@ -8455,7 +8455,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}} onMouseEnter={e => e.currentTarget.style.color = '#F5C518'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#F5C518'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   General Union History
                 </div>
@@ -8474,7 +8474,7 @@ export default function UnionPathway() {
               </div>
 
               {/* HEADLINE STATS */}
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(160px, 1fr))', gap:16, maxWidth:1100, margin:'0 auto'}}>
                   <StatBlock value={887} label="Members and retirees" suffix="K" />
                   <StatBlock value={134} label="Years organizing" suffix=" yrs" />
@@ -8872,7 +8872,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}} onMouseEnter={e => e.currentTarget.style.color = '#3B9EFF'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#3B9EFF'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   General Union History
                 </div>
@@ -8891,7 +8891,7 @@ export default function UnionPathway() {
               </div>
 
               {/* HEADLINE STATS */}
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(160px, 1fr))', gap:16, maxWidth:1100, margin:'0 auto'}}>
                   <StatBlock value={396} label="Members today" suffix="K" />
                   <StatBlock value={137} label="Years organizing" suffix=" yrs" />
@@ -9289,7 +9289,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}} onMouseEnter={e => e.currentTarget.style.color = '#B0BEC5'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#B0BEC5'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   General Union History
                 </div>
@@ -9308,7 +9308,7 @@ export default function UnionPathway() {
               </div>
 
               {/* HEADLINE STATS */}
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(160px, 1fr))', gap:16, maxWidth:1100, margin:'0 auto'}}>
                   <StatBlock value={230} label="Members" suffix="K" />
                   <StatBlock value={138} label="Years organizing" suffix=" yrs" />
@@ -9691,7 +9691,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}} onMouseEnter={e => e.currentTarget.style.color = '#C04A36'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#C04A36'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   General Union History
                 </div>
@@ -9710,7 +9710,7 @@ export default function UnionPathway() {
               </div>
 
               {/* HEADLINE STATS */}
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(160px, 1fr))', gap:16, maxWidth:1100, margin:'0 auto'}}>
                   <StatBlock value={75} label="Active members" suffix="K" />
                   <StatBlock value={161} label="Years organizing" suffix=" yrs" />
@@ -10105,7 +10105,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}} onMouseEnter={e => e.currentTarget.style.color = '#10A37F'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#10A37F'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   General Union History
                 </div>
@@ -10124,7 +10124,7 @@ export default function UnionPathway() {
               </div>
 
               {/* HEADLINE STATS */}
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(160px, 1fr))', gap:16, maxWidth:1100, margin:'0 auto'}}>
                   <StatBlock value={1.3} label="Million members" suffix="M" decimals={1} />
                   <StatBlock value={6} label="Largest union in the U.S." prefix="#" />
@@ -10628,7 +10628,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto', position:'relative', zIndex:5}}>
-                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}} onMouseEnter={e => e.currentTarget.style.color = '#D85F2E'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#D85F2E'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   General Union History
                 </div>
@@ -10671,7 +10671,7 @@ export default function UnionPathway() {
               </div>
 
               {/* HEADLINE STATS */}
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(160px, 1fr))', gap:16, maxWidth:1100, margin:'0 auto'}}>
                   <StatBlock value={130} label="Active members" suffix="K" />
                   <StatBlock value={130} label="Years organizing" suffix=" yrs" />
@@ -11042,7 +11042,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}} onMouseEnter={e => e.currentTarget.style.color = '#A8623A'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#A8623A'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   General Union History
                 </div>
@@ -11061,7 +11061,7 @@ export default function UnionPathway() {
               </div>
 
               {/* HEADLINE STATS */}
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(160px, 1fr))', gap:16, maxWidth:1100, margin:'0 auto'}}>
                   <StatBlock value={30} label="Active members" suffix="K" />
                   <StatBlock value={122} label="Years organizing" suffix=" yrs" />
@@ -11420,7 +11420,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}} onMouseEnter={e => e.currentTarget.style.color = '#4A7B9D'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#4A7B9D'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   General Union History
                 </div>
@@ -11439,7 +11439,7 @@ export default function UnionPathway() {
               </div>
 
               {/* HEADLINE STATS */}
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(160px, 1fr))', gap:16, maxWidth:1100, margin:'0 auto'}}>
                   <StatBlock value={30} label="Active members" suffix="K+" />
                   <StatBlock value={141} label="Local unions" />
@@ -11800,7 +11800,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('trade-history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}} onMouseEnter={e => e.currentTarget.style.color = '#ec4899'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('trade-history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#ec4899'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Trade Histories
                 </div>
@@ -11819,7 +11819,7 @@ export default function UnionPathway() {
               </div>
 
               {/* HEADLINE STATS */}
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(160px, 1fr))', gap:16, maxWidth:1100, margin:'0 auto'}}>
                   <StatBlock value={140} label="Members & represented workers" suffix="K" />
                   <StatBlock value={139} label="Years organizing" suffix=" yrs" />
@@ -12029,7 +12029,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('trade-history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}} onMouseEnter={e => e.currentTarget.style.color = '#10A37F'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('trade-history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#10A37F'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Back to Histories
                 </div>
@@ -12048,7 +12048,7 @@ export default function UnionPathway() {
               </div>
 
               {/* HEADLINE STATS */}
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(160px, 1fr))', gap:16, maxWidth:1100, margin:'0 auto'}}>
                   <StatBlock value={225} label="Registered nurses" suffix="K+" />
                   <StatBlock value={50} label="States represented" />
@@ -12169,7 +12169,7 @@ export default function UnionPathway() {
 
         {page === "caucus" && (() => {
           const CaucusPage = () => {
-            const ACCENT = '#DC2626';
+            const ACCENT = '#FA8059';
             const ACCENT_DIM = 'rgba(220,38,38,0.5)';
             const ACCENT_GLOW = 'rgba(220,38,38,0.18)';
 
@@ -12332,7 +12332,7 @@ export default function UnionPathway() {
                         <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase'}}>A Field Guide for Members</div>
                       </div>
                       <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(48px, 9vw, 112px)', fontWeight:900, color:'#fff', lineHeight:0.92, margin:'0 0 28px 0', letterSpacing:'-0.01em', textTransform:'uppercase'}}>
-                        How to form<br/>a <span style={{color:ACCENT}}>union caucus.</span>
+                        How to form<br/>a <span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>union caucus.</span>
                       </h1>
                       <p style={{fontSize:'clamp(17px, 1.6vw, 19px)', color:'rgba(255,255,255,0.78)', lineHeight:1.65, maxWidth:680, margin:0}}>
                         Every reform victory in modern American labor began the same way: a few members talking quietly in a break room, deciding their union could be better, and getting organized to make it happen. This is how that work is done.
@@ -13375,7 +13375,7 @@ export default function UnionPathway() {
 
                 {/* BREADCRUMB */}
                 <div style={{padding:'24px 24px 0', maxWidth:1200, margin:'0 auto'}}>
-                  <div onClick={() => setPage('home')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                  <div onClick={() => setPage('home')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                     Home
                   </div>
@@ -14451,43 +14451,43 @@ export default function UnionPathway() {
         })()}
 
         {page === "apprenticeship-ibew" && (() => {
-          const ACCENT = '#4A7B9D';
+          const ACCENT = '#FA8059';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
-              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#fff', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>
+            <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14, transition:'all 0.2s'}}>
               {children}
             </div>
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
-              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'rgba(255,255,255,0.6)', lineHeight:1.45}}>{l}</div>
             </div>
           );
           return (
             <div id="apprenticeship-ibew-root">
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #F4A276)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>IBEW · Inside Wireman</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The NJATC<br/><span style={{color:ACCENT}}>Aptitude Test.</span></h1>
-                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>Officially the <em>Electrical Training Alliance Aptitude Test</em>, still called the NJATC test by everyone who's taken it. Used by virtually every IBEW local to screen Inside Wireman apprenticeship candidates. Two sections, 96 minutes, no calculator.</p>
+                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// IBEW · Inside Wireman</div>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#fff', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The NJATC<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Aptitude Test.</span></h1>
+                <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'rgba(255,255,255,0.7)', lineHeight:1.65, maxWidth:660, margin:0}}>Officially the <em>Electrical Training Alliance Aptitude Test</em>, still called the NJATC test by everyone who's taken it. Used by virtually every IBEW local to screen Inside Wireman apprenticeship candidates. Two sections, 96 minutes, no calculator.</p>
               </div>
 
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
                   <Stat v="69" l="Total Questions" />
                   <Stat v="96" l="Minutes" />
@@ -14600,11 +14600,11 @@ export default function UnionPathway() {
         })()}
 
         {page === "apprenticeship-ua" && (() => {
-          const ACCENT = '#7C9D4A';
+          const ACCENT = '#FA8059';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
-              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#fff', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
@@ -14613,8 +14613,8 @@ export default function UnionPathway() {
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
-              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'rgba(255,255,255,0.6)', lineHeight:1.45}}>{l}</div>
             </div>
           );
           const SectionRow = ({ name, q, t, desc }) => (
@@ -14629,21 +14629,21 @@ export default function UnionPathway() {
           return (
             <div id="apprenticeship-ua-root">
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #F4A276)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>UA · Plumbers, Pipefitters, Steamfitters</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The GAN<br/><span style={{color:ACCENT}}>Aptitude Test.</span></h1>
-                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>Officially the <em>Piping Industry Entry Level Assessment</em>, administered by GAN Human Resources for UA locals across the U.S. and Canada. Six sections, two hours, no calculator — and the broadest aptitude test in the building trades.</p>
+                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// UA · Plumbers, Pipefitters, Steamfitters</div>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#fff', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The GAN<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Aptitude Test.</span></h1>
+                <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'rgba(255,255,255,0.7)', lineHeight:1.65, maxWidth:660, margin:0}}>Officially the <em>Piping Industry Entry Level Assessment</em>, administered by GAN Human Resources for UA locals across the U.S. and Canada. Six sections, two hours, no calculator — and the broadest aptitude test in the building trades.</p>
               </div>
 
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
                   <Stat v="~140" l="Total Questions" />
                   <Stat v="120" l="Minutes" />
@@ -14722,11 +14722,11 @@ export default function UnionPathway() {
         })()}
 
         {page === "apprenticeship-smart" && (() => {
-          const ACCENT = '#9D6B4A';
+          const ACCENT = '#FA8059';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
-              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#fff', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
@@ -14735,28 +14735,28 @@ export default function UnionPathway() {
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
-              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'rgba(255,255,255,0.6)', lineHeight:1.45}}>{l}</div>
             </div>
           );
           return (
             <div id="apprenticeship-smart-root">
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #F4A276)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>SMART · Sheet Metal Workers</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The Sheet Metal<br/><span style={{color:ACCENT}}>Apprenticeship Test.</span></h1>
-                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>SMART doesn't have a single national aptitude test — each local JATC chooses its own. The sections below are the ones you'll see in some combination at most major locals: Math, Reading, Mechanical, and Spatial Reasoning. <strong style={{color:'#F5C518'}}>Always confirm the exact format with your local before taking it.</strong></p>
+                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// SMART · Sheet Metal Workers</div>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#fff', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The Sheet Metal<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Apprenticeship Test.</span></h1>
+                <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'rgba(255,255,255,0.7)', lineHeight:1.65, maxWidth:660, margin:0}}>SMART doesn't have a single national aptitude test — each local JATC chooses its own. The sections below are the ones you'll see in some combination at most major locals: Math, Reading, Mechanical, and Spatial Reasoning. <strong style={{color:'#F5C518'}}>Always confirm the exact format with your local before taking it.</strong></p>
               </div>
 
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
                   <Stat v="2-4" l="Sections (varies)" />
                   <Stat v="2-3 hr" l="Typical Length" />
@@ -14835,11 +14835,11 @@ export default function UnionPathway() {
         })()}
 
         {page === "apprenticeship-iuec" && (() => {
-          const ACCENT = '#4A7B9D';
+          const ACCENT = '#FA8059';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
-              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#fff', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
@@ -14848,28 +14848,28 @@ export default function UnionPathway() {
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
-              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'rgba(255,255,255,0.6)', lineHeight:1.45}}>{l}</div>
             </div>
           );
           return (
             <div id="apprenticeship-iuec-root">
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #F4A276)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>IUEC · Elevator Constructors</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The EIAT.</h1>
-                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>The <em>Elevator Industry Aptitude Test</em>, developed by NEIEP (National Elevator Industry Educational Program) for the IUEC. Three sections, 100 questions, ~90 minutes — followed by a separate tool recognition assessment that doesn't count toward your EIAT score but feeds into your interview ranking.</p>
+                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// IUEC · Elevator Constructors</div>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#fff', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The EIAT.</h1>
+                <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'rgba(255,255,255,0.7)', lineHeight:1.65, maxWidth:660, margin:0}}>The <em>Elevator Industry Aptitude Test</em>, developed by NEIEP (National Elevator Industry Educational Program) for the IUEC. Three sections, 100 questions, ~90 minutes — followed by a separate tool recognition assessment that doesn't count toward your EIAT score but feeds into your interview ranking.</p>
               </div>
 
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
                   <Stat v="100" l="Total Questions" />
                   <Stat v="3" l="Sections" />
@@ -14973,11 +14973,11 @@ export default function UnionPathway() {
         })()}
 
         {page === "apprenticeship-iw" && (() => {
-          const ACCENT = '#9D4A4A';
+          const ACCENT = '#FA8059';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
-              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#fff', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
@@ -14986,28 +14986,28 @@ export default function UnionPathway() {
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
-              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'rgba(255,255,255,0.6)', lineHeight:1.45}}>{l}</div>
             </div>
           );
           return (
             <div id="apprenticeship-iw-root">
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #F4A276)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>Iron Workers</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The Iron Worker<br/><span style={{color:ACCENT}}>Aptitude Test.</span></h1>
-                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>The Iron Workers Union doesn't have a single national test — each local writes its own. The format is consistent across major locals (Local 3, Local 12, Local 40, Local 433, etc.) with a math section and a reading section, and the math is harder than most other building trades. Plus a physical test you actually can't fake your way through.</p>
+                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// Iron Workers</div>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#fff', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The Iron Worker<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Aptitude Test.</span></h1>
+                <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'rgba(255,255,255,0.7)', lineHeight:1.65, maxWidth:660, margin:0}}>The Iron Workers Union doesn't have a single national test — each local writes its own. The format is consistent across major locals (Local 3, Local 12, Local 40, Local 433, etc.) with a math section and a reading section, and the math is harder than most other building trades. Plus a physical test you actually can't fake your way through.</p>
               </div>
 
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
                   <Stat v="2" l="Sections (Most Locals)" />
                   <Stat v="70%" l="Typical Pass Threshold" />
@@ -15113,11 +15113,11 @@ export default function UnionPathway() {
         })()}
 
         {page === "apprenticeship-bac" && (() => {
-          const ACCENT = '#9D4A6B';
+          const ACCENT = '#FA8059';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
-              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#fff', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
@@ -15126,28 +15126,28 @@ export default function UnionPathway() {
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
-              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'rgba(255,255,255,0.6)', lineHeight:1.45}}>{l}</div>
             </div>
           );
           return (
             <div id="apprenticeship-bac-root">
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #F4A276)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>BAC · Bricklayers and Allied Craftworkers</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The BAC<br/><span style={{color:ACCENT}}>Aptitude Test.</span></h1>
-                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>BAC is the oldest labor union in North America (founded 1865). It's also unusual in that the testing format is <strong style={{color:'#F5C518'}}>almost entirely local-controlled</strong> — there is no national BAC aptitude test. Most locals use a combination of basic math, reading, and a physical assessment, plus a 12-week unpaid pre-apprenticeship at some training centers.</p>
+                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// BAC · Bricklayers and Allied Craftworkers</div>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#fff', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The BAC<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Aptitude Test.</span></h1>
+                <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'rgba(255,255,255,0.7)', lineHeight:1.65, maxWidth:660, margin:0}}>BAC is the oldest labor union in North America (founded 1865). It's also unusual in that the testing format is <strong style={{color:'#F5C518'}}>almost entirely local-controlled</strong> — there is no national BAC aptitude test. Most locals use a combination of basic math, reading, and a physical assessment, plus a 12-week unpaid pre-apprenticeship at some training centers.</p>
               </div>
 
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
                   <Stat v="3-4 yr" l="Apprenticeship Length" />
                   <Stat v="6,700" l="OJT Hours Required" />
@@ -15236,11 +15236,11 @@ export default function UnionPathway() {
         })()}
 
         {page === "apprenticeship-hfiaw" && (() => {
-          const ACCENT = '#7C4A9D';
+          const ACCENT = '#FA8059';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
-              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#fff', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
@@ -15249,28 +15249,28 @@ export default function UnionPathway() {
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
-              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'rgba(255,255,255,0.6)', lineHeight:1.45}}>{l}</div>
             </div>
           );
           return (
             <div id="apprenticeship-hfiaw-root">
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #F4A276)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>HFIAW · Heat &amp; Frost Insulators</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The Insulators<br/><span style={{color:ACCENT}}>Aptitude Test.</span></h1>
-                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>The International Association of Heat and Frost Insulators and Allied Workers (HFIAW, also called AWIU) doesn't run a single national aptitude test. Each local JATC writes its own. The format is consistent across major locals: a general aptitude test covering reading, math, and mechanical reasoning, plus an interview, drug screen, and physical exam.</p>
+                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// HFIAW · Heat &amp; Frost Insulators</div>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#fff', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The Insulators<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Aptitude Test.</span></h1>
+                <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'rgba(255,255,255,0.7)', lineHeight:1.65, maxWidth:660, margin:0}}>The International Association of Heat and Frost Insulators and Allied Workers (HFIAW, also called AWIU) doesn't run a single national aptitude test. Each local JATC writes its own. The format is consistent across major locals: a general aptitude test covering reading, math, and mechanical reasoning, plus an interview, drug screen, and physical exam.</p>
               </div>
 
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
                   <Stat v="3" l="Sections (Most Locals)" />
                   <Stat v="4 yr" l="Apprenticeship Length" />
@@ -15361,11 +15361,11 @@ export default function UnionPathway() {
         })()}
 
         {page === "apprenticeship-iuoe" && (() => {
-          const ACCENT = '#4A9D7C';
+          const ACCENT = '#FA8059';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
-              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#fff', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
@@ -15374,28 +15374,28 @@ export default function UnionPathway() {
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
-              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'rgba(255,255,255,0.6)', lineHeight:1.45}}>{l}</div>
             </div>
           );
           return (
             <div id="apprenticeship-iuoe-root">
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #F4A276)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>IUOE · Operating Engineers</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The Heavy Equipment<br/><span style={{color:ACCENT}}>Operator Test.</span></h1>
-                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>The International Union of Operating Engineers represents heavy equipment operators, mechanics, surveyors, and stationary engineers. Each local writes its own apprenticeship test — and several major locals (Local 324 in Michigan, others) use the <strong style={{color:'#F5C518'}}>WorkKeys assessment</strong> instead of a custom written test.</p>
+                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// IUOE · Operating Engineers</div>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#fff', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The Heavy Equipment<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Operator Test.</span></h1>
+                <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'rgba(255,255,255,0.7)', lineHeight:1.65, maxWidth:660, margin:0}}>The International Union of Operating Engineers represents heavy equipment operators, mechanics, surveyors, and stationary engineers. Each local writes its own apprenticeship test — and several major locals (Local 324 in Michigan, others) use the <strong style={{color:'#F5C518'}}>WorkKeys assessment</strong> instead of a custom written test.</p>
               </div>
 
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
                   <Stat v="3-4 yr" l="Apprenticeship Length" />
                   <Stat v="6,000+" l="OJT Hours Required" />
@@ -15489,11 +15489,11 @@ export default function UnionPathway() {
         })()}
 
         {page === "apprenticeship-ubc" && (() => {
-          const ACCENT = '#9D7C4A';
+          const ACCENT = '#FA8059';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
-              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#fff', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
@@ -15502,28 +15502,28 @@ export default function UnionPathway() {
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
-              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'rgba(255,255,255,0.6)', lineHeight:1.45}}>{l}</div>
             </div>
           );
           return (
             <div id="apprenticeship-ubc-root">
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #F4A276)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>UBC · Carpenters and Joiners</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The Carpenter<br/><span style={{color:ACCENT}}>Apprenticeship Test.</span></h1>
-                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>The United Brotherhood of Carpenters is one of North America's largest building-trades unions — over half a million members across 11 specialty trades. There's no single national UBC aptitude test; each Regional Council and JATC writes its own, with passing scores ranging from 70-80% depending on local. The trades within UBC vary widely; the test you take depends on which one you choose.</p>
+                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// UBC · Carpenters and Joiners</div>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#fff', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The Carpenter<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Apprenticeship Test.</span></h1>
+                <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'rgba(255,255,255,0.7)', lineHeight:1.65, maxWidth:660, margin:0}}>The United Brotherhood of Carpenters is one of North America's largest building-trades unions — over half a million members across 11 specialty trades. There's no single national UBC aptitude test; each Regional Council and JATC writes its own, with passing scores ranging from 70-80% depending on local. The trades within UBC vary widely; the test you take depends on which one you choose.</p>
               </div>
 
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
                   <Stat v="3-4 yr" l="Apprenticeship Length" />
                   <Stat v="8,000" l="OJT Hours (Most Trades)" />
@@ -15625,11 +15625,11 @@ export default function UnionPathway() {
 
 
         {page === "apprenticeship-iupat" && (() => {
-          const ACCENT = '#ec4899';
+          const ACCENT = '#FA8059';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:12}}>{eyebrow}</div>
-              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(26px, 4vw, 38px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.1}}>{title}</h2>
+              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#fff', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
@@ -15638,28 +15638,28 @@ export default function UnionPathway() {
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(34px, 4vw, 48px)', fontWeight:900, color:ACCENT, lineHeight:1, marginBottom:6}}>{v}</div>
-              <div style={{fontSize:11, color:'rgba(255,255,255,0.6)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{l}</div>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'rgba(255,255,255,0.6)', lineHeight:1.45}}>{l}</div>
             </div>
           );
           return (
             <div id="apprenticeship-iupat-root">
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, '+ACCENT+', #F5C518)', transition:'width 0.1s'}} />
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #F4A276)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:13, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1, textTransform:'uppercase', fontWeight:700}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.5)', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>IUPAT · Painters & Allied Trades</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 80px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0'}}>The IUPAT<br/><span style={{color:ACCENT}}>Apprenticeship Test.</span></h1>
-                <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.55, maxWidth:680, margin:0}}>Unlike trades with one nationally standardized test (the IBEW's NJATC, the UA's GAN, or the IUEC's EIAT), IUPAT does not run a single unified aptitude exam. Each District Council and regional Finishing Trades Institute administers its own assessment — and the format varies meaningfully from one region to the next. The single most important step before testing: call the Finishing Trades Institute serving your District Council and ask what's on their test.</p>
+                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// IUPAT · Painters & Allied Trades</div>
+                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#fff', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The IUPAT<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Apprenticeship Test.</span></h1>
+                <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'rgba(255,255,255,0.7)', lineHeight:1.65, maxWidth:660, margin:0}}>Unlike trades with one nationally standardized test (the IBEW's NJATC, the UA's GAN, or the IUEC's EIAT), IUPAT does not run a single unified aptitude exam. Each District Council and regional Finishing Trades Institute administers its own assessment — and the format varies meaningfully from one region to the next. The single most important step before testing: call the Finishing Trades Institute serving your District Council and ask what's on their test.</p>
               </div>
 
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{maxWidth:900, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:20}}>
                   <Stat v="3 yr" l="Apprenticeship (Glazing 4)" />
                   <Stat v="144" l="Class Hours / Yr Minimum" />
@@ -16005,7 +16005,7 @@ export default function UnionPathway() {
               </div>
 
               {/* HEADLINE STATS */}
-              <div style={{padding:'32px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)'}}>
+              <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                 <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(160px, 1fr))', gap:16, maxWidth:1100, margin:'0 auto'}}>
                   <StatBlock value={4} label="Core benefit pillars" />
                   <StatBlock value={100} label="Employer-funded pension" suffix="%" />
