@@ -5152,6 +5152,12 @@ export default function UnionPathway() {
           font-family: 'Inter', sans-serif;
           line-height: 1.65;
         }
+        @media (max-width: 720px) {
+          .home-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 32px !important; }
+        }
+        @media (max-width: 400px) {
+          .home-stats-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+        }
 
         .app { min-height: 100vh; display: flex; flex-direction: column; }
 
@@ -7352,10 +7358,10 @@ export default function UnionPathway() {
         {/* ─── STATS (when no results) ─── */}
         {!results && (
           <section style={{padding:'80px 24px 100px', maxWidth:1280, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
-            <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:48}}>
+            <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:32}}>
               // {lang==="es" ? "Por los numeros" : lang==="pl" ? "W liczbach" : "By the numbers"}
             </div>
-            <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))', gap:60}}>
+            <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:24}} className="home-stats-grid">
               {[
                 { num:"1,000+", label: lang==="es" ? "Locales sindicales en el pais" : lang==="pl" ? "Oddzialow zwiazkowych" : "Union locals across the country" },
                 { num:"17",     label: lang==="es" ? "Oficios de construccion" : lang==="pl" ? "Zawodow budowlanych" : "Construction trades covered" },
@@ -7365,14 +7371,14 @@ export default function UnionPathway() {
                 <div key={i}>
                   <div style={{
                     fontFamily:"'Space Grotesk',sans-serif",
-                    fontSize:'clamp(48px, 6.5vw, 80px)',
+                    fontSize:'clamp(28px, 4vw, 48px)',
                     fontWeight:500,
                     background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)',
                     WebkitBackgroundClip:'text', backgroundClip:'text',
                     WebkitTextFillColor:'transparent',
-                    lineHeight:0.95, letterSpacing:'-0.04em', marginBottom:14
+                    lineHeight:1, letterSpacing:'-0.03em', marginBottom:8
                   }}>{s.num}</div>
-                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:14, color:'rgba(255,255,255,0.6)', lineHeight:1.5}}>{s.label}</div>
+                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'rgba(255,255,255,0.6)', lineHeight:1.45}}>{s.label}</div>
                 </div>
               ))}
             </div>
