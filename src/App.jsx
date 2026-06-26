@@ -7090,27 +7090,27 @@ export default function UnionPathway() {
         {/* ── HOME PAGE ── */}
         {page === "home" && (<>
         {/* ─── HERO ─── */}
-        <section style={{padding:'80px 24px 60px', maxWidth:1280, margin:'0 auto'}}>
-          <div style={{display:'inline-flex', alignItems:'center', gap:14, fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:40}}>
+        <section style={{padding:'56px 24px 40px', maxWidth:1280, margin:'0 auto'}}>
+          <div style={{display:'inline-flex', alignItems:'center', gap:14, fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>
             <span style={{width:32, height:1, background:'#FA8059', opacity:0.6}} />
             {t.tagline}
           </div>
           <h1 style={{
             fontFamily:"'Space Grotesk', sans-serif",
-            fontSize:'clamp(54px, 10vw, 132px)',
+            fontSize:'clamp(44px, 7vw, 88px)',
             fontWeight:500,
             color:'#fff',
             lineHeight:0.96,
-            letterSpacing:'-0.035em',
-            margin:'0 0 40px 0',
-            maxWidth:1000
+            letterSpacing:'-0.03em',
+            margin:'0 0 28px 0',
+            maxWidth:900
           }}>
             {t.heroTitle1}<br />
             <span style={{color:'#FA8059', fontStyle:'italic', fontWeight:600}}>{t.heroAccent}</span>{t.heroTitle2}
           </h1>
           <p style={{
             fontFamily:"'Inter',sans-serif",
-            fontSize:'clamp(17px, 2vw, 21px)',
+            fontSize:'clamp(15px, 1.6vw, 18px)',
             color:'rgba(255,255,255,0.7)',
             lineHeight:1.65,
             maxWidth:660,
@@ -7223,7 +7223,7 @@ export default function UnionPathway() {
                 <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:12}}>
                   // {lang==="es" ? "Resultados" : lang==="pl" ? "Wyniki" : "Results"}
                 </div>
-                <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#fff', margin:0, lineHeight:1, letterSpacing:'-0.025em'}}>
+                <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 44px)', fontWeight:500, color:'#fff', margin:0, lineHeight:1.05, letterSpacing:'-0.02em'}}>
                   <span style={{color:'#FA8059', fontStyle:'italic'}}>{results.length}</span>{' '}
                   {searchMode === 'state'
                     ? (lang==="es" ? "locales en este estado" : lang==="pl" ? "lokali w tym stanie" : "locals in this state")
@@ -7333,12 +7333,12 @@ export default function UnionPathway() {
                     <div style={{textAlign:'right'}}>
                       <div style={{
                         fontFamily:"'Space Grotesk',sans-serif",
-                        fontSize:'clamp(40px, 5vw, 64px)',
+                        fontSize:'clamp(36px, 4vw, 52px)',
                         fontWeight:500,
                         background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)',
                         WebkitBackgroundClip:'text', backgroundClip:'text',
                         WebkitTextFillColor:'transparent',
-                        lineHeight:1, letterSpacing:'-0.04em'
+                        lineHeight:1, letterSpacing:'-0.035em'
                       }}>{Math.round(local.distance)}</div>
                       <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color:'rgba(255,255,255,0.45)', letterSpacing:'0.2em', textTransform:'uppercase', marginTop:6}}>{t.milesAway}</div>
                     </div>
@@ -7365,12 +7365,12 @@ export default function UnionPathway() {
                 <div key={i}>
                   <div style={{
                     fontFamily:"'Space Grotesk',sans-serif",
-                    fontSize:'clamp(64px, 9vw, 112px)',
+                    fontSize:'clamp(48px, 6.5vw, 80px)',
                     fontWeight:500,
                     background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)',
                     WebkitBackgroundClip:'text', backgroundClip:'text',
                     WebkitTextFillColor:'transparent',
-                    lineHeight:0.92, letterSpacing:'-0.045em', marginBottom:18
+                    lineHeight:0.95, letterSpacing:'-0.04em', marginBottom:14
                   }}>{s.num}</div>
                   <div style={{fontFamily:"'Inter',sans-serif", fontSize:14, color:'rgba(255,255,255,0.6)', lineHeight:1.5}}>{s.label}</div>
                 </div>
@@ -7387,10 +7387,10 @@ export default function UnionPathway() {
             </div>
             <h2 style={{
               fontFamily:"'Space Grotesk',sans-serif",
-              fontSize:'clamp(36px, 5.5vw, 64px)',
+              fontSize:'clamp(32px, 4.5vw, 48px)',
               fontWeight:500,
               color:'#fff',
-              lineHeight:1.04,
+              lineHeight:1.1,
               letterSpacing:'-0.025em',
               margin:'0 0 36px 0',
               maxWidth:720
