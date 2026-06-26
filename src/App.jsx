@@ -4865,7 +4865,7 @@ export default function UnionPathway() {
         `}} />
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 
 
         /* fix192 — dark color scheme for native form controls (fixes white-out <select> dropdowns) */
@@ -5079,14 +5079,78 @@ export default function UnionPathway() {
           --text: #ffffff;
           --muted: #a0b4c4;
           --card-bg: #111111;
+          /* PHASE 1 — new design system tokens */
+          --coral: #FA8059;
+          --coral-warm: #F4A276;
+          --coral-deep: #d4634a;
+          --whisper: rgba(255,255,255,0.4);
+          --hairline: rgba(255,255,255,0.08);
+          --display-font: 'Space Grotesk', 'Barlow Condensed', sans-serif;
+          --body-font: 'Inter', 'Barlow', sans-serif;
+          --mono-font: 'Space Mono', monospace;
         }
 
+        /* PHASE 1 FOUNDATION */
+        html { scroll-behavior: smooth; }
         body {
-          font-family: 'Barlow', sans-serif;
+          font-family: 'Inter', 'Barlow', system-ui, sans-serif;
           background: var(--steel);
           color: var(--text);
           min-height: 100vh;
           overflow-x: hidden;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          position: relative;
+        }
+        /* Drifting ember glows — atmospheric, fixed in viewport */
+        body::before {
+          content: '';
+          position: fixed;
+          top: -200px; left: -200px;
+          width: 900px; height: 900px;
+          background: radial-gradient(circle, rgba(250,128,89,0.16), rgba(250,128,89,0.05) 35%, transparent 65%);
+          filter: blur(40px);
+          pointer-events: none;
+          z-index: 0;
+          animation: ember-drift-1 22s ease-in-out infinite;
+        }
+        body::after {
+          content: '';
+          position: fixed;
+          bottom: -300px; right: -300px;
+          width: 1200px; height: 1200px;
+          background: radial-gradient(circle, rgba(250,128,89,0.09), rgba(250,128,89,0.03) 40%, transparent 70%);
+          filter: blur(60px);
+          pointer-events: none;
+          z-index: 0;
+          animation: ember-drift-2 28s ease-in-out infinite;
+        }
+        @keyframes ember-drift-1 {
+          0%, 100% { transform: translate(0, 0); }
+          50% { transform: translate(80px, 120px); }
+        }
+        @keyframes ember-drift-2 {
+          0%, 100% { transform: translate(0, 0); }
+          50% { transform: translate(-100px, -80px); }
+        }
+        /* All page content sits above the embers */
+        .app, nav, main, section, footer { position: relative; z-index: 1; }
+        /* New design-language utility classes (available but not auto-applied) */
+        .ds-eyebrow {
+          font-family: 'Space Mono', monospace;
+          font-size: 12px;
+          color: var(--yellow);
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+        }
+        .ds-display {
+          font-family: 'Space Grotesk', sans-serif;
+          font-weight: 500;
+          letter-spacing: -0.025em;
+        }
+        .ds-body {
+          font-family: 'Inter', sans-serif;
+          line-height: 1.65;
         }
 
         .app { min-height: 100vh; display: flex; flex-direction: column; }
