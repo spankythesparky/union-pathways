@@ -5,7 +5,7 @@ const UNION_TRADES = [
   {
     group: "Electrical & Communications",
     trades: [
-      { abbr: "IBEW_I", name: "Inside Wiremen", full: "IBEW Inside Wiremen (Commercial & Industrial)", website: "www.ibew.org", status: "active", color: "#F5C518" },
+      { abbr: "IBEW_I", name: "Inside Wiremen", full: "IBEW Inside Wiremen (Commercial & Industrial)", website: "www.ibew.org", status: "active", color: "#FA8059" },
       { abbr: "IBEW_L", name: "Linemen", full: "IBEW Outside Linemen (Utility & Transmission)", website: "www.ibew.org", status: "active", color: "#FFD700" },
     ],
   },
@@ -2871,7 +2871,7 @@ function AdminPage() {
               style={{width:"100%", padding:14, fontSize:16, background:"rgba(0,0,0,0.3)", border:"1px solid rgba(255,255,255,0.15)", borderRadius:10, color:"#fff", outline:"none", boxSizing:"border-box"}}
             />
             {pwError && <div style={{color:"#ef4444", fontSize:13, marginTop:8}}>Incorrect password</div>}
-            <button type="submit" style={{marginTop:16, width:"100%", padding:14, background:"#F5C518", color:"#000", border:"none", borderRadius:10, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:16, letterSpacing:1, cursor:"pointer"}}>
+            <button type="submit" style={{marginTop:16, width:"100%", padding:14, background:"#FA8059", color:"#000", border:"none", borderRadius:10, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:16, letterSpacing:1, cursor:"pointer"}}>
               SIGN IN
             </button>
           </form>
@@ -2886,7 +2886,7 @@ function AdminPage() {
     const fields = adminSection === 'wages' ? wageFields : jobFields;
     return (
       <div style={{background:"rgba(245,197,24,0.05)", border:"1px solid rgba(245,197,24,0.3)", borderRadius:12, padding:20, marginTop:12}}>
-        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:14, color:"#F5C518", marginBottom:12, letterSpacing:1}}>EDITING #{r.id}</div>
+        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:14, color:"#FA8059", marginBottom:12, letterSpacing:1}}>EDITING #{r.id}</div>
         {fields.map(([key, label]) => (
           <div key={key} style={{marginBottom:10}}>
             <div style={{fontSize:11, color:"var(--muted)", textTransform:"uppercase", letterSpacing:1, marginBottom:4}}>{label}</div>
@@ -2928,10 +2928,10 @@ function AdminPage() {
         </div>
 
         <div style={{display:"flex", gap:8, marginBottom:24, borderBottom:"1px solid rgba(255,255,255,0.08)"}}>
-          <button onClick={() => setTab('pending')} style={{padding:"12px 20px", background:"transparent", border:"none", borderBottom: tab==='pending' ? "2px solid #F5C518" : "2px solid transparent", color: tab==='pending' ? "#F5C518" : "var(--muted)", fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:15, letterSpacing:1, cursor:"pointer"}}>
+          <button onClick={() => setTab('pending')} style={{padding:"12px 20px", background:"transparent", border:"none", borderBottom: tab==='pending' ? "2px solid #FA8059" : "2px solid transparent", color: tab==='pending' ? "#FA8059" : "var(--muted)", fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:15, letterSpacing:1, cursor:"pointer"}}>
             PENDING
           </button>
-          <button onClick={() => setTab('approved')} style={{padding:"12px 20px", background:"transparent", border:"none", borderBottom: tab==='approved' ? "2px solid #F5C518" : "2px solid transparent", color: tab==='approved' ? "#F5C518" : "var(--muted)", fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:15, letterSpacing:1, cursor:"pointer"}}>
+          <button onClick={() => setTab('approved')} style={{padding:"12px 20px", background:"transparent", border:"none", borderBottom: tab==='approved' ? "2px solid #FA8059" : "2px solid transparent", color: tab==='approved' ? "#FA8059" : "var(--muted)", fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:15, letterSpacing:1, cursor:"pointer"}}>
             APPROVED
           </button>
         </div>
@@ -2957,7 +2957,7 @@ function AdminPage() {
                 <div style={{fontSize:13, color:"rgba(255,255,255,0.8)", marginTop:6}}>
                   {r.hourly && <span style={{marginRight:14}}><strong style={{color:"var(--muted)"}}>Hourly:</strong> ${parseFloat(r.hourly).toFixed(2)}</span>}
                   {r.total_package && <span style={{marginRight:14}}><strong style={{color:"var(--muted)"}}>Total:</strong> ${parseFloat(r.total_package).toFixed(2)}</span>}
-                  {r.image_url && <a href={r.image_url} target="_blank" rel="noopener noreferrer" style={{color:"#F5C518", textDecoration:"underline"}}>📄 View Sheet</a>}
+                  {r.image_url && <a href={r.image_url} target="_blank" rel="noopener noreferrer" style={{color:"#FA8059", textDecoration:"underline"}}>📄 View Sheet</a>}
                   {r.notes && <div style={{marginTop:6, fontSize:12, color:"rgba(255,255,255,0.6)"}}><strong>Notes:</strong> {r.notes}</div>}
                 </div>
               ) : (
@@ -3027,9 +3027,9 @@ function ApprovedReportCard({ r, lang, statusColor, statusLabel }) {
       {r.job_calls && (
         <div style={{marginTop:14}}>
           <div style={{color:"var(--muted)", fontSize:11, textTransform:"uppercase", letterSpacing:1, marginBottom:6, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{L.jobCalls.replace(/:$/, '')}</div>
-          <div style={{whiteSpace:"pre-line", lineHeight:1.6, fontSize:14, color:"rgba(255,255,255,0.85)", padding:"10px 12px", background:"rgba(0,0,0,0.2)", borderRadius:8, borderLeft:"3px solid #F5C518", maxHeight: jcIsLong && !expanded ? 80 : 'none', overflow: jcIsLong && !expanded ? 'hidden' : 'visible', WebkitMaskImage: jcIsLong && !expanded ? 'linear-gradient(to bottom, black 60%, transparent)' : 'none', maskImage: jcIsLong && !expanded ? 'linear-gradient(to bottom, black 60%, transparent)' : 'none'}}>{r.job_calls}</div>
+          <div style={{whiteSpace:"pre-line", lineHeight:1.6, fontSize:14, color:"rgba(255,255,255,0.85)", padding:"10px 12px", background:"rgba(0,0,0,0.2)", borderRadius:8, borderLeft:"3px solid #FA8059", maxHeight: jcIsLong && !expanded ? 80 : 'none', overflow: jcIsLong && !expanded ? 'hidden' : 'visible', WebkitMaskImage: jcIsLong && !expanded ? 'linear-gradient(to bottom, black 60%, transparent)' : 'none', maskImage: jcIsLong && !expanded ? 'linear-gradient(to bottom, black 60%, transparent)' : 'none'}}>{r.job_calls}</div>
           {jcIsLong && (
-            <button onClick={() => setExpanded(!expanded)} style={{marginTop:8, padding:"6px 14px", background:"transparent", color:"#F5C518", border:"1px solid rgba(245,197,24,0.4)", borderRadius:6, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700, fontSize:12, letterSpacing:1, cursor:"pointer", textTransform:"uppercase"}}>
+            <button onClick={() => setExpanded(!expanded)} style={{marginTop:8, padding:"6px 14px", background:"transparent", color:"#FA8059", border:"1px solid rgba(245,197,24,0.4)", borderRadius:6, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700, fontSize:12, letterSpacing:1, cursor:"pointer", textTransform:"uppercase"}}>
               {expanded ? L.showLess : L.showMore}
             </button>
           )}
@@ -3040,7 +3040,7 @@ function ApprovedReportCard({ r, lang, statusColor, statusLabel }) {
 
       {hasContact && (
         <>
-          <button onClick={() => setOpen(!open)} style={{marginTop:16, width:"100%", padding:"10px 16px", background:"rgba(245,197,24,0.08)", border:"1px solid rgba(245,197,24,0.3)", borderRadius:10, color:"#F5C518", fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700, fontSize:14, letterSpacing:1, cursor:"pointer", display:"flex", alignItems:"center", justifyContent:"center", gap:8}}>
+          <button onClick={() => setOpen(!open)} style={{marginTop:16, width:"100%", padding:"10px 16px", background:"rgba(245,197,24,0.08)", border:"1px solid rgba(245,197,24,0.3)", borderRadius:10, color:"#FA8059", fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700, fontSize:14, letterSpacing:1, cursor:"pointer", display:"flex", alignItems:"center", justifyContent:"center", gap:8}}>
             {open ? L.hide : L.contact}
             <span style={{fontSize:10, transform: open ? "rotate(180deg)" : "rotate(0deg)", transition:"transform 0.2s"}}>▼</span>
           </button>
@@ -3150,7 +3150,7 @@ function ApprovedReportsFeed({ lang }) {
   const allLabel = lang === 'es' ? 'Todos' : lang === 'pl' ? 'Wszystkie' : 'All Trades';
   const tabStyle = (active) => ({
     padding: "8px 16px",
-    background: active ? '#F5C518' : 'rgba(255,255,255,0.06)',
+    background: active ? '#FA8059' : 'rgba(255,255,255,0.06)',
     color: active ? '#000' : '#fff',
     border: 'none',
     borderRadius: 999,
@@ -3292,7 +3292,7 @@ function ApprovedWageCard({ r, lang }) {
             </div>
           )}
           {r.image_url && (
-            <a href={r.image_url} target="_blank" rel="noopener noreferrer" style={{display:"inline-block", padding:"8px 16px", background:"#F5C518", color:"#000", textDecoration:"none", borderRadius:8, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:13, letterSpacing:1, textTransform:"uppercase"}}>
+            <a href={r.image_url} target="_blank" rel="noopener noreferrer" style={{display:"inline-block", padding:"8px 16px", background:"#FA8059", color:"#000", textDecoration:"none", borderRadius:8, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:13, letterSpacing:1, textTransform:"uppercase"}}>
               📄 {L.viewSheet}
             </a>
           )}
@@ -3365,7 +3365,7 @@ function ApprovedWagesFeed({ lang }) {
   const allLabel = lang === 'es' ? 'Todos' : lang === 'pl' ? 'Wszystkie' : 'All Trades';
   const tabStyle = (active) => ({
     padding: "8px 16px",
-    background: active ? '#F5C518' : 'rgba(255,255,255,0.06)',
+    background: active ? '#FA8059' : 'rgba(255,255,255,0.06)',
     color: active ? '#000' : '#fff',
     border: 'none',
     borderRadius: 999,
@@ -4038,7 +4038,7 @@ export default function UnionPathway() {
     en: {
       IBEW_I: {
         name: "IBEW — Inside Wiremen",
-        color: "#F5C518",
+        color: "#FA8059",
         icon: "⚡",
         why: "You're drawn to technology, precision work, and systems that power the modern world. Inside wiremen wire commercial and industrial buildings — from hospitals to data centers to stadiums.",
         path: ["Year 1–5: Apprentice — earn while you learn, starting ~$20-28/hr", "Journeyman: Full union wages, typically $35–75/hr depending on location", "Foreman/General Foreman: Lead crews on major projects", "Master Electrician / Business Owner: Run your own shop"],
@@ -4184,7 +4184,7 @@ export default function UnionPathway() {
     es: {
       IBEW_I: {
         name: "IBEW — Electricistas de Interior",
-        color: "#F5C518", icon: "⚡",
+        color: "#FA8059", icon: "⚡",
         why: "Te atrae la tecnología, el trabajo de precisión y los sistemas que alimentan el mundo moderno. Los electricistas de interior cablan edificios comerciales e industriales.",
         path: ["Años 1-5: Aprendiz — comenzando ~$20-28/hr", "Oficial: Salario completo, $35-75/hr según ubicación", "Capataz/Capataz General: Liderar cuadrillas en proyectos importantes", "Electricista Maestro / Propietario: Tener tu propio negocio"],
         apprenticeship: "Aprendizaje registrado de 5 años a través de NECA-IBEW JATC. Sin deuda universitaria.",
@@ -4314,7 +4314,7 @@ export default function UnionPathway() {
     pl: {
       IBEW_I: {
         name: "IBEW — Elektrycy Wewnętrzni",
-        color: "#F5C518", icon: "⚡",
+        color: "#FA8059", icon: "⚡",
         why: "Pociąga Cię technologia, precyzyjna praca i systemy zasilające nowoczesny świat. Elektrycy wewnętrzni okablowują budynki komercyjne i przemysłowe.",
         path: ["Lata 1-5: Praktykant — od ~$20-28/hr", "Czeladnik: Pełne wynagrodzenie, $35-75/hr", "Brygadzista/Brygadzista Generalny: Kierowanie ekipami", "Mistrz Elektryczny/Właściciel: Własna firma"],
         apprenticeship: "5-letnia praktyka przez NECA-IBEW JATC. Bez długu studenckiego.",
@@ -5106,6 +5106,7 @@ export default function UnionPathway() {
         }
 
         /* PHASE 1 FOUNDATION */
+        /* PHASE 6 GLOBAL */
         /* PHASE 5 HISTORY BODY */
         html { scroll-behavior: smooth; }
         body {
@@ -6556,7 +6557,7 @@ export default function UnionPathway() {
                       <span className="nav-dropdown-label">{lang==="es" ? "Pruebas por Oficio" : lang==="pl" ? "Testy Wedlug Zawodu" : "Trade Tests"}</span>
                       <span className="nav-dropdown-sub">{lang==="es" ? "Por sindicato — 10 oficios" : lang==="pl" ? "Według związku — 10 zawodów" : "By union — 10 trades"}</span>
                     </span>
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" style={{transition:"transform 0.2s", transform: apprenticeshipTestsOpen ? "rotate(180deg)" : "none", color: apprenticeshipTestsOpen ? "#F5C518" : "rgba(255,255,255,0.5)", flexShrink:0}}>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" style={{transition:"transform 0.2s", transform: apprenticeshipTestsOpen ? "rotate(180deg)" : "none", color: apprenticeshipTestsOpen ? "#FA8059" : "rgba(255,255,255,0.5)", flexShrink:0}}>
                       <polyline points="6 9 12 15 18 9"/>
                     </svg>
                   </div>
@@ -6709,7 +6710,7 @@ export default function UnionPathway() {
                     );
                     return (
                       <>
-                        <div style={{padding:"6px 14px 4px", fontFamily:"'Barlow Condensed',sans-serif", fontSize:10, fontWeight:700, color:"#F5C518", letterSpacing:2, textTransform:"uppercase"}}>{lang==="es" ? "Historias por Oficio" : lang==="pl" ? "Historia Wedlug Zawodu" : "Trade Histories"}</div>
+                        <div style={{padding:"6px 14px 4px", fontFamily:"'Barlow Condensed',sans-serif", fontSize:10, fontWeight:700, color:"#FA8059", letterSpacing:2, textTransform:"uppercase"}}>{lang==="es" ? "Historias por Oficio" : lang==="pl" ? "Historia Wedlug Zawodu" : "Trade Histories"}</div>
                         {construction.map(renderItem)}
                         <div style={{margin:"6px 14px", height:1, background:"rgba(255,255,255,0.08)"}} />
                         <div style={{padding:"6px 14px 4px", fontFamily:"'Barlow Condensed',sans-serif", fontSize:10, fontWeight:700, color:"#10A37F", letterSpacing:2, textTransform:"uppercase"}}>{lang==="es" ? "Sindicatos Industriales" : lang==="pl" ? "Związki Przemysłowe" : "Industrial Unions"}</div>
@@ -7439,14 +7440,14 @@ export default function UnionPathway() {
           background:'rgba(245,197,24,0.08)', borderBottom:'1px solid rgba(245,197,24,0.18)',
           padding:'10px 24px', textAlign:'center',
           fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700,
-          color:'#F5C518', letterSpacing:'0.15em', textTransform:'uppercase'
+          color:'#FA8059', letterSpacing:'0.15em', textTransform:'uppercase'
         }}>
           Design Preview · <span style={{color:'rgba(255,255,255,0.7)', fontWeight:600}}>This is a redesigned home page. Current home unchanged.</span>
         </div>
 
         {/* ─── HERO ─── */}
         <section style={{padding:'120px 24px 80px', maxWidth:1200, margin:'0 auto'}}>
-          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:'0.28em', textTransform:'uppercase', marginBottom:36}}>
+          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:'0.28em', textTransform:'uppercase', marginBottom:36}}>
             {lang==="es" ? "Para cada trabajador sindical" : lang==="pl" ? "Dla kazdego pracownika zwiazkowego" : t.tagline}
           </div>
           <h1 style={{
@@ -7459,9 +7460,9 @@ export default function UnionPathway() {
             margin:'0 0 40px 0',
             maxWidth:900
           }}>
-            {lang==="es" ? <>{t.heroTitle1}<br/><span style={{color:'#F5C518'}}>{t.heroAccent}</span>{t.heroTitle2}</> :
-             lang==="pl" ? <>{t.heroTitle1}<br/><span style={{color:'#F5C518'}}>{t.heroAccent}</span>{t.heroTitle2}</> :
-             <>{t.heroTitle1}<br/><span style={{color:'#F5C518'}}>{t.heroAccent}</span>{t.heroTitle2}</>}
+            {lang==="es" ? <>{t.heroTitle1}<br/><span style={{color:'#FA8059'}}>{t.heroAccent}</span>{t.heroTitle2}</> :
+             lang==="pl" ? <>{t.heroTitle1}<br/><span style={{color:'#FA8059'}}>{t.heroAccent}</span>{t.heroTitle2}</> :
+             <>{t.heroTitle1}<br/><span style={{color:'#FA8059'}}>{t.heroAccent}</span>{t.heroTitle2}</>}
           </h1>
           <p style={{fontSize:22, color:'rgba(255,255,255,0.8)', lineHeight:1.6, maxWidth:720, margin:0, fontWeight:400}}>
             {t.heroSub}
@@ -7500,9 +7501,9 @@ export default function UnionPathway() {
                   key={tr.abbr}
                   onClick={() => setSelectedTrade(tr.abbr)}
                   style={{
-                    background: selectedTrade === tr.abbr ? '#F5C518' : 'transparent',
+                    background: selectedTrade === tr.abbr ? '#FA8059' : 'transparent',
                     color: selectedTrade === tr.abbr ? '#0F1620' : 'rgba(255,255,255,0.85)',
-                    border: '1px solid '+(selectedTrade === tr.abbr ? '#F5C518' : 'rgba(255,255,255,0.18)'),
+                    border: '1px solid '+(selectedTrade === tr.abbr ? '#FA8059' : 'rgba(255,255,255,0.18)'),
                     borderRadius: 50,
                     padding: '9px 18px',
                     fontFamily: "'Barlow Condensed',sans-serif",
@@ -7540,14 +7541,14 @@ export default function UnionPathway() {
                 padding:'14px 0',
                 outline:'none'
               }}
-              onFocus={e => e.currentTarget.style.borderBottomColor = '#F5C518'}
+              onFocus={e => e.currentTarget.style.borderBottomColor = '#FA8059'}
               onBlur={e => e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.18)'}
             />
             <button
               onClick={() => handleSearch()}
               disabled={loading || !query.trim()}
               style={{
-                background: loading || !query.trim() ? 'rgba(245,197,24,0.3)' : '#F5C518',
+                background: loading || !query.trim() ? 'rgba(245,197,24,0.3)' : '#FA8059',
                 color:'#0F1620',
                 fontFamily:"'Barlow Condensed',sans-serif",
                 fontSize:15,
@@ -7593,8 +7594,8 @@ export default function UnionPathway() {
         {results && (
           <section style={{padding:'40px 24px 80px', maxWidth:1200, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
             <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', flexWrap:'wrap', gap:16, marginBottom:32}}>
-              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(32px, 5vw, 48px)', fontWeight:900, color:'#fff', margin:0, lineHeight:1}}>
-                <span style={{color:'#F5C518'}}>{results.length}</span> {searchMode === 'state'
+              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(26px, 3.5vw, 36px)', fontWeight:500, color:'#fff', letterSpacing:'-0.02em', margin:0, lineHeight:1}}>
+                <span style={{color:'#FA8059'}}>{results.length}</span> {searchMode === 'state'
                   ? (lang==="es" ? "locales en este estado" : lang==="pl" ? "lokali w tym stanie" : "locals in this state")
                   : (lang==="es" ? "locales cerca de ti" : lang==="pl" ? "lokali w poblizu" : "locals near you")}
               </h2>
@@ -7612,7 +7613,7 @@ export default function UnionPathway() {
                 }}>
                   <div style={{
                     fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900,
-                    color: i===0 ? '#F5C518' : 'rgba(255,255,255,0.4)',
+                    color: i===0 ? '#FA8059' : 'rgba(255,255,255,0.4)',
                     lineHeight:1, minWidth:48
                   }}>#{i+1}</div>
                   <div>
@@ -7629,7 +7630,7 @@ export default function UnionPathway() {
                     {local.website && (
                       <a href={local.website.startsWith("http") ? local.website : `https://${local.website}`} target="_blank" rel="noopener noreferrer" style={{
                         display:'inline-block', marginTop:14,
-                        background:'transparent', color:'#F5C518',
+                        background:'transparent', color:'#FA8059',
                         fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, letterSpacing:'0.1em', textTransform:'uppercase',
                         padding:'8px 18px', border:'1px solid rgba(245,197,24,0.4)', borderRadius:50, textDecoration:'none'
                       }}>{t.visitWebsite} →</a>
@@ -7648,7 +7649,7 @@ export default function UnionPathway() {
         {/* ─── STATS (when no results) ─── */}
         {!results && (
           <section style={{padding:'80px 24px 120px', maxWidth:1200, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
-            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:48}}>
+            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:48}}>
               {lang==="es" ? "Por los numeros" : lang==="pl" ? "W liczbach" : "By the numbers"}
             </div>
             <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))', gap:60}}>
@@ -7663,7 +7664,7 @@ export default function UnionPathway() {
                     fontFamily:"'Barlow Condensed',sans-serif",
                     fontSize:'clamp(56px, 8vw, 96px)',
                     fontWeight:900,
-                    color:'#F5C518',
+                    color:'#FA8059',
                     lineHeight:0.95,
                     letterSpacing:'-0.02em',
                     marginBottom:12
@@ -7678,7 +7679,7 @@ export default function UnionPathway() {
         {/* ─── MISSION ─── */}
         {!results && (
           <section style={{padding:'100px 24px 140px', maxWidth:900, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
-            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:32}}>
+            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:32}}>
               {lang==="es" ? "Construido por" : lang==="pl" ? "Stworzone przez" : "Built by"}
             </div>
             <h2 style={{
@@ -7968,7 +7969,7 @@ export default function UnionPathway() {
               {/* HERO */}
               <div style={{padding:'80px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
                 <FadeIn>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The Long Arc of Organized Labor</div>
+                  <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>The Long Arc of Organized Labor</div>
                   <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#fff', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
                     Built by <span style={{color:'#FA8059'}}>Union Hands.</span><br/>
                     <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>Forged in Conflict.</span>
@@ -8276,7 +8277,7 @@ export default function UnionPathway() {
                 <FadeIn>
                   <div style={{margin:'80px 0 40px', padding:'40px 28px', background:'linear-gradient(135deg, rgba(250,128,89,0.08) 0%, rgba(245,197,24,0.08) 100%)', borderRadius:24, border:'1px solid rgba(250,128,89,0.2)'}}>
                     <div style={{textAlign:'center', marginBottom:32}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase'}}>Where We Are Now</div>
+                      <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase'}}>Where We Are Now</div>
                       <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(26px, 3.5vw, 36px)', fontWeight:500, color:'#fff', margin:'12px 0 0 0', letterSpacing:'-0.02em', lineHeight:1.15}}>The Movement in 2026</h2>
                       <p style={{fontSize:15, color:'rgba(255,255,255,0.7)', maxWidth:600, margin:'12px auto 0', lineHeight:1.6}}>High-profile, energetic, popularly supported, and politically embattled to a degree not seen in decades.</p>
                     </div>
@@ -8334,7 +8335,7 @@ export default function UnionPathway() {
                 {/* CONCLUSION */}
                 <FadeIn>
                   <div style={{margin:'80px 0 40px', padding:'48px 32px', background:'rgba(255,255,255,0.03)', borderRadius:24, border:'1px solid rgba(255,255,255,0.08)', textAlign:'center'}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The Long Arc</div>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>The Long Arc</div>
                     <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(24px, 3vw, 34px)', fontWeight:500, color:'#fff', margin:'0 0 24px 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>What Endures</h2>
                     <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.8, maxWidth:720, margin:'0 auto 20px'}}>
                       The history of organized labor is not a clean story of progress, nor of inevitable decline. It is a series of moments — Tolpuddle, Haymarket, Triangle, Flint, Memphis, PATCO, Buffalo, Chattanooga — in which workers and employers tested each other's strength, and the political balance shifted in response.
@@ -8479,7 +8480,7 @@ export default function UnionPathway() {
 
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Brotherhood of Electrical Workers</div>
+                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>The International Brotherhood of Electrical Workers</div>
                 <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#fff', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
                   Wired for the <span style={{color:'#FA8059'}}>Long Haul.</span><br/>
                   <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>Born in a St. Louis dance hall, 1891.</span>
@@ -8706,7 +8707,7 @@ export default function UnionPathway() {
                 {/* CURRENT-DAY DASHBOARD */}
                 <div style={{margin:'80px 0 40px', padding:'40px 28px', background:'linear-gradient(135deg, rgba(245,197,24,0.08) 0%, rgba(250,128,89,0.08) 100%)', borderRadius:24, border:'1px solid rgba(245,197,24,0.2)'}}>
                   <div style={{textAlign:'center', marginBottom:32}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase'}}>Where the IBEW Stands Now</div>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase'}}>Where the IBEW Stands Now</div>
                     <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(26px, 3.5vw, 36px)', fontWeight:500, color:'#fff', margin:'12px 0 0 0', letterSpacing:'-0.02em', lineHeight:1.15}}>The Brotherhood in 2026</h2>
                     <p style={{fontSize:15, color:'rgba(255,255,255,0.7)', maxWidth:600, margin:'12px auto 0', lineHeight:1.6}}>Industries booming, political environment hostile, growth trajectory the steepest in fifty years.</p>
                   </div>
@@ -8754,7 +8755,7 @@ export default function UnionPathway() {
 
                 {/* CONCLUSION */}
                 <div style={{margin:'80px 0 40px', padding:'48px 32px', background:'rgba(255,255,255,0.03)', borderRadius:24, border:'1px solid rgba(255,255,255,0.08)', textAlign:'center'}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The Continuity Beneath the Change</div>
+                  <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>The Continuity Beneath the Change</div>
                   <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(24px, 3vw, 34px)', fontWeight:500, color:'#fff', margin:'0 0 24px 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>134 Years In, Still Following the Electrons</h2>
                   <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.8, maxWidth:720, margin:'0 auto 20px'}}>
                     When Henry Miller and nine other men gathered above Stolley's Dance Hall in November 1891, the United States produced almost no electricity. The country they imagined wiring up did not yet exist. The technologies they would spend their careers installing were either brand new or still on the drawing board. The trade itself was so dangerous that Miller would be dead within five years, and the union he founded would nearly die with him.
@@ -9232,7 +9233,7 @@ export default function UnionPathway() {
           const ExpandableCard = ({ year, title, summary, body, accent = '#B0BEC5' }) => {
             const [open, setOpen] = useState(false);
             return (
-              <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
+              <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
                     <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
@@ -9634,7 +9635,7 @@ export default function UnionPathway() {
           const ExpandableCard = ({ year, title, summary, body, accent = '#C04A36' }) => {
             const [open, setOpen] = useState(false);
             return (
-              <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
+              <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
                     <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
@@ -10048,7 +10049,7 @@ export default function UnionPathway() {
           const ExpandableCard = ({ year, title, summary, body, accent = '#10A37F' }) => {
             const [open, setOpen] = useState(false);
             return (
-              <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
+              <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
                     <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
@@ -10985,7 +10986,7 @@ export default function UnionPathway() {
           const ExpandableCard = ({ year, title, summary, body, accent = '#A8623A' }) => {
             const [open, setOpen] = useState(false);
             return (
-              <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
+              <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
                     <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
@@ -11363,7 +11364,7 @@ export default function UnionPathway() {
           const ExpandableCard = ({ year, title, summary, body, accent = '#4A7B9D' }) => {
             const [open, setOpen] = useState(false);
             return (
-              <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
+              <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
                     <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
@@ -12805,7 +12806,7 @@ export default function UnionPathway() {
                     <p style={{fontSize:16, color:'rgba(255,255,255,0.82)', lineHeight:1.7, marginBottom:24}}>
                       A MAP counselor is not your employer's counselor. They report to the union, not to the company, and what you tell them is confidential. They will not show up in your employment file. They cannot get you laid off.
                     </p>
-                    <div style={{padding:'24px 26px', background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', marginBottom:20}}>
+                    <div style={{padding:'24px 26px', background:'transparent', border:'1px solid rgba(255,255,255,0.08)', marginBottom:20}}>
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:2, textTransform:'uppercase', marginBottom:14}}>How to find your MAP</div>
                       <ul style={{margin:0, paddingLeft:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.85, listStyle:'none'}}>
                         {[
@@ -13328,7 +13329,7 @@ export default function UnionPathway() {
                           </div>
                         ))}
                       </div>
-                      <div style={{padding:'18px 22px', background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:12, fontSize:14, color:'rgba(255,255,255,0.85)', lineHeight:1.6, fontStyle:'italic'}}>
+                      <div style={{padding:'18px 22px', background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:12, fontSize:14, color:'rgba(255,255,255,0.85)', lineHeight:1.6, fontStyle:'italic'}}>
                         Non-RTW states show <span style={{fontStyle:'normal', fontWeight:900, color: (md.favorHigh ? (diff > 0 ? NRTW_COLOR : RTW_COLOR) : (diff < 0 ? NRTW_COLOR : RTW_COLOR))}}>{Math.abs(diff).toFixed(1)}% {diff > 0 ? 'higher' : 'lower'}</span> {md.label.toLowerCase()} than RTW states.
                       </div>
                     </div>
@@ -13399,7 +13400,7 @@ export default function UnionPathway() {
 
                 {/* HERO */}
                 <div style={{padding:'40px 24px 60px', maxWidth:1200, margin:'0 auto'}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>An Investigation · 2026</div>
+                  <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:18}}>An Investigation · 2026</div>
                   <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(44px, 8vw, 96px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 28px 0', letterSpacing:'-0.01em'}}>
                     The price of <span style={{color:RTW_COLOR, fontStyle:'italic'}}>"freedom"</span><br/>to opt out.
                   </h1>
@@ -13457,7 +13458,7 @@ export default function UnionPathway() {
                 <div ref={whatRef} data-section="what" style={{padding:'80px 24px', maxWidth:1200, margin:'0 auto', scrollMarginTop:80}}>
                   <div style={{display:'grid', gridTemplateColumns:'1fr 2fr', gap:60}}>
                     <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>Background</div>
+                      <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:14}}>Background</div>
                       <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(32px, 4.5vw, 48px)', fontWeight:900, color:'#fff', margin:0, lineHeight:1.05}}>What "right-to-work" actually means.</h2>
                     </div>
                     <div style={{display:'flex', flexDirection:'column', gap:18, fontSize:16, lineHeight:1.7, color:'rgba(255,255,255,0.85)'}}>
@@ -13475,7 +13476,7 @@ export default function UnionPathway() {
                 {/* HEADLINE GAPS */}
                 <div ref={headlineRef} data-section="headline" style={{padding:'56px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)', scrollMarginTop:80}}>
                   <div style={{maxWidth:1200, margin:'0 auto'}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>The Headline Numbers</div>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:14}}>The Headline Numbers</div>
                     <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4.5vw, 44px)', fontWeight:900, color:'#fff', margin:'0 0 40px 0', maxWidth:780, lineHeight:1.1}}>How non-RTW states compare to RTW states <em style={{color:'#FA8059', fontStyle:'normal'}}>on average:</em></h2>
                     <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))', gap:32}}>
                       {[
@@ -13525,7 +13526,7 @@ export default function UnionPathway() {
                   {/* Active tool */}
                   {activeTool === 'map' && (
                     <div style={{display:'grid', gridTemplateColumns:'minmax(0,1.3fr) minmax(0,1fr)', gap:32, alignItems:'flex-start'}}>
-                      <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 16px'}}>
+                      <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16, padding:'24px 16px'}}>
                         <TileMap />
                         <div style={{display:'flex', flexWrap:'wrap', gap:24, padding:'18px 12px 0', borderTop:'1px solid rgba(255,255,255,0.08)', marginTop:16}}>
                           <div style={{display:'flex', alignItems:'center', gap:8}}><div style={{width:14, height:14, borderRadius:3, background:RTW_COLOR}}/><span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.7)', letterSpacing:1.5, textTransform:'uppercase'}}>Right-to-work</span></div>
@@ -13533,7 +13534,7 @@ export default function UnionPathway() {
                           <div style={{display:'flex', alignItems:'center', gap:8}}><div style={{width:8, height:8, borderRadius:'50%', background:REPEAL_COLOR}}/><span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.7)', letterSpacing:1.5, textTransform:'uppercase'}}>Recently repealed</span></div>
                         </div>
                       </div>
-                      <div style={{background:'rgba(255,255,255,0.03)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16}}>
+                      <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16}}>
                         <StateDetail />
                       </div>
                     </div>
@@ -13546,7 +13547,7 @@ export default function UnionPathway() {
                 <div ref={historyRef} data-section="history" style={{padding:'80px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', background:'rgba(255,255,255,0.02)', scrollMarginTop:80}}>
                   <div style={{maxWidth:1200, margin:'0 auto', display:'grid', gridTemplateColumns:'1fr 2fr', gap:60}}>
                     <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>The History</div>
+                      <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:14}}>The History</div>
                       <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(32px, 4.5vw, 48px)', fontWeight:900, color:'#fff', margin:'0 0 18px 0', lineHeight:1.05}}>Eighty years of erosion <em style={{color:'#FA8059', fontStyle:'normal'}}>and pushback.</em></h2>
                       <p style={{fontSize:15, color:'rgba(255,255,255,0.7)', lineHeight:1.65, margin:0}}>From the first RTW laws in Florida and Arkansas in 1944, through the Taft-Hartley authorization in 1947, to Michigan's historic 2024 repeal — the right-to-work movement and the labor movement's response have shaped American work for eight decades.</p>
                     </div>
@@ -13557,7 +13558,7 @@ export default function UnionPathway() {
                 {/* BOTTOM LINE */}
                 <div ref={bottomRef} data-section="bottom" style={{padding:'80px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', background:'linear-gradient(180deg, rgba(209,75,63,0.08), rgba(74,154,110,0.04))', scrollMarginTop:80}}>
                   <div style={{maxWidth:900, margin:'0 auto'}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>Bottom Line</div>
+                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:18}}>Bottom Line</div>
                     <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:900, color:'#fff', margin:'0 0 32px 0', lineHeight:1.05}}>Right-to-work laws don't deliver the freedom they advertise.</h2>
                     <div style={{display:'flex', flexDirection:'column', gap:18, fontSize:17, lineHeight:1.7, color:'rgba(255,255,255,0.85)'}}>
                       <p style={{margin:0}}>They deliver lower wages. Weaker benefits. Higher poverty. More uninsured workers. Deadlier workplaces. And a labor movement that, after eight decades of being told these laws were about individual choice, has watched its institutional power slowly hollowed out — paycheck by paycheck, contract by contract, state by state.</p>
@@ -13573,15 +13574,15 @@ export default function UnionPathway() {
                   <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'rgba(255,255,255,0.55)', letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>Methodology &amp; Sources</div>
                   <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(240px, 1fr))', gap:32, fontSize:13, lineHeight:1.65, color:'rgba(255,255,255,0.7)'}}>
                     <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'#FA8059', letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Wages &amp; Income</div>
+                      <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:8}}>Wages &amp; Income</div>
                       <p style={{margin:0}}>Median hourly wages derived from BLS Quarterly Census of Employment and Wages. Median household income from U.S. Census American Community Survey. Aggregate group averages are population-weighted.</p>
                     </div>
                     <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'#FA8059', letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Union Density</div>
+                      <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:8}}>Union Density</div>
                       <p style={{margin:0}}>Annual estimates from the BLS Union Membership and Coverage Database. Reflects the share of all wage and salary workers who are union members in each state.</p>
                     </div>
                     <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'#FA8059', letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Workplace Fatalities</div>
+                      <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:8}}>Workplace Fatalities</div>
                       <p style={{margin:0}}>Workplace fatality rates from the BLS Census of Fatal Occupational Injuries (CFOI), expressed per 100,000 full-time-equivalent workers. Comparisons consistent with AFL-CIO Death on the Job annual reports.</p>
                     </div>
                   </div>
@@ -14520,7 +14521,7 @@ export default function UnionPathway() {
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff'}}>Algebra & Functions</div>
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>33 Questions · 46 Minutes</div>
                     </div>
-                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Algebraic expressions, equations, inequalities, functions and graphs, polynomials, number sequences, word problems. Goes beyond standard high-school algebra in difficulty. Roughly 84 seconds per question. <strong style={{color:'#F5C518'}}>No calculator.</strong></p>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Algebraic expressions, equations, inequalities, functions and graphs, polynomials, number sequences, word problems. Goes beyond standard high-school algebra in difficulty. Roughly 84 seconds per question. <strong style={{color:'#FA8059'}}>No calculator.</strong></p>
                   </Card>
                   <Card>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
@@ -14569,9 +14570,9 @@ export default function UnionPathway() {
                         <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#fff'}}>5–7</span>
                         <span style={{fontSize:13, color:'rgba(255,255,255,0.7)'}}>Competitive — strong interview can place you</span>
                       </div>
-                      <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'rgba(245,197,24,0.10)', borderRadius:8, borderLeft:'3px solid #F5C518'}}>
+                      <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'rgba(245,197,24,0.10)', borderRadius:8, borderLeft:'3px solid #FA8059'}}>
                         <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#fff'}}>8–9</span>
-                        <span style={{fontSize:13, color:'#F5C518', fontWeight:700}}>Top tier — virtually guaranteed an interview slot</span>
+                        <span style={{fontSize:13, color:'#FA8059', fontWeight:700}}>Top tier — virtually guaranteed an interview slot</span>
                       </div>
                     </div>
                     <p style={{margin:'14px 0 0 0', fontSize:13, color:'rgba(255,255,255,0.6)', fontStyle:'italic', lineHeight:1.6}}>Note: locals with high applicant volume sometimes only interview top-scoring applicants. A 4 in NYC Local 3 may not get an interview the same year a 4 would in a smaller local.</p>
@@ -14582,11 +14583,11 @@ export default function UnionPathway() {
                   <Card>
                     <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Don't pay for a $200 prep course. The Electrical Training Alliance maintains an official sample test, and most JATCs explicitly recommend Khan Academy as their prep resource of choice.</p>
                     <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
-                      <li><strong style={{color:'#F5C518'}}>Khan Academy Algebra 1 + Algebra 2.</strong> Free, video-based, covers the full math section curriculum. Most JATCs reference this directly.</li>
-                      <li><strong style={{color:'#F5C518'}}>Electrical Training Alliance sample page</strong> — short but it shows you the actual question style.</li>
-                      <li><strong style={{color:'#F5C518'}}>Library copy of any "GED math" or "ACCUPLACER algebra" study book.</strong> Same content, free if you have a library card.</li>
-                      <li><strong style={{color:'#F5C518'}}>Practice without a calculator.</strong> Whatever you study, do it on paper. Calculator-free arithmetic is a skill you have to rebuild.</li>
-                      <li><strong style={{color:'#F5C518'}}>Time yourself.</strong> 84 seconds per math question, 85 seconds per reading question. Practice at that pace.</li>
+                      <li><strong style={{color:'#FA8059'}}>Khan Academy Algebra 1 + Algebra 2.</strong> Free, video-based, covers the full math section curriculum. Most JATCs reference this directly.</li>
+                      <li><strong style={{color:'#FA8059'}}>Electrical Training Alliance sample page</strong> — short but it shows you the actual question style.</li>
+                      <li><strong style={{color:'#FA8059'}}>Library copy of any "GED math" or "ACCUPLACER algebra" study book.</strong> Same content, free if you have a library card.</li>
+                      <li><strong style={{color:'#FA8059'}}>Practice without a calculator.</strong> Whatever you study, do it on paper. Calculator-free arithmetic is a skill you have to rebuild.</li>
+                      <li><strong style={{color:'#FA8059'}}>Time yourself.</strong> 84 seconds per math question, 85 seconds per reading question. Practice at that pace.</li>
                     </ul>
                   </Card>
                 </Section>
@@ -14594,7 +14595,7 @@ export default function UnionPathway() {
                 <Section eyebrow="The Interview" title="The actual gatekeeper.">
                   <Card>
                     <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Most candidates think the test is the hard part. The interview is. Final ranking is usually 50/50 test-and-interview, and at large locals the interview tilts the outcome more than the test does.</p>
-                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#F5C518'}}>The single hardest interview question:</strong> <em>"Why electrical work? Why not carpentry, plumbing, or sheet metal?"</em> If you don't have a real, specific answer, you will lose points. The committee is looking for people who chose this trade — not people who'll bounce after a year.</p>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#FA8059'}}>The single hardest interview question:</strong> <em>"Why electrical work? Why not carpentry, plumbing, or sheet metal?"</em> If you don't have a real, specific answer, you will lose points. The committee is looking for people who chose this trade — not people who'll bounce after a year.</p>
                     <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Other things they care about: documented work history (any work, not just electrical), references, mechanical aptitude shown through hobbies or prior work, fitness/willingness to do physical labor, basic math fluency under pressure, and showing up on time dressed like you take it seriously.</p>
                   </Card>
                 </Section>
@@ -14625,7 +14626,7 @@ export default function UnionPathway() {
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+            <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
           );
           const Stat = ({ v, l }) => (
             <div>
@@ -14704,19 +14705,19 @@ export default function UnionPathway() {
                 <Section eyebrow="How to Prep" title="Six sections need a six-section plan.">
                   <Card>
                     <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
-                      <li><strong style={{color:'#F5C518'}}>Khan Academy Pre-Algebra and 8th-grade math.</strong> Covers ~70% of the math content. Free.</li>
-                      <li><strong style={{color:'#F5C518'}}>Mechanical aptitude practice.</strong> Barron's "How to Prepare for the Mechanical Aptitude and Spatial Relations Test" — many UA training centers literally recommend this book by name.</li>
-                      <li><strong style={{color:'#F5C518'}}>Spatial / paper-folding drills.</strong> Search "paper folding aptitude test practice" — there are dozens of free online generators. The folding section trips up candidates who skip practice.</li>
-                      <li><strong style={{color:'#F5C518'}}>Read dense technical text.</strong> Plumbing code books, OSHA fact sheets, scientific articles. The reading section moves fast — you have to extract the main idea quickly.</li>
-                      <li><strong style={{color:'#F5C518'}}>Reading a ruler — actually practice this.</strong> 1/16 and 1/32 increments, on paper, until you can read any mark in under a second.</li>
-                      <li><strong style={{color:'#F5C518'}}>Time yourself.</strong> 36-60 seconds per question depending on section. The clock is the real test.</li>
+                      <li><strong style={{color:'#FA8059'}}>Khan Academy Pre-Algebra and 8th-grade math.</strong> Covers ~70% of the math content. Free.</li>
+                      <li><strong style={{color:'#FA8059'}}>Mechanical aptitude practice.</strong> Barron's "How to Prepare for the Mechanical Aptitude and Spatial Relations Test" — many UA training centers literally recommend this book by name.</li>
+                      <li><strong style={{color:'#FA8059'}}>Spatial / paper-folding drills.</strong> Search "paper folding aptitude test practice" — there are dozens of free online generators. The folding section trips up candidates who skip practice.</li>
+                      <li><strong style={{color:'#FA8059'}}>Read dense technical text.</strong> Plumbing code books, OSHA fact sheets, scientific articles. The reading section moves fast — you have to extract the main idea quickly.</li>
+                      <li><strong style={{color:'#FA8059'}}>Reading a ruler — actually practice this.</strong> 1/16 and 1/32 increments, on paper, until you can read any mark in under a second.</li>
+                      <li><strong style={{color:'#FA8059'}}>Time yourself.</strong> 36-60 seconds per question depending on section. The clock is the real test.</li>
                     </ul>
                   </Card>
                 </Section>
 
                 <Section eyebrow="Application Windows" title="The trap nobody warns you about.">
                   <Card>
-                    <p style={{margin:'0 0 10px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#F5C518'}}>Most UA locals open applications once a year — sometimes once every two years.</strong> Miss the window and you wait until the next cycle. There's no central calendar. Each local advertises on its own website (and many don't advertise well).</p>
+                    <p style={{margin:'0 0 10px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#FA8059'}}>Most UA locals open applications once a year — sometimes once every two years.</strong> Miss the window and you wait until the next cycle. There's no central calendar. Each local advertises on its own website (and many don't advertise well).</p>
                     <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Call the local hall directly — don't rely on web searches. Ask: "When does the next apprenticeship application window open? What documents do I need to bring? Where can I get a sample test?" Most coordinators are helpful when you call respectfully.</p>
                   </Card>
                 </Section>
@@ -14747,7 +14748,7 @@ export default function UnionPathway() {
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+            <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
           );
           const Stat = ({ v, l }) => (
             <div>
@@ -14769,7 +14770,7 @@ export default function UnionPathway() {
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
                 <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// SMART · Sheet Metal Workers</div>
                 <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#fff', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The Sheet Metal<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Apprenticeship Test.</span></h1>
-                <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'rgba(255,255,255,0.7)', lineHeight:1.65, maxWidth:660, margin:0}}>SMART doesn't have a single national aptitude test — each local JATC chooses its own. The sections below are the ones you'll see in some combination at most major locals: Math, Reading, Mechanical, and Spatial Reasoning. <strong style={{color:'#F5C518'}}>Always confirm the exact format with your local before taking it.</strong></p>
+                <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'rgba(255,255,255,0.7)', lineHeight:1.65, maxWidth:660, margin:0}}>SMART doesn't have a single national aptitude test — each local JATC chooses its own. The sections below are the ones you'll see in some combination at most major locals: Math, Reading, Mechanical, and Spatial Reasoning. <strong style={{color:'#FA8059'}}>Always confirm the exact format with your local before taking it.</strong></p>
               </div>
 
               <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
@@ -14786,7 +14787,7 @@ export default function UnionPathway() {
                 <Section eyebrow="The Sections You'll See" title="Four core skills, every variation tests at least two.">
                   <Card>
                     <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:'#fff', marginBottom:8}}>Mathematics</div>
-                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Whole numbers, fractions, decimals, percentages, basic algebra. Some locals add geometry (area, perimeter, volume of basic shapes). Sheet metal layouts demand fraction fluency — you'll be cutting to 1/16" tolerances on the job, so the test reflects that. <strong style={{color:'#F5C518'}}>Calculator policy varies — check with your local.</strong></p>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Whole numbers, fractions, decimals, percentages, basic algebra. Some locals add geometry (area, perimeter, volume of basic shapes). Sheet metal layouts demand fraction fluency — you'll be cutting to 1/16" tolerances on the job, so the test reflects that. <strong style={{color:'#FA8059'}}>Calculator policy varies — check with your local.</strong></p>
                   </Card>
                   <Card>
                     <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:'#fff', marginBottom:8}}>Reading Comprehension</div>
@@ -14798,7 +14799,7 @@ export default function UnionPathway() {
                   </Card>
                   <Card>
                     <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:'#fff', marginBottom:8}}>Spatial Reasoning / Abstract Reasoning</div>
-                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>The most distinctively sheet-metal section. Includes 2D-to-3D visualization (which 3D shape does this flat pattern fold into?), pattern matching, and rotation problems. <strong style={{color:'#F5C518'}}>This is core sheet metal work</strong> — you're literally turning flat patterns into 3D ductwork on the job. Practice this section more than you think you need to.</p>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>The most distinctively sheet-metal section. Includes 2D-to-3D visualization (which 3D shape does this flat pattern fold into?), pattern matching, and rotation problems. <strong style={{color:'#FA8059'}}>This is core sheet metal work</strong> — you're literally turning flat patterns into 3D ductwork on the job. Practice this section more than you think you need to.</p>
                   </Card>
                 </Section>
 
@@ -14824,12 +14825,12 @@ export default function UnionPathway() {
                 <Section eyebrow="How to Prep" title="Train all four core areas, plus visualization.">
                   <Card>
                     <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
-                      <li><strong style={{color:'#F5C518'}}>Khan Academy Pre-Algebra and Algebra 1.</strong> Covers the math content for any local's test. Free.</li>
-                      <li><strong style={{color:'#F5C518'}}>Read a ruler — to 1/16 and 1/32.</strong> Sheet metal work is fraction-of-an-inch precise. Build muscle memory.</li>
-                      <li><strong style={{color:'#F5C518'}}>Spatial visualization apps.</strong> Google "paper folding aptitude test" or "shape rotation practice" — dozens of free practice generators exist. This is the section candidates underprepare for.</li>
-                      <li><strong style={{color:'#F5C518'}}>Bennett Mechanical Comprehension Test prep.</strong> Free practice questions widely available; covers the mechanical reasoning content nearly identically to the SMART version.</li>
-                      <li><strong style={{color:'#F5C518'}}>Practice reading blueprints.</strong> Even a basic intro to architectural plans helps with the graphic literacy sections some locals use.</li>
-                      <li><strong style={{color:'#F5C518'}}>Confirm calculator policy with your local.</strong> Some allow it, some don't. The difference matters for math prep.</li>
+                      <li><strong style={{color:'#FA8059'}}>Khan Academy Pre-Algebra and Algebra 1.</strong> Covers the math content for any local's test. Free.</li>
+                      <li><strong style={{color:'#FA8059'}}>Read a ruler — to 1/16 and 1/32.</strong> Sheet metal work is fraction-of-an-inch precise. Build muscle memory.</li>
+                      <li><strong style={{color:'#FA8059'}}>Spatial visualization apps.</strong> Google "paper folding aptitude test" or "shape rotation practice" — dozens of free practice generators exist. This is the section candidates underprepare for.</li>
+                      <li><strong style={{color:'#FA8059'}}>Bennett Mechanical Comprehension Test prep.</strong> Free practice questions widely available; covers the mechanical reasoning content nearly identically to the SMART version.</li>
+                      <li><strong style={{color:'#FA8059'}}>Practice reading blueprints.</strong> Even a basic intro to architectural plans helps with the graphic literacy sections some locals use.</li>
+                      <li><strong style={{color:'#FA8059'}}>Confirm calculator policy with your local.</strong> Some allow it, some don't. The difference matters for math prep.</li>
                     </ul>
                   </Card>
                 </Section>
@@ -14860,7 +14861,7 @@ export default function UnionPathway() {
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+            <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
           );
           const Stat = ({ v, l }) => (
             <div>
@@ -14902,7 +14903,7 @@ export default function UnionPathway() {
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff'}}>Arithmetic Computation</div>
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>30 Questions · 40 Minutes</div>
                     </div>
-                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Basic arithmetic, fractions, decimals, percentages, simple algebra, and unit conversions. 8th-to-9th-grade math difficulty. About 80 seconds per question. <strong style={{color:'#F5C518'}}>No calculator.</strong></p>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Basic arithmetic, fractions, decimals, percentages, simple algebra, and unit conversions. 8th-to-9th-grade math difficulty. About 80 seconds per question. <strong style={{color:'#FA8059'}}>No calculator.</strong></p>
                   </Card>
                   <Card>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
@@ -14920,10 +14921,10 @@ export default function UnionPathway() {
                   </Card>
                   <Card>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color:'#F5C518'}}>+ Tool Recognition Assessment</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color:'#FA8059'}}>+ Tool Recognition Assessment</div>
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, color:'rgba(255,255,255,0.55)', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Separate</div>
                     </div>
-                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Administered immediately after the EIAT. Identify common hand tools by photo or description — Phillips screwdriver, lineman's pliers, diagonal cutters, crimpers, tape measure, level. Includes basic tape-measure reading. <strong style={{color:'#F5C518'}}>This score doesn't roll into your EIAT score, but it feeds your interview ranking.</strong></p>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Administered immediately after the EIAT. Identify common hand tools by photo or description — Phillips screwdriver, lineman's pliers, diagonal cutters, crimpers, tape measure, level. Includes basic tape-measure reading. <strong style={{color:'#FA8059'}}>This score doesn't roll into your EIAT score, but it feeds your interview ranking.</strong></p>
                   </Card>
                 </Section>
 
@@ -14931,9 +14932,9 @@ export default function UnionPathway() {
                   <Card>
                     <p style={{margin:'0 0 14px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>EIAT is pass/fail at 70%. After passing, your combined score (EIAT + tool assessment + interview) places you in one of four tiers, and locals interview/hire from the top tier first:</p>
                     <div style={{display:'grid', gap:8}}>
-                      <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'rgba(245,197,24,0.10)', borderRadius:8, borderLeft:'3px solid #F5C518'}}>
+                      <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'rgba(245,197,24,0.10)', borderRadius:8, borderLeft:'3px solid #FA8059'}}>
                         <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#fff'}}>Tier 1 · 96–100</span>
-                        <span style={{fontSize:13, color:'#F5C518', fontWeight:700}}>First in line for any opening</span>
+                        <span style={{fontSize:13, color:'#FA8059', fontWeight:700}}>First in line for any opening</span>
                       </div>
                       <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'rgba(74,123,157,0.15)', borderRadius:8, borderLeft:'3px solid '+ACCENT}}>
                         <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#fff'}}>Tier 2 · 90–95</span>
@@ -14955,19 +14956,19 @@ export default function UnionPathway() {
                 <Section eyebrow="How to Prep" title="Three sections, three different tactics.">
                   <Card>
                     <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
-                      <li><strong style={{color:'#F5C518'}}>NEIEP's official EIAT Study Guide.</strong> Free PDF on neiep.org. It's brief but it shows you the actual test format and a few sample questions. Read it first.</li>
-                      <li><strong style={{color:'#F5C518'}}>Khan Academy basic math + pre-algebra.</strong> Covers the arithmetic section in full.</li>
-                      <li><strong style={{color:'#F5C518'}}>Vocabulary practice.</strong> Sentence-completion questions are heavy here. Apps like Vocabulary.com or just SAT/GRE word-list flashcards build the vocabulary base.</li>
-                      <li><strong style={{color:'#F5C518'}}>Bennett Mechanical Comprehension Test sample questions.</strong> Same content as the EIAT mechanical section, widely available free online.</li>
-                      <li><strong style={{color:'#F5C518'}}>Learn your tools by sight.</strong> Search image results for Phillips/flathead screwdriver, lineman's pliers, side cutters, diagonal cutters, crimpers, channel locks, multi-meter, tape measure.</li>
-                      <li><strong style={{color:'#F5C518'}}>Practice reading a tape measure.</strong> 1/16 increments, both above and below standard inch marks. The tool assessment includes this.</li>
+                      <li><strong style={{color:'#FA8059'}}>NEIEP's official EIAT Study Guide.</strong> Free PDF on neiep.org. It's brief but it shows you the actual test format and a few sample questions. Read it first.</li>
+                      <li><strong style={{color:'#FA8059'}}>Khan Academy basic math + pre-algebra.</strong> Covers the arithmetic section in full.</li>
+                      <li><strong style={{color:'#FA8059'}}>Vocabulary practice.</strong> Sentence-completion questions are heavy here. Apps like Vocabulary.com or just SAT/GRE word-list flashcards build the vocabulary base.</li>
+                      <li><strong style={{color:'#FA8059'}}>Bennett Mechanical Comprehension Test sample questions.</strong> Same content as the EIAT mechanical section, widely available free online.</li>
+                      <li><strong style={{color:'#FA8059'}}>Learn your tools by sight.</strong> Search image results for Phillips/flathead screwdriver, lineman's pliers, side cutters, diagonal cutters, crimpers, channel locks, multi-meter, tape measure.</li>
+                      <li><strong style={{color:'#FA8059'}}>Practice reading a tape measure.</strong> 1/16 increments, both above and below standard inch marks. The tool assessment includes this.</li>
                     </ul>
                   </Card>
                 </Section>
 
                 <Section eyebrow="Application Reality" title="The IUEC is small. The window is narrow.">
                   <Card>
-                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#F5C518'}}>The IUEC is the smallest building trades union — about 30,000 members across 141 locals.</strong> Apprenticeship slots are limited. Most locals open recruitment for 1-2 weeks per cycle, sometimes only every 18-24 months.</p>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#FA8059'}}>The IUEC is the smallest building trades union — about 30,000 members across 141 locals.</strong> Apprenticeship slots are limited. Most locals open recruitment for 1-2 weeks per cycle, sometimes only every 18-24 months.</p>
                     <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Watch your local's recruitment page or call the local hall directly. Applications are often online via the NEIEP recruitment portal once a window opens. Failing the EIAT means waiting until the next recruitment period — typically 6 to 24 months.</p>
                   </Card>
                 </Section>
@@ -14998,7 +14999,7 @@ export default function UnionPathway() {
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+            <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
           );
           const Stat = ({ v, l }) => (
             <div>
@@ -15040,7 +15041,7 @@ export default function UnionPathway() {
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff'}}>Mathematics</div>
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>No Calculator</div>
                     </div>
-                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>The Iron Workers test math goes deeper than UA or SMART. Expect basic arithmetic and fractions, but also high-school-level algebra, geometry, and word problems. Some major locals (notably Local 3 in Philadelphia, Local 40 in NYC, Local 12 in Albany) include trigonometry — basic sine/cosine/tangent for figuring beam angles. <strong style={{color:'#F5C518'}}>If your local includes trig, that alone trips up half of applicants.</strong></p>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>The Iron Workers test math goes deeper than UA or SMART. Expect basic arithmetic and fractions, but also high-school-level algebra, geometry, and word problems. Some major locals (notably Local 3 in Philadelphia, Local 40 in NYC, Local 12 in Albany) include trigonometry — basic sine/cosine/tangent for figuring beam angles. <strong style={{color:'#FA8059'}}>If your local includes trig, that alone trips up half of applicants.</strong></p>
                   </Card>
                   <Card>
                     <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', marginBottom:8}}>Reading Comprehension</div>
@@ -15048,10 +15049,10 @@ export default function UnionPathway() {
                   </Card>
                   <Card>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#F5C518'}}>The Physical Test</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#FA8059'}}>The Physical Test</div>
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, color:'rgba(255,255,255,0.55)', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Make-or-Break</div>
                     </div>
-                    <p style={{margin:'0 0 10px 0', fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}><strong style={{color:'#F5C518'}}>This is what makes the Iron Workers test different from every other trade.</strong> After passing the written test, candidates take a physical assessment that typically includes:</p>
+                    <p style={{margin:'0 0 10px 0', fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}><strong style={{color:'#FA8059'}}>This is what makes the Iron Workers test different from every other trade.</strong> After passing the written test, candidates take a physical assessment that typically includes:</p>
                     <ul style={{margin:'0', paddingLeft:24, fontSize:14, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
                       <li>Walking across a steel beam at low height to test balance</li>
                       <li>Climbing a ladder with weighted gear</li>
@@ -15081,7 +15082,7 @@ export default function UnionPathway() {
 
                 <Section eyebrow="How They Score It" title="Pass and tier — same playbook as the other trades.">
                   <Card>
-                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Most Iron Workers locals set 70% as passing. Top-scoring applicants are tiered, and locals interview from the top tier first. <strong style={{color:'#F5C518'}}>The big locals (Local 40 NYC, Local 3 Philly, Local 12 Albany) often only interview applicants who scored 85%+</strong>, because they get hundreds more applicants than apprenticeship slots in any given cycle.</p>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Most Iron Workers locals set 70% as passing. Top-scoring applicants are tiered, and locals interview from the top tier first. <strong style={{color:'#FA8059'}}>The big locals (Local 40 NYC, Local 3 Philly, Local 12 Albany) often only interview applicants who scored 85%+</strong>, because they get hundreds more applicants than apprenticeship slots in any given cycle.</p>
                     <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Some locals stack the application — your written score, physical test score, and interview score all combine into a final ranking. Some give a small "tenure bonus" for re-applicants (e.g., +2.5 points per year up to a max), which is worth knowing if you're prepared to take the long view.</p>
                   </Card>
                 </Section>
@@ -15089,13 +15090,13 @@ export default function UnionPathway() {
                 <Section eyebrow="How to Prep" title="Algebra, geometry, and a tape measure.">
                   <Card>
                     <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
-                      <li><strong style={{color:'#F5C518'}}>Iron Workers Local 3 publishes a free practice test PDF online.</strong> Search "Iron Workers Local 3 practice test" — it's the closest thing to an official sample available, and the format is similar to most major locals' tests.</li>
-                      <li><strong style={{color:'#F5C518'}}>Khan Academy Algebra 1 + Geometry.</strong> Free, video-based. Covers the math content for any local's test.</li>
-                      <li><strong style={{color:'#F5C518'}}>If your local tests trig:</strong> Khan Academy Trigonometry, focusing on right-triangle trig and SOH-CAH-TOA.</li>
-                      <li><strong style={{color:'#F5C518'}}>Read a tape measure to 1/16.</strong> Build muscle memory until you can read any mark in under a second.</li>
-                      <li><strong style={{color:'#F5C518'}}>Practice the Pythagorean theorem cold.</strong> Iron work uses it constantly — beam diagonals, rigging triangles, brace lengths. Should be reflex.</li>
-                      <li><strong style={{color:'#F5C518'}}>Get in shape before the physical test.</strong> Cardio, grip strength, balance work. The physical isn't designed to be hard for people who do regular labor; it's designed to weed out the unprepared.</li>
-                      <li><strong style={{color:'#F5C518'}}>Test your fear of heights honestly.</strong> Go to a tall building. Look down from a balcony. If you panic, this isn't your trade — that's not a moral failing, it's a self-preservation signal.</li>
+                      <li><strong style={{color:'#FA8059'}}>Iron Workers Local 3 publishes a free practice test PDF online.</strong> Search "Iron Workers Local 3 practice test" — it's the closest thing to an official sample available, and the format is similar to most major locals' tests.</li>
+                      <li><strong style={{color:'#FA8059'}}>Khan Academy Algebra 1 + Geometry.</strong> Free, video-based. Covers the math content for any local's test.</li>
+                      <li><strong style={{color:'#FA8059'}}>If your local tests trig:</strong> Khan Academy Trigonometry, focusing on right-triangle trig and SOH-CAH-TOA.</li>
+                      <li><strong style={{color:'#FA8059'}}>Read a tape measure to 1/16.</strong> Build muscle memory until you can read any mark in under a second.</li>
+                      <li><strong style={{color:'#FA8059'}}>Practice the Pythagorean theorem cold.</strong> Iron work uses it constantly — beam diagonals, rigging triangles, brace lengths. Should be reflex.</li>
+                      <li><strong style={{color:'#FA8059'}}>Get in shape before the physical test.</strong> Cardio, grip strength, balance work. The physical isn't designed to be hard for people who do regular labor; it's designed to weed out the unprepared.</li>
+                      <li><strong style={{color:'#FA8059'}}>Test your fear of heights honestly.</strong> Go to a tall building. Look down from a balcony. If you panic, this isn't your trade — that's not a moral failing, it's a self-preservation signal.</li>
                     </ul>
                   </Card>
                 </Section>
@@ -15115,7 +15116,7 @@ export default function UnionPathway() {
                 <Section eyebrow="After You Pass" title="A 3-4 year program. The trade with the highest fatality risk.">
                   <Card>
                     <p style={{margin:'0 0 10px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Iron Workers apprenticeships run <strong style={{color:'#fff'}}>3-4 years</strong>, ~6,000-8,000 hours of paid OJT plus 600-800 hours of classroom instruction. You start at 50-60% of journeyman scale, with regular step increases every 6 months.</p>
-                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>This is also the trade with the <strong style={{color:'#F5C518'}}>highest workplace fatality rate of any building trade</strong> — falls and struck-by accidents make it consistently dangerous. The training emphasizes safety relentlessly. Pay attention. The journeymen who taught your instructors are still alive because they took the safety stuff seriously when they were apprentices.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>This is also the trade with the <strong style={{color:'#FA8059'}}>highest workplace fatality rate of any building trade</strong> — falls and struck-by accidents make it consistently dangerous. The training emphasizes safety relentlessly. Pay attention. The journeymen who taught your instructors are still alive because they took the safety stuff seriously when they were apprentices.</p>
                   </Card>
                 </Section>
 
@@ -15138,7 +15139,7 @@ export default function UnionPathway() {
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+            <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
           );
           const Stat = ({ v, l }) => (
             <div>
@@ -15160,7 +15161,7 @@ export default function UnionPathway() {
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
                 <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// BAC · Bricklayers and Allied Craftworkers</div>
                 <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#fff', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The BAC<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Aptitude Test.</span></h1>
-                <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'rgba(255,255,255,0.7)', lineHeight:1.65, maxWidth:660, margin:0}}>BAC is the oldest labor union in North America (founded 1865). It's also unusual in that the testing format is <strong style={{color:'#F5C518'}}>almost entirely local-controlled</strong> — there is no national BAC aptitude test. Most locals use a combination of basic math, reading, and a physical assessment, plus a 12-week unpaid pre-apprenticeship at some training centers.</p>
+                <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'rgba(255,255,255,0.7)', lineHeight:1.65, maxWidth:660, margin:0}}>BAC is the oldest labor union in North America (founded 1865). It's also unusual in that the testing format is <strong style={{color:'#FA8059'}}>almost entirely local-controlled</strong> — there is no national BAC aptitude test. Most locals use a combination of basic math, reading, and a physical assessment, plus a 12-week unpaid pre-apprenticeship at some training centers.</p>
               </div>
 
               <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
@@ -15185,18 +15186,18 @@ export default function UnionPathway() {
                   </Card>
                   <Card>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#F5C518'}}>Physical Assessment</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#FA8059'}}>Physical Assessment</div>
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, color:'rgba(255,255,255,0.55)', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Most Locals</div>
                     </div>
-                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Brick is heavy. A standard brick weighs about 4-5 pounds; a concrete block weighs 30-40 pounds; a piece of stone facing can be 100+ pounds. The physical assessment typically tests your ability to lift weight repeatedly, work in awkward positions, and handle bending and squatting throughout the day. <strong style={{color:'#F5C518'}}>Most BAC apprentices wash out for physical reasons, not mental ones.</strong></p>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Brick is heavy. A standard brick weighs about 4-5 pounds; a concrete block weighs 30-40 pounds; a piece of stone facing can be 100+ pounds. The physical assessment typically tests your ability to lift weight repeatedly, work in awkward positions, and handle bending and squatting throughout the day. <strong style={{color:'#FA8059'}}>Most BAC apprentices wash out for physical reasons, not mental ones.</strong></p>
                   </Card>
                 </Section>
 
                 <Section eyebrow="Pre-Apprenticeship" title="The 12-week unpaid program (some locals).">
                   <Card>
-                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>BAC is unusual among the building trades in that <strong style={{color:'#F5C518'}}>several major locals require an unpaid 12-week pre-apprenticeship before formal apprenticeship begins</strong>. The pre-apprenticeship is essentially a working trial — instructors evaluate whether you have the physical aptitude, the work ethic, and the manual dexterity to make it as a mason.</p>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>BAC is unusual among the building trades in that <strong style={{color:'#FA8059'}}>several major locals require an unpaid 12-week pre-apprenticeship before formal apprenticeship begins</strong>. The pre-apprenticeship is essentially a working trial — instructors evaluate whether you have the physical aptitude, the work ethic, and the manual dexterity to make it as a mason.</p>
                     <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>If you make it through the pre-apprenticeship, you're indentured into the formal 4-year program at a paid apprenticeship rate. If you don't, you wash out — but you get to keep your tools, and BAC frequently offers job-placement help into related work even for non-completers.</p>
-                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>This makes BAC notably different from other trades where you pass a test and immediately enter paid apprenticeship. Plan accordingly — the 12 weeks of unpaid training is a real financial barrier, and BAC locals know it. <strong style={{color:'#F5C518'}}>Some locals are working to shift this model</strong>; check your local's specific policy.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>This makes BAC notably different from other trades where you pass a test and immediately enter paid apprenticeship. Plan accordingly — the 12 weeks of unpaid training is a real financial barrier, and BAC locals know it. <strong style={{color:'#FA8059'}}>Some locals are working to shift this model</strong>; check your local's specific policy.</p>
                   </Card>
                 </Section>
 
@@ -15218,19 +15219,19 @@ export default function UnionPathway() {
                 <Section eyebrow="How to Prep" title="Pre-algebra and a strong back.">
                   <Card>
                     <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
-                      <li><strong style={{color:'#F5C518'}}>Khan Academy Pre-Algebra.</strong> Covers the math content with room to spare.</li>
-                      <li><strong style={{color:'#F5C518'}}>Practice fraction-to-decimal conversion.</strong> Brick coursing is laid out in inches and fractions; conversion fluency saves time.</li>
-                      <li><strong style={{color:'#F5C518'}}>Read a tape measure cold.</strong> 1/16 increments. Brick spacing is measured to the fraction.</li>
-                      <li><strong style={{color:'#F5C518'}}>Get physically prepared.</strong> Carry weight on your shoulders. Squat and stand repeatedly. Do farmer's walks with two heavy buckets. Build the muscles you'll actually use.</li>
-                      <li><strong style={{color:'#F5C518'}}>Learn basic blueprint symbols.</strong> The Brick Industry Association website (gobrick.com) has free TEK Notes covering masonry layout fundamentals.</li>
-                      <li><strong style={{color:'#F5C518'}}>Be honest with yourself about the work.</strong> Masonry is heavy, dirty, and often outdoors in the cold. If you hate cold weather and physical work, you will hate this trade. That's worth knowing now.</li>
+                      <li><strong style={{color:'#FA8059'}}>Khan Academy Pre-Algebra.</strong> Covers the math content with room to spare.</li>
+                      <li><strong style={{color:'#FA8059'}}>Practice fraction-to-decimal conversion.</strong> Brick coursing is laid out in inches and fractions; conversion fluency saves time.</li>
+                      <li><strong style={{color:'#FA8059'}}>Read a tape measure cold.</strong> 1/16 increments. Brick spacing is measured to the fraction.</li>
+                      <li><strong style={{color:'#FA8059'}}>Get physically prepared.</strong> Carry weight on your shoulders. Squat and stand repeatedly. Do farmer's walks with two heavy buckets. Build the muscles you'll actually use.</li>
+                      <li><strong style={{color:'#FA8059'}}>Learn basic blueprint symbols.</strong> The Brick Industry Association website (gobrick.com) has free TEK Notes covering masonry layout fundamentals.</li>
+                      <li><strong style={{color:'#FA8059'}}>Be honest with yourself about the work.</strong> Masonry is heavy, dirty, and often outdoors in the cold. If you hate cold weather and physical work, you will hate this trade. That's worth knowing now.</li>
                     </ul>
                   </Card>
                 </Section>
 
                 <Section eyebrow="Application Cycles" title="Some locals take applications continuously.">
                   <Card>
-                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Unlike IBEW, UA, or IUEC where most locals open windows once a year or once every two years, <strong style={{color:'#F5C518'}}>many BAC locals accept applications continuously, Monday-Friday at the local training center.</strong> Some locals run multiple intake cycles per year (NJ Local 4 has 3-4 review periods annually).</p>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Unlike IBEW, UA, or IUEC where most locals open windows once a year or once every two years, <strong style={{color:'#FA8059'}}>many BAC locals accept applications continuously, Monday-Friday at the local training center.</strong> Some locals run multiple intake cycles per year (NJ Local 4 has 3-4 review periods annually).</p>
                     <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>That said, applications can sit on a list for months. Call the local hall and ask about current intake and expected timing. The smaller, less-publicized BAC locals often have the shortest waits.</p>
                   </Card>
                 </Section>
@@ -15261,7 +15262,7 @@ export default function UnionPathway() {
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+            <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
           );
           const Stat = ({ v, l }) => (
             <div>
@@ -15312,7 +15313,7 @@ export default function UnionPathway() {
                   </Card>
                   <Card>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#F5C518'}}>Physical Exam + Drug Screen</div>
+                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#FA8059'}}>Physical Exam + Drug Screen</div>
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, color:'rgba(255,255,255,0.55)', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Required</div>
                     </div>
                     <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Insulator work involves tight, confined spaces (sometimes underground), heights up to 10 feet routinely with occasional work at extreme heights, and exposure to varying weather conditions from below freezing to 95+ degrees. The physical exam screens for the ability to handle these conditions. Pre-employment drug screen is universal — most locals also do random testing throughout your career.</p>
@@ -15336,26 +15337,26 @@ export default function UnionPathway() {
                 <Section eyebrow="How They Score It" title="The retake bonus that nobody tells you about.">
                   <Card>
                     <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Most HFIAW locals use a ranked-list system: pass the test, score-rank the applicants, fill apprenticeship slots from the top down.</p>
-                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#F5C518'}}>One thing unique to several HFIAW locals:</strong> they award a small score bonus for each year you reapply. Local 2 in Pennsylvania, for example, adds 2.5 points per successive year (max 10 points total). If you don't get in this year, your score effectively goes up next year — making patience a real strategic asset. Few other trades have this provision.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#FA8059'}}>One thing unique to several HFIAW locals:</strong> they award a small score bonus for each year you reapply. Local 2 in Pennsylvania, for example, adds 2.5 points per successive year (max 10 points total). If you don't get in this year, your score effectively goes up next year — making patience a real strategic asset. Few other trades have this provision.</p>
                   </Card>
                 </Section>
 
                 <Section eyebrow="How to Prep" title="Three sections, no calculator (most locals).">
                   <Card>
                     <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
-                      <li><strong style={{color:'#F5C518'}}>Khan Academy Pre-Algebra and basic Geometry.</strong> Covers the math content. Free.</li>
-                      <li><strong style={{color:'#F5C518'}}>Practice circumference and surface area calculations.</strong> π × diameter for circumferences. The work centers on cylinders (pipes, vessels, ducts) so these formulas come up constantly.</li>
-                      <li><strong style={{color:'#F5C518'}}>Read a tape measure to 1/16.</strong> Insulation is cut to fit pipe runs precisely.</li>
-                      <li><strong style={{color:'#F5C518'}}>Bennett Mechanical Comprehension Test sample questions.</strong> Free practice questions widely available; covers the mechanical reasoning content.</li>
-                      <li><strong style={{color:'#F5C518'}}>Read about the trade.</strong> Visit the National Insulation Association (insulation.org) and read a few articles on mechanical insulation. The interview will go better if you can speak about why the trade matters, not just "I need a job."</li>
-                      <li><strong style={{color:'#F5C518'}}>Get reliable transportation.</strong> Many locals require it as an explicit application qualification. Insulator job sites are often industrial facilities not on transit lines.</li>
+                      <li><strong style={{color:'#FA8059'}}>Khan Academy Pre-Algebra and basic Geometry.</strong> Covers the math content. Free.</li>
+                      <li><strong style={{color:'#FA8059'}}>Practice circumference and surface area calculations.</strong> π × diameter for circumferences. The work centers on cylinders (pipes, vessels, ducts) so these formulas come up constantly.</li>
+                      <li><strong style={{color:'#FA8059'}}>Read a tape measure to 1/16.</strong> Insulation is cut to fit pipe runs precisely.</li>
+                      <li><strong style={{color:'#FA8059'}}>Bennett Mechanical Comprehension Test sample questions.</strong> Free practice questions widely available; covers the mechanical reasoning content.</li>
+                      <li><strong style={{color:'#FA8059'}}>Read about the trade.</strong> Visit the National Insulation Association (insulation.org) and read a few articles on mechanical insulation. The interview will go better if you can speak about why the trade matters, not just "I need a job."</li>
+                      <li><strong style={{color:'#FA8059'}}>Get reliable transportation.</strong> Many locals require it as an explicit application qualification. Insulator job sites are often industrial facilities not on transit lines.</li>
                     </ul>
                   </Card>
                 </Section>
 
                 <Section eyebrow="Application Cycles" title="When to watch.">
                   <Card>
-                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>HFIAW application cycles are highly local. Boston Local 6 typically opens applications in March only (one month per year). Detroit Local 25 takes apprentices "as the need arises" with new classes typically starting in fall. Pennsylvania Local 2 has its own schedule. <strong style={{color:'#F5C518'}}>There is no central calendar.</strong></p>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>HFIAW application cycles are highly local. Boston Local 6 typically opens applications in March only (one month per year). Detroit Local 25 takes apprentices "as the need arises" with new classes typically starting in fall. Pennsylvania Local 2 has its own schedule. <strong style={{color:'#FA8059'}}>There is no central calendar.</strong></p>
                     <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Best move: find your local's website and email list early. Sign up for whatever notification list they offer — many HFIAW locals announce open recruitment via email or a printed monthly newsletter.</p>
                   </Card>
                 </Section>
@@ -15386,7 +15387,7 @@ export default function UnionPathway() {
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+            <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
           );
           const Stat = ({ v, l }) => (
             <div>
@@ -15408,7 +15409,7 @@ export default function UnionPathway() {
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
                 <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// IUOE · Operating Engineers</div>
                 <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#fff', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The Heavy Equipment<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Operator Test.</span></h1>
-                <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'rgba(255,255,255,0.7)', lineHeight:1.65, maxWidth:660, margin:0}}>The International Union of Operating Engineers represents heavy equipment operators, mechanics, surveyors, and stationary engineers. Each local writes its own apprenticeship test — and several major locals (Local 324 in Michigan, others) use the <strong style={{color:'#F5C518'}}>WorkKeys assessment</strong> instead of a custom written test.</p>
+                <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'rgba(255,255,255,0.7)', lineHeight:1.65, maxWidth:660, margin:0}}>The International Union of Operating Engineers represents heavy equipment operators, mechanics, surveyors, and stationary engineers. Each local writes its own apprenticeship test — and several major locals (Local 324 in Michigan, others) use the <strong style={{color:'#FA8059'}}>WorkKeys assessment</strong> instead of a custom written test.</p>
               </div>
 
               <div style={{padding:'48px 24px', borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
@@ -15429,11 +15430,11 @@ export default function UnionPathway() {
                   </Card>
                   <Card>
                     <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', marginBottom:8}}>Reading Comprehension</div>
-                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Standard reading comprehension. Some locals use <strong style={{color:'#F5C518'}}>"Workplace Documents"</strong> (the WorkKeys-equivalent) which tests your ability to read and follow technical/procedural written material — work orders, equipment manuals, safety procedures. More applied than abstract.</p>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Standard reading comprehension. Some locals use <strong style={{color:'#FA8059'}}>"Workplace Documents"</strong> (the WorkKeys-equivalent) which tests your ability to read and follow technical/procedural written material — work orders, equipment manuals, safety procedures. More applied than abstract.</p>
                   </Card>
                   <Card>
                     <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#fff', marginBottom:8}}>Mechanical Reasoning</div>
-                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Tools, gears, pulleys, levers, weight distribution, hydraulics, basic vehicle/engine mechanics. Operators run hydraulically-actuated heavy machines — understanding how the systems work matters. Some locals add <strong style={{color:'#F5C518'}}>graphic literacy</strong> (charts, tables, diagrams, floor plans) which is essentially the same skill from a different angle.</p>
+                    <p style={{margin:0, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.65}}>Tools, gears, pulleys, levers, weight distribution, hydraulics, basic vehicle/engine mechanics. Operators run hydraulically-actuated heavy machines — understanding how the systems work matters. Some locals add <strong style={{color:'#FA8059'}}>graphic literacy</strong> (charts, tables, diagrams, floor plans) which is essentially the same skill from a different angle.</p>
                   </Card>
                 </Section>
 
@@ -15446,7 +15447,7 @@ export default function UnionPathway() {
                       <li><strong style={{color:'#fff'}}>Graphic Literacy</strong> (formerly "Locating Information") — Level 4</li>
                       <li><strong style={{color:'#fff'}}>Workplace Documents</strong> (formerly "Reading for Information") — Level 4</li>
                     </ul>
-                    <p style={{margin:'12px 0 0 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#F5C518'}}>WorkKeys scores don't expire</strong> — you can take it once and use it for multiple applications over several years. ACT publishes free WorkKeys practice tests on their website.</p>
+                    <p style={{margin:'12px 0 0 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#FA8059'}}>WorkKeys scores don't expire</strong> — you can take it once and use it for multiple applications over several years. ACT publishes free WorkKeys practice tests on their website.</p>
                   </Card>
                 </Section>
 
@@ -15463,7 +15464,7 @@ export default function UnionPathway() {
 
                 <Section eyebrow="The CDL Reality" title="You'll likely need it before you start.">
                   <Card>
-                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#F5C518'}}>Most IUOE Heavy Equipment Operator locals require a Commercial Driver's License (CDL) — typically Class A — either before you apply or before you can be dispatched to your first job.</strong> Operators frequently drive their own equipment to job sites or operate trucks as part of equipment-relocation work.</p>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#FA8059'}}>Most IUOE Heavy Equipment Operator locals require a Commercial Driver's License (CDL) — typically Class A — either before you apply or before you can be dispatched to your first job.</strong> Operators frequently drive their own equipment to job sites or operate trucks as part of equipment-relocation work.</p>
                     <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>If you don't have a CDL yet, look into it before you apply. Many state workforce programs and some community colleges offer subsidized or free CDL training. A few IUOE locals offer pre-apprenticeship CDL programs for accepted candidates, but most expect you to arrive with the CDL in hand or at minimum a CDL permit.</p>
                   </Card>
                 </Section>
@@ -15471,12 +15472,12 @@ export default function UnionPathway() {
                 <Section eyebrow="How to Prep" title="Math, mechanical reasoning, and a tape measure.">
                   <Card>
                     <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
-                      <li><strong style={{color:'#F5C518'}}>If your local uses WorkKeys:</strong> ACT publishes free WorkKeys practice tests at workkeys.act.org. Take the practice tests until you're consistently scoring above the threshold.</li>
-                      <li><strong style={{color:'#F5C518'}}>If your local has a custom test:</strong> Khan Academy Pre-Algebra and Algebra 1 cover the math content. Free.</li>
-                      <li><strong style={{color:'#F5C518'}}>Practice unit conversions cold.</strong> Cubic yards to cubic feet, gallons to barrels, tons to pounds. Operators calculate these constantly.</li>
-                      <li><strong style={{color:'#F5C518'}}>Bennett Mechanical Comprehension Test sample questions.</strong> Standard prep for the mechanical reasoning section.</li>
-                      <li><strong style={{color:'#F5C518'}}>Read load charts.</strong> If you're applying for crane work, even basic familiarity with how a load chart reads will impress in the interview.</li>
-                      <li><strong style={{color:'#F5C518'}}>Get the CDL or at least the permit before you apply.</strong> It's a stronger application than "I'll get it later."</li>
+                      <li><strong style={{color:'#FA8059'}}>If your local uses WorkKeys:</strong> ACT publishes free WorkKeys practice tests at workkeys.act.org. Take the practice tests until you're consistently scoring above the threshold.</li>
+                      <li><strong style={{color:'#FA8059'}}>If your local has a custom test:</strong> Khan Academy Pre-Algebra and Algebra 1 cover the math content. Free.</li>
+                      <li><strong style={{color:'#FA8059'}}>Practice unit conversions cold.</strong> Cubic yards to cubic feet, gallons to barrels, tons to pounds. Operators calculate these constantly.</li>
+                      <li><strong style={{color:'#FA8059'}}>Bennett Mechanical Comprehension Test sample questions.</strong> Standard prep for the mechanical reasoning section.</li>
+                      <li><strong style={{color:'#FA8059'}}>Read load charts.</strong> If you're applying for crane work, even basic familiarity with how a load chart reads will impress in the interview.</li>
+                      <li><strong style={{color:'#FA8059'}}>Get the CDL or at least the permit before you apply.</strong> It's a stronger application than "I'll get it later."</li>
                     </ul>
                   </Card>
                 </Section>
@@ -15484,7 +15485,7 @@ export default function UnionPathway() {
                 <Section eyebrow="The Local 150 Standard" title="Why some locals are training powerhouses.">
                   <Card>
                     <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>IUOE Local 150 (Illinois/Indiana/Iowa) runs the William E. Dugan Training Center on 300+ acres in Wilmington, Illinois — 342,000 square feet of indoor training space, over 200 pieces of heavy equipment, simulator labs, a 200-seat auditorium. It's widely considered the most advanced operator training facility in North America.</p>
-                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Local 139 (Wisconsin) operates the Joseph J. Goetz training site on 400 acres of Kettle Moraine. Local 132 (West Virginia) trains on 230 acres outside Charleston. <strong style={{color:'#F5C518'}}>The training infrastructure is one of the strongest selling points of the IUOE apprenticeship.</strong> Apprentices spend significant time in actual seat-time on real equipment before they go to job sites.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Local 139 (Wisconsin) operates the Joseph J. Goetz training site on 400 acres of Kettle Moraine. Local 132 (West Virginia) trains on 230 acres outside Charleston. <strong style={{color:'#FA8059'}}>The training infrastructure is one of the strongest selling points of the IUOE apprenticeship.</strong> Apprentices spend significant time in actual seat-time on real equipment before they go to job sites.</p>
                   </Card>
                 </Section>
 
@@ -15514,7 +15515,7 @@ export default function UnionPathway() {
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+            <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
           );
           const Stat = ({ v, l }) => (
             <div>
@@ -15577,7 +15578,7 @@ export default function UnionPathway() {
                       <li><strong style={{color:'#fff'}}>Concrete Form Builder</strong> — Building forms for poured concrete (heavy commercial)</li>
                       <li><strong style={{color:'#fff'}}>Floor Coverer</strong> — Hardwood, vinyl, carpet, tile installation</li>
                       <li><strong style={{color:'#fff'}}>Mill Cabinet</strong> — Cabinetry, custom millwork, finish woodworking</li>
-                      <li><strong style={{color:'#fff'}}>Millwright</strong> — Industrial machinery installation and alignment. <strong style={{color:'#F5C518'}}>The most technical UBC track</strong> — separate certification through National Millwright Apprenticeship Program (NMAP).</li>
+                      <li><strong style={{color:'#fff'}}>Millwright</strong> — Industrial machinery installation and alignment. <strong style={{color:'#FA8059'}}>The most technical UBC track</strong> — separate certification through National Millwright Apprenticeship Program (NMAP).</li>
                       <li><strong style={{color:'#fff'}}>Pile Driver</strong> — Foundation pile installation; often combined with bridge work</li>
                       <li><strong style={{color:'#fff'}}>Lathing / Acoustical / Drywall Systems</strong> — Wall and ceiling systems</li>
                       <li><strong style={{color:'#fff'}}>Drywall Finisher / Taper</strong> — Joint compound, taping, finishing</li>
@@ -15590,14 +15591,14 @@ export default function UnionPathway() {
 
                 <Section eyebrow="The Millwright Difference" title="It's a different test for a different career.">
                   <Card>
-                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>If you're applying for a UBC <strong style={{color:'#F5C518'}}>Millwright</strong> apprenticeship, the test format leans much harder on math (especially geometry and trigonometry), spatial reasoning, mechanical aptitude, and tool recognition. The work itself is industrial machinery installation, alignment, and repair — closer to mechanical engineering than to traditional carpentry.</p>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>If you're applying for a UBC <strong style={{color:'#FA8059'}}>Millwright</strong> apprenticeship, the test format leans much harder on math (especially geometry and trigonometry), spatial reasoning, mechanical aptitude, and tool recognition. The work itself is industrial machinery installation, alignment, and repair — closer to mechanical engineering than to traditional carpentry.</p>
                     <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Millwrights complete a separate qualification beyond the apprenticeship: passing both written and manipulative tests with 80% or higher in five categories — math, print reading, machinery installation, general knowledge/tools, and hands-on alignment. Plan for it as a more technically demanding track.</p>
                   </Card>
                 </Section>
 
                 <Section eyebrow="How They Score It" title="Pass thresholds vary more than other trades.">
                   <Card>
-                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>UBC pass thresholds vary considerably by local. Some locals require <strong style={{color:'#F5C518'}}>75%</strong> minimum (e.g., Carpenters Local 93). Some major Regional Councils set their threshold at 70%. The Millwright qualification process requires 80% in each category. <strong style={{color:'#F5C518'}}>Always check with your specific local before testing.</strong></p>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>UBC pass thresholds vary considerably by local. Some locals require <strong style={{color:'#FA8059'}}>75%</strong> minimum (e.g., Carpenters Local 93). Some major Regional Councils set their threshold at 70%. The Millwright qualification process requires 80% in each category. <strong style={{color:'#FA8059'}}>Always check with your specific local before testing.</strong></p>
                     <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Drug screening is universal in UBC apprenticeships. Some Regional Councils have strict policies — Washington State UBC, for example, requires that applicants who fail wait 90 days before retesting at their own expense, and after two failures the application is deactivated for 180 days. Marijuana policy varies by local and by state law.</p>
                   </Card>
                 </Section>
@@ -15605,13 +15606,13 @@ export default function UnionPathway() {
                 <Section eyebrow="How to Prep" title="Math fluency, with fractions front and center.">
                   <Card>
                     <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
-                      <li><strong style={{color:'#F5C518'}}>Khan Academy Pre-Algebra and Algebra 1.</strong> Plus Geometry. Free, video-based.</li>
-                      <li><strong style={{color:'#F5C518'}}>Read a tape measure to 1/16 fluently.</strong> Carpentry is fraction work. This is non-negotiable.</li>
-                      <li><strong style={{color:'#F5C518'}}>Practice the Pythagorean theorem until it's reflex.</strong> Used for square corners (3-4-5 rule), rafters, stair stringers, roof pitch.</li>
-                      <li><strong style={{color:'#F5C518'}}>If you're going Millwright track:</strong> add basic trigonometry (SOH-CAH-TOA), and study mechanical principles in depth. Bennett Mechanical Comprehension Test prep is essential.</li>
-                      <li><strong style={{color:'#F5C518'}}>Learn basic blueprint symbols.</strong> Architectural plan reading is core to most UBC trades. Free intro resources from the AIA and many trade school websites.</li>
-                      <li><strong style={{color:'#F5C518'}}>Get hand tools and use them.</strong> The interview will go better if you can speak to actual experience cutting wood, measuring, framing — even hobby projects count.</li>
-                      <li><strong style={{color:'#F5C518'}}>Look at job openings in your local before applying.</strong> If your area is busy with concrete formwork right now, applying for the Form Builder track may be faster than General Carpenter.</li>
+                      <li><strong style={{color:'#FA8059'}}>Khan Academy Pre-Algebra and Algebra 1.</strong> Plus Geometry. Free, video-based.</li>
+                      <li><strong style={{color:'#FA8059'}}>Read a tape measure to 1/16 fluently.</strong> Carpentry is fraction work. This is non-negotiable.</li>
+                      <li><strong style={{color:'#FA8059'}}>Practice the Pythagorean theorem until it's reflex.</strong> Used for square corners (3-4-5 rule), rafters, stair stringers, roof pitch.</li>
+                      <li><strong style={{color:'#FA8059'}}>If you're going Millwright track:</strong> add basic trigonometry (SOH-CAH-TOA), and study mechanical principles in depth. Bennett Mechanical Comprehension Test prep is essential.</li>
+                      <li><strong style={{color:'#FA8059'}}>Learn basic blueprint symbols.</strong> Architectural plan reading is core to most UBC trades. Free intro resources from the AIA and many trade school websites.</li>
+                      <li><strong style={{color:'#FA8059'}}>Get hand tools and use them.</strong> The interview will go better if you can speak to actual experience cutting wood, measuring, framing — even hobby projects count.</li>
+                      <li><strong style={{color:'#FA8059'}}>Look at job openings in your local before applying.</strong> If your area is busy with concrete formwork right now, applying for the Form Builder track may be faster than General Carpenter.</li>
                     </ul>
                   </Card>
                 </Section>
@@ -15619,7 +15620,7 @@ export default function UnionPathway() {
                 <Section eyebrow="Application Cycles" title="Most UBC Regional Councils take applications in waves.">
                   <Card>
                     <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>UBC's structure runs through Regional Councils — large geographic units that cover multiple states or provinces. Most Regional Councils accept applications continuously through a JATC training office, but only review them in waves (every 2-4 months) when there's contractor demand for new apprentices.</p>
-                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Find your Regional Council at <strong style={{color:'#F5C518'}}>carpenters.org</strong> and contact the local JATC directly. Some Councils maintain wait lists with periodic call-ups; others run cohort-based intake with hard application windows. The Council site will tell you which.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}>Find your Regional Council at <strong style={{color:'#FA8059'}}>carpenters.org</strong> and contact the local JATC directly. Some Councils maintain wait lists with periodic call-ups; others run cohort-based intake with hard application windows. The Council site will tell you which.</p>
                   </Card>
                 </Section>
 
@@ -15650,7 +15651,7 @@ export default function UnionPathway() {
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+            <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
           );
           const Stat = ({ v, l }) => (
             <div>
@@ -15760,12 +15761,12 @@ export default function UnionPathway() {
                 <Section eyebrow="How to Prep" title="Math fluency, applied to wall area and gallons of paint.">
                   <Card>
                     <ul style={{margin:'0', paddingLeft:24, fontSize:14.5, color:'rgba(255,255,255,0.8)', lineHeight:1.85}}>
-                      <li><strong style={{color:'#F5C518'}}>Khan Academy Pre-Algebra and Algebra 1.</strong> Covers the entire ceiling of what IUPAT tests in math.</li>
-                      <li><strong style={{color:'#F5C518'}}>Practice applied trade math.</strong> Paint coverage problems, drywall square footage, gallon-per-area conversions. Solid grasp of fractions and area calculation goes further here than algebra fluency.</li>
-                      <li><strong style={{color:'#F5C518'}}>Reading comprehension practice.</strong> Free practice sets from any apprenticeship test prep publisher. The skill is reading carefully under time pressure.</li>
-                      <li><strong style={{color:'#F5C518'}}>Bennett Mechanical Comprehension Test prep</strong> if your region tests mechanical (especially glazing and industrial pathways).</li>
-                      <li><strong style={{color:'#F5C518'}}>Take a free Ishihara color screening online before you apply</strong> if you've never been formally tested for color vision. Discovering an issue at the test is a much worse outcome than discovering it ahead of time. If color vision is an issue, pivot to a non-color-critical IUPAT trade like drywall finishing or glazing.</li>
-                      <li><strong style={{color:'#F5C518'}}>Visit an FTI open house.</strong> IUPAT places exceptional weight on demonstrated interest in the trade. Talking to current apprentices and being able to name your specific track is the single biggest interview advantage.</li>
+                      <li><strong style={{color:'#FA8059'}}>Khan Academy Pre-Algebra and Algebra 1.</strong> Covers the entire ceiling of what IUPAT tests in math.</li>
+                      <li><strong style={{color:'#FA8059'}}>Practice applied trade math.</strong> Paint coverage problems, drywall square footage, gallon-per-area conversions. Solid grasp of fractions and area calculation goes further here than algebra fluency.</li>
+                      <li><strong style={{color:'#FA8059'}}>Reading comprehension practice.</strong> Free practice sets from any apprenticeship test prep publisher. The skill is reading carefully under time pressure.</li>
+                      <li><strong style={{color:'#FA8059'}}>Bennett Mechanical Comprehension Test prep</strong> if your region tests mechanical (especially glazing and industrial pathways).</li>
+                      <li><strong style={{color:'#FA8059'}}>Take a free Ishihara color screening online before you apply</strong> if you've never been formally tested for color vision. Discovering an issue at the test is a much worse outcome than discovering it ahead of time. If color vision is an issue, pivot to a non-color-critical IUPAT trade like drywall finishing or glazing.</li>
+                      <li><strong style={{color:'#FA8059'}}>Visit an FTI open house.</strong> IUPAT places exceptional weight on demonstrated interest in the trade. Talking to current apprentices and being able to name your specific track is the single biggest interview advantage.</li>
                     </ul>
                   </Card>
                 </Section>
@@ -15787,9 +15788,9 @@ export default function UnionPathway() {
 
                 <Section eyebrow="Things Nobody Tells You" title="The fine print that affects your life.">
                   <Card>
-                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#F5C518'}}>The 144-hour rule.</strong> Every IUPAT apprentice completes a minimum of 144 hours of related classroom instruction per year, on top of on-the-job hours. This is mandated by the U.S. Department of Labor for the apprenticeship to remain registered. Plan your life around evening or block-release classes.</p>
-                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#F5C518'}}>Apprenticeships are typically 3 years</strong>, shorter than many building trades. Glazing is the exception and runs 4 years in most regions, with some districts offering an Associate's degree (AST) at completion through articulation agreements with universities like Penn State, Rutgers, and Rowan.</p>
-                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#F5C518'}}>Direct entry through contractor sponsorship is real.</strong> In several regions — Florida and Minnesota notably — the path in runs through getting hired by a signatory contractor first, then joining IUPAT and the apprenticeship. This bypasses the competitive-list model entirely. <strong style={{color:'#fff'}}>If you have a connection to a signatory shop, ask about this pathway before you apply cold.</strong></p>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#FA8059'}}>The 144-hour rule.</strong> Every IUPAT apprentice completes a minimum of 144 hours of related classroom instruction per year, on top of on-the-job hours. This is mandated by the U.S. Department of Labor for the apprenticeship to remain registered. Plan your life around evening or block-release classes.</p>
+                    <p style={{margin:'0 0 12px 0', fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#FA8059'}}>Apprenticeships are typically 3 years</strong>, shorter than many building trades. Glazing is the exception and runs 4 years in most regions, with some districts offering an Associate's degree (AST) at completion through articulation agreements with universities like Penn State, Rutgers, and Rowan.</p>
+                    <p style={{margin:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.65}}><strong style={{color:'#FA8059'}}>Direct entry through contractor sponsorship is real.</strong> In several regions — Florida and Minnesota notably — the path in runs through getting hired by a signatory contractor first, then joining IUPAT and the apprenticeship. This bypasses the competitive-list model entirely. <strong style={{color:'#fff'}}>If you have a connection to a signatory shop, ask about this pathway before you apply cold.</strong></p>
                   </Card>
                 </Section>
 
@@ -15830,7 +15831,7 @@ export default function UnionPathway() {
         {page === "trade-history" && (() => {
           // REBUILT TRADE HISTORY INDEX — fix165 / split fix184
           const TRADES_CONSTRUCTION = [
-            { key:'ibew',  name:'IBEW',         full:'International Brotherhood of Electrical Workers',                                          page:'history-ibew',  founded:1891, members:'887K+', color:'#F5C518', sub:'Henry Miller, the Reid-Murphy split, and the Council on Industrial Relations.' },
+            { key:'ibew',  name:'IBEW',         full:'International Brotherhood of Electrical Workers',                                          page:'history-ibew',  founded:1891, members:'887K+', color:'#FA8059', sub:'Henry Miller, the Reid-Murphy split, and the Council on Industrial Relations.' },
             { key:'ua',    name:'UA',           full:'United Association of Plumbers, Pipefitters, Steamfitters & HVACR',                        page:'history-ua',    founded:1889, members:'365K+', color:'#3B9EFF', sub:'The Steamfitters War, the Veterans in Piping program, and an industrial pipeline at full speed.' },
             { key:'smart', name:'SMART',        full:'Sheet Metal, Air, Rail and Transportation Workers',                                        page:'history-smart', founded:1888, members:'200K+', color:'#B0BEC5', sub:'From Toledo tinsmiths to a 2014 merger that joined sheet metal with the railroads.' },
             { key:'bac',   name:'BAC',          full:'International Union of Bricklayers and Allied Craftworkers',                               page:'history-bac',   founded:1865, members:'70K+',  color:'#C04A36', sub:'The oldest building trades union in North America. Stonecutters, masons, and tile.' },
@@ -15851,10 +15852,10 @@ export default function UnionPathway() {
           return (
             <div id="trade-history-root">
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #F5C518)', transition:'width 0.1s'}} />
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #FA8059)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:1100, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:18}}>{lang==="es" ? "Historias por Oficio" : lang==="pl" ? "Historia Wedlug Zawodu" : "Trade Histories"}</div>
+                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:18}}>{lang==="es" ? "Historias por Oficio" : lang==="pl" ? "Historia Wedlug Zawodu" : "Trade Histories"}</div>
                 <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0', letterSpacing:'-0.01em'}}>
                   {lang==="es" ? <>Cada oficio. <span style={{color:'#FA8059'}}>Su propia historia.</span></> : lang==="pl" ? <>Kazdy zawod. <span style={{color:'#FA8059'}}>Wlasna historia.</span></> : <>Every trade. <span style={{color:'#FA8059'}}>Its own story.</span></>}
                 </h1>
@@ -15891,7 +15892,7 @@ export default function UnionPathway() {
                     {/* CONSTRUCTION TRADES GROUP — Industrial Unions moved to its own sub-menu (fix185) */}
                     <div style={{padding:'40px 24px 16px', maxWidth:1100, margin:'0 auto'}}>
                       <div style={{display:'flex', alignItems:'baseline', gap:12, marginBottom:24, flexWrap:'wrap'}}>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#F5C518', letterSpacing:2.5, textTransform:'uppercase'}}>{constructionLabel}</div>
+                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:2.5, textTransform:'uppercase'}}>{constructionLabel}</div>
                         <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.5)', letterSpacing:1.5, textTransform:'uppercase'}}>· {TRADES_CONSTRUCTION.length} {lang==="es" ? "Disponibles" : lang==="pl" ? "Dostepne" : "Live"}</div>
                       </div>
                       <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(320px, 1fr))', gap:16}}>
@@ -15906,7 +15907,7 @@ export default function UnionPathway() {
                 <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(320px, 1fr))', gap:16}}>
                   {COMING.map((t, i) => (
                     <div key={i} style={{background:'rgba(255,255,255,0.02)', border:'1px solid rgba(255,255,255,0.05)', borderRadius:14, padding:'22px 24px', opacity:0.55}}>
-                      <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:'#fff', margin:'0 0 8px 0', lineHeight:1.1}}>{t.name}</h3>
+                      <h3 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:18, fontWeight:500, color:'#fff', letterSpacing:'-0.015em', margin:'0 0 8px 0', lineHeight:1.1}}>{t.name}</h3>
                       <p style={{fontSize:13, color:'rgba(255,255,255,0.7)', lineHeight:1.55, margin:0, fontStyle:'italic'}}>{t.sub}</p>
                     </div>
                   ))}
@@ -15914,7 +15915,7 @@ export default function UnionPathway() {
               </div>
               <div style={{padding:'40px 24px 80px', maxWidth:1100, margin:'0 auto', textAlign:'center'}}>
                 <p style={{fontSize:14, color:'rgba(255,255,255,0.6)', marginBottom:18, fontStyle:'italic'}}>{lang==="es" ? "Para el panorama completo del movimiento sindical:" : lang==="pl" ? "Aby zobaczyc pelny obraz ruchu zwiazkowego:" : "For the full arc of the labor movement:"}</p>
-                <button onClick={() => setPage('history')} style={{background:'transparent', color:'#F5C518', fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'14px 32px', border:'1px solid rgba(245,197,24,0.4)', borderRadius:50, cursor:'pointer'}}>
+                <button onClick={() => setPage('history')} style={{background:'transparent', color:'#FA8059', fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'14px 32px', border:'1px solid rgba(245,197,24,0.4)', borderRadius:50, cursor:'pointer'}}>
                   {lang==="es" ? "Leer Historia General" : lang==="pl" ? "Czytaj Historie Ogolna" : "Read General Union History"}
                 </button>
               </div>
@@ -16005,12 +16006,12 @@ export default function UnionPathway() {
             <div id="benefits-root">
               {/* PROGRESS BAR */}
               <div style={{position:'fixed', top:0, left:0, right:0, height:3, background:'rgba(0,0,0,0.4)', zIndex:100}}>
-                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #F5C518)', transition:'width 0.1s'}} />
+                <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #FA8059)', transition:'width 0.1s'}} />
               </div>
 
               {/* HERO */}
               <div style={{padding:'80px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>More Than Just a Paycheck</div>
+                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>More Than Just a Paycheck</div>
                 <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#fff', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
                   Union <span style={{color:'#FA8059'}}>Benefits.</span><br/>
                   <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>What you actually get.</span>
@@ -16071,21 +16072,21 @@ export default function UnionPathway() {
                 </PullQuote>
 
                 {/* SECTION 2 — ANNUITY / DC PLAN */}
-                <Section tag="II" title="The Annuity (or Defined-Contribution Plan)" color="#F5C518" intro="On top of the pension, most union construction members have a second retirement account — a defined-contribution annuity that functions like a 401k, except the contributions are paid by the contractor, not deducted from your wages.">
+                <Section tag="II" title="The Annuity (or Defined-Contribution Plan)" color="#FA8059" intro="On top of the pension, most union construction members have a second retirement account — a defined-contribution annuity that functions like a 401k, except the contributions are paid by the contractor, not deducted from your wages.">
                   <ExpandableCard
-                    accent="#F5C518"
+                    accent="#FA8059"
                     title="Why two retirement accounts instead of one"
                     summary="The pension provides predictable monthly income for life. The annuity gives you a lump sum you control."
                     body="The pension is steady but rigid — fixed monthly payments, often without inflation adjustments. The annuity adds flexibility: a pot of money you can draw from for big expenses, leave to your family, or roll into other accounts. Together they form what financial planners call a 'three-legged stool' alongside Social Security: guaranteed lifetime income, savings under your control, and federal benefits."
                   />
                   <ExpandableCard
-                    accent="#F5C518"
+                    accent="#FA8059"
                     title="How it differs from a 401k"
                     summary="The contractor funds it at a negotiated rate per hour. You don't choose to opt in or out."
                     body="In a typical non-union 401k, the worker decides whether to contribute, the employer maybe offers a small match, and the funding is volatile. Union annuities are funded automatically — every hour worked generates a contribution at the rate negotiated in your contract. There's no opt-in to forget about, no match cap to worry about, no question whether you'll have something at the end of your career. The contributions show up regardless."
                   />
                   <ExpandableCard
-                    accent="#F5C518"
+                    accent="#FA8059"
                     title="Investment options"
                     summary="Annuity funds are professionally managed — often more conservatively than retail 401ks."
                     body="Trustees of the multi-employer plan select investment options that balance growth with stability. Most plans offer a default lifecycle fund along with a handful of alternatives. The fee structure tends to be lower than retail 401ks because the plan is bargaining as one large institutional investor instead of as thousands of individuals. Members can typically check balances and modify allocations through online portals."
@@ -16138,7 +16139,7 @@ export default function UnionPathway() {
                         <li>✓ Wages set by contract, not boss's mood</li>
                       </ul>
                     </div>
-                    <div style={{padding:'24px', background:'rgba(255,255,255,0.04)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16}}>
+                    <div style={{padding:'24px', background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16}}>
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:'rgba(255,255,255,0.5)', marginBottom:12, textTransform:'uppercase', letterSpacing:1}}>Typical Non-Union Job</div>
                       <ul style={{listStyle:'none', padding:0, margin:0, fontSize:15, color:'rgba(255,255,255,0.6)', lineHeight:1.9}}>
                         <li>✗ No pension (rare exceptions)</li>
@@ -16218,7 +16219,7 @@ export default function UnionPathway() {
 
                 {/* CLOSING — WHAT THIS MEANS */}
                 <div style={{margin:'80px 0 40px', padding:'48px 32px', background:'rgba(255,255,255,0.03)', borderRadius:24, border:'1px solid rgba(255,255,255,0.08)', textAlign:'center'}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The Bottom Line</div>
+                  <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>The Bottom Line</div>
                   <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(24px, 3vw, 34px)', fontWeight:500, color:'#fff', margin:'0 0 24px 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>What This All Adds Up To</h2>
                   <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.8, maxWidth:720, margin:'0 auto 20px'}}>
                     The wage on a union paycheck tells you part of the story. The pension contributions, the health-fund deposits, the annuity accruals, and the training-fund deposits running alongside it tell you the rest. For a typical journey-level union member working 1,500-2,000 hours per year, the value of contractor-paid benefits often equals 30–40% of the hourly wage on top of the wage itself.
@@ -16812,7 +16813,7 @@ export default function UnionPathway() {
                           </div>
                           <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", padding:"10px 0 0 0", borderTop:"1px solid rgba(58,80,104,0.3)", marginTop:8}}>
                             <span style={{fontSize:13, color:"#fff", textTransform:"uppercase", letterSpacing:"0.05em", fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900}}>{lang==="es" ? "Diferencia En "+calcYearsCareer+" Anos" : lang==="pl" ? "Roznica W "+calcYearsCareer+" Lat" : "Lifetime ("+calcYearsCareer+" yrs)"}</span>
-                            <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:28, fontWeight:900, color: r.comparison.gapLifetime >= 0 ? "#F5C518" : "#a0b4c4"}}>{r.comparison.gapLifetime >= 0 ? "+$" : "-$"}{Math.abs(r.comparison.gapLifetime).toLocaleString()}</span>
+                            <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:28, fontWeight:900, color: r.comparison.gapLifetime >= 0 ? "#FA8059" : "#a0b4c4"}}>{r.comparison.gapLifetime >= 0 ? "+$" : "-$"}{Math.abs(r.comparison.gapLifetime).toLocaleString()}</span>
                           </div>
                         </div>
                       </div>
@@ -17123,7 +17124,7 @@ export default function UnionPathway() {
                       {/* CONTACT INFO — optional, private */}
                       {jobTrade && jobLocal && jobStatus && jobDate && (
                         <div style={{marginTop:8, padding:"18px 20px", background:"rgba(245,197,24,0.04)", border:"1px solid rgba(245,197,24,0.18)", borderRadius:12}}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:"#F5C518", marginBottom:6}}>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:"#FA8059", marginBottom:6}}>
                             {lang==="es" ? "Contacto (opcional, privado)" : lang==="pl" ? "Kontakt (opcjonalny, prywatny)" : "Contact (optional, private)"}
                           </div>
                           <div style={{fontSize:12, color:"rgba(255,255,255,0.6)", lineHeight:1.55, marginBottom:14}}>
@@ -17456,7 +17457,7 @@ export default function UnionPathway() {
 
                       {wageMethod === 'manual' && !wageImageFile && (
                         <div style={{padding:"14px 18px", background:"rgba(245,197,24,0.08)", border:"1px solid rgba(245,197,24,0.3)", borderRadius:12, display:"flex", gap:12, alignItems:"flex-start"}}>
-                          <div style={{color:"#F5C518", fontSize:18, flexShrink:0}}>&#9888;</div>
+                          <div style={{color:"#FA8059", fontSize:18, flexShrink:0}}>&#9888;</div>
                           <div style={{fontSize:13, color:"rgba(255,255,255,0.85)", lineHeight:1.5}}>
                             {lang==="es" ? "Sin una hoja de salario adjunta, esta entrada es solo del sistema de honor. Siempre verifique con su local sindical para tarifas finales y 100% precisas." : lang==="pl" ? "Bez dolaczonej stawki, ten wpis jest tylko w systemie honorowym. Zawsze weryfikuj ze swoim lokalem aby uzyskac koncowe i w 100% dokladne stawki." : "Without a wage sheet attached, this entry is honor-system only. Always contact your local hall directly for final and 100% accurate rates."}
                           </div>
@@ -17473,7 +17474,7 @@ export default function UnionPathway() {
                       {/* CONTACT INFO — optional, private */}
                       {wageMethod && ((wageMethod === 'image' && wageImageFile) || (wageMethod === 'manual' && wageHourly)) && (
                         <div style={{marginTop:8, padding:"18px 20px", background:"rgba(245,197,24,0.04)", border:"1px solid rgba(245,197,24,0.18)", borderRadius:12}}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:"#F5C518", marginBottom:6}}>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:"#FA8059", marginBottom:6}}>
                             {lang==="es" ? "Contacto (opcional, privado)" : lang==="pl" ? "Kontakt (opcjonalny, prywatny)" : "Contact (optional, private)"}
                           </div>
                           <div style={{fontSize:12, color:"rgba(255,255,255,0.6)", lineHeight:1.55, marginBottom:14}}>
@@ -18116,7 +18117,7 @@ export default function UnionPathway() {
               </p>
 
               <div style={{background:"rgba(245,197,24,0.06)", border:"1px solid rgba(245,197,24,0.2)", borderRadius:12, padding:"24px 28px", marginBottom:32}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:"#F5C518", letterSpacing:1.5, textTransform:"uppercase", marginBottom:12}}>Your Rights</div>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:"#FA8059", letterSpacing:1.5, textTransform:"uppercase", marginBottom:12}}>Your Rights</div>
                 <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontWeight:900, color:"#fff", margin:"0 0 16px 0"}}>Section 7 of the National Labor Relations Act protects you</h3>
                 <p style={{fontSize:15, color:"rgba(255,255,255,0.85)", lineHeight:1.75, marginBottom:12}}>
                   Under federal law, most private-sector workers have the right to:
@@ -18175,7 +18176,7 @@ export default function UnionPathway() {
               </p>
               <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(260px, 1fr))", gap:20, marginBottom:24}}>
                 <div style={{padding:"24px 28px", background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.08)", borderRadius:12}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:900, color:"#F5C518", letterSpacing:1.5, textTransform:"uppercase", marginBottom:12}}>Legal but Common</div>
+                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:900, color:"#FA8059", letterSpacing:1.5, textTransform:"uppercase", marginBottom:12}}>Legal but Common</div>
                   <ul style={{paddingLeft:20, color:"rgba(255,255,255,0.85)", fontSize:14, lineHeight:1.8, margin:0}}>
                     <li>Captive audience meetings</li>
                     <li>One-on-one meetings with supervisors</li>
@@ -18292,7 +18293,7 @@ export default function UnionPathway() {
 
               {/* WHY CONSTRUCTION IS DIFFERENT */}
               <div style={{background:"rgba(245,197,24,0.06)", border:"1px solid rgba(245,197,24,0.2)", borderRadius:12, padding:"24px 28px", marginBottom:32}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:"#F5C518", letterSpacing:1.5, textTransform:"uppercase", marginBottom:12}}>The Legal Framework</div>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:"#FA8059", letterSpacing:1.5, textTransform:"uppercase", marginBottom:12}}>The Legal Framework</div>
                 <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontWeight:900, color:"#fff", margin:"0 0 12px 0"}}>Section 8(f) — the construction exception</h3>
                 <p style={{fontSize:15, color:"rgba(255,255,255,0.85)", lineHeight:1.75, marginBottom:12}}>
                   Construction is the only industry where a contractor can sign a "pre-hire" agreement with a union — meaning they recognize the union as the bargaining representative <i>before</i> any specific group of workers votes. This is Section 8(f) of the National Labor Relations Act.
@@ -18356,7 +18357,7 @@ export default function UnionPathway() {
 
               {/* Brand-new business callout */}
               <div style={{background:"rgba(245,197,24,0.06)", border:"1px solid rgba(245,197,24,0.2)", borderRadius:12, padding:"20px 24px", marginBottom:32}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:"#F5C518", letterSpacing:1.5, textTransform:"uppercase", marginBottom:8}}>If you're starting from scratch</div>
+                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:"#FA8059", letterSpacing:1.5, textTransform:"uppercase", marginBottom:8}}>If you're starting from scratch</div>
                 <p style={{fontSize:14, color:"rgba(255,255,255,0.85)", lineHeight:1.7, margin:0}}>
                   If the contractor is brand-new and not yet operating, they'll need to set up their <b>business structure</b> (LLC, S-corp, etc.) and required <b>business insurances</b> (general liability, workers' comp, vehicle, etc.) before any of the steps below.
                 </p>
@@ -18425,8 +18426,8 @@ export default function UnionPathway() {
               </div>
 
               {/* Step 5 — Make Lots of Money */}
-              <div style={{display:"flex", gap:20, marginBottom:16, padding:"24px 28px", background:"linear-gradient(135deg, rgba(245,197,24,0.08), rgba(250,128,89,0.04))", border:"1px solid rgba(245,197,24,0.25)", borderRadius:12, borderLeft:"4px solid #F5C518"}}>
-                <div style={{flexShrink:0, width:48, height:48, borderRadius:"50%", background:"#F5C51822", color:"#F5C518", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900}}>05</div>
+              <div style={{display:"flex", gap:20, marginBottom:16, padding:"24px 28px", background:"linear-gradient(135deg, rgba(245,197,24,0.08), rgba(250,128,89,0.04))", border:"1px solid rgba(245,197,24,0.25)", borderRadius:12, borderLeft:"4px solid #FA8059"}}>
+                <div style={{flexShrink:0, width:48, height:48, borderRadius:"50%", background:"#FA805922", color:"#FA8059", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900}}>05</div>
                 <div style={{flex:1}}>
                   <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:"#fff", marginBottom:8}}>Make lots of money 💰</div>
                   <div style={{fontSize:14, color:"rgba(255,255,255,0.8)", lineHeight:1.7}}>Signatory contractors get access to skilled labor on demand, transferred benefits burden, eligibility for PLA and prevailing-wage work, and a level playing field with other signatories. The work follows.</div>
