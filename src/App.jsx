@@ -7172,7 +7172,7 @@ export default function UnionPathway() {
                 background:'transparent', border:'none',
                 borderBottom:'1px solid rgba(255,255,255,0.18)',
                 color:'#fff',
-                fontSize:22,
+                fontSize:18,
                 fontFamily:"'Space Grotesk',sans-serif",
                 padding:'14px 0', outline:'none', transition:'border-color 0.18s'
               }}
@@ -7399,7 +7399,7 @@ export default function UnionPathway() {
                lang==="pl" ? <>Rzemieslnicy, <span style={{color:'#FA8059', fontStyle:'italic'}}>dla rzemieslnikow.</span></> :
                <>Union tradespeople, <span style={{color:'#FA8059', fontStyle:'italic'}}>for tradespeople.</span></>}
             </h2>
-            <p style={{fontFamily:"'Inter',sans-serif", fontSize:18, color:'rgba(255,255,255,0.7)', lineHeight:1.75, maxWidth:640, margin:0}}>
+            <p style={{fontFamily:"'Inter',sans-serif", fontSize:15, color:'rgba(255,255,255,0.7)', lineHeight:1.7, maxWidth:640, margin:0}}>
               {lang==="es" ? "Union Pathways es un recurso gratuito, sin publicidad y sin afiliacion. Solo datos reales para ayudarte a encontrar tu local mas cercano y empezar tu carrera en los oficios." : lang==="pl" ? "Union Pathways to bezplatne, wolne od reklam i bezstronne narzedzie. Tylko prawdziwe dane, ktore pomoga Ci znalezc najblizszy oddzial i zaczac kariere." : "Union Pathways is free, ad-free, and unaffiliated. Just real data to help you find your nearest local, learn what your trade actually pays, and start your career on the right foot."}
             </p>
           </section>
@@ -12332,7 +12332,7 @@ export default function UnionPathway() {
                     {/* WHAT IS A CAUCUS */}
                     <section style={{padding:'72px 0', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                       <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>The Definition</div>
-                      <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(36px, 5.5vw, 64px)', fontWeight:900, color:'#fff', margin:'0 0 32px 0', lineHeight:1, textTransform:'uppercase'}}>What is a union caucus?</h2>
+                      <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(24px, 3vw, 36px)', fontWeight:900, color:'#fff', margin:'0 0 32px 0', lineHeight:1, textTransform:'uppercase'}}>What is a union caucus?</h2>
                       <p style={{fontSize:18, color:'rgba(255,255,255,0.92)', lineHeight:1.6, marginBottom:24, fontWeight:500, maxWidth:720}}>
                         A union caucus is an organized group of members within a union who share a common vision and work together to influence the direction of their local, regional, or international body.
                       </p>
@@ -13460,7 +13460,7 @@ export default function UnionPathway() {
                       ].map((x, i) => (
                         <div key={i}>
                           <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.55)', letterSpacing:2.5, textTransform:'uppercase', marginBottom:14}}>{x.k}</div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 5vw, 64px)', fontWeight:900, color:x.col, lineHeight:1, marginBottom:10}}>{x.v}</div>
+                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 3vw, 40px)', fontWeight:900, color:x.col, lineHeight:1, marginBottom:10}}>{x.v}</div>
                           <div style={{fontSize:14, color:'rgba(255,255,255,0.7)', fontStyle:'italic'}}>{x.s}</div>
                         </div>
                       ))}
