@@ -6003,9 +6003,9 @@ export default function UnionPathway() {
         .nav-dropdown-btn {
           background: transparent; border: none;
           color: var(--muted); cursor: pointer;
-          font-family: 'Barlow Condensed', sans-serif;
-          font-size: 12px; font-weight: 700;
-          letter-spacing: 0.06em; text-transform: uppercase;
+          font-family: 'Inter', sans-serif;
+          font-size: 12px; font-weight: 500;
+          letter-spacing: 0.06em; text-transform: none;
           padding: 6px 9px; border-radius: 6px;
           display: flex; align-items: center; gap: 4px;
           transition: color 0.2s, background 0.2s;
@@ -6512,10 +6512,12 @@ export default function UnionPathway() {
         }
         .contact-success p { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
 
+        /* NAV TABS FIX */
         @media (max-width: 640px) {
           .contact-grid { grid-template-columns: 1fr; gap: 32px; }
           .form-row { grid-template-columns: 1fr; }
         }
+        @media (max-width: 1100px) {
           .search-card { padding: 20px 20px; }
           .search-row { flex-direction: column; }
           .btn-search { width: 100%; }
@@ -6535,9 +6537,10 @@ export default function UnionPathway() {
           .stage-pay { margin-left: 0; }
           .page { padding: 32px 16px 60px; }
         }
-        @media (max-width: 900px) {
-          .nav-links { display: none; }
-          .nav-hamburger { display: inline-flex; }
+        /* Above 1100px (desktop): show full nav tabs */
+        @media (min-width: 1101px) {
+          .nav-hamburger { display: none !important; }
+          .nav-links { display: flex !important; }
         }
 
       `}</style>
