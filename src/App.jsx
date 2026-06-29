@@ -5826,20 +5826,29 @@ export default function UnionPathway() {
         }
 
         /* ── LANGUAGE TOGGLE ── */
+        /* HEADER CLEANUP */
         .lang-btn {
           background: transparent;
-          border: 1.5px solid var(--wire);
-          border-radius: 6px;
-          padding: 8px 14px;
-          color: var(--muted);
-          font-family: 'Barlow Condensed', sans-serif;
-          font-size: 14px; font-weight: 800;
-          letter-spacing: 0.08em; cursor: pointer;
-          transition: all 0.2s; min-width: 40px;
+          border: none;
+          border-radius: 0;
+          padding: 4px 6px;
+          color: rgba(255,255,255,0.4);
+          font-family: 'Space Mono', monospace;
+          font-size: 11px; font-weight: 400;
+          letter-spacing: 0.15em; cursor: pointer;
+          transition: color 0.18s;
+          min-width: 0;
           -webkit-tap-highlight-color: transparent;
         }
-        .lang-btn:hover { border-color: var(--yellow); color: var(--yellow); }
-        .lang-btn.active { background: var(--yellow); color: var(--steel); border-color: var(--yellow); }
+        .lang-btn:hover { color: rgba(255,255,255,0.8); }
+        .lang-btn.active { background: transparent; color: #FA8059; border: none; }
+        .lang-divider {
+          color: rgba(255,255,255,0.2);
+          font-size: 11px;
+          font-family: 'Space Mono', monospace;
+          user-select: none;
+          pointer-events: none;
+        }
 
         /* ── NAV LINKS ── */
         .nav-links { display: flex; align-items: center; gap: 2px; }
@@ -6829,88 +6838,17 @@ export default function UnionPathway() {
             </div>
           </div>
 
-          <div style={{display:"flex", alignItems:"center", gap:"6px"}}>
+          <div style={{display:"flex", alignItems:"center", gap:"2px"}}>
             <button className={`lang-btn ${lang==="en"?"active":""}`} onClick={() => setLang("en")}>EN</button>
+            <span className="lang-divider">·</span>
             <button className={`lang-btn ${lang==="es"?"active":""}`} onClick={() => setLang("es")}>ES</button>
+            <span className="lang-divider">·</span>
             <button className={`lang-btn ${lang==="pl"?"active":""}`} onClick={() => setLang("pl")}>PL</button>
             <button onClick={() => { setSearchOpen(true); setGlobalQuery(""); }} style={{background:"rgba(255,255,255,0.06)", border:"1px solid rgba(255,255,255,0.1)", borderRadius:"8px", width:32, height:32, display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer", color:"var(--muted)", transition:"all 0.2s"}} onMouseEnter={e=>e.currentTarget.style.color="#FA8059"} onMouseLeave={e=>e.currentTarget.style.color="var(--muted)"}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             </button>
           </div>
 
-          {/* TRADES DROPDOWN — only on home */}
-          {page === "home" && (
-          <div className="nav-right" ref={dropdownRef}>
-            <button
-              className={`nav-trades-btn ${dropdownOpen ? "open" : ""}`}
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
-                <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
-              </svg>
-              All Trades · <span style={{color:"var(--yellow)"}}>{selectedTrade === "IBEW_I" ? "IBEW Inside" : selectedTrade === "IBEW_L" ? "IBEW Lineman" : selectedTrade === "IUEC" ? "Elevator" : selectedTrade === "HFIAW" ? "Insulators" : selectedTrade === "SF" ? "Sprinkler Fitters" : selectedTrade}</span>
-              <svg className="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </button>
-
-            {dropdownOpen && (
-              <div className="trades-dropdown">
-                <div className="dropdown-header">
-                  <span className="dropdown-title">Union Construction Trades</span>
-                  <span className="dropdown-sub">Select a trade to find your local</span>
-                </div>
-
-                <div className="dropdown-scroll-body" onWheel={e => e.stopPropagation()} onTouchMove={e => e.stopPropagation()}>
-                {UNION_TRADES.map((group) => (
-                  <div key={group.group} className="dropdown-group">
-                    <div className="dropdown-group-label">{group.group}</div>
-                    {group.trades.map((trade) => (
-                      <div
-                        key={trade.abbr + trade.name}
-                        className={`dropdown-item ${trade.status === "active" ? "active" : "coming"} ${selectedTrade === trade.abbr ? "selected" : ""}`}
-                        onClick={() => {
-                          if (trade.status !== "active") return;
-                          setSelectedTrade(trade.abbr);
-                          setDropdownOpen(false);
-                          setResults(null);
-                          setQuery("");
-                          setError("");
-                          setTimeout(() => {
-                            inputRef.current?.focus();
-                            inputRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-                          }, 100);
-                        }}
-                      >
-                        <div className="trade-abbr-badge" style={trade.color ? { borderColor: trade.color + "55", color: trade.color } : {}}>
-                          {trade.abbr}
-                        </div>
-                        <div className="trade-info">
-                          <div className="trade-name">{trade.name}</div>
-                          <div className="trade-full">{trade.full}</div>
-                        </div>
-                        <div className="trade-status">
-                          {trade.status === "active" ? (
-                            <span className="status-live">● Live</span>
-                          ) : (
-                            <span className="status-soon">Soon</span>
-                          )}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                ))}
-                </div>
-
-                <div className="dropdown-footer">
-                  {lang==="es" ? "Más oficios agregados regularmente · " : lang==="pl" ? "Nowe zawody dodawane regularnie · " : "More trades added regularly · "}
-                  <a href="#" onClick={(e) => e.preventDefault()}>{lang==="es" ? "Solicitar un oficio" : lang==="pl" ? "Zaproponuj zawód" : "Request a trade"}</a>
-                </div>
-              </div>
-            )}
-          </div>
-          )}
         {/* MOBILE DRAWER */}
         <div className={`mobile-drawer-backdrop${mobileNavOpen ? " open" : ""}`} onClick={() => setMobileNavOpen(false)} />
         <aside className={`mobile-drawer${mobileNavOpen ? " open" : ""}`}>
