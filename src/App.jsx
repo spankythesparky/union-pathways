@@ -4981,10 +4981,10 @@ export default function UnionPathway() {
           border: 1px solid rgba(250,128,89,0.2);
         }
 
-        /* PIVOT PHASE 1 — light hero */
+        /* PIVOT PHASE 1 — light hero on warm body */
         .history-hero {
           background: transparent;
-          border-bottom: 1px solid #E8EAED;
+          border-bottom: 1px solid rgba(7,37,84,0.08);
           padding: 72px 24px 56px;
           max-width: 1280px;
           margin: 0 auto;
@@ -5168,6 +5168,7 @@ export default function UnionPathway() {
           --orange: #FF6B00;
           --orange-deep: #d95a00;
           --white: #ffffff;
+          --paper: #F5F3EE;
           --charcoal: #1E252B;
           --gray-light: #E8EAED;
           --gray-med: #C4C9D0;
@@ -5175,9 +5176,9 @@ export default function UnionPathway() {
           /* Legacy vars — kept during transition so existing pages don't crash */
           --yellow: #FF6B00;
           --yellow-dim: #d95a00;
-          --steel: #ffffff;
+          --steel: #F5F3EE;
           --steel-mid: #E8EAED;
-          --steel-light: #f5f6f8;
+          --steel-light: #ffffff;
           --plate: #1a2c3a;
           --wire: #C4C9D0;
           --text: #072554;
@@ -5193,17 +5194,24 @@ export default function UnionPathway() {
           --mono-font: 'Inter', system-ui, sans-serif;
         }
 
-        /* PIVOT PHASE 1 */
-        html { scroll-behavior: smooth; }
+        /* PIVOT PHASE 1 + BODY WARMTH */
+        html { scroll-behavior: smooth; background: #F5F3EE; }
         body {
           font-family: 'Inter', system-ui, sans-serif;
-          background: #ffffff;
+          background: #F5F3EE;
           color: #072554;
           min-height: 100vh;
           overflow-x: hidden;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           position: relative;
+        }
+        /* Utility classes for layering on the warm body */
+        .surface-white { background: #ffffff; }
+        .surface-elevated {
+          background: #ffffff;
+          box-shadow: 0 1px 3px rgba(7,37,84,0.06), 0 8px 24px rgba(7,37,84,0.04);
+          border-radius: 12px;
         }
         /* Removed ember glow effects — dark-theme only */
         body::before { display: none !important; }
@@ -5245,12 +5253,12 @@ export default function UnionPathway() {
 
         .app { min-height: 100vh; display: flex; flex-direction: column; }
 
-        /* ── NAV (light theme) ── */
+        /* ── NAV (light theme, warm) ── */
         nav {
           display: flex; align-items: center; justify-content: space-between;
           padding: 14px 20px;
-          background: rgba(255,255,255,0.97);
-          border-bottom: 1px solid #E8EAED;
+          background: rgba(245,243,238,0.94);
+          border-bottom: 1px solid rgba(7,37,84,0.08);
           backdrop-filter: blur(12px);
           position: sticky; top: 0; z-index: 100;
           gap: 8px; flex-wrap: wrap;
