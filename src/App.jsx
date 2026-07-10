@@ -7139,163 +7139,174 @@ export default function UnionPathway() {
 
         {/* ── HOME PAGE ── */}
         {page === "home" && (<>
+        {/* ═══════════════════════════════════════════
+            HOME PAGE — Corporate Professional (v4)
+            Navy + Orange + Paper background
+            Self-contained: does NOT affect other pages
+            ═══════════════════════════════════════════ */}
+        <div style={{background:'#FAFAF7', color:'#072554', margin:'0', padding:'0'}}>
+
         {/* ─── HERO ─── */}
-        <section style={{padding:'56px 24px 40px', maxWidth:1280, margin:'0 auto'}}>
-          <div style={{display:'inline-flex', alignItems:'center', gap:14, fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>
-            <span style={{width:32, height:1, background:'#FA8059', opacity:0.6}} />
+        <section style={{padding:'80px 40px 40px', maxWidth:1280, margin:'0 auto'}}>
+          <div style={{display:'inline-flex', alignItems:'center', gap:12, fontSize:13, fontWeight:600, color:'#FF6B00', letterSpacing:'0.14em', textTransform:'uppercase', marginBottom:28, fontFamily:"'Inter',sans-serif"}}>
+            <span style={{width:40, height:2, background:'#FF6B00', display:'inline-block'}} />
             {t.tagline}
           </div>
           <h1 style={{
-            fontFamily:"'Space Grotesk', sans-serif",
-            fontSize:'clamp(44px, 7vw, 88px)',
-            fontWeight:500,
-            color:'#fff',
-            lineHeight:0.96,
-            letterSpacing:'-0.03em',
-            margin:'0 0 28px 0',
-            maxWidth:900
+            fontFamily:"'Inter',sans-serif",
+            fontSize:'clamp(40px, 5.5vw, 68px)',
+            fontWeight:800,
+            lineHeight:1.05,
+            letterSpacing:'-0.025em',
+            margin:'0 0 24px 0',
+            color:'#072554',
+            maxWidth:920
           }}>
-            {t.heroTitle1}<br />
-            <span style={{color:'#FA8059', fontStyle:'italic', fontWeight:600}}>{t.heroAccent}</span>{t.heroTitle2}
+            {t.heroTitle1}<span style={{color:'#FF6B00'}}>{t.heroAccent}</span>{t.heroTitle2}
           </h1>
           <p style={{
             fontFamily:"'Inter',sans-serif",
-            fontSize:'clamp(15px, 1.6vw, 18px)',
-            color:'rgba(255,255,255,0.7)',
-            lineHeight:1.65,
-            maxWidth:660,
-            margin:'0 0 36px 0'
+            fontSize:'clamp(16px, 1.3vw, 19px)',
+            color:'#5A6478',
+            lineHeight:1.6,
+            maxWidth:640,
+            margin:'0 0 40px 0',
+            fontWeight:400
           }}>{t.heroSub}</p>
-          <div style={{display:'inline-flex', alignItems:'center', gap:12, fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.08em', textTransform:'uppercase'}}>
-            <span style={{width:6, height:6, borderRadius:'50%', background:'#FA8059', boxShadow:'0 0 10px #FA8059'}} />
-            {lang === "es" ? "Locales agregados y actualizados continuamente" : lang === "pl" ? "Oddzialy stale dodawane i aktualizowane" : "Locals continuously added & updated"}
-          </div>
-        </section>
 
-        {/* ─── SEARCH ─── */}
-        <section style={{padding:'40px 24px 100px', maxWidth:1280, margin:'0 auto'}}>
-          <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:20}}>
-            // {lang==="es" ? "Elige tu oficio" : lang==="pl" ? "Wybierz zawod" : "Pick your trade"}
-          </div>
-          <div style={{display:'flex', flexWrap:'wrap', gap:8, marginBottom:44}}>
-            {[
-              { abbr:"IBEW_I", label:"IBEW Inside" },
-              { abbr:"IBEW_L", label:"IBEW Lineman" },
-              { abbr:"UA",     label:"Plumbers & Pipefitters" },
-              { abbr:"BAC",    label:"Bricklayers" },
-              { abbr:"IW",     label:"Ironworkers" },
-              { abbr:"HFIAW",  label:"Insulators" },
-              { abbr:"IUEC",   label:"Elevators" },
-              { abbr:"IUOE",   label:"Operating Engineers" },
-              { abbr:"UBC",    label:"Carpenters" },
-              { abbr:"IUPAT",  label:"Painters" },
-            ].map(tr => (
-              <button
-                key={tr.abbr}
-                onClick={() => setSelectedTrade(tr.abbr)}
+          {/* ─── ELEVATED SEARCH CARD ─── */}
+          <div style={{
+            background:'#ffffff',
+            borderRadius:16,
+            padding:32,
+            boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)',
+            maxWidth:900,
+            border:'1px solid rgba(7,37,84,0.08)'
+          }}>
+            <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:600, color:'#072554', letterSpacing:'0.1em', textTransform:'uppercase', marginBottom:14}}>
+              {lang==="es" ? "Elige tu oficio" : lang==="pl" ? "Wybierz zawod" : "Pick your trade"}
+            </div>
+            <div style={{display:'flex', flexWrap:'wrap', gap:8, marginBottom:28}}>
+              {[
+                { abbr:"IBEW_I", label:"IBEW Inside" },
+                { abbr:"IBEW_L", label:"IBEW Lineman" },
+                { abbr:"UA",     label:"Plumbers & Pipefitters" },
+                { abbr:"SM",     label:"Sheet Metal" },
+                { abbr:"BAC",    label:"Bricklayers" },
+                { abbr:"IW",     label:"Ironworkers" },
+                { abbr:"HFIAW",  label:"Insulators" },
+                { abbr:"IUEC",   label:"Elevators" },
+                { abbr:"IUOE",   label:"Operating Engineers" },
+                { abbr:"UBC",    label:"Carpenters" },
+                { abbr:"IUPAT",  label:"Painters" },
+              ].map(tr => (
+                <button
+                  key={tr.abbr}
+                  onClick={() => setSelectedTrade(tr.abbr)}
+                  style={{
+                    background: selectedTrade === tr.abbr ? '#072554' : '#ffffff',
+                    color: selectedTrade === tr.abbr ? '#ffffff' : '#072554',
+                    border: '1px solid '+(selectedTrade === tr.abbr ? '#072554' : '#E8EAED'),
+                    borderRadius: 50, padding: '9px 18px',
+                    fontFamily:"'Inter',sans-serif",
+                    fontSize: 13, fontWeight: 500,
+                    cursor: 'pointer', transition: 'all 0.15s'
+                  }}
+                >
+                  {tr.label}
+                </button>
+              ))}
+            </div>
+            <div style={{display:'flex', gap:12, alignItems:'stretch', flexWrap:'wrap'}}>
+              <input
+                ref={inputRef}
+                type="text"
+                placeholder={lang==="es" ? "Codigo postal, ciudad o estado" : lang==="pl" ? "Kod pocztowy, miasto lub stan" : "Enter ZIP code, city, or state"}
+                value={query}
+                onChange={e => setQuery(e.target.value)}
+                onKeyDown={handleKey}
                 style={{
-                  background: selectedTrade === tr.abbr ? '#FA8059' : 'transparent',
-                  color: selectedTrade === tr.abbr ? '#000' : 'rgba(255,255,255,0.78)',
-                  border: '1px solid '+(selectedTrade === tr.abbr ? '#FA8059' : 'rgba(255,255,255,0.14)'),
-                  borderRadius: 50, padding: '10px 20px',
+                  flex:'1 1 280px',
+                  background:'#ffffff',
+                  border:'1.5px solid #E8EAED',
+                  borderRadius:10,
+                  color:'#072554',
+                  fontSize:15,
                   fontFamily:"'Inter',sans-serif",
-                  fontSize: 13, fontWeight: 500,
-                  cursor: 'pointer', transition: 'all 0.18s',
-                  boxShadow: selectedTrade === tr.abbr ? '0 0 24px rgba(250,128,89,0.4)' : 'none'
+                  padding:'14px 18px',
+                  outline:'none',
+                  transition:'border-color 0.15s'
+                }}
+                onFocus={e => e.currentTarget.style.borderColor = '#FF6B00'}
+                onBlur={e => e.currentTarget.style.borderColor = '#E8EAED'}
+              />
+              <button
+                onClick={() => handleSearch()}
+                disabled={loading || !query.trim()}
+                style={{
+                  background: loading || !query.trim() ? 'rgba(255,107,0,0.5)' : '#FF6B00',
+                  color:'#ffffff',
+                  fontSize:15, fontWeight:700,
+                  padding:'0 32px', border:'none', borderRadius:10,
+                  cursor: loading || !query.trim() ? 'not-allowed' : 'pointer',
+                  fontFamily:"'Inter',sans-serif",
+                  transition:'all 0.15s', whiteSpace:'nowrap'
                 }}
               >
-                {tr.label}
+                {loading ? "..." : t.searchBtn}
               </button>
-            ))}
-          </div>
-
-          <div style={{display:'flex', gap:16, flexWrap:'wrap', alignItems:'stretch'}}>
-            <input
-              ref={inputRef}
-              type="text"
-              placeholder={lang==="es" ? "ZIP, ciudad o estado" : lang==="pl" ? "Kod, miasto lub stan" : "ZIP, city, or state"}
-              value={query}
-              onChange={e => setQuery(e.target.value)}
-              onKeyDown={handleKey}
-              style={{
-                flex:'1 1 320px',
-                background:'transparent', border:'none',
-                borderBottom:'1px solid rgba(255,255,255,0.18)',
-                color:'#fff',
-                fontSize:18,
-                fontFamily:"'Space Grotesk',sans-serif",
-                padding:'14px 0', outline:'none', transition:'border-color 0.18s'
-              }}
-              onFocus={e => e.currentTarget.style.borderBottomColor = '#FA8059'}
-              onBlur={e => e.currentTarget.style.borderBottomColor = 'rgba(255,255,255,0.18)'}
-            />
+            </div>
             <button
-              onClick={() => handleSearch()}
-              disabled={loading || !query.trim()}
+              onClick={handleGeolocate}
+              disabled={geoLoading}
               style={{
-                background: loading || !query.trim() ? 'rgba(250,128,89,0.3)' : '#FA8059',
-                color:'#000',
-                fontFamily:"'Inter',sans-serif",
-                fontSize:14, fontWeight:700, letterSpacing:'0.04em',
-                padding:'0 36px', border:'none', borderRadius:50,
-                cursor: loading || !query.trim() ? 'not-allowed' : 'pointer',
-                transition:'all 0.18s', minHeight:48
+                display:'inline-block', marginTop:20,
+                color:'#072554', fontSize:14, textDecoration:'none', fontWeight:500,
+                borderBottom:'1px solid #C4C9D0', paddingBottom:3,
+                background:'none', borderLeft:'none', borderRight:'none', borderTop:'none',
+                cursor: geoLoading ? 'wait' : 'pointer',
+                fontFamily:"'Inter',sans-serif"
               }}
             >
-              {loading ? "..." : t.searchBtn}
+              {geoLoading ? t.locating : (lang==="es" ? "Usar mi ubicacion actual" : lang==="pl" ? "Uzyj mojej lokalizacji" : "Use my current location")}
             </button>
+            {error && (
+              <div style={{marginTop:16, fontSize:14, color:'#FF6B00', fontFamily:"'Inter',sans-serif"}}>{t.errorMsg}</div>
+            )}
           </div>
-
-          <button
-            onClick={handleGeolocate}
-            disabled={geoLoading}
-            style={{
-              marginTop:26, background:'transparent', border:'none',
-              color:'rgba(255,255,255,0.7)',
-              fontFamily:"'Inter',sans-serif", fontSize:14,
-              cursor: geoLoading ? 'wait' : 'pointer', padding:0
-            }}
-          >
-            {geoLoading ? t.locating : (lang==="es" ? "usar mi ubicacion actual" : lang==="pl" ? "uzyj mojej lokalizacji" : "use my current location")}
-            <span style={{color:'#FA8059', marginLeft:8}}>→</span>
-          </button>
-
-          {error && (
-            <div style={{marginTop:16, fontSize:14, color:'#FA8059', fontFamily:"'Inter',sans-serif"}}>{t.errorMsg}</div>
-          )}
         </section>
 
-        {/* ─── RESULTS ─── */}
+        {/* ─── RESULTS (when results exist) ─── */}
         {results && (
-          <section style={{padding:'40px 24px 80px', maxWidth:1280, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
-            <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', flexWrap:'wrap', gap:16, marginBottom:40}}>
+          <section style={{padding:'40px 40px 80px', maxWidth:1280, margin:'0 auto', borderTop:'1px solid rgba(7,37,84,0.08)'}}>
+            <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', flexWrap:'wrap', gap:16, marginBottom:32}}>
               <div>
-                <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:12}}>
-                  // {lang==="es" ? "Resultados" : lang==="pl" ? "Wyniki" : "Results"}
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:600, color:'#5A6478', letterSpacing:'0.14em', textTransform:'uppercase', marginBottom:12}}>
+                  {lang==="es" ? "Resultados" : lang==="pl" ? "Wyniki" : "Results"}
                 </div>
-                <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 44px)', fontWeight:500, color:'#fff', margin:0, lineHeight:1.05, letterSpacing:'-0.02em'}}>
-                  <span style={{color:'#FA8059', fontStyle:'italic'}}>{results.length}</span>{' '}
+                <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 3.5vw, 40px)', fontWeight:700, color:'#072554', margin:0, lineHeight:1.15, letterSpacing:'-0.02em'}}>
+                  <span style={{color:'#FF6B00'}}>{results.length}</span>{' '}
                   {searchMode === 'state'
                     ? (lang==="es" ? "locales en este estado" : lang==="pl" ? "lokali w tym stanie" : "locals in this state")
                     : (lang==="es" ? "locales cerca de ti" : lang==="pl" ? "lokali w poblizu" : "locals near you")}
                 </h2>
                 {searchMode === 'radius' && results.length > 0 && (
-                  <div style={{fontSize:13, color:'rgba(255,255,255,0.5)', marginTop:8, fontFamily:"'Inter',sans-serif"}}>
+                  <div style={{fontSize:13, color:'#5A6478', marginTop:8, fontFamily:"'Inter',sans-serif"}}>
                     {lang==="es" ? "Mostrando locales dentro de 50 millas. Busque por estado para ver mas." : lang==="pl" ? "Pokazuje lokale w promieniu 50 mil. Szukaj po stanie aby zobaczyc wiecej." : "Showing locals within a 50-mile radius. Search by state to see more."}
                   </div>
                 )}
               </div>
               <div style={{display:'flex', alignItems:'center', gap:14, flexWrap:'wrap'}}>
-                <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', letterSpacing:'0.08em'}}>📍 {locationLabel}</div>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, color:'#5A6478'}}>📍 {locationLabel}</div>
                 <button
                   onClick={() => setShowMap(v => !v)}
                   style={{
-                    background: showMap ? '#FA8059' : 'transparent',
-                    color: showMap ? '#000' : '#FA8059',
-                    border:'1px solid '+(showMap ? '#FA8059' : 'rgba(250,128,89,0.4)'),
-                    borderRadius:50, padding:'8px 18px',
+                    background: showMap ? '#FF6B00' : '#ffffff',
+                    color: showMap ? '#ffffff' : '#072554',
+                    border:'1.5px solid '+(showMap ? '#FF6B00' : '#E8EAED'),
+                    borderRadius:8, padding:'8px 16px',
                     fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:600,
-                    cursor:'pointer', transition:'all 0.18s'
+                    cursor:'pointer', transition:'all 0.15s'
                   }}
                 >
                   {showMap ? (lang==="es" ? "📋 Lista" : lang==="pl" ? "📋 Lista" : "📋 List") : (lang==="es" ? "🗺️ Mapa" : lang==="pl" ? "🗺️ Mapa" : "🗺️ Map")}
@@ -7303,39 +7314,40 @@ export default function UnionPathway() {
               </div>
             </div>
             {showMap && (
-              <div id="union-map" style={{width:'100%', height:520, borderRadius:16, overflow:'hidden', marginBottom:24, border:'1px solid rgba(250,128,89,0.2)', boxShadow:'0 0 60px rgba(250,128,89,0.08)'}} />
+              <div id="union-map" style={{width:'100%', height:520, borderRadius:16, overflow:'hidden', marginBottom:24, border:'1px solid rgba(7,37,84,0.08)', boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)'}} />
             )}
             {!showMap && (
-              <div style={{display:'flex', flexDirection:'column'}}>
+              <div style={{display:'flex', flexDirection:'column', gap:16}}>
                 {results.map((local, i) => (
                   <div key={`${local.id}-${i}`} style={{
-                    padding:'32px 0',
-                    borderBottom:'1px solid rgba(255,255,255,0.08)',
-                    display:'grid',
-                    gridTemplateColumns:'auto 1fr auto',
-                    gap:28, alignItems:'flex-start'
+                    background:'#ffffff',
+                    borderRadius:12,
+                    padding:'24px 28px',
+                    boxShadow:'0 1px 3px rgba(7,37,84,0.04), 0 4px 12px rgba(7,37,84,0.04)',
+                    border:'1px solid rgba(7,37,84,0.08)',
+                    display:'grid', gridTemplateColumns:'auto 1fr auto', gap:24, alignItems:'flex-start'
                   }}>
                     <div style={{
-                      fontFamily:"'Space Grotesk',sans-serif",
-                      fontSize: i === 0 ? 48 : 32,
-                      fontWeight: 500,
-                      color: i === 0 ? '#FA8059' : 'rgba(255,255,255,0.35)',
-                      lineHeight:1, minWidth:56, letterSpacing:'-0.03em'
+                      fontFamily:"'Inter',sans-serif",
+                      fontSize: i === 0 ? 36 : 24,
+                      fontWeight: 800,
+                      color: i === 0 ? '#FF6B00' : '#C4C9D0',
+                      lineHeight:1, minWidth:44, letterSpacing:'-0.02em'
                     }}>#{i+1}</div>
                     <div>
                       {i === 0 && (
-                        <div style={{display:'inline-block', fontFamily:"'Space Mono',monospace", fontSize:10, color:'#FA8059', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:10, padding:'4px 10px', border:'1px solid rgba(250,128,89,0.3)', borderRadius:50}}>
+                        <div style={{display:'inline-block', fontFamily:"'Inter',sans-serif", fontSize:10, fontWeight:700, color:'#FF6B00', letterSpacing:'0.18em', textTransform:'uppercase', marginBottom:8, padding:'3px 10px', border:'1.5px solid #FF6B00', borderRadius:4}}>
                           {t.nearest}
                         </div>
                       )}
-                      <h3 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 2.5vw, 28px)', fontWeight:500, color:'#fff', margin:'0 0 6px 0', letterSpacing:'-0.015em'}}>{local.name}</h3>
-                      <div style={{fontSize:14, color:'rgba(255,255,255,0.65)', marginBottom:12, fontFamily:"'Inter',sans-serif"}}>{local.city}, {local.state}</div>
+                      <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(18px, 2vw, 22px)', fontWeight:700, color:'#072554', margin:'0 0 6px 0', letterSpacing:'-0.01em'}}>{local.name}</h3>
+                      <div style={{fontSize:14, color:'#5A6478', marginBottom:10, fontFamily:"'Inter',sans-serif"}}>{local.city}, {local.state}</div>
                       {local.tradeType && (
-                        <div style={{display:'inline-block', fontFamily:"'Space Mono',monospace", fontSize:10, color:'#FA8059', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:10, padding:'3px 10px', background:'rgba(250,128,89,0.08)', borderRadius:50}}>
+                        <div style={{display:'inline-block', fontFamily:"'Inter',sans-serif", fontSize:10, fontWeight:700, color:'#072554', letterSpacing:'0.14em', textTransform:'uppercase', marginBottom:10, padding:'3px 10px', background:'#E8EAED', borderRadius:4}}>
                           {local.tradeType}
                         </div>
                       )}
-                      <div style={{display:'flex', gap:18, flexWrap:'wrap', fontSize:13, color:'rgba(255,255,255,0.6)', marginBottom:14, fontFamily:"'Inter',sans-serif"}}>
+                      <div style={{display:'flex', gap:18, flexWrap:'wrap', fontSize:13, color:'#5A6478', marginBottom:12, fontFamily:"'Inter',sans-serif"}}>
                         {local.phone && (
                           <a href={`tel:${local.phone}`} style={{color:'inherit', textDecoration:'none'}}>📞 {local.phone}</a>
                         )}
@@ -7346,17 +7358,16 @@ export default function UnionPathway() {
                       <div style={{display:'flex', gap:10, flexWrap:'wrap', alignItems:'center'}}>
                         {local.website && (
                           <a href={local.website.startsWith("http") ? local.website : `https://${local.website}`} target="_blank" rel="noopener noreferrer" style={{
-                            color:'#FA8059', textDecoration:'none',
+                            color:'#072554', textDecoration:'none',
                             fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:600,
-                            borderBottom:'1px solid rgba(250,128,89,0.4)', paddingBottom:3,
-                            transition:'all 0.18s'
+                            borderBottom:'2px solid #FF6B00', paddingBottom:2
                           }}>{t.visitWebsite} →</a>
                         )}
                         {local.email && (
                           <a href={`mailto:${local.email}`} style={{
-                            color:'rgba(255,255,255,0.7)', textDecoration:'none',
+                            color:'#5A6478', textDecoration:'none',
                             fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:500,
-                            borderBottom:'1px solid rgba(255,255,255,0.18)', paddingBottom:3
+                            borderBottom:'1px solid #C4C9D0', paddingBottom:2
                           }}>✉ Email Local →</a>
                         )}
                         <button onClick={() => {
@@ -7365,32 +7376,30 @@ export default function UnionPathway() {
                           else { navigator.clipboard.writeText(text).then(() => alert(lang==="es" ? "¡Info copiada!" : lang==="pl" ? "Skopiowano informacje!" : "Local info copied!")); }
                         }} style={{
                           background:'transparent', border:'none',
-                          color:'rgba(255,255,255,0.6)',
+                          color:'#5A6478',
                           fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:500,
-                          padding:'4px 0', cursor:'pointer', borderBottom:'1px solid rgba(255,255,255,0.18)'
+                          padding:'2px 0', cursor:'pointer', borderBottom:'1px solid #C4C9D0'
                         }}>{lang==="es" ? "Compartir" : lang==="pl" ? "Udostepnij" : "Share"}</button>
                         <button onClick={() => {
                           setPage("contact"); setContactSent(false);
                           setTimeout(() => setContactForm(f => ({ ...f, subject: "local-info", message: `I'd like to submit a correction or update for:\n\n${local.name}\n${local.city}, ${local.state}\n\nCorrection:\n` })), 100);
                         }} style={{
                           background:'transparent', border:'none',
-                          color:'rgba(255,255,255,0.5)',
+                          color:'#5A6478',
                           fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:500,
-                          padding:'4px 0', cursor:'pointer', borderBottom:'1px solid rgba(255,255,255,0.18)'
+                          padding:'2px 0', cursor:'pointer', borderBottom:'1px solid #C4C9D0'
                         }}>{lang==="es" ? "✏ Sugerir Correccion" : lang==="pl" ? "✏ Zaproponuj Korekte" : "✏ Suggest Correction"}</button>
                       </div>
                     </div>
                     <div style={{textAlign:'right'}}>
                       <div style={{
-                        fontFamily:"'Space Grotesk',sans-serif",
-                        fontSize:'clamp(36px, 4vw, 52px)',
-                        fontWeight:500,
-                        background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)',
-                        WebkitBackgroundClip:'text', backgroundClip:'text',
-                        WebkitTextFillColor:'transparent',
-                        lineHeight:1, letterSpacing:'-0.035em'
+                        fontFamily:"'Inter',sans-serif",
+                        fontSize:'clamp(36px, 4vw, 48px)',
+                        fontWeight:800,
+                        color:'#072554',
+                        lineHeight:1, letterSpacing:'-0.03em'
                       }}>{Math.round(local.distance)}</div>
-                      <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color:'rgba(255,255,255,0.45)', letterSpacing:'0.2em', textTransform:'uppercase', marginTop:6}}>{t.milesAway}</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:600, color:'#5A6478', letterSpacing:'0.14em', textTransform:'uppercase', marginTop:6}}>{t.milesAway}</div>
                     </div>
                   </div>
                 ))}
@@ -7401,28 +7410,28 @@ export default function UnionPathway() {
 
         {/* ─── STATS (when no results) ─── */}
         {!results && (
-          <section style={{padding:'80px 24px 100px', maxWidth:1280, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
-            <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:32}}>
-              // {lang==="es" ? "Por los numeros" : lang==="pl" ? "W liczbach" : "By the numbers"}
+          <section style={{padding:'80px 40px', maxWidth:1280, margin:'0 auto', borderTop:'1px solid rgba(7,37,84,0.08)'}}>
+            <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:600, color:'#5A6478', letterSpacing:'0.14em', textTransform:'uppercase', marginBottom:32}}>
+              {lang==="es" ? "Por los numeros" : lang==="pl" ? "W liczbach" : "By the numbers"}
             </div>
-            <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:24}} className="home-stats-grid">
+            <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:40}} className="home-stats-grid">
               {[
-                { num:"1,000+", label: lang==="es" ? "Locales sindicales en el pais" : lang==="pl" ? "Oddzialow zwiazkowych" : "Union locals across the country" },
-                { num:"17",     label: lang==="es" ? "Oficios de construccion" : lang==="pl" ? "Zawodow budowlanych" : "Construction trades covered" },
-                { num:"50",     label: lang==="es" ? "Estados cubiertos" : lang==="pl" ? "Stanow objetych" : "States mapped" },
-                { num:"$0",     label: lang==="es" ? "Gratis para siempre" : lang==="pl" ? "Zawsze za darmo" : "Free forever, no ads" },
+                { num:"1,000", accent:"+", label: lang==="es" ? "Locales sindicales mapeados a nivel nacional" : lang==="pl" ? "Oddzialow zwiazkowych" : "Union locals mapped nationwide" },
+                { num:"17", accent:"", label: lang==="es" ? "Oficios de construccion cubiertos" : lang==="pl" ? "Zawodow budowlanych" : "Construction trades covered" },
+                { num:"50", accent:"", label: lang==="es" ? "Estados mapeados de costa a costa" : lang==="pl" ? "Stanow objetych od wybrzeza do wybrzeza" : "States mapped from coast to coast" },
+                { num:"", accent:"$0", label: lang==="es" ? "Gratis para siempre. Sin anuncios, sin restricciones." : lang==="pl" ? "Zawsze za darmo. Bez reklam." : "Free forever. No ads, no paywalls." },
               ].map((s, i) => (
                 <div key={i}>
                   <div style={{
-                    fontFamily:"'Space Grotesk',sans-serif",
-                    fontSize:'clamp(28px, 4vw, 48px)',
-                    fontWeight:500,
-                    background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)',
-                    WebkitBackgroundClip:'text', backgroundClip:'text',
-                    WebkitTextFillColor:'transparent',
-                    lineHeight:1, letterSpacing:'-0.03em', marginBottom:8
-                  }}>{s.num}</div>
-                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'rgba(255,255,255,0.6)', lineHeight:1.45}}>{s.label}</div>
+                    fontFamily:"'Inter',sans-serif",
+                    fontSize:'clamp(36px, 4vw, 52px)',
+                    fontWeight:800,
+                    lineHeight:1,
+                    letterSpacing:'-0.03em',
+                    marginBottom:8,
+                    color:'#072554'
+                  }}>{s.num}<span style={{color:'#FF6B00'}}>{s.accent}</span></div>
+                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, color:'#5A6478', lineHeight:1.5, fontWeight:500}}>{s.label}</div>
                 </div>
               ))}
             </div>
@@ -7431,59 +7440,125 @@ export default function UnionPathway() {
 
         {/* ─── MISSION (when no results) ─── */}
         {!results && (
-          <section style={{padding:'80px 24px 140px', maxWidth:900, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
-            <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#FA8059', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:32}}>
-              // {lang==="es" ? "Construido por" : lang==="pl" ? "Stworzone przez" : "Built by"}
+          <section style={{padding:'80px 40px 100px', maxWidth:1000, margin:'0 auto', borderTop:'1px solid rgba(7,37,84,0.08)'}}>
+            <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:600, color:'#FF6B00', letterSpacing:'0.14em', textTransform:'uppercase', marginBottom:24}}>
+              {lang==="es" ? "Construido por" : lang==="pl" ? "Stworzone przez" : "Built by"}
             </div>
             <h2 style={{
-              fontFamily:"'Space Grotesk',sans-serif",
-              fontSize:'clamp(32px, 4.5vw, 48px)',
-              fontWeight:500,
-              color:'#fff',
-              lineHeight:1.1,
-              letterSpacing:'-0.025em',
-              margin:'0 0 36px 0',
-              maxWidth:720
+              fontFamily:"'Inter',sans-serif",
+              fontSize:'clamp(28px, 3.5vw, 42px)',
+              fontWeight:700,
+              lineHeight:1.15,
+              letterSpacing:'-0.02em',
+              margin:'0 0 24px 0',
+              color:'#072554',
+              maxWidth:780
             }}>
-              {lang==="es" ? <>Trabajadores del oficio, <span style={{color:'#FA8059', fontStyle:'italic'}}>para trabajadores del oficio.</span></> :
-               lang==="pl" ? <>Rzemieslnicy, <span style={{color:'#FA8059', fontStyle:'italic'}}>dla rzemieslnikow.</span></> :
-               <>Union tradespeople, <span style={{color:'#FA8059', fontStyle:'italic'}}>for tradespeople.</span></>}
+              {lang==="es" ? <>Trabajadores del oficio, <span style={{color:'#FF6B00'}}>para trabajadores del oficio.</span></> :
+               lang==="pl" ? <>Rzemieslnicy, <span style={{color:'#FF6B00'}}>dla rzemieslnikow.</span></> :
+               <>Union tradespeople, <span style={{color:'#FF6B00'}}>for tradespeople.</span></>}
             </h2>
-            <p style={{fontFamily:"'Inter',sans-serif", fontSize:15, color:'rgba(255,255,255,0.7)', lineHeight:1.7, maxWidth:640, margin:0}}>
-              {lang==="es" ? "Union Pathways es un recurso gratuito, sin publicidad y sin afiliacion. Solo datos reales para ayudarte a encontrar tu local mas cercano y empezar tu carrera en los oficios." : lang==="pl" ? "Union Pathways to bezplatne, wolne od reklam i bezstronne narzedzie. Tylko prawdziwe dane, ktore pomoga Ci znalezc najblizszy oddzial i zaczac kariere." : "Union Pathways is free, ad-free, and unaffiliated. Just real data to help you find your nearest local, learn what your trade actually pays, and start your career on the right foot."}
+            <p style={{fontFamily:"'Inter',sans-serif", fontSize:17, color:'#5A6478', lineHeight:1.7, maxWidth:680, margin:0}}>
+              {lang==="es" ? "Union Pathways existe porque encontrar tu local, entender el examen de tu aprendizaje y saber lo que realmente paga tu oficio no deberia requerir un pago o un inicio de sesion. Datos reales. Personas reales. Gratis para siempre." : lang==="pl" ? "Union Pathways istnieje, poniewaz znalezienie oddzialu, zrozumienie egzaminu i poznanie stawek nie powinno wymagac oplat." : "Union Pathways exists because finding your local, understanding your apprenticeship test, and knowing what your trade actually pays shouldn't require a paywall or a login. Real data. Real people. Free forever."}
             </p>
           </section>
         )}
 
-        {/* ─── NEWSLETTER (HOME) ─── */}
+        {/* ─── FEATURE ROWS (when no results) ─── */}
         {!results && (
-          <section className="newsletter-substack-signup" style={{padding:'80px 24px 120px', maxWidth:900, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
-            <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:32, display:'inline-flex', alignItems:'center', gap:14}}>
-              <span style={{width:32, height:1, background:'#FA8059', opacity:0.6}} />
-              {lang==="es" ? "Boletin" : lang==="pl" ? "Newsletter" : "Newsletter"}
-            </div>
-            <h2 style={{
-              fontFamily:"'Space Grotesk',sans-serif",
-              fontSize:'clamp(24px, 3vw, 36px)',
-              fontWeight:500,
-              color:'#fff',
-              lineHeight:1.1,
-              letterSpacing:'-0.02em',
-              margin:'0 0 16px 0',
-              maxWidth:720
-            }}>
-              {lang==="es" ? <>Lo que esta pasando en los <span style={{color:'#FA8059', fontStyle:'italic'}}>oficios.</span></> :
-               lang==="pl" ? <>Co sie dzieje w <span style={{color:'#FA8059', fontStyle:'italic'}}>zawodach.</span></> :
-               <>What's happening in <span style={{color:'#FA8059', fontStyle:'italic'}}>the trades.</span></>}
-            </h2>
-            <p style={{fontFamily:"'Inter',sans-serif", fontSize:15, color:'rgba(255,255,255,0.7)', lineHeight:1.7, maxWidth:560, margin:'0 0 32px 0'}}>
-              {lang==="es" ? "Noticias de oficios, victorias organizativas, aperturas de aprendizaje. Directo a tu bandeja de entrada." :
-               lang==="pl" ? "Wiadomosci z zawodow, sukcesy organizacyjne, otwarcia stazow. Prosto do twojej skrzynki." :
-               "Trades news, organizing wins, apprenticeship openings. Straight to your inbox."}
-            </p>
-            <NewsletterForm lang={lang} />
+          <section style={{padding:'40px 40px 80px', maxWidth:1280, margin:'0 auto'}}>
+            {[
+              {
+                num:'01', section:'Apprenticeship',
+                title: lang==="es" ? "Cada oficio evalua diferente." : lang==="pl" ? "Kazdy zawod testuje inaczej." : "Every trade tests differently.",
+                body: lang==="es" ? "NJATC del IBEW. GAN del UA. EIAT del IUEC. Cada sindicato tiene su propia prueba de aptitud, con su propio sistema de puntuacion. Sepa exactamente que hay en la prueba antes de presentarse — sin pagos por cursos de preparacion, sin restricciones." : lang==="pl" ? "IBEW NJATC, UA GAN, IUEC EIAT — kazdy zwiazek ma wlasny egzamin. Poznaj tresc egzaminu przed przystapieniem." : "IBEW's NJATC. UA's GAN. IUEC's EIAT. Each union runs its own aptitude test, scored its own way. Know exactly what's on the test before you sit for it — no prep-course paywall, no gatekeeping.",
+                link: lang==="es" ? "Leer la guia" : lang==="pl" ? "Przeczytaj przewodnik" : "Read the guide",
+                page: 'apprenticeship',
+                visualNum:'10', visualAccent:'',
+                visualLabel: lang==="es" ? "Oficios cubiertos" : lang==="pl" ? "Zawodow" : "Trades covered"
+              },
+              {
+                num:'02', section:'Wages',
+                title: lang==="es" ? "Conoce tu valor antes de firmar." : lang==="pl" ? "Poznaj swoja wartosc przed podpisaniem." : "Know your worth before you sign.",
+                body: lang==="es" ? "Datos reales de salarios de oficiales presentados por trabajadores en el campo. Organizados por oficio y local. Base, extras, pension, paquete total — el panorama completo." : lang==="pl" ? "Prawdziwe dane placowe od pracownikow. Zorganizowane wedlug zawodu i oddzialu." : "Real journeyman wage data submitted by tradespeople in the field. Organized by trade and local. Base, fringe, pension, total package — the whole picture.",
+                link: lang==="es" ? "Ver salarios" : lang==="pl" ? "Sprawdz stawki" : "Check wages",
+                page: 'wages',
+                visualNum:'58', visualAccent:'$',
+                visualLabel: lang==="es" ? "Mediana / hora" : lang==="pl" ? "Mediana / godz" : "Median / hour"
+              },
+              {
+                num:'03', section:'Job Board',
+                title: lang==="es" ? "Donde esta el trabajo ahora mismo." : lang==="pl" ? "Gdzie jest praca teraz." : "Where the work is right now.",
+                body: lang==="es" ? "Puntos calientes, salas lentas, llamadas de tormenta, trabajo de viaje. Reportes reales de miembros activos, organizados por oficio y ubicacion." : lang==="pl" ? "Hot spoty, wolne oddzialy, prace burzowe, prace w podrozy. Prawdziwe raporty od czlonkow." : "Hot spots, slow halls, storm calls, travel work. Real reports from working members, surfaced by trade and location.",
+                link: lang==="es" ? "Ver el tablero" : lang==="pl" ? "Zobacz tablice" : "See the board",
+                page: 'jobboard',
+                visualNum:'LIVE', visualAccent:'',
+                visualLabel: lang==="es" ? "Del campo" : lang==="pl" ? "Z terenu" : "From the field"
+              }
+            ].map((f, i) => (
+              <div key={i} style={{
+                display:'grid',
+                gridTemplateColumns:'1fr 1fr',
+                gap:80,
+                alignItems:'center',
+                padding:'72px 0',
+                borderTop:'1px solid rgba(7,37,84,0.08)'
+              }} className="feature-row">
+                <div style={{order: i % 2 === 1 ? 2 : 0}} className={i % 2 === 1 ? 'feature-text reverse-order' : 'feature-text'}>
+                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:'#FF6B00', letterSpacing:'0.18em', textTransform:'uppercase', marginBottom:16}}>
+                    {f.num} · {f.section}
+                  </div>
+                  <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(26px, 3vw, 36px)', fontWeight:700, lineHeight:1.15, letterSpacing:'-0.02em', margin:'0 0 18px 0', color:'#072554'}}>
+                    {f.title}
+                  </h3>
+                  <p style={{fontFamily:"'Inter',sans-serif", fontSize:16, color:'#5A6478', lineHeight:1.65, margin:'0 0 24px 0'}}>
+                    {f.body}
+                  </p>
+                  <button onClick={() => setPage(f.page)} style={{
+                    background:'none', border:'none', padding:0,
+                    color:'#072554', textDecoration:'none', fontWeight:600, fontSize:14,
+                    letterSpacing:'0.02em',
+                    borderBottom:'2px solid #FF6B00', paddingBottom:3,
+                    cursor:'pointer', fontFamily:"'Inter',sans-serif"
+                  }}>
+                    {f.link} →
+                  </button>
+                </div>
+                <div style={{
+                  aspectRatio:'4/3',
+                  background:'linear-gradient(135deg, #072554 0%, #1a3568 100%)',
+                  borderRadius:16,
+                  position:'relative',
+                  overflow:'hidden',
+                  display:'flex', alignItems:'center', justifyContent:'center',
+                  color:'#ffffff'
+                }}>
+                  <div style={{
+                    position:'absolute', top:0, right:0, width:'40%', height:'40%',
+                    background:'radial-gradient(circle at top right, rgba(255,107,0,0.35), transparent 70%)',
+                    pointerEvents:'none'
+                  }} />
+                  <div style={{
+                    fontFamily:"'Inter',sans-serif",
+                    fontSize:'clamp(64px, 10vw, 128px)',
+                    fontWeight:900, lineHeight:1, letterSpacing:'-0.04em',
+                    color:'#ffffff', position:'relative', zIndex:1
+                  }}>
+                    <span style={{color:'#FF6B00'}}>{f.visualAccent}</span>{f.visualNum}
+                  </div>
+                  <div style={{
+                    position:'absolute', bottom:24, left:28,
+                    fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700,
+                    letterSpacing:'0.18em', textTransform:'uppercase',
+                    color:'rgba(255,255,255,0.75)'
+                  }}>{f.visualLabel}</div>
+                </div>
+              </div>
+            ))}
           </section>
         )}
+
+        </div>
         </>)}
 
 
