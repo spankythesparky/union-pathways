@@ -5264,16 +5264,18 @@ export default function UnionPathway() {
 
         .app { min-height: 100vh; display: flex; flex-direction: column; }
 
-        /* ── NAV ── */
+        /* NAV CORPORATE V4 */
         nav {
           display: flex; align-items: center; justify-content: space-between;
-          padding: 14px 20px;
-          background: rgba(0,0,0,0.97);
-          border-bottom: 1px solid rgba(245,197,24,0.15);
-          backdrop-filter: blur(12px);
+          padding: 12px 24px;
+          background: #ffffff;
+          border-bottom: 1px solid rgba(7,37,84,0.08);
+          box-shadow: 0 1px 3px rgba(7,37,84,0.03);
+          backdrop-filter: none;
           position: sticky; top: 0; z-index: 100;
           gap: 8px; flex-wrap: wrap;
         }
+        .nav-logo img { height: 44px; width: auto; display: block; }
         .nav-logo {
           display: flex; align-items: center; gap: 12px;
         }
@@ -5855,17 +5857,16 @@ export default function UnionPathway() {
 
         /* ── HAMBURGER + MOBILE DRAWER ── */
         .nav-hamburger {
-          display: none;
+          display: none; align-items: center; justify-content: center;
+          width: 42px; height: 42px;
           background: transparent;
-          border: 1px solid rgba(255,255,255,0.15);
+          border: 1px solid rgba(7,37,84,0.12);
           border-radius: 8px;
-          padding: 8px 10px;
-          cursor: pointer;
-          color: var(--text);
-          align-items: center;
-          justify-content: center;
+          color: #072554; cursor: pointer;
+          transition: all 0.15s;
+          -webkit-tap-highlight-color: transparent;
         }
-        .nav-hamburger:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.3); }
+        .nav-hamburger:hover { background: rgba(7,37,84,0.05); border-color: rgba(7,37,84,0.2); }
         .nav-hamburger svg { display: block; }
 
         .mobile-drawer-backdrop {
@@ -5881,82 +5882,68 @@ export default function UnionPathway() {
           pointer-events: auto;
         }
         .mobile-drawer {
-          position: fixed;
-          top: 0; right: 0;
-          height: 100vh;            /* fallback */
-          height: 100dvh;            /* respects iOS Safari chrome */
-          width: min(360px, 88vw);
-          background: var(--steel);
-          border-left: 1px solid rgba(255,255,255,0.1);
-          z-index: 999;
+          position: fixed; top: 0; right: 0;
+          width: 320px; max-width: 88vw; height: 100vh;
+          background: #ffffff;
+          color: #072554;
+          border-left: 1px solid rgba(7,37,84,0.08);
+          box-shadow: -8px 0 24px rgba(7,37,84,0.08);
           transform: translateX(100%);
-          transition: transform 0.25s ease;
+          transition: transform 0.28s ease;
+          z-index: 200;
           overflow-y: auto;
-          -webkit-overflow-scrolling: touch;  /* momentum scroll on iOS */
-          overscroll-behavior: contain;       /* don't bubble scroll to body */
-          padding-bottom: env(safe-area-inset-bottom, 32px);  /* iPhone home indicator */
-          box-shadow: -8px 0 24px rgba(0,0,0,0.4);
+          display: flex; flex-direction: column;
         }
         .mobile-drawer.open { transform: translateX(0); }
         .mobile-drawer-header {
           display: flex; align-items: center; justify-content: space-between;
-          padding: 18px 20px;
-          border-bottom: 1px solid rgba(255,255,255,0.08);
+          padding: 16px 20px;
+          border-bottom: 1px solid rgba(7,37,84,0.08);
         }
         .mobile-drawer-title {
-          font-family: 'Barlow Condensed', sans-serif;
-          font-size: 14px; font-weight: 800;
-          color: var(--yellow);
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
+          font-family: 'Inter', sans-serif;
+          font-size: 12px; font-weight: 700;
+          letter-spacing: 0.15em; text-transform: uppercase;
+          color: #FF6B00;
         }
         .mobile-drawer-close {
-          background: transparent; border: none; cursor: pointer;
-          color: var(--text); padding: 4px;
-          display: flex; align-items: center;
+          background: transparent; border: none;
+          color: #5A6478; cursor: pointer;
+          padding: 6px; display: flex; align-items: center; justify-content: center;
         }
         .mobile-drawer-section {
           padding: 14px 0 8px;
           border-bottom: 1px solid rgba(255,255,255,0.06);
         }
         .mobile-drawer-section-label {
-          font-family: 'Barlow Condensed', sans-serif;
+          padding: 20px 20px 8px;
+          font-family: 'Inter', sans-serif;
           font-size: 11px; font-weight: 700;
-          color: rgba(255,255,255,0.45);
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          padding: 0 20px 8px;
+          letter-spacing: 0.15em; text-transform: uppercase;
+          color: #5A6478;
         }
         .mobile-drawer-link {
-          display: block;
-          width: 100%;
+          display: block; width: 100%; text-align: left;
           background: transparent; border: none;
           padding: 12px 20px;
-          font-family: 'Barlow Condensed', sans-serif;
-          font-size: 15px; font-weight: 700;
-          letter-spacing: 0.05em;
-          color: var(--text);
-          text-align: left;
-          cursor: pointer;
-          transition: background 0.15s, color 0.15s;
+          color: #072554; font-family: 'Inter', sans-serif;
+          font-size: 15px; font-weight: 500;
+          cursor: pointer; border-radius: 0;
+          transition: background 0.15s;
         }
-        .mobile-drawer-link:hover { background: rgba(255,255,255,0.04); }
-        .mobile-drawer-link.active { color: var(--yellow); background: rgba(245,197,24,0.06); }
+        .mobile-drawer-link:hover { background: rgba(7,37,84,0.04); }
+        .mobile-drawer-link.active { color: #FF6B00; background: rgba(255,107,0,0.06); font-weight: 600; }
         .mobile-drawer-toggle {
-          display: flex; align-items: center; justify-content: space-between;
-          width: 100%;
+          display: block; width: 100%; text-align: left;
           background: transparent; border: none;
           padding: 12px 20px;
-          font-family: 'Barlow Condensed', sans-serif;
-          font-size: 15px; font-weight: 700;
-          letter-spacing: 0.05em;
-          color: var(--text);
-          text-align: left;
+          color: #072554; font-family: 'Inter', sans-serif;
+          font-size: 15px; font-weight: 500;
           cursor: pointer;
-          transition: background 0.15s, color 0.15s;
+          transition: background 0.15s;
         }
-        .mobile-drawer-toggle:hover { background: rgba(255,255,255,0.04); }
-        .mobile-drawer-toggle.active { color: var(--yellow); }
+        .mobile-drawer-toggle:hover { background: rgba(7,37,84,0.04); }
+        .mobile-drawer-toggle.active { color: #FF6B00; }
         .mobile-drawer-toggle svg {
           flex-shrink: 0;
           transition: transform 0.2s ease;
@@ -5966,19 +5953,15 @@ export default function UnionPathway() {
         .mobile-drawer-section-toggle {
           display: flex; align-items: center; justify-content: space-between;
           width: 100%;
+          padding: 14px 20px;
           background: transparent; border: none;
-          padding: 16px 20px;
-          font-family: 'Barlow Condensed', sans-serif;
-          font-size: 13px; font-weight: 800;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: rgba(255,255,255,0.6);
-          text-align: left;
+          color: #072554; font-family: 'Inter', sans-serif;
+          font-size: 15px; font-weight: 600;
           cursor: pointer;
-          transition: background 0.15s, color 0.15s;
+          transition: background 0.15s;
         }
-        .mobile-drawer-section-toggle:hover { background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.85); }
-        .mobile-drawer-section-toggle.active { color: var(--yellow); }
+        .mobile-drawer-section-toggle:hover { background: rgba(7,37,84,0.04); }
+        .mobile-drawer-section-toggle.active { color: #FF6B00; }
         .mobile-drawer-section-toggle svg {
           flex-shrink: 0;
           transition: transform 0.2s ease;
@@ -6549,28 +6532,7 @@ export default function UnionPathway() {
         {/* NAV */}
         <nav>
           <div className="nav-logo" style={{cursor:"pointer", padding:"4px", margin:"-4px"}} onClick={() => { setPage("home"); setResults(null); setQuery(""); }}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="450 395 390 110" style={{height:"56px", width:"auto"}}>
-              <defs><style>{".cls-1{fill:#FA8059;}"}</style></defs>
-              <g fill="white">
-                <path d="M601.2,430.86c0,2.59-.56,4.57-1.69,5.92-1.13,1.35-2.93,2.03-5.41,2.03s-4.31-.68-5.44-2.03c-1.13-1.35-1.69-3.33-1.69-5.92v-22.85h-7.47v22.68c0,4.71,1.18,8.29,3.55,10.75,2.36,2.45,6.05,3.68,11.04,3.68s8.65-1.22,11.02-3.68c2.37-2.45,3.55-6.04,3.55-10.75v-22.68h-7.47v22.85Z"/>
-                <polygon points="637.68 420.7 638 436.17 637.63 436.17 626.21 408.01 615.62 408.01 615.62 444.29 622.78 444.29 622.78 431.57 622.47 415.62 622.84 415.62 634.53 444.29 644.81 444.29 644.81 408.01 637.68 408.01 637.68 420.7"/>
-                <rect x="652.08" y="408.01" width="7.47" height="36.28"/>
-                <path d="M680.83,407.24c-5.02,0-8.8,1.33-11.37,3.97-2.57,2.65-3.85,6.43-3.85,11.33v7.38c0,4.88,1.28,8.64,3.85,11.26,2.57,2.62,6.35,3.93,11.37,3.93s8.83-1.31,11.39-3.93c2.55-2.62,3.83-6.37,3.83-11.26v-7.38c0-4.9-1.28-8.68-3.85-11.33-2.57-2.65-6.36-3.97-11.37-3.97M688.47,430.27c0,2.74-.64,4.87-1.9,6.39-1.27,1.52-3.18,2.27-5.73,2.27s-4.44-.76-5.71-2.27c-1.27-1.51-1.9-3.64-1.9-6.39v-8.06c0-2.84.64-5.02,1.9-6.54,1.27-1.52,3.17-2.29,5.71-2.29s4.47.76,5.73,2.29c1.27,1.52,1.9,3.7,1.9,6.54v8.06Z"/>
-                <polygon points="724.19 420.7 724.5 436.17 724.13 436.17 712.72 408.01 702.13 408.01 702.13 444.29 709.28 444.29 709.28 431.57 708.97 415.62 709.34 415.62 721.04 444.29 731.31 444.29 731.31 408.01 724.19 408.01 724.19 420.7"/>
-                <path d="M593.45,456.33h-13.94v36.28h5.62v-11.64h8.29c4.16,0,7.21-.96,9.14-2.9,1.93-1.93,2.9-4.62,2.9-8.06v-2.75c0-3.45-.96-6.13-2.88-8.05-1.92-1.92-4.96-2.88-9.13-2.88M599.78,469.87c0,2.01-.52,3.57-1.55,4.7-1.03,1.13-2.68,1.69-4.95,1.69h-8.18v-15.25h8.23c2.25,0,3.89.55,4.91,1.65,1.02,1.1,1.53,2.68,1.53,4.74v2.47Z"/>
-                <path d="M616.82,456.33l-11.13,36.28h5.76l2.94-10.14h13.68l2.94,10.14h5.77l-11.13-36.28h-8.83ZM615.76,477.76l5.12-17.63h.71l5.11,17.63h-10.94Z"/>
-                <polygon points="635.35 461.09 646.03 461.09 646.03 492.61 651.73 492.61 651.73 461.09 662.38 461.09 662.38 456.33 635.35 456.33 635.35 461.09"/>
-                <polygon points="690 471.54 673.88 471.54 673.88 456.33 668.17 456.33 668.17 492.61 673.88 492.61 673.88 476.31 690 476.31 690 492.61 695.71 492.61 695.71 456.33 690 456.33 690 471.54"/>
-                <polygon points="734.66 481.51 733.47 487.84 732.98 487.84 731.85 481.51 727.36 457.24 719.07 457.24 714.56 481.51 713.42 487.84 712.97 487.84 711.78 481.51 707.21 456.33 701.39 456.33 708.6 492.61 717.48 492.61 721.09 472.82 722.99 461.95 723.45 461.95 725.35 472.82 728.98 492.61 737.84 492.61 745.02 456.33 739.23 456.33 734.66 481.51"/>
-                <path d="M756.32,456.33l-11.13,36.28h5.76l2.94-10.14h13.68l2.94,10.14h5.76l-11.13-36.28h-8.83ZM755.27,477.76l5.11-17.63h.71l5.12,17.63h-10.94Z"/>
-                <polygon points="797.8 456.33 791.64 469.53 789.09 475.52 788.72 475.52 786.16 469.53 779.97 456.33 773.95 456.33 786.1 481.35 786.1 492.61 791.7 492.61 791.7 481.35 803.82 456.33 797.8 456.33"/>
-                <path d="M830.54,477.35c-.76-1.32-1.95-2.38-3.56-3.21-1.62-.82-3.74-1.57-6.37-2.23-2.22-.57-3.92-1.14-5.12-1.72-1.2-.58-2.04-1.25-2.51-2-.47-.76-.71-1.67-.71-2.73v-.11c0-1.02.24-1.9.71-2.63.47-.73,1.24-1.29,2.3-1.68,1.06-.39,2.47-.58,4.23-.58,2.25,0,4.28.27,6.08.81,1.8.54,3.39,1.21,4.77,2l-.51-5.19c-1.19-.62-2.71-1.19-4.56-1.69-1.85-.5-4.07-.75-6.66-.75-4.05,0-7.09.82-9.11,2.47-2.03,1.65-3.04,4-3.04,7.04v.29c0,2.03.38,3.71,1.14,5.07.76,1.35,1.96,2.48,3.62,3.38,1.66.9,3.83,1.68,6.52,2.34,2.04.49,3.66,1.01,4.85,1.55,1.19.54,2.04,1.18,2.54,1.93.5.75.75,1.7.75,2.85v.43c0,1.78-.62,3.11-1.87,3.99-1.25.88-3.2,1.32-5.85,1.32-2.33,0-4.49-.32-6.49-.97-2-.64-3.72-1.38-5.18-2.21l.54,5.59c.8.4,1.76.79,2.91,1.19,1.15.4,2.45.73,3.9.99,1.46.26,3.05.4,4.77.4,4.35,0,7.62-.86,9.79-2.58,2.17-1.72,3.26-4.26,3.26-7.61v-.57c0-2.14-.38-3.87-1.13-5.18"/>
-              </g>
-              <g>
-                <path className="cls-1" d="M540.84,457.05c0,14.25-11.58,25.83-25.82,25.85-14.24-.01-25.82-11.6-25.82-25.85v-10.16h-13.12v10.16c0,21.49,17.43,38.94,38.92,38.97h0s.02,0,.02,0c0,0,.02,0,.02,0h0c21.48-.03,38.92-17.48,38.92-38.97v-10.16h-13.12v10.16Z"/>
-                <polygon className="cls-1" points="515.02 431.22 540.84 446.89 561.71 435.35 555.19 423.61 533.15 435.79 545.92 414.14 534.38 407.38 521.7 428.84 521.7 403.98 515.04 403.98 514.99 403.98 508.33 403.98 508.33 428.84 495.66 407.38 484.11 414.14 496.89 435.79 474.84 423.61 468.33 435.35 489.19 446.89 515.02 431.22"/>
-              </g>
-            </svg>
+            <img src="/logo.png" alt="Union Pathways"/>
           </div>
 
           <button
@@ -18642,19 +18604,21 @@ export default function UnionPathway() {
         )}
 
         {/* FOOTER */}
-        {/* ─── NEWSLETTER (FOOTER) ─── */}
-        <div style={{padding:'48px 24px', maxWidth:1280, margin:'0 auto', borderTop:'1px solid rgba(255,255,255,0.08)', display:'grid', gridTemplateColumns:'1fr 1fr', gap:48, alignItems:'center'}} className="footer-newsletter-grid">
+        {/* ─── NEWSLETTER (FOOTER, corporate v4) ─── */}
+        <div style={{background:'#072554', padding:'56px 24px', marginTop: 60}}>
+        <div style={{maxWidth:1280, margin:'0 auto', display:'grid', gridTemplateColumns:'1fr 1fr', gap:48, alignItems:'center'}} className="footer-newsletter-grid">
           <div>
-            <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:12}}>
-              // {lang==="es" ? "Boletin" : lang==="pl" ? "Newsletter" : "Newsletter"}
+            <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:700, color:'#FF6B00', letterSpacing:'0.14em', textTransform:'uppercase', marginBottom:16}}>
+              {lang==="es" ? "Boletin" : lang==="pl" ? "Newsletter" : "Newsletter"}
             </div>
-            <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(18px, 2vw, 22px)', fontWeight:500, color:'#fff', lineHeight:1.2, letterSpacing:'-0.015em'}}>
-              {lang==="es" ? <>Lo que esta pasando en los <span style={{color:'#FA8059', fontStyle:'italic'}}>oficios.</span></> :
-               lang==="pl" ? <>Co sie dzieje w <span style={{color:'#FA8059', fontStyle:'italic'}}>zawodach.</span></> :
-               <>What's happening in <span style={{color:'#FA8059', fontStyle:'italic'}}>the trades.</span></>}
+            <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(20px, 2.5vw, 28px)', fontWeight:700, color:'#ffffff', lineHeight:1.2, letterSpacing:'-0.015em'}}>
+              {lang==="es" ? <>Lo que esta pasando en los <span style={{color:'#FF6B00'}}>oficios.</span></> :
+               lang==="pl" ? <>Co sie dzieje w <span style={{color:'#FF6B00'}}>zawodach.</span></> :
+               <>What's happening in <span style={{color:'#FF6B00'}}>the trades.</span></>}
             </div>
           </div>
           <NewsletterForm lang={lang} compact={true} />
+        </div>
         </div>
         <footer style={{flexDirection:"column", gap:"12px", textAlign:"center"}}>
           <div style={{display:"flex", justifyContent:"space-between", width:"100%", flexWrap:"wrap", gap:8}}>
