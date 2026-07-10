@@ -7194,6 +7194,40 @@ export default function UnionPathway() {
             ═══════════════════════════════════════════ */}
         <div style={{background:'#FFFFFF', color:'#072554', margin:'0', padding:'0'}}>
 
+        {/* UPDATE BANNER */}
+        <div style={{
+          background:'#FFF7ED',
+          borderBottom:'1px solid rgba(255,107,0,0.20)',
+          padding:'14px 40px'
+        }}>
+          <div style={{
+            maxWidth:1280, margin:'0 auto',
+            display:'flex', alignItems:'center', gap:16, flexWrap:'wrap'
+          }}>
+            <div style={{
+              display:'inline-flex', alignItems:'center', gap:8,
+              background:'#FF6B00', color:'#ffffff',
+              padding:'4px 10px', borderRadius:4,
+              fontFamily:"'Inter',sans-serif",
+              fontSize:11, fontWeight:700,
+              letterSpacing:'0.10em', textTransform:'uppercase',
+              flexShrink:0
+            }}>
+              <span style={{width:6, height:6, borderRadius:'50%', background:'#ffffff', display:'inline-block'}}/>
+              Site Update
+            </div>
+            <div style={{
+              fontFamily:"'Inter',sans-serif",
+              fontSize:14, fontWeight:500,
+              color:'#072554', lineHeight:1.5, flex:1, minWidth:200
+            }}>
+              {lang==="es" ? "Estamos renovando el diseno completo del sitio. Algunas paginas pueden verse inconsistentes mientras trabajamos. Gracias por su paciencia y apoyo." :
+               lang==="pl" ? "Wprowadzamy zupelnie nowy design w calej witrynie. Niektore strony moga wygladac niespojnie w trakcie prac. Dziekujemy za cierpliwosc." :
+               "We're rolling out a fresh design across every page. Some pages may look inconsistent while we work. Thanks for your patience and support."}
+            </div>
+          </div>
+        </div>
+
         {/* ─── HERO ─── */}
         <section style={{padding:'80px 40px 40px', maxWidth:1280, margin:'0 auto'}}>
           <div style={{display:'inline-flex', alignItems:'center', gap:12, fontSize:13, fontWeight:600, color:'#FF6B00', letterSpacing:'0.14em', textTransform:'uppercase', marginBottom:28, fontFamily:"'Inter',sans-serif"}}>
