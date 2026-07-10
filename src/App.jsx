@@ -3433,10 +3433,10 @@ function NewsletterForm({ lang, compact }) {
         padding: compact ? '14px 0' : '20px 0',
         fontFamily:"'Inter',sans-serif",
         fontSize: compact ? 14 : 15,
-        color:'#FA8059',
+        color:'#FF6B00',
         display:'flex', alignItems:'center', gap:10
       }}>
-        <span style={{width:18, height:18, borderRadius:'50%', background:'#FA8059', color:'#000', display:'flex', alignItems:'center', justifyContent:'center', fontSize:12, fontWeight:700}}>✓</span>
+        <span style={{width:18, height:18, borderRadius:'50%', background:'#FF6B00', color:'#ffffff', display:'flex', alignItems:'center', justifyContent:'center', fontSize:12, fontWeight:700}}>✓</span>
         {lang==="es" ? "Revisa tu correo para confirmar." : lang==="pl" ? "Sprawdz email aby potwierdzic." : "Check your email to confirm."}
       </div>
     );
@@ -3453,32 +3453,32 @@ function NewsletterForm({ lang, compact }) {
           flex:'1 1 240px',
           background:'transparent',
           border:'none',
-          borderBottom: '1px solid ' + (error ? '#FA8059' : 'rgba(255,255,255,0.18)'),
+          borderBottom: '1px solid ' + (error ? '#FF6B00' : 'rgba(255,255,255,0.18)'),
           color:'#fff',
           fontSize: compact ? 15 : 16,
-          fontFamily:"'Space Grotesk',sans-serif",
+          fontFamily:"'Inter',sans-serif",
           padding:'10px 0',
           outline:'none',
           transition:'border-color 0.18s'
         }}
-        onFocus={e => e.currentTarget.style.borderBottomColor = '#FA8059'}
-        onBlur={e => e.currentTarget.style.borderBottomColor = error ? '#FA8059' : 'rgba(255,255,255,0.18)'}
+        onFocus={e => e.currentTarget.style.borderBottomColor = '#FF6B00'}
+        onBlur={e => e.currentTarget.style.borderBottomColor = error ? '#FF6B00' : 'rgba(255,255,255,0.18)'}
       />
       <button
         onClick={handleSubmit}
         style={{
-          background:'#FA8059',
-          color:'#000',
+          background:'#FF6B00',
+          color:'#ffffff',
           fontFamily:"'Inter',sans-serif",
-          fontSize:14, fontWeight:700, letterSpacing:'0.04em',
+          fontSize:14, fontWeight:700, letterSpacing:'0.02em',
           padding: compact ? '0 28px' : '0 32px',
-          border:'none', borderRadius:50,
-          cursor:'pointer', transition:'all 0.18s',
+          border:'none', borderRadius:10,
+          cursor:'pointer', transition:'all 0.15s',
           minHeight: compact ? 44 : 48,
           whiteSpace:'nowrap'
         }}
-        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(250,128,89,0.35)'; }}
-        onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
+        onMouseEnter={e => { e.currentTarget.style.background = '#d95a00'; e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(255,107,0,0.3)'; }}
+        onMouseLeave={e => { e.currentTarget.style.background = '#FF6B00'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none'; }}
       >
         {lang==="es" ? "Suscribir" : lang==="pl" ? "Subskrybuj" : "Subscribe"}
       </button>
@@ -18059,7 +18059,7 @@ export default function UnionPathway() {
 
         {/* FOOTER */}
         {/* ─── NEWSLETTER (FOOTER, corporate v4) ─── */}
-        <div style={{background:'#072554', padding:'56px 24px', marginTop: 60}}>
+        <div style={{background:'#072554', padding:'56px 24px'}}>{/* NEWSLETTER FIX V4 */}
         <div style={{maxWidth:1280, margin:'0 auto', display:'grid', gridTemplateColumns:'1fr 1fr', gap:48, alignItems:'center'}} className="footer-newsletter-grid">
           <div>
             <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:700, color:'#FF6B00', letterSpacing:'0.14em', textTransform:'uppercase', marginBottom:16}}>
