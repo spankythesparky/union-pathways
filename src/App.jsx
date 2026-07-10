@@ -5254,6 +5254,7 @@ export default function UnionPathway() {
         }
         @media (max-width: 480px) {
           .appr-advice-row { grid-template-columns: 1fr !important; gap: 4px !important; }
+          .industry-stats-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 32px !important; }
         }
         @media (max-width: 720px) {
           .footer-newsletter-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
@@ -18554,58 +18555,83 @@ export default function UnionPathway() {
         )}
 
         {/* PLATFORM OVERVIEW — show on home page when no results */}
+        {/* PLATFORM OVERVIEW V4 */}
         {page === "home" && !results && (
-          <div style={{maxWidth:"1000px", margin:"0 auto", padding:"0 24px 80px"}}>
+          <div style={{background:'#FAFAF7', padding:'0 40px 80px'}}>
+          <div style={{maxWidth:1280, margin:"0 auto"}}>
 
-            {/* STATS ROW */}
-            <div style={{display:"flex", justifyContent:"center", gap:"16px", flexWrap:"wrap", margin:"60px 0 64px"}}>
-              {[
-                { num: "6M+", label: lang==="es" ? "Miembros Sindicales en EE.UU." : lang==="pl" ? "Członków Związków w USA" : "Union Members in the US" },
-                { num: "18%", label: lang==="es" ? "Salarios Más Altos que No Sindicales" : lang==="pl" ? "Wyższe Płace niż Niezwiązkowcy" : "Higher Wages Than Non-Union" },
-                { num: "500K+", label: lang==="es" ? "Trabajadores de Construcción Necesarios" : lang==="pl" ? "Potrzebnych Pracowników Budowlanych" : "Construction Workers Needed Now" },
-                { num: "$0", label: lang==="es" ? "Costo del Aprendizaje Sindical" : lang==="pl" ? "Koszt Praktyki Związkowej" : "Cost to Join an Apprenticeship" },
-              ].map((s, i) => (
-                <div key={i} style={{background:"rgba(250,128,89,0.06)", border:"1px solid rgba(250,128,89,0.18)", borderRadius:"16px", padding:"20px 28px", textAlign:"center", minWidth:"160px", flex:"1"}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"38px", fontWeight:"900", color:"#FA8059", lineHeight:"1"}}>{s.num}</div>
-                  <div style={{fontSize:"12px", color:"var(--muted)", textTransform:"uppercase", letterSpacing:"0.08em", marginTop:"6px", fontWeight:"600"}}>{s.label}</div>
-                </div>
-              ))}
+            {/* INDUSTRY STATS ROW */}
+            <div style={{padding:'20px 0 80px', borderTop:'1px solid rgba(7,37,84,0.08)'}}>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:600, color:'#5A6478', letterSpacing:'0.14em', textTransform:'uppercase', marginBottom:32}}>
+                {lang==="es" ? "La industria" : lang==="pl" ? "Branza" : "The industry"}
+              </div>
+              <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:24}} className="industry-stats-grid">
+                {[
+                  { num: "6M", accent: "+", label: lang==="es" ? "Miembros sindicales en EE.UU." : lang==="pl" ? "Czlonkow zwiazkow w USA" : "Union members in the U.S." },
+                  { num: "18", accent: "%", label: lang==="es" ? "Salarios mas altos que no sindicales" : lang==="pl" ? "Wyzsze place niz niezwiazkowcy" : "Higher wages than non-union" },
+                  { num: "500K", accent: "+", label: lang==="es" ? "Trabajadores de construccion necesarios" : lang==="pl" ? "Potrzebnych pracownikow budowlanych" : "Construction workers needed now" },
+                  { num: "", accent: "$0", label: lang==="es" ? "Costo del aprendizaje sindical" : lang==="pl" ? "Koszt praktyki zwiazkowej" : "Cost to join an apprenticeship" },
+                ].map((s, i) => (
+                  <div key={i}>
+                    <div style={{
+                      fontFamily:"'Inter',sans-serif",
+                      fontSize:'clamp(36px, 4vw, 52px)',
+                      fontWeight:800, lineHeight:1, letterSpacing:'-0.03em',
+                      marginBottom:8, color:'#072554'
+                    }}>{s.num}<span style={{color:'#FF6B00'}}>{s.accent}</span></div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, color:'#5A6478', lineHeight:1.5, fontWeight:500}}>{s.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* DIVIDER */}
-            <div style={{borderTop:"1px solid rgba(58,80,104,0.4)", marginBottom:"64px"}}/>
-
             {/* INTERACTIVE MAP */}
-            <div style={{marginBottom:"80px"}}>
-              <div style={{textAlign:"center", marginBottom:"28px"}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"13px", fontWeight:"700", letterSpacing:"0.15em", textTransform:"uppercase", color:"#FA8059", marginBottom:"10px"}}>
-                  {lang==="es" ? "1,720 Locales en EE.UU. y Canada" : lang==="pl" ? "1,720 Lokale w USA i Kanadzie" : "1,720 Locals Across the US and Canada"}
+            <div style={{padding:'80px 0', borderTop:'1px solid rgba(7,37,84,0.08)'}}>
+              <div style={{marginBottom:36, maxWidth:900}}>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:600, color:'#FF6B00', letterSpacing:'0.14em', textTransform:'uppercase', marginBottom:20}}>
+                  {lang==="es" ? "1,720 Locales en EE.UU. y Canada" : lang==="pl" ? "1,720 Lokali w USA i Kanadzie" : "1,720 locals across the U.S. and Canada"}
                 </div>
-                <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"clamp(28px,5vw,46px)", fontWeight:"900", textTransform:"uppercase", color:"#fff", lineHeight:"1", letterSpacing:"-0.02em"}}>
-                  {"Every Union Local. "}<span style={{color:"#FA8059"}}>{"One Map."}</span>
+                <h2 style={{
+                  fontFamily:"'Inter',sans-serif",
+                  fontSize:'clamp(28px, 3.5vw, 42px)',
+                  fontWeight:700, lineHeight:1.15,
+                  letterSpacing:'-0.02em',
+                  margin:'0 0 12px 0',
+                  color:'#072554'
+                }}>
+                  {"Every union local. "}<span style={{color:'#FF6B00'}}>{"One map."}</span>
                 </h2>
+                <p style={{fontFamily:"'Inter',sans-serif", fontSize:16, color:'#5A6478', lineHeight:1.65, margin:0, maxWidth:600}}>
+                  {lang==="es" ? "Explora los locales sindicales de construccion en tu area. Haz clic en cualquier cluster para expandirlo." : lang==="pl" ? "Odkryj lokale zwiazkowe w swojej okolicy. Kliknij klaster, aby go rozwinac." : "Explore union locals in your area. Click any cluster to expand — zoom in to see individual halls."}
+                </p>
               </div>
-              <div style={{width:"100%", height:"560px", borderRadius:"20px", overflow:"hidden", border:"1px solid rgba(58,80,104,0.4)"}}>
+              <div style={{width:"100%", height:"560px", borderRadius:16, overflow:"hidden", border:'1px solid rgba(7,37,84,0.08)', boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', background:'#ffffff'}}>
                 <iframe src="/map.html" style={{width:"100%", height:"100%", border:"none", display:"block"}} title="Union Locals Map" loading="lazy" />
-              </div>
-              <div style={{textAlign:"center", marginTop:"10px", fontSize:"11px", color:"rgba(160,180,196,0.35)", letterSpacing:"0.06em"}}>
-                {lang==="es" ? "Haz clic en cualquier cluster para expandirlo." : lang==="pl" ? "Kliknij na klaster, aby go rozwinac." : "Click any cluster to expand. Zoom in to see individual pins."}
               </div>
             </div>
 
             {/* SECTION TITLE */}
-            <div style={{textAlign:"center", marginBottom:"40px"}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"13px", fontWeight:"700", letterSpacing:"0.15em", textTransform:"uppercase", color:"#FA8059", marginBottom:"12px"}}>
-                {lang==="es" ? "Todo en un Solo Lugar" : lang==="pl" ? "Wszystko w Jednym Miejscu" : "Everything You Need. One Platform."}
+            <div style={{padding:'80px 0 0', borderTop:'1px solid rgba(7,37,84,0.08)'}}>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:600, color:'#FF6B00', letterSpacing:'0.14em', textTransform:'uppercase', marginBottom:20}}>
+                {lang==="es" ? "Todo en un solo lugar" : lang==="pl" ? "Wszystko w jednym miejscu" : "Everything you need. One platform."}
               </div>
-              <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"clamp(32px,6vw,52px)", fontWeight:"900", textTransform:"uppercase", color:"#fff", lineHeight:"1", letterSpacing:"-0.02em"}}>
-                {lang==="es" ? <>{"Más que un "}<span style={{color:"#FA8059"}}>{"Buscador"}</span></> : lang==="pl" ? <>{"Więcej niż "}<span style={{color:"#FA8059"}}>{"Wyszukiwarka"}</span></> : <>{"More Than a "}<span style={{color:"#FA8059"}}>{"Local Finder"}</span></>}
+              <h2 style={{
+                fontFamily:"'Inter',sans-serif",
+                fontSize:'clamp(28px, 3.5vw, 42px)',
+                fontWeight:700, lineHeight:1.15,
+                letterSpacing:'-0.02em',
+                margin:'0 0 20px 0',
+                color:'#072554',
+                maxWidth:780
+              }}>
+                {lang==="es" ? <>{"Mas que un "}<span style={{color:'#FF6B00'}}>{"buscador."}</span></> : lang==="pl" ? <>{"Wiecej niz "}<span style={{color:'#FF6B00'}}>{"wyszukiwarka."}</span></> : <>{"More than a "}<span style={{color:'#FF6B00'}}>{"local finder."}</span></>}
               </h2>
-              <p style={{fontSize:"16px", color:"var(--muted)", maxWidth:"560px", margin:"16px auto 0", lineHeight:"1.6"}}>
-                {lang==="es" ? "Union Pathways es la plataforma completa para todo lo relacionado con los oficios sindicales." : lang==="pl" ? "Union Pathways to kompletna platforma dla wszystkiego związanego ze związkowymi zawodami budowlanymi." : "Union Pathways is the all-in-one platform for everything union construction trades."}
+              <p style={{fontFamily:"'Inter',sans-serif", fontSize:17, color:'#5A6478', maxWidth:660, margin:0, lineHeight:1.65}}>
+                {lang==="es" ? "Union Pathways es la plataforma completa para todo lo relacionado con los oficios sindicales de construccion." : lang==="pl" ? "Union Pathways to kompletna platforma dla wszystkiego zwiazanego ze zwiazkowymi zawodami budowlanymi." : "Union Pathways is the all-in-one platform for everything union construction trades."}
               </p>
             </div>
 
+          </div>
           </div>
         )}
 
