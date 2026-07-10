@@ -5867,27 +5867,26 @@ export default function UnionPathway() {
           flex-wrap: wrap; gap: 12px;
         }
 
-        /* ── LANGUAGE TOGGLE ── */
-        /* HEADER CLEANUP */
+        /* ── LANGUAGE TOGGLE (v4) ── */
         .lang-btn {
           background: transparent;
           border: none;
-          border-radius: 0;
-          padding: 4px 6px;
-          color: rgba(255,255,255,0.4);
-          font-family: 'Space Mono', monospace;
-          font-size: 11px; font-weight: 400;
-          letter-spacing: 0.15em; cursor: pointer;
-          transition: color 0.18s;
+          border-radius: 4px;
+          padding: 6px 8px;
+          color: #5A6478;
+          font-family: 'Inter', sans-serif;
+          font-size: 13px; font-weight: 600;
+          letter-spacing: 0.04em; cursor: pointer;
+          transition: color 0.18s, background 0.18s;
           min-width: 0;
           -webkit-tap-highlight-color: transparent;
         }
-        .lang-btn:hover { color: rgba(255,255,255,0.8); }
-        .lang-btn.active { background: transparent; color: #FA8059; border: none; }
+        .lang-btn:hover { color: #072554; background: rgba(7,37,84,0.05); }
+        .lang-btn.active { background: transparent; color: #FF6B00; border: none; font-weight: 700; }
         .lang-divider {
-          color: rgba(255,255,255,0.2);
-          font-size: 11px;
-          font-family: 'Space Mono', monospace;
+          color: #C4C9D0;
+          font-size: 13px;
+          font-family: 'Inter', sans-serif;
           user-select: none;
           pointer-events: none;
         }
@@ -6009,17 +6008,18 @@ export default function UnionPathway() {
         }
         .mobile-drawer-section-toggle.open svg { transform: rotate(180deg); opacity: 1; }
         .mobile-drawer-section-toggle.open { color: rgba(255,255,255,0.95); }
+        /* NAV COLORS V4 FINAL */
         .nav-link {
           background: transparent; border: none;
-          color: var(--muted); cursor: pointer;
-          font-family: 'Barlow Condensed', sans-serif;
+          color: #072554; cursor: pointer;
+          font-family: 'Inter', sans-serif;
           font-size: 12px; font-weight: 700;
           letter-spacing: 0.06em; text-transform: uppercase;
           padding: 6px 9px; border-radius: 6px;
           transition: color 0.2s, background 0.2s;
         }
-        .nav-link:hover { color: var(--text); background: rgba(255,255,255,0.05); }
-        .nav-link.active { color: var(--yellow); }
+        .nav-link:hover { color: #FF6B00; background: rgba(255,107,0,0.05); }
+        .nav-link.active { color: #FF6B00; font-weight: 600; }
 
         /* ── NAV DROPDOWN ── */
         .nav-dropdown-wrap { position: relative; }
@@ -6844,7 +6844,7 @@ export default function UnionPathway() {
             <button className={`lang-btn ${lang==="es"?"active":""}`} onClick={() => setLang("es")}>ES</button>
             <span className="lang-divider">·</span>
             <button className={`lang-btn ${lang==="pl"?"active":""}`} onClick={() => setLang("pl")}>PL</button>
-            <button onClick={() => { setSearchOpen(true); setGlobalQuery(""); }} style={{background:"rgba(255,255,255,0.06)", border:"1px solid rgba(255,255,255,0.1)", borderRadius:"8px", width:32, height:32, display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer", color:"var(--muted)", transition:"all 0.2s"}} onMouseEnter={e=>e.currentTarget.style.color="#FA8059"} onMouseLeave={e=>e.currentTarget.style.color="var(--muted)"}>
+            <button onClick={() => { setSearchOpen(true); setGlobalQuery(""); }} style={{background:"rgba(7,37,84,0.04)", border:"1px solid rgba(7,37,84,0.10)", borderRadius:"8px", width:34, height:34, display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer", color:"#5A6478", transition:"all 0.15s", marginLeft: 8}} onMouseEnter={e=>{e.currentTarget.style.color="#FF6B00"; e.currentTarget.style.borderColor="#FF6B00";}} onMouseLeave={e=>{e.currentTarget.style.color="#5A6478"; e.currentTarget.style.borderColor="rgba(7,37,84,0.10)";}}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             </button>
           </div>
