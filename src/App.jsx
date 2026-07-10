@@ -3578,7 +3578,7 @@ export default function UnionPathway() {
   const getPageFromUrl = () => {
     const path = window.location.pathname.replace('/', '') || 'home';
     /* fix194 audit-corrected */
-    const validPages = ['home','home-v2','quiz','careers','checklist','locals','calculator','resume','veterans','history','trade-history','history-ibew','history-ua','history-smart','history-bac','history-ufcw','history-iron','history-insul','history-iuec','retirement','benefits','about','contact','jobboard','wages','organize','organize-contractor','rtw','apprenticeship','apprenticeship-ibew','apprenticeship-ua','apprenticeship-smart','apprenticeship-iuec','apprenticeship-iw','apprenticeship-bac','apprenticeship-hfiaw','apprenticeship-iuoe','apprenticeship-ubc','apprenticeship-iupat','weingarten','history-iupat','history-nnu','downpayment','caucus','mental-health'];
+    const validPages = ['home','home-v2','quiz','careers','checklist','locals','calculator','resume','veterans','history','trade-history','history-ibew','history-ua','history-smart','history-bac','history-ufcw','history-iron','history-insul','history-iuec','retirement','benefits','about','contact','organize','organize-contractor','rtw','apprenticeship','apprenticeship-ibew','apprenticeship-ua','apprenticeship-smart','apprenticeship-iuec','apprenticeship-iw','apprenticeship-bac','apprenticeship-hfiaw','apprenticeship-iuoe','apprenticeship-ubc','apprenticeship-iupat','weingarten','history-iupat','history-nnu','downpayment','caucus','mental-health'];
     return validPages.includes(path) ? path : 'home';
   };
   const [page, setPageState] = useState(getPageFromUrl);
@@ -4636,8 +4636,6 @@ export default function UnionPathway() {
       locals:   { title: "Union Pathways — Understanding Your Local", desc: "Learn about union jurisdiction, Book 1 vs Book 2, home locals, travel work, and apprenticeship school models." },
       about:    { title: "Union Pathways — About Us", desc: "Union Pathways was founded by Noah, an IBEW Journeyman and superintendent. Built for union tradespeople, by a union tradesperson." },
       contact:   { title: "Union Pathways — Contact Us", desc: "Get in touch with the Union Pathways team. We help tradespeople find their nearest union local." },
-      jobboard:  { title: "Union Pathways — Live Job Board", desc: "Real-time work outlook reports from union locals across the country. See which halls are busy, steady, or slow before you travel for work." },
-      wages:     { title: "Union Pathways — Local Wages Verified by Members", desc: "Journeyman wage rates submitted by union members from locals nationwide. Hourly, fringes, pension, total package — all in one place." },
       organize:  { title: "Union Pathways — Organize Your Workplace", desc: "How to organize your workplace, your rights under federal labor law, and how union members can help organize others. Built for workers and members alike." },
       'organize-contractor': { title: "Union Pathways — Organizing a Contractor", desc: "Top-down organizing in the construction trades. How non-union contractors come to sign with the union, why they would, and how members help bring them in." },
       caucus: { title: "How to Form a Union Caucus — A Field Guide for Members · Union Pathways", desc: "Every reform victory in modern American labor began the same way — a few members talking in a break room, deciding their union could be better, and getting organized. The 10-step field guide to caucus building, drawn from TDU, CORE, UAWD, and the rest of the modern reform tradition." },
@@ -6652,7 +6650,7 @@ export default function UnionPathway() {
                         {/* MEMBERSHIP DROPDOWN (uses learnOpen) */}
             <div className="nav-dropdown-wrap" style={{position:"relative"}}>
               <button
-                className={`nav-dropdown-btn${(page==="benefits"||page==="retirement"||page==="veterans"||page==="locals"||page==="wages"||page==="jobboard")?" active":""}${learnOpen?" open":""}`}
+                className={`nav-dropdown-btn${(page==="benefits"||page==="retirement"||page==="veterans"||page==="locals")?" active":""}${learnOpen?" open":""}`}
                 onClick={() => { setLearnOpen(o => !o); setApprenticeOpen(false); setHistoryOpen(false); setResourcesOpen(false); setGetInTouchOpen(false); setApprenticeshipOpen(false); }}
                 onBlur={() => setTimeout(() => setLearnOpen(false), 150)}
               >
@@ -6676,14 +6674,6 @@ export default function UnionPathway() {
                   <div className={`nav-dropdown-item${page==="locals"?" active":""}`} onMouseDown={() => { setPage("locals"); setLearnOpen(false); }}>
                     <span className="nav-dropdown-label">{lang==="es" ? "Entendiendo tu Local" : lang==="pl" ? "Rozumienie Oddzialu" : "Understanding Your Local"}</span>
                     <span className="nav-dropdown-sub">{lang==="es" ? "Jurisdiccion, Libro 1 vs 2, trabajo de viaje" : lang==="pl" ? "Jurysdykcja, Ksiega 1 vs 2, praca w trasie" : "Jurisdiction, Book 1 vs 2, travel work"}</span>
-                  </div>
-                  <div className={`nav-dropdown-item${page==="wages"?" active":""}`} onMouseDown={() => { setPage("wages"); setLearnOpen(false); }}>
-                    <span className="nav-dropdown-label">{lang==="es" ? "Salarios" : lang==="pl" ? "Place" : "Wages"}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "Datos salariales por oficio" : lang==="pl" ? "Dane place wedlug zawodu" : "Wage data by trade"}</span>
-                  </div>
-                  <div className={`nav-dropdown-item${page==="jobboard"?" active":""}`} onMouseDown={() => { setPage("jobboard"); setLearnOpen(false); }}>
-                    <span className="nav-dropdown-label">{lang==="es" ? "Bolsa de Trabajo" : lang==="pl" ? "Gielda Pracy" : "Job Board"}</span>
-                    <span className="nav-dropdown-sub">{lang==="es" ? "Trabajos sindicales activos" : lang==="pl" ? "Aktywne oferty pracy" : "Active union job postings"}</span>
                   </div>
                 </div>
               )}
@@ -6891,7 +6881,7 @@ export default function UnionPathway() {
 
           <div className="mobile-drawer-section">
             <button
-              className={`mobile-drawer-section-toggle${(page==="benefits"||page==="retirement"||page==="veterans"||page==="locals"||page==="wages"||page==="jobboard") ? " active" : ""}${drawerSecOpen.mb ? " open" : ""}`}
+              className={`mobile-drawer-section-toggle${(page==="benefits"||page==="retirement"||page==="veterans"||page==="locals") ? " active" : ""}${drawerSecOpen.mb ? " open" : ""}`}
               onClick={() => toggleDrawerSec("mb")}
             >
               <span>{lang==="es" ? "Membresia" : lang==="pl" ? "Czlonkostwo" : "Membership"}</span>
@@ -6902,8 +6892,6 @@ export default function UnionPathway() {
             <button className={`mobile-drawer-link${page==="retirement" ? " active" : ""}`} onClick={() => { setPage("retirement"); setMobileNavOpen(false); }}>{lang==="es" ? "Jubilacion" : lang==="pl" ? "Emerytura" : "Retirement"}</button>
             <button className={`mobile-drawer-link${page==="veterans" ? " active" : ""}`} onClick={() => { setPage("veterans"); setMobileNavOpen(false); }}>{lang==="es" ? "Veteranos" : lang==="pl" ? "Weterani" : "Veterans"}</button>
             <button className={`mobile-drawer-link${page==="locals" ? " active" : ""}`} onClick={() => { setPage("locals"); setMobileNavOpen(false); }}>{lang==="es" ? "Entendiendo tu Local" : lang==="pl" ? "Rozumienie Oddzialu" : "Understanding Your Local"}</button>
-            <button className={`mobile-drawer-link${page==="wages" ? " active" : ""}`} onClick={() => { setPage("wages"); setMobileNavOpen(false); }}>{lang==="es" ? "Salarios" : lang==="pl" ? "Place" : "Wages"}</button>
-            <button className={`mobile-drawer-link${page==="jobboard" ? " active" : ""}`} onClick={() => { setPage("jobboard"); setMobileNavOpen(false); }}>{lang==="es" ? "Bolsa de Trabajo" : lang==="pl" ? "Gielda Pracy" : "Job Board"}</button>
             </>)}
           </div>
 
@@ -7447,22 +7435,22 @@ export default function UnionPathway() {
                 visualLabel: lang==="es" ? "Oficios cubiertos" : lang==="pl" ? "Zawodow" : "Trades covered"
               },
               {
-                num:'02', section:'Wages',
-                title: lang==="es" ? "Conoce tu valor antes de firmar." : lang==="pl" ? "Poznaj swoja wartosc przed podpisaniem." : "Know your worth before you sign.",
-                body: lang==="es" ? "Datos reales de salarios de oficiales presentados por trabajadores en el campo. Organizados por oficio y local. Base, extras, pension, paquete total — el panorama completo." : lang==="pl" ? "Prawdziwe dane placowe od pracownikow. Zorganizowane wedlug zawodu i oddzialu." : "Real journeyman wage data submitted by tradespeople in the field. Organized by trade and local. Base, fringe, pension, total package — the whole picture.",
-                link: lang==="es" ? "Ver salarios" : lang==="pl" ? "Sprawdz stawki" : "Check wages",
-                page: 'wages',
-                visualNum:'58', visualAccent:'$',
-                visualLabel: lang==="es" ? "Mediana / hora" : lang==="pl" ? "Mediana / godz" : "Median / hour"
+                num:'02', section:'History',
+                title: lang==="es" ? "Conoce la historia de tu oficio." : lang==="pl" ? "Poznaj historie swojego zawodu." : "Know the history of your trade.",
+                body: lang==="es" ? "Historias profundas y originales de cada gran oficio sindical de la construccion — IBEW, UA, SMART, Iron Workers, y mas. Escritas para trabajadores por trabajadores." : lang==="pl" ? "Oryginalne, dogłebne historie kazdego glownego zwiazku budowlanego — IBEW, UA, SMART, Iron Workers i inne. Napisane dla pracownikow przez pracownikow." : "Original deep-dive histories of every major building-trade union — IBEW, UA, SMART, Iron Workers, and more. Written for workers, by workers.",
+                link: lang==="es" ? "Leer las historias" : lang==="pl" ? "Przeczytaj historie" : "Read the histories",
+                page: 'history',
+                visualNum:'11', visualAccent:'',
+                visualLabel: lang==="es" ? "Historias de sindicatos" : lang==="pl" ? "Historii zwiazkowych" : "Union histories"
               },
               {
-                num:'03', section:'Job Board',
-                title: lang==="es" ? "Donde esta el trabajo ahora mismo." : lang==="pl" ? "Gdzie jest praca teraz." : "Where the work is right now.",
-                body: lang==="es" ? "Puntos calientes, salas lentas, llamadas de tormenta, trabajo de viaje. Reportes reales de miembros activos, organizados por oficio y ubicacion." : lang==="pl" ? "Hot spoty, wolne oddzialy, prace burzowe, prace w podrozy. Prawdziwe raporty od czlonkow." : "Hot spots, slow halls, storm calls, travel work. Real reports from working members, surfaced by trade and location.",
-                link: lang==="es" ? "Ver el tablero" : lang==="pl" ? "Zobacz tablice" : "See the board",
-                page: 'jobboard',
-                visualNum:'LIVE', visualAccent:'',
-                visualLabel: lang==="es" ? "Del campo" : lang==="pl" ? "Z terenu" : "From the field"
+                num:'03', section:'Organize',
+                title: lang==="es" ? "Conoce tus derechos. Organiza tu lugar de trabajo." : lang==="pl" ? "Poznaj swoje prawa. Zorganizuj swoje miejsce pracy." : "Know your rights. Organize your workplace.",
+                body: lang==="es" ? "Derechos de Weingarten. Ley de Derecho al Trabajo. Como organizar bajo la ley federal. Como formar un caucus dentro de tu local. Los recursos que ningun otro sitio ofrece de forma gratuita." : lang==="pl" ? "Prawa Weingartena. Prawo do Pracy. Jak sie zorganizowac. Jak stworzyc kaukus w swoim oddziale. Zasoby, ktorych nie znajdziesz nigdzie indziej za darmo." : "Weingarten rights. Right to Work laws. How to organize under federal law. How to form a caucus inside your local. The resources no other site offers for free.",
+                link: lang==="es" ? "Leer las guias" : lang==="pl" ? "Przeczytaj przewodniki" : "Read the guides",
+                page: 'organize',
+                visualNum:'8(f)', visualAccent:'',
+                visualLabel: lang==="es" ? "NLRA · tus derechos" : lang==="pl" ? "NLRA · twoje prawa" : "NLRA · your rights"
               }
             ].map((f, i) => (
               <div key={i} style={{
@@ -17001,611 +16989,7 @@ export default function UnionPathway() {
           </div>
         )}
 
-        {page === "jobboard" && (() => {
-          // Build trade options with their locals
-          const JOB_TRADES = [
-            { key: 'IBEW_I', label: 'IBEW Inside Wireman', locals: IBEW_INSIDE_LOCALS },
-            { key: 'IBEW_L', label: 'IBEW Lineman', locals: IBEW_LINEMAN_LOCALS },
-            { key: 'UA', label: 'UA Plumbers & Pipefitters', locals: UA_LOCALS },
-            { key: 'BAC', label: 'BAC Bricklayers', locals: BAC_LOCALS },
-            { key: 'IW', label: 'Ironworkers', locals: IW_LOCALS },
-            { key: 'HFIAW', label: 'HFIAW Insulators', locals: HFIAW_LOCALS },
-            { key: 'IUEC', label: 'IUEC Elevator Constructors', locals: IUEC_LOCALS },
-            { key: 'IUOE', label: 'IUOE Operating Engineers', locals: IUOE_LOCALS },
-            { key: 'UBC', label: 'UBC Carpenters', locals: UBC_LOCALS },
-            { key: 'IUPAT', label: 'IUPAT Painters & Allied Trades', locals: IUPAT_LOCALS },
-          ];
-
-          const selectedTradeLocals = JOB_TRADES.find(t => t.key === jobTrade)?.locals || [];
-
-          const handleJobSubmit = async () => {
-            if (!jobTrade || !jobLocal || !jobStatus || !jobDate) return;
-            const local = selectedTradeLocals.find(l => String(l.id) === String(jobLocal));
-            if (!local) return;
-
-            const tradeName = JOB_TRADES.find(t => t.key === jobTrade)?.label || jobTrade;
-            const statusLabel = jobStatus === 'busy' ? 'BUSY' : jobStatus === 'steady' ? 'STEADY' : 'SLOW';
-
-            // Load EmailJS if not already loaded
-            if (!window.emailjs) {
-              await new Promise((resolve) => {
-                const script = document.createElement('script');
-                script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
-                script.onload = resolve;
-                document.head.appendChild(script);
-              });
-              window.emailjs.init('J8FxG05UtYq-sWLNT');
-            }
-
-            try {
-              // Save to Supabase database (pending approval)
-              const sb = await getSupabase();
-              await sb.from('job_submissions').insert({
-                trade: tradeName,
-                local_name: local.name,
-                local_id: local.id,
-                city: local.city,
-                state: local.state,
-                status: statusLabel,
-                job_calls: jobCalls || null,
-                report_date: jobDate,
-                phone: local.phone || null,
-                website: local.website || null,
-                local_email: local.email || null,
-                address: local.address || null,
-                approved: false,
-              });
-
-              // Also send notification email
-              await window.emailjs.send('service_uy3qbna', 'template_a55dhfh', {
-                trade: tradeName,
-                local_name: local.name,
-                city: local.city,
-                state: local.state,
-                status: statusLabel,
-                job_calls: jobCalls || 'None listed',
-                report_date: jobDate,
-                phone: local.phone || 'N/A',
-                website: local.website || 'N/A',
-                local_email: local.email || 'N/A',
-                address: local.address || 'N/A',
-                submitter_name: jobContactName || 'Not provided',
-                submitter_email: jobContactEmail || 'Not provided',
-              });
-              setJobSubmitted(true);
-            } catch(err) {
-              console.error('Submission error:', err);
-              alert('Submission failed. Please try again.');
-            }
-          };
-
-          return (
-            <div>
-              <div className="history-hero">
-                <div className="history-eyebrow">{lang==="es" ? "Enviado por Miembros Sindicales" : lang==="pl" ? "Przeslane przez Czlonkow Zwiazku" : "Submitted by Union Members"}</div>
-                <h1 className="history-title">
-                  {lang==="es" ? <>{"Bolsa de "}<span className="accent">{"Trabajo Sindical"}</span></> : lang==="pl" ? <>{"Gielda "}<span className="accent">{"Pracy Zwiazkowej"}</span></> : <>{"Union "}<span className="accent">{"Job Board"}</span></>}
-                </h1>
-                <p className="history-subtitle">
-                  {lang==="es" ? "Informes de perspectivas laborales enviados por miembros del sindicato. Verifica siempre con tu local antes de viajar." : lang==="pl" ? "Raporty o perspektywach pracy przeslane przez czlonkow zwiazku. Zawsze weryfikuj ze swoim lokalem przed podrozowaniem." : "Work outlook reports submitted by union members. Always verify availability directly with your local hall before traveling or making career decisions."}
-                </p>
-              </div>
-
-              <div style={{maxWidth:900, margin:"0 auto", padding:"0 24px 80px"}}>
-
-                {/* DISCLAIMER */}
-                <div style={{background:"rgba(250,128,89,0.06)", border:"1px solid rgba(250,128,89,0.2)", borderRadius:14, padding:"16px 20px", marginBottom:40, display:"flex", gap:12, alignItems:"flex-start"}}>
-                  <div style={{color:"#FA8059", fontSize:18, flexShrink:0}}>&#9888;</div>
-                  <div style={{fontSize:13, color:"var(--muted)", lineHeight:1.6}}>
-                    {lang==="es" ? "Todos los informes son enviados por miembros sindicales bajo un sistema de honor. Union Pathways no verifica esta informacion. Siempre confirma la disponibilidad de trabajo directamente con tu local sindical antes de viajar o tomar decisiones de carrera." : lang==="pl" ? "Wszystkie raporty sa przesylane przez czlonkow zwiazku w systemie honorowym. Union Pathways nie weryfikuje tych informacji. Zawsze potwierdzaj dostepnosc pracy bezposrednio ze swoim lokalem przed podrozowaniem." : "All work outlook reports are submitted by union members on an honor system. Union Pathways does not verify this information. Always confirm work availability directly with your local hall before traveling or making career decisions."}
-                  </div>
-                </div>
-
-                {/* SUBMIT FORM */}
-                <div style={{background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.08)", borderRadius:20, padding:"32px", marginBottom:40}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:"#fff", marginBottom:24}}>
-                    {lang==="es" ? "Reporte un Local Activo" : lang==="pl" ? "Zglos Aktywny Lokal" : "Submit a Hot Spot Local"}
-                  </div>
-
-                  {jobSubmitted ? (
-                    <div style={{textAlign:"center", padding:"40px 0"}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:28, fontWeight:900, color:"#FA8059", marginBottom:12}}>Report Submitted!</div>
-                      <div style={{fontSize:14, color:"var(--muted)", marginBottom:24}}>Your report is under review. Once approved it will appear on the Job Board.</div>
-                      <button onClick={() => { setJobSubmitted(false); setJobTrade(''); setJobLocal(''); setJobLocalSearch(''); setJobStatus(''); setJobCalls(''); setJobDate(''); }} style={{background:"#FA8059", border:"none", borderRadius:50, padding:"12px 28px", color:"#000", fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, letterSpacing:"0.04em", cursor:"pointer"}}>
-                        Submit Another
-                      </button>
-                    </div>
-                  ) : (
-                    <div style={{display:"flex", flexDirection:"column", gap:20}}>
-
-                      {/* Trade selector */}
-                      <div>
-                        <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:"rgba(255,255,255,0.5)", letterSpacing:"0.2em", textTransform:"uppercase", marginBottom:10}}>
-                          {lang==="es" ? "Oficio" : lang==="pl" ? "Zawod" : "Trade"}
-                        </div>
-                        <select value={jobTrade} onChange={e => { setJobTrade(e.target.value); setJobLocal(''); setJobLocalSearch(''); }} style={{width:"100%", background:"transparent", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", color:jobTrade ? "#fff" : "var(--muted)", fontSize:14, fontFamily:"'Inter',sans-serif", cursor:"pointer"}}>
-                          <option value="">{lang==="es" ? "Selecciona tu oficio..." : lang==="pl" ? "Wybierz zawod..." : "Select your trade..."}</option>
-                          {JOB_TRADES.map(t => <option key={t.key} value={t.key} style={{background:"#0a1628"}}>{t.label}</option>)}
-                        </select>
-                      </div>
-
-                      {/* Local selector */}
-                      {jobTrade && (
-                        <div>
-                          <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:"rgba(255,255,255,0.5)", letterSpacing:"0.2em", textTransform:"uppercase", marginBottom:10}}>
-                            {lang==="es" ? "Local Sindical" : lang==="pl" ? "Lokal Zwiazku" : "Union Local"}
-                          </div>
-                          <input
-                            type="search"
-                            inputMode="search"
-                            autoComplete="off"
-                            autoCorrect="off"
-                            autoCapitalize="none"
-                            spellCheck={false}
-                            value={jobLocalSearch}
-                            onChange={e => setJobLocalSearch(e.target.value)}
-                            placeholder={lang==="es" ? "Buscar por numero de local o ciudad..." : lang==="pl" ? "Szukaj po numerze lub miescie..." : "Search by local number or city..."}
-                            style={{width:"100%", background:"transparent", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"10px 14px", color:"#fff", fontSize:16, fontFamily:"'Inter',sans-serif", marginBottom:8, boxSizing:"border-box"}}
-                          />
-                          {jobLocalSearch.trim() && (
-                            <div style={{fontSize:11, color:"rgba(160,180,196,0.7)", marginBottom:8, fontFamily:"'Inter',sans-serif"}}>
-                              {(() => {
-                                const q = jobLocalSearch.trim().toLowerCase();
-                                const n = selectedTradeLocals.filter(l => l.name.toLowerCase().includes(q) || l.city.toLowerCase().includes(q) || (l.state || '').toLowerCase().includes(q)).length;
-                                return n + ' ' + (lang==="es" ? "resultados" : lang==="pl" ? "wynikow" : (n === 1 ? "match" : "matches"));
-                              })()}
-                            </div>
-                          )}
-                          <div style={{width:"100%", background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:6, maxHeight:260, overflowY:"auto", fontFamily:"'Inter',sans-serif"}}>
-                            {(() => {
-                              const q = jobLocalSearch.trim().toLowerCase();
-                              const filtered = [...selectedTradeLocals]
-                                .filter(l => !q || l.name.toLowerCase().includes(q) || l.city.toLowerCase().includes(q) || (l.state || '').toLowerCase().includes(q))
-                                .sort((a,b) => { const numA = parseInt(String(a.id).match(/\d+/)?.[0] || '0', 10); const numB = parseInt(String(b.id).match(/\d+/)?.[0] || '0', 10); return numA - numB; });
-                              if (filtered.length === 0) return <div style={{padding:"14px 16px", color:"rgba(160,180,196,0.7)", fontSize:13, textAlign:"center"}}>{lang==="es" ? "Sin resultados" : lang==="pl" ? "Brak wynikow" : "No matches"}</div>;
-                              return filtered.map(l => {
-                                const isSelected = String(jobLocal) === String(l.id);
-                                return (
-                                  <div key={l.id} onClick={() => setJobLocal(String(l.id))} style={{padding:"10px 14px", borderRadius:8, marginBottom:2, cursor:"pointer", background: isSelected ? "rgba(250,128,89,0.2)" : "transparent", border: isSelected ? "1px solid rgba(250,128,89,0.5)" : "1px solid transparent", color: isSelected ? "#FA8059" : "#fff", fontSize:14, fontWeight: isSelected ? 700 : 500, transition:"background 0.12s"}} onMouseEnter={e => { if (!isSelected) e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }} onMouseLeave={e => { if (!isSelected) e.currentTarget.style.background = "transparent"; }}>
-                                    <div style={{fontWeight:700, fontSize:14}}>{l.name}</div>
-                                    <div style={{fontSize:12, color: isSelected ? "rgba(250,128,89,0.85)" : "rgba(160,180,196,0.85)", marginTop:2}}>{l.city}, {l.state}</div>
-                                  </div>
-                                );
-                              });
-                            })()}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Status */}
-                      {jobLocal && (
-                        <div>
-                          <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:"rgba(255,255,255,0.5)", letterSpacing:"0.2em", textTransform:"uppercase", marginBottom:10}}>
-                            {lang==="es" ? "Estado del Trabajo" : lang==="pl" ? "Status Pracy" : "Work Status"}
-                          </div>
-                          <div style={{display:"flex", gap:10}}>
-                            {[
-                              {val:'busy', label:'🟢 Busy', desc: lang==="es" ? "Mucho trabajo, contratando" : lang==="pl" ? "Duzo pracy, zatrudniamy" : "Lots of work, hiring"},
-                              {val:'steady', label:'🟡 Steady', desc: lang==="es" ? "Flujo normal de trabajo" : lang==="pl" ? "Normalny przepyw pracy" : "Normal workflow"},
-                              {val:'slow', label:'🔴 Slow', desc: lang==="es" ? "Trabajo escaso" : lang==="pl" ? "Malo pracy" : "Work is light"},
-                            ].map(s => (
-                              <button key={s.val} onClick={() => setJobStatus(s.val)} style={{flex:1, padding:"12px 8px", borderRadius:12, border: jobStatus===s.val ? "1px solid #FA8059" : "1px solid rgba(255,255,255,0.08)", background: jobStatus===s.val ? "rgba(250,128,89,0.1)" : "rgba(255,255,255,0.02)", cursor:"pointer", textAlign:"center"}}>
-                                <div style={{fontSize:14, fontWeight:700, color: jobStatus===s.val ? "#FA8059" : "#fff", marginBottom:4}}>{s.label}</div>
-                                <div style={{fontSize:11, color:"var(--muted)"}}>{s.desc}</div>
-                              </button>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Job Calls */}
-                      {jobStatus && (
-                        <div>
-                          <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:"rgba(255,255,255,0.5)", letterSpacing:"0.2em", textTransform:"uppercase", marginBottom:10}}>
-                            {lang==="es" ? "Lista de Llamadas de Trabajo" : lang==="pl" ? "Lista Ofert Pracy" : "List Job Calls"}
-                          </div>
-                          <textarea value={jobCalls} onChange={e => setJobCalls(e.target.value)} placeholder={lang==="es" ? "Ej: Trabajo comercial disponible, proyectos de data center, sin trabajo residencial..." : lang==="pl" ? "Np: Praca komercyjna dostepna, projekty data center, brak pracy mieszkaniowej..." : "e.g. Commercial work available, data center projects, no residential work..."} rows={3} style={{width:"100%", background:"transparent", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", color:"#fff", fontSize:14, fontFamily:"'Inter',sans-serif", resize:"vertical", boxSizing:"border-box"}}/>
-                        </div>
-                      )}
-
-                      {/* Date */}
-                      {jobStatus && (
-                        <div>
-                          <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:"rgba(255,255,255,0.5)", letterSpacing:"0.2em", textTransform:"uppercase", marginBottom:10}}>
-                            {lang==="es" ? "Fecha del Informe" : lang==="pl" ? "Data Raportu" : "Report Date"}
-                          </div>
-                          <input type="date" value={jobDate} onChange={e => setJobDate(e.target.value)} style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", color:"#fff", fontSize:14, fontFamily:"'Inter',sans-serif", width:"100%", boxSizing:"border-box"}}/>
-                        </div>
-                      )}
-
-                      {/* CONTACT INFO — optional, private */}
-                      {jobTrade && jobLocal && jobStatus && jobDate && (
-                        <div style={{marginTop:8, padding:"18px 20px", background:"rgba(245,197,24,0.04)", border:"1px solid rgba(245,197,24,0.18)", borderRadius:12}}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:"#FA8059", marginBottom:6}}>
-                            {lang==="es" ? "Contacto (opcional, privado)" : lang==="pl" ? "Kontakt (opcjonalny, prywatny)" : "Contact (optional, private)"}
-                          </div>
-                          <div style={{fontSize:12, color:"rgba(255,255,255,0.6)", lineHeight:1.55, marginBottom:14}}>
-                            {lang==="es" ? "Solo para que pueda hacer seguimiento si tengo preguntas. Nunca se publicara en el sitio." : lang==="pl" ? "Tylko abym mogl sie z Toba skontaktowac jesli mam pytania. Nigdy nie zostanie opublikowane na stronie." : "Just so I can follow up if I have questions. This will never be posted on the site."}
-                          </div>
-                          <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:10}}>
-                            <input type="text" value={jobContactName} onChange={e => setJobContactName(e.target.value)} placeholder={lang==="es" ? "Nombre" : lang==="pl" ? "Imie" : "Name"} style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"10px 14px", color:"#fff", fontSize:13, fontFamily:"'Inter',sans-serif"}} />
-                            <input type="email" value={jobContactEmail} onChange={e => setJobContactEmail(e.target.value)} placeholder={lang==="es" ? "Correo electronico" : lang==="pl" ? "Email" : "Email"} style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"10px 14px", color:"#fff", fontSize:13, fontFamily:"'Inter',sans-serif"}} />
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Submit */}
-                      {jobTrade && jobLocal && jobStatus && jobDate && (
-                        <button onClick={handleJobSubmit} style={{background:"#FA8059", color:"#000", fontFamily:"'Barlow Condensed',sans-serif", fontSize:16, fontWeight:900, letterSpacing:"0.08em", textTransform:"uppercase", padding:"16px 32px", borderRadius:50, border:"none", cursor:"pointer", marginTop:8}}>
-                          {lang==="es" ? "Enviar" : lang==="pl" ? "Wyslij" : "Submit Hot Spot"}
-                        </button>
-                      )}
-
-                    </div>
-                  )}
-                </div>
-
-                {/* BOARD — approved reports would show here */}
-                <div>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:"#fff", marginBottom:20}}>
-                    {lang==="es" ? "Informes Aprobados" : lang==="pl" ? "Zatwierdzone Raporty" : "Approved Reports"}
-                  </div>
-                  <ApprovedReportsFeed lang={lang} />
-                </div>
-
-              </div>
-            </div>
-          );
-        })()}
-
-        {page === "wages" && (() => {
-          const WAGE_TRADES = [
-            { key: 'IBEW_I', label: 'IBEW Inside Wireman', locals: IBEW_INSIDE_LOCALS },
-            { key: 'IBEW_L', label: 'IBEW Lineman', locals: IBEW_LINEMAN_LOCALS },
-            { key: 'UA', label: 'UA Plumbers & Pipefitters', locals: UA_LOCALS },
-            { key: 'BAC', label: 'BAC Bricklayers', locals: BAC_LOCALS },
-            { key: 'IW', label: 'Ironworkers', locals: IW_LOCALS },
-            { key: 'HFIAW', label: 'HFIAW Insulators', locals: HFIAW_LOCALS },
-            { key: 'IUEC', label: 'IUEC Elevator Constructors', locals: IUEC_LOCALS },
-            { key: 'IUOE', label: 'IUOE Operating Engineers', locals: IUOE_LOCALS },
-            { key: 'UBC', label: 'UBC Carpenters', locals: UBC_LOCALS },
-            { key: 'IUPAT', label: 'IUPAT Painters & Allied Trades', locals: IUPAT_LOCALS },
-          ];
-          const isIBEW = wageTrade === 'IBEW_I' || wageTrade === 'IBEW_L';
-          const isIUOE = wageTrade === 'IUOE';
-          const wageLocals = WAGE_TRADES.find(t => t.key === wageTrade)?.locals || [];
-          const num = (v) => { const n = parseFloat(v); return isNaN(n) ? 0 : n; };
-          const totalPackage = num(wageHourly) + num(wageHW) + num(wageDefinedPension) + num(wageNationalPension) + num(wageContribPension) + num(wage401k) + num(wageMiscFunds) + (isIBEW ? num(wageNEBF) : 0) + (isIUOE ? num(wageCIPF) + num(wageIUOETraining) : 0);
-
-          const handleWageSubmit = async () => {
-            if (!wageTrade || !wageLocal || !wageMethod) return;
-            if (wageMethod === 'image' && !wageImageFile) return;
-            if (wageMethod === 'manual' && !wageHourly) return;
-            const local = wageLocals.find(l => String(l.id) === String(wageLocal));
-            if (!local) return;
-            const tradeName = WAGE_TRADES.find(t => t.key === wageTrade)?.label || wageTrade;
-            setWageUploading(true);
-            try {
-              const sb = await getSupabase();
-              let imageUrl = null;
-              if (wageImageFile) {
-                const ext = (wageImageFile.name.split('.').pop() || 'bin').toLowerCase();
-                const fileName = `${Date.now()}_${Math.random().toString(36).slice(2, 10)}.${ext}`;
-                const { error: upErr } = await sb.storage.from('wage-sheets').upload(fileName, wageImageFile, { contentType: wageImageFile.type });
-                if (upErr) throw upErr;
-                const { data: urlData } = sb.storage.from('wage-sheets').getPublicUrl(fileName);
-                imageUrl = urlData.publicUrl;
-              }
-              await sb.from('wage_submissions').insert({
-                trade: tradeName, local_name: local.name, local_id: String(local.id), city: local.city, state: local.state,
-                classification: 'Journeyman', submission_method: wageMethod, image_url: imageUrl,
-                hourly: wageMethod === 'manual' ? num(wageHourly) || null : null,
-                health_welfare: wageMethod === 'manual' ? num(wageHW) || null : null,
-                defined_pension: wageMethod === 'manual' ? num(wageDefinedPension) || null : null,
-                national_pension: wageMethod === 'manual' ? num(wageNationalPension) || null : null,
-                contribution_pension: wageMethod === 'manual' ? num(wageContribPension) || null : null,
-                k401: wageMethod === 'manual' ? num(wage401k) || null : null,
-                nebf: wageMethod === 'manual' && isIBEW ? num(wageNEBF) || null : null,
-                cipf: wageMethod === 'manual' && isIUOE ? num(wageCIPF) || null : null,
-                iuoe_training: wageMethod === 'manual' && isIUOE ? num(wageIUOETraining) || null : null,
-                misc_funds: wageMethod === 'manual' ? num(wageMiscFunds) || null : null,
-                working_dues: wageMethod === 'manual' ? num(wageWorkingDues) || null : null,
-                total_package: wageMethod === 'manual' ? totalPackage || null : null,
-                effective_date: null, valid_through: wageValidThrough || null,
-                notes: wageNotes || null, approved: false,
-              });
-              if (!window.emailjs) {
-                await new Promise((resolve) => {
-                  const script = document.createElement('script');
-                  script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
-                  script.onload = resolve;
-                  document.head.appendChild(script);
-                });
-                window.emailjs.init('J8FxG05UtYq-sWLNT');
-              }
-              try {
-                await window.emailjs.send('service_uy3qbna', 'template_8fxawbm', {
-                  trade: tradeName, local_name: local.name, city: local.city, state: local.state,
-                  status: 'WAGES SUBMISSION',
-                  job_calls: wageMethod === 'image' ? `Image upload: ${imageUrl}` : `Manual entry — Hourly: $${wageHourly}, Total: $${totalPackage.toFixed(2)}`,
-                  report_date: new Date().toLocaleDateString(), phone: 'N/A', website: 'N/A', local_email: 'N/A',
-                  address: `Contract valid through ${wageValidThrough || 'N/A'}`,
-                  submitter_name: wageContactName || 'Not provided',
-                  submitter_email: wageContactEmail || 'Not provided',
-                });
-              } catch (emailErr) { console.warn('Email failed (non-fatal):', emailErr); }
-              setWageSubmitted(true);
-            } catch (err) {
-              console.error('Wage submission error:', err);
-              alert('Submission failed: ' + (err.message || 'Please try again.'));
-            } finally { setWageUploading(false); }
-          };
-
-          const resetWageForm = () => {
-            setWageSubmitted(false); setWageTrade(''); setWageLocal(''); setWageLocalSearch(''); setWageMethod('');
-            setWageImageFile(null); setWageHourly(''); setWageHW(''); setWageDefinedPension('');
-            setWageNationalPension(''); setWageContribPension(''); setWage401k(''); setWageNEBF(''); setWageCIPF('');
-            setWageIUOETraining(''); setWageMiscFunds(''); setWageWorkingDues(''); setWageEffectiveDate('');
-            setWageValidThrough(''); setWageNotes('');
-            setWageContactName(''); setWageContactEmail('');
-          };
-
-          const labelStyle = {fontFamily:"'Space Mono',monospace", fontSize:11, color:"rgba(255,255,255,0.5)", letterSpacing:"0.2em", textTransform:"uppercase", marginBottom:10};
-          const inputStyle = {width:"100%", background:"transparent", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", color:"#fff", fontSize:14, fontFamily:"'Inter',sans-serif", boxSizing:"border-box", transition:"border-color 0.18s"};
-          const moneyField = (label, value, setter, optional = false) => (
-            <div>
-              <div style={labelStyle}>{label}{optional && <span style={{opacity:0.5, fontWeight:400, textTransform:"none", letterSpacing:0, marginLeft:6}}>(optional)</span>}</div>
-              <div style={{position:"relative"}}>
-                <span style={{position:"absolute", left:14, top:"50%", transform:"translateY(-50%)", color:"var(--muted)", fontSize:14, pointerEvents:"none"}}>$</span>
-                <input type="number" step="0.01" min="0" value={value} onChange={e => setter(e.target.value)} placeholder="0.00" style={{...inputStyle, paddingLeft:28}} />
-              </div>
-            </div>
-          );
-
-          return (
-            <div>
-              <div className="history-hero">
-                <div className="history-eyebrow">{lang==="es" ? "Salarios Verificados por Miembros" : lang==="pl" ? "Stawki Potwierdzone przez Czlonkow" : "Wages Verified by Members"}</div>
-                <h1 className="history-title">
-                  {lang==="es" ? <>{"Salarios "}<span className="accent">{"de Locales"}</span></> : lang==="pl" ? <>{"Place "}<span className="accent">{"Lokalne"}</span></> : <>{"Local "}<span className="accent">{"Wages"}</span></>}
-                </h1>
-                <p className="history-subtitle">
-                  {lang==="es" ? "Tarifas de jornaleros enviadas por miembros del sindicato. Verifica siempre con tu local antes de tomar decisiones." : lang==="pl" ? "Stawki czeladnikow przeslane przez czlonkow zwiazku. Zawsze weryfikuj ze swoim lokalem." : "Journeyman rates submitted by union members. Always verify with your local before making career decisions."}
-                </p>
-              </div>
-
-              <div style={{maxWidth:900, margin:"0 auto", padding:"0 24px 80px"}}>
-
-                <div style={{background:"rgba(250,128,89,0.06)", border:"1px solid rgba(250,128,89,0.2)", borderRadius:14, padding:"16px 20px", marginBottom:40, display:"flex", gap:12, alignItems:"flex-start"}}>
-                  <div style={{color:"#FA8059", fontSize:18, flexShrink:0}}>&#9888;</div>
-                  <div style={{fontSize:13, color:"var(--muted)", lineHeight:1.6}}>
-                    <><div><strong style={{color:"#FA8059", fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1}}>{lang==="es" ? "SISTEMA DE HONOR — " : lang==="pl" ? "SYSTEM HONOROWY — " : "HONOR SYSTEM — "}</strong>{lang==="es" ? "Todos los salarios son enviados por miembros del sindicato y NO son verificados por Union Pathways. Para tarifas finales y 100% precisas, siempre contacte directamente con su local sindical." : lang==="pl" ? "Wszystkie stawki sa przesylane przez czlonkow zwiazku i NIE sa weryfikowane przez Union Pathways. Aby uzyskac koncowe i w 100% dokladne stawki, zawsze skontaktuj sie bezposrednio ze swoim lokalem zwiazkowym." : "All wage data is submitted by union members and is NOT verified by Union Pathways. For final and 100% accurate rates, always contact your local hall directly."}</div><div style={{marginTop:12, fontSize:12, opacity:0.85, paddingTop:12, borderTop:"1px solid rgba(250,128,89,0.15)"}}><strong style={{color:"#FA8059", fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:0.5}}>{lang==="es" ? "NOTA — " : lang==="pl" ? "UWAGA — " : "NOTE — "}</strong>{lang==="es" ? "Los envios cubren los rubros principales: hora, salud y bienestar, pensiones, anualidad, NEBF/CIPF y cuotas. Las contribuciones pequenas que varian de local a local (JATC, fondos suplementarios, etc.) se pueden agrupar en el campo Otros Fondos." : lang==="pl" ? "Zgloszenia obejmuja glowne pozycje: godzinowo, swiadczenia zdrowotne, emerytury, renta, NEBF/CIPF i skladki. Mniejsze skladki ktore roznia sie miedzy lokalami (JATC, fundusze dodatkowe itp.) mozna zlaczyc w polu Inne Fundusze." : "Submissions cover the major line items: hourly, health & welfare, pensions, annuity, NEBF/CIPF, and dues. Smaller contributions that vary local to local (JATC, supplemental funds, etc.) can be rolled into the Other Funds field."}</div></>
-                  </div>
-                </div>
-
-                <div style={{background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.08)", borderRadius:20, padding:"32px", marginBottom:40}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:"#fff", marginBottom:24}}>
-                    {lang==="es" ? "Enviar Salarios de tu Local" : lang==="pl" ? "Zglos Stawki Twojego Lokalu" : "Submit Your Local's Wages"}
-                  </div>
-
-                  {wageSubmitted ? (
-                    <div style={{textAlign:"center", padding:"40px 0"}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:28, fontWeight:900, color:"#FA8059", marginBottom:12}}>
-                        {lang==="es" ? "Salario Enviado!" : lang==="pl" ? "Stawka Wyslana!" : "Wages Submitted!"}
-                      </div>
-                      <div style={{fontSize:14, color:"var(--muted)", marginBottom:24}}>
-                        {lang==="es" ? "Tu informacion esta siendo revisada. Una vez aprobada aparecera aqui." : lang==="pl" ? "Twoja informacja jest sprawdzana. Po zatwierdzeniu pojawi sie tutaj." : "Your wage info is under review. Once approved it will appear here."}
-                      </div>
-                      <button onClick={resetWageForm} style={{background:"#FA8059", border:"none", borderRadius:50, padding:"12px 28px", color:"#000", fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, letterSpacing:"0.04em", cursor:"pointer"}}>
-                        {lang==="es" ? "Enviar Otro" : lang==="pl" ? "Wyslij Kolejny" : "Submit Another"}
-                      </button>
-                    </div>
-                  ) : (
-                    <div style={{display:"flex", flexDirection:"column", gap:20}}>
-
-                      <div>
-                        <div style={labelStyle}>{lang==="es" ? "Oficio" : lang==="pl" ? "Zawod" : "Trade"}</div>
-                        <select value={wageTrade} onChange={e => { setWageTrade(e.target.value); setWageLocal(''); setWageLocalSearch(''); }} style={{...inputStyle, cursor:"pointer", color: wageTrade ? "#fff" : "var(--muted)"}}>
-                          <option value="">{lang==="es" ? "Selecciona tu oficio..." : lang==="pl" ? "Wybierz zawod..." : "Select your trade..."}</option>
-                          {WAGE_TRADES.map(t => <option key={t.key} value={t.key} style={{background:"#0a1628"}}>{t.label}</option>)}
-                        </select>
-                      </div>
-
-                      {wageTrade && (
-                        <div>
-                          <div style={labelStyle}>{lang==="es" ? "Local Sindical" : lang==="pl" ? "Lokal Zwiazku" : "Union Local"}</div>
-                          <input
-                            type="search"
-                            inputMode="search"
-                            autoComplete="off"
-                            autoCorrect="off"
-                            autoCapitalize="none"
-                            spellCheck={false}
-                            value={wageLocalSearch}
-                            onChange={e => setWageLocalSearch(e.target.value)}
-                            placeholder={lang==="es" ? "Buscar por numero de local o ciudad..." : lang==="pl" ? "Szukaj po numerze lub miescie..." : "Search by local number or city..."}
-                            style={{...inputStyle, fontSize:16, padding:"10px 14px", marginBottom:8}}
-                          />
-                          {wageLocalSearch.trim() && (
-                            <div style={{fontSize:11, color:"rgba(160,180,196,0.7)", marginBottom:8, fontFamily:"'Inter',sans-serif"}}>
-                              {(() => {
-                                const q = wageLocalSearch.trim().toLowerCase();
-                                const n = wageLocals.filter(l => l.name.toLowerCase().includes(q) || l.city.toLowerCase().includes(q) || (l.state || '').toLowerCase().includes(q)).length;
-                                return n + ' ' + (lang==="es" ? "resultados" : lang==="pl" ? "wynikow" : (n === 1 ? "match" : "matches"));
-                              })()}
-                            </div>
-                          )}
-                          <div style={{width:"100%", background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:6, maxHeight:260, overflowY:"auto", fontFamily:"'Inter',sans-serif"}}>
-                            {(() => {
-                              const q = wageLocalSearch.trim().toLowerCase();
-                              const filtered = [...wageLocals]
-                                .filter(l => !q || l.name.toLowerCase().includes(q) || l.city.toLowerCase().includes(q) || (l.state || '').toLowerCase().includes(q))
-                                .sort((a,b) => { const numA = parseInt(String(a.id).match(/\d+/)?.[0] || '0', 10); const numB = parseInt(String(b.id).match(/\d+/)?.[0] || '0', 10); return numA - numB; });
-                              if (filtered.length === 0) return <div style={{padding:"14px 16px", color:"rgba(160,180,196,0.7)", fontSize:13, textAlign:"center"}}>{lang==="es" ? "Sin resultados" : lang==="pl" ? "Brak wynikow" : "No matches"}</div>;
-                              return filtered.map(l => {
-                                const isSelected = String(wageLocal) === String(l.id);
-                                return (
-                                  <div key={l.id} onClick={() => setWageLocal(String(l.id))} style={{padding:"10px 14px", borderRadius:8, marginBottom:2, cursor:"pointer", background: isSelected ? "rgba(250,128,89,0.2)" : "transparent", border: isSelected ? "1px solid rgba(250,128,89,0.5)" : "1px solid transparent", color: isSelected ? "#FA8059" : "#fff", fontSize:14, fontWeight: isSelected ? 700 : 500, transition:"background 0.12s"}} onMouseEnter={e => { if (!isSelected) e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }} onMouseLeave={e => { if (!isSelected) e.currentTarget.style.background = "transparent"; }}>
-                                    <div style={{fontWeight:700, fontSize:14}}>{l.name}</div>
-                                    <div style={{fontSize:12, color: isSelected ? "rgba(250,128,89,0.85)" : "rgba(160,180,196,0.85)", marginTop:2}}>{l.city}, {l.state}</div>
-                                  </div>
-                                );
-                              });
-                            })()}
-                          </div>
-                        </div>
-                      )}
-
-                      {wageLocal && (
-                        <div>
-                          <div style={labelStyle}>{lang==="es" ? "Metodo de Envio" : lang==="pl" ? "Metoda Zgloszenia" : "Submission Method"}</div>
-                          <div style={{display:"flex", gap:10}}>
-                            <button onClick={() => setWageMethod('image')} style={{flex:1, padding:"14px 12px", borderRadius:12, border: wageMethod==='image' ? "1px solid #FA8059" : "1px solid rgba(255,255,255,0.08)", background: wageMethod==='image' ? "rgba(250,128,89,0.1)" : "rgba(255,255,255,0.02)", cursor:"pointer", textAlign:"center"}}>
-                              <div style={{fontSize:24, marginBottom:4}}>📄</div>
-                              <div style={{fontSize:13, fontWeight:700, color: wageMethod==='image' ? "#FA8059" : "#fff"}}>{lang==="es" ? "Subir Hoja" : lang==="pl" ? "Prześlij Plik" : "Upload Wage Sheet"}</div>
-                              <div style={{fontSize:11, color:"var(--muted)", marginTop:4}}>{lang==="es" ? "Foto o PDF" : lang==="pl" ? "Zdjecie lub PDF" : "Photo or PDF"}</div>
-                            </button>
-                            <button onClick={() => setWageMethod('manual')} style={{flex:1, padding:"14px 12px", borderRadius:12, border: wageMethod==='manual' ? "1px solid #FA8059" : "1px solid rgba(255,255,255,0.08)", background: wageMethod==='manual' ? "rgba(250,128,89,0.1)" : "rgba(255,255,255,0.02)", cursor:"pointer", textAlign:"center"}}>
-                              <div style={{fontSize:24, marginBottom:4}}>⌨️</div>
-                              <div style={{fontSize:13, fontWeight:700, color: wageMethod==='manual' ? "#FA8059" : "#fff"}}>{lang==="es" ? "Ingresar Manual" : lang==="pl" ? "Wprowadz Recznie" : "Enter Manually"}</div>
-                              <div style={{fontSize:11, color:"var(--muted)", marginTop:4}}>{lang==="es" ? "Escribir cifras" : lang==="pl" ? "Wpisz kwoty" : "Type the numbers"}</div>
-                            </button>
-                          </div>
-                        </div>
-                      )}
-
-                      {wageMethod === 'image' && (
-                        <div>
-                          <div style={labelStyle}>{lang==="es" ? "Hoja de Salario" : lang==="pl" ? "Plik ze Stawka" : "Wage Sheet File"}</div>
-                          <input type="file" accept="image/*,application/pdf" onChange={e => setWageImageFile(e.target.files[0])} style={{...inputStyle, cursor:"pointer", padding:"10px 12px"}} />
-                          {wageImageFile && <div style={{fontSize:12, color:"var(--muted)", marginTop:6}}>✓ {wageImageFile.name} ({(wageImageFile.size/1024/1024).toFixed(2)} MB)</div>}
-                          <div style={{fontSize:11, color:"var(--muted)", marginTop:8, lineHeight:1.4}}>
-                            {lang==="es" ? "Sube una foto clara o PDF de tu hoja de salario actual. Maximo 50 MB." : lang==="pl" ? "Prześlij wyrazne zdjecie lub PDF stawki. Maksymalnie 50 MB." : "Upload a clear photo or PDF of your current wage sheet. Max 50 MB."}
-                          </div>
-                        </div>
-                      )}
-
-                      {wageMethod === 'manual' && (
-                        <>
-                          {moneyField(lang==="es" ? "Por Hora" : lang==="pl" ? "Godzinowo" : "Hourly", wageHourly, setWageHourly)}
-                          {moneyField(lang==="es" ? "Salud y Bienestar" : lang==="pl" ? "Zdrowie i Opieka" : "Health & Welfare", wageHW, setWageHW, true)}
-                          {moneyField(lang==="es" ? "Pension Definida" : lang==="pl" ? "Emerytura Definiowana" : "Defined Pension", wageDefinedPension, setWageDefinedPension, true)}
-                          {moneyField(lang==="es" ? "Pension Nacional" : lang==="pl" ? "Emerytura Krajowa" : "National Pension", wageNationalPension, setWageNationalPension, true)}
-                          {moneyField(lang==="es" ? "Pension de Contribucion / Anualidad" : lang==="pl" ? "Emerytura Skladkowa / Renta" : "Contribution Pension / Annuity", wageContribPension, setWageContribPension, true)}
-                          {moneyField("401(k)", wage401k, setWage401k, true)}
-                          {isIBEW && moneyField("NEBF", wageNEBF, setWageNEBF, true)}
-                          {isIUOE && moneyField("CIPF", wageCIPF, setWageCIPF, true)}
-                          {isIUOE && moneyField(lang==="es" ? "Entrenamiento IUOE" : lang==="pl" ? "Szkolenie IUOE" : "IUOE National Training Fund", wageIUOETraining, setWageIUOETraining, true)}
-                          {moneyField(lang==="es" ? "Otros Fondos" : lang==="pl" ? "Inne Fundusze" : "Other Funds", wageMiscFunds, setWageMiscFunds, true)}
-                          <div>
-                            <div style={labelStyle}>{lang==="es" ? "Cuotas de Trabajo" : lang==="pl" ? "Skladki Pracownicze" : "Working Dues"}<span style={{opacity:0.5, fontWeight:400, textTransform:"none", letterSpacing:0, marginLeft:6}}>({lang==="es" ? "% opcional" : lang==="pl" ? "% opcjonalne" : "% optional"})</span></div>
-                            <div style={{position:"relative"}}>
-                              <input type="number" step="0.01" min="0" max="100" value={wageWorkingDues} onChange={e => setWageWorkingDues(e.target.value)} placeholder="0.00" style={{...inputStyle, paddingRight:32}} />
-                              <span style={{position:"absolute", right:14, top:"50%", transform:"translateY(-50%)", color:"var(--muted)", fontSize:14, pointerEvents:"none"}}>%</span>
-                            </div>
-                            <div style={{fontSize:11, color:"var(--muted)", marginTop:6, lineHeight:1.4}}>
-                              {lang==="es" ? "Porcentaje deducido del cheque, no incluido en el paquete." : lang==="pl" ? "Procent potracany z wyplaty, nie wliczany do pakietu." : "Percentage deducted from your check — not part of total package."}
-                            </div>
-                          </div>
-
-                          {wageHourly && (
-                            <div style={{padding:"16px 20px", background:"rgba(34,197,94,0.08)", border:"1px solid rgba(34,197,94,0.25)", borderRadius:12, display:"flex", justifyContent:"space-between", alignItems:"center"}}>
-                              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:"#22c55e", letterSpacing:1, textTransform:"uppercase"}}>
-                                {lang==="es" ? "Paquete Total" : lang==="pl" ? "Pakiet Calkowity" : "Total Package"}
-                              </div>
-                              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontWeight:900, color:"#22c55e"}}>
-                                ${totalPackage.toFixed(2)}
-                              </div>
-                            </div>
-                          )}
-
-                          <div>
-                            <div style={labelStyle}>{lang==="es" ? "Adjuntar Hoja de Salario" : lang==="pl" ? "Dolacz Plik ze Stawka" : "Attach Wage Sheet"}<span style={{opacity:0.5, fontWeight:400, textTransform:"none", letterSpacing:0, marginLeft:6}}>({lang==="es" ? "opcional" : lang==="pl" ? "opcjonalne" : "optional"})</span></div>
-                            <input type="file" accept="image/*,application/pdf" onChange={e => setWageImageFile(e.target.files[0])} style={{...inputStyle, cursor:"pointer", padding:"10px 12px"}} />
-                            {wageImageFile && <div style={{fontSize:12, color:"var(--muted)", marginTop:6}}>✓ {wageImageFile.name} ({(wageImageFile.size/1024/1024).toFixed(2)} MB)</div>}
-                            <div style={{fontSize:11, color:"var(--muted)", marginTop:8, lineHeight:1.4}}>
-                              {lang==="es" ? "Opcional: adjunta una foto o PDF como respaldo." : lang==="pl" ? "Opcjonalne: dolacz zdjecie lub PDF jako dowod." : "Optional: attach a photo or PDF as backup verification."}
-                            </div>
-                          </div>
-                        </>
-                      )}
-
-                      {wageMethod && (
-                        <div>
-                          <div style={labelStyle}>{lang==="es" ? "Enviado a Union Pathways" : lang==="pl" ? "Zgloszone do Union Pathways" : "Submission to Union Pathways On"}</div>
-                          <div style={{...inputStyle, opacity:0.7, cursor:"default", userSelect:"none"}}>
-                            {new Date().toLocaleDateString(lang==="es" ? "es-ES" : lang==="pl" ? "pl-PL" : "en-US", { year:"numeric", month:"long", day:"numeric" })}
-                          </div>
-                          <div style={{fontSize:11, color:"var(--muted)", marginTop:6}}>
-                            {lang==="es" ? "Capturada automaticamente al enviar." : lang==="pl" ? "Zapisywana automatycznie przy zgloszeniu." : "Automatically captured when you submit."}
-                          </div>
-                        </div>
-                      )}
-
-                      {wageMethod && (
-                        <div>
-                          <div style={labelStyle}>{lang==="es" ? "Contrato Valido Hasta" : lang==="pl" ? "Umowa Wazna Do" : "Contract Valid Through"}<span style={{opacity:0.5, fontWeight:400, textTransform:"none", letterSpacing:0, marginLeft:6}}>({lang==="es" ? "opcional" : lang==="pl" ? "opcjonalne" : "optional"})</span></div>
-                          <input type="date" value={wageValidThrough} onChange={e => setWageValidThrough(e.target.value)} style={inputStyle} />
-                          <div style={{fontSize:11, color:"var(--muted)", marginTop:6}}>
-                            {lang==="es" ? "Cuando expira el contrato actual." : lang==="pl" ? "Kiedy wygasa obecna umowa." : "When the current contract expires."}
-                          </div>
-                        </div>
-                      )}
-
-                      {wageMethod === 'manual' && !wageImageFile && (
-                        <div style={{padding:"14px 18px", background:"rgba(245,197,24,0.08)", border:"1px solid rgba(245,197,24,0.3)", borderRadius:12, display:"flex", gap:12, alignItems:"flex-start"}}>
-                          <div style={{color:"#FA8059", fontSize:18, flexShrink:0}}>&#9888;</div>
-                          <div style={{fontSize:13, color:"rgba(255,255,255,0.85)", lineHeight:1.5}}>
-                            {lang==="es" ? "Sin una hoja de salario adjunta, esta entrada es solo del sistema de honor. Siempre verifique con su local sindical para tarifas finales y 100% precisas." : lang==="pl" ? "Bez dolaczonej stawki, ten wpis jest tylko w systemie honorowym. Zawsze weryfikuj ze swoim lokalem aby uzyskac koncowe i w 100% dokladne stawki." : "Without a wage sheet attached, this entry is honor-system only. Always contact your local hall directly for final and 100% accurate rates."}
-                          </div>
-                        </div>
-                      )}
-
-                      {wageMethod && (
-                        <div>
-                          <div style={labelStyle}>{lang==="es" ? "Notas (opcional)" : lang==="pl" ? "Notatki (opcjonalne)" : "Notes (optional)"}</div>
-                          <textarea value={wageNotes} onChange={e => setWageNotes(e.target.value)} placeholder={lang==="es" ? "Detalles adicionales sobre el contrato..." : lang==="pl" ? "Dodatkowe informacje o umowie..." : "Any additional details about the contract..."} rows={2} style={{...inputStyle, resize:"vertical"}} />
-                        </div>
-                      )}
-
-                      {/* CONTACT INFO — optional, private */}
-                      {wageMethod && ((wageMethod === 'image' && wageImageFile) || (wageMethod === 'manual' && wageHourly)) && (
-                        <div style={{marginTop:8, padding:"18px 20px", background:"rgba(245,197,24,0.04)", border:"1px solid rgba(245,197,24,0.18)", borderRadius:12}}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:"#FA8059", marginBottom:6}}>
-                            {lang==="es" ? "Contacto (opcional, privado)" : lang==="pl" ? "Kontakt (opcjonalny, prywatny)" : "Contact (optional, private)"}
-                          </div>
-                          <div style={{fontSize:12, color:"rgba(255,255,255,0.6)", lineHeight:1.55, marginBottom:14}}>
-                            {lang==="es" ? "Solo para que pueda hacer seguimiento si tengo preguntas. Nunca se publicara en el sitio." : lang==="pl" ? "Tylko abym mogl sie z Toba skontaktowac jesli mam pytania. Nigdy nie zostanie opublikowane na stronie." : "Just so I can follow up if I have questions. This will never be posted on the site."}
-                          </div>
-                          <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:10}}>
-                            <input type="text" value={wageContactName} onChange={e => setWageContactName(e.target.value)} placeholder={lang==="es" ? "Nombre" : lang==="pl" ? "Imie" : "Name"} style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"10px 14px", color:"#fff", fontSize:13, fontFamily:"'Inter',sans-serif"}} />
-                            <input type="email" value={wageContactEmail} onChange={e => setWageContactEmail(e.target.value)} placeholder={lang==="es" ? "Correo electronico" : lang==="pl" ? "Email" : "Email"} style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"10px 14px", color:"#fff", fontSize:13, fontFamily:"'Inter',sans-serif"}} />
-                          </div>
-                        </div>
-                      )}
-
-                      {wageMethod && ((wageMethod === 'image' && wageImageFile) || (wageMethod === 'manual' && wageHourly)) && (
-                        <button onClick={handleWageSubmit} disabled={wageUploading} style={{background: wageUploading ? "rgba(250,128,89,0.5)" : "#FA8059", color:"#000", fontFamily:"'Barlow Condensed',sans-serif", fontSize:16, fontWeight:900, letterSpacing:"0.08em", textTransform:"uppercase", padding:"16px 32px", borderRadius:50, border:"none", cursor: wageUploading ? "wait" : "pointer", marginTop:8}}>
-                          {wageUploading ? (lang==="es" ? "Enviando..." : lang==="pl" ? "Wysylanie..." : "Submitting...") : (lang==="es" ? "Enviar Salarios" : lang==="pl" ? "Wyslij Stawki" : "Submit Wages")}
-                        </button>
-                      )}
-
-                    </div>
-                  )}
-                </div>
-
-                <div>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:"#fff", marginBottom:20}}>
-                    {lang==="es" ? "Salarios Aprobados" : lang==="pl" ? "Zatwierdzone Stawki" : "Approved Wages"}
-                  </div>
-                  <ApprovedWagesFeed lang={lang} />
-                </div>
-
-              </div>
-            </div>
-          );
-        })()}
-
+        {/* JOBBOARD-WAGES REMOVED */}
         {page === "veterans" && (
           <div>
             <div className="history-hero">

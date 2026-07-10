@@ -40,8 +40,6 @@ const ARTICLE_PAGES = {
 
 const PAGES = {
   // ── Core tools ──
-  '/jobboard':   { title: 'Job Board · Union Pathways', description: 'Real-time work outlook from union members nationwide. See which locals are busy, steady, or slow.' },
-  '/wages':      { title: 'Local Wages · Union Pathways', description: 'Journeyman wage rates submitted by union members from locals nationwide. Hourly, fringes, pension, total package — all in one place.' },
   '/locals':     { title: 'Find Your Local · Union Pathways', description: 'Search by ZIP code or city to find your nearest union construction local — IBEW, UA, SMART, Iron Workers, and more.' },
   '/calculator': { title: 'Pay Calculator · Union Pathways', description: 'See your union wage breakdown — base pay, benefits, total package.' },
   '/resume':     { title: 'Resume Builder · Union Pathways', description: 'Build a tradesperson resume designed for union halls and contractors.' },
