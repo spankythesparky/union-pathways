@@ -5423,11 +5423,11 @@ export default function UnionPathway() {
         }
 
         .dropdown-footer {
-          padding: 12px 20px;
-          font-size: 11px; color: var(--muted);
-          background: rgba(0,0,0,0.2);
-          border-top: 1px solid var(--wire);
-          text-align: center;
+          border-top: 1px solid rgba(7,37,84,0.08);
+          padding: 12px 14px 4px;
+          margin-top: 8px;
+          font-size: 11px;
+          color: #5A6478;
         }
         .dropdown-footer a { color: var(--yellow); text-decoration: none; }
         .dropdown-footer a:hover { text-decoration: underline; }
@@ -5819,12 +5819,15 @@ export default function UnionPathway() {
         }
 
         /* ── FOOTER ── */
+        /* NAV HOVER + FOOTER V4 */
         footer {
-          border-top: 1px solid var(--wire);
-          padding: 20px 40px;
+          background: #ffffff;
+          border-top: 1px solid rgba(7,37,84,0.08);
+          padding: 32px 40px;
           display: flex; justify-content: space-between; align-items: center;
-          font-size: 12px; color: var(--muted);
-          flex-wrap: wrap; gap: 8px;
+          font-family: 'Inter', sans-serif;
+          font-size: 12px; color: #5A6478;
+          flex-wrap: wrap; gap: 12px;
         }
 
         /* ── LANGUAGE TOGGLE ── */
@@ -5985,16 +5988,19 @@ export default function UnionPathway() {
         .nav-dropdown-wrap { position: relative; }
         .nav-dropdown-btn {
           background: transparent; border: none;
-          color: var(--muted); cursor: pointer;
+          padding: 8px 14px;
+          color: #072554;
           font-family: 'Inter', sans-serif;
-          font-size: 12px; font-weight: 500;
-          letter-spacing: 0.06em; text-transform: none;
-          padding: 6px 9px; border-radius: 6px;
-          display: flex; align-items: center; gap: 4px;
-          transition: color 0.2s, background 0.2s;
+          font-size: 14px; font-weight: 500;
+          letter-spacing: -0.005em;
+          text-transform: none;
+          cursor: pointer; border-radius: 6px;
+          transition: all 0.15s;
+          white-space: nowrap;
+          display: inline-flex; align-items: center; gap: 4px;
         }
-        .nav-dropdown-btn:hover { color: var(--text); background: rgba(255,255,255,0.05); }
-        .nav-dropdown-btn.active { color: var(--yellow); }
+        .nav-dropdown-btn:hover { color: #FF6B00; background: rgba(255,107,0,0.05); }
+        .nav-dropdown-btn.active { color: #FF6B00; font-weight: 600; }
         .nav-dropdown-btn svg { transition: transform 0.2s; }
         .nav-dropdown-btn.open svg { transform: rotate(180deg); }
         .nav-dropdown-menu {
@@ -18625,7 +18631,7 @@ export default function UnionPathway() {
             <span>{t.footerLeft}</span>
             <span>{t.footerRight}</span>
           </div>
-          <div style={{fontSize:"11px", color:"rgba(160,180,196,0.5)", maxWidth:"700px", margin:"0 auto", lineHeight:1.6}}>
+          <div style={{fontSize:"11px", color:"#5A6478", maxWidth:"700px", margin:"0 auto", lineHeight:1.6, opacity:0.85}}>
             {lang==="es" ? "Union Pathways es una plataforma de información independiente. No tenemos afiliación con ningún sindicato, organización laboral, entidad gubernamental o grupo industrial. Toda la información se proporciona solo con fines educativos." : lang==="pl" ? "Union Pathways to niezalezna platforma informacyjna. Nie jestesmy powiazani z zadnym zwiazkiem zawodowym, organizacja pracownicza, podmiotem rzadowym ani grupa branżową. Wszystkie informacje sa udostepniane wylacznie w celach edukacyjnych." : "Union Pathways is an independent information platform. We have no affiliation with any union, labor organization, government entity, or industry group. All information is provided for educational purposes only."}
           </div>
         </footer>
