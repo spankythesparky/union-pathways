@@ -5261,6 +5261,44 @@ export default function UnionPathway() {
           .home-stats-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
         }
 
+        /* FEATURE ROWS MOBILE */
+        @media (max-width: 800px) {
+          .feature-row {
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+            padding: 48px 0 !important;
+          }
+          .feature-text.reverse-order {
+            order: 0 !important;
+          }
+          .feature-visual {
+            aspect-ratio: 16 / 9 !important;
+            max-height: 240px;
+            border-radius: 12px !important;
+          }
+          .feature-big-num {
+            font-size: clamp(56px, 14vw, 96px) !important;
+          }
+          .feature-visual-label {
+            bottom: 16px !important;
+            left: 18px !important;
+            font-size: 10px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .feature-row {
+            padding: 40px 0 !important;
+            gap: 20px !important;
+          }
+          .feature-visual {
+            aspect-ratio: 2 / 1 !important;
+            max-height: 180px;
+          }
+          .feature-big-num {
+            font-size: clamp(48px, 15vw, 76px) !important;
+          }
+        }
+
         .app { min-height: 100vh; display: flex; flex-direction: column; }
 
         /* NAV CORPORATE V4 */
@@ -7481,7 +7519,7 @@ export default function UnionPathway() {
                     {f.link} →
                   </button>
                 </div>
-                <div style={{
+                <div className="feature-visual" style={{
                   aspectRatio:'4/3',
                   background:'linear-gradient(135deg, #072554 0%, #1a3568 100%)',
                   borderRadius:16,
@@ -7495,7 +7533,7 @@ export default function UnionPathway() {
                     background:'radial-gradient(circle at top right, rgba(255,107,0,0.35), transparent 70%)',
                     pointerEvents:'none'
                   }} />
-                  <div style={{
+                  <div className="feature-big-num" style={{
                     fontFamily:"'Inter',sans-serif",
                     fontSize:'clamp(64px, 10vw, 128px)',
                     fontWeight:900, lineHeight:1, letterSpacing:'-0.04em',
@@ -7503,7 +7541,7 @@ export default function UnionPathway() {
                   }}>
                     <span style={{color:'#FF6B00'}}>{f.visualAccent}</span>{f.visualNum}
                   </div>
-                  <div style={{
+                  <div className="feature-visual-label" style={{
                     position:'absolute', bottom:24, left:28,
                     fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700,
                     letterSpacing:'0.18em', textTransform:'uppercase',
