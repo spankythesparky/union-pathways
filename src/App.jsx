@@ -4941,7 +4941,7 @@ export default function UnionPathway() {
           gtag('config', 'G-6YG0F2LQKT');
         `}} />
 
-      <style>{`
+      <style>/* SHARED CSS V4 */{`
         @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 
 
@@ -4949,34 +4949,34 @@ export default function UnionPathway() {
         html, body { color-scheme: dark; }
         select, option, optgroup {
           background-color: #1a1a1a;
-          color: #fff;
+          color: #072554;
         }
         select option:hover,
         select option:checked,
         select option:focus {
-          background-color: #FA8059;
+          background-color: #FF6B00;
           color: #0F1620;
         }
 
 
         .map-toggle-btn {
           display: inline-flex; align-items: center; gap: 6px;
-          background: rgba(250,128,89,0.08);
-          border: 1px solid rgba(250,128,89,0.25);
+          background: rgba(255,107,0,0.06);
+          border: 1px solid rgba(255,107,0,0.20);
           border-radius: 50px; padding: 7px 16px;
-          color: var(--muted); font-size: 13px; font-weight: 700;
-          font-family: 'Barlow Condensed', sans-serif;
+          color: #5A6478; font-size: 13px; font-weight: 700;
+          font-family: 'Inter', sans-serif;
           letter-spacing: 0.06em; text-transform: uppercase;
           cursor: pointer; transition: all 0.2s;
         }
         .map-toggle-btn:hover, .map-toggle-btn.active {
-          border-color: #FA8059; color: #FA8059;
-          background: rgba(250,128,89,0.15);
+          border-color: #FF6B00; color: #FF6B00;
+          background: rgba(255,107,0,0.10);
         }
         .map-container {
           width: 100%; height: 420px; border-radius: 16px;
           overflow: hidden; margin-bottom: 24px;
-          border: 1px solid rgba(250,128,89,0.2);
+          border: 1px solid rgba(255,107,0,0.15);
         }
 
         /* PHASE 4 HERO REDESIGN */
@@ -5028,18 +5028,18 @@ export default function UnionPathway() {
           margin-top: 48px;
         }
         .history-stat {
-          background: rgba(250,128,89,0.08);
-          border: 1px solid rgba(250,128,89,0.2);
+          background: rgba(255,107,0,0.06);
+          border: 1px solid rgba(255,107,0,0.15);
           border-radius: 16px; padding: 20px 28px;
           text-align: center; min-width: 130px;
         }
         .history-stat-num {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 38px; font-weight: 900;
-          color: #FA8059; line-height: 1;
+          color: #FF6B00; line-height: 1;
         }
         .history-stat-label {
-          font-size: 12px; color: var(--muted);
+          font-size: 12px; color: #5A6478;
           text-transform: uppercase; letter-spacing: 0.08em;
           margin-top: 6px; font-weight: 600;
         }
@@ -5048,14 +5048,14 @@ export default function UnionPathway() {
           padding: 64px 24px;
         }
         .history-section-title {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 36px; font-weight: 900;
           text-transform: uppercase; letter-spacing: -0.01em;
-          color: #fff; margin-bottom: 8px;
+          color: #072554; margin-bottom: 8px;
         }
-        .history-section-title .accent { color: #FA8059; }
+        .history-section-title .accent { color: #FF6B00; }
         .history-section-sub {
-          font-size: 15px; color: var(--muted);
+          font-size: 15px; color: #5A6478;
           margin-bottom: 40px; line-height: 1.6;
         }
         .timeline {
@@ -5072,9 +5072,9 @@ export default function UnionPathway() {
           position: relative;
           margin-bottom: 40px;
           padding: 24px 28px;
-          background: rgba(34,48,61,0.5);
+          background: #ffffff;
           backdrop-filter: blur(10px);
-          border: 1px solid rgba(58,80,104,0.4);
+          border: 1px solid rgba(7,37,84,0.10);
           border-radius: 16px;
           transition: border-color 0.2s, transform 0.2s;
         }
@@ -5086,25 +5086,25 @@ export default function UnionPathway() {
           position: absolute;
           left: -40px; top: 28px;
           width: 16px; height: 16px;
-          background: #FA8059;
+          background: #FF6B00;
           border-radius: 50%;
           border: 3px solid #000;
           box-shadow: 0 0 12px rgba(250,128,89,0.6);
         }
         .timeline-year {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 13px; font-weight: 800;
           letter-spacing: 0.1em; text-transform: uppercase;
-          color: #FA8059; margin-bottom: 6px;
+          color: #FF6B00; margin-bottom: 6px;
         }
         .timeline-event {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 22px; font-weight: 800;
-          color: #fff; margin-bottom: 8px;
+          color: #072554; margin-bottom: 8px;
           line-height: 1.2;
         }
         .timeline-desc {
-          font-size: 14px; color: var(--muted);
+          font-size: 14px; color: #5A6478;
           line-height: 1.6;
         }
         .impact-grid {
@@ -5113,9 +5113,9 @@ export default function UnionPathway() {
           gap: 20px; margin-top: 8px;
         }
         .impact-card {
-          background: rgba(34,48,61,0.5);
+          background: #ffffff;
           backdrop-filter: blur(10px);
-          border: 1px solid rgba(58,80,104,0.4);
+          border: 1px solid rgba(7,37,84,0.10);
           border-radius: 20px;
           padding: 28px 24px;
           transition: border-color 0.2s, transform 0.2s;
@@ -5129,30 +5129,30 @@ export default function UnionPathway() {
           font-size: 36px; margin-bottom: 16px;
         }
         .impact-title {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 22px; font-weight: 800;
-          color: #fff; margin-bottom: 8px;
+          color: #072554; margin-bottom: 8px;
         }
         .impact-desc {
-          font-size: 14px; color: var(--muted);
+          font-size: 14px; color: #5A6478;
           line-height: 1.6;
         }
         .quote-block {
-          background: rgba(250,128,89,0.06);
-          border-left: 4px solid #FA8059;
+          background: rgba(255,107,0,0.05);
+          border-left: 4px solid #FF6B00;
           border-radius: 0 16px 16px 0;
           padding: 28px 32px;
           margin: 40px 0;
         }
         .quote-text {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 26px; font-weight: 700;
-          color: #fff; line-height: 1.3;
+          color: #072554; line-height: 1.3;
           margin-bottom: 12px;
           font-style: italic;
         }
         .quote-author {
-          font-size: 13px; color: #FA8059;
+          font-size: 13px; color: #FF6B00;
           font-weight: 700; text-transform: uppercase;
           letter-spacing: 0.08em;
         }
@@ -5191,8 +5191,8 @@ export default function UnionPathway() {
         html { scroll-behavior: smooth; }
         body {
           font-family: 'Inter', 'Barlow', system-ui, sans-serif;
-          background: var(--steel);
-          color: var(--text);
+          background: #ffffff;
+          color: #072554;
           min-height: 100vh;
           overflow-x: hidden;
           -webkit-font-smoothing: antialiased;
@@ -5234,14 +5234,14 @@ export default function UnionPathway() {
         .app, nav, main, section, footer { position: relative; z-index: 1; }
         /* New design-language utility classes (available but not auto-applied) */
         .ds-eyebrow {
-          font-family: 'Space Mono', monospace;
+          font-family: 'Inter', sans-serif;
           font-size: 12px;
-          color: var(--yellow);
+          color: #FF6B00;
           letter-spacing: 0.22em;
           text-transform: uppercase;
         }
         .ds-display {
-          font-family: 'Space Grotesk', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-weight: 500;
           letter-spacing: -0.025em;
         }
@@ -5378,32 +5378,32 @@ export default function UnionPathway() {
           flex-shrink: 0;
         }
         .nav-wordmark {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-weight: 800;
           font-size: 22px;
           letter-spacing: 0.05em;
           text-transform: uppercase;
         }
-        .nav-wordmark span { color: var(--yellow); }
+        .nav-wordmark span { color: #FF6B00; }
         .nav-right { position: relative; }
 
         .nav-trades-btn {
           display: flex; align-items: center; gap: 8px;
-          background: rgba(250,128,89,0.08);
-          border: 1px solid rgba(250,128,89,0.25);
+          background: rgba(255,107,0,0.06);
+          border: 1px solid rgba(255,107,0,0.20);
           border-radius: 50px;
           padding: 9px 16px;
-          color: var(--text);
-          font-family: 'Barlow Condensed', sans-serif;
+          color: #072554;
+          font-family: 'Inter', sans-serif;
           font-size: 14px; font-weight: 700;
           letter-spacing: 0.06em; text-transform: uppercase;
           cursor: pointer;
           transition: background 0.2s, border-color 0.2s, color 0.2s;
         }
         .nav-trades-btn:hover, .nav-trades-btn.open {
-          background: rgba(250,128,89,0.15);
-          border-color: #FA8059;
-          color: #FA8059;
+          background: rgba(255,107,0,0.10);
+          border-color: #FF6B00;
+          color: #FF6B00;
           box-shadow: 0 0 20px rgba(250,128,89,0.2);
         }
         .nav-trades-btn .chevron {
@@ -5415,7 +5415,7 @@ export default function UnionPathway() {
           position: absolute; top: calc(100% + 10px); right: 0;
           width: 380px; max-width: calc(100vw - 24px);
           background: var(--steel-light);
-          border: 1px solid var(--wire);
+          border: 1px solid rgba(7,37,84,0.08);
           border-radius: 14px;
           box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(245,197,24,0.06);
           overflow: hidden;
@@ -5440,17 +5440,17 @@ export default function UnionPathway() {
 
         .dropdown-header {
           padding: 18px 20px 14px;
-          border-bottom: 1px solid var(--wire);
-          background: rgba(245,197,24,0.04);
+          border-bottom: 1px solid rgba(7,37,84,0.08);
+          background: #ffffff;
         }
         .dropdown-title {
           display: block;
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 15px; font-weight: 800;
           text-transform: uppercase; letter-spacing: 0.08em;
-          color: var(--text); margin-bottom: 3px;
+          color: #072554; margin-bottom: 3px;
         }
-        .dropdown-sub { font-size: 12px; color: var(--muted); }
+        .dropdown-sub { font-size: 12px; color: #5A6478; }
 
         .dropdown-group { padding: 10px 0; border-bottom: 1px solid rgba(46,66,96,0.5); }
         .dropdown-group:last-of-type { border-bottom: none; }
@@ -5458,7 +5458,7 @@ export default function UnionPathway() {
         .dropdown-group-label {
           font-size: 10px; font-weight: 700;
           letter-spacing: 0.15em; text-transform: uppercase;
-          color: var(--muted); padding: 4px 20px 8px;
+          color: #5A6478; padding: 4px 20px 8px;
         }
 
         .dropdown-item {
@@ -5468,18 +5468,18 @@ export default function UnionPathway() {
           transition: background 0.15s;
         }
         .dropdown-item.active.selected {
-          background: rgba(245,197,24,0.08);
+          background: #ffffff;
           border-left: 3px solid var(--yellow);
         }
-        .dropdown-item.active:hover { background: rgba(250,128,89,0.06); }
+        .dropdown-item.active:hover { background: rgba(255,107,0,0.05); }
         .dropdown-item.coming { opacity: 0.55; cursor: default; }
 
         .trade-abbr-badge {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 11px; font-weight: 800;
           letter-spacing: 0.05em;
-          border: 1px solid var(--wire);
-          color: var(--muted);
+          border: 1px solid rgba(7,37,84,0.08);
+          color: #5A6478;
           border-radius: 5px;
           padding: 3px 6px;
           min-width: 52px; text-align: center;
@@ -5487,29 +5487,29 @@ export default function UnionPathway() {
         }
         .dropdown-item.active .trade-abbr-badge {
           border-color: rgba(245,197,24,0.4);
-          color: var(--yellow);
+          color: #FF6B00;
         }
 
         .trade-info { flex: 1; }
         .trade-name {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 14px; font-weight: 700;
-          letter-spacing: 0.02em; color: var(--text);
+          letter-spacing: 0.02em; color: #072554;
         }
-        .trade-full { font-size: 11px; color: var(--muted); margin-top: 1px; }
+        .trade-full { font-size: 11px; color: #5A6478; margin-top: 1px; }
 
         .trade-status { flex-shrink: 0; }
         .status-live {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 11px; font-weight: 700;
           color: #4ade80; letter-spacing: 0.05em;
         }
         .status-soon {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 10px; font-weight: 700;
-          background: var(--plate);
-          border: 1px solid var(--wire);
-          color: var(--muted);
+          background: #F5F7FA;
+          border: 1px solid rgba(7,37,84,0.08);
+          color: #5A6478;
           border-radius: 4px; padding: 2px 7px;
           letter-spacing: 0.08em; text-transform: uppercase;
         }
@@ -5521,15 +5521,15 @@ export default function UnionPathway() {
           font-size: 11px;
           color: #5A6478;
         }
-        .dropdown-footer a { color: var(--yellow); text-decoration: none; }
+        .dropdown-footer a { color: #FF6B00; text-decoration: none; }
         .dropdown-footer a:hover { text-decoration: underline; }
 
 
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 11px; font-weight: 700;
           background: rgba(245,197,24,0.12);
-          border: 1px solid rgba(245,197,24,0.3);
-          color: var(--yellow);
+          border: 1px solid rgba(255,107,0,0.20);
+          color: #FF6B00;
           padding: 4px 10px; border-radius: 4px;
           letter-spacing: 0.1em; text-transform: uppercase;
         }
@@ -5570,16 +5570,16 @@ export default function UnionPathway() {
         .hero-content.visible { opacity: 1; transform: translateY(0); }
 
         .hero-eyebrow {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 13px; font-weight: 700; letter-spacing: 0.25em;
-          text-transform: uppercase; color: var(--yellow);
+          text-transform: uppercase; color: #FF6B00;
           margin-bottom: 20px;
           display: flex; align-items: center; justify-content: center; gap: 12px;
         }
         .eyebrow-line { width: 32px; height: 1px; background: var(--yellow); opacity: 0.5; }
 
         .hero-title {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: clamp(52px, 9vw, 92px);
           font-weight: 900;
           line-height: 0.92;
@@ -5587,13 +5587,13 @@ export default function UnionPathway() {
           letter-spacing: -0.01em;
           margin-bottom: 24px;
         }
-        .hero-title .accent { color: var(--yellow); display: block; }
+        .hero-title .accent { color: #FF6B00; display: block; }
 
         .hero-sub {
-          font-size: 17px; font-weight: 300; color: var(--muted);
+          font-size: 17px; font-weight: 300; color: #5A6478;
           line-height: 1.6; max-width: 520px; margin: 0 auto 48px;
         }
-        .hero-sub strong { color: var(--text); font-weight: 500; }
+        .hero-sub strong { color: #072554; font-weight: 500; }
 
         /* ── SEARCH BOX ── */
         .trade-selector {
@@ -5607,20 +5607,20 @@ export default function UnionPathway() {
         .trade-pill {
           flex-shrink: 0;
           background: transparent;
-          border: 1px solid rgba(255,255,255,0.1);
+          border: 1px solid rgba(7,37,84,0.08);
           border-radius: 50px;
           padding: 6px 14px;
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 11px; font-weight: 700;
           letter-spacing: 0.1em; text-transform: uppercase;
-          color: var(--muted);
+          color: #5A6478;
           cursor: pointer;
           transition: all 0.18s;
           white-space: nowrap;
         }
         .trade-pill:hover {
           border-color: rgba(255,255,255,0.25);
-          color: #fff;
+          color: #072554;
         }
         .trade-pill.selected {
           color: #000;
@@ -5628,7 +5628,7 @@ export default function UnionPathway() {
         }
 
         .search-card {
-          background: rgba(34,48,61,0.6);
+          background: #ffffff;
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           border: 1px solid rgba(250,128,89,0.15);
@@ -5642,9 +5642,9 @@ export default function UnionPathway() {
         .search-card { margin-bottom: 32px; }
 
         .search-label {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 13px; font-weight: 700; letter-spacing: 0.15em;
-          text-transform: uppercase; color: var(--muted);
+          text-transform: uppercase; color: #5A6478;
           margin-bottom: 14px; display: block;
         }
 
@@ -5659,13 +5659,13 @@ export default function UnionPathway() {
           border-radius: 10px;
           padding: 14px 18px;
           font-family: 'Barlow', sans-serif;
-          font-size: 16px; color: var(--text);
+          font-size: 16px; color: #072554;
           outline: none;
           transition: border-color 0.2s, box-shadow 0.2s;
         }
-        .search-input::placeholder { color: var(--muted); }
+        .search-input::placeholder { color: #5A6478; }
         .search-input:focus {
-          border-color: var(--yellow);
+          border-color: #FF6B00;
           box-shadow: 0 0 0 3px rgba(250,128,89,0.15); border-color: rgba(250,128,89,0.5);
         }
 
@@ -5675,7 +5675,7 @@ export default function UnionPathway() {
           border: none; cursor: pointer;
           border-radius: 10px;
           padding: 14px 26px;
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 15px; font-weight: 800;
           letter-spacing: 0.08em; text-transform: uppercase;
           transition: background 0.2s, transform 0.1s;
@@ -5688,7 +5688,7 @@ export default function UnionPathway() {
         .search-divider {
           display: flex; align-items: center; gap: 12px;
           margin: 16px 0;
-          color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;
+          color: #5A6478; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;
         }
         .search-divider::before, .search-divider::after {
           content: ''; flex: 1; height: 1px; background: var(--wire);
@@ -5700,7 +5700,7 @@ export default function UnionPathway() {
           border: 1.5px solid var(--wire);
           border-radius: 10px;
           padding: 12px 20px;
-          color: var(--muted);
+          color: #5A6478;
           font-family: 'Barlow', sans-serif;
           font-size: 14px; font-weight: 500;
           cursor: pointer;
@@ -5708,8 +5708,8 @@ export default function UnionPathway() {
           transition: border-color 0.2s, color 0.2s, background 0.2s;
         }
         .btn-geo:hover {
-          border-color: var(--yellow);
-          color: var(--yellow);
+          border-color: #FF6B00;
+          color: #FF6B00;
           background: rgba(245,197,24,0.05);
         }
 
@@ -5717,7 +5717,7 @@ export default function UnionPathway() {
         .spinner {
           width: 18px; height: 18px;
           border: 2px solid rgba(245,197,24,0.3);
-          border-top-color: var(--yellow);
+          border-top-color: #FF6B00;
           border-radius: 50%;
           animation: spin 0.7s linear infinite;
           display: inline-block;
@@ -5744,13 +5744,13 @@ export default function UnionPathway() {
           margin-bottom: 24px;
         }
         .results-title {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 20px; font-weight: 800; text-transform: uppercase;
           letter-spacing: 0.05em;
         }
-        .results-title span { color: var(--yellow); }
+        .results-title span { color: #FF6B00; }
         .results-location {
-          font-size: 12px; color: var(--muted);
+          font-size: 12px; color: #5A6478;
           font-style: italic;
         }
 
@@ -5758,7 +5758,7 @@ export default function UnionPathway() {
           background: rgba(26,44,58,0.7);
           backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);
-          border: 1px solid rgba(58,80,104,0.5);
+          border: 1px solid rgba(7,37,84,0.12);
           border-radius: 14px;
           padding: 24px 28px;
           margin-bottom: 14px;
@@ -5778,13 +5778,13 @@ export default function UnionPathway() {
         }
 
         .local-card:hover {
-          border-color: var(--yellow);
+          border-color: #FF6B00;
           transform: translateY(-2px);
           box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(245,197,24,0.15);
         }
 
         .card-rank {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 28px; font-weight: 900;
           color: rgba(245,197,24,0.2);
           line-height: 1; min-width: 36px; text-align: center;
@@ -5795,14 +5795,14 @@ export default function UnionPathway() {
         .card-body { flex: 1; }
 
         .card-name {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 22px; font-weight: 800;
           text-transform: uppercase; letter-spacing: 0.03em;
           margin-bottom: 4px;
         }
 
         .card-location {
-          font-size: 13px; color: var(--muted); margin-bottom: 14px;
+          font-size: 13px; color: #5A6478; margin-bottom: 14px;
         }
 
         .card-info {
@@ -5812,28 +5812,28 @@ export default function UnionPathway() {
         .info-chip {
           display: flex; align-items: center; gap: 6px;
           background: var(--steel-light);
-          border: 1px solid var(--wire);
+          border: 1px solid rgba(7,37,84,0.08);
           border-radius: 6px;
           padding: 6px 12px;
-          font-size: 13px; color: var(--muted);
+          font-size: 13px; color: #5A6478;
           text-decoration: none;
           transition: border-color 0.2s, color 0.2s;
         }
-        .info-chip:hover { border-color: var(--yellow); color: var(--yellow); }
+        .info-chip:hover { border-color: #FF6B00; color: #FF6B00; }
         .info-chip svg { flex-shrink: 0; }
 
         .card-actions { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
         .btn-share {
           background: transparent;
-          border: 1px solid var(--wire);
+          border: 1px solid rgba(7,37,84,0.08);
           border-radius: 8px; padding: 8px 14px;
-          color: var(--muted); cursor: pointer;
-          font-family: 'Barlow Condensed', sans-serif;
+          color: #5A6478; cursor: pointer;
+          font-family: 'Inter', sans-serif;
           font-size: 13px; font-weight: 700;
           letter-spacing: 0.06em; text-transform: uppercase;
           transition: border-color 0.2s, color 0.2s;
         }
-        .btn-share:hover { border-color: var(--yellow); color: var(--yellow); }
+        .btn-share:hover { border-color: #FF6B00; color: #FF6B00; }
         .btn-correction {
           background: transparent; border: none;
           color: rgba(255,255,255,0.3); cursor: pointer;
@@ -5841,14 +5841,14 @@ export default function UnionPathway() {
           font-size: 11px; padding: 8px 4px;
           transition: color 0.2s;
         }
-        .btn-correction:hover { color: var(--muted); }
+        .btn-correction:hover { color: #5A6478; }
 
         .btn-apply {
           background: var(--yellow);
           color: var(--steel);
           border: none; cursor: pointer;
           border-radius: 8px; padding: 10px 20px;
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 13px; font-weight: 800;
           letter-spacing: 0.08em; text-transform: uppercase;
           text-decoration: none; display: inline-block;
@@ -5859,34 +5859,34 @@ export default function UnionPathway() {
         .btn-website {
           background: transparent;
           border: 1.5px solid var(--wire);
-          color: var(--muted); cursor: pointer;
+          color: #5A6478; cursor: pointer;
           border-radius: 8px; padding: 10px 20px;
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 13px; font-weight: 700;
           letter-spacing: 0.08em; text-transform: uppercase;
           text-decoration: none; display: inline-block;
           transition: border-color 0.2s, color 0.2s;
         }
-        .btn-website:hover { border-color: #FA8059; color: #FA8059; background: rgba(250,128,89,0.15); }
+        .btn-website:hover { border-color: #FF6B00; color: #FF6B00; background: rgba(255,107,0,0.10); }
 
         .card-distance {
           text-align: right; min-width: 80px;
           display: flex; flex-direction: column; align-items: flex-end; gap: 4px;
         }
         .distance-num {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 28px; font-weight: 900;
-          color: var(--yellow); line-height: 1;
+          color: #FF6B00; line-height: 1;
         }
         .distance-unit {
-          font-size: 11px; color: var(--muted); text-transform: uppercase;
+          font-size: 11px; color: #5A6478; text-transform: uppercase;
           letter-spacing: 0.1em;
         }
         .nearest-badge {
           background: rgba(245,197,24,0.12);
-          border: 1px solid rgba(245,197,24,0.3);
-          color: var(--yellow);
-          font-family: 'Barlow Condensed', sans-serif;
+          border: 1px solid rgba(255,107,0,0.20);
+          color: #FF6B00;
+          font-family: 'Inter', sans-serif;
           font-size: 10px; font-weight: 700;
           letter-spacing: 0.1em; text-transform: uppercase;
           padding: 3px 8px; border-radius: 4px; white-space: nowrap;
@@ -5894,18 +5894,18 @@ export default function UnionPathway() {
 
         /* ── FEATURES STRIP ── */
         .features {
-          border-top: 1px solid var(--wire);
+          border-top: 1px solid rgba(7,37,84,0.08);
           padding: 40px 24px;
           display: flex; justify-content: center; gap: 60px;
           flex-wrap: wrap;
         }
         .feature {
           display: flex; align-items: center; gap: 12px;
-          font-size: 14px; color: var(--muted);
+          font-size: 14px; color: #5A6478;
         }
         .feature-icon {
           width: 36px; height: 36px; border-radius: 8px;
-          background: rgba(245,197,24,0.08);
+          background: #ffffff;
           border: 1px solid rgba(245,197,24,0.15);
           display: flex; align-items: center; justify-content: center;
         }
@@ -6062,7 +6062,7 @@ export default function UnionPathway() {
           opacity: 0.6;
         }
         .mobile-drawer-section-toggle.open svg { transform: rotate(180deg); opacity: 1; }
-        .mobile-drawer-section-toggle.open { color: rgba(255,255,255,0.95); }
+        .mobile-drawer-section-toggle.open { color: #072554; }
         /* NAV COLORS V4 FINAL */
         .nav-link {
           background: transparent; border: none;
@@ -6098,7 +6098,7 @@ export default function UnionPathway() {
         .nav-dropdown-menu {
           position: absolute; top: calc(100% + 6px); left: 0;
           background: var(--steel-mid);
-          border: 1px solid var(--wire);
+          border: 1px solid rgba(7,37,84,0.08);
           border-radius: 10px; overflow: hidden;
           min-width: 180px; z-index: 200;
           box-shadow: 0 8px 24px rgba(0,0,0,0.4);
@@ -6112,16 +6112,16 @@ export default function UnionPathway() {
           text-align: left;
         }
         .nav-dropdown-item:last-child { border-bottom: none; }
-        .nav-dropdown-item:hover { background: rgba(255,255,255,0.06); }
-        .nav-dropdown-item.active .nav-dropdown-label { color: var(--yellow); }
+        .nav-dropdown-item:hover { background: #ffffff; }
+        .nav-dropdown-item.active .nav-dropdown-label { color: #FF6B00; }
         .nav-dropdown-label {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 13px; font-weight: 800;
           letter-spacing: 0.08em; text-transform: uppercase;
-          color: var(--text);
+          color: #072554;
         }
         .nav-dropdown-sub {
-          font-size: 11px; color: var(--muted); margin-top: 2px;
+          font-size: 11px; color: #5A6478; margin-top: 2px;
         }
 
         /* ── QUIZ PAGE ── */
@@ -6129,17 +6129,17 @@ export default function UnionPathway() {
         @keyframes fadeIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 
         .page-eyebrow {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 12px; font-weight: 700; letter-spacing: 0.2em;
-          text-transform: uppercase; color: var(--yellow);
+          text-transform: uppercase; color: #FF6B00;
           margin-bottom: 12px;
         }
         .page-title {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: clamp(36px, 6vw, 56px); font-weight: 900;
           text-transform: uppercase; line-height: 1; margin-bottom: 16px;
         }
-        .page-sub { font-size: 16px; color: var(--muted); line-height: 1.6; margin-bottom: 40px; max-width: 560px; }
+        .page-sub { font-size: 16px; color: #5A6478; line-height: 1.6; margin-bottom: 40px; max-width: 560px; }
 
         .quiz-progress {
           display: flex; gap: 6px; margin-bottom: 32px;
@@ -6151,31 +6151,31 @@ export default function UnionPathway() {
         .quiz-pip.done { background: var(--yellow); }
 
         .quiz-question {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 24px; font-weight: 800;
           margin-bottom: 20px; line-height: 1.2;
         }
         .quiz-step-label {
-          font-size: 12px; color: var(--muted);
+          font-size: 12px; color: #5A6478;
           letter-spacing: 0.1em; text-transform: uppercase;
           margin-bottom: 8px;
         }
 
         .quiz-options { display: flex; flex-direction: column; gap: 10px; }
         .quiz-option {
-          background: var(--card-bg);
+          background: #ffffff;
           border: 1.5px solid var(--wire);
           border-radius: 10px;
           padding: 16px 20px;
-          text-align: left; cursor: pointer; color: var(--text);
+          text-align: left; cursor: pointer; color: #072554;
           font-family: 'Barlow', sans-serif; font-size: 15px;
           transition: border-color 0.15s, background 0.15s, transform 0.1s;
           display: flex; align-items: center; gap: 12px;
         }
-        .quiz-option:hover { border-color: var(--yellow); background: rgba(245,197,24,0.05); transform: translateX(4px); }
+        .quiz-option:hover { border-color: #FF6B00; background: rgba(245,197,24,0.05); transform: translateX(4px); }
         .quiz-option-num {
-          font-family: 'Barlow Condensed', sans-serif;
-          font-size: 13px; font-weight: 800; color: var(--muted);
+          font-family: 'Inter', sans-serif;
+          font-size: 13px; font-weight: 800; color: #5A6478;
           min-width: 20px;
         }
 
@@ -6188,28 +6188,28 @@ export default function UnionPathway() {
           border: 1px solid;
         }
         .result-badge {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 13px; font-weight: 800;
           letter-spacing: 0.15em; text-transform: uppercase;
           margin-bottom: 8px;
         }
         .result-title {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 36px; font-weight: 900;
           text-transform: uppercase; margin-bottom: 16px;
         }
-        .result-why { font-size: 15px; line-height: 1.7; color: var(--muted); margin-bottom: 24px; }
+        .result-why { font-size: 15px; line-height: 1.7; color: #5A6478; margin-bottom: 24px; }
         .result-path { margin-bottom: 24px; }
         .result-path-title {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 14px; font-weight: 800;
           letter-spacing: 0.1em; text-transform: uppercase;
-          color: var(--muted); margin-bottom: 12px;
+          color: #5A6478; margin-bottom: 12px;
         }
         .result-path-step {
           display: flex; gap: 12px; padding: 10px 0;
           border-bottom: 1px solid rgba(255,255,255,0.06);
-          font-size: 14px; color: var(--text); align-items: flex-start;
+          font-size: 14px; color: #072554; align-items: flex-start;
         }
         .result-path-step:last-child { border-bottom: none; }
         .step-dot {
@@ -6217,10 +6217,10 @@ export default function UnionPathway() {
           background: var(--yellow); margin-top: 6px; flex-shrink: 0;
         }
         .result-app-note {
-          font-size: 13px; color: var(--muted); font-style: italic;
+          font-size: 13px; color: #5A6478; font-style: italic;
           padding: 12px 16px;
-          background: rgba(255,255,255,0.03);
-          border-radius: 8px; border: 1px solid var(--wire);
+          background: #ffffff;
+          border-radius: 8px; border: 1px solid rgba(7,37,84,0.08);
           margin-bottom: 20px;
         }
         .result-actions { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -6228,7 +6228,7 @@ export default function UnionPathway() {
           background: var(--yellow); color: var(--steel);
           border: none; cursor: pointer; border-radius: 8px;
           padding: 12px 24px;
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 14px; font-weight: 800;
           letter-spacing: 0.06em; text-transform: uppercase;
           text-decoration: none; display: inline-block;
@@ -6236,15 +6236,15 @@ export default function UnionPathway() {
         }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(250,128,89,0.5); }
         .btn-ghost {
-          background: transparent; color: var(--muted);
+          background: transparent; color: #5A6478;
           border: 1.5px solid var(--wire); cursor: pointer;
           border-radius: 8px; padding: 12px 24px;
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 14px; font-weight: 700;
           letter-spacing: 0.06em; text-transform: uppercase;
           transition: border-color 0.2s, color 0.2s;
         }
-        .btn-ghost:hover { border-color: #FA8059; color: #FA8059; box-shadow: 0 0 20px rgba(250,128,89,0.15); }
+        .btn-ghost:hover { border-color: #FF6B00; color: #FF6B00; box-shadow: 0 0 20px rgba(250,128,89,0.15); }
 
         /* ── CAREER PATH PAGE ── */
         .career-stats {
@@ -6253,18 +6253,18 @@ export default function UnionPathway() {
         }
         .stat-card {
           background: transparent;
-          border: 1px solid rgba(250,128,89,0.2);
+          border: 1px solid rgba(255,107,0,0.15);
           border-radius: 12px; padding: 20px 24px;
         }
         .stat-num {
-          font-family: 'Barlow Condensed', sans-serif;
-          font-size: 36px; font-weight: 900; color: var(--yellow);
+          font-family: 'Inter', sans-serif;
+          font-size: 36px; font-weight: 900; color: #FF6B00;
           line-height: 1; margin-bottom: 6px;
         }
-        .stat-label { font-size: 13px; color: var(--muted); line-height: 1.4; }
+        .stat-label { font-size: 13px; color: #5A6478; line-height: 1.4; }
 
         .section-title {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 22px; font-weight: 800;
           text-transform: uppercase; letter-spacing: 0.05em;
           margin-bottom: 20px;
@@ -6280,23 +6280,23 @@ export default function UnionPathway() {
           padding: 22px 24px;
           border: 1px solid rgba(255,255,255,0.07);
           border-radius: 14px;
-          background: rgba(255,255,255,0.02);
+          background: #ffffff;
           margin-bottom: 12px;
           align-items: flex-start;
           transition: border-color 0.2s, background 0.2s;
         }
         .career-stage:hover {
-          background: rgba(250,128,89,0.04);
+          background: rgba(255,107,0,0.04);
           border-color: rgba(250,128,89,0.2);
         }
         .stage-icon {
           min-width: 44px; height: 44px;
           display: flex; align-items: center; justify-content: center;
-          border: 1px solid rgba(250,128,89,0.3);
+          border: 1px solid rgba(255,107,0,0.20);
           border-radius: 8px;
           font-size: 13px; font-weight: 800;
-          font-family: 'Barlow Condensed', sans-serif;
-          color: #FA8059; letter-spacing: 0.05em;
+          font-family: 'Inter', sans-serif;
+          color: #FF6B00; letter-spacing: 0.05em;
           flex-shrink: 0;
         }
         .stage-info { flex: 1; }
@@ -6305,77 +6305,77 @@ export default function UnionPathway() {
           gap: 12px; margin-bottom: 8px; flex-wrap: wrap;
         }
         .stage-name {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 20px; font-weight: 800; text-transform: uppercase;
         }
-        .stage-years { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+        .stage-years { font-size: 12px; color: #5A6478; text-transform: uppercase; letter-spacing: 0.1em; }
         .stage-pay {
-          font-family: 'Barlow Condensed', sans-serif;
-          font-size: 18px; font-weight: 800; color: var(--yellow);
+          font-family: 'Inter', sans-serif;
+          font-size: 18px; font-weight: 800; color: #FF6B00;
           margin-left: auto;
         }
-        .stage-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+        .stage-desc { font-size: 14px; color: #5A6478; line-height: 1.6; }
 
         .benefits-grid {
           display: grid; grid-template-columns: repeat(2, 1fr);
           gap: 14px; margin-bottom: 40px;
         }
         .benefit-card {
-          background: rgba(255,255,255,0.02);
+          background: #ffffff;
           border: 1px solid rgba(255,255,255,0.07);
           border-radius: 14px; padding: 24px 20px;
           transition: border-color 0.2s, background 0.2s;
         }
         .benefit-card:hover {
-          background: rgba(250,128,89,0.04);
+          background: rgba(255,107,0,0.04);
           border-color: rgba(250,128,89,0.2);
         }
         .benefit-icon {
           width: 36px; height: 36px;
           background: transparent;
-          border: 1px solid rgba(250,128,89,0.3);
+          border: 1px solid rgba(255,107,0,0.20);
           border-radius: 6px;
           display: flex; align-items: center; justify-content: center;
           font-size: 16px; font-weight: 900;
-          font-family: 'Barlow Condensed', sans-serif;
-          color: #FA8059; margin-bottom: 14px;
+          font-family: 'Inter', sans-serif;
+          color: #FF6B00; margin-bottom: 14px;
         }
         .benefit-label {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 15px; font-weight: 800;
           text-transform: uppercase; margin-bottom: 6px;
         }
-        .benefit-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+        .benefit-desc { font-size: 13px; color: #5A6478; line-height: 1.5; }
 
         .cta-banner {
-          background: rgba(245,197,24,0.08);
+          background: #ffffff;
           border: 1px solid rgba(245,197,24,0.25);
           border-radius: 14px; padding: 28px;
           text-align: center; margin-top: 16px;
         }
         .cta-banner h3 {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 24px; font-weight: 900;
           text-transform: uppercase; margin-bottom: 10px;
         }
-        .cta-banner p { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+        .cta-banner p { color: #5A6478; font-size: 14px; margin-bottom: 20px; }
 
         /* ── CHECKLIST PAGE ── */
         .checklist-intro {
-          background: rgba(245,197,24,0.06);
-          border: 1px solid rgba(245,197,24,0.2);
+          background: #ffffff;
+          border: 1px solid rgba(255,107,0,0.15);
           border-radius: 14px;
           padding: 24px 28px;
           margin-bottom: 40px;
           font-size: 15px;
-          color: var(--muted);
+          color: #5A6478;
           line-height: 1.7;
         }
-        .checklist-intro strong { color: var(--text); }
+        .checklist-intro strong { color: #072554; }
 
         .checklist-section { margin-bottom: 40px; }
         .checklist-section-title {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 20px; font-weight: 800;
           text-transform: uppercase; letter-spacing: 0.06em;
           margin-bottom: 16px;
@@ -6388,8 +6388,8 @@ export default function UnionPathway() {
         .checklist-items { display: flex; flex-direction: column; gap: 10px; }
         .checklist-item {
           display: flex; gap: 16px; align-items: flex-start;
-          background: var(--card-bg);
-          border: 1px solid var(--wire);
+          background: #ffffff;
+          border: 1px solid rgba(7,37,84,0.08);
           border-radius: 10px;
           padding: 16px 18px;
         }
@@ -6400,20 +6400,20 @@ export default function UnionPathway() {
         .checklist-icon { font-size: 22px; min-width: 28px; text-align: center; }
         .checklist-text { flex: 1; }
         .checklist-label {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 16px; font-weight: 800;
           text-transform: uppercase; letter-spacing: 0.04em;
           margin-bottom: 4px;
         }
-        .checklist-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+        .checklist-desc { font-size: 13px; color: #5A6478; line-height: 1.6; }
         .checklist-tag {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 10px; font-weight: 800;
           letter-spacing: 0.12em; text-transform: uppercase;
           padding: 3px 8px; border-radius: 4px;
           margin-left: 8px; vertical-align: middle;
         }
-        .tag-required { background: rgba(245,197,24,0.15); color: var(--yellow); }
+        .tag-required { background: rgba(245,197,24,0.15); color: #FF6B00; }
         .tag-optional { background: rgba(74,158,255,0.15); color: #4a9eff; }
         .tag-helpful  { background: rgba(34,197,94,0.15); color: #22c55e; }
 
@@ -6422,20 +6422,20 @@ export default function UnionPathway() {
           gap: 14px; margin-bottom: 40px;
         }
         .trade-diff-card {
-          background: var(--card-bg); border: 1px solid var(--wire);
+          background: #ffffff; border: 1px solid rgba(7,37,84,0.08);
           border-radius: 10px; padding: 18px;
         }
         .trade-diff-name {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 16px; font-weight: 900;
           text-transform: uppercase; margin-bottom: 10px;
           display: flex; align-items: center; gap: 8px;
         }
         .trade-diff-list {
-          font-size: 13px; color: var(--muted);
+          font-size: 13px; color: #5A6478;
           line-height: 1.8; list-style: none; padding: 0; margin: 0;
         }
-        .trade-diff-list li::before { content: "→ "; color: var(--yellow); }
+        .trade-diff-list li::before { content: "→ "; color: #FF6B00; }
 
         .checklist-steps {
           counter-reset: steps;
@@ -6443,28 +6443,28 @@ export default function UnionPathway() {
         }
         .checklist-step {
           display: flex; gap: 16px; align-items: flex-start;
-          background: var(--card-bg); border: 1px solid var(--wire);
+          background: #ffffff; border: 1px solid rgba(7,37,84,0.08);
           border-radius: 10px; padding: 16px 18px;
         }
         .step-num {
-          font-family: 'Barlow Condensed', sans-serif;
-          font-size: 22px; font-weight: 900; color: var(--yellow);
+          font-family: 'Inter', sans-serif;
+          font-size: 22px; font-weight: 900; color: #FF6B00;
           min-width: 32px; line-height: 1;
         }
         .step-content { flex: 1; }
         .step-title {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 16px; font-weight: 800;
           text-transform: uppercase; margin-bottom: 4px;
         }
-        .step-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+        .step-desc { font-size: 13px; color: #5A6478; line-height: 1.6; }
 
         .checklist-legend {
           display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;
         }
         .legend-item {
           display: flex; align-items: center; gap: 6px;
-          font-size: 12px; color: var(--muted);
+          font-size: 12px; color: #5A6478;
         }
         .legend-dot {
           width: 10px; height: 10px; border-radius: 50%;
@@ -6477,7 +6477,7 @@ export default function UnionPathway() {
         /* ── VETERANS PAGE ── */
         .h2h-hero {
           background: linear-gradient(135deg, rgba(15,25,35,0.95), rgba(30,45,60,0.9));
-          border: 1px solid rgba(245,197,24,0.2);
+          border: 1px solid rgba(255,107,0,0.15);
           border-radius: 16px; padding: 36px;
           margin-bottom: 40px;
           display: flex; gap: 32px; align-items: center; flex-wrap: wrap;
@@ -6485,52 +6485,52 @@ export default function UnionPathway() {
         .h2h-logo-block { text-align: center; flex-shrink: 0; }
         .h2h-emblem { font-size: 64px; line-height: 1; margin-bottom: 8px; }
         .h2h-logo-text {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 13px; font-weight: 800;
-          letter-spacing: 0.15em; text-transform: uppercase; color: var(--yellow);
+          letter-spacing: 0.15em; text-transform: uppercase; color: #FF6B00;
         }
         .h2h-hero-text { flex: 1; min-width: 240px; }
         .h2h-hero-title {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 26px; font-weight: 900;
           text-transform: uppercase; margin-bottom: 12px; line-height: 1.1;
         }
-        .h2h-hero-desc { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+        .h2h-hero-desc { font-size: 15px; color: #5A6478; line-height: 1.7; margin-bottom: 20px; }
         .h2h-stat-row { display: flex; gap: 24px; flex-wrap: wrap; }
         .h2h-stat { text-align: center; }
         .h2h-stat-num {
-          font-family: 'Barlow Condensed', sans-serif;
-          font-size: 28px; font-weight: 900; color: var(--yellow); line-height: 1;
+          font-family: 'Inter', sans-serif;
+          font-size: 28px; font-weight: 900; color: #FF6B00; line-height: 1;
         }
-        .h2h-stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+        .h2h-stat-label { font-size: 11px; color: #5A6478; text-transform: uppercase; letter-spacing: 0.08em; }
         .vet-advantage-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin-bottom: 40px; }
         .vet-advantage-card {
-          background: var(--card-bg); border: 1px solid var(--wire);
+          background: #ffffff; border: 1px solid rgba(7,37,84,0.08);
           border-radius: 10px; padding: 18px;
           display: flex; gap: 14px; align-items: flex-start;
         }
         .vet-adv-icon { font-size: 24px; min-width: 32px; }
-        .vet-adv-label { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; text-transform: uppercase; margin-bottom: 4px; }
-        .vet-adv-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+        .vet-adv-label { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 800; text-transform: uppercase; margin-bottom: 4px; }
+        .vet-adv-desc { font-size: 13px; color: #5A6478; line-height: 1.5; }
         .h2h-steps { display: flex; flex-direction: column; margin-bottom: 40px; }
         .h2h-step { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); align-items: flex-start; }
         .h2h-step:last-child { border-bottom: none; }
-        .h2h-step-num { font-family: 'Barlow Condensed', sans-serif; font-size: 32px; font-weight: 900; color: var(--yellow); min-width: 36px; line-height: 1; }
-        .h2h-step-title { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 800; text-transform: uppercase; margin-bottom: 4px; }
-        .h2h-step-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+        .h2h-step-num { font-family: 'Inter', sans-serif; font-size: 32px; font-weight: 900; color: #FF6B00; min-width: 36px; line-height: 1; }
+        .h2h-step-title { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 800; text-transform: uppercase; margin-bottom: 4px; }
+        .h2h-step-desc { font-size: 13px; color: #5A6478; line-height: 1.6; }
         .gi-bill-box {
           background: rgba(34,197,94,0.07); border: 1px solid rgba(34,197,94,0.25);
           border-radius: 12px; padding: 24px 28px; margin-bottom: 40px;
           display: flex; gap: 20px; align-items: flex-start;
         }
         .gi-bill-icon { font-size: 36px; flex-shrink: 0; }
-        .gi-bill-title { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 900; text-transform: uppercase; color: #22c55e; margin-bottom: 8px; }
-        .gi-bill-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+        .gi-bill-title { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 900; text-transform: uppercase; color: #22c55e; margin-bottom: 8px; }
+        .gi-bill-desc { font-size: 14px; color: #5A6478; line-height: 1.7; }
         .trades-vet-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-bottom: 40px; }
-        .trade-vet-card { background: var(--card-bg); border: 1px solid var(--wire); border-radius: 10px; padding: 16px; display: flex; gap: 12px; align-items: center; }
+        .trade-vet-card { background: #ffffff; border: 1px solid rgba(7,37,84,0.08); border-radius: 10px; padding: 16px; display: flex; gap: 12px; align-items: center; }
         .trade-vet-icon { font-size: 26px; }
-        .trade-vet-name { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; text-transform: uppercase; }
-        .trade-vet-desc { font-size: 12px; color: var(--muted); }
+        .trade-vet-name { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 800; text-transform: uppercase; }
+        .trade-vet-desc { font-size: 12px; color: #5A6478; }
         @media (max-width: 640px) {
           .vet-advantage-grid { grid-template-columns: 1fr; }
           .trades-vet-grid { grid-template-columns: 1fr; }
@@ -6544,20 +6544,20 @@ export default function UnionPathway() {
         }
         .contact-info-block { margin-bottom: 28px; }
         .contact-info-label {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 11px; font-weight: 700;
           letter-spacing: 0.15em; text-transform: uppercase;
-          color: var(--muted); margin-bottom: 6px;
+          color: #5A6478; margin-bottom: 6px;
         }
-        .contact-info-value { font-size: 15px; color: var(--text); }
+        .contact-info-value { font-size: 15px; color: #072554; }
 
         .form-group { margin-bottom: 16px; }
         .form-label {
           display: block;
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 12px; font-weight: 700;
           letter-spacing: 0.12em; text-transform: uppercase;
-          color: var(--muted); margin-bottom: 8px;
+          color: #5A6478; margin-bottom: 8px;
         }
         .form-input, .form-select, .form-textarea {
           width: 100%;
@@ -6566,18 +6566,18 @@ export default function UnionPathway() {
           border-radius: 8px;
           padding: 12px 16px;
           font-family: 'Barlow', sans-serif;
-          font-size: 15px; color: var(--text);
+          font-size: 15px; color: #072554;
           outline: none;
           transition: border-color 0.2s, box-shadow 0.2s;
           box-sizing: border-box;
         }
-        .form-input::placeholder, .form-textarea::placeholder { color: var(--muted); }
+        .form-input::placeholder, .form-textarea::placeholder { color: #5A6478; }
         .form-input:focus, .form-select:focus, .form-textarea:focus {
-          border-color: var(--yellow);
+          border-color: #FF6B00;
           box-shadow: 0 0 0 3px rgba(245,197,24,0.1);
         }
         .form-select { appearance: none; cursor: pointer; }
-        .form-select option { background: var(--steel-mid); color: var(--text); }
+        .form-select option { background: var(--steel-mid); color: #072554; }
         .form-textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
@@ -6587,11 +6587,11 @@ export default function UnionPathway() {
         }
         .contact-success-icon { font-size: 56px; margin-bottom: 20px; }
         .contact-success h3 {
-          font-family: 'Barlow Condensed', sans-serif;
+          font-family: 'Inter', sans-serif;
           font-size: 28px; font-weight: 900;
-          text-transform: uppercase; margin-bottom: 12px; color: var(--yellow);
+          text-transform: uppercase; margin-bottom: 12px; color: #FF6B00;
         }
-        .contact-success p { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
+        .contact-success p { color: #5A6478; font-size: 15px; margin-bottom: 24px; }
 
         /* NAV TABS FIX */
         @media (max-width: 640px) {
