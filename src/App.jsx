@@ -5000,6 +5000,7 @@ export default function UnionPathway() {
           background: #FF6B00; opacity: 1;
         }
         /* ORGANIZE CLUSTER PART 2 V4 */
+        /* CONTENT SWEEP V4 */
         /* HISTORY TITLE V4 FIX */
         .history-title {
           font-family: 'Inter', sans-serif;
@@ -7070,7 +7071,7 @@ export default function UnionPathway() {
 
         {/* ── QUIZ PAGE ── */}
         {page === "quiz" && (
-          <div className="page">
+          <div className="page page-v4">
             <div className="page-eyebrow">{lang==="es" ? "Buscador de Carrera" : lang==="pl" ? "Znajdź Swój Zawód" : "Career Finder"}</div>
             <h1 className="page-title">{lang==="es" ? "¿Qué Oficio Es Para Ti?" : lang==="pl" ? "Który Zawód Jest dla Ciebie?" : "Which Trade Is Right For You?"}</h1>
             <p className="page-sub">{lang==="es" ? "Responde 5 preguntas rápidas y te dirigiremos hacia el oficio sindical que se adapta a tus habilidades e intereses." : lang==="pl" ? "Odpowiedz na 5 szybkich pytań, a wskaże Ci zawód związkowy pasujący do Twoich umiejętności i zainteresowań." : "Answer 5 quick questions and we'll point you toward the union trade that fits your skills and interests."}</p>
@@ -7914,7 +7915,7 @@ export default function UnionPathway() {
 
         {/* ── JOIN A UNION CHECKLIST PAGE ── */}
         {page === "checklist" && (
-          <div>
+          <div className="page-v4">
             {/* HERO */}
             <div className="history-hero">
               <div className="history-eyebrow">The Real Path Into the Trades</div>
@@ -7933,14 +7934,14 @@ export default function UnionPathway() {
 
               <div style={{display:"flex", flexDirection:"column", gap:"20px"}}>
                 {/* ROUTE 1 */}
-                <div style={{background:"rgba(250,128,89,0.06)", border:"1px solid rgba(250,128,89,0.25)", borderRadius:"20px", padding:"28px 32px"}}>
+                <div style={{background:"rgba(255,107,0,0.05)", border:"1px solid rgba(255,107,0,0.20)", borderRadius:"20px", padding:"28px 32px"}}>
                   <div style={{display:"flex", alignItems:"center", gap:"14px", marginBottom:"16px"}}>
                     <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"11px", fontWeight:"700", letterSpacing:"0.12em", textTransform:"uppercase", color:"#FA8059", marginBottom:"6px"}}>{lang==="es" ? "01 — Mejor Opción" : lang==="pl" ? "01 — Najlepsza Opcja" : "01 — Best Option"}</div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"26px", fontWeight:"900", color:"#fff"}}>{lang==="es" ? "Aprendizaje Directo" : lang==="pl" ? "Bezpośrednia Praktyka" : "Direct Apprenticeship"}</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:"11px", fontWeight:"700", letterSpacing:"0.12em", textTransform:"uppercase", color:"#FF6B00", marginBottom:"6px"}}>{lang==="es" ? "01 — Mejor Opción" : lang==="pl" ? "01 — Najlepsza Opcja" : "01 — Best Option"}</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:"26px", fontWeight:"900", color:"#072554"}}>{lang==="es" ? "Aprendizaje Directo" : lang==="pl" ? "Bezpośrednia Praktyka" : "Direct Apprenticeship"}</div>
                     </div>
                   </div>
-                  <p style={{fontSize:"15px", color:"var(--muted)", lineHeight:"1.7", marginBottom:"16px"}}>
+                  <p style={{fontSize:"15px", color:"#5A6478", lineHeight:"1.7", marginBottom:"16px"}}>
                     {lang==="es" ? "Este es el estándar de oro. Aplicas directamente al programa de formación de un sindicato. Ganas mientras aprendes — sin deuda estudiantil. Sin intermediarios." : lang==="pl" ? "To złoty standard. Aplikujesz bezpośrednio do programu szkoleniowego związku. Zarabiasz ucząc się — bez długu studenckiego. Bez pośredników." : "This is the gold standard. You apply straight to a union's training program. You earn while you learn — no student debt. No middleman."}
                   </p>
                   <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(200px, 1fr))", gap:"12px"}}>
@@ -7950,23 +7951,23 @@ export default function UnionPathway() {
                       { label: lang==="es" ? "Salario Oficial" : lang==="pl" ? "Wynagrodzenie Czeladnika" : "Journeyman Pay", val: "$35–$75/hr+" },
                       { label: lang==="es" ? "Por qué es #1" : lang==="pl" ? "Dlaczego #1" : "Why It's #1", val: lang==="es" ? "Es el pipeline real. Sin intermediarios." : lang==="pl" ? "To prawdziwy pipeline. Bez pośredników." : "It's the actual pipeline. No middleman." },
                     ].map((item, i) => (
-                      <div key={i} style={{background:"rgba(0,0,0,0.2)", borderRadius:"10px", padding:"12px 16px"}}>
-                        <div style={{fontSize:"11px", fontWeight:"700", letterSpacing:"0.08em", textTransform:"uppercase", color:"#FA8059", marginBottom:"4px"}}>{item.label}</div>
-                        <div style={{fontSize:"13px", color:"var(--muted)", lineHeight:"1.5"}}>{item.val}</div>
+                      <div key={i} style={{background:"#F5F7FA", borderRadius:"10px", padding:"12px 16px"}}>
+                        <div style={{fontSize:"11px", fontWeight:"700", letterSpacing:"0.08em", textTransform:"uppercase", color:"#FF6B00", marginBottom:"4px"}}>{item.label}</div>
+                        <div style={{fontSize:"13px", color:"#5A6478", lineHeight:"1.5"}}>{item.val}</div>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* ROUTE 2 */}
-                <div style={{background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.1)", borderRadius:"20px", padding:"28px 32px"}}>
+                <div style={{background:"#ffffff", border:"1px solid rgba(7,37,84,0.08)", borderRadius:"20px", padding:"28px 32px"}}>
                   <div style={{display:"flex", alignItems:"center", gap:"14px", marginBottom:"16px"}}>
                     <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"11px", fontWeight:"700", letterSpacing:"0.12em", textTransform:"uppercase", color:"#a0b4c4", marginBottom:"6px"}}>{lang==="es" ? "02 — Buen Atajo" : lang==="pl" ? "02 — Dobry Skrót" : "02 — Good Shortcut"}</div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"26px", fontWeight:"900", color:"#fff"}}>{lang==="es" ? "Programas de Pre-Aprendizaje" : lang==="pl" ? "Programy Przed-Praktyczne" : "Pre-Apprenticeship Programs"}</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:"11px", fontWeight:"700", letterSpacing:"0.12em", textTransform:"uppercase", color:"#a0b4c4", marginBottom:"6px"}}>{lang==="es" ? "02 — Buen Atajo" : lang==="pl" ? "02 — Dobry Skrót" : "02 — Good Shortcut"}</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:"26px", fontWeight:"900", color:"#072554"}}>{lang==="es" ? "Programas de Pre-Aprendizaje" : lang==="pl" ? "Programy Przed-Praktyczne" : "Pre-Apprenticeship Programs"}</div>
                     </div>
                   </div>
-                  <p style={{fontSize:"15px", color:"var(--muted)", lineHeight:"1.7", marginBottom:"16px"}}>
+                  <p style={{fontSize:"15px", color:"#5A6478", lineHeight:"1.7", marginBottom:"16px"}}>
                     {lang==="es" ? "Programas legítimos que te ayudan a entrar más rápido a los sindicatos. A menudo dirigidos por colegios comunitarios, organizaciones sin fines de lucro y asociaciones sindicales." : lang==="pl" ? "Legalne programy, które pomagają szybciej wejść do związków. Często prowadzone przez community college, organizacje non-profit i partnerstwa związkowe." : "Legit programs that help you get into unions faster. Often run by community colleges, nonprofits, and union partnerships."}
                   </p>
                   <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(200px, 1fr))", gap:"12px"}}>
@@ -7974,26 +7975,26 @@ export default function UnionPathway() {
                       { label: lang==="es" ? "Qué Hacen" : lang==="pl" ? "Co Robią" : "What They Do", val: lang==="es" ? "Enseñan habilidades básicas, ayudan a pasar pruebas de ingreso, a veces dan entrada directa" : lang==="pl" ? "Uczą podstawowych umiejętności, pomagają zdać testy wstępne, czasem dają bezpośrednie wejście" : "Teach basic skills, help you pass entry tests, sometimes give direct entry or priority" },
                       { label: lang==="es" ? "Quién las Ofrece" : lang==="pl" ? "Kto Je Oferuje" : "Who Offers Them", val: lang==="es" ? "Colegios comunitarios, organizaciones sin fines de lucro, centros de formación sindicales" : lang==="pl" ? "Community college, organizacje non-profit, związkowe centra szkoleniowe" : "Community colleges, nonprofits, union training centers" },
                     ].map((item, i) => (
-                      <div key={i} style={{background:"rgba(0,0,0,0.2)", borderRadius:"10px", padding:"12px 16px"}}>
+                      <div key={i} style={{background:"#F5F7FA", borderRadius:"10px", padding:"12px 16px"}}>
                         <div style={{fontSize:"11px", fontWeight:"700", letterSpacing:"0.08em", textTransform:"uppercase", color:"#a0b4c4", marginBottom:"4px"}}>{item.label}</div>
-                        <div style={{fontSize:"13px", color:"var(--muted)", lineHeight:"1.5"}}>{item.val}</div>
+                        <div style={{fontSize:"13px", color:"#5A6478", lineHeight:"1.5"}}>{item.val}</div>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* ROUTE 3 */}
-                <div style={{background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.1)", borderRadius:"20px", padding:"28px 32px"}}>
+                <div style={{background:"#ffffff", border:"1px solid rgba(7,37,84,0.08)", borderRadius:"20px", padding:"28px 32px"}}>
                   <div style={{display:"flex", alignItems:"center", gap:"14px", marginBottom:"16px"}}>
                     <div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"11px", fontWeight:"700", letterSpacing:"0.12em", textTransform:"uppercase", color:"#a0b4c4", marginBottom:"6px"}}>{lang==="es" ? "03 — La Ruta Alternativa" : lang==="pl" ? "03 — Droga Alternatywna" : "03 — The Alternative Route"}</div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:"26px", fontWeight:"900", color:"#fff"}}>{lang==="es" ? "No Sindical a Sindical" : lang==="pl" ? "Niezwiązkowy do Związkowego" : "Non-Union to Union"}</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:"11px", fontWeight:"700", letterSpacing:"0.12em", textTransform:"uppercase", color:"#a0b4c4", marginBottom:"6px"}}>{lang==="es" ? "03 — La Ruta Alternativa" : lang==="pl" ? "03 — Droga Alternatywna" : "03 — The Alternative Route"}</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:"26px", fontWeight:"900", color:"#072554"}}>{lang==="es" ? "No Sindical a Sindical" : lang==="pl" ? "Niezwiązkowy do Związkowego" : "Non-Union to Union"}</div>
                     </div>
                   </div>
-                  <p style={{fontSize:"15px", color:"var(--muted)", lineHeight:"1.7", marginBottom:"16px"}}>
+                  <p style={{fontSize:"15px", color:"#5A6478", lineHeight:"1.7", marginBottom:"16px"}}>
                     {lang==="es" ? "Empieza con una empresa no sindical, gana 6-18 meses de experiencia, y luego aplica al sindicato con esa experiencia — una gran ventaja. Esta es la ruta que tomó el fundador de Union Pathways." : lang==="pl" ? "Zacznij w firmie niezwiązkowej, zdobądź 6-18 miesięcy doświadczenia, a następnie aplikuj do związku z tym doświadczeniem — ogromna przewaga. To droga, którą obrał założyciel Union Pathways." : "Start with a non-union company, gain 6–18 months of experience, then apply to the union with that experience — a huge advantage. This is the route Union Pathways' founder took."}
                   </p>
-                  <div style={{fontSize:"13px", color:"var(--muted)", lineHeight:"1.7"}}>
+                  <div style={{fontSize:"13px", color:"#5A6478", lineHeight:"1.7"}}>
                     {lang==="es" ? "Funciona especialmente bien en: carpintería, obreros, concreto, techos, electricidad residencial." : lang==="pl" ? "Działa szczególnie dobrze w: ciesielstwie, robotnikach, betonie, pokryciach dachowych, elektryce mieszkaniowej." : "Works especially well in: carpentry, laborers, concrete, roofing, residential electrical."}
                   </div>
                 </div>
@@ -8054,17 +8055,17 @@ export default function UnionPathway() {
 
               <div className="impact-grid">
                 <div className="impact-card" style={{borderColor:"rgba(250,128,89,0.2)"}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FA8059",marginBottom:"14px",textTransform:"uppercase"}}>01</div>
+                  <div style={{fontFamily:"'Inter',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FF6B00",marginBottom:"14px",textTransform:"uppercase"}}>01</div>
                   <div className="impact-title">{lang==="es" ? "Lo que les Importa a los Sindicatos" : lang==="pl" ? "Co Interesuje Związki" : "What Unions Actually Care About"}</div>
                   <div className="impact-desc">{lang==="es" ? "Presentarse — pasar las pruebas — disposición para trabajar — a veces conocer a alguien. Los sindicatos no se preocupan si tomaste un curso en línea o viste videos de entrenamiento." : lang==="pl" ? "Pojawianie się — zdawanie testów — gotowość do pracy — czasem znajomość kogoś. Związki nie dbają o to, czy wziąłeś kurs online lub oglądałeś filmy szkoleniowe." : "Showing up — passing tests — willingness to work — sometimes knowing someone. Unions don't care if you took an online course or watched training videos."}</div>
                 </div>
                 <div className="impact-card">
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"var(--muted)",marginBottom:"14px",textTransform:"uppercase"}}>02</div>
+                  <div style={{fontFamily:"'Inter',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#5A6478",marginBottom:"14px",textTransform:"uppercase"}}>02</div>
                   <div className="impact-title">{lang==="es" ? "La Realidad de las Listas de Espera" : lang==="pl" ? "Rzeczywistość List Oczekujących" : "The Waitlist Reality"}</div>
                   <div className="impact-desc">{lang==="es" ? "Los pipelines sindicales pueden ser competitivos, lentos y dependientes del momento y las conexiones. Aplica pronto. Aplica a múltiples. Y trabaja mientras esperas." : lang==="pl" ? "Związkowe pipeline mogą być konkurencyjne, powolne i zależne od czasu i kontaktów. Aplikuj wcześnie. Aplikuj do wielu. I pracuj podczas oczekiwania." : "Union pipelines can be competitive, slow, and dependent on timing and connections. Apply early. Apply to multiple. And work while you wait."}</div>
                 </div>
                 <div className="impact-card">
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"var(--muted)",marginBottom:"14px",textTransform:"uppercase"}}>03</div>
+                  <div style={{fontFamily:"'Inter',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#5A6478",marginBottom:"14px",textTransform:"uppercase"}}>03</div>
                   <div className="impact-title">{lang==="es" ? "Ve Directamente a la Fuente" : lang==="pl" ? "Idź Bezpośrednio do Źródła" : "Go Straight to the Source"}</div>
                   <div className="impact-desc">{lang==="es" ? "Las plataformas solo de información — incluyendo esta — pueden enseñarte sobre el sistema. Pero los verdaderos guardianes son los locales sindicales, los centros de aprendizaje y los contratistas. Ve a verlos en persona." : lang==="pl" ? "Platformy tylko informacyjne — w tym ta — mogą nauczyć Cię o systemie. Ale prawdziwymi strażnikami są lokale związkowe, centra praktyk i wykonawcy. Idź do nich osobiście." : "Info-only platforms — including this one — can teach you about the system. But the real gatekeepers are union locals, apprenticeship centers, and contractors. Go see them in person."}</div>
                 </div>
@@ -12854,14 +12855,14 @@ export default function UnionPathway() {
             const TEAL_GLOW = 'rgba(20,184,166,0.15)';
 
             return (
-              <div style={{position:'relative', minHeight:'100vh', background:'#0A0F0F', color:'#fff'}}>
+              <div style={{position:'relative', minHeight:'100vh', background:'#0A0F0F', color:'#072554'}}>
                 <div style={{position:'fixed', inset:0, backgroundImage:'linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px)', backgroundSize:'48px 48px', pointerEvents:'none', zIndex:0}} />
                 <div style={{position:'fixed', top:-200, right:-200, width:600, height:600, background: 'radial-gradient(circle, ' + TEAL_GLOW + ' 0%, transparent 70%)', filter:'blur(40px)', pointerEvents:'none', zIndex:0}} />
 
                 <div style={{position:'relative', zIndex:1, maxWidth:880, margin:'0 auto', padding:'24px 24px 80px'}}>
 
                   <div style={{paddingTop:24, marginBottom:24}}>
-                    <div onClick={() => setPage('home')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:12, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>
+                    <div onClick={() => setPage('home')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:12, color:'rgba(160,180,196,0.85)', fontFamily:"'Inter',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                       Resources
                     </div>
@@ -12870,9 +12871,9 @@ export default function UnionPathway() {
                   <header style={{paddingTop:24, paddingBottom:40, borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                     <div style={{display:'flex', alignItems:'center', gap:12, marginBottom:18}}>
                       <div style={{height:1, width:32, background:TEAL}} />
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:3, textTransform:'uppercase'}}>For Members and Their People</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:3, textTransform:'uppercase'}}>For Members and Their People</div>
                     </div>
-                    <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 8vw, 88px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0', letterSpacing:'-0.01em', textTransform:'uppercase'}}>
+                    <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(40px, 8vw, 88px)', fontWeight:900, color:'#072554', lineHeight:0.95, margin:'0 0 24px 0', letterSpacing:'-0.01em', textTransform:'uppercase'}}>
                       Mental health<br/>in the <span style={{color:TEAL}}>trades.</span>
                     </h1>
                     <p style={{fontSize:18, color:'rgba(255,255,255,0.85)', lineHeight:1.6, maxWidth:680, margin:'0 0 24px 0', fontWeight:500}}>
@@ -12883,39 +12884,39 @@ export default function UnionPathway() {
                   {/* CRISIS RESOURCES — TOP OF PAGE */}
                   <section style={{padding:'40px 0', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
                     <div style={{padding:'32px 28px', background:'rgba(20,184,166,0.06)', border:'2px solid ' + TEAL, borderRadius:4}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>If You Need Help Right Now</div>
-                      <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4vw, 40px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.05, textTransform:'uppercase'}}>You can talk to someone right now. Free. Confidential.</h2>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>If You Need Help Right Now</div>
+                      <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 40px)', fontWeight:900, color:'#072554', margin:'0 0 24px 0', lineHeight:1.05, textTransform:'uppercase'}}>You can talk to someone right now. Free. Confidential.</h2>
 
                       <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(260px, 1fr))', gap:14}}>
                         <a href="tel:988" style={{display:'block', padding:'20px 22px', background:'#0A0F0F', border:'1px solid ' + TEAL_DIM, textDecoration:'none', transition:'all 0.18s'}}
                           onMouseEnter={e => { e.currentTarget.style.background = 'rgba(20,184,166,0.08)'; e.currentTarget.style.borderColor = TEAL; }}
                           onMouseLeave={e => { e.currentTarget.style.background = '#0A0F0F'; e.currentTarget.style.borderColor = TEAL_DIM; }}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Call or Text</div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:42, fontWeight:900, color:'#fff', lineHeight:1, marginBottom:6}}>988</div>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Call or Text</div>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:42, fontWeight:900, color:'#072554', lineHeight:1, marginBottom:6}}>988</div>
                           <div style={{fontSize:13, color:'rgba(255,255,255,0.75)', lineHeight:1.4}}>988 Suicide & Crisis Lifeline. 24/7. Free. Confidential. English & Spanish.</div>
                         </a>
 
                         <a href="sms:741741?body=HOME" style={{display:'block', padding:'20px 22px', background:'#0A0F0F', border:'1px solid ' + TEAL_DIM, textDecoration:'none', transition:'all 0.18s'}}
                           onMouseEnter={e => { e.currentTarget.style.background = 'rgba(20,184,166,0.08)'; e.currentTarget.style.borderColor = TEAL; }}
                           onMouseLeave={e => { e.currentTarget.style.background = '#0A0F0F'; e.currentTarget.style.borderColor = TEAL_DIM; }}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Text</div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:30, fontWeight:900, color:'#fff', lineHeight:1, marginBottom:6}}>HOME → 741741</div>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Text</div>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:30, fontWeight:900, color:'#072554', lineHeight:1, marginBottom:6}}>HOME → 741741</div>
                           <div style={{fontSize:13, color:'rgba(255,255,255,0.75)', lineHeight:1.4}}>Crisis Text Line. Trained counselor responds in minutes. Free.</div>
                         </a>
 
                         <a href="tel:988" style={{display:'block', padding:'20px 22px', background:'#0A0F0F', border:'1px solid ' + TEAL_DIM, textDecoration:'none', transition:'all 0.18s'}}
                           onMouseEnter={e => { e.currentTarget.style.background = 'rgba(20,184,166,0.08)'; e.currentTarget.style.borderColor = TEAL; }}
                           onMouseLeave={e => { e.currentTarget.style.background = '#0A0F0F'; e.currentTarget.style.borderColor = TEAL_DIM; }}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Veterans</div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:26, fontWeight:900, color:'#fff', lineHeight:1, marginBottom:6}}>988 + 1, or text 838255</div>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Veterans</div>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:26, fontWeight:900, color:'#072554', lineHeight:1, marginBottom:6}}>988 + 1, or text 838255</div>
                           <div style={{fontSize:13, color:'rgba(255,255,255,0.75)', lineHeight:1.4}}>Veterans Crisis Line. Connects you to a VA-affiliated responder.</div>
                         </a>
 
                         <a href="tel:988" style={{display:'block', padding:'20px 22px', background:'#0A0F0F', border:'1px solid ' + TEAL_DIM, textDecoration:'none', transition:'all 0.18s'}}
                           onMouseEnter={e => { e.currentTarget.style.background = 'rgba(20,184,166,0.08)'; e.currentTarget.style.borderColor = TEAL; }}
                           onMouseLeave={e => { e.currentTarget.style.background = '#0A0F0F'; e.currentTarget.style.borderColor = TEAL_DIM; }}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>En Español</div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:26, fontWeight:900, color:'#fff', lineHeight:1, marginBottom:6}}>988 (Marca 2) · AYUDA → 988</div>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>En Español</div>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:26, fontWeight:900, color:'#072554', lineHeight:1, marginBottom:6}}>988 (Marca 2) · AYUDA → 988</div>
                           <div style={{fontSize:13, color:'rgba(255,255,255,0.75)', lineHeight:1.4}}>988 Línea de Vida. Disponible 24/7 en español. Gratis. Confidencial.</div>
                         </a>
                       </div>
@@ -12930,8 +12931,8 @@ export default function UnionPathway() {
 
                   {/* WHY THIS MATTERS */}
                   <section style={{padding:'56px 0', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>Why This Page Exists</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4vw, 44px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.05, textTransform:'uppercase'}}>The trades have a mental health crisis. It is not your fault.</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>Why This Page Exists</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 44px)', fontWeight:900, color:'#072554', margin:'0 0 24px 0', lineHeight:1.05, textTransform:'uppercase'}}>The trades have a mental health crisis. It is not your fault.</h2>
                     <p style={{fontSize:16, color:'rgba(255,255,255,0.82)', lineHeight:1.7, marginBottom:20}}>
                       Construction has the second-highest suicide rate of any U.S. industry, behind only mining and oil & gas extraction. The most recent published figures, released in 2025 covering 2023 data, count more than 5,000 male construction workers lost to suicide in a single year — roughly four times the national average for men.
                     </p>
@@ -12942,20 +12943,20 @@ export default function UnionPathway() {
                       The reasons are structural, not personal. Chronic pain from years on the tools. Opioid prescriptions for that pain that were over-prescribed for a generation. Long stretches away from family on travel work. Layoff cycles that erase income overnight. A culture where asking for help has been treated as weakness. Heavy drinking culture that masks rather than treats what's underneath. None of that is the fault of any one tradesperson. All of it is the industry, and all of it can change.
                     </p>
                     <div style={{padding:'20px 22px', background:'rgba(20,184,166,0.05)', borderLeft:'3px solid ' + TEAL, marginTop:24}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:2, textTransform:'uppercase', marginBottom:10}}>The Most Important Thing on This Page</div>
-                      <p style={{fontSize:16, color:'#fff', lineHeight:1.6, margin:0, fontWeight:500}}>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:2, textTransform:'uppercase', marginBottom:10}}>The Most Important Thing on This Page</div>
+                      <p style={{fontSize:16, color:'#072554', lineHeight:1.6, margin:0, fontWeight:500}}>
                         Help works. Recovery is the rule, not the exception. The vast majority of people who reach out for support get better. The thoughts that feel permanent right now are not permanent. They pass.
                       </p>
                     </div>
-                    <div style={{marginTop:24, fontSize:12, color:'rgba(255,255,255,0.5)', lineHeight:1.6, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:0.5}}>
+                    <div style={{marginTop:24, fontSize:12, color:'rgba(255,255,255,0.5)', lineHeight:1.6, fontFamily:"'Inter',sans-serif", letterSpacing:0.5}}>
                       Sources: CPWR Center for Construction Research and Training (2025 report on 2023 data); CDC NIOSH; Construction Industry Alliance for Suicide Prevention.
                     </div>
                   </section>
 
                   {/* WARNING SIGNS */}
                   <section style={{padding:'56px 0', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>If You're Worried About Someone</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4vw, 44px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.05, textTransform:'uppercase'}}>Warning signs to watch for.</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>If You're Worried About Someone</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 44px)', fontWeight:900, color:'#072554', margin:'0 0 24px 0', lineHeight:1.05, textTransform:'uppercase'}}>Warning signs to watch for.</h2>
                     <p style={{fontSize:16, color:'rgba(255,255,255,0.82)', lineHeight:1.7, marginBottom:28}}>
                       Most people who die by suicide gave warning signs in the weeks before. Coworkers, family, and friends are often the first to notice. You don't need a clinical degree to spot these. You just need to be paying attention.
                     </p>
@@ -12969,7 +12970,7 @@ export default function UnionPathway() {
                         { h:'Talking about being a burden', body:'"Everyone would be better off without me." "I\'m just dragging people down." Take this language seriously when you hear it.' },
                       ].map((s, i) => (
                         <div key={i} style={{padding:'24px 22px', background:'#0F1414'}}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:800, color:'#fff', marginBottom:10, textTransform:'uppercase', letterSpacing:'0.01em'}}>{s.h}</div>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:800, color:'#072554', marginBottom:10, textTransform:'uppercase', letterSpacing:'0.01em'}}>{s.h}</div>
                           <div style={{fontSize:13.5, color:'rgba(255,255,255,0.72)', lineHeight:1.65}}>{s.body}</div>
                         </div>
                       ))}
@@ -12981,8 +12982,8 @@ export default function UnionPathway() {
 
                   {/* HOW TO START THE CONVERSATION */}
                   <section style={{padding:'56px 0', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>The Conversation</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4vw, 44px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.05, textTransform:'uppercase'}}>How to start the conversation.</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>The Conversation</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 44px)', fontWeight:900, color:'#072554', margin:'0 0 24px 0', lineHeight:1.05, textTransform:'uppercase'}}>How to start the conversation.</h2>
                     <p style={{fontSize:16, color:'rgba(255,255,255,0.82)', lineHeight:1.7, marginBottom:32}}>
                       You don't have to be a counselor. You don't have to fix anything. You just have to make space. The single biggest thing you can do is ask, listen, and stay.
                     </p>
@@ -12996,10 +12997,10 @@ export default function UnionPathway() {
                       ].map((s, i) => (
                         <div key={i} style={{display:'flex', gap:24, marginBottom:28, paddingBottom:28, borderBottom: i < 4 ? '1px solid rgba(255,255,255,0.06)' : 'none'}}>
                           <div style={{flexShrink:0, width:60}}>
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:42, fontWeight:900, color:TEAL, lineHeight:1, letterSpacing:'-0.02em'}}>{s.n}</div>
+                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:42, fontWeight:900, color:TEAL, lineHeight:1, letterSpacing:'-0.02em'}}>{s.n}</div>
                           </div>
                           <div style={{flex:1, minWidth:0}}>
-                            <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:800, color:'#fff', margin:'0 0 8px 0', textTransform:'uppercase', letterSpacing:'0.005em'}}>{s.h}</h3>
+                            <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:800, color:'#072554', margin:'0 0 8px 0', textTransform:'uppercase', letterSpacing:'0.005em'}}>{s.h}</h3>
                             <p style={{fontSize:15, color:'rgba(255,255,255,0.78)', lineHeight:1.7, margin:0}}>{s.body}</p>
                           </div>
                         </div>
@@ -13009,8 +13010,8 @@ export default function UnionPathway() {
 
                   {/* MEMBER ASSISTANCE PROGRAMS */}
                   <section style={{padding:'56px 0', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>Union Resources</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4vw, 44px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.05, textTransform:'uppercase'}}>Your Member Assistance Program.</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>Union Resources</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 44px)', fontWeight:900, color:'#072554', margin:'0 0 24px 0', lineHeight:1.05, textTransform:'uppercase'}}>Your Member Assistance Program.</h2>
                     <p style={{fontSize:16, color:'rgba(255,255,255,0.82)', lineHeight:1.7, marginBottom:20}}>
                       Most building trades unions and many locals run a Member Assistance Program (MAP). MAPs provide confidential mental health support, substance use counseling, and crisis intervention — usually free to members and often free to family members too.
                     </p>
@@ -13018,7 +13019,7 @@ export default function UnionPathway() {
                       A MAP counselor is not your employer's counselor. They report to the union, not to the company, and what you tell them is confidential. They will not show up in your employment file. They cannot get you laid off.
                     </p>
                     <div style={{padding:'24px 26px', background:'transparent', border:'1px solid rgba(255,255,255,0.08)', marginBottom:20}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:2, textTransform:'uppercase', marginBottom:14}}>How to find your MAP</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:2, textTransform:'uppercase', marginBottom:14}}>How to find your MAP</div>
                       <ul style={{margin:0, paddingLeft:0, fontSize:15, color:'rgba(255,255,255,0.85)', lineHeight:1.85, listStyle:'none'}}>
                         {[
                           'Call your local hall and ask for the Member Assistance Program. Most halls have a designated MAP coordinator.',
@@ -13041,8 +13042,8 @@ export default function UnionPathway() {
 
                   {/* WHAT'S BEING DONE */}
                   <section style={{padding:'56px 0', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>The Industry Response</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4vw, 44px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.05, textTransform:'uppercase'}}>What's being done.</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>The Industry Response</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 44px)', fontWeight:900, color:'#072554', margin:'0 0 24px 0', lineHeight:1.05, textTransform:'uppercase'}}>What's being done.</h2>
                     <p style={{fontSize:16, color:'rgba(255,255,255,0.82)', lineHeight:1.7, marginBottom:24}}>
                       The trades are not standing still on this. The most important industry-wide initiatives:
                     </p>
@@ -13055,8 +13056,8 @@ export default function UnionPathway() {
                       ].map((s, i) => (
                         <div key={i} style={{padding:'20px 0', borderBottom: i < 3 ? '1px solid rgba(255,255,255,0.06)' : 'none'}}>
                           <div style={{display:'flex', alignItems:'baseline', gap:14, marginBottom:10, flexWrap:'wrap'}}>
-                            <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontWeight:900, color:'#fff', margin:0, textTransform:'uppercase'}}>{s.h}</h3>
-                            <div style={{fontSize:13, color:TEAL, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{s.sub}</div>
+                            <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:24, fontWeight:900, color:'#072554', margin:0, textTransform:'uppercase'}}>{s.h}</h3>
+                            <div style={{fontSize:13, color:TEAL, fontFamily:"'Inter',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{s.sub}</div>
                           </div>
                           <p style={{fontSize:15, color:'rgba(255,255,255,0.78)', lineHeight:1.7, margin:0}}>{s.body}</p>
                         </div>
@@ -13066,8 +13067,8 @@ export default function UnionPathway() {
 
                   {/* LIBRARY */}
                   <section style={{padding:'56px 0', borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>Library</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4vw, 44px)', fontWeight:900, color:'#fff', margin:'0 0 24px 0', lineHeight:1.05, textTransform:'uppercase'}}>Where to learn more.</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>Library</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 44px)', fontWeight:900, color:'#072554', margin:'0 0 24px 0', lineHeight:1.05, textTransform:'uppercase'}}>Where to learn more.</h2>
                     <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(260px, 1fr))', gap:0}}>
                       {[
                         { name:'988 Suicide & Crisis Lifeline', sub:'Call or text 988 from anywhere in the United States. 24/7. Free. Confidential. The single most important number in this list. Also at 988lifeline.org.' },
@@ -13080,7 +13081,7 @@ export default function UnionPathway() {
                         { name:'NAMI — National Alliance on Mental Illness', sub:'nami.org — broad mental health resources, support groups, and education. Helpline 1-800-950-6264.' },
                       ].map((r, i) => (
                         <div key={i} style={{padding:'20px 24px 20px 0', borderTop:'1px solid rgba(255,255,255,0.08)'}}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:'#fff', marginBottom:6, textTransform:'uppercase', letterSpacing:'0.01em'}}>{r.name}</div>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:900, color:'#072554', marginBottom:6, textTransform:'uppercase', letterSpacing:'0.01em'}}>{r.name}</div>
                           <div style={{fontSize:13.5, color:'rgba(255,255,255,0.7)', lineHeight:1.6}}>{r.sub}</div>
                         </div>
                       ))}
@@ -13090,16 +13091,16 @@ export default function UnionPathway() {
                   {/* BOTTOM CRISIS REMINDER */}
                   <section style={{padding:'56px 0 24px'}}>
                     <div style={{padding:'36px 32px', background:'rgba(20,184,166,0.08)', border:'2px solid ' + TEAL, borderRadius:4, textAlign:'center'}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(28px, 4vw, 38px)', fontWeight:900, color:'#fff', textTransform:'uppercase', marginBottom:14, lineHeight:1.1}}>If you read this whole page and you're struggling right now —</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 38px)', fontWeight:900, color:'#072554', textTransform:'uppercase', marginBottom:14, lineHeight:1.1}}>If you read this whole page and you're struggling right now —</div>
                       <p style={{fontSize:17, color:'rgba(255,255,255,0.85)', lineHeight:1.6, marginBottom:24, maxWidth:560, margin:'0 auto 24px'}}>
                         Please call or text 988 before you close the tab. It is free. It is confidential. The person on the other end has talked to thousands of people in your shoes and is there for exactly this.
                       </p>
                       <div style={{display:'flex', justifyContent:'center', gap:14, flexWrap:'wrap'}}>
-                        <a href="tel:988" style={{display:'inline-flex', alignItems:'center', gap:10, background:TEAL, color:'#0A0F0F', padding:'16px 28px', textDecoration:'none', fontFamily:"'Barlow Condensed',sans-serif", fontSize:15, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', border:'1px solid ' + TEAL}}>
+                        <a href="tel:988" style={{display:'inline-flex', alignItems:'center', gap:10, background:TEAL, color:'#0A0F0F', padding:'16px 28px', textDecoration:'none', fontFamily:"'Inter',sans-serif", fontSize:15, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', border:'1px solid ' + TEAL}}>
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
                           Call 988
                         </a>
-                        <a href="sms:741741?body=HOME" style={{display:'inline-flex', alignItems:'center', gap:10, background:'transparent', color:TEAL, padding:'16px 28px', textDecoration:'none', fontFamily:"'Barlow Condensed',sans-serif", fontSize:15, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', border:'1px solid ' + TEAL}}>
+                        <a href="sms:741741?body=HOME" style={{display:'inline-flex', alignItems:'center', gap:10, background:'transparent', color:TEAL, padding:'16px 28px', textDecoration:'none', fontFamily:"'Inter',sans-serif", fontSize:15, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', border:'1px solid ' + TEAL}}>
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
                           Text HOME → 741741
                         </a>
@@ -13107,7 +13108,7 @@ export default function UnionPathway() {
                     </div>
                   </section>
 
-                  <div style={{paddingTop:32, fontSize:12, color:'rgba(255,255,255,0.45)', lineHeight:1.7, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:0.5, textAlign:'center'}}>
+                  <div style={{paddingTop:32, fontSize:12, color:'rgba(255,255,255,0.45)', lineHeight:1.7, fontFamily:"'Inter',sans-serif", letterSpacing:0.5, textAlign:'center'}}>
                     Union Pathways is not a medical provider. The information on this page is informational and not a substitute for professional care. If you are in crisis, please call 988 or your local emergency services.
                   </div>
 
@@ -14240,7 +14241,7 @@ export default function UnionPathway() {
           // the keystroke-remount bug.
           const renderSection = (label) => (
             <div style={{display:'flex', alignItems:'center', gap:12, marginBottom:20}}>
-              <div style={{...monoFont, fontSize:11, fontWeight:700, color:'#FA8059', letterSpacing:'0.35em'}}>{label}</div>
+              <div style={{...monoFont, fontSize:11, fontWeight:700, color:'#FF6B00', letterSpacing:'0.35em'}}>{label}</div>
               <div style={{flex:1, height:1, background:'rgba(255,255,255,0.1)'}} />
             </div>
           );
@@ -14272,7 +14273,7 @@ export default function UnionPathway() {
 
               <div style={{position:'relative', maxWidth:760, margin:'0 auto', padding:'40px 24px 80px'}}>
                 {/* breadcrumb */}
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:12, color:'rgba(160,180,196,0.85)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700, marginBottom:32}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:12, color:'rgba(160,180,196,0.85)', fontFamily:"'Inter',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700, marginBottom:32}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship
                 </div>
@@ -14281,10 +14282,10 @@ export default function UnionPathway() {
                 <div style={{marginBottom:48}}>
                   <div style={{display:'flex', alignItems:'center', gap:12, marginBottom:14}}>
                     <div style={{height:1, width:32, background:'#FA8059'}} />
-                    <div style={{...monoFont, fontSize:10, fontWeight:700, color:'#FA8059', letterSpacing:'0.35em'}}>FIELD MANUAL · NO. 001</div>
+                    <div style={{...monoFont, fontSize:10, fontWeight:700, color:'#FF6B00', letterSpacing:'0.35em'}}>FIELD MANUAL · NO. 001</div>
                   </div>
-                  <h1 style={{...displayFont, fontSize:'clamp(48px, 9vw, 96px)', lineHeight:0.9, marginBottom:18, color:'#fff', margin:0}}>
-                    THE DOWN<br/>PAYMENT<br/><span style={{color:'#FA8059'}}>CALCULATOR.</span>
+                  <h1 style={{...displayFont, fontSize:'clamp(48px, 9vw, 96px)', lineHeight:0.9, marginBottom:18, color:'#072554', margin:0}}>
+                    THE DOWN<br/>PAYMENT<br/><span style={{color:'#FF6B00'}}>CALCULATOR.</span>
                   </h1>
                   <p style={{fontSize:15, color:'rgba(255,255,255,0.6)', lineHeight:1.55, maxWidth:540, marginTop:18}}>
                     For fifth-year apprentices about to make journeyman. Before you buy the truck — run the numbers.
@@ -14306,7 +14307,7 @@ export default function UnionPathway() {
                         step={1}
                         value={hourlyWage}
                         onChange={(e) => setHourlyWage(parseFloat(e.target.value) || 0)}
-                        style={{...monoFont, background:'transparent', fontSize:32, color:'#fff', width:'100%', border:'none', outline:'none'}}
+                        style={{...monoFont, background:'transparent', fontSize:32, color:'#072554', width:'100%', border:'none', outline:'none'}}
                       />
                       <span style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>/ HR</span>
                     </div>
@@ -14322,7 +14323,7 @@ export default function UnionPathway() {
                         step={1}
                         value={apprenticePercent}
                         onChange={(e) => setApprenticePercent(parseFloat(e.target.value) || 0)}
-                        style={{...monoFont, background:'transparent', fontSize:32, color:'#fff', width:'100%', border:'none', outline:'none'}}
+                        style={{...monoFont, background:'transparent', fontSize:32, color:'#072554', width:'100%', border:'none', outline:'none'}}
                       />
                       <span style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>%</span>
                     </div>
@@ -14338,7 +14339,7 @@ export default function UnionPathway() {
                         step={1}
                         value={apprenticeHours}
                         onChange={(e) => setApprenticeHours(parseFloat(e.target.value) || 0)}
-                        style={{...monoFont, background:'transparent', fontSize:32, color:'#fff', width:'100%', border:'none', outline:'none'}}
+                        style={{...monoFont, background:'transparent', fontSize:32, color:'#072554', width:'100%', border:'none', outline:'none'}}
                       />
                       <span style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>HRS</span>
                     </div>
@@ -14354,7 +14355,7 @@ export default function UnionPathway() {
                         step={1}
                         value={journeymanHours}
                         onChange={(e) => setJourneymanHours(parseFloat(e.target.value) || 0)}
-                        style={{...monoFont, background:'transparent', fontSize:32, color:'#fff', width:'100%', border:'none', outline:'none'}}
+                        style={{...monoFont, background:'transparent', fontSize:32, color:'#072554', width:'100%', border:'none', outline:'none'}}
                       />
                       <span style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>HRS</span>
                     </div>
@@ -14370,7 +14371,7 @@ export default function UnionPathway() {
                         step={0.5}
                         value={years}
                         onChange={(e) => setYears(parseFloat(e.target.value) || 0)}
-                        style={{...monoFont, background:'transparent', fontSize:32, color:'#fff', width:'100%', border:'none', outline:'none'}}
+                        style={{...monoFont, background:'transparent', fontSize:32, color:'#072554', width:'100%', border:'none', outline:'none'}}
                       />
                       <span style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>YRS</span>
                     </div>
@@ -14385,9 +14386,9 @@ export default function UnionPathway() {
                     {renderStat("AFTER", "Journeyman / yr", fmt(journeymanAnnual), false, true)}
                   </div>
                   <div style={{border:'1px solid rgba(250,128,89,0.4)', background:'rgba(250,128,89,0.06)', padding:'24px 28px'}}>
-                    <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'#FA8059', marginBottom:8}}>GROSS RAISE</div>
+                    <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'#FF6B00', marginBottom:8}}>GROSS RAISE</div>
                     <div style={{display:'flex', alignItems:'baseline', gap:14, flexWrap:'wrap'}}>
-                      <div style={{...displayFont, fontSize:'clamp(48px, 8vw, 64px)', color:'#FA8059'}}>{fmt(annualRaise)}</div>
+                      <div style={{...displayFont, fontSize:'clamp(48px, 8vw, 64px)', color:'#FF6B00'}}>{fmt(annualRaise)}</div>
                       <div style={{fontSize:14, color:'rgba(255,255,255,0.5)'}}>/ year</div>
                     </div>
                     <div style={{...monoFont, marginTop:8, fontSize:13, color:'rgba(255,255,255,0.5)'}}>≈ {fmt(monthlyRaise)} / month</div>
@@ -14400,11 +14401,11 @@ export default function UnionPathway() {
                   <div style={{border:'1px solid rgba(255,255,255,0.1)', background:'rgba(255,255,255,0.02)', padding:28}}>
                     <p style={{fontSize:15, lineHeight:1.65, color:'rgba(255,255,255,0.85)', marginBottom:24, marginTop:0}}>
                       Keep living like a fifth-year apprentice. Don't upgrade the truck. Don't upgrade everything. Save the entire raise for{' '}
-                      <span style={{...monoFont, color:'#FA8059'}}>{years} years</span>.
+                      <span style={{...monoFont, color:'#FF6B00'}}>{years} years</span>.
                     </p>
                     <div style={{borderTop:'1px solid rgba(255,255,255,0.08)', paddingTop:24}}>
                       <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'rgba(255,255,255,0.5)', marginBottom:10}}>TOTAL SAVED</div>
-                      <div style={{...displayFont, fontSize:'clamp(64px, 14vw, 112px)', lineHeight:1, color:'#fff'}}>{fmt(totalSaved)}</div>
+                      <div style={{...displayFont, fontSize:'clamp(64px, 14vw, 112px)', lineHeight:1, color:'#072554'}}>{fmt(totalSaved)}</div>
                     </div>
                   </div>
                 </div>
@@ -14424,7 +14425,7 @@ export default function UnionPathway() {
                         step={5000}
                         value={homePrice}
                         onChange={(e) => setHomePrice(parseFloat(e.target.value) || 0)}
-                        style={{...monoFont, background:'transparent', fontSize:32, color:'#fff', width:'100%', border:'none', outline:'none'}}
+                        style={{...monoFont, background:'transparent', fontSize:32, color:'#072554', width:'100%', border:'none', outline:'none'}}
                       />
                     </div>
                   </div>
@@ -14432,12 +14433,12 @@ export default function UnionPathway() {
                   <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))', gap:1, background:'rgba(255,255,255,0.08)', marginTop:20}}>
                     <div style={{padding:24, background:'#0F1620'}}>
                       <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'rgba(255,255,255,0.5)', marginBottom:8}}>YOUR DOWN PAYMENT</div>
-                      <div style={{...displayFont, fontSize:48, marginBottom:6, color:'#fff'}}>{pctOfHome.toFixed(1)}%</div>
+                      <div style={{...displayFont, fontSize:48, marginBottom:6, color:'#072554'}}>{pctOfHome.toFixed(1)}%</div>
                       <div style={{...monoFont, fontSize:13, color:'rgba(255,255,255,0.5)'}}>of {fmt(homePrice)}</div>
                     </div>
                     <div style={{padding:24, background:'#0F1620'}}>
-                      <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'#FA8059', marginBottom:8}}>OR · 20% DOWN BUYS</div>
-                      <div style={{...displayFont, fontSize:48, marginBottom:6, color:'#FA8059'}}>{fmt(homeAt20Down)}</div>
+                      <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'#FF6B00', marginBottom:8}}>OR · 20% DOWN BUYS</div>
+                      <div style={{...displayFont, fontSize:48, marginBottom:6, color:'#FF6B00'}}>{fmt(homeAt20Down)}</div>
                       <div style={{...monoFont, fontSize:13, color:'rgba(255,255,255,0.5)'}}>home value</div>
                     </div>
                   </div>
@@ -16042,7 +16043,7 @@ export default function UnionPathway() {
         {page === "trade-history" && (() => {
           // REBUILT TRADE HISTORY INDEX — fix165 / split fix184
           const TRADES_CONSTRUCTION = [
-            { key:'ibew',  name:'IBEW',         full:'International Brotherhood of Electrical Workers',                                          page:'history-ibew',  founded:1891, members:'887K+', color:'#FA8059', sub:'Henry Miller, the Reid-Murphy split, and the Council on Industrial Relations.' },
+            { key:'ibew',  name:'IBEW',         full:'International Brotherhood of Electrical Workers',                                          page:'history-ibew',  founded:1891, members:'887K+', color:'#FF6B00', sub:'Henry Miller, the Reid-Murphy split, and the Council on Industrial Relations.' },
             { key:'ua',    name:'UA',           full:'United Association of Plumbers, Pipefitters, Steamfitters & HVACR',                        page:'history-ua',    founded:1889, members:'365K+', color:'#3B9EFF', sub:'The Steamfitters War, the Veterans in Piping program, and an industrial pipeline at full speed.' },
             { key:'smart', name:'SMART',        full:'Sheet Metal, Air, Rail and Transportation Workers',                                        page:'history-smart', founded:1888, members:'200K+', color:'#B0BEC5', sub:'From Toledo tinsmiths to a 2014 merger that joined sheet metal with the railroads.' },
             { key:'bac',   name:'BAC',          full:'International Union of Bricklayers and Allied Craftworkers',                               page:'history-bac',   founded:1865, members:'70K+',  color:'#C04A36', sub:'The oldest building trades union in North America. Stonecutters, masons, and tile.' },
@@ -16066,9 +16067,9 @@ export default function UnionPathway() {
                 <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FA8059, #FA8059)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:1100, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:18}}>{lang==="es" ? "Historias por Oficio" : lang==="pl" ? "Historia Wedlug Zawodu" : "Trade Histories"}</div>
-                <h1 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#fff', lineHeight:0.95, margin:'0 0 24px 0', letterSpacing:'-0.01em'}}>
-                  {lang==="es" ? <>Cada oficio. <span style={{color:'#FA8059'}}>Su propia historia.</span></> : lang==="pl" ? <>Kazdy zawod. <span style={{color:'#FA8059'}}>Wlasna historia.</span></> : <>Every trade. <span style={{color:'#FA8059'}}>Its own story.</span></>}
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:18}}>{lang==="es" ? "Historias por Oficio" : lang==="pl" ? "Historia Wedlug Zawodu" : "Trade Histories"}</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#072554', lineHeight:0.95, margin:'0 0 24px 0', letterSpacing:'-0.01em'}}>
+                  {lang==="es" ? <>Cada oficio. <span style={{color:'#FF6B00'}}>Su propia historia.</span></> : lang==="pl" ? <>Kazdy zawod. <span style={{color:'#FF6B00'}}>Wlasna historia.</span></> : <>Every trade. <span style={{color:'#FF6B00'}}>Its own story.</span></>}
                 </h1>
                 <p style={{fontSize:18, color:'rgba(255,255,255,0.8)', lineHeight:1.6, maxWidth:700, margin:0}}>
                   {lang==="es" ? "Las uniones de oficios de la construccion no son solo entidades juridicas: son siglos de luchas, fundaciones, divisiones y reconstrucciones. Aqui estan los relatos completos." : lang==="pl" ? "Zwiazki zawodowe budowlane to nie tylko podmioty prawne: to wieki walki, zakladania, podzialow i odbudowy. Oto pelne historie." : "Building trade unions aren't just legal entities — they're centuries of strikes, foundings, splits, and rebuilds. Here are the full stories, one trade at a time."}
@@ -16084,12 +16085,12 @@ export default function UnionPathway() {
                     onMouseLeave={e => { e.currentTarget.style.background='rgba(255,255,255,0.04)'; e.currentTarget.style.transform='translateY(0)'; }}
                   >
                     <div>
-                      <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontWeight:900, color:'#fff', margin:0, lineHeight:1.1}}>{t.name}</h3>
-                      <div style={{fontSize:11, color:t.color, fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700, marginTop:4}}>{t.full}</div>
+                      <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:24, fontWeight:900, color:'#072554', margin:0, lineHeight:1.1}}>{t.name}</h3>
+                      <div style={{fontSize:11, color:t.color, fontFamily:"'Inter',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700, marginTop:4}}>{t.full}</div>
                     </div>
-                    <div style={{display:'flex', gap:16, marginTop:12, marginBottom:12, fontSize:11, color:'rgba(255,255,255,0.55)', fontFamily:"'Barlow Condensed',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>
-                      <span><span style={{color:'#fff'}}>{t.founded}</span> · {lang==="es" ? "Fundado" : lang==="pl" ? "Zalozony" : "Founded"}</span>
-                      <span><span style={{color:'#fff'}}>{t.members}</span> · {lang==="es" ? "Miembros" : lang==="pl" ? "Czlonkowie" : "Members"}</span>
+                    <div style={{display:'flex', gap:16, marginTop:12, marginBottom:12, fontSize:11, color:'rgba(255,255,255,0.55)', fontFamily:"'Inter',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>
+                      <span><span style={{color:'#072554'}}>{t.founded}</span> · {lang==="es" ? "Fundado" : lang==="pl" ? "Zalozony" : "Founded"}</span>
+                      <span><span style={{color:'#072554'}}>{t.members}</span> · {lang==="es" ? "Miembros" : lang==="pl" ? "Czlonkowie" : "Members"}</span>
                     </div>
                     <p style={{fontSize:13.5, color:'rgba(255,255,255,0.75)', lineHeight:1.55, margin:'8px 0 0 0', fontStyle:'italic'}}>{t.sub}</p>
                   </div>
@@ -16103,8 +16104,8 @@ export default function UnionPathway() {
                     {/* CONSTRUCTION TRADES GROUP — Industrial Unions moved to its own sub-menu (fix185) */}
                     <div style={{padding:'40px 24px 16px', maxWidth:1100, margin:'0 auto'}}>
                       <div style={{display:'flex', alignItems:'baseline', gap:12, marginBottom:24, flexWrap:'wrap'}}>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:2.5, textTransform:'uppercase'}}>{constructionLabel}</div>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.5)', letterSpacing:1.5, textTransform:'uppercase'}}>· {TRADES_CONSTRUCTION.length} {lang==="es" ? "Disponibles" : lang==="pl" ? "Dostepne" : "Live"}</div>
+                        <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#FF6B00', letterSpacing:2.5, textTransform:'uppercase'}}>{constructionLabel}</div>
+                        <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:'rgba(255,255,255,0.5)', letterSpacing:1.5, textTransform:'uppercase'}}>· {TRADES_CONSTRUCTION.length} {lang==="es" ? "Disponibles" : lang==="pl" ? "Dostepne" : "Live"}</div>
                       </div>
                       <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(320px, 1fr))', gap:16}}>
                         {TRADES_CONSTRUCTION.map(t => <TradeCard key={t.key} t={t} />)}
@@ -16114,11 +16115,11 @@ export default function UnionPathway() {
                 );
               })()}
               <div style={{padding:'40px 24px 80px', maxWidth:1100, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'rgba(255,255,255,0.55)', letterSpacing:2.5, textTransform:'uppercase', marginBottom:24}}>{lang==="es" ? "Proximamente" : lang==="pl" ? "Wkrotce" : "Coming Soon"} · {COMING.length}</div>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'rgba(255,255,255,0.55)', letterSpacing:2.5, textTransform:'uppercase', marginBottom:24}}>{lang==="es" ? "Proximamente" : lang==="pl" ? "Wkrotce" : "Coming Soon"} · {COMING.length}</div>
                 <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(320px, 1fr))', gap:16}}>
                   {COMING.map((t, i) => (
                     <div key={i} style={{background:'rgba(255,255,255,0.02)', border:'1px solid rgba(255,255,255,0.05)', borderRadius:14, padding:'22px 24px', opacity:0.55}}>
-                      <h3 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:18, fontWeight:500, color:'#fff', letterSpacing:'-0.015em', margin:'0 0 8px 0', lineHeight:1.1}}>{t.name}</h3>
+                      <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:500, color:'#072554', letterSpacing:'-0.015em', margin:'0 0 8px 0', lineHeight:1.1}}>{t.name}</h3>
                       <p style={{fontSize:13, color:'rgba(255,255,255,0.7)', lineHeight:1.55, margin:0, fontStyle:'italic'}}>{t.sub}</p>
                     </div>
                   ))}
@@ -16126,7 +16127,7 @@ export default function UnionPathway() {
               </div>
               <div style={{padding:'40px 24px 80px', maxWidth:1100, margin:'0 auto', textAlign:'center'}}>
                 <p style={{fontSize:14, color:'rgba(255,255,255,0.6)', marginBottom:18, fontStyle:'italic'}}>{lang==="es" ? "Para el panorama completo del movimiento sindical:" : lang==="pl" ? "Aby zobaczyc pelny obraz ruchu zwiazkowego:" : "For the full arc of the labor movement:"}</p>
-                <button onClick={() => setPage('history')} style={{background:'transparent', color:'#FA8059', fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'14px 32px', border:'1px solid rgba(245,197,24,0.4)', borderRadius:50, cursor:'pointer'}}>
+                <button onClick={() => setPage('history')} style={{background:'transparent', color:'#FF6B00', fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'14px 32px', border:'1px solid rgba(245,197,24,0.4)', borderRadius:50, cursor:'pointer'}}>
                   {lang==="es" ? "Leer Historia General" : lang==="pl" ? "Czytaj Historie Ogolna" : "Read General Union History"}
                 </button>
               </div>
@@ -16170,8 +16171,8 @@ export default function UnionPathway() {
               <div style={{background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:14, padding:'24px 28px', marginBottom:14, transition:'all 0.3s', borderLeft:`2px solid ${accent}`}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    {year && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>}
-                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#fff', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
+                    {year && <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>}
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:500, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'rgba(255,255,255,0.75)', lineHeight:1.6}}>{summary}</div>
                   </div>
                   <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:`${accent}22`, color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
@@ -16187,25 +16188,25 @@ export default function UnionPathway() {
 
           const PullQuote = ({ children, attribution }) => (
             <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #FA8059', background:'linear-gradient(90deg, rgba(250,128,89,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#fff', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:24, fontStyle:'italic', color:'#072554', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
+              {attribution && <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em'}}>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, background:'linear-gradient(135deg, #FA8059 0%, #F4A276 60%, #ffffff 100%)', WebkitBackgroundClip:'text', backgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'rgba(255,255,255,0.55)', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
           const Section = ({ tag, title, intro, color = '#FA8059', children }) => (
             <div style={{margin:'80px 0', position:'relative'}}>
               <div style={{display:'flex', alignItems:'center', gap:16, marginBottom:20, flexWrap:'wrap'}}>
-                <div style={{width:48, height:48, borderRadius:12, background:`${color}22`, border:`2px solid ${color}`, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color}}>{tag}</div>
-                <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#fff', margin:0, lineHeight:1.1, flex:1, minWidth:0}}>{title}</h2>
+                <div style={{width:48, height:48, borderRadius:12, background:`${color}22`, border:`2px solid ${color}`, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:900, color}}>{tag}</div>
+                <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:36, fontWeight:900, color:'#072554', margin:0, lineHeight:1.1, flex:1, minWidth:0}}>{title}</h2>
               </div>
               {intro && <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
               {children}
@@ -16222,9 +16223,9 @@ export default function UnionPathway() {
 
               {/* HERO */}
               <div style={{padding:'80px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>More Than Just a Paycheck</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#fff', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
-                  Union <span style={{color:'#FA8059'}}>Benefits.</span><br/>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>More Than Just a Paycheck</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  Union <span style={{color:'#FF6B00'}}>Benefits.</span><br/>
                   <span style={{color:'rgba(255,255,255,0.5)', fontWeight:500}}>What you actually get.</span>
                 </h1>
                 <p style={{fontSize:18, color:'rgba(255,255,255,0.7)', lineHeight:1.6, maxWidth:680, margin:'0 auto'}}>
@@ -16335,12 +16336,12 @@ export default function UnionPathway() {
                 {/* MID-PAGE COMPARISON */}
                 <div style={{margin:'80px -8px', padding:'40px 24px', background:'linear-gradient(180deg, rgba(34,197,94,0.06) 0%, rgba(250,128,89,0.06) 100%)', borderRadius:24, border:'1px solid rgba(255,255,255,0.08)'}}>
                   <div style={{textAlign:'center', marginBottom:32}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FA8059', letterSpacing:2, textTransform:'uppercase'}}>The Difference at a Glance</div>
-                    <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#fff', margin:'8px 0'}}>Union vs Non-Union Benefits</h3>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#FF6B00', letterSpacing:2, textTransform:'uppercase'}}>The Difference at a Glance</div>
+                    <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:32, fontWeight:900, color:'#072554', margin:'8px 0'}}>Union vs Non-Union Benefits</h3>
                   </div>
                   <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(280px, 1fr))', gap:20}}>
                     <div style={{padding:'24px', background:'rgba(34,197,94,0.08)', border:'1px solid rgba(34,197,94,0.3)', borderRadius:16}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:'#22c55e', marginBottom:12, textTransform:'uppercase', letterSpacing:1}}>Union Construction</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:900, color:'#22c55e', marginBottom:12, textTransform:'uppercase', letterSpacing:1}}>Union Construction</div>
                       <ul style={{listStyle:'none', padding:0, margin:0, fontSize:15, color:'rgba(255,255,255,0.9)', lineHeight:1.9}}>
                         <li>✓ Defined-benefit pension for life</li>
                         <li>✓ Annuity / 401(k) on top</li>
@@ -16351,7 +16352,7 @@ export default function UnionPathway() {
                       </ul>
                     </div>
                     <div style={{padding:'24px', background:'transparent', border:'1px solid rgba(255,255,255,0.08)', borderRadius:16}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:'rgba(255,255,255,0.5)', marginBottom:12, textTransform:'uppercase', letterSpacing:1}}>Typical Non-Union Job</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:900, color:'rgba(255,255,255,0.5)', marginBottom:12, textTransform:'uppercase', letterSpacing:1}}>Typical Non-Union Job</div>
                       <ul style={{listStyle:'none', padding:0, margin:0, fontSize:15, color:'rgba(255,255,255,0.6)', lineHeight:1.9}}>
                         <li>✗ No pension (rare exceptions)</li>
                         <li>○ Optional 401(k), small or no match</li>
@@ -16430,8 +16431,8 @@ export default function UnionPathway() {
 
                 {/* CLOSING — WHAT THIS MEANS */}
                 <div style={{margin:'80px 0 40px', padding:'48px 32px', background:'rgba(255,255,255,0.03)', borderRadius:24, border:'1px solid rgba(255,255,255,0.08)', textAlign:'center'}}>
-                  <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FA8059', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>The Bottom Line</div>
-                  <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(24px, 3vw, 34px)', fontWeight:500, color:'#fff', margin:'0 0 24px 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>What This All Adds Up To</h2>
+                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>The Bottom Line</div>
+                  <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(24px, 3vw, 34px)', fontWeight:500, color:'#072554', margin:'0 0 24px 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>What This All Adds Up To</h2>
                   <p style={{fontSize:16, color:'rgba(255,255,255,0.85)', lineHeight:1.8, maxWidth:720, margin:'0 auto 20px'}}>
                     The wage on a union paycheck tells you part of the story. The pension contributions, the health-fund deposits, the annuity accruals, and the training-fund deposits running alongside it tell you the rest. For a typical journey-level union member working 1,500-2,000 hours per year, the value of contractor-paid benefits often equals 30–40% of the hourly wage on top of the wage itself.
                   </p>
@@ -16442,8 +16443,8 @@ export default function UnionPathway() {
                     That's why people who get into the union trades tend to stay.
                   </p>
                   <div style={{display:'flex', gap:12, justifyContent:'center', flexWrap:'wrap', marginTop:24}}>
-                    <button onClick={() => setPage('home')} style={{background:'#FA8059', color:'#000', fontFamily:"'Barlow Condensed',sans-serif", fontSize:15, fontWeight:900, letterSpacing:1, textTransform:'uppercase', padding:'14px 32px', border:'none', borderRadius:50, cursor:'pointer'}}>Find Your Local →</button>
-                    <button onClick={() => setPage('checklist')} style={{background:'transparent', color:'#FA8059', fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'14px 28px', border:'1px solid rgba(250,128,89,0.4)', borderRadius:50, cursor:'pointer'}}>How to Join</button>
+                    <button onClick={() => setPage('home')} style={{background:'#FA8059', color:'#000', fontFamily:"'Inter',sans-serif", fontSize:15, fontWeight:900, letterSpacing:1, textTransform:'uppercase', padding:'14px 32px', border:'none', borderRadius:50, cursor:'pointer'}}>Find Your Local →</button>
+                    <button onClick={() => setPage('checklist')} style={{background:'transparent', color:'#FF6B00', fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'14px 28px', border:'1px solid rgba(250,128,89,0.4)', borderRadius:50, cursor:'pointer'}}>How to Join</button>
                   </div>
                 </div>
               </div>
@@ -16452,7 +16453,7 @@ export default function UnionPathway() {
         })()}
 
         {page === "retirement" && (
-          <div>
+          <div className="page-v4">
             <div className="history-hero">
               <div className="history-eyebrow">{lang==="es" ? "Tu Futuro, Construido en el Trabajo" : lang==="pl" ? "Twoja Przyszlosc, Zbudowana w Pracy" : "Your Future, Built on the Job"}</div>
               <h1 className="history-title">
@@ -16472,9 +16473,9 @@ export default function UnionPathway() {
                     <div style={{marginTop:16, overflowX:"auto"}}>
                       <table style={{width:"100%", borderCollapse:"collapse", fontSize:14}}>
                         <thead>
-                          <tr style={{background:"rgba(250,128,89,0.12)", borderBottom:"2px solid #FA8059"}}>
+                          <tr style={{background:"rgba(255,107,0,0.08)", borderBottom:"2px solid #FA8059"}}>
                             {["", lang==="es"?"Pension":lang==="pl"?"Emerytura":"Pension", lang==="es"?"Anualidad":lang==="pl"?"Renta":"Annuity", "401k"].map(h => (
-                              <th key={h} style={{padding:"14px 16px", textAlign:"left", fontFamily:"'Barlow Condensed',sans-serif", fontSize:16, fontWeight:800, color: h==="Pension" ? "#FA8059" : "white"}}>{h}</th>
+                              <th key={h} style={{padding:"14px 16px", textAlign:"left", fontFamily:"'Inter',sans-serif", fontSize:16, fontWeight:800, color: h==="Pension" ? "#FA8059" : "white"}}>{h}</th>
                             ))}
                           </tr>
                         </thead>
@@ -16503,7 +16504,7 @@ export default function UnionPathway() {
                   title: lang==="es" ? "La Pension — El Estandar de Oro" : lang==="pl" ? "Emerytura — Zloty Standard" : "The Pension — The Gold Standard",
                   content: (
                     <div style={{marginTop:16}}>
-                      <p style={{fontSize:15, color:"var(--muted)", lineHeight:1.7, marginBottom:20}}>
+                      <p style={{fontSize:15, color:"#5A6478", lineHeight:1.7, marginBottom:20}}>
                         {lang==="es" ? "Una pension es una cuenta de jubilacion financiada completamente por tu empleador. Cuando te jubiles, recibes un cheque mensual garantizado de por vida. Solo el 12% de los trabajadores del sector privado tienen pension. Los trabajadores de construccion sindical estan entre los pocos que todavia la tienen." : lang==="pl" ? "Emerytura to konto emerytalne finansowane w calosci przez pracodawce. Po przejsciu na emeryture otrzymujesz gwarantowana miesieczna wyplate przez cale zycie. Tylko 12% pracownikow sektora prywatnego ma emeryture." : "A pension is a retirement account funded entirely by your employer. When you retire, you receive a guaranteed monthly check for life. Only about 12% of private sector workers have a pension. Union construction workers are among the few who still do."}
                       </p>
                       <div className="impact-grid">
@@ -16512,7 +16513,7 @@ export default function UnionPathway() {
                           { num:"02", title: lang==="es" ? "En los Oficios Sindicales" : lang==="pl" ? "W Zwiazowych Zawodach" : "In Union Trades", desc: lang==="es" ? "Casi todos los grandes sindicatos de construccion — IBEW, UA, UBC, BAC, Ironworkers y mas — ofrecen un plan de pension de beneficio definido. Los empleadores contribuyen por cada hora que trabajas." : lang==="pl" ? "Prawie kazdy wiekszy zwiazek budowlany — IBEW, UA, UBC, BAC, Ironworkers i inne — oferuje plan emerytalny ze swiadczeniami okreslonymi." : "Nearly every major construction union — IBEW, UA, UBC, BAC, Ironworkers, and more — offers a defined benefit pension plan. Employers contribute for every hour you work." },
                         ].map((item, i) => (
                           <div key={i} className="impact-card">
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FA8059",marginBottom:"12px",textTransform:"uppercase"}}>{item.num}</div>
+                            <div style={{fontFamily:"'Inter',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FF6B00",marginBottom:"12px",textTransform:"uppercase"}}>{item.num}</div>
                             <div className="impact-title">{item.title}</div>
                             <div className="impact-desc">{item.desc}</div>
                           </div>
@@ -16526,7 +16527,7 @@ export default function UnionPathway() {
                   title: lang==="es" ? "La Anualidad — Tu Segundo Cheque" : lang==="pl" ? "Renta Annuitetowa — Twoja Druga Wyplata" : "The Annuity — Your Second Check",
                   content: (
                     <div style={{marginTop:16}}>
-                      <p style={{fontSize:15, color:"var(--muted)", lineHeight:1.7, marginBottom:20}}>
+                      <p style={{fontSize:15, color:"#5A6478", lineHeight:1.7, marginBottom:20}}>
                         {lang==="es" ? "Una anualidad es una cuenta de ahorro adicional para la jubilacion que tu empleador financia. Los empleadores contribuyen una cantidad fija por hora trabajada. Se acumula a lo largo de tu carrera y se paga cuando te jubiles." : lang==="pl" ? "Renta annuitetowa to dodatkowe konto oszczednosciowe na emeryture finansowane przez pracodawce. Pracodawcy wplacaja stala kwote za kazda przepracowana godzine." : "An annuity is an additional retirement savings account that your employer funds. Employers contribute a set amount per hour worked. It builds up over your career and pays out when you retire."}
                       </p>
                       <div className="impact-grid">
@@ -16535,7 +16536,7 @@ export default function UnionPathway() {
                           { num:"02", title: lang==="es" ? "Anualidad vs Pension" : lang==="pl" ? "Renta vs Emerytura" : "Annuity vs Pension", desc: lang==="es" ? "La pension paga un monto mensual fijo de por vida. La anualidad es mas como una cuenta de ahorros. Muchos contratos sindicales incluyen AMBAS — dos cuentas de jubilacion, ambas financiadas por tu empleador." : lang==="pl" ? "Emerytura placi stala miesieczna kwote przez cale zycie. Renta annuitetowa jest bardziej jak konto oszczednosciowe. Wiele umow zwiazowych obejmuje OBE." : "The pension pays a fixed monthly amount for life. The annuity is more like a savings account. Many union contracts include BOTH — two retirement accounts, both employer-funded." },
                         ].map((item, i) => (
                           <div key={i} className="impact-card">
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FA8059",marginBottom:"12px",textTransform:"uppercase"}}>{item.num}</div>
+                            <div style={{fontFamily:"'Inter',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FF6B00",marginBottom:"12px",textTransform:"uppercase"}}>{item.num}</div>
                             <div className="impact-title">{item.title}</div>
                             <div className="impact-desc">{item.desc}</div>
                           </div>
@@ -16556,7 +16557,7 @@ export default function UnionPathway() {
                           { num:"03", title: lang==="es" ? "vs Beneficios Sindicales" : lang==="pl" ? "vs Swiadczenia Zwiazowe" : "vs Union Benefits", desc: lang==="es" ? "En la mayoria de los casos, una pension sindical + anualidad es mejor que un 401k porque esta garantizada y financiada por el empleador — no sale de tu cheque." : lang==="pl" ? "W wiekszosci przypadkow zwiazowa emerytura + renta jest lepsza niz 401k, bo jest gwarantowana i finansowana przez pracodawce." : "In most cases, a union pension plus annuity beats a 401k because it is guaranteed and employer-funded — it does not come out of your paycheck." },
                         ].map((item, i) => (
                           <div key={i} className="impact-card">
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FA8059",marginBottom:"12px",textTransform:"uppercase"}}>{item.num}</div>
+                            <div style={{fontFamily:"'Inter',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FF6B00",marginBottom:"12px",textTransform:"uppercase"}}>{item.num}</div>
                             <div className="impact-title">{item.title}</div>
                             <div className="impact-desc">{item.desc}</div>
                           </div>
@@ -16570,8 +16571,8 @@ export default function UnionPathway() {
                   title: lang==="es" ? "Tu Paquete Completo" : lang==="pl" ? "Twoj Pelny Pakiet" : "Your Full Compensation Package",
                   content: (
                     <div style={{marginTop:16}}>
-                      <div style={{background:"rgba(34,48,61,0.5)", border:"1px solid rgba(250,128,89,0.2)", borderRadius:16, padding:"24px"}}>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:"var(--muted)", textTransform:"uppercase", letterSpacing:"0.1em", marginBottom:20}}>
+                      <div style={{background:"rgba(34,48,61,0.5)", border:"1px solid rgba(255,107,0,0.15)", borderRadius:16, padding:"24px"}}>
+                        <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:"#5A6478", textTransform:"uppercase", letterSpacing:"0.1em", marginBottom:20}}>
                           {lang==="es" ? "Ejemplo: Electricista Oficial — Mercado Principal" : lang==="pl" ? "Przyklad: Elektryk Czeladnik — Duzy Rynek" : "Example: Journeyman Electrician — Major Market"}
                         </div>
                         {[
@@ -16585,16 +16586,16 @@ export default function UnionPathway() {
                           <div key={i} style={{display:"flex", justifyContent:"space-between", alignItems:"center", padding:"12px 0", borderBottom: i < 5 ? "1px solid rgba(58,80,104,0.4)" : "none"}}>
                             <div>
                               <span style={{fontSize:15, color: isWage ? "white" : "var(--muted)", fontWeight: isWage ? 700 : 400}}>{label}</span>
-                              {note && <div style={{fontSize:12, color:"#FA8059", marginTop:2}}>{note}</div>}
+                              {note && <div style={{fontSize:12, color:"#FF6B00", marginTop:2}}>{note}</div>}
                             </div>
-                            <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:800, color: isWage ? "#FA8059" : "var(--muted)"}}>{amount}</span>
+                            <span style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color: isWage ? "#FA8059" : "var(--muted)"}}>{amount}</span>
                           </div>
                         ))}
                         <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", padding:"16px 0 0", marginTop:8, borderTop:"2px solid #FA8059"}}>
-                          <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color:"white"}}>{lang==="es" ? "COMPENSACION TOTAL" : lang==="pl" ? "CALKOWITE WYNAGRODZENIE" : "TOTAL COMPENSATION"}</span>
-                          <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:26, fontWeight:900, color:"#FA8059"}}>$81.00/hr</span>
+                          <span style={{fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:900, color:"white"}}>{lang==="es" ? "COMPENSACION TOTAL" : lang==="pl" ? "CALKOWITE WYNAGRODZENIE" : "TOTAL COMPENSATION"}</span>
+                          <span style={{fontFamily:"'Inter',sans-serif", fontSize:26, fontWeight:900, color:"#FF6B00"}}>$81.00/hr</span>
                         </div>
-                        <div style={{fontSize:12, color:"var(--muted)", marginTop:12, fontStyle:"italic"}}>
+                        <div style={{fontSize:12, color:"#5A6478", marginTop:12, fontStyle:"italic"}}>
                           {lang==="es" ? "* Solo ejemplo. Las tarifas reales varian por local y ano de contrato." : lang==="pl" ? "* Tylko przyklad. Stawki roznia sie w zaleznosci od lokalu." : "* Example figures only. Actual rates vary by local, market, and contract year."}
                         </div>
                       </div>
@@ -16605,10 +16606,10 @@ export default function UnionPathway() {
                 <div key={section.id} style={{marginBottom:12, border: retSection===section.id ? "1px solid rgba(250,128,89,0.3)" : "1px solid rgba(255,255,255,0.08)", borderRadius:16, overflow:"hidden"}}>
                   <button
                     onClick={() => setRetSection(retSection===section.id ? null : section.id)}
-                    style={{width:"100%", background:"rgba(255,255,255,0.02)", border:"none", padding:"20px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", cursor:"pointer", textAlign:"left"}}
+                    style={{width:"100%", background:"#ffffff", border:"none", padding:"20px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", cursor:"pointer", textAlign:"left"}}
                   >
-                    <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:800, color: retSection===section.id ? "#FA8059" : "#fff"}}>{section.title}</span>
-                    <span style={{color:"#FA8059", fontSize:22, fontWeight:700, lineHeight:1, transform: retSection===section.id ? "rotate(45deg)" : "rotate(0deg)", display:"inline-block", transition:"transform 0.2s"}}>+</span>
+                    <span style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color: retSection===section.id ? "#FA8059" : "#fff"}}>{section.title}</span>
+                    <span style={{color:"#FF6B00", fontSize:22, fontWeight:700, lineHeight:1, transform: retSection===section.id ? "rotate(45deg)" : "rotate(0deg)", display:"inline-block", transition:"transform 0.2s"}}>+</span>
                   </button>
                   {retSection===section.id && (
                     <div style={{padding:"0 24px 24px", borderTop:"1px solid rgba(255,255,255,0.06)"}}>
@@ -16622,7 +16623,7 @@ export default function UnionPathway() {
         )}
 
         {page === "locals" && (
-          <div>
+          <div className="page-v4">
             <div className="history-hero">
               <div className="history-eyebrow">{lang==="es" ? "Lo que Nadie te Explica" : lang==="pl" ? "Czego Nikt Ci Nie Wyjasnil" : "What Nobody Explains to You"}</div>
               <h1 className="history-title">
@@ -16640,7 +16641,7 @@ export default function UnionPathway() {
                   title: lang==="es" ? "Jurisdiccion — El Territorio de tu Local" : lang==="pl" ? "Jurysdykcja — Terytorium Twojego Oddzialu" : "Jurisdiction — Your Local's Territory",
                   content: (
                     <div style={{marginTop:16}}>
-                      <p style={{fontSize:15, color:"var(--muted)", lineHeight:1.7, marginBottom:20}}>
+                      <p style={{fontSize:15, color:"#5A6478", lineHeight:1.7, marginBottom:20}}>
                         {lang==="es" ? "Cada local sindical tiene una jurisdiccion geografica definida — un territorio especifico donde tiene autoridad para representar a los trabajadores. Si vives o trabajas dentro de ese territorio, ese es el local al que deberias solicitar el ingreso." : lang==="pl" ? "Kazdy lokalny zwiazek zawodowy ma okreslona jurysdykcje geograficzna — specyficzne terytorium, na ktorym ma uprawnienia do reprezentowania pracownikow. Jesli mieszkasz lub pracujesz na tym terytorium, to do tego lokalnego oddzialu powinienes sie zglosic." : "Every union local has a defined geographic jurisdiction — a specific territory where it has authority to represent workers. Think of it like a district. If you live or work within that territory, that is the local you should be applying to."}
                       </p>
                       <div className="impact-grid">
@@ -16650,7 +16651,7 @@ export default function UnionPathway() {
                           { num:"03", title: lang==="es" ? "Las Fronteras Pueden Superponerse" : lang==="pl" ? "Granice Moga Sie Nakladac" : "Boundaries Can Overlap", desc: lang==="es" ? "En algunas areas metropolitanas, multiples locales pueden operar cerca entre si con territorios adyacentes. Si estas cerca de una linea de frontera, podrias tener opciones. Pregunta a ambos locales sobre cobertura de trabajo, listas de espera y condiciones actuales del mercado laboral antes de decidir." : lang==="pl" ? "W niektorych obszarach metropolitalnych wiele lokalnych oddzialow moze dzialac blisko siebie z przyleglymi terytoriami. Jesli jestes blisko linii granicznej, mozesz miec opcje. Zapytaj oba lokale o pokrycie pracy, listy oczekujacych i aktualne warunki rynku pracy." : "In some metro areas, multiple locals may operate near each other with adjacent territories. If you are near a boundary line, you may have options. Ask both locals about work coverage, wait lists, and current market conditions before deciding where to apply." },
                         ].map((item, i) => (
                           <div key={i} className="impact-card">
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FA8059",marginBottom:"12px",textTransform:"uppercase"}}>{item.num}</div>
+                            <div style={{fontFamily:"'Inter',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FF6B00",marginBottom:"12px",textTransform:"uppercase"}}>{item.num}</div>
                             <div className="impact-title">{item.title}</div>
                             <div className="impact-desc">{item.desc}</div>
                           </div>
@@ -16664,24 +16665,24 @@ export default function UnionPathway() {
                   title: lang==="es" ? "Libro 1 vs Libro 2 — La Lista de Trabajo" : lang==="pl" ? "Ksiega 1 vs Ksiega 2 — Lista Pracy" : "Book 1 vs Book 2 — The Out-of-Work List",
                   content: (
                     <div style={{marginTop:16}}>
-                      <p style={{fontSize:15, color:"var(--muted)", lineHeight:1.7, marginBottom:24}}>
+                      <p style={{fontSize:15, color:"#5A6478", lineHeight:1.7, marginBottom:24}}>
                         {lang==="es" ? "Cuando un trabajador sindical esta desempleado y busca trabajo, se inscribe en la lista de desempleo de su local — comnmente llamada el libro. El local llama a los trabajadores de esta lista en orden cuando los contratistas solicitan mano de obra." : lang==="pl" ? "Kiedy pracownik zwiazowy jest bezrobotny i szuka pracy, rejestruje sie na liscie bezrobocia swojego lokalu — powszechnie nazywanej ksiega. Lokalny oddział dzwoni do pracownikow z tej listy w kolejnosci, gdy wykonawcy prosza o sile robocza." : "When a union worker is out of work and looking for a job, they sign the out-of-work list at their local — commonly called the book. The local calls workers from this list in order when contractors request labor. Your position on the book determines when you get dispatched."}
                       </p>
                       <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))", gap:16, marginBottom:24}}>
-                        <div style={{background:"rgba(250,128,89,0.06)", border:"1px solid rgba(250,128,89,0.25)", borderRadius:16, padding:"24px"}}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:"#FA8059", marginBottom:8}}>{lang==="es" ? "Libro 1" : lang==="pl" ? "Ksiega 1" : "Book 1"}</div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:"#fff", marginBottom:12}}>{lang==="es" ? "Miembros del Local" : lang==="pl" ? "Czlonkowie Lokalnego" : "Home Local Members"}</div>
-                          <div style={{fontSize:13, color:"var(--muted)", lineHeight:1.7}}>{lang==="es" ? "La lista de trabajo primaria. Reservada para miembros en regla del local. Tienes prioridad sobre los viajeros. Cuando hay trabajo, el Libro 1 se llama primero. Estar en el Libro 1 significa que este es tu local de origen." : lang==="pl" ? "Podstawowa lista pracy. Zarezerwowana dla czlonkow lokalnego oddzialu w dobrej pozycji. Masz pierwszenstwo przed pracownikami w trasie. Ksiega 1 jest wywoływana pierwsza." : "The primary out-of-work list. Reserved for members in good standing of the local. You have priority over travelers. When work is available, Book 1 gets called first. Being on Book 1 means this is your home local."}</div>
+                        <div style={{background:"rgba(255,107,0,0.05)", border:"1px solid rgba(255,107,0,0.20)", borderRadius:16, padding:"24px"}}>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:"#FF6B00", marginBottom:8}}>{lang==="es" ? "Libro 1" : lang==="pl" ? "Ksiega 1" : "Book 1"}</div>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:900, color:"#072554", marginBottom:12}}>{lang==="es" ? "Miembros del Local" : lang==="pl" ? "Czlonkowie Lokalnego" : "Home Local Members"}</div>
+                          <div style={{fontSize:13, color:"#5A6478", lineHeight:1.7}}>{lang==="es" ? "La lista de trabajo primaria. Reservada para miembros en regla del local. Tienes prioridad sobre los viajeros. Cuando hay trabajo, el Libro 1 se llama primero. Estar en el Libro 1 significa que este es tu local de origen." : lang==="pl" ? "Podstawowa lista pracy. Zarezerwowana dla czlonkow lokalnego oddzialu w dobrej pozycji. Masz pierwszenstwo przed pracownikami w trasie. Ksiega 1 jest wywoływana pierwsza." : "The primary out-of-work list. Reserved for members in good standing of the local. You have priority over travelers. When work is available, Book 1 gets called first. Being on Book 1 means this is your home local."}</div>
                         </div>
-                        <div style={{background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.1)", borderRadius:16, padding:"24px"}}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:"#a0b4c4", marginBottom:8}}>{lang==="es" ? "Libro 2" : lang==="pl" ? "Ksiega 2" : "Book 2"}</div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:"#fff", marginBottom:12}}>{lang==="es" ? "Viajeros" : lang==="pl" ? "Podrozownicy" : "Travelers"}</div>
-                          <div style={{fontSize:13, color:"var(--muted)", lineHeight:1.7}}>{lang==="es" ? "Para miembros de OTROS locales que buscan trabajo fuera de su territorio. El Libro 2 solo se llama cuando el Libro 1 esta agotado. Eres un visitante — el trabajo es secundario y tus beneficios siguen yendo a tu local de origen." : lang==="pl" ? "Dla czlonkow INNYCH lokalnych oddzialow szukajacych pracy poza swoim terytorium. Ksiega 2 jest wywoływana tylko gdy Ksiega 1 jest wyczerpana. Jestes goscie — Twoje swiadczenia nadal trafiaja do Twojego lokalnego macierzystego." : "For members from OTHER locals looking for work outside their home territory. Book 2 only gets called when Book 1 is exhausted. You are a visitor — work is secondary, and your benefits still go back to your home local."}</div>
+                        <div style={{background:"#ffffff", border:"1px solid rgba(7,37,84,0.08)", borderRadius:16, padding:"24px"}}>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.12em", textTransform:"uppercase", color:"#a0b4c4", marginBottom:8}}>{lang==="es" ? "Libro 2" : lang==="pl" ? "Ksiega 2" : "Book 2"}</div>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:900, color:"#072554", marginBottom:12}}>{lang==="es" ? "Viajeros" : lang==="pl" ? "Podrozownicy" : "Travelers"}</div>
+                          <div style={{fontSize:13, color:"#5A6478", lineHeight:1.7}}>{lang==="es" ? "Para miembros de OTROS locales que buscan trabajo fuera de su territorio. El Libro 2 solo se llama cuando el Libro 1 esta agotado. Eres un visitante — el trabajo es secundario y tus beneficios siguen yendo a tu local de origen." : lang==="pl" ? "Dla czlonkow INNYCH lokalnych oddzialow szukajacych pracy poza swoim terytorium. Ksiega 2 jest wywoływana tylko gdy Ksiega 1 jest wyczerpana. Jestes goscie — Twoje swiadczenia nadal trafiaja do Twojego lokalnego macierzystego." : "For members from OTHER locals looking for work outside their home territory. Book 2 only gets called when Book 1 is exhausted. You are a visitor — work is secondary, and your benefits still go back to your home local."}</div>
                         </div>
                       </div>
-                      <div style={{background:"rgba(34,48,61,0.5)", border:"1px solid rgba(58,80,104,0.4)", borderRadius:12, padding:"20px 24px"}}>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:"#FA8059", textTransform:"uppercase", letterSpacing:"0.1em", marginBottom:8}}>{lang==="es" ? "La Regla Clave" : lang==="pl" ? "Kluczowa Zasada" : "The Key Rule"}</div>
-                        <div style={{fontSize:14, color:"var(--muted)", lineHeight:1.7}}>{lang==="es" ? "Si eres del Local A y viajas para trabajar en el territorio del Local B, te registras en el Libro 2 del Local B. Tienes trabajo — pero el Local B te llama despues de sus propios miembros del Libro 1. Cuando el trabajo termina, vuelves a casa." : lang==="pl" ? "Jesli jestes z Lokalu A i jedziesz do pracy na terytorium Lokalu B, rejestrujesz sie w Ksiedze 2 Lokalu B. Masz prace — ale Lokal B dzwoni do Ciebie po wlasnych czlonkach Ksiegi 1. Kiedy praca sie konczy, wracasz do domu." : "If you are from Local A and travel to work in Local B territory, you sign Book 2 at Local B. You get work — but Local B calls you after their own Book 1 members. When the job ends, you go home."}</div>
+                      <div style={{background:"rgba(34,48,61,0.5)", border:"1px solid rgba(7,37,84,0.10)", borderRadius:12, padding:"20px 24px"}}>
+                        <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:"#FF6B00", textTransform:"uppercase", letterSpacing:"0.1em", marginBottom:8}}>{lang==="es" ? "La Regla Clave" : lang==="pl" ? "Kluczowa Zasada" : "The Key Rule"}</div>
+                        <div style={{fontSize:14, color:"#5A6478", lineHeight:1.7}}>{lang==="es" ? "Si eres del Local A y viajas para trabajar en el territorio del Local B, te registras en el Libro 2 del Local B. Tienes trabajo — pero el Local B te llama despues de sus propios miembros del Libro 1. Cuando el trabajo termina, vuelves a casa." : lang==="pl" ? "Jesli jestes z Lokalu A i jedziesz do pracy na terytorium Lokalu B, rejestrujesz sie w Ksiedze 2 Lokalu B. Masz prace — ale Lokal B dzwoni do Ciebie po wlasnych czlonkach Ksiegi 1. Kiedy praca sie konczy, wracasz do domu." : "If you are from Local A and travel to work in Local B territory, you sign Book 2 at Local B. You get work — but Local B calls you after their own Book 1 members. When the job ends, you go home."}</div>
                       </div>
                     </div>
                   )
@@ -16691,7 +16692,7 @@ export default function UnionPathway() {
                   title: lang==="es" ? "Tu Local de Origen — Elige con Cuidado" : lang==="pl" ? "Twoj Lokalny Macierzysty — Wybieraj Ostrozenie" : "Your Home Local — Choose Carefully",
                   content: (
                     <div style={{marginTop:16}}>
-                      <p style={{fontSize:15, color:"var(--muted)", lineHeight:1.7, marginBottom:20}}>
+                      <p style={{fontSize:15, color:"#5A6478", lineHeight:1.7, marginBottom:20}}>
                         {lang==="es" ? "Tu local de origen es el local donde eres miembro de pleno derecho. Es donde estan tus beneficios, tu pension, tu anualidad y tu representacion. Cuando te aceptan en un aprendizaje, el local que te acepta se convierte en tu local de origen. Esta es una decision de largo plazo." : lang==="pl" ? "Twoj lokalny macierzysty to lokalny oddział, w ktorym jestes pelnoletnim czlonkiem. To tutaj sa Twoje swiadczenia, emerytura, renta annuitetowa i reprezentacja. Gdy zostajesz przyjety do praktyki, lokalny, ktory Cie przyjmuje, staje sie Twoim macierzystym." : "Your home local is the local where you are a full dues-paying member. It is where your benefits live — pension, annuity, health insurance, and representation. When you get accepted into an apprenticeship, the local that accepts you becomes your home local. This is a long-term decision, not just a short-term one."}
                       </p>
                       <div className="impact-grid">
@@ -16701,7 +16702,7 @@ export default function UnionPathway() {
                           { num:"03", title: lang==="es" ? "Una Vez Dentro, Eres Miembro" : lang==="pl" ? "Raz Wewnatrz, Jestes Czlonkiem" : "Once In, You Are a Member", desc: lang==="es" ? "Una vez que te aceptan, ese local se convierte en tu hogar. Puedes transferirte mas tarde — pero no es simple y tiene implicaciones en tus beneficios. Es mucho mas facil elegir el local correcto desde el principio investigando geografia, perspectivas de trabajo y reputacion del local antes de aplicar." : lang==="pl" ? "Gdy zostaniesz przyjety do praktyki, ten lokalny oddział staje sie Twoim domem. Mozesz przeniesc sie pozniej — ale nie jest to proste i ma konsekwencje dla Twoich swiadczen." : "Once you are accepted, that local becomes your home. You can transfer later — but it is not simple and has benefit implications. It is much easier to choose the right local upfront by researching geography, work outlook, and the local reputation before applying." },
                         ].map((item, i) => (
                           <div key={i} className="impact-card">
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FA8059",marginBottom:"12px",textTransform:"uppercase"}}>{item.num}</div>
+                            <div style={{fontFamily:"'Inter',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FF6B00",marginBottom:"12px",textTransform:"uppercase"}}>{item.num}</div>
                             <div className="impact-title">{item.title}</div>
                             <div className="impact-desc">{item.desc}</div>
                           </div>
@@ -16715,7 +16716,7 @@ export default function UnionPathway() {
                   title: lang==="es" ? "Trabajo de Viaje — Como Funciona Realmente" : lang==="pl" ? "Praca w Trasie — Jak To Naprawde Dziala" : "Travel Work — How It Actually Works",
                   content: (
                     <div style={{marginTop:16}}>
-                      <p style={{fontSize:15, color:"var(--muted)", lineHeight:1.7, marginBottom:20}}>
+                      <p style={{fontSize:15, color:"#5A6478", lineHeight:1.7, marginBottom:20}}>
                         {lang==="es" ? "Una de las ventajas mas poderosas de ser miembro sindical es la capacidad de viajar — tomar trabajo en otros locales cuando tu mercado local esta lento. Aqui esta como funciona en la practica." : lang==="pl" ? "Jedna z najpotezniejszych zalet bycia czlonkiem zwiazku jest mozliwosc podrozowania — przyjmowania pracy w innych lokalnych oddzialach, gdy Twoj lokalny rynek jest powolny." : "One of the most powerful advantages of being a union member is the ability to travel — taking work in other locals when your home market is slow. Here is how it works in practice."}
                       </p>
                       <div style={{display:"flex", flexDirection:"column", gap:12}}>
@@ -16725,11 +16726,11 @@ export default function UnionPathway() {
                           { n:"03", title: lang==="es" ? "Tus Beneficios Siguen Yendo a Casa" : lang==="pl" ? "Twoje Swiadczenia Nadal Trafiaja do Domu" : "Your Benefits Still Go Home", desc: lang==="es" ? "Cuando trabajas fuera de tu local, el contratista local sigue contribuyendo a los fondos de beneficios — pero esas contribuciones se envian de vuelta a tu local de origen. Tu pension, anualidad y seguro de salud continuan acumulandose en tu local de origen." : lang==="pl" ? "Kiedy pracujesz poza swoim lokalnym oddzialem, lokalny wykonawca nadal wnosci wklad do funduszy swiadczen — ale te skladki sa odsylane z powrotem do Twojego lokalnego macierzystego." : "When you work outside your local, the contractor there still contributes to benefit funds — but those contributions get sent back to your home local. Your pension, annuity, and health insurance continue building at your home local as if you were working there." },
                           { n:"04", title: lang==="es" ? "Cuando Tiene Sentido Viajar" : lang==="pl" ? "Kiedy Podrozowanie Ma Sens" : "When Traveling Makes Sense", desc: lang==="es" ? "Viajar tiene mas sentido cuando tu mercado local esta lento. Tambien es una excelente manera de acumular horas de pension, ganar experiencia en diferentes tipos de trabajo y construir tu reputacion en multiples mercados. Algunos trabajadores construyen carreras enteras viajando de proyecto en proyecto." : lang==="pl" ? "Podrozowanie ma najwiekszy sens, gdy Twoj lokalny rynek jest powolny. To takze swietny sposob na gromadzenie godzin emerytalnych i zdobywanie doswiadczenia w roznych rodzajach pracy." : "Traveling makes the most sense when your local market is slow and you have fixed expenses to cover. It is also a great way to accumulate pension hours, gain experience on different job types, and build your reputation across multiple markets. Some workers build entire careers traveling from project to project." },
                         ].map((s, i) => (
-                          <div key={i} style={{display:"flex", gap:16, alignItems:"flex-start", padding:"16px 20px", background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.07)", borderRadius:12}}>
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:800, color:"#FA8059", minWidth:28}}>{s.n}</div>
+                          <div key={i} style={{display:"flex", gap:16, alignItems:"flex-start", padding:"16px 20px", background:"#ffffff", border:"1px solid rgba(255,255,255,0.07)", borderRadius:12}}>
+                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:800, color:"#FF6B00", minWidth:28}}>{s.n}</div>
                             <div>
-                              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:800, color:"#fff", marginBottom:4}}>{s.title}</div>
-                              <div style={{fontSize:13, color:"var(--muted)", lineHeight:1.6}}>{s.desc}</div>
+                              <div style={{fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:800, color:"#072554", marginBottom:4}}>{s.title}</div>
+                              <div style={{fontSize:13, color:"#5A6478", lineHeight:1.6}}>{s.desc}</div>
                             </div>
                           </div>
                         ))}
@@ -16742,7 +16743,7 @@ export default function UnionPathway() {
                   title: lang==="es" ? "Modelos de Escuela de Aprendizaje" : lang==="pl" ? "Modele Szkoly Praktycznej" : "Apprenticeship School Models — Not All Are the Same",
                   content: (
                     <div style={{marginTop:16}}>
-                      <p style={{fontSize:15, color:"var(--muted)", lineHeight:1.7, marginBottom:20}}>
+                      <p style={{fontSize:15, color:"#5A6478", lineHeight:1.7, marginBottom:20}}>
                         {lang==="es" ? "Uno de los aspectos menos entendidos del aprendizaje sindical es como funciona la escuela — especificamente, cuando vas y si te pagan por estar alli. La respuesta varia significativamente segun el local." : lang==="pl" ? "Jednym z najmniej rozumianych aspektow praktyki zwiazowej jest to, jak dziala szkola — konkretnie, kiedy chodzisz i czy placza ci za to. Odpowiedz rozni sie znacznie w zaleznosci od lokalnego oddzialu." : "One of the least understood aspects of the union apprenticeship is how school works — specifically, when you go and whether you get paid for being there. The answer varies significantly by local. Here is what you need to ask before applying."}
                       </p>
                       <div style={{display:"flex", flexDirection:"column", gap:16, marginBottom:24}}>
@@ -16753,16 +16754,16 @@ export default function UnionPathway() {
                         ].map((m, i) => (
                           <div key={i} style={{background: m.highlight ? "rgba(250,128,89,0.06)" : "rgba(255,255,255,0.02)", border: m.highlight ? "1px solid rgba(250,128,89,0.25)" : "1px solid rgba(255,255,255,0.07)", borderRadius:16, padding:"24px"}}>
                             <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:12, flexWrap:"wrap", gap:8}}>
-                              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:800, color: m.highlight ? "#FA8059" : "#fff"}}>{m.model}</div>
+                              <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color: m.highlight ? "#FA8059" : "#fff"}}>{m.model}</div>
                               <div style={{fontSize:12, fontWeight:700, color: m.highlight ? "#FA8059" : "var(--muted)", background: m.highlight ? "rgba(250,128,89,0.1)" : "rgba(255,255,255,0.06)", borderRadius:50, padding:"4px 12px", letterSpacing:"0.06em", textTransform:"uppercase"}}>{m.tag}</div>
                             </div>
-                            <div style={{fontSize:14, color:"var(--muted)", lineHeight:1.7}}>{m.desc}</div>
+                            <div style={{fontSize:14, color:"#5A6478", lineHeight:1.7}}>{m.desc}</div>
                           </div>
                         ))}
                       </div>
-                      <div style={{background:"rgba(34,48,61,0.5)", border:"1px solid rgba(58,80,104,0.4)", borderRadius:12, padding:"20px 24px"}}>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:"#FA8059", textTransform:"uppercase", letterSpacing:"0.1em", marginBottom:8}}>{lang==="es" ? "Siempre Pregunta Antes de Aplicar" : lang==="pl" ? "Zawsze Pytaj Przed Zlozeniem Wniosku" : "Always Ask Before You Apply"}</div>
-                        <div style={{fontSize:14, color:"var(--muted)", lineHeight:1.7}}>{lang==="es" ? "El modelo de escuela no siempre esta anunciado en linea. Llama directamente al coordinador del aprendizaje y pregunta: Como funciona la escuela? Es durante el dia o por la noche? Los aprendices reciben compensacion por el tiempo escolar? Esta informacion podria afectar significativamente tu planificacion financiera." : lang==="pl" ? "Model szkoly nie zawsze jest oglaszany online. Zadzwon bezposrednio do koordynatora praktyki i zapytaj: Jak dziala szkola? Czy odbywa sie w ciagu dnia czy wieczorem? Czy praktykanci otrzymuja wynagrodzenie za czas szkolny?" : "The school model is not always advertised online. Call the local apprenticeship coordinator directly and ask: How does school work? Is it held during the day or in the evening? Do apprentices receive compensation for school time? This information could significantly affect your financial planning."}</div>
+                      <div style={{background:"rgba(34,48,61,0.5)", border:"1px solid rgba(7,37,84,0.10)", borderRadius:12, padding:"20px 24px"}}>
+                        <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:"#FF6B00", textTransform:"uppercase", letterSpacing:"0.1em", marginBottom:8}}>{lang==="es" ? "Siempre Pregunta Antes de Aplicar" : lang==="pl" ? "Zawsze Pytaj Przed Zlozeniem Wniosku" : "Always Ask Before You Apply"}</div>
+                        <div style={{fontSize:14, color:"#5A6478", lineHeight:1.7}}>{lang==="es" ? "El modelo de escuela no siempre esta anunciado en linea. Llama directamente al coordinador del aprendizaje y pregunta: Como funciona la escuela? Es durante el dia o por la noche? Los aprendices reciben compensacion por el tiempo escolar? Esta informacion podria afectar significativamente tu planificacion financiera." : lang==="pl" ? "Model szkoly nie zawsze jest oglaszany online. Zadzwon bezposrednio do koordynatora praktyki i zapytaj: Jak dziala szkola? Czy odbywa sie w ciagu dnia czy wieczorem? Czy praktykanci otrzymuja wynagrodzenie za czas szkolny?" : "The school model is not always advertised online. Call the local apprenticeship coordinator directly and ask: How does school work? Is it held during the day or in the evening? Do apprentices receive compensation for school time? This information could significantly affect your financial planning."}</div>
                       </div>
                     </div>
                   )
@@ -16771,10 +16772,10 @@ export default function UnionPathway() {
                 <div key={section.id} style={{marginBottom:12, border: localSection===section.id ? "1px solid rgba(250,128,89,0.3)" : "1px solid rgba(255,255,255,0.08)", borderRadius:16, overflow:"hidden"}}>
                   <button
                     onClick={() => setLocalSection(localSection===section.id ? null : section.id)}
-                    style={{width:"100%", background:"rgba(255,255,255,0.02)", border:"none", padding:"20px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", cursor:"pointer", textAlign:"left"}}
+                    style={{width:"100%", background:"#ffffff", border:"none", padding:"20px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", cursor:"pointer", textAlign:"left"}}
                   >
-                    <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:800, color: localSection===section.id ? "#FA8059" : "#fff"}}>{section.title}</span>
-                    <span style={{color:"#FA8059", fontSize:22, fontWeight:700, lineHeight:1, transform: localSection===section.id ? "rotate(45deg)" : "rotate(0deg)", display:"inline-block", transition:"transform 0.2s"}}>+</span>
+                    <span style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color: localSection===section.id ? "#FA8059" : "#fff"}}>{section.title}</span>
+                    <span style={{color:"#FF6B00", fontSize:22, fontWeight:700, lineHeight:1, transform: localSection===section.id ? "rotate(45deg)" : "rotate(0deg)", display:"inline-block", transition:"transform 0.2s"}}>+</span>
                   </button>
                   {localSection===section.id && (
                     <div style={{padding:"0 24px 24px", borderTop:"1px solid rgba(255,255,255,0.06)"}}>
@@ -16883,13 +16884,13 @@ export default function UnionPathway() {
               </div>
 
               <div style={{maxWidth:720, margin:"0 auto", padding:"40px 24px 80px"}}>
-                <div style={{background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.08)", borderRadius:20, padding:"32px", marginBottom:20}}>
+                <div style={{background:"#ffffff", border:"1px solid rgba(7,37,84,0.08)", borderRadius:20, padding:"32px", marginBottom:20}}>
 
                   <div style={{marginBottom:24}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FA8059", marginBottom:10}}>{lang==="es" ? "01 — Tu Oficio" : lang==="pl" ? "01 — Twoj Zawod" : "01 — Your Trade"}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FF6B00", marginBottom:10}}>{lang==="es" ? "01 — Tu Oficio" : lang==="pl" ? "01 — Twoj Zawod" : "01 — Your Trade"}</div>
                     <div style={{display:"flex", flexWrap:"wrap", gap:8}}>
                       {Object.entries(WAGE_DATA).map(([key, val]) => (
-                        <button key={key} onClick={() => { setCalcTrade(key); setShowResults(false); }} style={{background: calcTrade===key ? "#FA8059" : "rgba(255,255,255,0.04)", border: calcTrade===key ? "1px solid #FA8059" : "1px solid rgba(255,255,255,0.1)", borderRadius:50, padding:"8px 16px", color: calcTrade===key ? "#000" : "var(--muted)", fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.06em", textTransform:"uppercase", cursor:"pointer", transition:"all 0.15s"}}>
+                        <button key={key} onClick={() => { setCalcTrade(key); setShowResults(false); }} style={{background: calcTrade===key ? "#FA8059" : "rgba(255,255,255,0.04)", border: calcTrade===key ? "1px solid #FA8059" : "1px solid rgba(255,255,255,0.1)", borderRadius:50, padding:"8px 16px", color: calcTrade===key ? "#000" : "var(--muted)", fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.06em", textTransform:"uppercase", cursor:"pointer", transition:"all 0.15s"}}>
                           {key === "IBEW_I" ? "IBEW Inside" : key === "IBEW_L" ? "IBEW Lineman" : key === "UA" ? "UA Plumbers" : key === "BAC" ? "Bricklayers" : key === "IW" ? "Ironworkers" : key === "HFIAW" ? "Insulators" : key === "IUEC" ? "Elevators" : key === "IUOE" ? "Operating Engineers" : key}
                         </button>
                       ))}
@@ -16897,10 +16898,10 @@ export default function UnionPathway() {
                   </div>
 
                   <div style={{marginBottom:24}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FA8059", marginBottom:10}}>{lang==="es" ? "02 — Ano / Nivel" : lang==="pl" ? "02 — Rok / Poziom" : "02 — Apprentice Year or Journeyman"}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FF6B00", marginBottom:10}}>{lang==="es" ? "02 — Ano / Nivel" : lang==="pl" ? "02 — Rok / Poziom" : "02 — Apprentice Year or Journeyman"}</div>
                     <div style={{display:"flex", flexWrap:"wrap", gap:8}}>
                       {["1","2","3","4","5","journeyman"].map(y => (
-                        <button key={y} onClick={() => { setCalcYear(y); setShowResults(false); }} style={{background: calcYear===y ? "#FA8059" : "rgba(255,255,255,0.04)", border: calcYear===y ? "1px solid #FA8059" : "1px solid rgba(255,255,255,0.1)", borderRadius:50, padding:"8px 16px", color: calcYear===y ? "#000" : "var(--muted)", fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.06em", textTransform:"uppercase", cursor:"pointer", transition:"all 0.15s"}}>
+                        <button key={y} onClick={() => { setCalcYear(y); setShowResults(false); }} style={{background: calcYear===y ? "#FA8059" : "rgba(255,255,255,0.04)", border: calcYear===y ? "1px solid #FA8059" : "1px solid rgba(255,255,255,0.1)", borderRadius:50, padding:"8px 16px", color: calcYear===y ? "#000" : "var(--muted)", fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.06em", textTransform:"uppercase", cursor:"pointer", transition:"all 0.15s"}}>
                           {y === "journeyman" ? (lang==="es" ? "Oficial" : lang==="pl" ? "Czeladnik" : "Journeyman") : (lang==="es" ? "Ano "+y : lang==="pl" ? "Rok "+y : "Year "+y)}
                         </button>
                       ))}
@@ -16908,11 +16909,11 @@ export default function UnionPathway() {
                   </div>
 
                   <div style={{marginBottom:24}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FA8059", marginBottom:10}}>{lang==="es" ? "03 — Tu Ciudad" : lang==="pl" ? "03 — Twoje Miasto" : "03 — Your City or Market"}</div>
-                    <input value={calcCity} onChange={e => handleCalcCity(e.target.value)} placeholder={lang==="es" ? "ej. Chicago, Cleveland, Phoenix..." : lang==="pl" ? "np. Chicago, Cleveland, Phoenix..." : "e.g. Chicago, Cleveland, Phoenix..."} style={{width:"100%", background:"rgba(255,255,255,0.06)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", fontSize:15, color:"white", outline:"none", boxSizing:"border-box", marginBottom:8}} />
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FF6B00", marginBottom:10}}>{lang==="es" ? "03 — Tu Ciudad" : lang==="pl" ? "03 — Twoje Miasto" : "03 — Your City or Market"}</div>
+                    <input value={calcCity} onChange={e => handleCalcCity(e.target.value)} placeholder={lang==="es" ? "ej. Chicago, Cleveland, Phoenix..." : lang==="pl" ? "np. Chicago, Cleveland, Phoenix..." : "e.g. Chicago, Cleveland, Phoenix..."} style={{width:"100%", background:"#ffffff", border:"1px solid rgba(7,37,84,0.10)", borderRadius:10, padding:"12px 16px", fontSize:15, color:"white", outline:"none", boxSizing:"border-box", marginBottom:8}} />
                     <div style={{display:"flex", gap:8}}>
                       {[{label: lang==="es" ? "Metropoli" : lang==="pl" ? "Metropolia" : "Major Metro", t:1},{label: lang==="es" ? "Mercado Medio" : lang==="pl" ? "Sredni Rynek" : "Mid-Market", t:2},{label: lang==="es" ? "Mercado Menor" : lang==="pl" ? "Mniejszy Rynek" : "Smaller Market", t:3}].map(({label, t}) => (
-                        <button key={t} onClick={() => setCalcTier(t)} style={{background: calcTier===t ? "rgba(250,128,89,0.15)" : "rgba(255,255,255,0.03)", border: calcTier===t ? "1px solid rgba(250,128,89,0.4)" : "1px solid rgba(255,255,255,0.08)", borderRadius:50, padding:"5px 12px", color: calcTier===t ? "#FA8059" : "var(--muted)", fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.06em", textTransform:"uppercase", cursor:"pointer"}}>
+                        <button key={t} onClick={() => setCalcTier(t)} style={{background: calcTier===t ? "rgba(250,128,89,0.15)" : "rgba(255,255,255,0.03)", border: calcTier===t ? "1px solid rgba(250,128,89,0.4)" : "1px solid rgba(255,255,255,0.08)", borderRadius:50, padding:"5px 12px", color: calcTier===t ? "#FA8059" : "var(--muted)", fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.06em", textTransform:"uppercase", cursor:"pointer"}}>
                           {label}
                         </button>
                       ))}
@@ -16921,9 +16922,9 @@ export default function UnionPathway() {
 
                   {/* 04 — COMPARE AGAINST (OPTIONAL) */}
                   <div style={{marginBottom:24, paddingTop:24, borderTop:"1px solid rgba(255,255,255,0.06)"}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FA8059", marginBottom:6}}>{lang==="es" ? "04 — Comparar Contra (Opcional)" : lang==="pl" ? "04 — Porownaj Z (Opcjonalne)" : "04 — Compare Against (Optional)"}</div>
-                    <div style={{fontSize:12, color:"var(--muted)", marginBottom:12, lineHeight:1.5}}>{lang==="es" ? "Elige un trabajo para ver una comparacion lado a lado de tu salario actual contra el sindicato." : lang==="pl" ? "Wybierz prace aby zobaczyc porownanie obecnej stawki ze stawka zwiazkowa." : "Pick a job to see a side-by-side of what you make now vs union."}</div>
-                    <select value={compareJob} onChange={e => { setCompareJob(e.target.value); setShowResults(false); }} style={{width:"100%", background:"rgba(255,255,255,0.06)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"12px 16px", fontSize:14, color:"white", outline:"none", marginBottom: compareJob === "custom" ? 12 : 0}}>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FF6B00", marginBottom:6}}>{lang==="es" ? "04 — Comparar Contra (Opcional)" : lang==="pl" ? "04 — Porownaj Z (Opcjonalne)" : "04 — Compare Against (Optional)"}</div>
+                    <div style={{fontSize:12, color:"#5A6478", marginBottom:12, lineHeight:1.5}}>{lang==="es" ? "Elige un trabajo para ver una comparacion lado a lado de tu salario actual contra el sindicato." : lang==="pl" ? "Wybierz prace aby zobaczyc porownanie obecnej stawki ze stawka zwiazkowa." : "Pick a job to see a side-by-side of what you make now vs union."}</div>
+                    <select value={compareJob} onChange={e => { setCompareJob(e.target.value); setShowResults(false); }} style={{width:"100%", background:"#ffffff", border:"1px solid rgba(7,37,84,0.10)", borderRadius:10, padding:"12px 16px", fontSize:14, color:"white", outline:"none", marginBottom: compareJob === "custom" ? 12 : 0}}>
                       <option value="">{lang==="es" ? "— Saltar comparacion —" : lang==="pl" ? "— Pomin porownanie —" : "— Skip comparison —"}</option>
                       {Object.entries(COMPARE_JOBS).map(([key, val]) => (
                         <option key={key} value={key}>{val.name[lang] || val.name.en}{key !== "custom" && val.hourly ? " ($" + val.hourly.toFixed(2) + "/hr)" : ""}</option>
@@ -16931,35 +16932,35 @@ export default function UnionPathway() {
                     </select>
                     {compareJob === "custom" && (
                       <div>
-                        <div style={{fontSize:12, color:"var(--muted)", marginBottom:6}}>{lang==="es" ? "Tu salario por hora actual" : lang==="pl" ? "Twoja obecna stawka godzinowa" : "Your current hourly wage"}</div>
+                        <div style={{fontSize:12, color:"#5A6478", marginBottom:6}}>{lang==="es" ? "Tu salario por hora actual" : lang==="pl" ? "Twoja obecna stawka godzinowa" : "Your current hourly wage"}</div>
                         <div style={{display:"flex", alignItems:"center", gap:8}}>
-                          <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:"#FA8059"}}>$</span>
-                          <input type="number" min="0" step="0.50" value={compareCustomWage} onChange={e => { setCompareCustomWage(e.target.value); setShowResults(false); }} style={{flex:1, background:"rgba(255,255,255,0.06)", border:"1px solid rgba(255,255,255,0.12)", borderRadius:10, padding:"10px 14px", fontSize:14, color:"white", outline:"none", boxSizing:"border-box"}} />
-                          <span style={{fontSize:12, color:"var(--muted)"}}>/hr</span>
+                          <span style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:900, color:"#FF6B00"}}>$</span>
+                          <input type="number" min="0" step="0.50" value={compareCustomWage} onChange={e => { setCompareCustomWage(e.target.value); setShowResults(false); }} style={{flex:1, background:"#ffffff", border:"1px solid rgba(7,37,84,0.10)", borderRadius:10, padding:"10px 14px", fontSize:14, color:"white", outline:"none", boxSizing:"border-box"}} />
+                          <span style={{fontSize:12, color:"#5A6478"}}>/hr</span>
                         </div>
                       </div>
                     )}
                   </div>
 
-                  <button onClick={() => setShowResults(true)} style={{width:"100%", background:"#FA8059", border:"none", borderRadius:12, padding:"16px", fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, letterSpacing:"0.08em", textTransform:"uppercase", color:"#000", cursor:"pointer", transition:"all 0.2s"}} onMouseEnter={e=>e.currentTarget.style.opacity="0.9"} onMouseLeave={e=>e.currentTarget.style.opacity="1"}>
+                  <button onClick={() => setShowResults(true)} style={{width:"100%", background:"#FF6B00", border:"none", borderRadius:12, padding:"16px", fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:900, letterSpacing:"0.08em", textTransform:"uppercase", color:"#000", cursor:"pointer", transition:"all 0.2s"}} onMouseEnter={e=>e.currentTarget.style.opacity="0.9"} onMouseLeave={e=>e.currentTarget.style.opacity="1"}>
                     {lang==="es" ? "Calcular mi Paquete →" : lang==="pl" ? "Oblicz Moj Pakiet →" : "Calculate My Package →"}
                   </button>
                 </div>
 
                 {showResults && r && (
                   <div>
-                    <div style={{background:"rgba(250,128,89,0.08)", border:"1px solid rgba(250,128,89,0.25)", borderRadius:20, padding:"28px 32px", marginBottom:16, textAlign:"center"}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FA8059", marginBottom:8}}>
+                    <div style={{background:"rgba(255,107,0,0.06)", border:"1px solid rgba(255,107,0,0.20)", borderRadius:20, padding:"28px 32px", marginBottom:16, textAlign:"center"}}>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FF6B00", marginBottom:8}}>
                         {WAGE_DATA[calcTrade].name} — {r.tierName} — {calcYear === "journeyman" ? (lang==="es" ? "Oficial" : lang==="pl" ? "Czeladnik" : "Journeyman") : (lang==="es" ? "Aprendiz Ano "+calcYear : lang==="pl" ? "Praktykant Rok "+calcYear : "Apprentice Year "+calcYear)}
                       </div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:72, fontWeight:900, color:"#FA8059", lineHeight:1}}>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:72, fontWeight:900, color:"#FF6B00", lineHeight:1}}>
                         {r.totalPkg.toFixed(2)}<span style={{fontSize:28}}>/hr</span>
                       </div>
-                      <div style={{fontSize:14, color:"var(--muted)", marginTop:8}}>{lang==="es" ? "Valor total del paquete de compensacion" : lang==="pl" ? "Calkowita wartosc pakietu wynagrodzenia" : "Total compensation package value per hour"}</div>
+                      <div style={{fontSize:14, color:"#5A6478", marginTop:8}}>{lang==="es" ? "Valor total del paquete de compensacion" : lang==="pl" ? "Calkowita wartosc pakietu wynagrodzenia" : "Total compensation package value per hour"}</div>
                     </div>
 
-                    <div style={{background:"rgba(34,48,61,0.5)", border:"1px solid rgba(58,80,104,0.4)", borderRadius:20, padding:"24px 28px", marginBottom:16}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"var(--muted)", marginBottom:20}}>{lang==="es" ? "Desglose por Hora" : lang==="pl" ? "Podzial na Godzine" : "Hourly Breakdown"}</div>
+                    <div style={{background:"rgba(34,48,61,0.5)", border:"1px solid rgba(7,37,84,0.10)", borderRadius:20, padding:"24px 28px", marginBottom:16}}>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#5A6478", marginBottom:20}}>{lang==="es" ? "Desglose por Hora" : lang==="pl" ? "Podzial na Godzine" : "Hourly Breakdown"}</div>
                       {[
                         [lang==="es" ? "Salario Base" : lang==="pl" ? "Wynagrodzenie Podstawowe" : "Base Wage", "$"+r.baseWage.toFixed(2)+"/hr", true],
                         [lang==="es" ? "Salud y Bienestar" : lang==="pl" ? "Zdrowie i Swiadczenia" : "Health & Welfare", "$"+r.tier.health.toFixed(2)+"/hr", false],
@@ -16968,88 +16969,88 @@ export default function UnionPathway() {
                       ].map(([label, val, isBase], i, arr) => (
                         <div key={i} style={{display:"flex", justifyContent:"space-between", alignItems:"center", padding:"10px 0", borderBottom: i<arr.length-1 ? "1px solid rgba(58,80,104,0.3)" : "none"}}>
                           <span style={{fontSize:14, color: isBase ? "#fff" : "var(--muted)", fontWeight: isBase ? 700 : 400}}>{label}</span>
-                          <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:800, color: isBase ? "#FA8059" : "var(--muted)"}}>{val}</span>
+                          <span style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color: isBase ? "#FA8059" : "var(--muted)"}}>{val}</span>
                         </div>
                       ))}
                       <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", padding:"14px 0 0", marginTop:8, borderTop:"2px solid #FA8059"}}>
-                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:16, fontWeight:900, color:"#fff"}}>{lang==="es" ? "TOTAL POR HORA" : lang==="pl" ? "LACZNIE NA GODZINE" : "TOTAL PER HOUR"}</span>
-                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:28, fontWeight:900, color:"#FA8059"}}>{r.totalPkg.toFixed(2)}/hr</span>
+                        <span style={{fontFamily:"'Inter',sans-serif", fontSize:16, fontWeight:900, color:"#072554"}}>{lang==="es" ? "TOTAL POR HORA" : lang==="pl" ? "LACZNIE NA GODZINE" : "TOTAL PER HOUR"}</span>
+                        <span style={{fontFamily:"'Inter',sans-serif", fontSize:28, fontWeight:900, color:"#FF6B00"}}>{r.totalPkg.toFixed(2)}/hr</span>
                       </div>
                     </div>
 
                     <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:16, marginBottom:16}}>
-                      <div style={{background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.07)", borderRadius:16, padding:"20px", textAlign:"center"}}>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"var(--muted)", marginBottom:8}}>{lang==="es" ? "Ingreso Anual" : lang==="pl" ? "Roczny Dochod" : "Annual Income"}<br/><span style={{color:"rgba(160,180,196,0.5)"}}>({calcHours.toLocaleString()} hrs)</span></div>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:34, fontWeight:900, color:"#FA8059"}}>{r.annualBase.toLocaleString()}</div>
-                        <div style={{fontSize:12, color:"var(--muted)", marginTop:4}}>{lang==="es" ? "salario base" : lang==="pl" ? "wynagrodzenie podstawowe" : "take-home wages"}</div>
+                      <div style={{background:"#ffffff", border:"1px solid rgba(255,255,255,0.07)", borderRadius:16, padding:"20px", textAlign:"center"}}>
+                        <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#5A6478", marginBottom:8}}>{lang==="es" ? "Ingreso Anual" : lang==="pl" ? "Roczny Dochod" : "Annual Income"}<br/><span style={{color:"#8A94A6"}}>({calcHours.toLocaleString()} hrs)</span></div>
+                        <div style={{fontFamily:"'Inter',sans-serif", fontSize:34, fontWeight:900, color:"#FF6B00"}}>{r.annualBase.toLocaleString()}</div>
+                        <div style={{fontSize:12, color:"#5A6478", marginTop:4}}>{lang==="es" ? "salario base" : lang==="pl" ? "wynagrodzenie podstawowe" : "take-home wages"}</div>
                         <div style={{borderTop:"1px solid rgba(58,80,104,0.3)", marginTop:12, paddingTop:12}}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:700, color:"rgba(250,128,89,0.6)"}}>{r.annualPkg.toLocaleString()}</div>
-                          <div style={{fontSize:12, color:"var(--muted)"}}>{lang==="es" ? "valor total del paquete" : lang==="pl" ? "calkowita wartosc pakietu" : "total package value"}</div>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:"rgba(250,128,89,0.6)"}}>{r.annualPkg.toLocaleString()}</div>
+                          <div style={{fontSize:12, color:"#5A6478"}}>{lang==="es" ? "valor total del paquete" : lang==="pl" ? "calkowita wartosc pakietu" : "total package value"}</div>
                         </div>
                       </div>
-                      <div style={{background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.07)", borderRadius:16, padding:"20px", textAlign:"center"}}>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"var(--muted)", marginBottom:8}}>{lang==="es" ? "Proyeccion de Pension" : lang==="pl" ? "Projekcja Emerytalna" : "Pension Projection"}<br/><span style={{color:"rgba(160,180,196,0.5)"}}>({calcYearsCareer} {lang==="es" ? "anos" : lang==="pl" ? "lat" : "years"})</span></div>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:34, fontWeight:900, color:"#FA8059"}}>{r.pensionProjection.toLocaleString()}</div>
-                        <div style={{fontSize:12, color:"var(--muted)", marginTop:4}}>{lang==="es" ? "valor estimado acumulado" : lang==="pl" ? "szacowana wartosc skumulowana" : "estimated accumulated value"}</div>
+                      <div style={{background:"#ffffff", border:"1px solid rgba(255,255,255,0.07)", borderRadius:16, padding:"20px", textAlign:"center"}}>
+                        <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#5A6478", marginBottom:8}}>{lang==="es" ? "Proyeccion de Pension" : lang==="pl" ? "Projekcja Emerytalna" : "Pension Projection"}<br/><span style={{color:"#8A94A6"}}>({calcYearsCareer} {lang==="es" ? "anos" : lang==="pl" ? "lat" : "years"})</span></div>
+                        <div style={{fontFamily:"'Inter',sans-serif", fontSize:34, fontWeight:900, color:"#FF6B00"}}>{r.pensionProjection.toLocaleString()}</div>
+                        <div style={{fontSize:12, color:"#5A6478", marginTop:4}}>{lang==="es" ? "valor estimado acumulado" : lang==="pl" ? "szacowana wartosc skumulowana" : "estimated accumulated value"}</div>
                       </div>
                     </div>
 
                     {/* COMPARISON BLOCK — uses real picked job, or falls back to generic 78% estimate */}
                     {r.comparison ? (
-                      <div style={{background:"rgba(34,48,61,0.5)", border:"1px solid rgba(58,80,104,0.4)", borderRadius:20, padding:"24px 28px", marginBottom:16}}>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"var(--muted)", marginBottom:6}}>{lang==="es" ? "Tu Salario Actual vs Sindical" : lang==="pl" ? "Twoja Obecna Stawka vs Zwiazkowa" : "Your Current Pay vs Union"}</div>
-                        <div style={{fontSize:12, color:"var(--muted)", marginBottom:16, fontStyle:"italic"}}>{r.comparison.jobName}</div>
+                      <div style={{background:"rgba(34,48,61,0.5)", border:"1px solid rgba(7,37,84,0.10)", borderRadius:20, padding:"24px 28px", marginBottom:16}}>
+                        <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#5A6478", marginBottom:6}}>{lang==="es" ? "Tu Salario Actual vs Sindical" : lang==="pl" ? "Twoja Obecna Stawka vs Zwiazkowa" : "Your Current Pay vs Union"}</div>
+                        <div style={{fontSize:12, color:"#5A6478", marginBottom:16, fontStyle:"italic"}}>{r.comparison.jobName}</div>
                         <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:16, marginBottom:16}}>
                           <div style={{textAlign:"center"}}>
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:"var(--muted)", marginBottom:8, textTransform:"uppercase", letterSpacing:"0.08em"}}>{lang==="es" ? "Tu Trabajo Actual" : lang==="pl" ? "Obecna Praca" : "Your Current Job"}</div>
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:42, fontWeight:900, color:"var(--muted)"}}>{r.comparison.compHourly.toFixed(2)}</div>
-                            <div style={{fontSize:12, color:"var(--muted)"}}>/hr</div>
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:700, color:"rgba(160,180,196,0.5)", marginTop:6}}>{r.comparison.compAnnual.toLocaleString()}/yr</div>
+                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:700, color:"#5A6478", marginBottom:8, textTransform:"uppercase", letterSpacing:"0.08em"}}>{lang==="es" ? "Tu Trabajo Actual" : lang==="pl" ? "Obecna Praca" : "Your Current Job"}</div>
+                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:42, fontWeight:900, color:"#5A6478"}}>{r.comparison.compHourly.toFixed(2)}</div>
+                            <div style={{fontSize:12, color:"#5A6478"}}>/hr</div>
+                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:700, color:"#8A94A6", marginTop:6}}>{r.comparison.compAnnual.toLocaleString()}/yr</div>
                           </div>
                           <div style={{textAlign:"center"}}>
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:"#FA8059", marginBottom:8, textTransform:"uppercase", letterSpacing:"0.08em"}}>{lang==="es" ? "Paquete Sindical" : lang==="pl" ? "Pakiet Zwiazkowy" : "Union Total Package"}</div>
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:42, fontWeight:900, color:"#FA8059"}}>{r.totalPkg.toFixed(2)}</div>
-                            <div style={{fontSize:12, color:"var(--muted)"}}>/hr</div>
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:700, color:"rgba(250,128,89,0.6)", marginTop:6}}>{r.annualPkg.toLocaleString()}/yr</div>
+                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:700, color:"#FF6B00", marginBottom:8, textTransform:"uppercase", letterSpacing:"0.08em"}}>{lang==="es" ? "Paquete Sindical" : lang==="pl" ? "Pakiet Zwiazkowy" : "Union Total Package"}</div>
+                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:42, fontWeight:900, color:"#FF6B00"}}>{r.totalPkg.toFixed(2)}</div>
+                            <div style={{fontSize:12, color:"#5A6478"}}>/hr</div>
+                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:700, color:"rgba(250,128,89,0.6)", marginTop:6}}>{r.annualPkg.toLocaleString()}/yr</div>
                           </div>
                         </div>
                         <div style={{borderTop:"1px solid rgba(58,80,104,0.4)", paddingTop:16}}>
                           <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", padding:"6px 0"}}>
-                            <span style={{fontSize:13, color:"var(--muted)", textTransform:"uppercase", letterSpacing:"0.05em", fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{lang==="es" ? "Diferencia/hr" : lang==="pl" ? "Roznica/godz" : "Per Hour"}</span>
-                            <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color: r.comparison.gapHourlyPkg >= 0 ? "#FA8059" : "#a0b4c4"}}>{r.comparison.gapHourlyPkg >= 0 ? "+" : ""}{r.comparison.gapHourlyPkg.toFixed(2)}</span>
+                            <span style={{fontSize:13, color:"#5A6478", textTransform:"uppercase", letterSpacing:"0.05em", fontFamily:"'Inter',sans-serif", fontWeight:700}}>{lang==="es" ? "Diferencia/hr" : lang==="pl" ? "Roznica/godz" : "Per Hour"}</span>
+                            <span style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:900, color: r.comparison.gapHourlyPkg >= 0 ? "#FA8059" : "#a0b4c4"}}>{r.comparison.gapHourlyPkg >= 0 ? "+" : ""}{r.comparison.gapHourlyPkg.toFixed(2)}</span>
                           </div>
                           <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", padding:"6px 0"}}>
-                            <span style={{fontSize:13, color:"var(--muted)", textTransform:"uppercase", letterSpacing:"0.05em", fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700}}>{lang==="es" ? "Diferencia Anual" : lang==="pl" ? "Roznica Roczna" : "Per Year"}</span>
-                            <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color: r.comparison.gapAnnualPkg >= 0 ? "#FA8059" : "#a0b4c4"}}>{r.comparison.gapAnnualPkg >= 0 ? "+" : ""}{r.comparison.gapAnnualPkg.toLocaleString()}</span>
+                            <span style={{fontSize:13, color:"#5A6478", textTransform:"uppercase", letterSpacing:"0.05em", fontFamily:"'Inter',sans-serif", fontWeight:700}}>{lang==="es" ? "Diferencia Anual" : lang==="pl" ? "Roznica Roczna" : "Per Year"}</span>
+                            <span style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:900, color: r.comparison.gapAnnualPkg >= 0 ? "#FA8059" : "#a0b4c4"}}>{r.comparison.gapAnnualPkg >= 0 ? "+" : ""}{r.comparison.gapAnnualPkg.toLocaleString()}</span>
                           </div>
                           <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", padding:"10px 0 0 0", borderTop:"1px solid rgba(58,80,104,0.3)", marginTop:8}}>
-                            <span style={{fontSize:13, color:"#fff", textTransform:"uppercase", letterSpacing:"0.05em", fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900}}>{lang==="es" ? "Diferencia En "+calcYearsCareer+" Anos" : lang==="pl" ? "Roznica W "+calcYearsCareer+" Lat" : "Lifetime ("+calcYearsCareer+" yrs)"}</span>
-                            <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:28, fontWeight:900, color: r.comparison.gapLifetime >= 0 ? "#FA8059" : "#a0b4c4"}}>{r.comparison.gapLifetime >= 0 ? "+$" : "-$"}{Math.abs(r.comparison.gapLifetime).toLocaleString()}</span>
+                            <span style={{fontSize:13, color:"#072554", textTransform:"uppercase", letterSpacing:"0.05em", fontFamily:"'Inter',sans-serif", fontWeight:900}}>{lang==="es" ? "Diferencia En "+calcYearsCareer+" Anos" : lang==="pl" ? "Roznica W "+calcYearsCareer+" Lat" : "Lifetime ("+calcYearsCareer+" yrs)"}</span>
+                            <span style={{fontFamily:"'Inter',sans-serif", fontSize:28, fontWeight:900, color: r.comparison.gapLifetime >= 0 ? "#FA8059" : "#a0b4c4"}}>{r.comparison.gapLifetime >= 0 ? "+$" : "-$"}{Math.abs(r.comparison.gapLifetime).toLocaleString()}</span>
                           </div>
                         </div>
                       </div>
                     ) : (
-                      <div style={{background:"rgba(34,48,61,0.5)", border:"1px solid rgba(58,80,104,0.4)", borderRadius:20, padding:"24px 28px", marginBottom:16}}>
-                        <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"var(--muted)", marginBottom:16}}>{lang==="es" ? "Sindical vs No Sindical" : lang==="pl" ? "Zwiazowy vs Niezwiazowy" : "Union vs Non-Union"}</div>
+                      <div style={{background:"rgba(34,48,61,0.5)", border:"1px solid rgba(7,37,84,0.10)", borderRadius:20, padding:"24px 28px", marginBottom:16}}>
+                        <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#5A6478", marginBottom:16}}>{lang==="es" ? "Sindical vs No Sindical" : lang==="pl" ? "Zwiazowy vs Niezwiazowy" : "Union vs Non-Union"}</div>
                         <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:16, marginBottom:16}}>
                           <div style={{textAlign:"center"}}>
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:"#FA8059", marginBottom:8, textTransform:"uppercase", letterSpacing:"0.08em"}}>{lang==="es" ? "Sindical" : lang==="pl" ? "Zwiazowy" : "Union"}</div>
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:42, fontWeight:900, color:"#FA8059"}}>{r.baseWage.toFixed(2)}</div>
-                            <div style={{fontSize:12, color:"var(--muted)"}}>{lang==="es" ? "base/hr" : lang==="pl" ? "podstawa/godz" : "base/hr"}</div>
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:700, color:"rgba(250,128,89,0.6)", marginTop:6}}>{r.annualBase.toLocaleString()}/yr</div>
+                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:700, color:"#FF6B00", marginBottom:8, textTransform:"uppercase", letterSpacing:"0.08em"}}>{lang==="es" ? "Sindical" : lang==="pl" ? "Zwiazowy" : "Union"}</div>
+                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:42, fontWeight:900, color:"#FF6B00"}}>{r.baseWage.toFixed(2)}</div>
+                            <div style={{fontSize:12, color:"#5A6478"}}>{lang==="es" ? "base/hr" : lang==="pl" ? "podstawa/godz" : "base/hr"}</div>
+                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:700, color:"rgba(250,128,89,0.6)", marginTop:6}}>{r.annualBase.toLocaleString()}/yr</div>
                           </div>
                           <div style={{textAlign:"center"}}>
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, fontWeight:700, color:"var(--muted)", marginBottom:8, textTransform:"uppercase", letterSpacing:"0.08em"}}>{lang==="es" ? "No Sindical" : lang==="pl" ? "Niezwiazowy" : "Non-Union (Est.)"}</div>
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:42, fontWeight:900, color:"var(--muted)"}}>{r.nonUnionEquiv.toFixed(2)}</div>
-                            <div style={{fontSize:12, color:"var(--muted)"}}>{lang==="es" ? "estimado/hr" : lang==="pl" ? "szacowane/godz" : "estimated/hr"}</div>
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:700, color:"rgba(160,180,196,0.5)", marginTop:6}}>{r.nonUnionAnnual.toLocaleString()}/yr</div>
+                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:700, color:"#5A6478", marginBottom:8, textTransform:"uppercase", letterSpacing:"0.08em"}}>{lang==="es" ? "No Sindical" : lang==="pl" ? "Niezwiazowy" : "Non-Union (Est.)"}</div>
+                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:42, fontWeight:900, color:"#5A6478"}}>{r.nonUnionEquiv.toFixed(2)}</div>
+                            <div style={{fontSize:12, color:"#5A6478"}}>{lang==="es" ? "estimado/hr" : lang==="pl" ? "szacowane/godz" : "estimated/hr"}</div>
+                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:700, color:"#8A94A6", marginTop:6}}>{r.nonUnionAnnual.toLocaleString()}/yr</div>
                           </div>
                         </div>
                         <div style={{borderTop:"1px solid rgba(58,80,104,0.4)", paddingTop:16, textAlign:"center"}}>
-                          <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:"#FA8059"}}>+{(r.annualBase - r.nonUnionAnnual).toLocaleString()}/yr</span>
-                          <span style={{fontSize:13, color:"var(--muted)", marginLeft:10}}>{lang==="es" ? "mas en salario base como miembro sindical" : lang==="pl" ? "wiecej w wynagrodzeniu jako czlonek zwiazku" : "more in base wages as a union member"}</span>
+                          <span style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:900, color:"#FF6B00"}}>+{(r.annualBase - r.nonUnionAnnual).toLocaleString()}/yr</span>
+                          <span style={{fontSize:13, color:"#5A6478", marginLeft:10}}>{lang==="es" ? "mas en salario base como miembro sindical" : lang==="pl" ? "wiecej w wynagrodzeniu jako czlonek zwiazku" : "more in base wages as a union member"}</span>
                         </div>
-                        <div style={{borderTop:"1px dashed rgba(58,80,104,0.4)", marginTop:16, paddingTop:14, textAlign:"center", fontSize:12, color:"var(--muted)", fontStyle:"italic"}}>
+                        <div style={{borderTop:"1px dashed rgba(58,80,104,0.4)", marginTop:16, paddingTop:14, textAlign:"center", fontSize:12, color:"#5A6478", fontStyle:"italic"}}>
                           {lang==="es" ? "💡 Para una comparacion real, vuelve y elige tu trabajo actual en el paso 04." : lang==="pl" ? "💡 Aby uzyskac prawdziwe porownanie, wroc i wybierz obecna prace w kroku 04." : "💡 For a real side-by-side, go back and pick your current job in step 04."}
                         </div>
                       </div>
@@ -17060,7 +17061,7 @@ export default function UnionPathway() {
                     </div>
 
                     <div style={{textAlign:"center"}}>
-                      <button onClick={() => setShowResults(false)} style={{background:"transparent", border:"1px solid rgba(255,255,255,0.15)", borderRadius:50, padding:"10px 24px", color:"var(--muted)", fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.08em", textTransform:"uppercase", cursor:"pointer"}}>
+                      <button onClick={() => setShowResults(false)} style={{background:"transparent", border:"1px solid rgba(7,37,84,0.10)", borderRadius:50, padding:"10px 24px", color:"#5A6478", fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.08em", textTransform:"uppercase", cursor:"pointer"}}>
                         {lang==="es" ? "Recalcular" : lang==="pl" ? "Przelicz Ponownie" : "Recalculate"}
                       </button>
                     </div>
@@ -17072,7 +17073,7 @@ export default function UnionPathway() {
         })()}
 
         {page === "resume" && (
-          <div>
+          <div className="page-v4">
             <div className="history-hero">
               <div className="history-eyebrow">{lang==="es" ? "100% Gratis Sin Registro" : lang==="pl" ? "100% Darmowe Bez Rejestracji" : "Built for Every Stage of Your Union Career"}</div>
               <h1 className="history-title">
@@ -17083,14 +17084,14 @@ export default function UnionPathway() {
               </p>
             </div>
             <div style={{maxWidth:900, margin:"0 auto", padding:"0 24px 80px"}}>
-              <div style={{background:"rgba(250,128,89,0.06)", border:"1px solid rgba(250,128,89,0.2)", borderRadius:20, padding:"48px", textAlign:"center", marginBottom:48}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:30, fontWeight:900, color:"#fff", marginBottom:12}}>
+              <div style={{background:"rgba(255,107,0,0.05)", border:"1px solid rgba(255,107,0,0.15)", borderRadius:20, padding:"48px", textAlign:"center", marginBottom:48}}>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:30, fontWeight:900, color:"#072554", marginBottom:12}}>
                   {lang==="es" ? "Plantilla de Curriculum para Oficios Sindicales" : lang==="pl" ? "Szablon CV dla Zawodow Zwiazkowych" : "Union Trades Resume Template"}
                 </div>
-                <div style={{fontSize:15, color:"var(--muted)", marginBottom:36, lineHeight:1.7, maxWidth:560, margin:"0 auto 36px"}}>
+                <div style={{fontSize:15, color:"#5A6478", marginBottom:36, lineHeight:1.7, maxWidth:560, margin:"0 auto 36px"}}>
                   {lang==="es" ? "Formato profesional de una pagina con seccion de experiencia sindical, certificaciones OSHA y habilidades del oficio. Disenado por miembros sindicales." : lang==="pl" ? "Profesjonalny format jednej strony z sekcja doswiadczenia zwiazkowego, certyfikatow OSHA i umiejetnosci zawodowych." : "Professional one-page format with union experience section, OSHA certifications, and trade skills. Designed by union members."}
                 </div>
-                <a href="/union-trades-resume.pdf" download="UnionPathways-Resume-Template.pdf" style={{display:"inline-flex", alignItems:"center", gap:10, background:"#FA8059", color:"#000", fontFamily:"'Barlow Condensed',sans-serif", fontSize:17, fontWeight:900, letterSpacing:"0.08em", textTransform:"uppercase", padding:"16px 36px", borderRadius:50, textDecoration:"none"}}>
+                <a href="/union-trades-resume.pdf" download="UnionPathways-Resume-Template.pdf" style={{display:"inline-flex", alignItems:"center", gap:10, background:"#FF6B00", color:"#ffffff", fontFamily:"'Inter',sans-serif", fontSize:17, fontWeight:900, letterSpacing:"0.08em", textTransform:"uppercase", padding:"16px 36px", borderRadius:50, textDecoration:"none"}}>
                   {lang==="es" ? "Descargar PDF Gratis" : lang==="pl" ? "Pobierz PDF Za Darmo" : "Download Free PDF"}
                 </a>
                 <div style={{fontSize:12, color:"rgba(160,180,196,0.35)", marginTop:20}}>
@@ -17105,7 +17106,7 @@ export default function UnionPathway() {
                   { num:"04", title: lang==="es" ? "Formato Profesional" : lang==="pl" ? "Profesjonalny Format" : "Professional Format", desc: lang==="es" ? "Diseno limpio de una pagina. Impresiona a los coordinadores." : lang==="pl" ? "Czysty jednostronicowy projekt." : "Clean one-page design with dark sidebar. Makes an impression on JATC coordinators." },
                 ].map((item, i) => (
                   <div key={i} className="impact-card">
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FA8059",marginBottom:"12px",textTransform:"uppercase"}}>{item.num}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FF6B00",marginBottom:"12px",textTransform:"uppercase"}}>{item.num}</div>
                     <div className="impact-title">{item.title}</div>
                     <div className="impact-desc">{item.desc}</div>
                   </div>
@@ -17117,7 +17118,7 @@ export default function UnionPathway() {
 
         {/* JOBBOARD-WAGES REMOVED */}
         {page === "veterans" && (
-          <div>
+          <div className="page-v4">
             <div className="history-hero">
               <div className="history-eyebrow">{lang==="es" ? "Para Veteranos y Militares" : lang==="pl" ? "Dla Weteranów i Żołnierzy" : "For Veterans & Service Members"}</div>
               <h1 className="history-title">
@@ -17144,7 +17145,7 @@ export default function UnionPathway() {
                         { num:"06", title: lang==="es" ? "Trabajo Bajo Presión" : lang==="pl" ? "Praca Pod Presją" : "Working Under Pressure", desc: lang==="es" ? "Los sitios de construcción exigen las mismas capacidades de toma de decisiones bajo presión que el servicio militar." : lang==="pl" ? "Place budowy wymagają tych samych zdolności decyzyjnych pod presją co służba wojskowa." : "Construction sites demand the same under-pressure decision-making as military service." },
                       ].map((item, i) => (
                         <div key={i} className="impact-card">
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FA8059",marginBottom:"12px",textTransform:"uppercase"}}>{item.num}</div>
+                          <div style={{fontFamily:"'Inter',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FF6B00",marginBottom:"12px",textTransform:"uppercase"}}>{item.num}</div>
                           <div className="impact-title">{item.title}</div>
                           <div className="impact-desc">{item.desc}</div>
                         </div>
@@ -17157,7 +17158,7 @@ export default function UnionPathway() {
                   title: "Helmets to Hardhats",
                   content: (
                     <div style={{marginTop:16}}>
-                      <p style={{fontSize:15, color:"var(--muted)", lineHeight:1.7, marginBottom:24}}>
+                      <p style={{fontSize:15, color:"#5A6478", lineHeight:1.7, marginBottom:24}}>
                         {lang==="es" ? "Helmets to Hardhats (H2H) es el puente oficial del servicio militar a las carreras sindicales de construcción. Es gratuito, está respaldado por el sindicato y está diseñado específicamente para veteranos militares." : lang==="pl" ? "Helmets to Hardhats (H2H) to oficjalny most od służby wojskowej do kariery w związkowym budownictwie. Jest bezpłatny i zaprojektowany specjalnie dla weteranów wojskowych." : "Helmets to Hardhats (H2H) is the official bridge from military service to union construction careers. Free, union-backed, and designed specifically for military veterans."}
                       </p>
                       <div style={{display:"flex", gap:"16px", flexWrap:"wrap", marginBottom:24}}>
@@ -17166,9 +17167,9 @@ export default function UnionPathway() {
                           { num:"40K+", label: lang==="es" ? "Veteranos Conectados" : lang==="pl" ? "Połączonych Weteranów" : "Veterans Connected" },
                           { num: lang==="es" ? "Gratis" : lang==="pl" ? "Bezpłatny" : "Free", label: lang==="es" ? "Para Veteranos" : lang==="pl" ? "Dla Weteranów" : "For All Veterans" },
                         ].map((s, i) => (
-                          <div key={i} style={{background:"transparent", border:"1px solid rgba(250,128,89,0.2)", borderRadius:12, padding:"16px 24px", textAlign:"center", flex:1, minWidth:100}}>
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:"#FA8059", lineHeight:1}}>{s.num}</div>
-                            <div style={{fontSize:12, color:"var(--muted)", textTransform:"uppercase", letterSpacing:"0.08em", marginTop:6, fontWeight:600}}>{s.label}</div>
+                          <div key={i} style={{background:"transparent", border:"1px solid rgba(255,107,0,0.15)", borderRadius:12, padding:"16px 24px", textAlign:"center", flex:1, minWidth:100}}>
+                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:32, fontWeight:900, color:"#FF6B00", lineHeight:1}}>{s.num}</div>
+                            <div style={{fontSize:12, color:"#5A6478", textTransform:"uppercase", letterSpacing:"0.08em", marginTop:6, fontWeight:600}}>{s.label}</div>
                           </div>
                         ))}
                       </div>
@@ -17191,10 +17192,10 @@ export default function UnionPathway() {
                         { mil: lang==="es" ? "Especialista en HVAC" : lang==="pl" ? "Specjalista HVAC" : "HVAC Specialist", trade: "UA Plumber / Pipefitter" },
                         { mil: lang==="es" ? "Técnico en Comunicaciones" : lang==="pl" ? "Technik Łączności" : "Communications Technician", trade: "IBEW Electrician (Low Voltage)" },
                       ].map((item, i) => (
-                        <div key={i} style={{display:"flex", alignItems:"center", gap:16, padding:"14px 20px", background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.07)", borderRadius:10}}>
-                          <div style={{flex:1, fontSize:14, color:"var(--muted)"}}>{item.mil}</div>
-                          <div style={{color:"#FA8059", fontSize:16, fontWeight:700}}>→</div>
-                          <div style={{flex:1, fontSize:14, color:"#fff", fontWeight:600}}>{item.trade}</div>
+                        <div key={i} style={{display:"flex", alignItems:"center", gap:16, padding:"14px 20px", background:"#ffffff", border:"1px solid rgba(255,255,255,0.07)", borderRadius:10}}>
+                          <div style={{flex:1, fontSize:14, color:"#5A6478"}}>{item.mil}</div>
+                          <div style={{color:"#FF6B00", fontSize:16, fontWeight:700}}>→</div>
+                          <div style={{flex:1, fontSize:14, color:"#072554", fontWeight:600}}>{item.trade}</div>
                         </div>
                       ))}
                     </div>
@@ -17211,11 +17212,11 @@ export default function UnionPathway() {
                         { n:"03", title: lang==="es" ? "Aplica a Múltiples Sindicatos" : lang==="pl" ? "Aplikuj do Wielu Związków" : "Apply to Multiple Unions", desc: lang==="es" ? "No esperes en uno. Aplica a 3-5 al mismo tiempo para maximizar tus posibilidades." : lang==="pl" ? "Nie czekaj na jeden. Aplikuj do 3-5 jednocześnie." : "Don't wait on one. Apply to 3-5 at once to maximize your chances." },
                         { n:"04", title: lang==="es" ? "Destaca tu Experiencia Militar" : lang==="pl" ? "Podkreśl Doświadczenie Wojskowe" : "Highlight Your Military Experience", desc: lang==="es" ? "Sé específico sobre tu MOS, entrenamiento técnico y habilidades de liderazgo." : lang==="pl" ? "Bądź konkretny co do swojego MOS, szkolenia technicznego i umiejętności przywódczych." : "Be specific about your MOS, technical training, and leadership skills. This is a major advantage." },
                       ].map((s, i) => (
-                        <div key={i} style={{display:"flex", gap:16, alignItems:"flex-start", padding:"16px 20px", background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.07)", borderRadius:12}}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:800, color:"#FA8059", minWidth:28}}>{s.n}</div>
+                        <div key={i} style={{display:"flex", gap:16, alignItems:"flex-start", padding:"16px 20px", background:"#ffffff", border:"1px solid rgba(255,255,255,0.07)", borderRadius:12}}>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:800, color:"#FF6B00", minWidth:28}}>{s.n}</div>
                           <div>
-                            <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:800, color:"#fff", marginBottom:4}}>{s.title}</div>
-                            <div style={{fontSize:13, color:"var(--muted)", lineHeight:1.6}}>{s.desc}</div>
+                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:800, color:"#072554", marginBottom:4}}>{s.title}</div>
+                            <div style={{fontSize:13, color:"#5A6478", lineHeight:1.6}}>{s.desc}</div>
                           </div>
                         </div>
                       ))}
@@ -17226,10 +17227,10 @@ export default function UnionPathway() {
                 <div key={section.id} style={{marginBottom:12, border: vetSection===section.id ? "1px solid rgba(250,128,89,0.3)" : "1px solid rgba(255,255,255,0.08)", borderRadius:16, overflow:"hidden"}}>
                   <button
                     onClick={() => setVetSection(vetSection===section.id ? null : section.id)}
-                    style={{width:"100%", background:"rgba(255,255,255,0.02)", border:"none", padding:"20px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", cursor:"pointer", textAlign:"left"}}
+                    style={{width:"100%", background:"#ffffff", border:"none", padding:"20px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", cursor:"pointer", textAlign:"left"}}
                   >
-                    <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:800, color: vetSection===section.id ? "#FA8059" : "#fff"}}>{section.title}</span>
-                    <span style={{color:"#FA8059", fontSize:22, fontWeight:700, lineHeight:1, transform: vetSection===section.id ? "rotate(45deg)" : "rotate(0deg)", display:"inline-block", transition:"transform 0.2s"}}>+</span>
+                    <span style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color: vetSection===section.id ? "#FA8059" : "#fff"}}>{section.title}</span>
+                    <span style={{color:"#FF6B00", fontSize:22, fontWeight:700, lineHeight:1, transform: vetSection===section.id ? "rotate(45deg)" : "rotate(0deg)", display:"inline-block", transition:"transform 0.2s"}}>+</span>
                   </button>
                   {vetSection===section.id && (
                     <div style={{padding:"0 24px 24px", borderTop:"1px solid rgba(255,255,255,0.06)"}}>
@@ -17243,7 +17244,7 @@ export default function UnionPathway() {
         )}
 
         {page === "about" && (
-          <div>
+          <div className="page-v4">
             {/* HERO */}
             <div className="history-hero">
               <div className="history-eyebrow">Built by Tradespeople, for Tradespeople</div>
@@ -17330,21 +17331,21 @@ export default function UnionPathway() {
                   <div style={{padding:'40px 40px 36px', display:'flex', flexDirection:'column', gap:20}}>
                     <div>
                       <div style={{
-                        fontFamily:"'Barlow Condensed',sans-serif",
+                        fontFamily:"'Inter',sans-serif",
                         fontSize:12,
                         fontWeight:700,
                         letterSpacing:'0.18em',
-                        color:'#FA8059',
+                        color:'#FF6B00',
                         textTransform:'uppercase',
                         marginBottom:8,
                       }}>
                         {lang==="es" ? "Fundador y Creador" : lang==="pl" ? "Założyciel i Twórca" : "Founder & Creator"}
                       </div>
                       <h2 style={{
-                        fontFamily:"'Barlow Condensed',sans-serif",
+                        fontFamily:"'Inter',sans-serif",
                         fontSize:'clamp(36px, 5vw, 56px)',
                         fontWeight:900,
-                        color:'#fff',
+                        color:'#072554',
                         lineHeight:0.95,
                         margin:'0 0 10px 0',
                       }}>
@@ -17357,8 +17358,8 @@ export default function UnionPathway() {
                           gap:6,
                           background:'rgba(250,128,89,0.12)',
                           border:'1px solid rgba(250,128,89,0.35)',
-                          color:'#FA8059',
-                          fontFamily:"'Barlow Condensed',sans-serif",
+                          color:'#FF6B00',
+                          fontFamily:"'Inter',sans-serif",
                           fontSize:13,
                           fontWeight:800,
                           letterSpacing:'0.08em',
@@ -17367,7 +17368,7 @@ export default function UnionPathway() {
                           borderRadius:50,
                         }}>@ Spanky The Sparky</span>
                         <span style={{
-                          fontFamily:"'Barlow Condensed',sans-serif",
+                          fontFamily:"'Inter',sans-serif",
                           fontSize:13,
                           fontWeight:700,
                           letterSpacing:'0.1em',
@@ -17407,7 +17408,7 @@ export default function UnionPathway() {
                 }}>
                   <div style={{display:'flex', flexDirection:'column', gap:10}}>
                     <div style={{
-                      fontFamily:"'Barlow Condensed',sans-serif",
+                      fontFamily:"'Inter',sans-serif",
                       fontSize:11,
                       fontWeight:700,
                       letterSpacing:'0.18em',
@@ -17428,7 +17429,7 @@ export default function UnionPathway() {
                         <span key={i} style={{display:'inline-flex', alignItems:'center', gap:8}}>
                           <span style={{
                             display:'inline-block',
-                            fontFamily:"'Barlow Condensed',sans-serif",
+                            fontFamily:"'Inter',sans-serif",
                             fontSize:13,
                             fontWeight:800,
                             letterSpacing:'0.06em',
@@ -17455,7 +17456,7 @@ export default function UnionPathway() {
                       gap:10,
                       background:'#FA8059',
                       color:'#0B0E11',
-                      fontFamily:"'Barlow Condensed',sans-serif",
+                      fontFamily:"'Inter',sans-serif",
                       fontSize:14,
                       fontWeight:900,
                       letterSpacing:'0.12em',
@@ -17485,11 +17486,11 @@ export default function UnionPathway() {
               {/* Founder story video — IG embed (college -> trades) */}
               <div style={{marginTop:32, display:'flex', flexDirection:'column', alignItems:'center', gap:16}}>
                 <div style={{
-                  fontFamily:"'Barlow Condensed',sans-serif",
+                  fontFamily:"'Inter',sans-serif",
                   fontSize:13,
                   fontWeight:800,
                   letterSpacing:'0.18em',
-                  color:'#FA8059',
+                  color:'#FF6B00',
                   textTransform:'uppercase',
                 }}>
                   {lang==="es" ? "Mira la Historia" : lang==="pl" ? "Zobacz Historię" : "Watch the Story"}
@@ -17523,17 +17524,17 @@ export default function UnionPathway() {
               <div className="history-section-title">{lang==="es" ? <>{"La "}<span className="accent">{"Mision"}</span></> : lang==="pl" ? <>{"Nasza "}<span className="accent">{"Misja"}</span></> : <>{"The "}<span className="accent">{"Mission"}</span></>}</div>
               <div className="impact-grid">
                 <div className="impact-card">
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FA8059",marginBottom:"14px",textTransform:"uppercase"}}>01</div>
+                  <div style={{fontFamily:"'Inter',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#FF6B00",marginBottom:"14px",textTransform:"uppercase"}}>01</div>
                   <div className="impact-title">{lang==="es" ? "Construido por Trabajadores" : lang==="pl" ? "Zbudowane przez Pracowników" : "Built by Workers"}</div>
                   <div className="impact-desc">{lang==="es" ? "Sin agencia de marketing. Sin marca anónima. Somos miembros sindicales que estamos en el campo cada día, y al llegar a casa construimos algo mejor para la próxima generación de trabajadores." : lang==="pl" ? "Bez agencji marketingowej. Bez bezimiennej marki. Jesteśmy członkami związkowymi, którzy każdego dnia są w terenie, a po pracy budują coś lepszego dla następnego pokolenia pracowników." : "Not a marketing agency. Not a faceless brand. We're boots-on-the-ground union members who clock in every day, then come home and build something better for the next generation of workers."}</div>
                 </div>
                 <div className="impact-card">
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"var(--muted)",marginBottom:"14px",textTransform:"uppercase"}}>02</div>
+                  <div style={{fontFamily:"'Inter',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#5A6478",marginBottom:"14px",textTransform:"uppercase"}}>02</div>
                   <div className="impact-title">{lang==="es" ? "Cada Sindicato, Un Lugar" : lang==="pl" ? "Każdy Związek, Jedno Miejsce" : "Every Union, One Place"}</div>
                   <div className="impact-desc">{lang==="es" ? "Construcción, supermercados, empacadoras de carne, transporte, salud — cada oficio y cada sindicato, en una sola plataforma. Locales, rutas de carrera, beneficios, historia, herramientas de organización. Gratis. Siempre." : lang==="pl" ? "Budownictwo, spożywczy, pakowanie mięsa, transport, służba zdrowia — każdy zawód i każdy związek, w jednej platformie. Lokale, ścieżki kariery, świadczenia, historia, narzędzia organizacyjne. Bezpłatnie. Zawsze." : "Construction, grocery, meatpacking, transportation, healthcare — every trade and every union, in a single platform. Locals, career paths, benefits, history, organizing tools. Free. Always."}</div>
                 </div>
                 <div className="impact-card">
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"var(--muted)",marginBottom:"14px",textTransform:"uppercase"}}>03</div>
+                  <div style={{fontFamily:"'Inter',sans-serif",fontSize:"11px",fontWeight:"700",letterSpacing:"0.1em",color:"#5A6478",marginBottom:"14px",textTransform:"uppercase"}}>03</div>
                   <div className="impact-title">{lang==="es" ? "Para Cada Trabajador" : lang==="pl" ? "Dla Każdego Pracownika" : "For Every Worker"}</div>
                   <div className="impact-desc">{lang==="es" ? "Ya sea que manejes un martillo, surtas estanterías, operes un tren de carga o trabajes un turno en un hospital — si eres sindicalizado o estás pensando unirte, este es tu recurso." : lang==="pl" ? "Czy machasz młotkiem, układasz towar na półkach, prowadzisz pociąg towarowy czy pracujesz na zmianie w szpitalu — jeśli jesteś w związku lub myślisz o dołączeniu, to jest Twoje miejsce." : "Whether you swing a hammer, stock a shelf, run a freight train, or pull a shift in a hospital — if you're union or thinking about joining, this is your resource."}</div>
                 </div>
@@ -17543,7 +17544,7 @@ export default function UnionPathway() {
         )}
 
         {page === "contact" && (
-          <div className="page" style={{maxWidth: 860}}>
+          <div className="page page-v4" style={{maxWidth: 860}}>
             <div className="page-eyebrow">{lang==="es" ? "Contáctanos" : lang==="pl" ? "Skontaktuj się" : "Get In Touch"}</div>
             <h1 className="page-title">{lang==="es" ? "Contáctenos" : lang==="pl" ? "Kontakt" : "Contact Us"}</h1>
             <p className="page-sub">
@@ -17579,7 +17580,7 @@ export default function UnionPathway() {
                   </div>
                   <div className="contact-info-block">
                     <div className="contact-info-label">{lang==="es" ? "En Qué Podemos Ayudar" : lang==="pl" ? "W czym możemy pomóc" : "What We Can Help With"}</div>
-                    <div className="contact-info-value" style={{fontSize:14, color:"var(--muted)", lineHeight:1.7}}>
+                    <div className="contact-info-value" style={{fontSize:14, color:"#5A6478", lineHeight:1.7}}>
                       {lang==="es" ? (
                         <>
                           ✔ Preguntas sobre cómo unirse a un oficio sindical<br/>
@@ -17609,7 +17610,7 @@ export default function UnionPathway() {
                   </div>
                   <div className="contact-info-block">
                     <div className="contact-info-label">{lang==="es" ? "Tiempo de Respuesta" : lang==="pl" ? "Czas Odpowiedzi" : "Response Time"}</div>
-                    <div className="contact-info-value" style={{color:"var(--muted)", fontSize:14}}>
+                    <div className="contact-info-value" style={{color:"#5A6478", fontSize:14}}>
                       {lang==="es" ? "Normalmente respondemos en 1 a 2 días hábiles." : lang==="pl" ? "Zazwyczaj odpowiadamy w ciągu 1–2 dni roboczych." : "We typically respond within 1–2 business days."}
                     </div>
                   </div>
@@ -17688,7 +17689,7 @@ export default function UnionPathway() {
                     }}>
                     {lang==="es" ? "Enviar Mensaje →" : lang==="pl" ? "Wyślij Wiadomość →" : "Send Message →"}
                   </button>
-                  <p style={{fontSize:12, color:"var(--muted)", marginTop:10, textAlign:"center"}}>
+                  <p style={{fontSize:12, color:"#5A6478", marginTop:10, textAlign:"center"}}>
                     {lang==="es" ? "* Campos obligatorios" : lang==="pl" ? "* Pola obowiązkowe" : "* Required fields"}
                   </p>
                 </div>
