@@ -5261,6 +5261,7 @@ export default function UnionPathway() {
           .home-stats-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
         }
 
+        /* ORGANIZE V4 PASS 2 */
         /* ORGANIZE V4 SCOPED — only affects elements inside .page-v4 wrapper */
         .page-v4 {
           background: #FAFAF7;
@@ -17730,7 +17731,7 @@ export default function UnionPathway() {
                   {n:"04", t:"Sign authorization cards", d:"Authorization cards are a legal document signaling you want union representation. Generally, 30%+ of cards triggers an NLRB election; 50%+ can lead to voluntary recognition or a faster path."},
                   {n:"05", t:"Vote — and bargain the first contract", d:"If you win the NLRB election (or are voluntarily recognized), the union and employer must bargain in good faith. First contracts typically take 6–18 months."},
                 ].map((step, i) => (
-                  <div key={i} style={{display:"flex", gap:20, marginBottom:16, padding:"24px 28px", background:"#ffffff", border:"1px solid rgba(7,37,84,0.08)", borderRadius:12, borderLeft:"4px solid #FA8059"}}>
+                  <div key={i} style={{display:"flex", gap:20, marginBottom:16, padding:"24px 28px", background:"#ffffff", border:"1px solid rgba(7,37,84,0.08)", borderRadius:12, borderLeft:"4px solid #FF6B00"}}>
                     <div style={{flexShrink:0, width:48, height:48, borderRadius:"50%", background:"rgba(255,107,0,0.08)", color:"#FF6B00", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:900}}>{step.n}</div>
                     <div style={{flex:1}}>
                       <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:900, color:"#072554", marginBottom:8}}>{step.t}</div>
@@ -17780,13 +17781,13 @@ export default function UnionPathway() {
             </div>
 
             <div style={{maxWidth:820, margin:"40px auto", padding:"0 24px"}}>
-              <div style={{height:1, background:"linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)"}}></div>
+              <div style={{height:1, background:"linear-gradient(90deg, transparent, rgba(7,37,84,0.12), transparent)"}}></div>
             </div>
 
             {/* === FOR UNION MEMBERS === */}
             <div style={{maxWidth:820, margin:"0 auto", padding:"40px 24px 80px"}}>
               <div style={{display:"flex", alignItems:"center", gap:16, marginBottom:24, flexWrap:"wrap"}}>
-                <div style={{width:48, height:48, borderRadius:12, background:"#3B9EFF22", border:"2px solid #3B9EFF", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:900, color:"#3B9EFF"}}>II</div>
+                <div style={{width:48, height:48, borderRadius:12, background:"rgba(7,37,84,0.06)", border:"2px solid #072554", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:900, color:"#072554"}}>II</div>
                 <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:36, fontWeight:900, color:"#072554", margin:0, lineHeight:1.1, flex:1, minWidth:0}}>For Members — Helping Others Organize</h2>
               </div>
               <p style={{fontSize:16, color:"#5A6478", lineHeight:1.75, marginBottom:32}}>
@@ -17794,7 +17795,7 @@ export default function UnionPathway() {
               </p>
 
               <div style={{background:"rgba(59,158,255,0.06)", border:"1px solid rgba(59,158,255,0.2)", borderRadius:12, padding:"24px 28px", marginBottom:32}}>
-                <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:"#3B9EFF", letterSpacing:"0.12em", textTransform:"uppercase", marginBottom:12}}>COMET Training</div>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:"#072554", letterSpacing:"0.12em", textTransform:"uppercase", marginBottom:12}}>COMET Training</div>
                 <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:24, fontWeight:900, color:"#072554", margin:"0 0 12px 0"}}>Construction Organizing Membership Education Training</h3>
                 <p style={{fontSize:15, color:"#5A6478", lineHeight:1.75}}>
                   COMET is the building trades' national member-organizing program. It's free for members, runs through your local, and is built around the idea that members talking to other workers — not paid staff — is the most effective way to organize. Ask your business agent or organizer if your local offers it. Many do.
@@ -17826,7 +17827,7 @@ export default function UnionPathway() {
                 ))}
               </div>
 
-              <div style={{margin:"48px 0 0", padding:"32px 36px", background:"linear-gradient(135deg, rgba(7,37,84,0.04), rgba(255,107,0,0.03))", border:"1px solid rgba(7,37,84,0.15)", borderRadius:16}}>
+              <div style={{margin:"48px 0 0", padding:"32px 36px", background:"linear-gradient(135deg, rgba(7,37,84,0.05), rgba(255,107,0,0.05))", border:"1px solid rgba(7,37,84,0.15)", borderRadius:16}}>
                 <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:28, fontWeight:900, color:"#072554", margin:"0 0 12px 0"}}>Get connected to your local's organizing department</h3>
                 <p style={{fontSize:15, color:"#5A6478", lineHeight:1.7, margin:0}}>
                   Most locals have at least one full-time organizer. Ask at your next union meeting, call the hall, or check your local's website.
@@ -17906,8 +17907,8 @@ export default function UnionPathway() {
                   {n:"03", t:"Pass it to your organizer", d:"Once there's interest, hand it off to your local's organizer or business agent. They have the authority to negotiate the Letter of Assent and walk the contractor through the CBA."},
                   {n:"04", t:"Help with the transition", d:"If the contractor's existing workers come over, they'll need help understanding the hall, the books, dispatch rules, and benefit enrollment. Members make that transition real."},
                 ].map((step, i) => (
-                  <div key={i} style={{display:"flex", gap:20, marginBottom:16, padding:"24px 28px", background:"#ffffff", border:"1px solid rgba(7,37,84,0.08)", borderRadius:12, borderLeft:"4px solid #3B9EFF"}}>
-                    <div style={{flexShrink:0, width:48, height:48, borderRadius:"50%", background:"#3B9EFF22", color:"#3B9EFF", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:900}}>{step.n}</div>
+                  <div key={i} style={{display:"flex", gap:20, marginBottom:16, padding:"24px 28px", background:"#ffffff", border:"1px solid rgba(7,37,84,0.08)", borderRadius:12, borderLeft:"4px solid #072554"}}>
+                    <div style={{flexShrink:0, width:48, height:48, borderRadius:"50%", background:"rgba(7,37,84,0.06)", color:"#072554", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:900}}>{step.n}</div>
                     <div style={{flex:1}}>
                       <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:900, color:"#072554", marginBottom:8}}>{step.t}</div>
                       <div style={{fontSize:14, color:"#5A6478", lineHeight:1.7}}>{step.d}</div>
@@ -17936,21 +17937,21 @@ export default function UnionPathway() {
               <h4 style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:900, color:"#5A6478", letterSpacing:"0.12em", textTransform:"uppercase", margin:"32px 0 16px 0"}}>Already-established business</h4>
 
               {/* Step 1 — Letter of Assent */}
-              <div style={{display:"flex", gap:20, marginBottom:16, padding:"24px 28px", background:"#ffffff", border:"1px solid rgba(7,37,84,0.08)", borderRadius:12, borderLeft:"4px solid #FA8059"}}>
+              <div style={{display:"flex", gap:20, marginBottom:16, padding:"24px 28px", background:"#ffffff", border:"1px solid rgba(7,37,84,0.08)", borderRadius:12, borderLeft:"4px solid #FF6B00"}}>
                 <div style={{flexShrink:0, width:48, height:48, borderRadius:"50%", background:"rgba(255,107,0,0.08)", color:"#FF6B00", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:900}}>01</div>
                 <div style={{flex:1}}>
                   <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:900, color:"#072554", marginBottom:8}}>Sign a Letter of Assent</div>
                   <div style={{fontSize:14, color:"#5A6478", lineHeight:1.7, marginBottom:16}}>A Letter of Assent legally binds the contractor to the Local Collective Bargaining Agreement (CBA). There are three types most locals offer:</div>
                   <div style={{display:"grid", gap:12}}>
-                    <div style={{padding:"14px 18px", background:"rgba(0,0,0,0.25)", border:"1px solid rgba(255,255,255,0.06)", borderRadius:10}}>
+                    <div style={{padding:"14px 18px", background:"#ffffff", border:"1px solid rgba(7,37,84,0.06)", borderRadius:10}}>
                       <div style={{fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:900, color:"#FF6B00", letterSpacing:"0.08em", textTransform:"uppercase", marginBottom:6}}>Letter of Assent A</div>
                       <div style={{fontSize:13.5, color:"#5A6478", lineHeight:1.65}}>Binds the contractor to the Local CBA <b>and</b> authorizes NECA to represent the contractor in negotiations, grievances, and other labor matters.</div>
                     </div>
-                    <div style={{padding:"14px 18px", background:"rgba(0,0,0,0.25)", border:"1px solid rgba(255,255,255,0.06)", borderRadius:10}}>
+                    <div style={{padding:"14px 18px", background:"#ffffff", border:"1px solid rgba(7,37,84,0.06)", borderRadius:10}}>
                       <div style={{fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:900, color:"#FF6B00", letterSpacing:"0.08em", textTransform:"uppercase", marginBottom:6}}>Letter of Assent B</div>
                       <div style={{fontSize:13.5, color:"#5A6478", lineHeight:1.65}}>Binds the contractor to the Local CBA but <b>not</b> to NECA — they bargain directly with the local. Often used as a pathway toward eventually signing a Letter of Assent A.</div>
                     </div>
-                    <div style={{padding:"14px 18px", background:"rgba(0,0,0,0.25)", border:"1px solid rgba(255,255,255,0.06)", borderRadius:10}}>
+                    <div style={{padding:"14px 18px", background:"#ffffff", border:"1px solid rgba(7,37,84,0.06)", borderRadius:10}}>
                       <div style={{fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:900, color:"#FF6B00", letterSpacing:"0.08em", textTransform:"uppercase", marginBottom:6}}>Letter of Assent C</div>
                       <div style={{fontSize:13.5, color:"#5A6478", lineHeight:1.65}}>12-month Letter of Assent. The first 6 months are locked — the contractor cannot exit and must follow the CBA. Before the 12 months is up, they can opt out of being signatory or convert to a Letter of Assent A.</div>
                     </div>
@@ -17959,7 +17960,7 @@ export default function UnionPathway() {
               </div>
 
               {/* Step 2 — Bonding */}
-              <div style={{display:"flex", gap:20, marginBottom:16, padding:"24px 28px", background:"#ffffff", border:"1px solid rgba(7,37,84,0.08)", borderRadius:12, borderLeft:"4px solid #FA8059"}}>
+              <div style={{display:"flex", gap:20, marginBottom:16, padding:"24px 28px", background:"#ffffff", border:"1px solid rgba(7,37,84,0.08)", borderRadius:12, borderLeft:"4px solid #FF6B00"}}>
                 <div style={{flexShrink:0, width:48, height:48, borderRadius:"50%", background:"rgba(255,107,0,0.08)", color:"#FF6B00", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:900}}>02</div>
                 <div style={{flex:1}}>
                   <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:900, color:"#072554", marginBottom:8}}>Post the required bonds</div>
@@ -17972,7 +17973,7 @@ export default function UnionPathway() {
               </div>
 
               {/* Step 3 — Reporting of Benefits */}
-              <div style={{display:"flex", gap:20, marginBottom:16, padding:"24px 28px", background:"#ffffff", border:"1px solid rgba(7,37,84,0.08)", borderRadius:12, borderLeft:"4px solid #FA8059"}}>
+              <div style={{display:"flex", gap:20, marginBottom:16, padding:"24px 28px", background:"#ffffff", border:"1px solid rgba(7,37,84,0.08)", borderRadius:12, borderLeft:"4px solid #FF6B00"}}>
                 <div style={{flexShrink:0, width:48, height:48, borderRadius:"50%", background:"rgba(255,107,0,0.08)", color:"#FF6B00", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:900}}>03</div>
                 <div style={{flex:1}}>
                   <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:900, color:"#072554", marginBottom:8}}>Set up benefit reporting</div>
@@ -17981,7 +17982,7 @@ export default function UnionPathway() {
               </div>
 
               {/* Step 4 — Workforce Transition */}
-              <div style={{display:"flex", gap:20, marginBottom:16, padding:"24px 28px", background:"#ffffff", border:"1px solid rgba(7,37,84,0.08)", borderRadius:12, borderLeft:"4px solid #FA8059"}}>
+              <div style={{display:"flex", gap:20, marginBottom:16, padding:"24px 28px", background:"#ffffff", border:"1px solid rgba(7,37,84,0.08)", borderRadius:12, borderLeft:"4px solid #FF6B00"}}>
                 <div style={{flexShrink:0, width:48, height:48, borderRadius:"50%", background:"rgba(255,107,0,0.08)", color:"#FF6B00", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:900}}>04</div>
                 <div style={{flex:1}}>
                   <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:900, color:"#072554", marginBottom:8}}>Workforce transition</div>
@@ -17996,7 +17997,7 @@ export default function UnionPathway() {
               </div>
 
               {/* Step 5 — Make Lots of Money */}
-              <div style={{display:"flex", gap:20, marginBottom:16, padding:"24px 28px", background:"linear-gradient(135deg, rgba(245,197,24,0.08), rgba(250,128,89,0.04))", border:"1px solid rgba(245,197,24,0.25)", borderRadius:12, borderLeft:"4px solid #FA8059"}}>
+              <div style={{display:"flex", gap:20, marginBottom:16, padding:"24px 28px", background:"linear-gradient(135deg, rgba(245,197,24,0.08), rgba(250,128,89,0.04))", border:"1px solid rgba(245,197,24,0.25)", borderRadius:12, borderLeft:"4px solid #FF6B00"}}>
                 <div style={{flexShrink:0, width:48, height:48, borderRadius:"50%", background:"rgba(255,107,0,0.08)", color:"#FF6B00", display:"flex", alignItems:"center", justifyContent:"center", fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:900}}>05</div>
                 <div style={{flex:1}}>
                   <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:900, color:"#072554", marginBottom:8}}>Make lots of money 💰</div>
@@ -18011,7 +18012,7 @@ export default function UnionPathway() {
               </p>
 
               {/* CTA */}
-              <div style={{margin:"48px 0", padding:"32px 36px", background:"linear-gradient(135deg, rgba(7,37,84,0.04), rgba(255,107,0,0.03))", border:"1px solid rgba(7,37,84,0.15)", borderRadius:16}}>
+              <div style={{margin:"48px 0", padding:"32px 36px", background:"linear-gradient(135deg, rgba(7,37,84,0.05), rgba(255,107,0,0.05))", border:"1px solid rgba(7,37,84,0.15)", borderRadius:16}}>
                 <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:28, fontWeight:900, color:"#072554", margin:"0 0 12px 0"}}>Have a contractor in mind?</h3>
                 <p style={{fontSize:15, color:"#5A6478", lineHeight:1.7, marginBottom:20}}>
                   Pass the lead to your local's organizer or business agent. They have the authority and the relationships to take it from a sidewalk conversation to a signed Letter of Assent.
