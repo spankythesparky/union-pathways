@@ -4982,42 +4982,43 @@ export default function UnionPathway() {
         /* PHASE 4 HERO REDESIGN */
         .history-hero {
           background: transparent;
-          border-bottom: 1px solid rgba(255,255,255,0.08);
-          padding: 56px 24px 48px;
+          border-bottom: 1px solid rgba(7,37,84,0.08);
+          padding: 72px 24px 56px;
           max-width: 1280px;
           margin: 0 auto;
           text-align: left;
         }
         .history-eyebrow {
-          font-family: 'Space Mono', monospace;
-          font-size: 12px; font-weight: 400;
-          letter-spacing: 0.22em; text-transform: uppercase;
-          color: #FA8059; margin-bottom: 28px;
+          font-family: 'Inter', sans-serif;
+          font-size: 12px; font-weight: 600;
+          letter-spacing: 0.16em; text-transform: uppercase;
+          color: #FF6B00; margin-bottom: 24px;
           display: inline-flex; align-items: center; gap: 14px;
         }
         .history-eyebrow::before {
-          content: ''; width: 32px; height: 1px;
-          background: #FA8059; opacity: 0.6;
+          content: ''; width: 40px; height: 2px;
+          background: #FF6B00; opacity: 1;
         }
+        /* HISTORY TITLE V4 FIX */
         .history-title {
-          font-family: 'Space Grotesk', sans-serif;
-          font-size: clamp(34px, 5vw, 60px);
-          font-weight: 500; line-height: 0.96;
-          text-transform: none; letter-spacing: -0.03em;
-          color: #fff; margin-bottom: 28px;
+          font-family: 'Inter', sans-serif;
+          font-size: clamp(36px, 5vw, 64px);
+          font-weight: 700; line-height: 1.05;
+          text-transform: none; letter-spacing: -0.025em;
+          color: #072554; margin-bottom: 24px;
           max-width: 900px;
         }
         .history-title .accent {
-          color: #FA8059;
-          font-style: italic;
-          font-weight: 600;
+          color: #FF6B00;
+          font-style: normal;
+          font-weight: 700;
         }
         .history-subtitle {
           font-family: 'Inter', sans-serif;
-          font-size: clamp(14px, 1.3vw, 16px);
-          color: rgba(255,255,255,0.7);
+          font-size: clamp(16px, 1.4vw, 18px);
+          color: #5A6478;
           max-width: 660px; margin: 0;
-          line-height: 1.65;
+          line-height: 1.6;
         }
         .history-stats {
           display: flex; justify-content: center;
@@ -5264,7 +5265,7 @@ export default function UnionPathway() {
         /* ORGANIZE V4 PASS 2 */
         /* ORGANIZE V4 SCOPED — only affects elements inside .page-v4 wrapper */
         .page-v4 {
-          background: #FAFAF7;
+          background: #FFFFFF;
           color: #072554;
           font-family: 'Inter', system-ui, sans-serif;
         }
@@ -7191,7 +7192,7 @@ export default function UnionPathway() {
             Navy + Orange + Paper background
             Self-contained: does NOT affect other pages
             ═══════════════════════════════════════════ */}
-        <div style={{background:'#FAFAF7', color:'#072554', margin:'0', padding:'0'}}>
+        <div style={{background:'#FFFFFF', color:'#072554', margin:'0', padding:'0'}}>
 
         {/* ─── HERO ─── */}
         <section style={{padding:'80px 40px 40px', maxWidth:1280, margin:'0 auto'}}>
@@ -18031,7 +18032,7 @@ export default function UnionPathway() {
         {/* PLATFORM OVERVIEW — show on home page when no results */}
         {/* PLATFORM OVERVIEW V4 */}
         {page === "home" && !results && (
-          <div style={{background:'#FAFAF7', padding:'0 40px 80px'}}>
+          <div style={{background:'#FFFFFF', padding:'0 40px 80px'}}>
           <div style={{maxWidth:1280, margin:"0 auto"}}>
 
             {/* INDUSTRY STATS ROW */}
