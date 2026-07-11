@@ -6130,7 +6130,7 @@ export default function UnionPathway() {
         }
 
         /* ── QUIZ PAGE ── */
-        /* GET STARTED SWEEP */ /* CALC INPUT FIX */ /* DARK CONTAINER FIX */ /* MEMBERSHIP SWEEP */ /* INVISIBLE TITLE FIX */ /* RESOURCES SWEEP */
+        /* GET STARTED SWEEP */ /* CALC INPUT FIX */ /* DARK CONTAINER FIX */ /* MEMBERSHIP SWEEP */ /* INVISIBLE TITLE FIX */ /* RESOURCES SWEEP */ /* APPRENTICESHIP SWEEP */
         .page { max-width: 1000px; margin: 0 auto; padding: 72px 40px 96px; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 
@@ -14587,14 +14587,14 @@ export default function UnionPathway() {
 
               {/* HERO */}
               <section style={{padding:'56px 24px 40px', maxWidth:1280, margin:'0 auto'}}>
-                <div style={{display:'inline-flex', alignItems:'center', gap:14, fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>
+                <div style={{display:'inline-flex', alignItems:'center', gap:14, fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>
                   <span style={{width:32, height:1, background:'#FF6B00', opacity:0.6}} />
                   How to get in
                 </div>
                 <h1 style={{
-                  fontFamily:"'Space Grotesk',sans-serif",
+                  fontFamily:"'Inter',sans-serif",
                   fontSize:'clamp(34px, 5vw, 60px)',
-                  fontWeight:500,
+                  fontWeight:800,
                   color:'#072554',
                   lineHeight:0.96,
                   letterSpacing:'-0.03em',
@@ -14602,7 +14602,7 @@ export default function UnionPathway() {
                   maxWidth:900
                 }}>
                   The apprenticeship<br/>
-                  <span style={{color:'#FF6B00', fontStyle:'italic', fontWeight:600}}>aptitude test.</span>
+                  <span style={{color:'#FF6B00', fontWeight:600}}>aptitude test.</span>
                 </h1>
                 <p style={{
                   fontFamily:"'Inter',sans-serif",
@@ -14618,7 +14618,7 @@ export default function UnionPathway() {
 
               {/* BIG NUMBERS */}
               <section style={{padding:'60px 24px 60px', maxWidth:1280, margin:'0 auto', borderTop:'1px solid #E5E7EB'}}>
-                <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:32}}>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:32}}>
                   // The deal
                 </div>
                 <div style={{display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:24}} className="appr-hub-stats">
@@ -14630,9 +14630,9 @@ export default function UnionPathway() {
                   ].map((s, i) => (
                     <div key={i}>
                       <div style={{
-                        fontFamily:"'Space Grotesk',sans-serif",
+                        fontFamily:"'Inter',sans-serif",
                         fontSize:'clamp(28px, 4vw, 48px)',
-                        fontWeight:500,
+                        fontWeight:800,
                         color:'#FF6B00',
                         lineHeight:1, letterSpacing:'-0.03em', marginBottom:8
                       }}>{s.v}</div>
@@ -14644,20 +14644,20 @@ export default function UnionPathway() {
 
               {/* PICK YOUR TRADE */}
               <section style={{padding:'60px 24px 80px', maxWidth:1280, margin:'0 auto', borderTop:'1px solid #E5E7EB'}}>
-                <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:18}}>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:18}}>
                   // Pick your trade
                 </div>
                 <h2 style={{
-                  fontFamily:"'Space Grotesk',sans-serif",
+                  fontFamily:"'Inter',sans-serif",
                   fontSize:'clamp(24px, 3vw, 36px)',
-                  fontWeight:500,
+                  fontWeight:800,
                   color:'#072554',
                   margin:'0 0 36px 0',
                   lineHeight:1.1,
                   letterSpacing:'-0.02em',
                   maxWidth:600
                 }}>
-                  Every trade <span style={{color:'#FF6B00', fontStyle:'italic'}}>tests differently.</span>
+                  Every trade <span style={{color:'#FF6B00'}}>tests differently.</span>
                 </h2>
                 <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(320px, 1fr))', gap:12}}>
                   {TRADES.map(t => (
@@ -14665,9 +14665,10 @@ export default function UnionPathway() {
                       key={t.key}
                       onClick={() => t.live && setPage('apprenticeship-' + t.key)}
                       style={{
-                        background:'transparent',
-                        border:'1px solid #E5E7EB',
-                        borderRadius:14,
+                        background:'#FFFFFF',
+                        border:'1px solid rgba(7,37,84,0.08)',
+                        boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)',
+                        borderRadius:16,
                         padding:'24px 26px',
                         cursor: t.live ? 'pointer' : 'default',
                         opacity: t.live ? 1 : 0.5,
@@ -14683,7 +14684,7 @@ export default function UnionPathway() {
                       }}
                       onMouseLeave={e => {
                         if (t.live) {
-                          e.currentTarget.style.background = 'transparent';
+                          e.currentTarget.style.background = '#FFFFFF';
                           e.currentTarget.style.borderColor = '#94A3B8';
                           e.currentTarget.style.transform = 'translateY(0)';
                           e.currentTarget.style.boxShadow = 'none';
@@ -14691,15 +14692,15 @@ export default function UnionPathway() {
                       }}
                     >
                       <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:12, marginBottom:10}}>
-                        <h3 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:18, fontWeight:500, color:'#072554', margin:0, lineHeight:1.2, letterSpacing:'-0.015em'}}>{t.name}</h3>
+                        <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:800, color:'#072554', margin:0, lineHeight:1.2, letterSpacing:'-0.015em'}}>{t.name}</h3>
                         {t.live ? (
-                          <div style={{flexShrink:0, fontSize:9, fontFamily:"'Space Mono',monospace", color:'#FF6B00', letterSpacing:'0.15em', textTransform:'uppercase', padding:'3px 8px', border:'1px solid rgba(255,107,0,0.4)', borderRadius:50}}>Live</div>
+                          <div style={{flexShrink:0, fontSize:9, fontFamily:"'Inter',sans-serif", color:'#FF6B00', letterSpacing:'0.15em', textTransform:'uppercase', padding:'3px 8px', border:'1px solid rgba(255,107,0,0.4)', borderRadius:50}}>Live</div>
                         ) : (
-                          <div style={{flexShrink:0, fontSize:9, fontFamily:"'Space Mono',monospace", color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase', padding:'3px 8px', border:'1px solid #E5E7EB', borderRadius:50}}>Soon</div>
+                          <div style={{flexShrink:0, fontSize:9, fontFamily:"'Inter',sans-serif", color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase', padding:'3px 8px', border:'1px solid #E5E7EB', borderRadius:50}}>Soon</div>
                         )}
                       </div>
-                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, color:'#64748B', fontStyle:'italic', marginBottom:14, lineHeight:1.5}}>{t.test}</div>
-                      <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color:'#94A3B8', letterSpacing:'0.1em', textTransform:'uppercase', marginBottom:14}}>{t.sections}</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, color:'#64748B', marginBottom:14, lineHeight:1.5}}>{t.test}</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:10, color:'#94A3B8', letterSpacing:'0.1em', textTransform:'uppercase', marginBottom:14}}>{t.sections}</div>
                       <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', lineHeight:1.5}}>{t.sub}</div>
                     </div>
                   ))}
@@ -14708,19 +14709,19 @@ export default function UnionPathway() {
 
               {/* THINGS NOBODY TELLS YOU */}
               <section style={{padding:'60px 24px 80px', maxWidth:1280, margin:'0 auto', borderTop:'1px solid #E5E7EB'}}>
-                <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:18}}>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:18}}>
                   // True for every trade
                 </div>
                 <h2 style={{
-                  fontFamily:"'Space Grotesk',sans-serif",
+                  fontFamily:"'Inter',sans-serif",
                   fontSize:'clamp(24px, 3vw, 36px)',
-                  fontWeight:500,
+                  fontWeight:800,
                   color:'#072554',
                   margin:'0 0 48px 0',
                   lineHeight:1.1,
                   letterSpacing:'-0.02em'
                 }}>
-                  Things nobody <span style={{color:'#FF6B00', fontStyle:'italic'}}>tells you.</span>
+                  Things nobody <span style={{color:'#FF6B00'}}>tells you.</span>
                 </h2>
                 <div style={{display:'flex', flexDirection:'column'}}>
                   {ADVICE.map((a, i) => (
@@ -14733,17 +14734,17 @@ export default function UnionPathway() {
                       alignItems:'flex-start'
                     }} className="appr-advice-row">
                       <div style={{
-                        fontFamily:"'Space Grotesk',sans-serif",
+                        fontFamily:"'Inter',sans-serif",
                         fontSize:'clamp(20px, 2.5vw, 28px)',
-                        fontWeight:500,
+                        fontWeight:800,
                         color:'#94A3B8',
                         lineHeight:1, letterSpacing:'-0.02em'
                       }}>{a.num}</div>
                       <div>
                         <h3 style={{
-                          fontFamily:"'Space Grotesk',sans-serif",
+                          fontFamily:"'Inter',sans-serif",
                           fontSize:'clamp(17px, 2vw, 22px)',
-                          fontWeight:500,
+                          fontWeight:800,
                           color:'#072554',
                           margin:'0 0 10px 0',
                           lineHeight:1.3,
@@ -14776,23 +14777,24 @@ export default function UnionPathway() {
           );
         })()}
 
+
         {page === "apprenticeship-ibew" && (() => {
           const ACCENT = '#FF6B00';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
-              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:800, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:14, padding:'24px 28px', marginBottom:14, transition:'all 0.2s'}}>
+            <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:14, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', transition:'transform 0.18s, box-shadow 0.18s'}}>
               {children}
             </div>
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
               <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#64748B', lineHeight:1.45}}>{l}</div>
             </div>
           );
@@ -14802,14 +14804,14 @@ export default function UnionPathway() {
                 <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FF6B00, #FF8A33)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// IBEW · Inside Wireman</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The NJATC<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Aptitude Test.</span></h1>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// IBEW · Inside Wireman</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:800, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The NJATC<br/><span style={{color:ACCENT, fontWeight:600}}>Aptitude Test.</span></h1>
                 <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'#64748B', lineHeight:1.65, maxWidth:660, margin:0}}>Officially the <em>Electrical Training Alliance Aptitude Test</em>, still called the NJATC test by everyone who's taken it. Used by virtually every IBEW local to screen Inside Wireman apprenticeship candidates. Two sections, 96 minutes, no calculator.</p>
               </div>
 
@@ -14827,22 +14829,22 @@ export default function UnionPathway() {
                 <Section eyebrow="What's Actually On It" title="Two sections. Two clocks.">
                   <Card>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554'}}>Algebra & Functions</div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>33 Questions · 46 Minutes</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554'}}>Algebra & Functions</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>33 Questions · 46 Minutes</div>
                     </div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Algebraic expressions, equations, inequalities, functions and graphs, polynomials, number sequences, word problems. Goes beyond standard high-school algebra in difficulty. Roughly 84 seconds per question. <strong style={{color:'#FF6B00'}}>No calculator.</strong></p>
                   </Card>
                   <Card>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554'}}>Reading Comprehension</div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>36 Questions · 51 Minutes</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554'}}>Reading Comprehension</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>36 Questions · 51 Minutes</div>
                     </div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Multi-paragraph technical passages followed by questions. Tests main idea, supporting details, inference, and vocabulary in context. No prior electrical knowledge required, but passages tend to be technical or scientific in tone. About 85 seconds per question.</p>
                   </Card>
                   <Card>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color:'#072554'}}>Mechanical Comprehension <span style={{color:'#64748B', fontWeight:500}}>(some locals)</span></div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, color:'#64748B', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Varies</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:700, color:'#072554'}}>Mechanical Comprehension <span style={{color:'#64748B', fontWeight:800}}>(some locals)</span></div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#64748B', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Varies</div>
                     </div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>A handful of locals — Local 134 (Chicago) is the most well-known — add a mechanical reasoning section. Pulleys, levers, gears, load distribution. If you're applying to a major metro local, check directly with the JATC about whether this section applies.</p>
                   </Card>
@@ -14868,23 +14870,23 @@ export default function UnionPathway() {
                     <p style={{margin:'0 0 14px 0', fontSize:15, color:'#072554', lineHeight:1.65}}>Your raw correct count gets converted to a score from 1 to 9. There's no penalty for wrong answers — answer every question, even if you have to guess. Scores break down roughly like this:</p>
                     <div style={{display:'grid', gap:8, marginTop:8}}>
                       <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'rgba(74,123,157,0.15)', borderRadius:8, borderLeft:'3px solid '+ACCENT}}>
-                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#072554'}}>1–3</span>
+                        <span style={{fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, color:'#072554'}}>1–3</span>
                         <span style={{fontSize:13, color:'#64748B'}}>Below qualifying — no interview, 6-month wait to retest</span>
                       </div>
                       <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'#F8FAFC', borderRadius:8}}>
-                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#072554'}}>4</span>
+                        <span style={{fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, color:'#072554'}}>4</span>
                         <span style={{fontSize:13, color:'#64748B'}}>Qualifying — eligible for interview, but bottom of the pile</span>
                       </div>
                       <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'#F8FAFC', borderRadius:8}}>
-                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#072554'}}>5–7</span>
+                        <span style={{fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, color:'#072554'}}>5–7</span>
                         <span style={{fontSize:13, color:'#64748B'}}>Competitive — strong interview can place you</span>
                       </div>
                       <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'rgba(255,107,0,0.10)', borderRadius:8, borderLeft:'3px solid #FF6B00'}}>
-                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#072554'}}>8–9</span>
+                        <span style={{fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, color:'#072554'}}>8–9</span>
                         <span style={{fontSize:13, color:'#FF6B00', fontWeight:700}}>Top tier — virtually guaranteed an interview slot</span>
                       </div>
                     </div>
-                    <p style={{margin:'14px 0 0 0', fontSize:13, color:'#64748B', fontStyle:'italic', lineHeight:1.6}}>Note: locals with high applicant volume sometimes only interview top-scoring applicants. A 4 in NYC Local 3 may not get an interview the same year a 4 would in a smaller local.</p>
+                    <p style={{margin:'14px 0 0 0', fontSize:13, color:'#64748B', lineHeight:1.6}}>Note: locals with high applicant volume sometimes only interview top-scoring applicants. A 4 in NYC Local 3 may not get an interview the same year a 4 would in a smaller local.</p>
                   </Card>
                 </Section>
 
@@ -14919,35 +14921,36 @@ export default function UnionPathway() {
               </div>
 
               <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
-                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(74,123,157,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(74,123,157,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
               </div>
             </div>
           );
         })()}
 
+
         {page === "apprenticeship-ua" && (() => {
           const ACCENT = '#FF6B00';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
-              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:800, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+            <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:14, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', transition:'transform 0.18s, box-shadow 0.18s'}}>{children}</div>
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
               <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#64748B', lineHeight:1.45}}>{l}</div>
             </div>
           );
           const SectionRow = ({ name, q, t, desc }) => (
             <Card>
               <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:10, flexWrap:'wrap', gap:8}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:'#072554'}}>{name}</div>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{q} Questions · {t}</div>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:700, color:'#072554'}}>{name}</div>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>{q} Questions · {t}</div>
               </div>
               <p style={{margin:0, fontSize:14, color:'#072554', lineHeight:1.6}}>{desc}</p>
             </Card>
@@ -14958,14 +14961,14 @@ export default function UnionPathway() {
                 <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FF6B00, #FF8A33)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// UA · Plumbers, Pipefitters, Steamfitters</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The GAN<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Aptitude Test.</span></h1>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// UA · Plumbers, Pipefitters, Steamfitters</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:800, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The GAN<br/><span style={{color:ACCENT, fontWeight:600}}>Aptitude Test.</span></h1>
                 <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'#64748B', lineHeight:1.65, maxWidth:660, margin:0}}>Officially the <em>Piping Industry Entry Level Assessment</em>, administered by GAN Human Resources for UA locals across the U.S. and Canada. Six sections, two hours, no calculator — and the broadest aptitude test in the building trades.</p>
               </div>
 
@@ -15041,27 +15044,28 @@ export default function UnionPathway() {
               </div>
 
               <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
-                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(124,157,74,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(124,157,74,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
               </div>
             </div>
           );
         })()}
 
+
         {page === "apprenticeship-smart" && (() => {
           const ACCENT = '#FF6B00';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
-              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:800, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+            <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:14, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', transition:'transform 0.18s, box-shadow 0.18s'}}>{children}</div>
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
               <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#64748B', lineHeight:1.45}}>{l}</div>
             </div>
           );
@@ -15071,14 +15075,14 @@ export default function UnionPathway() {
                 <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FF6B00, #FF8A33)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// SMART · Sheet Metal Workers</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The Sheet Metal<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Apprenticeship Test.</span></h1>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// SMART · Sheet Metal Workers</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:800, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The Sheet Metal<br/><span style={{color:ACCENT, fontWeight:600}}>Apprenticeship Test.</span></h1>
                 <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'#64748B', lineHeight:1.65, maxWidth:660, margin:0}}>SMART doesn't have a single national aptitude test — each local JATC chooses its own. The sections below are the ones you'll see in some combination at most major locals: Math, Reading, Mechanical, and Spatial Reasoning. <strong style={{color:'#FF6B00'}}>Always confirm the exact format with your local before taking it.</strong></p>
               </div>
 
@@ -15095,38 +15099,38 @@ export default function UnionPathway() {
 
                 <Section eyebrow="The Sections You'll See" title="Four core skills, every variation tests at least two.">
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:'#072554', marginBottom:8}}>Mathematics</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:700, color:'#072554', marginBottom:8}}>Mathematics</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Whole numbers, fractions, decimals, percentages, basic algebra. Some locals add geometry (area, perimeter, volume of basic shapes). Sheet metal layouts demand fraction fluency — you'll be cutting to 1/16" tolerances on the job, so the test reflects that. <strong style={{color:'#FF6B00'}}>Calculator policy varies — check with your local.</strong></p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:'#072554', marginBottom:8}}>Reading Comprehension</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:700, color:'#072554', marginBottom:8}}>Reading Comprehension</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Technical passages with multiple-choice questions on main idea, detail, and inference. Some locals integrate "graphic literacy" — using charts, blueprints, floor plans, and diagrams to answer questions, which is closer to actual sheet metal work than pure prose comprehension.</p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:'#072554', marginBottom:8}}>Mechanical Comprehension</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:700, color:'#072554', marginBottom:8}}>Mechanical Comprehension</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Levers, pulleys, gears, mechanical advantage. Standard mechanical reasoning content — same general format as Bennett Mechanical Comprehension or Wiesen tests. Some locals also include basic electrical principles (Ohm's law, circuit basics) in this section.</p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:20, fontWeight:900, color:'#072554', marginBottom:8}}>Spatial Reasoning / Abstract Reasoning</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:700, color:'#072554', marginBottom:8}}>Spatial Reasoning / Abstract Reasoning</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>The most distinctively sheet-metal section. Includes 2D-to-3D visualization (which 3D shape does this flat pattern fold into?), pattern matching, and rotation problems. <strong style={{color:'#FF6B00'}}>This is core sheet metal work</strong> — you're literally turning flat patterns into 3D ductwork on the job. Practice this section more than you think you need to.</p>
                   </Card>
                 </Section>
 
                 <Section eyebrow="Local Variations" title="A few of the bigger locals, for reference.">
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color:'#072554', marginBottom:8}}>SMART Local 36 (St. Louis)</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:700, color:'#072554', marginBottom:8}}>SMART Local 36 (St. Louis)</div>
                     <p style={{margin:0, fontSize:14, color:'#072554', lineHeight:1.6}}>Four sections: Problem-Solving, Mathematics, Spatial Relations, Mechanical Aptitude. Among the most comprehensive sheet metal tests in the country.</p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color:'#072554', marginBottom:8}}>Southern California Sheet Metal JATC</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:700, color:'#072554', marginBottom:8}}>Southern California Sheet Metal JATC</div>
                     <p style={{margin:0, fontSize:14, color:'#072554', lineHeight:1.6}}>Two-section format. Math (25 questions in 15 minutes — fast pace) followed by a written section split into Mental Ability, Mechanical Comprehension, and Paper Board (spatial). One of the harder sheet metal exams.</p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color:'#072554', marginBottom:8}}>Western Washington Sheet Metal JATC</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:700, color:'#072554', marginBottom:8}}>Western Washington Sheet Metal JATC</div>
                     <p style={{margin:0, fontSize:14, color:'#072554', lineHeight:1.6}}>Two sections only: Math and Reading. Among the more streamlined formats. Higher score = higher placement priority on the apprenticeship eligibility list.</p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color:'#072554', marginBottom:8}}>SMART Local 20 (Indiana)</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:700, color:'#072554', marginBottom:8}}>SMART Local 20 (Indiana)</div>
                     <p style={{margin:0, fontSize:14, color:'#072554', lineHeight:1.6}}>Four-section format using the WorkKeys-style assessment: Applied Mathematics, Applied Technology, Graphic Literacy, and Workplace Observation. Tested through state WorkOne facilities.</p>
                   </Card>
                 </Section>
@@ -15154,27 +15158,28 @@ export default function UnionPathway() {
               </div>
 
               <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
-                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(157,107,74,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(157,107,74,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
               </div>
             </div>
           );
         })()}
 
+
         {page === "apprenticeship-iuec" && (() => {
           const ACCENT = '#FF6B00';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
-              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:800, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+            <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:14, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', transition:'transform 0.18s, box-shadow 0.18s'}}>{children}</div>
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
               <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#64748B', lineHeight:1.45}}>{l}</div>
             </div>
           );
@@ -15184,14 +15189,14 @@ export default function UnionPathway() {
                 <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FF6B00, #FF8A33)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// IUEC · Elevator Constructors</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The EIAT.</h1>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// IUEC · Elevator Constructors</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:800, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The EIAT.</h1>
                 <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'#64748B', lineHeight:1.65, maxWidth:660, margin:0}}>The <em>Elevator Industry Aptitude Test</em>, developed by NEIEP (National Elevator Industry Educational Program) for the IUEC. Three sections, 100 questions, ~90 minutes — followed by a separate tool recognition assessment that doesn't count toward your EIAT score but feeds into your interview ranking.</p>
               </div>
 
@@ -15209,29 +15214,29 @@ export default function UnionPathway() {
                 <Section eyebrow="What's Actually On It" title="Three sections, three skills.">
                   <Card>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554'}}>Arithmetic Computation</div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>30 Questions · 40 Minutes</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554'}}>Arithmetic Computation</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>30 Questions · 40 Minutes</div>
                     </div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Basic arithmetic, fractions, decimals, percentages, simple algebra, and unit conversions. 8th-to-9th-grade math difficulty. About 80 seconds per question. <strong style={{color:'#FF6B00'}}>No calculator.</strong></p>
                   </Card>
                   <Card>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554'}}>Reading Comprehension</div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>35 Questions · 25 Minutes</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554'}}>Reading Comprehension</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>35 Questions · 25 Minutes</div>
                     </div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Sentence completion, vocabulary, grammar, and reading comprehension. About 43 seconds per question — faster pace than the math section. NEIEP includes vocabulary in this section, so don't skip word study.</p>
                   </Card>
                   <Card>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554'}}>Mechanical Comprehension</div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>35 Questions · 25 Minutes</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554'}}>Mechanical Comprehension</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>35 Questions · 25 Minutes</div>
                     </div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Pulleys, gears, levers, mechanical advantage, basic electrical circuits, hydraulics. The most trade-relevant section — elevator mechanics live in this material on the job. About 43 seconds per question.</p>
                   </Card>
                   <Card>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color:'#FF6B00'}}>+ Tool Recognition Assessment</div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, color:'#64748B', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Separate</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:700, color:'#FF6B00'}}>+ Tool Recognition Assessment</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#64748B', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Separate</div>
                     </div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Administered immediately after the EIAT. Identify common hand tools by photo or description — Phillips screwdriver, lineman's pliers, diagonal cutters, crimpers, tape measure, level. Includes basic tape-measure reading. <strong style={{color:'#FF6B00'}}>This score doesn't roll into your EIAT score, but it feeds your interview ranking.</strong></p>
                   </Card>
@@ -15242,23 +15247,23 @@ export default function UnionPathway() {
                     <p style={{margin:'0 0 14px 0', fontSize:15, color:'#072554', lineHeight:1.65}}>EIAT is pass/fail at 70%. After passing, your combined score (EIAT + tool assessment + interview) places you in one of four tiers, and locals interview/hire from the top tier first:</p>
                     <div style={{display:'grid', gap:8}}>
                       <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'rgba(255,107,0,0.10)', borderRadius:8, borderLeft:'3px solid #FF6B00'}}>
-                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#072554'}}>Tier 1 · 96–100</span>
+                        <span style={{fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, color:'#072554'}}>Tier 1 · 96–100</span>
                         <span style={{fontSize:13, color:'#FF6B00', fontWeight:700}}>First in line for any opening</span>
                       </div>
                       <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'rgba(74,123,157,0.15)', borderRadius:8, borderLeft:'3px solid '+ACCENT}}>
-                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#072554'}}>Tier 2 · 90–95</span>
+                        <span style={{fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, color:'#072554'}}>Tier 2 · 90–95</span>
                         <span style={{fontSize:13, color:'#072554'}}>Strong placement chances</span>
                       </div>
                       <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'#F8FAFC', borderRadius:8}}>
-                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#072554'}}>Tier 3 · 80–89</span>
+                        <span style={{fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, color:'#072554'}}>Tier 3 · 80–89</span>
                         <span style={{fontSize:13, color:'#64748B'}}>Possible, depends on cycle volume</span>
                       </div>
                       <div style={{display:'flex', justifyContent:'space-between', padding:'10px 14px', background:'#F8FAFC', borderRadius:8}}>
-                        <span style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:700, color:'#072554'}}>Tier 4 · 70–79</span>
+                        <span style={{fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, color:'#072554'}}>Tier 4 · 70–79</span>
                         <span style={{fontSize:13, color:'#64748B'}}>Passing but rarely placed</span>
                       </div>
                     </div>
-                    <p style={{margin:'14px 0 0 0', fontSize:13, color:'#64748B', fontStyle:'italic', lineHeight:1.6}}>Score validity: 2 years from test date. After that you reapply and retest.</p>
+                    <p style={{margin:'14px 0 0 0', fontSize:13, color:'#64748B', lineHeight:1.6}}>Score validity: 2 years from test date. After that you reapply and retest.</p>
                   </Card>
                 </Section>
 
@@ -15292,27 +15297,28 @@ export default function UnionPathway() {
               </div>
 
               <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
-                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(74,123,157,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(74,123,157,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
               </div>
             </div>
           );
         })()}
 
+
         {page === "apprenticeship-iw" && (() => {
           const ACCENT = '#FF6B00';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
-              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:800, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+            <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:14, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', transition:'transform 0.18s, box-shadow 0.18s'}}>{children}</div>
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
               <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#64748B', lineHeight:1.45}}>{l}</div>
             </div>
           );
@@ -15322,14 +15328,14 @@ export default function UnionPathway() {
                 <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FF6B00, #FF8A33)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// Iron Workers</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The Iron Worker<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Aptitude Test.</span></h1>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// Iron Workers</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:800, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The Iron Worker<br/><span style={{color:ACCENT, fontWeight:600}}>Aptitude Test.</span></h1>
                 <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'#64748B', lineHeight:1.65, maxWidth:660, margin:0}}>The Iron Workers Union doesn't have a single national test — each local writes its own. The format is consistent across major locals (Local 3, Local 12, Local 40, Local 433, etc.) with a math section and a reading section, and the math is harder than most other building trades. Plus a physical test you actually can't fake your way through.</p>
               </div>
 
@@ -15347,19 +15353,19 @@ export default function UnionPathway() {
                 <Section eyebrow="What's Actually On It" title="Two written sections. One physical.">
                   <Card>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554'}}>Mathematics</div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>No Calculator</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554'}}>Mathematics</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, color:ACCENT, letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>No Calculator</div>
                     </div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>The Iron Workers test math goes deeper than UA or SMART. Expect basic arithmetic and fractions, but also high-school-level algebra, geometry, and word problems. Some major locals (notably Local 3 in Philadelphia, Local 40 in NYC, Local 12 in Albany) include trigonometry — basic sine/cosine/tangent for figuring beam angles. <strong style={{color:'#FF6B00'}}>If your local includes trig, that alone trips up half of applicants.</strong></p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Reading Comprehension</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Reading Comprehension</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Standard format — technical and general passages followed by multiple-choice questions on main idea, detail, and inference. Some locals integrate spelling and grammar questions. The passages tend toward construction-related topics (safety, materials, work procedures) but no prior knowledge is required.</p>
                   </Card>
                   <Card>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#FF6B00'}}>The Physical Test</div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, color:'#64748B', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Make-or-Break</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#FF6B00'}}>The Physical Test</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#64748B', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Make-or-Break</div>
                     </div>
                     <p style={{margin:'0 0 10px 0', fontSize:14.5, color:'#072554', lineHeight:1.65}}><strong style={{color:'#FF6B00'}}>This is what makes the Iron Workers test different from every other trade.</strong> After passing the written test, candidates take a physical assessment that typically includes:</p>
                     <ul style={{margin:'0', paddingLeft:24, fontSize:14, color:'#072554', lineHeight:1.85}}>
@@ -15432,27 +15438,28 @@ export default function UnionPathway() {
               </div>
 
               <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
-                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(157,74,74,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(157,74,74,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
               </div>
             </div>
           );
         })()}
 
+
         {page === "apprenticeship-bac" && (() => {
           const ACCENT = '#FF6B00';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
-              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:800, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+            <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:14, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', transition:'transform 0.18s, box-shadow 0.18s'}}>{children}</div>
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
               <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#64748B', lineHeight:1.45}}>{l}</div>
             </div>
           );
@@ -15462,14 +15469,14 @@ export default function UnionPathway() {
                 <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FF6B00, #FF8A33)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// BAC · Bricklayers and Allied Craftworkers</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The BAC<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Aptitude Test.</span></h1>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// BAC · Bricklayers and Allied Craftworkers</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:800, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The BAC<br/><span style={{color:ACCENT, fontWeight:600}}>Aptitude Test.</span></h1>
                 <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'#64748B', lineHeight:1.65, maxWidth:660, margin:0}}>BAC is the oldest labor union in North America (founded 1865). It's also unusual in that the testing format is <strong style={{color:'#FF6B00'}}>almost entirely local-controlled</strong> — there is no national BAC aptitude test. Most locals use a combination of basic math, reading, and a physical assessment, plus a 12-week unpaid pre-apprenticeship at some training centers.</p>
               </div>
 
@@ -15486,17 +15493,17 @@ export default function UnionPathway() {
 
                 <Section eyebrow="What's Actually On It" title="A simpler test than most. The bar is the work, not the paper.">
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Mathematics</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Mathematics</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Basic arithmetic — addition, subtraction, multiplication, division. Fractions and decimals. Percentages. Reading a measuring tape and basic geometry (area and perimeter calculations are common because masons calculate brick counts constantly). The math is calibrated lower than IBEW, UA, or Iron Workers — typically 7th-to-9th-grade level. Calculator policy varies; check with your local.</p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Reading Comprehension</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Reading Comprehension</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Standard reading comprehension passages with multiple-choice questions. Some locals integrate basic blueprint reading or instruction-following questions. Tests your ability to follow written directions accurately — which matters because masonry plans are precise.</p>
                   </Card>
                   <Card>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#FF6B00'}}>Physical Assessment</div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, color:'#64748B', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Most Locals</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#FF6B00'}}>Physical Assessment</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#64748B', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Most Locals</div>
                     </div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Brick is heavy. A standard brick weighs about 4-5 pounds; a concrete block weighs 30-40 pounds; a piece of stone facing can be 100+ pounds. The physical assessment typically tests your ability to lift weight repeatedly, work in awkward positions, and handle bending and squatting throughout the day. <strong style={{color:'#FF6B00'}}>Most BAC apprentices wash out for physical reasons, not mental ones.</strong></p>
                   </Card>
@@ -15555,27 +15562,28 @@ export default function UnionPathway() {
               </div>
 
               <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
-                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(157,74,107,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(157,74,107,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
               </div>
             </div>
           );
         })()}
 
+
         {page === "apprenticeship-hfiaw" && (() => {
           const ACCENT = '#FF6B00';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
-              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:800, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+            <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:14, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', transition:'transform 0.18s, box-shadow 0.18s'}}>{children}</div>
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
               <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#64748B', lineHeight:1.45}}>{l}</div>
             </div>
           );
@@ -15585,14 +15593,14 @@ export default function UnionPathway() {
                 <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FF6B00, #FF8A33)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// HFIAW · Heat &amp; Frost Insulators</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The Insulators<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Aptitude Test.</span></h1>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// HFIAW · Heat &amp; Frost Insulators</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:800, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The Insulators<br/><span style={{color:ACCENT, fontWeight:600}}>Aptitude Test.</span></h1>
                 <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'#64748B', lineHeight:1.65, maxWidth:660, margin:0}}>The International Association of Heat and Frost Insulators and Allied Workers (HFIAW, also called AWIU) doesn't run a single national aptitude test. Each local JATC writes its own. The format is consistent across major locals: a general aptitude test covering reading, math, and mechanical reasoning, plus an interview, drug screen, and physical exam.</p>
               </div>
 
@@ -15609,21 +15617,21 @@ export default function UnionPathway() {
 
                 <Section eyebrow="What's Actually On It" title="Three sections, plus the interview.">
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Reading Comprehension</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Reading Comprehension</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Multiple-choice questions on technical and general passages. Tests main idea, supporting detail, and inference. Some locals integrate basic technical-vocabulary questions because the trade uses a lot of specialized terminology (mechanical insulation, vapor barriers, thermal coefficient, cryogenics).</p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Mathematics</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Mathematics</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Fractions, decimals, percentages, basic geometry. Insulators measure pipe diameters and circumferences constantly — expect questions on calculating circumferences, surface areas, and material quantities. Math is calibrated to roughly 8th-grade level. Calculator policy varies by local.</p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Mechanical Reasoning</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Mechanical Reasoning</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Standard mechanical aptitude content — gears, pulleys, levers, mechanical advantage. Insulators work around mechanical systems constantly (boilers, HVAC, refrigeration), so understanding how things mechanically connect is essential to the work even if you don't operate the systems yourself.</p>
                   </Card>
                   <Card>
                     <div style={{display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:12, flexWrap:'wrap', gap:8}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#FF6B00'}}>Physical Exam + Drug Screen</div>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:12, color:'#64748B', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Required</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#FF6B00'}}>Physical Exam + Drug Screen</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#64748B', letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>Required</div>
                     </div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Insulator work involves tight, confined spaces (sometimes underground), heights up to 10 feet routinely with occasional work at extreme heights, and exposure to varying weather conditions from below freezing to 95+ degrees. The physical exam screens for the ability to handle these conditions. Pre-employment drug screen is universal — most locals also do random testing throughout your career.</p>
                   </Card>
@@ -15680,27 +15688,28 @@ export default function UnionPathway() {
               </div>
 
               <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
-                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(124,74,157,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(124,74,157,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
               </div>
             </div>
           );
         })()}
 
+
         {page === "apprenticeship-iuoe" && (() => {
           const ACCENT = '#FF6B00';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
-              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:800, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+            <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:14, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', transition:'transform 0.18s, box-shadow 0.18s'}}>{children}</div>
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
               <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#64748B', lineHeight:1.45}}>{l}</div>
             </div>
           );
@@ -15710,14 +15719,14 @@ export default function UnionPathway() {
                 <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FF6B00, #FF8A33)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// IUOE · Operating Engineers</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The Heavy Equipment<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Operator Test.</span></h1>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// IUOE · Operating Engineers</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:800, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The Heavy Equipment<br/><span style={{color:ACCENT, fontWeight:600}}>Operator Test.</span></h1>
                 <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'#64748B', lineHeight:1.65, maxWidth:660, margin:0}}>The International Union of Operating Engineers represents heavy equipment operators, mechanics, surveyors, and stationary engineers. Each local writes its own apprenticeship test — and several major locals (Local 324 in Michigan, others) use the <strong style={{color:'#FF6B00'}}>WorkKeys assessment</strong> instead of a custom written test.</p>
               </div>
 
@@ -15734,15 +15743,15 @@ export default function UnionPathway() {
 
                 <Section eyebrow="What's Actually On It" title="Three written sections — but the format varies more than other trades.">
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Mathematical Reasoning</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Mathematical Reasoning</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Basic arithmetic, fractions, decimals, percentages, basic and intermediate algebra, geometry, unit conversions, and word problems. Operators do real-world calculations all day — load weight, fuel volume, dirt cubic yardage, time-and-distance — so the math is applied. Calibrated similar to UA or Iron Workers difficulty.</p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Reading Comprehension</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Reading Comprehension</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Standard reading comprehension. Some locals use <strong style={{color:'#FF6B00'}}>"Workplace Documents"</strong> (the WorkKeys-equivalent) which tests your ability to read and follow technical/procedural written material — work orders, equipment manuals, safety procedures. More applied than abstract.</p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Mechanical Reasoning</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Mechanical Reasoning</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Tools, gears, pulleys, levers, weight distribution, hydraulics, basic vehicle/engine mechanics. Operators run hydraulically-actuated heavy machines — understanding how the systems work matters. Some locals add <strong style={{color:'#FF6B00'}}>graphic literacy</strong> (charts, tables, diagrams, floor plans) which is essentially the same skill from a different angle.</p>
                   </Card>
                 </Section>
@@ -15808,27 +15817,28 @@ export default function UnionPathway() {
               </div>
 
               <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
-                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(74,157,124,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(74,157,124,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
               </div>
             </div>
           );
         })()}
 
+
         {page === "apprenticeship-ubc" && (() => {
           const ACCENT = '#FF6B00';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
-              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:800, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+            <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:14, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', transition:'transform 0.18s, box-shadow 0.18s'}}>{children}</div>
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
               <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#64748B', lineHeight:1.45}}>{l}</div>
             </div>
           );
@@ -15838,14 +15848,14 @@ export default function UnionPathway() {
                 <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FF6B00, #FF8A33)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// UBC · Carpenters and Joiners</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The Carpenter<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Apprenticeship Test.</span></h1>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// UBC · Carpenters and Joiners</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:800, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The Carpenter<br/><span style={{color:ACCENT, fontWeight:600}}>Apprenticeship Test.</span></h1>
                 <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'#64748B', lineHeight:1.65, maxWidth:660, margin:0}}>The United Brotherhood of Carpenters is one of North America's largest building-trades unions — over half a million members across 11 specialty trades. There's no single national UBC aptitude test; each Regional Council and JATC writes its own, with passing scores ranging from 70-80% depending on local. The trades within UBC vary widely; the test you take depends on which one you choose.</p>
               </div>
 
@@ -15862,19 +15872,19 @@ export default function UnionPathway() {
 
                 <Section eyebrow="What's Actually On It" title="The core test, before specialty differences.">
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Mathematics</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Mathematics</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Carpentry math is fraction-heavy. Reading rulers and tape measures down to 1/16 of an inch fluently. Adding and subtracting fractions. Converting fractions to decimals and back. Basic algebra and geometry — area, perimeter, volume, the Pythagorean theorem (used constantly for square corners and roof pitch). Some locals add basic trigonometry for stairs, roof angles, and rafters.</p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Reading Comprehension</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Reading Comprehension</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Standard reading passages with multiple-choice questions. Tests main idea, detail, inference, and ability to follow written procedures. Carpentry is heavily plan-driven; following written specifications precisely is core to the trade.</p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Mechanical Reasoning</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Mechanical Reasoning</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Standard mechanical reasoning content — gears, pulleys, levers, tools, mechanical advantage. Some locals (especially Millwright JATCs) lean heavier on this section than others. Often includes basic electrical concepts (Ohm's law) for the more technical specialties.</p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Spatial Reasoning</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Spatial Reasoning</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>2D-to-3D visualization, paper folding, and pattern recognition. Critical for blueprint reading. Some locals (notably Millwright tracks) weight this section heavily; some carpenter tracks include only a few questions.</p>
                   </Card>
                 </Section>
@@ -15943,28 +15953,29 @@ export default function UnionPathway() {
               </div>
 
               <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
-                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(157,124,74,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(157,124,74,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
               </div>
             </div>
           );
         })()}
 
 
+
         {page === "apprenticeship-iupat" && (() => {
           const ACCENT = '#FF6B00';
           const Section = ({ eyebrow, title, children }) => (
             <div style={{margin:'56px 0'}}>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
-              <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:500, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#94A3B8', letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:14}}>// {eyebrow}</div>
+              <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 32px)', fontWeight:800, color:'#072554', margin:'0 0 24px 0', lineHeight:1.15, letterSpacing:'-0.02em'}}>{title}</h2>
               {children}
             </div>
           );
           const Card = ({ children }) => (
-            <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:14, padding:'24px 28px', marginBottom:14}}>{children}</div>
+            <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:14, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', transition:'transform 0.18s, box-shadow 0.18s'}}>{children}</div>
           );
           const Stat = ({ v, l }) => (
             <div>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 48px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em', marginBottom:8}}>{v}</div>
               <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#64748B', lineHeight:1.45}}>{l}</div>
             </div>
           );
@@ -15974,14 +15985,14 @@ export default function UnionPathway() {
                 <div style={{height:'100%', width:(scrollProgress * 100) + '%', background:'linear-gradient(90deg, #FF6B00, #FF8A33)', transition:'width 0.1s'}} />
               </div>
               <div style={{padding:'24px 24px 0', maxWidth:900, margin:'0 auto'}}>
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship Tests
                 </div>
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:900, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// IUPAT · Painters & Allied Trades</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:500, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The IUPAT<br/><span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>Apprenticeship Test.</span></h1>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:28}}>// IUPAT · Painters & Allied Trades</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(32px, 5vw, 56px)', fontWeight:800, color:'#072554', lineHeight:1, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>The IUPAT<br/><span style={{color:ACCENT, fontWeight:600}}>Apprenticeship Test.</span></h1>
                 <p style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(14px, 1.3vw, 16px)', color:'#64748B', lineHeight:1.65, maxWidth:660, margin:0}}>Unlike trades with one nationally standardized test (the IBEW's NJATC, the UA's GAN, or the IUEC's EIAT), IUPAT does not run a single unified aptitude exam. Each District Council and regional Finishing Trades Institute administers its own assessment — and the format varies meaningfully from one region to the next. The single most important step before testing: call the Finishing Trades Institute serving your District Council and ask what's on their test.</p>
               </div>
 
@@ -16016,33 +16027,33 @@ export default function UnionPathway() {
                       <li><strong style={{color:'#072554'}}>Sign & Display Workers</strong> — window lettering, neon, large-format signage</li>
                       <li><strong style={{color:'#072554'}}>Trade Show Workers</strong> — exhibit setup and dismantle</li>
                     </ul>
-                    <p style={{margin:'14px 0 0 0', fontSize:14.5, color:'#072554', lineHeight:1.65, fontStyle:'italic'}}>Painters and drywall finishers are by far the highest-volume entry points. Glazing has the longest training pipeline and the most technical entry assessment in many regions.</p>
+                    <p style={{margin:'14px 0 0 0', fontSize:14.5, color:'#072554', lineHeight:1.65}}>Painters and drywall finishers are by far the highest-volume entry points. Glazing has the longest training pipeline and the most technical entry assessment in many regions.</p>
                   </Card>
                 </Section>
 
                 <Section eyebrow="What's Actually On It" title="The sections that show up most often.">
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Math / Trade Math</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Math / Trade Math</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>The most consistent section across every IUPAT region. Whole numbers, fractions, decimals, percentages, ratio and proportion, basic algebra, measurement and unit conversion. Heavy emphasis on <strong style={{color:'#072554'}}>applied trade math</strong> — calculating wall area, paint coverage, drywall sheets needed. The math is applied, not abstract; word problems framed around real finishing-trades scenarios.</p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Reading Comprehension</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Reading Comprehension</div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Almost universal across regions. Short technical passages with multiple-choice questions on main idea, detail, and following procedural steps. Reflects the reality of the job — every craft involves reading product data sheets, safety documentation, and blueprints. The IUPAT Ontario Drywall Finishers test explicitly stresses "math and communication skills."</p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Mechanical Comprehension <span style={{color:'#64748B', fontSize:13, fontWeight:400}}>(some regions)</span></div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Mechanical Comprehension <span style={{color:'#64748B', fontSize:13, fontWeight:400}}>(some regions)</span></div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>Tests intuition for tools, simple machines, levers, pulleys, and basic mechanical systems. Common in District Councils that emphasize glazing, industrial painting, or sign work. <strong style={{color:'#072554'}}>Bennett Mechanical Comprehension Test (BMCT)</strong> practice is the gold standard if your region tests this.</p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Spatial Reasoning <span style={{color:'#64748B', fontSize:13, fontWeight:400}}>(some regions)</span></div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Spatial Reasoning <span style={{color:'#64748B', fontSize:13, fontWeight:400}}>(some regions)</span></div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>2D-to-3D visualization, mental rotation, matching orthographic views. Particularly relevant for glaziers (cutting glass to fit), sign workers, and drywall finishers (visualizing wall geometry).</p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Color Perception <span style={{color:'#64748B', fontSize:13, fontWeight:400}}>(painter-specific, some regions)</span></div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Color Perception <span style={{color:'#64748B', fontSize:13, fontWeight:400}}>(painter-specific, some regions)</span></div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>A small but distinctive section for painter applicants. Identifying color matches, distinguishing close shades, and detecting color blindness. Some District Councils administer this as a separate Ishihara-style screening rather than as part of the main aptitude battery. <strong style={{color:ACCENT}}>If you have any history of color vision issues, ask your District Council whether this is part of their assessment before applying.</strong></p>
                   </Card>
                   <Card>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:22, fontWeight:900, color:'#072554', marginBottom:8}}>Blueprint Reading <span style={{color:'#64748B', fontSize:13, fontWeight:400}}>(advanced regions)</span></div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:22, fontWeight:700, color:'#072554', marginBottom:8}}>Blueprint Reading <span style={{color:'#64748B', fontSize:13, fontWeight:400}}>(advanced regions)</span></div>
                     <p style={{margin:0, fontSize:14.5, color:'#072554', lineHeight:1.65}}>A few regions — particularly the <strong style={{color:'#072554'}}>Mid-Atlantic FTI</strong> — include basic blueprint reading on the entry test. More common as part of training than entry, but worth knowing if you're applying to glazing or industrial pathways.</p>
                   </Card>
                 </Section>
@@ -16131,7 +16142,7 @@ export default function UnionPathway() {
               </div>
 
               <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
-                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(236,72,153,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
+                <button onClick={() => setPage('apprenticeship')} style={{background:'transparent', color:ACCENT, fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(236,72,153,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to All Trade Tests</button>
               </div>
             </div>
           );
