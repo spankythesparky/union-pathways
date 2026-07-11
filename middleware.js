@@ -86,7 +86,7 @@ export const config = {
   // lookahead skips Vercel's _next folder, common asset extensions, the
   // public favicon and the social preview image, and any /api/* route.
   matcher: [
-    '/((?!_next/|api/|favicon|social-preview|map\\.html|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|css|js|json|woff|woff2|ttf|eot)).*)'
+    '/((?!_next/|api/|favicon|social-preview|map\\.html|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|css|js|json|woff|woff2|ttf|eot|pdf|txt|xml|mp4|webm|mp3|zip|csv)).*)'
   ]
 };
 
