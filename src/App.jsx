@@ -6130,7 +6130,7 @@ export default function UnionPathway() {
         }
 
         /* ── QUIZ PAGE ── */
-        /* GET STARTED SWEEP */ /* CALC INPUT FIX */ /* DARK CONTAINER FIX */ /* MEMBERSHIP SWEEP */ /* INVISIBLE TITLE FIX */ /* RESOURCES SWEEP */ /* APPRENTICESHIP SWEEP */
+        /* GET STARTED SWEEP */ /* CALC INPUT FIX */ /* DARK CONTAINER FIX */ /* MEMBERSHIP SWEEP */ /* INVISIBLE TITLE FIX */ /* RESOURCES SWEEP */ /* APPRENTICESHIP SWEEP */ /* HISTORY SWEEP */
         .page { max-width: 1000px; margin: 0 auto; padding: 72px 40px 96px; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 
@@ -8219,14 +8219,14 @@ export default function UnionPathway() {
           const ExpandableCard = ({ year, title, summary, body, accent = '#FF6B00' }) => {
             const [open, setOpen] = useState(false);
             return (
-              <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:14, padding:'24px 28px', marginBottom:14, transition:'all 0.3s', borderLeft:`2px solid ${accent}`}}>
+              <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:16, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', transition:'transform 0.18s, box-shadow 0.18s', borderLeft:`2px solid ${accent}`}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
-                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'#072554', lineHeight:1.6}}>{summary}</div>
                   </div>
-                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:`${accent}22`, color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
+                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:`${accent}22`, color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:700, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
                 </div>
                 {open && (
                   <div style={{marginTop:16, paddingTop:16, borderTop:'1px solid #E5E7EB', fontSize:14, color:'#072554', lineHeight:1.7}}>
@@ -8239,17 +8239,17 @@ export default function UnionPathway() {
 
           const PullQuote = ({ children, attribution }) => (
             <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #FF6B00', background:'linear-gradient(90deg, rgba(255,107,0,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#072554', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:24, color:'#072554', lineHeight:1.4, fontWeight:800}}>"{children}"</div>
+              {attribution && <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -8257,10 +8257,10 @@ export default function UnionPathway() {
             <FadeIn>
               <div style={{margin:'80px 0', position:'relative'}}>
                 <div style={{display:'flex', alignItems:'center', gap:16, marginBottom:20, flexWrap:'wrap'}}>
-                  <div style={{width:48, height:48, borderRadius:12, background:`${color}22`, border:`2px solid ${color}`, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:`${color}22`, border:`2px solid ${color}`, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:700, color}}>{tag}</div>
                   <div>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#072554', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:36, fontWeight:700, color:'#072554', margin:'4px 0 0 0', lineHeight:1.1}}>{title}</h2>
                   </div>
                 </div>
                 {intro && <p style={{fontSize:16, color:'#072554', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
@@ -8280,10 +8280,10 @@ export default function UnionPathway() {
               {/* HERO */}
               <div style={{padding:'80px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
                 <FadeIn>
-                  <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>The Long Arc of Organized Labor</div>
-                  <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>The Long Arc of Organized Labor</div>
+                  <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:800, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
                     Built by <span style={{color:'#FF6B00'}}>Union Hands.</span><br/>
-                    <span style={{color:'#64748B', fontWeight:500}}>Forged in Conflict.</span>
+                    <span style={{color:'#64748B', fontWeight:800}}>Forged in Conflict.</span>
                   </h1>
                   <p style={{fontSize:18, color:'#64748B', lineHeight:1.6, maxWidth:680, margin:'0 auto'}}>
                     From medieval guilds to modern picket lines, the story of organized labor is the story of who decides the terms of a person's work. It's a centuries-long contest of riots, reforms, betrayals, and breakthroughs — and it's still being written.
@@ -8307,7 +8307,7 @@ export default function UnionPathway() {
                     { year:'2023', label:'Summer of strikes' },
                   ].map((m, i) => (
                     <div key={i} style={{textAlign:'center', flex:'1 1 90px', minWidth:80}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color:'#FF6B00'}}>{m.year}</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:700, color:'#FF6B00'}}>{m.year}</div>
                       <div style={{fontSize:10, color:'rgba(160,180,196,0.7)', textTransform:'uppercase', letterSpacing:0.5, marginTop:2}}>{m.label}</div>
                     </div>
                   ))}
@@ -8470,8 +8470,8 @@ export default function UnionPathway() {
                 <FadeIn>
                   <div style={{margin:'80px -8px', padding:'40px 24px', background:'linear-gradient(180deg, rgba(34,197,94,0.06) 0%, rgba(255,107,0,0.06) 100%)', borderRadius:24, border:'1px solid #E5E7EB'}}>
                     <div style={{textAlign:'center', marginBottom:24}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FF6B00', letterSpacing:2, textTransform:'uppercase'}}>The Postwar Peak</div>
-                      <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#072554', margin:'8px 0'}}>By the Numbers</h3>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#FF6B00', letterSpacing:2, textTransform:'uppercase'}}>The Postwar Peak</div>
+                      <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:32, fontWeight:700, color:'#072554', margin:'8px 0'}}>By the Numbers</h3>
                     </div>
                     <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(160px, 1fr))', gap:8}}>
                       <StatBlock value={35} label="Peak union density" suffix="%" />
@@ -8588,8 +8588,8 @@ export default function UnionPathway() {
                 <FadeIn>
                   <div style={{margin:'80px 0 40px', padding:'40px 28px', background:'linear-gradient(135deg, rgba(255,107,0,0.08) 0%, rgba(255,107,0,0.08) 100%)', borderRadius:24, border:'1px solid rgba(255,107,0,0.2)'}}>
                     <div style={{textAlign:'center', marginBottom:32}}>
-                      <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase'}}>Where We Are Now</div>
-                      <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(26px, 3.5vw, 36px)', fontWeight:500, color:'#072554', margin:'12px 0 0 0', letterSpacing:'-0.02em', lineHeight:1.15}}>The Movement in 2026</h2>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase'}}>Where We Are Now</div>
+                      <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(26px, 3.5vw, 36px)', fontWeight:800, color:'#072554', margin:'12px 0 0 0', letterSpacing:'-0.02em', lineHeight:1.15}}>The Movement in 2026</h2>
                       <p style={{fontSize:15, color:'#64748B', maxWidth:600, margin:'12px auto 0', lineHeight:1.6}}>High-profile, energetic, popularly supported, and politically embattled to a degree not seen in decades.</p>
                     </div>
                     <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(180px, 1fr))', gap:16, marginBottom:24}}>
@@ -8599,18 +8599,18 @@ export default function UnionPathway() {
                       <StatBlock value={32.9} label="Public sector density" suffix="%" decimals={1} />
                     </div>
                     <div style={{padding:'24px', background:'rgba(0,0,0,0.25)', borderRadius:16, marginTop:8}}>
-                      <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FF6B00', letterSpacing:2, textTransform:'uppercase', marginBottom:12}}>The Wage Premium</div>
+                      <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#FF6B00', letterSpacing:2, textTransform:'uppercase', marginBottom:12}}>The Wage Premium</div>
                       <div style={{display:'flex', gap:24, flexWrap:'wrap', alignItems:'center'}}>
                         <div style={{flex:'1 1 180px'}}>
                           <div style={{fontSize:12, color:'rgba(160,180,196,0.8)', marginBottom:4}}>Median weekly earnings — UNION</div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#FF6B00'}}>$<AnimatedNumber value={1404} /></div>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:36, fontWeight:700, color:'#FF6B00'}}>$<AnimatedNumber value={1404} /></div>
                         </div>
                         <div style={{flex:'1 1 180px'}}>
                           <div style={{fontSize:12, color:'rgba(160,180,196,0.8)', marginBottom:4}}>Median weekly earnings — NONUNION</div>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#64748B'}}>$<AnimatedNumber value={1174} /></div>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:36, fontWeight:700, color:'#64748B'}}>$<AnimatedNumber value={1174} /></div>
                         </div>
                         <div style={{flex:'1 1 100px', padding:'12px 16px', background:'rgba(34,197,94,0.15)', border:'1px solid rgba(34,197,94,0.4)', borderRadius:12, textAlign:'center'}}>
-                          <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#22c55e'}}>+$<AnimatedNumber value={230} /></div>
+                          <div style={{fontFamily:"'Inter',sans-serif", fontSize:32, fontWeight:700, color:'#22c55e'}}>+$<AnimatedNumber value={230} /></div>
                           <div style={{fontSize:10, color:'#64748B', textTransform:'uppercase', letterSpacing:1}}>Per week</div>
                         </div>
                       </div>
@@ -8646,8 +8646,8 @@ export default function UnionPathway() {
                 {/* CONCLUSION */}
                 <FadeIn>
                   <div style={{margin:'80px 0 40px', padding:'48px 32px', background:'#F8FAFC', borderRadius:24, border:'1px solid #E5E7EB', textAlign:'center'}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>The Long Arc</div>
-                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(24px, 3vw, 34px)', fontWeight:500, color:'#072554', margin:'0 0 24px 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>What Endures</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>The Long Arc</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(24px, 3vw, 34px)', fontWeight:800, color:'#072554', margin:'0 0 24px 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>What Endures</h2>
                     <p style={{fontSize:16, color:'#072554', lineHeight:1.8, maxWidth:720, margin:'0 auto 20px'}}>
                       The history of organized labor is not a clean story of progress, nor of inevitable decline. It is a series of moments — Tolpuddle, Haymarket, Triangle, Flint, Memphis, PATCO, Buffalo, Chattanooga — in which workers and employers tested each other's strength, and the political balance shifted in response.
                     </p>
@@ -8658,7 +8658,7 @@ export default function UnionPathway() {
                       The forms have varied wildly — from secret oaths to medieval guilds to industrial unions to roving picket lines — but the impulse has been remarkably consistent. The story, as ever, is still being written.
                     </p>
                     <div style={{marginTop:40, paddingTop:32, borderTop:'1px solid #E5E7EB'}}>
-                      <div style={{fontSize:13, color:'rgba(160,180,196,0.7)', fontStyle:'italic'}}>Coming soon: trade-by-trade histories — IBEW, UA, SMART, BAC, IW, HFIAW, IUEC, IUOE, UBC, LIUNA, and IBEW Lineman.</div>
+                      <div style={{fontSize:13, color:'rgba(160,180,196,0.7)'}}>Coming soon: trade-by-trade histories — IBEW, UA, SMART, BAC, IW, HFIAW, IUEC, IUOE, UBC, LIUNA, and IBEW Lineman.</div>
                     </div>
                   </div>
                 </FadeIn>
@@ -8666,6 +8666,7 @@ export default function UnionPathway() {
             </div>
           );
         })()}
+
 
         {page === "history-ibew" && (() => {
           // window-level cache so values persist across IIFE re-renders
@@ -8709,14 +8710,14 @@ export default function UnionPathway() {
           const ExpandableCard = ({ year, title, summary, body, accent = '#FF6B00' }) => {
             const [open, setOpen] = useState(false);
             return (
-              <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:14, padding:'24px 28px', marginBottom:14, transition:'all 0.3s', borderLeft:`2px solid ${accent}`}}>
+              <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:16, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', transition:'transform 0.18s, box-shadow 0.18s', borderLeft:`2px solid ${accent}`}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
-                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'#072554', lineHeight:1.6}}>{summary}</div>
                   </div>
-                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:`${accent}22`, color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
+                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:`${accent}22`, color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:700, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
                 </div>
                 {open && (
                   <div style={{marginTop:16, paddingTop:16, borderTop:'1px solid #E5E7EB', fontSize:14, color:'#072554', lineHeight:1.7}}>
@@ -8729,17 +8730,17 @@ export default function UnionPathway() {
 
           const PullQuote = ({ children, attribution }) => (
             <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #FF6B00', background:'linear-gradient(90deg, rgba(255,107,0,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#072554', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:24, color:'#072554', lineHeight:1.4, fontWeight:800}}>"{children}"</div>
+              {attribution && <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -8756,10 +8757,10 @@ export default function UnionPathway() {
                     marginBottom: eraOpen ? 20 : 0
                   }}
                 >
-                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Space Grotesk',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:800, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -8783,7 +8784,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#FF6B00'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#FF6B00'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   General Union History
                 </div>
@@ -8791,10 +8792,10 @@ export default function UnionPathway() {
 
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>The International Brotherhood of Electrical Workers</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>The International Brotherhood of Electrical Workers</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:800, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
                   Wired for the <span style={{color:'#FF6B00'}}>Long Haul.</span><br/>
-                  <span style={{color:'#64748B', fontWeight:500}}>Born in a St. Louis dance hall, 1891.</span>
+                  <span style={{color:'#64748B', fontWeight:800}}>Born in a St. Louis dance hall, 1891.</span>
                 </h1>
                 <p style={{fontSize:18, color:'#64748B', lineHeight:1.6, maxWidth:680, margin:'0 auto'}}>
                   Few unions can claim to have grown up alongside an entire technology. When ten delegates met above Stolley's Dance Hall on November 21, 1891, most American homes had no electrical service — and the trade they were practicing was killing one in two of its workers within a career.
@@ -8939,8 +8940,8 @@ export default function UnionPathway() {
                 {/* MID PEAK STATS */}
                 <div style={{margin:'80px -8px', padding:'40px 24px', background:'linear-gradient(180deg, rgba(255,107,0,0.06) 0%, rgba(255,107,0,0.06) 100%)', borderRadius:24, border:'1px solid #E5E7EB'}}>
                   <div style={{textAlign:'center', marginBottom:24}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FF6B00', letterSpacing:2, textTransform:'uppercase'}}>The Peak — 1972</div>
-                    <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#072554', margin:'8px 0'}}>One Million Strong</h3>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#FF6B00', letterSpacing:2, textTransform:'uppercase'}}>The Peak — 1972</div>
+                    <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:32, fontWeight:700, color:'#072554', margin:'8px 0'}}>One Million Strong</h3>
                   </div>
                   <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(160px, 1fr))', gap:8}}>
                     <StatBlock value={1} label="Million members at peak" suffix="M" />
@@ -9018,8 +9019,8 @@ export default function UnionPathway() {
                 {/* CURRENT-DAY DASHBOARD */}
                 <div style={{margin:'80px 0 40px', padding:'40px 28px', background:'linear-gradient(135deg, rgba(255,107,0,0.08) 0%, rgba(255,107,0,0.08) 100%)', borderRadius:24, border:'1px solid rgba(255,107,0,0.2)'}}>
                   <div style={{textAlign:'center', marginBottom:32}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase'}}>Where the IBEW Stands Now</div>
-                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(26px, 3.5vw, 36px)', fontWeight:500, color:'#072554', margin:'12px 0 0 0', letterSpacing:'-0.02em', lineHeight:1.15}}>The Brotherhood in 2026</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase'}}>Where the IBEW Stands Now</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(26px, 3.5vw, 36px)', fontWeight:800, color:'#072554', margin:'12px 0 0 0', letterSpacing:'-0.02em', lineHeight:1.15}}>The Brotherhood in 2026</h2>
                     <p style={{fontSize:15, color:'#64748B', maxWidth:600, margin:'12px auto 0', lineHeight:1.6}}>Industries booming, political environment hostile, growth trajectory the steepest in fifty years.</p>
                   </div>
                   <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(180px, 1fr))', gap:16, marginBottom:24}}>
@@ -9066,8 +9067,8 @@ export default function UnionPathway() {
 
                 {/* CONCLUSION */}
                 <div style={{margin:'80px 0 40px', padding:'48px 32px', background:'#F8FAFC', borderRadius:24, border:'1px solid #E5E7EB', textAlign:'center'}}>
-                  <div style={{fontFamily:"'Space Mono',monospace", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>The Continuity Beneath the Change</div>
-                  <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(24px, 3vw, 34px)', fontWeight:500, color:'#072554', margin:'0 0 24px 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>134 Years In, Still Following the Electrons</h2>
+                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>The Continuity Beneath the Change</div>
+                  <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(24px, 3vw, 34px)', fontWeight:800, color:'#072554', margin:'0 0 24px 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>134 Years In, Still Following the Electrons</h2>
                   <p style={{fontSize:16, color:'#072554', lineHeight:1.8, maxWidth:720, margin:'0 auto 20px'}}>
                     When Henry Miller and nine other men gathered above Stolley's Dance Hall in November 1891, the United States produced almost no electricity. The country they imagined wiring up did not yet exist. The technologies they would spend their careers installing were either brand new or still on the drawing board. The trade itself was so dangerous that Miller would be dead within five years, and the union he founded would nearly die with him.
                   </p>
@@ -9077,12 +9078,13 @@ export default function UnionPathway() {
                   <p style={{fontSize:16, color:'#072554', lineHeight:1.8, maxWidth:720, margin:'0 auto 32px'}}>
                     The work that 2026 demands — wiring data centers for an AI economy, building out transmission for renewable generation, electrifying the vehicle fleet, constructing the next generation of nuclear plants, fabricating semiconductors — is, fundamentally, the same work the founders set out to organize. The technologies are unrecognizable to anyone who climbed a pole in 1891. The trade is not.
                   </p>
-                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#FF6B00', fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(255,107,0,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
+                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#FF6B00', fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(255,107,0,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
                 </div>
               </div>
             </div>
           );
         })()}
+
 
         {page === "history-ua" && (() => {
           // window-level cache so values persist across IIFE re-renders
@@ -9126,14 +9128,14 @@ export default function UnionPathway() {
           const ExpandableCard = ({ year, title, summary, body, accent = '#3B9EFF' }) => {
             const [open, setOpen] = useState(false);
             return (
-              <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:14, padding:'24px 28px', marginBottom:14, transition:'all 0.3s', borderLeft:`2px solid ${accent}`}}>
+              <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:16, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', transition:'transform 0.18s, box-shadow 0.18s', borderLeft:`2px solid ${accent}`}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
-                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'#072554', lineHeight:1.6}}>{summary}</div>
                   </div>
-                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:`${accent}22`, color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
+                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:`${accent}22`, color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:700, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
                 </div>
                 {open && (
                   <div style={{marginTop:16, paddingTop:16, borderTop:'1px solid #E5E7EB', fontSize:14, color:'#072554', lineHeight:1.7}}>
@@ -9146,17 +9148,17 @@ export default function UnionPathway() {
 
           const PullQuote = ({ children, attribution }) => (
             <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #3B9EFF', background:'linear-gradient(90deg, rgba(59,158,255,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#072554', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:24, color:'#072554', lineHeight:1.4, fontWeight:800}}>"{children}"</div>
+              {attribution && <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -9173,10 +9175,10 @@ export default function UnionPathway() {
                     marginBottom: eraOpen ? 20 : 0
                   }}
                 >
-                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Space Grotesk',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:800, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -9200,7 +9202,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#3B9EFF'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#3B9EFF'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   General Union History
                 </div>
@@ -9208,10 +9210,10 @@ export default function UnionPathway() {
 
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#3B9EFF', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The United Association</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
-                  The Pipe Trades' <span style={{color:'#FF6B00', fontStyle:'italic', fontWeight:600}}>Long Brotherhood.</span><br/>
-                  <span style={{color:'#64748B', fontWeight:500}}>Born in Washington, D.C., 1889.</span>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#3B9EFF', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The United Association</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:800, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  The Pipe Trades' <span style={{color:'#FF6B00', fontWeight:600}}>Long Brotherhood.</span><br/>
+                  <span style={{color:'#64748B', fontWeight:800}}>Born in Washington, D.C., 1889.</span>
                 </h1>
                 <p style={{fontSize:18, color:'#64748B', lineHeight:1.6, maxWidth:680, margin:'0 auto'}}>
                   When forty delegates met in Washington in October 1889, American cities were still laying their first comprehensive sewer systems. Indoor plumbing was migrating from luxury into building code. Steam heat was replacing coal stoves. Each fitting was installed, one at a time, by tradesmen whose unions were small, local, and frequently at war with each other.
@@ -9341,8 +9343,8 @@ export default function UnionPathway() {
                 {/* MID PEAK STATS */}
                 <div style={{margin:'80px -8px', padding:'40px 24px', background:'linear-gradient(180deg, rgba(59,158,255,0.06) 0%, rgba(255,107,0,0.06) 100%)', borderRadius:24, border:'1px solid #E5E7EB'}}>
                   <div style={{textAlign:'center', marginBottom:24}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#3B9EFF', letterSpacing:2, textTransform:'uppercase'}}>The Peak — 1971</div>
-                    <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#072554', margin:'8px 0'}}>The Great Industrial Pipefitting Era</h3>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#3B9EFF', letterSpacing:2, textTransform:'uppercase'}}>The Peak — 1971</div>
+                    <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:32, fontWeight:700, color:'#072554', margin:'8px 0'}}>The Great Industrial Pipefitting Era</h3>
                   </div>
                   <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(160px, 1fr))', gap:8}}>
                     <StatBlock value={320} label="Thousand members at peak" suffix="K" />
@@ -9426,8 +9428,8 @@ export default function UnionPathway() {
                 {/* CURRENT-DAY DASHBOARD */}
                 <div style={{margin:'80px 0 40px', padding:'40px 28px', background:'linear-gradient(135deg, rgba(59,158,255,0.08) 0%, rgba(255,107,0,0.08) 100%)', borderRadius:24, border:'1px solid rgba(59,158,255,0.2)'}}>
                   <div style={{textAlign:'center', marginBottom:32}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#3B9EFF', letterSpacing:3, textTransform:'uppercase'}}>Where the UA Stands Now</div>
-                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(26px, 3.5vw, 36px)', fontWeight:500, color:'#072554', margin:'12px 0 0 0', letterSpacing:'-0.02em', lineHeight:1.15}}>The Brotherhood in 2026</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#3B9EFF', letterSpacing:3, textTransform:'uppercase'}}>Where the UA Stands Now</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(26px, 3.5vw, 36px)', fontWeight:800, color:'#072554', margin:'12px 0 0 0', letterSpacing:'-0.02em', lineHeight:1.15}}>The Brotherhood in 2026</h2>
                     <p style={{fontSize:15, color:'#64748B', maxWidth:600, margin:'12px auto 0', lineHeight:1.6}}>Work pipeline among the strongest in the building trades. Membership rebuilding. Political relationships being tested.</p>
                   </div>
                   <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(180px, 1fr))', gap:16, marginBottom:24}}>
@@ -9437,7 +9439,7 @@ export default function UnionPathway() {
                     <StatBlock value={44} label="Annual job openings, 2024-34" suffix="K" />
                   </div>
                   <div style={{padding:'20px 24px', background:'rgba(0,0,0,0.25)', borderRadius:16, marginTop:8}}>
-                    <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#FF6B00', letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>The Rebuild</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#FF6B00', letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>The Rebuild</div>
                     <div style={{fontSize:15, color:'#072554', lineHeight:1.6}}>396,000 members today, up from 355,000–380,000 a decade ago. Apprentices represent 12% of total membership. Median pipefitter wages reached $63,000 in May 2024 — top 10% above $105,000 — with UA journey-level members in major metros earning substantially more.</div>
                   </div>
                 </div>
@@ -9484,8 +9486,8 @@ export default function UnionPathway() {
 
                 {/* CONCLUSION */}
                 <div style={{margin:'80px 0 40px', padding:'48px 32px', background:'#F8FAFC', borderRadius:24, border:'1px solid #E5E7EB', textAlign:'center'}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#3B9EFF', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The Continuity Beneath the Change</div>
-                  <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(24px, 3vw, 34px)', fontWeight:500, color:'#072554', margin:'0 0 24px 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>137 Years In, Still Following the Pipe</h2>
+                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#3B9EFF', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The Continuity Beneath the Change</div>
+                  <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(24px, 3vw, 34px)', fontWeight:800, color:'#072554', margin:'0 0 24px 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>137 Years In, Still Following the Pipe</h2>
                   <p style={{fontSize:16, color:'#072554', lineHeight:1.8, maxWidth:720, margin:'0 auto 20px'}}>
                     When P.J. Quinlan wrote to Richard A. O'Brien in early 1889 proposing a "United Brotherhood" of pipe trades workers, the United States was a country still being plumbed. Indoor sanitary fixtures were spreading from urban mansions to middle-class row houses. Steam heating was replacing coal stoves. Natural gas distribution networks were being built city by city. Each of these changes was being installed by tradesmen whose unions were small, fragmented, and frequently at odds with one another.
                   </p>
@@ -9495,12 +9497,13 @@ export default function UnionPathway() {
                   <p style={{fontSize:16, color:'#072554', lineHeight:1.8, maxWidth:720, margin:'0 auto 32px'}}>
                     The work that 2026 demands — fabricating high-purity gas systems for semiconductor fabs, welding cryogenic LNG export terminals, plumbing AI data centers, replacing lead service lines in older cities, and constructing the next generation of nuclear plants — is, fundamentally, the same work the founders set out to organize. The materials are unrecognizable to anyone who threaded pipe in 1889. The trade is not.
                   </p>
-                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#3B9EFF', fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(59,158,255,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
+                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#3B9EFF', fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(59,158,255,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
                 </div>
               </div>
             </div>
           );
         })()}
+
 
         {page === "history-smart" && (() => {
           // window-level cache so values persist across IIFE re-renders
@@ -9544,14 +9547,14 @@ export default function UnionPathway() {
           const ExpandableCard = ({ year, title, summary, body, accent = '#B0BEC5' }) => {
             const [open, setOpen] = useState(false);
             return (
-              <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
+              <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:16, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', transition:'transform 0.18s, box-shadow 0.18s', borderLeft:'4px solid '+accent}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
-                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'#072554', lineHeight:1.6}}>{summary}</div>
                   </div>
-                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
+                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:700, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
                 </div>
                 {open && (
                   <div style={{marginTop:16, paddingTop:16, borderTop:'1px solid #E5E7EB', fontSize:14, color:'#072554', lineHeight:1.7}}>
@@ -9564,17 +9567,17 @@ export default function UnionPathway() {
 
           const PullQuote = ({ children, attribution }) => (
             <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #FF6B00', background:'linear-gradient(90deg, rgba(255,107,0,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#072554', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:24, color:'#072554', lineHeight:1.4, fontWeight:800}}>"{children}"</div>
+              {attribution && <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -9591,10 +9594,10 @@ export default function UnionPathway() {
                     marginBottom: eraOpen ? 20 : 0
                   }}
                 >
-                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Space Grotesk',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:800, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -9617,7 +9620,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#B0BEC5'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#B0BEC5'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   General Union History
                 </div>
@@ -9625,10 +9628,10 @@ export default function UnionPathway() {
 
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#B0BEC5', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>Sheet Metal · Air · Rail · Transportation</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
-                  Sheet, Rail, and<br/><span style={{color:'#FF6B00', fontStyle:'italic', fontWeight:600}}>The Air Itself.</span><br/>
-                  <span style={{color:'#64748B', fontWeight:500}}>Two unions, one charter, since 2008.</span>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#B0BEC5', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>Sheet Metal · Air · Rail · Transportation</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:800, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  Sheet, Rail, and<br/><span style={{color:'#FF6B00', fontWeight:600}}>The Air Itself.</span><br/>
+                  <span style={{color:'#64748B', fontWeight:800}}>Two unions, one charter, since 2008.</span>
                 </h1>
                 <p style={{fontSize:18, color:'#64748B', lineHeight:1.6, maxWidth:680, margin:'0 auto'}}>
                   When eleven delegates met in a Toledo hall on January 25, 1888 to draft a constitution for a national tinsmiths' union, the railroad operating brotherhoods were already two decades into their own organizing. Those two histories ran parallel for 120 years — and then, in 2008, they merged.
@@ -9887,9 +9890,9 @@ export default function UnionPathway() {
 
                 {/* CLOSING */}
                 <div style={{margin:'80px 0 40px', padding:'40px', background:'linear-gradient(135deg, rgba(176,190,197,0.08), rgba(255,107,0,0.04))', border:'1px solid rgba(176,190,197,0.2)', borderRadius:20, textAlign:'center'}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#B0BEC5', letterSpacing:3, textTransform:'uppercase', marginBottom:12}}>The Continuity Beneath the Change</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#072554', margin:'0 0 20px 0', lineHeight:1.1}}>
-                    Two crafts. One charter.<br/><span style={{color:'#FF6B00', fontStyle:'italic', fontWeight:600}}>The institutional logic is unchanged.</span>
+                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#B0BEC5', letterSpacing:3, textTransform:'uppercase', marginBottom:12}}>The Continuity Beneath the Change</div>
+                  <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:36, fontWeight:700, color:'#072554', margin:'0 0 20px 0', lineHeight:1.1}}>
+                    Two crafts. One charter.<br/><span style={{color:'#FF6B00', fontWeight:600}}>The institutional logic is unchanged.</span>
                   </h2>
                   <p style={{fontSize:16, color:'#072554', lineHeight:1.7, maxWidth:680, margin:'0 auto 16px'}}>
                     When eleven delegates met in a Toledo hall in January 1888 to draft a constitution for a national tinsmiths' union, the country they imagined organizing did not yet exist. Most American cities had no electrical service. Most commercial buildings had no air conditioning. Most homes had coal stoves rather than central heating.
@@ -9897,12 +9900,13 @@ export default function UnionPathway() {
                   <p style={{fontSize:16, color:'#072554', lineHeight:1.7, maxWidth:680, margin:'0 auto 24px'}}>
                     SMART today, 138 years after that small founding convention and 18 years after the merger that created the modern organization, continues to do the same essential thing its predecessors did: organizing the workers who build the air the country breathes and move the goods and people the country depends on.
                   </p>
-                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#B0BEC5', fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(176,190,197,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
+                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#B0BEC5', fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(176,190,197,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
                 </div>
               </div>
             </div>
           );
         })()}
+
 
         {page === "history-bac" && (() => {
           // window-level cache so values persist across IIFE re-renders
@@ -9946,14 +9950,14 @@ export default function UnionPathway() {
           const ExpandableCard = ({ year, title, summary, body, accent = '#C04A36' }) => {
             const [open, setOpen] = useState(false);
             return (
-              <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
+              <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:16, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', transition:'transform 0.18s, box-shadow 0.18s', borderLeft:'4px solid '+accent}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
-                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'#072554', lineHeight:1.6}}>{summary}</div>
                   </div>
-                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
+                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:700, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
                 </div>
                 {open && (
                   <div style={{marginTop:16, paddingTop:16, borderTop:'1px solid #E5E7EB', fontSize:14, color:'#072554', lineHeight:1.7}}>
@@ -9966,17 +9970,17 @@ export default function UnionPathway() {
 
           const PullQuote = ({ children, attribution }) => (
             <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #FF6B00', background:'linear-gradient(90deg, rgba(255,107,0,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#072554', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:24, color:'#072554', lineHeight:1.4, fontWeight:800}}>"{children}"</div>
+              {attribution && <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -9993,10 +9997,10 @@ export default function UnionPathway() {
                     marginBottom: eraOpen ? 20 : 0
                   }}
                 >
-                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Space Grotesk',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:800, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -10019,7 +10023,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#C04A36'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#C04A36'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   General Union History
                 </div>
@@ -10027,10 +10031,10 @@ export default function UnionPathway() {
 
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#C04A36', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Union of Bricklayers and Allied Craftworkers</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
-                  The Trowel and<br/><span style={{color:'#FF6B00', fontStyle:'italic', fontWeight:600}}>The Long Memory.</span><br/>
-                  <span style={{color:'#64748B', fontWeight:500}}>Founded in Philadelphia, October 1865.</span>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#C04A36', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Union of Bricklayers and Allied Craftworkers</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:800, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  The Trowel and<br/><span style={{color:'#FF6B00', fontWeight:600}}>The Long Memory.</span><br/>
+                  <span style={{color:'#64748B', fontWeight:800}}>Founded in Philadelphia, October 1865.</span>
                 </h1>
                 <p style={{fontSize:18, color:'#64748B', lineHeight:1.6, maxWidth:680, margin:'0 auto'}}>
                   The work is older than the country. The trowel, the level, the plumb line — the bricklayer's tools have changed remarkably little in two thousand years. What changed, repeatedly and dramatically, was the legal and economic position of the men and women who did the work. The institution that emerged in October 1865 to defend that position has now outlasted every other continuously operating labor organization on the continent.
@@ -10301,9 +10305,9 @@ export default function UnionPathway() {
 
                 {/* CLOSING */}
                 <div style={{margin:'80px 0 40px', padding:'40px', background:'linear-gradient(135deg, rgba(192,74,54,0.08), rgba(255,107,0,0.04))', border:'1px solid rgba(192,74,54,0.2)', borderRadius:20, textAlign:'center'}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#C04A36', letterSpacing:3, textTransform:'uppercase', marginBottom:12}}>The Continuity Beneath the Change</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#072554', margin:'0 0 20px 0', lineHeight:1.1}}>
-                    The materials evolved.<br/><span style={{color:'#FF6B00', fontStyle:'italic', fontWeight:600}}>The trade did not.</span>
+                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#C04A36', letterSpacing:3, textTransform:'uppercase', marginBottom:12}}>The Continuity Beneath the Change</div>
+                  <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:36, fontWeight:700, color:'#072554', margin:'0 0 20px 0', lineHeight:1.1}}>
+                    The materials evolved.<br/><span style={{color:'#FF6B00', fontWeight:600}}>The trade did not.</span>
                   </h2>
                   <p style={{fontSize:16, color:'#072554', lineHeight:1.7, maxWidth:680, margin:'0 auto 16px'}}>
                     When the delegates met in Philadelphia in October 1865 to found the BMPIU, the country they imagined organizing was still being rebuilt from the Civil War. Most American cities were largely constructed of brick and stone laid by hand. The masonry trades were among the most skilled and best-paid building crafts.
@@ -10311,12 +10315,13 @@ export default function UnionPathway() {
                   <p style={{fontSize:16, color:'#072554', lineHeight:1.7, maxWidth:680, margin:'0 auto 24px'}}>
                     The BAC today, 161 years after that small Philadelphia convention, continues to do the same essential thing: organizing the workers who build, repair, and restore the masonry, stone, tile, terrazzo, and finish surfaces that give North American buildings their durable, finished, human-scale presence.
                   </p>
-                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#C04A36', fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(192,74,54,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
+                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#C04A36', fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(192,74,54,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
                 </div>
               </div>
             </div>
           );
         })()}
+
 
         {page === "history-ufcw" && (() => {
           // window-level cache so values persist across IIFE re-renders
@@ -10360,14 +10365,14 @@ export default function UnionPathway() {
           const ExpandableCard = ({ year, title, summary, body, accent = '#10A37F' }) => {
             const [open, setOpen] = useState(false);
             return (
-              <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
+              <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:16, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', transition:'transform 0.18s, box-shadow 0.18s', borderLeft:'4px solid '+accent}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
-                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'#072554', lineHeight:1.6}}>{summary}</div>
                   </div>
-                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
+                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:700, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
                 </div>
                 {open && (
                   <div style={{marginTop:16, paddingTop:16, borderTop:'1px solid #E5E7EB', fontSize:14, color:'#072554', lineHeight:1.7}}>
@@ -10380,17 +10385,17 @@ export default function UnionPathway() {
 
           const PullQuote = ({ children, attribution }) => (
             <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #FF6B00', background:'linear-gradient(90deg, rgba(255,107,0,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#072554', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:24, color:'#072554', lineHeight:1.4, fontWeight:800}}>"{children}"</div>
+              {attribution && <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -10407,10 +10412,10 @@ export default function UnionPathway() {
                     marginBottom: eraOpen ? 20 : 0
                   }}
                 >
-                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Space Grotesk',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:800, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -10433,7 +10438,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#10A37F'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#10A37F'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   General Union History
                 </div>
@@ -10441,10 +10446,10 @@ export default function UnionPathway() {
 
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#10A37F', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The United Food and Commercial Workers International Union</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
-                  Behind the Counter,<br/><span style={{color:'#FF6B00', fontStyle:'italic', fontWeight:600}}>On the Cutting Floor.</span><br/>
-                  <span style={{color:'#64748B', fontWeight:500}}>The workers who feed the country.</span>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#10A37F', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The United Food and Commercial Workers International Union</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:800, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  Behind the Counter,<br/><span style={{color:'#FF6B00', fontWeight:600}}>On the Cutting Floor.</span><br/>
+                  <span style={{color:'#64748B', fontWeight:800}}>The workers who feed the country.</span>
                 </h1>
                 <p style={{fontSize:18, color:'#64748B', lineHeight:1.6, maxWidth:720, margin:'0 auto'}}>
                   Most American workers have, at some point, encountered a UFCW member without realizing it. The cashier at Kroger. The butcher at Stop & Shop. The pharmacy tech at Rite Aid. The processor on a slaughter line in Iowa. A significant share of the food in American refrigerators passed, at some point in its journey from animal or field to plate, through the hands of a UFCW worker.
@@ -10697,9 +10702,9 @@ export default function UnionPathway() {
 
                 {/* CLOSING */}
                 <div style={{margin:'80px 0 40px', padding:'40px', background:'linear-gradient(135deg, rgba(16,163,127,0.08), rgba(255,107,0,0.04))', border:'1px solid rgba(16,163,127,0.2)', borderRadius:20, textAlign:'center'}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#10A37F', letterSpacing:3, textTransform:'uppercase', marginBottom:12}}>The Continuity Beneath the Change</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#072554', margin:'0 0 20px 0', lineHeight:1.1}}>
-                    The economy transformed.<br/><span style={{color:'#FF6B00', fontStyle:'italic', fontWeight:600}}>The institutional logic did not.</span>
+                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#10A37F', letterSpacing:3, textTransform:'uppercase', marginBottom:12}}>The Continuity Beneath the Change</div>
+                  <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:36, fontWeight:700, color:'#072554', margin:'0 0 20px 0', lineHeight:1.1}}>
+                    The economy transformed.<br/><span style={{color:'#FF6B00', fontWeight:600}}>The institutional logic did not.</span>
                   </h2>
                   <p style={{fontSize:16, color:'#072554', lineHeight:1.7, maxWidth:680, margin:'0 auto 16px'}}>
                     When delegates of the Retail Clerks and the Amalgamated Meat Cutters met in Washington, D.C. in June 1979 to formally approve the merger that created the UFCW, the food and retail economy they imagined organizing was already being transformed. Walmart was a regional discount chain. Cannabis was illegal in every state. Amazon did not exist.
@@ -10707,12 +10712,13 @@ export default function UnionPathway() {
                   <p style={{fontSize:16, color:'#072554', lineHeight:1.7, maxWidth:680, margin:'0 auto 24px'}}>
                     The UFCW today, 47 years after that merger convention, continues to do the same essential thing the Retail Clerks and the Meat Cutters did separately for nearly a century before: organizing the workers who make sure that food, medicine, and the goods of daily life reach the people who need them.
                   </p>
-                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#10A37F', fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(16,163,127,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
+                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#10A37F', fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(16,163,127,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
                 </div>
               </div>
             </div>
           );
         })()}
+
 
         {page === "history-iron" && (() => {
           // window-level cache so values persist across IIFE re-renders
@@ -10803,11 +10809,11 @@ export default function UnionPathway() {
               }}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
-                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'#072554', lineHeight:1.6}}>{summary}</div>
                   </div>
-                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
+                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:700, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
                 </div>
                 {open && (
                   <div style={{marginTop:16, paddingTop:16, borderTop:'1px solid #E5E7EB', fontSize:14, color:'#072554', lineHeight:1.7}}>
@@ -10830,18 +10836,18 @@ export default function UnionPathway() {
                 opacity: revealed ? 1 : 0,
                 transform: revealed ? 'translateY(0)' : 'translateY(24px)',
               }}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#072554', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-                {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:24, color:'#072554', lineHeight:1.4, fontWeight:800}}>"{children}"</div>
+                {attribution && <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
               </div>
             );
           };
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -10868,14 +10874,14 @@ export default function UnionPathway() {
                     width:48, height:48, borderRadius:12,
                     background:color+'22', border:'2px solid '+color,
                     display:'flex', alignItems:'center', justifyContent:'center',
-                    fontFamily:"'Barlow Condensed',sans-serif", fontSize:18, fontWeight:900, color,
+                    fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:700, color,
                     boxShadow: revealed ? '0 0 0 6px '+color+'15, 0 0 24px '+color+'40' : 'none',
                     animation: revealed ? 'iron-rivet-pulse 3s ease-in-out infinite' : 'none',
                     flexShrink:0,
                   }}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:800, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -10956,7 +10962,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto', position:'relative', zIndex:5}}>
-                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#D85F2E'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#D85F2E'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   General Union History
                 </div>
@@ -10987,10 +10993,10 @@ export default function UnionPathway() {
                 </svg>
 
                 <div style={{position:'relative', zIndex:1}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#D85F2E', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Association of Bridge, Structural, Ornamental and Reinforcing Iron Workers</div>
-                  <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#D85F2E', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Association of Bridge, Structural, Ornamental and Reinforcing Iron Workers</div>
+                  <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:800, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
                     Cowboys in<br/><span className="iron-shimmer-text">The Sky.</span><br/>
-                    <span style={{color:'#64748B', fontWeight:500}}>Founded above an alley in Pittsburgh, 1896.</span>
+                    <span style={{color:'#64748B', fontWeight:800}}>Founded above an alley in Pittsburgh, 1896.</span>
                   </h1>
                   <p style={{fontSize:18, color:'#64748B', lineHeight:1.6, maxWidth:720, margin:'0 auto'}}>
                     The work has always been dangerous. By the time sixteen delegates met at Moorhead's Hall in February 1896, the men who erected structural steel for a living were already known for two things: their skill at moving across high steel without falling, and the regularity with which they nevertheless fell. The first major activity of the new union was distributing $50 burial money to widows.
@@ -11238,8 +11244,8 @@ export default function UnionPathway() {
 
                 {/* CLOSING */}
                 <div style={{margin:'80px 0 40px', padding:'40px', background:'linear-gradient(135deg, rgba(216,95,46,0.10), rgba(255,107,0,0.04))', border:'1px solid rgba(216,95,46,0.25)', borderRadius:20, textAlign:'center'}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#D85F2E', letterSpacing:3, textTransform:'uppercase', marginBottom:12}}>The Continuity Beneath the Change</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#072554', margin:'0 0 20px 0', lineHeight:1.1}}>
+                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#D85F2E', letterSpacing:3, textTransform:'uppercase', marginBottom:12}}>The Continuity Beneath the Change</div>
+                  <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:36, fontWeight:700, color:'#072554', margin:'0 0 20px 0', lineHeight:1.1}}>
                     The work has changed dramatically.<br/><span className="iron-shimmer-text">The ironworkers have not.</span>
                   </h2>
                   <p style={{fontSize:16, color:'#072554', lineHeight:1.7, maxWidth:680, margin:'0 auto 16px'}}>
@@ -11248,12 +11254,13 @@ export default function UnionPathway() {
                   <p style={{fontSize:16, color:'#072554', lineHeight:1.7, maxWidth:680, margin:'0 auto 24px'}}>
                     The Iron Workers today, 130 years after Moorhead's Hall, continue to do the same essential thing: organizing the workers who erect, weld, reinforce, and finish the steel structures that hold up the buildings, the bridges, the stadiums, the chip plants, and the data centers of the modern North American economy.
                   </p>
-                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#D85F2E', fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(216,95,46,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
+                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#D85F2E', fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(216,95,46,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
                 </div>
               </div>
             </div>
           );
         })()}
+
 
         {page === "history-insul" && (() => {
           // window-level cache so headline stats stay locked after first animation
@@ -11297,14 +11304,14 @@ export default function UnionPathway() {
           const ExpandableCard = ({ year, title, summary, body, accent = '#A8623A' }) => {
             const [open, setOpen] = useState(false);
             return (
-              <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
+              <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:16, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', transition:'transform 0.18s, box-shadow 0.18s', borderLeft:'4px solid '+accent}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
-                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'#072554', lineHeight:1.6}}>{summary}</div>
                   </div>
-                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
+                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:700, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
                 </div>
                 {open && (
                   <div style={{marginTop:16, paddingTop:16, borderTop:'1px solid #E5E7EB', fontSize:14, color:'#072554', lineHeight:1.7}}>
@@ -11317,17 +11324,17 @@ export default function UnionPathway() {
 
           const PullQuote = ({ children, attribution }) => (
             <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #FF6B00', background:'linear-gradient(90deg, rgba(255,107,0,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#072554', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:24, color:'#072554', lineHeight:1.4, fontWeight:800}}>"{children}"</div>
+              {attribution && <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -11344,10 +11351,10 @@ export default function UnionPathway() {
                     marginBottom: eraOpen ? 20 : 0
                   }}
                 >
-                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Space Grotesk',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:800, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -11370,7 +11377,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#A8623A'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#A8623A'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   General Union History
                 </div>
@@ -11378,10 +11385,10 @@ export default function UnionPathway() {
 
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#A8623A', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Association of Heat and Frost Insulators and Allied Workers</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
-                  Wrapping<br/><span style={{color:'#FF6B00', fontStyle:'italic', fontWeight:600}}>The Pipes.</span><br/>
-                  <span style={{color:'#64748B', fontWeight:500}}>Behind walls and above ceilings, since 1903.</span>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#A8623A', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Association of Heat and Frost Insulators and Allied Workers</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:800, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  Wrapping<br/><span style={{color:'#FF6B00', fontWeight:600}}>The Pipes.</span><br/>
+                  <span style={{color:'#64748B', fontWeight:800}}>Behind walls and above ceilings, since 1903.</span>
                 </h1>
                 <p style={{fontSize:18, color:'#64748B', lineHeight:1.6, maxWidth:720, margin:'0 auto'}}>
                   The work is not glamorous. While ironworkers walk high steel and electricians wire skyscrapers, mechanical insulators wrap pipes — pipes carrying steam, hot water, chilled water, refrigerants, and process fluids through the boiler rooms and mechanical penthouses that keep modern buildings running. The work happens largely out of sight. Without it, modern buildings simply do not function.
@@ -11616,9 +11623,9 @@ export default function UnionPathway() {
 
                 {/* CLOSING */}
                 <div style={{margin:'80px 0 40px', padding:'40px', background:'linear-gradient(135deg, rgba(168,98,58,0.10), rgba(255,107,0,0.04))', border:'1px solid rgba(168,98,58,0.25)', borderRadius:20, textAlign:'center'}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#A8623A', letterSpacing:3, textTransform:'uppercase', marginBottom:12}}>The Continuity Beneath the Change</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#072554', margin:'0 0 20px 0', lineHeight:1.1}}>
-                    Almost no one sees the work.<br/><span style={{color:'#FF6B00', fontStyle:'italic', fontWeight:600}}>Everyone depends on it.</span>
+                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#A8623A', letterSpacing:3, textTransform:'uppercase', marginBottom:12}}>The Continuity Beneath the Change</div>
+                  <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:36, fontWeight:700, color:'#072554', margin:'0 0 20px 0', lineHeight:1.1}}>
+                    Almost no one sees the work.<br/><span style={{color:'#FF6B00', fontWeight:600}}>Everyone depends on it.</span>
                   </h2>
                   <p style={{fontSize:16, color:'#072554', lineHeight:1.7, maxWidth:680, margin:'0 auto 16px'}}>
                     When the locals that responded to St. Louis Local No. 1's 1903 invitation met for their first convention on July 7 of that year, the trade they imagined organizing was just beginning to take its modern form. Steam systems were the dominant industrial heat source. Asbestos was the universal insulating material. The men who did the work were dying of occupational diseases that no one yet understood.
@@ -11626,12 +11633,13 @@ export default function UnionPathway() {
                   <p style={{fontSize:16, color:'#072554', lineHeight:1.7, maxWidth:680, margin:'0 auto 24px'}}>
                     The Insulators today, 122 years after that small July convention, continue to do the same essential thing the founders set out to organize: protecting the workers who wrap the pipes that the rest of the building trades install, and ensuring that the mechanical systems of modern buildings do what they are designed to do.
                   </p>
-                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#A8623A', fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(168,98,58,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
+                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#A8623A', fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(168,98,58,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
                 </div>
               </div>
             </div>
           );
         })()}
+
 
         {page === "history-iuec" && (() => {
           // window-level cache so headline stats stay locked after first animation
@@ -11675,14 +11683,14 @@ export default function UnionPathway() {
           const ExpandableCard = ({ year, title, summary, body, accent = '#4A7B9D' }) => {
             const [open, setOpen] = useState(false);
             return (
-              <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:16, padding:'24px 28px', marginBottom:16, transition:'all 0.3s', borderLeft:'4px solid '+accent}}>
+              <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:16, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', transition:'transform 0.18s, box-shadow 0.18s', borderLeft:'4px solid '+accent}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
-                    <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:20, fontWeight:500, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
                     <div style={{fontSize:14, color:'#072554', lineHeight:1.6}}>{summary}</div>
                   </div>
-                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
+                  <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:accent+'22', color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:700, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
                 </div>
                 {open && (
                   <div style={{marginTop:16, paddingTop:16, borderTop:'1px solid #E5E7EB', fontSize:14, color:'#072554', lineHeight:1.7}}>
@@ -11695,17 +11703,17 @@ export default function UnionPathway() {
 
           const PullQuote = ({ children, attribution }) => (
             <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #FF6B00', background:'linear-gradient(90deg, rgba(255,107,0,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#072554', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:24, color:'#072554', lineHeight:1.4, fontWeight:800}}>"{children}"</div>
+              {attribution && <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -11722,10 +11730,10 @@ export default function UnionPathway() {
                     marginBottom: eraOpen ? 20 : 0
                   }}
                 >
-                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Space Grotesk',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:800, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -11748,7 +11756,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#4A7B9D'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#4A7B9D'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   General Union History
                 </div>
@@ -11756,10 +11764,10 @@ export default function UnionPathway() {
 
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#4A7B9D', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Union of Elevator Constructors</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
-                  Going<br/><span style={{color:'#FF6B00', fontStyle:'italic', fontWeight:600}}>Up.</span><br/>
-                  <span style={{color:'#64748B', fontWeight:500}}>Building the vertical city, since 1901.</span>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#4A7B9D', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Union of Elevator Constructors</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:800, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  Going<br/><span style={{color:'#FF6B00', fontWeight:600}}>Up.</span><br/>
+                  <span style={{color:'#64748B', fontWeight:800}}>Building the vertical city, since 1901.</span>
                 </h1>
                 <p style={{fontSize:18, color:'#64748B', lineHeight:1.6, maxWidth:720, margin:'0 auto'}}>
                   There would be no skyscrapers without elevators. Eleven men met at the Griswold Hotel in Pittsburgh on July 15, 1901 with $5 charter fees and $13.90 in expenses to organize the craft that made vertical real estate possible. 124 years later, the IUEC represents 30,000+ members across 141 local unions and earns the highest wages of any building trade in the United States.
@@ -12016,9 +12024,9 @@ export default function UnionPathway() {
 
                 {/* CLOSING */}
                 <div style={{margin:'80px 0 40px', padding:'40px', background:'linear-gradient(135deg, rgba(74,123,157,0.10), rgba(255,107,0,0.04))', border:'1px solid rgba(74,123,157,0.25)', borderRadius:20, textAlign:'center'}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#4A7B9D', letterSpacing:3, textTransform:'uppercase', marginBottom:12}}>The Continuity Beneath the Change</div>
-                  <h2 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:36, fontWeight:900, color:'#072554', margin:'0 0 20px 0', lineHeight:1.1}}>
-                    There would be no skyscrapers<br/><span style={{color:'#FF6B00', fontStyle:'italic', fontWeight:600}}>without elevators.</span>
+                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#4A7B9D', letterSpacing:3, textTransform:'uppercase', marginBottom:12}}>The Continuity Beneath the Change</div>
+                  <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:36, fontWeight:700, color:'#072554', margin:'0 0 20px 0', lineHeight:1.1}}>
+                    There would be no skyscrapers<br/><span style={{color:'#FF6B00', fontWeight:600}}>without elevators.</span>
                   </h2>
                   <p style={{fontSize:16, color:'#072554', lineHeight:1.7, maxWidth:680, margin:'0 auto 16px'}}>
                     When eleven men met in a hotel room in downtown Pittsburgh on July 15, 1901, the trade they imagined organizing was just beginning to take its modern form. The skyscraper was a recent invention. The safety elevator had existed for less than fifty years. The federal labor law framework was thirty-four years away.
@@ -12026,12 +12034,13 @@ export default function UnionPathway() {
                   <p style={{fontSize:16, color:'#072554', lineHeight:1.7, maxWidth:680, margin:'0 auto 24px'}}>
                     The IUEC today, 124 years after the Griswold Hotel, continues to do the same essential thing the eleven founders set out to do: organizing the workers who install and maintain the machines that make modern vertical living possible. The institution that began with $5 charter fees and $13.90 in convention expenses has built, across twelve decades, the institutional architecture that keeps that trade going.
                   </p>
-                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#4A7B9D', fontFamily:"'Barlow Condensed',sans-serif", fontSize:14, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(74,123,157,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
+                  <button onClick={() => setPage('history')} style={{marginTop:16, background:'transparent', color:'#4A7B9D', fontFamily:"'Inter',sans-serif", fontSize:14, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(74,123,157,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to General Union History</button>
                 </div>
               </div>
             </div>
           );
         })()}
+
 
         {page === "history-iupat" && (() => {
           if (typeof window !== 'undefined' && !window.__iupatStatCache) window.__iupatStatCache = {};
@@ -12073,17 +12082,17 @@ export default function UnionPathway() {
 
           const PullQuote = ({ children, attribution }) => (
             <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #ec4899', background:'linear-gradient(90deg, rgba(236,72,153,0.1) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#072554', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:24, color:'#072554', lineHeight:1.4, fontWeight:800}}>"{children}"</div>
+              {attribution && <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -12099,10 +12108,10 @@ export default function UnionPathway() {
                     marginBottom: eraOpen ? 20 : 0
                   }}
                 >
-                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Space Grotesk',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:800, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -12128,7 +12137,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('trade-history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#ec4899'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('trade-history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#ec4899'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Trade Histories
                 </div>
@@ -12136,10 +12145,10 @@ export default function UnionPathway() {
 
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#ec4899', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Union of Painters and Allied Trades</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
-                  Brushes, Glass, <span style={{color:'#FF6B00', fontStyle:'italic', fontWeight:600}}>and Brotherhood.</span><br/>
-                  <span style={{color:'#64748B', fontWeight:500}}>From a Baltimore meeting hall, 1887.</span>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#ec4899', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>The International Union of Painters and Allied Trades</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:800, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  Brushes, Glass, <span style={{color:'#FF6B00', fontWeight:600}}>and Brotherhood.</span><br/>
+                  <span style={{color:'#64748B', fontWeight:800}}>From a Baltimore meeting hall, 1887.</span>
                 </h1>
                 <p style={{fontSize:18, color:'#64748B', lineHeight:1.6, maxWidth:680, margin:'0 auto'}}>
                   Fifteen cities sent delegates representing roughly six hundred frightened journeymen. Many painters in Baltimore stayed home that day, afraid their bosses would put them out of work the next morning. The men who showed up founded a union that today represents painters, glaziers, drywall finishers, and trade-show workers from Vancouver to Miami.
@@ -12239,8 +12248,8 @@ export default function UnionPathway() {
 
                 {/* THE SEVEN TRADES SUMMARY */}
                 <div style={{margin:'56px 0 32px', padding:'32px', background:'#F8FAFC', border:'1px solid rgba(236,72,153,0.2)', borderRadius:16}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#ec4899', letterSpacing:2.5, textTransform:'uppercase', marginBottom:14}}>The Seven Trades · IUPAT Today</div>
-                  <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#072554', margin:'0 0 24px 0'}}>One union, seven crafts.</h3>
+                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#ec4899', letterSpacing:2.5, textTransform:'uppercase', marginBottom:14}}>The Seven Trades · IUPAT Today</div>
+                  <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:32, fontWeight:700, color:'#072554', margin:'0 0 24px 0'}}>One union, seven crafts.</h3>
                   <ul style={{margin:0, paddingLeft:24, fontSize:15, color:'#072554', lineHeight:1.85, listStyle:'none'}}>
                     {[
                       ['Commercial Painter', 'Interior and exterior painting on commercial buildings.'],
@@ -12252,22 +12261,23 @@ export default function UnionPathway() {
                       ['Trade Show Worker', 'Setup, dismantle, and management of convention and exhibit displays.'],
                     ].map(([n, d], i) => (
                       <li key={i} style={{position:'relative', paddingLeft:14, marginBottom:8}}>
-                        <span style={{position:'absolute', left:-10, color:'#ec4899', fontWeight:900}}>·</span>
+                        <span style={{position:'absolute', left:-10, color:'#ec4899', fontWeight:700}}>·</span>
                         <strong style={{color:'#072554'}}>{n}</strong> — {d}
                       </li>
                     ))}
                   </ul>
-                  <p style={{margin:'18px 0 0 0', fontSize:13, color:'#64748B', fontStyle:'italic'}}>Approximately 100,000 to 140,000 members and represented workers across the U.S. and Canada. 32 district councils. 7 finishing trades. Founded 1887. 139 years of history.</p>
+                  <p style={{margin:'18px 0 0 0', fontSize:13, color:'#64748B'}}>Approximately 100,000 to 140,000 members and represented workers across the U.S. and Canada. 32 district councils. 7 finishing trades. Founded 1887. 139 years of history.</p>
                 </div>
 
               </div>
 
               <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
-                <button onClick={() => setPage('trade-history')} style={{background:'transparent', color:'#ec4899', fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(236,72,153,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to Trade Histories</button>
+                <button onClick={() => setPage('trade-history')} style={{background:'transparent', color:'#ec4899', fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(236,72,153,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to Trade Histories</button>
               </div>
             </div>
           );
         })()}
+
 
         {page === "history-nnu" && (() => {
           if (typeof window !== 'undefined' && !window.__nnuStatCache) window.__nnuStatCache = {};
@@ -12306,17 +12316,17 @@ export default function UnionPathway() {
 
           const PullQuote = ({ children, attribution }) => (
             <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #10A37F', background:'linear-gradient(90deg, rgba(16,163,127,0.1) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
-              <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:24, fontStyle:'italic', color:'#072554', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
-              {attribution && <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:24, color:'#072554', lineHeight:1.4, fontWeight:800}}>"{children}"</div>
+              {attribution && <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
-              <div style={{fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
             </div>
           );
 
@@ -12328,10 +12338,10 @@ export default function UnionPathway() {
                   onClick={() => setEraOpen(o => !o)}
                   style={{width:'100%', display:'flex', alignItems:'center', gap:16, flexWrap:'wrap', background:'transparent', border:'none', padding:0, cursor:'pointer', textAlign:'left', marginBottom: eraOpen ? 20 : 0}}
                 >
-                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Space Grotesk',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
+                  <div style={{width:48, height:48, borderRadius:12, background:color+'15', border:'1px solid '+color, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif", fontSize:16, fontWeight:600, color, flexShrink:0, letterSpacing:'-0.01em'}}>{tag}</div>
                   <div style={{flex:1, minWidth:0}}>
-                    <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
-                    <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
+                    <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:800, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
                   <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
@@ -12357,7 +12367,7 @@ export default function UnionPathway() {
 
               {/* BREADCRUMB */}
               <div style={{padding:'24px 24px 0', maxWidth:1000, margin:'0 auto'}}>
-                <div onClick={() => setPage('trade-history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Space Mono',monospace", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#10A37F'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
+                <div onClick={() => setPage('trade-history')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', letterSpacing:'0.15em', textTransform:'uppercase'}} onMouseEnter={e => e.currentTarget.style.color = '#10A37F'} onMouseLeave={e => e.currentTarget.style.color = 'rgba(160,180,196,0.85)'}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Back to Histories
                 </div>
@@ -12365,10 +12375,10 @@ export default function UnionPathway() {
 
               {/* HERO */}
               <div style={{padding:'40px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#10A37F', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>National Nurses United · Industrial Union</div>
-                <h1 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
-                  By the <span style={{color:'#FF6B00', fontStyle:'italic', fontWeight:600}}>Bedside.</span><br/>
-                  <span style={{color:'#64748B', fontWeight:500}}>How direct-care nurses built the largest registered nurses union in American history.</span>
+                <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#10A37F', letterSpacing:3, textTransform:'uppercase', marginBottom:16}}>National Nurses United · Industrial Union</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:800, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+                  By the <span style={{color:'#FF6B00', fontWeight:600}}>Bedside.</span><br/>
+                  <span style={{color:'#64748B', fontWeight:800}}>How direct-care nurses built the largest registered nurses union in American history.</span>
                 </h1>
                 <p style={{fontSize:18, color:'#64748B', lineHeight:1.6, maxWidth:680, margin:'0 auto'}}>
                   Three independent nursing organizations, one shared enemy in the hospital industry, and a 2009 merger in a Phoenix hotel ballroom that produced the largest organization of direct-care registered nurses in the United States. NNU has won the only mandatory staffing ratios law in American history, defended it for two decades, and held the line through a global pandemic that killed thousands of healthcare workers.
@@ -12465,8 +12475,8 @@ export default function UnionPathway() {
 
                 {/* AFFILIATES SUMMARY CARD */}
                 <div style={{margin:'56px 0 32px', padding:'32px', background:'#F8FAFC', border:'1px solid rgba(16,163,127,0.2)', borderRadius:16}}>
-                  <div style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:700, color:'#10A37F', letterSpacing:2.5, textTransform:'uppercase', marginBottom:14}}>NNU Today · The Affiliates</div>
-                  <h3 style={{fontFamily:"'Barlow Condensed',sans-serif", fontSize:32, fontWeight:900, color:'#072554', margin:'0 0 24px 0'}}>One union, six affiliates, fifty states.</h3>
+                  <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:'#10A37F', letterSpacing:2.5, textTransform:'uppercase', marginBottom:14}}>NNU Today · The Affiliates</div>
+                  <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:32, fontWeight:700, color:'#072554', margin:'0 0 24px 0'}}>One union, six affiliates, fifty states.</h3>
                   <ul style={{margin:0, paddingLeft:24, fontSize:15, color:'#072554', lineHeight:1.85, listStyle:'none'}}>
                     {[
                       ['CNA/NNOC', 'Over 100,000 RNs across 200+ California facilities, plus NNOC organizing in FL, IL, ME, MO, PA, and TX. Founded 1903. Largest NNU affiliate.'],
@@ -12478,18 +12488,18 @@ export default function UnionPathway() {
                       ['Global Nurses United', 'International sister network — federation of nursing unions in 14 countries worldwide.'],
                     ].map(([n, d], i) => (
                       <li key={i} style={{position:'relative', paddingLeft:14, marginBottom:8}}>
-                        <span style={{position:'absolute', left:-10, color:'#10A37F', fontWeight:900}}>·</span>
+                        <span style={{position:'absolute', left:-10, color:'#10A37F', fontWeight:700}}>·</span>
                         <strong style={{color:'#072554'}}>{n}</strong> — {d}
                       </li>
                     ))}
                   </ul>
-                  <p style={{margin:'18px 0 0 0', fontSize:13, color:'#64748B', fontStyle:'italic'}}>Over 225,000 registered nurses. 50 states represented. Founded December 2009 in Phoenix, Arizona. Oldest affiliate (CNA) founded 1903.</p>
+                  <p style={{margin:'18px 0 0 0', fontSize:13, color:'#64748B'}}>Over 225,000 registered nurses. 50 states represented. Founded December 2009 in Phoenix, Arizona. Oldest affiliate (CNA) founded 1903.</p>
                 </div>
 
               </div>
 
               <div style={{padding:'40px 24px 80px', maxWidth:900, margin:'0 auto', textAlign:'center'}}>
-                <button onClick={() => setPage('trade-history')} style={{background:'transparent', color:'#10A37F', fontFamily:"'Barlow Condensed',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(16,163,127,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to Histories</button>
+                <button onClick={() => setPage('trade-history')} style={{background:'transparent', color:'#10A37F', fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(16,163,127,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to Histories</button>
               </div>
             </div>
           );
@@ -16176,7 +16186,7 @@ export default function UnionPathway() {
               </div>
               <div style={{padding:'40px 24px 60px', maxWidth:1100, margin:'0 auto'}}>
                 <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:18}}>{lang==="es" ? "Historias por Oficio" : lang==="pl" ? "Historia Wedlug Zawodu" : "Trade Histories"}</div>
-                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:900, color:'#072554', lineHeight:0.95, margin:'0 0 24px 0', letterSpacing:'-0.01em'}}>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(40px, 7vw, 84px)', fontWeight:700, color:'#072554', lineHeight:0.95, margin:'0 0 24px 0', letterSpacing:'-0.01em'}}>
                   {lang==="es" ? <>Cada oficio. <span style={{color:'#FF6B00'}}>Su propia historia.</span></> : lang==="pl" ? <>Kazdy zawod. <span style={{color:'#FF6B00'}}>Wlasna historia.</span></> : <>Every trade. <span style={{color:'#FF6B00'}}>Its own story.</span></>}
                 </h1>
                 <p style={{fontSize:18, color:'#072554', lineHeight:1.6, maxWidth:700, margin:0}}>
@@ -16193,14 +16203,14 @@ export default function UnionPathway() {
                     onMouseLeave={e => { e.currentTarget.style.background='#94A3B8'; e.currentTarget.style.transform='translateY(0)'; }}
                   >
                     <div>
-                      <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:24, fontWeight:900, color:'#072554', margin:0, lineHeight:1.1}}>{t.name}</h3>
+                      <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:24, fontWeight:700, color:'#072554', margin:0, lineHeight:1.1}}>{t.name}</h3>
                       <div style={{fontSize:11, color:t.color, fontFamily:"'Inter',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700, marginTop:4}}>{t.full}</div>
                     </div>
                     <div style={{display:'flex', gap:16, marginTop:12, marginBottom:12, fontSize:11, color:'#64748B', fontFamily:"'Inter',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700}}>
                       <span><span style={{color:'#072554'}}>{t.founded}</span> · {lang==="es" ? "Fundado" : lang==="pl" ? "Zalozony" : "Founded"}</span>
                       <span><span style={{color:'#072554'}}>{t.members}</span> · {lang==="es" ? "Miembros" : lang==="pl" ? "Czlonkowie" : "Members"}</span>
                     </div>
-                    <p style={{fontSize:13.5, color:'#072554', lineHeight:1.55, margin:'8px 0 0 0', fontStyle:'italic'}}>{t.sub}</p>
+                    <p style={{fontSize:13.5, color:'#072554', lineHeight:1.55, margin:'8px 0 0 0'}}>{t.sub}</p>
                   </div>
                 );
 
@@ -16227,15 +16237,15 @@ export default function UnionPathway() {
                 <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(320px, 1fr))', gap:16}}>
                   {COMING.map((t, i) => (
                     <div key={i} style={{background:'#F8FAFC', border:'1px solid #E5E7EB', borderRadius:14, padding:'22px 24px', opacity:0.55}}>
-                      <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:500, color:'#072554', letterSpacing:'-0.015em', margin:'0 0 8px 0', lineHeight:1.1}}>{t.name}</h3>
-                      <p style={{fontSize:13, color:'#64748B', lineHeight:1.55, margin:0, fontStyle:'italic'}}>{t.sub}</p>
+                      <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:800, color:'#072554', letterSpacing:'-0.015em', margin:'0 0 8px 0', lineHeight:1.1}}>{t.name}</h3>
+                      <p style={{fontSize:13, color:'#64748B', lineHeight:1.55, margin:0}}>{t.sub}</p>
                     </div>
                   ))}
                 </div>
               </div>
               <div style={{padding:'40px 24px 80px', maxWidth:1100, margin:'0 auto', textAlign:'center'}}>
-                <p style={{fontSize:14, color:'#64748B', marginBottom:18, fontStyle:'italic'}}>{lang==="es" ? "Para el panorama completo del movimiento sindical:" : lang==="pl" ? "Aby zobaczyc pelny obraz ruchu zwiazkowego:" : "For the full arc of the labor movement:"}</p>
-                <button onClick={() => setPage('history')} style={{background:'transparent', color:'#FF6B00', fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'14px 32px', border:'1px solid rgba(255,107,0,0.4)', borderRadius:50, cursor:'pointer'}}>
+                <p style={{fontSize:14, color:'#64748B', marginBottom:18}}>{lang==="es" ? "Para el panorama completo del movimiento sindical:" : lang==="pl" ? "Aby zobaczyc pelny obraz ruchu zwiazkowego:" : "For the full arc of the labor movement:"}</p>
+                <button onClick={() => setPage('history')} style={{background:'transparent', color:'#FF6B00', fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'14px 32px', border:'1px solid rgba(255,107,0,0.4)', borderRadius:50, cursor:'pointer'}}>
                   {lang==="es" ? "Leer Historia General" : lang==="pl" ? "Czytaj Historie Ogolna" : "Read General Union History"}
                 </button>
               </div>
