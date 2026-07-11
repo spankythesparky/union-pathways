@@ -6130,7 +6130,7 @@ export default function UnionPathway() {
         }
 
         /* ── QUIZ PAGE ── */
-        /* GET STARTED SWEEP */ /* CALC INPUT FIX */ /* DARK CONTAINER FIX */
+        /* GET STARTED SWEEP */ /* CALC INPUT FIX */ /* DARK CONTAINER FIX */ /* MEMBERSHIP SWEEP */
         .page { max-width: 1000px; margin: 0 auto; padding: 72px 40px 96px; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 
@@ -16265,17 +16265,17 @@ export default function UnionPathway() {
           const ExpandableCard = ({ year, title, summary, body, accent = '#FF6B00' }) => {
             const [open, setOpen] = useState(false);
             return (
-              <div style={{background:'transparent', border:'1px solid #E5E7EB', borderRadius:14, padding:'24px 28px', marginBottom:14, transition:'all 0.3s', borderLeft:`2px solid ${accent}`}}>
+              <div style={{background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, padding:'26px 30px', marginBottom:14, transition:'transform 0.18s, box-shadow 0.18s', boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)', borderLeft:`3px solid ${accent}`}}>
                 <div onClick={() => setOpen(o => !o)} style={{cursor:'pointer', display:'flex', justifyContent:'space-between', alignItems:'flex-start', gap:16}}>
                   <div style={{flex:1}}>
                     {year && <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:accent, letterSpacing:'0.2em', textTransform:'uppercase', marginBottom:8}}>{year}</div>}
-                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:500, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
-                    <div style={{fontSize:14, color:'#072554', lineHeight:1.6}}>{summary}</div>
+                    <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:700, color:'#072554', lineHeight:1.25, marginBottom:10, letterSpacing:'-0.015em'}}>{title}</div>
+                    <div style={{fontSize:15, color:'#5A6478', lineHeight:1.6}}>{summary}</div>
                   </div>
                   <div style={{flexShrink:0, width:32, height:32, borderRadius:'50%', background:`${accent}22`, color:accent, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18, fontWeight:900, transform: open ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s'}}>+</div>
                 </div>
                 {open && (
-                  <div style={{marginTop:16, paddingTop:16, borderTop:'1px solid #E5E7EB', fontSize:14, color:'#072554', lineHeight:1.7}}>
+                  <div style={{marginTop:18, paddingTop:18, borderTop:'1px solid #E5E7EB', fontSize:15, color:'#5A6478', lineHeight:1.75}}>
                     {body}
                   </div>
                 )}
@@ -16285,14 +16285,14 @@ export default function UnionPathway() {
 
           const PullQuote = ({ children, attribution }) => (
             <div style={{margin:'40px auto', maxWidth:760, padding:'30px 36px', borderLeft:'4px solid #FF6B00', background:'linear-gradient(90deg, rgba(255,107,0,0.08) 0%, transparent 100%)', borderRadius:'0 16px 16px 0'}}>
-              <div style={{fontFamily:"'Inter',sans-serif", fontSize:24, fontStyle:'italic', color:'#072554', lineHeight:1.4, fontWeight:500}}>"{children}"</div>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:24, color:'#072554', lineHeight:1.45, fontWeight:600, letterSpacing:'-0.01em'}}>"{children}"</div>
               {attribution && <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:14, letterSpacing:'0.15em', textTransform:'uppercase'}}>— {attribution}</div>}
             </div>
           );
 
           const StatBlock = ({ value, label, suffix = '', prefix = '', decimals = 0 }) => (
             <div style={{textAlign:'center', padding:'24px 16px'}}>
-              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:500, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
+              <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(36px, 5vw, 56px)', fontWeight:800, color:'#FF6B00', lineHeight:1, letterSpacing:'-0.03em'}}>
                 <AnimatedNumber value={value} suffix={suffix} prefix={prefix} decimals={decimals} />
               </div>
               <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, color:'#64748B', marginTop:10, letterSpacing:'0.15em', textTransform:'uppercase'}}>{label}</div>
@@ -16303,9 +16303,9 @@ export default function UnionPathway() {
             <div style={{margin:'80px 0', position:'relative'}}>
               <div style={{display:'flex', alignItems:'center', gap:16, marginBottom:20, flexWrap:'wrap'}}>
                 <div style={{width:48, height:48, borderRadius:12, background:`${color}22`, border:`2px solid ${color}`, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:900, color}}>{tag}</div>
-                <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:36, fontWeight:900, color:'#072554', margin:0, lineHeight:1.1, flex:1, minWidth:0}}>{title}</h2>
+                <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:34, fontWeight:800, color:'#072554', margin:0, lineHeight:1.1, letterSpacing:'-0.02em', flex:1, minWidth:0}}>{title}</h2>
               </div>
-              {intro && <p style={{fontSize:16, color:'#072554', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
+              {intro && <p style={{fontSize:17, color:'#5A6478', lineHeight:1.75, marginBottom:24, maxWidth:780}}>{intro}</p>}
               {children}
             </div>
           );
@@ -16319,13 +16319,13 @@ export default function UnionPathway() {
               </div>
 
               {/* HERO */}
-              <div style={{padding:'80px 24px 60px', textAlign:'center', maxWidth:1000, margin:'0 auto'}}>
-                <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>More Than Just a Paycheck</div>
-                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(34px, 5vw, 60px)', fontWeight:500, color:'#072554', lineHeight:0.96, margin:'0 0 24px 0', letterSpacing:'-0.03em'}}>
+              <div style={{padding:'80px 40px 60px', maxWidth:1280, margin:'0 auto'}}>
+                <div style={{display:'inline-flex', alignItems:'center', gap:14, fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:600, color:'#FF6B00', letterSpacing:'0.14em', textTransform:'uppercase', marginBottom:24}}><span style={{width:40, height:2, background:'#FF6B00', display:'inline-block'}} />More Than Just a Paycheck</div>
+                <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(40px, 5.5vw, 64px)', fontWeight:800, color:'#072554', lineHeight:1.05, margin:'0 0 24px 0', letterSpacing:'-0.025em', maxWidth:900}}>
                   Union <span style={{color:'#FF6B00'}}>Benefits.</span><br/>
                   <span style={{color:'#64748B', fontWeight:500}}>What you actually get.</span>
                 </h1>
-                <p style={{fontSize:18, color:'#64748B', lineHeight:1.6, maxWidth:680, margin:'0 auto'}}>
+                <p style={{fontSize:19, color:'#5A6478', lineHeight:1.6, maxWidth:660, margin:0}}>
                   Union construction workers don't just earn higher hourly wages. They receive a stacked benefits package that most workers in America will never see — built and paid for through collective bargaining, not pulled from their take-home pay.
                 </p>
               </div>
@@ -16344,10 +16344,10 @@ export default function UnionPathway() {
 
                 {/* INTRO PARAGRAPH */}
                 <div style={{padding:'40px 0 20px'}}>
-                  <p style={{fontSize:17, color:'#072554', lineHeight:1.8, marginBottom:20}}>
+                  <p style={{fontSize:18, color:'#5A6478', lineHeight:1.8, marginBottom:20}}>
                     The story most people tell about union work focuses on the wages — and yes, the wages are higher. But the real wealth-building power of union construction lies in what comes <em>on top of</em> the hourly rate. The contractor, not the worker, funds it. It accumulates from the first day on the job. And it follows you for the rest of your career, no matter how many contractors you work for.
                   </p>
-                  <p style={{fontSize:17, color:'#072554', lineHeight:1.8}}>
+                  <p style={{fontSize:18, color:'#5A6478', lineHeight:1.8}}>
                     Here's what's actually inside a typical union benefits package.
                   </p>
                 </div>
@@ -16448,7 +16448,7 @@ export default function UnionPathway() {
                         <li>✓ Wages set by contract, not boss's mood</li>
                       </ul>
                     </div>
-                    <div style={{padding:'24px', background:'transparent', border:'1px solid #E5E7EB', borderRadius:16}}>
+                    <div style={{padding:'28px', background:'#FFFFFF', border:'1px solid rgba(7,37,84,0.08)', borderRadius:16, boxShadow:'0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06)'}}>
                       <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:900, color:'#64748B', marginBottom:12, textTransform:'uppercase', letterSpacing:1}}>Typical Non-Union Job</div>
                       <ul style={{listStyle:'none', padding:0, margin:0, fontSize:15, color:'#64748B', lineHeight:1.9}}>
                         <li>✗ No pension (rare exceptions)</li>
@@ -16460,7 +16460,7 @@ export default function UnionPathway() {
                       </ul>
                     </div>
                   </div>
-                  <p style={{fontSize:13, color:'rgba(160,180,196,0.7)', textAlign:'center', marginTop:24, fontStyle:'italic'}}>Comparison reflects typical union construction contracts vs. typical non-union construction roles. Specific terms vary by trade, local, and employer.</p>
+                  <p style={{fontSize:13, color:'#94A3B8', textAlign:'center', marginTop:24}}>Comparison reflects typical union construction contracts vs. typical non-union construction roles. Specific terms vary by trade, local, and employer.</p>
                 </div>
 
                 {/* SECTION 4 — APPRENTICESHIP */}
@@ -16529,7 +16529,7 @@ export default function UnionPathway() {
                 {/* CLOSING — WHAT THIS MEANS */}
                 <div style={{margin:'80px 0 40px', padding:'48px 32px', background:'#F8FAFC', borderRadius:24, border:'1px solid #E5E7EB', textAlign:'center'}}>
                   <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:16}}>The Bottom Line</div>
-                  <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(24px, 3vw, 34px)', fontWeight:500, color:'#072554', margin:'0 0 24px 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>What This All Adds Up To</h2>
+                  <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(24px, 3vw, 34px)', fontWeight:800, color:'#072554', margin:'0 0 24px 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>What This All Adds Up To</h2>
                   <p style={{fontSize:16, color:'#072554', lineHeight:1.8, maxWidth:720, margin:'0 auto 20px'}}>
                     The wage on a union paycheck tells you part of the story. The pension contributions, the health-fund deposits, the annuity accruals, and the training-fund deposits running alongside it tell you the rest. For a typical journey-level union member working 1,500-2,000 hours per year, the value of contractor-paid benefits often equals 30–40% of the hourly wage on top of the wage itself.
                   </p>
