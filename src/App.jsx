@@ -3150,8 +3150,8 @@ function ApprovedReportsFeed({ lang }) {
   const allLabel = lang === 'es' ? 'Todos' : lang === 'pl' ? 'Wszystkie' : 'All Trades';
   const tabStyle = (active) => ({
     padding: "8px 16px",
-    background: active ? '#FF6B00' : '#94A3B8',
-    color: active ? '#000' : '#fff',
+    background: active ? '#FF6B00' : '#F1F5F9',
+    color: active ? '#FFFFFF' : '#64748B',
     border: 'none',
     borderRadius: 999,
     fontFamily: "'Barlow Condensed',sans-serif",
@@ -3365,8 +3365,8 @@ function ApprovedWagesFeed({ lang }) {
   const allLabel = lang === 'es' ? 'Todos' : lang === 'pl' ? 'Wszystkie' : 'All Trades';
   const tabStyle = (active) => ({
     padding: "8px 16px",
-    background: active ? '#FF6B00' : '#94A3B8',
-    color: active ? '#000' : '#fff',
+    background: active ? '#FF6B00' : '#F1F5F9',
+    color: active ? '#FFFFFF' : '#64748B',
     border: 'none',
     borderRadius: 999,
     fontFamily: "'Barlow Condensed',sans-serif",
@@ -6130,7 +6130,7 @@ export default function UnionPathway() {
         }
 
         /* ── QUIZ PAGE ── */
-        /* GET STARTED SWEEP */ /* CALC INPUT FIX */
+        /* GET STARTED SWEEP */ /* CALC INPUT FIX */ /* DARK CONTAINER FIX */
         .page { max-width: 1000px; margin: 0 auto; padding: 72px 40px 96px; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 
@@ -7714,7 +7714,7 @@ export default function UnionPathway() {
                   position:'relative',
                   overflow:'hidden',
                   display:'flex', alignItems:'center', justifyContent:'center',
-                  color:'#072554'
+                  color:'#FFFFFF'
                 }}>
                   <div style={{
                     position:'absolute', top:0, right:0, width:'40%', height:'40%',
@@ -7725,7 +7725,7 @@ export default function UnionPathway() {
                     fontFamily:"'Inter',sans-serif",
                     fontSize:'clamp(64px, 10vw, 128px)',
                     fontWeight:900, lineHeight:1, letterSpacing:'-0.04em',
-                    color:'#072554', position:'relative', zIndex:1
+                    color:'rgba(255,255,255,0.16)', position:'relative', zIndex:1
                   }}>
                     <span style={{color:'#FF6B00'}}>{f.visualAccent}</span>{f.visualNum}
                   </div>
@@ -7733,7 +7733,7 @@ export default function UnionPathway() {
                     position:'absolute', bottom:24, left:28,
                     fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700,
                     letterSpacing:'0.18em', textTransform:'uppercase',
-                    color:'#072554'
+                    color:'rgba(255,255,255,0.70)'
                   }}>{f.visualLabel}</div>
                 </div>
               </div>
@@ -8761,7 +8761,7 @@ export default function UnionPathway() {
                     <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
                     <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
-                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#94A3B8', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
                 {eraOpen && (
                   <div style={{paddingTop:8, paddingLeft: 64}}>
@@ -9178,7 +9178,7 @@ export default function UnionPathway() {
                     <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
                     <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
-                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#94A3B8', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
                 {eraOpen && (
                   <div style={{paddingTop:8, paddingLeft: 64}}>
@@ -9596,7 +9596,7 @@ export default function UnionPathway() {
                     <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
                     <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
-                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#94A3B8', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
                 {eraOpen && (
                   <div style={{paddingTop:8, paddingLeft: 64}}>
@@ -9998,7 +9998,7 @@ export default function UnionPathway() {
                     <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
                     <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
-                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#94A3B8', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
                 {eraOpen && (
                   <div style={{paddingTop:8, paddingLeft: 64}}>
@@ -10412,7 +10412,7 @@ export default function UnionPathway() {
                     <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
                     <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
-                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#94A3B8', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
                 {eraOpen && (
                   <div style={{paddingTop:8, paddingLeft: 64}}>
@@ -10877,7 +10877,7 @@ export default function UnionPathway() {
                     <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
                     <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
-                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#94A3B8', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
                 {eraOpen && (
                   <div style={{paddingTop:8, paddingLeft:64}}>
@@ -11349,7 +11349,7 @@ export default function UnionPathway() {
                     <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
                     <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
-                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#94A3B8', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
                 {eraOpen && (
                   <div style={{paddingTop:8, paddingLeft: 64}}>
@@ -11727,7 +11727,7 @@ export default function UnionPathway() {
                     <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
                     <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
-                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#94A3B8', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
                 {eraOpen && (
                   <div style={{paddingTop:8, paddingLeft: 64}}>
@@ -12104,7 +12104,7 @@ export default function UnionPathway() {
                     <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
                     <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
-                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#94A3B8', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
                 {eraOpen && (
                   <div style={{paddingTop:8, paddingLeft: 64}}>
@@ -12333,7 +12333,7 @@ export default function UnionPathway() {
                     <div style={{fontFamily:"'Space Mono',monospace", fontSize:10, color, letterSpacing:'0.22em', textTransform:'uppercase'}}>{years}</div>
                     <h2 style={{fontFamily:"'Space Grotesk',sans-serif", fontSize:'clamp(22px, 3vw, 28px)', fontWeight:500, color:'#072554', margin:'4px 0 0 0', lineHeight:1.2, letterSpacing:'-0.02em'}}>{title}</h2>
                   </div>
-                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#94A3B8', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
+                  <div style={{flexShrink:0, width:36, height:36, borderRadius:'50%', background: eraOpen ? color : '#F1F5F9', color: eraOpen ? '#0F1620' : color, border:'1px solid '+(eraOpen ? color : '#94A3B8'), display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, fontWeight:300, lineHeight:1, transform: eraOpen ? 'rotate(45deg)' : 'rotate(0)', transition:'transform 0.25s, background 0.2s, color 0.2s'}}>+</div>
                 </button>
                 {eraOpen && (
                   <div style={{paddingTop:8, paddingLeft: 64}}>
@@ -13466,7 +13466,7 @@ export default function UnionPathway() {
                             style={{
                               width:42, height:42, position:'relative', display:'flex', alignItems:'center', justifyContent:'center',
                               background: isSel ? '#072554' : bg,
-                              color: isSel ? '#000' : '#fff',
+                              color: '#FFFFFF',
                               border:'none', borderRadius:6, cursor:'pointer',
                               fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:900,
                               transform: isHov && !isSel ? 'scale(1.1)' : 'scale(1)',
@@ -14348,10 +14348,10 @@ export default function UnionPathway() {
           // Reusable inline-style helper for a stat card. Same idea — JSX
           // expression, not a component definition.
           const renderStat = (tag, label, value, dim, accent) => (
-            <div style={{padding:20, background: accent ? '#94A3B8' : 'rgba(0,0,0,0.3)'}}>
-              <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', marginBottom:8, color: accent ? '#FF6B00' : '#94A3B8'}}>{tag}</div>
-              <div style={{...displayFont, fontSize:32, marginBottom:4, color: dim ? '#64748B' : '#fff'}}>{value}</div>
-              <div style={{...monoFont, fontSize:11, color:'#94A3B8'}}>{label}</div>
+            <div style={{padding:24, borderRadius:12, background: accent ? 'rgba(255,107,0,0.06)' : '#F8FAFC', border: accent ? '1px solid rgba(255,107,0,0.28)' : '1px solid #E5E7EB'}}>
+              <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', marginBottom:8, color: accent ? '#FF6B00' : '#64748B'}}>{tag}</div>
+              <div style={{...displayFont, fontSize:32, marginBottom:4, color: accent ? '#FF6B00' : '#072554'}}>{value}</div>
+              <div style={{...monoFont, fontSize:11, color:'#64748B'}}>{label}</div>
             </div>
           );
 
@@ -17531,10 +17531,10 @@ export default function UnionPathway() {
                             fontWeight:800,
                             letterSpacing:'0.06em',
                             textTransform:'uppercase',
-                            color: i === arr.length - 1 ? '#FF6B00' : '#fff',
+                            color: i === arr.length - 1 ? '#FF6B00' : '#072554',
                             padding:'6px 12px',
                             borderRadius:8,
-                            background: i === arr.length - 1 ? 'rgba(255,107,0,0.12)' : '#94A3B8',
+                            background: i === arr.length - 1 ? 'rgba(255,107,0,0.12)' : '#F1F5F9',
                             border: i === arr.length - 1 ? '1px solid rgba(255,107,0,0.35)' : '1px solid #E5E7EB',
                           }}>{step}</span>
                           {i < arr.length - 1 && <span style={{color:'rgba(255,107,0,0.55)', fontSize:14, fontWeight:700}}>→</span>}
