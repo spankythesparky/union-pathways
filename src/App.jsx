@@ -7312,7 +7312,8 @@ export default function UnionPathway() {
             color:'#072554',
             maxWidth:920
           }}>
-            {t.heroTitle1}<span style={{color:'#FF6B00'}}>{t.heroAccent}</span>{t.heroTitle2}
+            {/* HOME CHIP FIX */}
+            {t.heroTitle1}{" "}<span style={{color:'#FF6B00'}}>{t.heroAccent}</span>{" "}{t.heroTitle2}
           </h1>
           <p style={{
             fontFamily:"'Inter',sans-serif",
@@ -7355,11 +7356,11 @@ export default function UnionPathway() {
                   onClick={() => setSelectedTrade(tr.abbr)}
                   style={{
                     background: selectedTrade === tr.abbr ? '#072554' : '#ffffff',
-                    color: selectedTrade === tr.abbr ? '#072554' : '#072554',
+                    color: selectedTrade === tr.abbr ? '#FFFFFF' : '#072554',
                     border: '1px solid '+(selectedTrade === tr.abbr ? '#072554' : '#E8EAED'),
                     borderRadius: 50, padding: '9px 18px',
                     fontFamily:"'Inter',sans-serif",
-                    fontSize: 13, fontWeight: 500,
+                    fontSize: 13, fontWeight: selectedTrade === tr.abbr ? 600 : 500,
                     cursor: 'pointer', transition: 'all 0.15s'
                   }}
                 >
