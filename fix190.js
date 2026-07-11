@@ -1,4 +1,78 @@
-// Edge Middleware — fix190
+// fix190.js — Add Vercel Edge Middleware for per-page social previews
+//
+// What this fixes:
+//   When you share a Union Pathways URL on iMessage / Twitter / Slack /
+//   Facebook / LinkedIn, those crawlers fetch the URL but DO NOT execute
+//   JavaScript. They only read whatever <meta> tags are baked into the
+//   static `index.html` at build time. That HTML currently has the home-page
+//   meta for every URL — which is why every shared link shows the home page
+//   description in the unfurl card, regardless of the actual page.
+//
+//   The fix: Vercel Edge Middleware. When a request comes in, the middleware
+//   runs BEFORE the static file is served. It reads the URL path, looks up
+//   the right title/description for that path, fetches the static
+//   index.html, swaps in the right meta values, and returns the modified
+//   HTML to the crawler. The user's browser sees the same content.
+//
+// Files this script creates / modifies:
+//   1. middleware.js (NEW, at project root)
+//      - Vercel auto-detects this filename. No vercel.json needed.
+//      - Runs on the Edge Runtime (fast, runs before the static file).
+//      - Contains the full PAGE_META lookup table mirrored from App.jsx.
+//      - Reads the URL path from the request, picks the right meta entry,
+//        rewrites the placeholder tokens in index.html, and returns it.
+//
+//   2. index.html (modified)
+//      - Replaces the hard-coded title and description meta values with
+//        placeholder tokens: {{TITLE}}, {{DESC}}, {{URL}}, {{CANONICAL}}
+//      - The middleware substitutes these tokens on each request.
+//      - On localhost (no middleware), browsers see the literal placeholders
+//        in the title bar — that's an acceptable dev-mode quirk and goes
+//        away in production.
+//
+//   3. package.json (lightly modified, ONLY if needed)
+//      - No package.json changes. Vercel detects middleware.js automatically
+//        and runs it without any build-config changes.
+//
+// Idempotency:
+//   - Detects "Edge Middleware — fix190" in middleware.js (or absence of
+//     {{TITLE}} placeholder in index.html) and exits cleanly if already
+//     applied.
+//
+// Reads:
+//   - index.html (in current working directory; project root)
+//
+// Writes:
+//   - middleware.js (creates new file at project root)
+//   - index.html    (in place)
+
+const fs = require('fs');
+const path = require('path');
+
+const INDEX_HTML = 'index.html';
+const MIDDLEWARE = 'middleware.js';
+
+if (!fs.existsSync(INDEX_HTML)) {
+  console.error('ERROR: index.html not found in current dir.');
+  console.error('       Run from project root (~/Desktop/union-pathway).');
+  process.exit(1);
+}
+
+// ----------------------------------------------------------------------------
+// Idempotency
+// ----------------------------------------------------------------------------
+let html = fs.readFileSync(INDEX_HTML, 'utf8');
+const middlewareExists = fs.existsSync(MIDDLEWARE);
+const tokenized = html.includes('{{TITLE}}');
+if (middlewareExists && tokenized) {
+  console.log('Already applied — middleware.js exists and index.html is tokenized.');
+  process.exit(0);
+}
+
+// ============================================================================
+// PART 1 — Write middleware.js
+// ============================================================================
+const middlewareCode = `// Edge Middleware — fix190
 //
 // Per-request meta-tag injection so social crawlers (iMessage, Twitter,
 // Slack, Facebook, LinkedIn) get a page-specific unfurl card instead of
@@ -20,7 +94,7 @@
 // those down — see the matcher config at the bottom.
 
 const SITE = 'https://unionpathways.com';
-const DEFAULT_IMAGE = 'https://unionpathways.com/social-preview-v2.png';
+const DEFAULT_IMAGE = 'https://unionpathways.com/social-preview.png';
 
 // All page metadata. Mirrors PAGE_META in src/App.jsx.
 const PAGE_META = {
@@ -48,7 +122,7 @@ const PAGE_META = {
   'history-iuec':  { title: "IUEC History — Going Up · Union Pathways", desc: "The full history of the International Union of Elevator Constructors — from the 1854 Otis Crystal Palace demonstration and the July 1901 Griswold Hotel founding through the Atlantic City Plan, the Christensen era, and the path to becoming the highest-paid building trade in the United States." },
   'history-iupat': { title: "IUPAT History — Brushes, Glass, and Brotherhood · Union Pathways", desc: "From the half-empty Baltimore meeting hall where Jack Elliott chartered the union in 1887 to the modern Hanover campus and the iFTI training institute. The East-West split, the absorption of glaziers and drywall finishers, the Schonfeld reform era, the 1999 IUPAT name change, and the Williams-era organizing strategy." },
   'history-nnu':   { title: "NNU History — By the Bedside · Union Pathways", desc: "How direct-care nurses built the largest registered nurses union in American history. The 2009 Phoenix merger of CNA, UAN, and MNA, the Kaiser strike, California's landmark AB 394 staffing ratios law, the COVID-19 pandemic, and the path from Shirley Titus's 1945 East Bay agreement to the modern 225,000-member union." },
-  'rtw': { title: "Right to Work — The Price of \"Freedom\" to Opt Out · Union Pathways", desc: "An interactive investigation into right-to-work laws across the 50 states. Compare wages, union density, workplace fatality rates, household income, poverty, and uninsured rates between RTW and non-RTW states." },
+  'rtw': { title: "Right to Work — The Price of \\"Freedom\\" to Opt Out · Union Pathways", desc: "An interactive investigation into right-to-work laws across the 50 states. Compare wages, union density, workplace fatality rates, household income, poverty, and uninsured rates between RTW and non-RTW states." },
   'apprenticeship': { title: "Apprenticeship Aptitude Tests — How to Get In · Union Pathways", desc: "What's actually on every union apprenticeship aptitude test, by trade. IBEW NJATC, UA GAN, SMART Sheet Metal, IUEC EIAT, IUPAT, and more. Test sections, scoring, study tips, and the things nobody tells you. No prep-course paywall." },
   'apprenticeship-ibew':  { title: "IBEW Aptitude Test (NJATC) — Full Breakdown · Union Pathways", desc: "Everything that's actually on the IBEW Inside Wireman aptitude test. Algebra & functions, reading comprehension, scoring on the 1-9 scale, study resources, and what the interview actually asks. Free, no upsell." },
   'apprenticeship-ua':    { title: "UA Plumbers & Pipefitters Aptitude Test (GAN) — Full Breakdown · Union Pathways", desc: "The full Piping Industry Entry Level Assessment broken down by section. Reading, math, mechanical, spatial, problem solving — what's tested, scoring, study tips, and the application window trap nobody warns you about." },
@@ -66,8 +140,6 @@ const PAGE_META = {
   'calculator':  { title: "Union Wage Calculator — Total Package Value · Union Pathways", desc: "Calculate your full union wage package — base hourly, fringes, health, pension, annuity, vacation, training. See your true hourly value and annual earnings, then compare against non-union work or other locals." },
   'resume':      { title: "Union Apprenticeship Resume Template — Free Download · Union Pathways", desc: "A clean, focused resume template built for union apprenticeship applications. Highlights the things JATC committees actually score on — work history, mechanical experience, references, math credit. Free download, no signup." },
   'downpayment': { title: "Down Payment Calculator — From Apprentice to Journeyman · Union Pathways", desc: "For fifth-year apprentices about to make journeyman. Calculate the gross raise from apprentice scale to full journeyman rate, then see how big a down payment you can save by living like an apprentice for a few more years. Built for the trades. Discipline not included — bring your own." },
-  'caucus': { title: "How to Form a Union Caucus — A Field Guide for Members · Union Pathways", desc: "Every reform victory in modern American labor began the same way — a few members talking in a break room, deciding their union could be better, and getting organized. The 10-step field guide to caucus building, drawn from TDU, CORE, UAWD, and the rest of the modern reform tradition." },
-  'mental-health': { title: "Mental Health in the Trades · Union Pathways", desc: "You are not alone. Help works. Recovery is the rule, not the exception. Crisis resources (988, Crisis Text Line, Veterans line), warning signs, how to start the conversation, Member Assistance Programs, and the industry response to construction worker suicide. Built following safe-messaging guidelines from CIASP and the American Foundation for Suicide Prevention." },
 };
 
 // Escape HTML special characters so meta values can't break out of attribute
@@ -86,13 +158,13 @@ export const config = {
   // lookahead skips Vercel's _next folder, common asset extensions, the
   // public favicon and the social preview image, and any /api/* route.
   matcher: [
-    '/((?!_next/|api/|favicon|social-preview|map\\.html|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|css|js|json|woff|woff2|ttf|eot)).*)'
+    '/((?!_next/|api/|favicon|social-preview|map\\\\.html|.*\\\\.(?:png|jpg|jpeg|gif|svg|webp|ico|css|js|json|woff|woff2|ttf|eot)).*)'
   ]
 };
 
 export default async function middleware(request) {
   const url = new URL(request.url);
-  const path = url.pathname.replace(/^\/+|\/+$/g, ''); // trim leading/trailing slashes
+  const path = url.pathname.replace(/^\\/+|\\/+$/g, ''); // trim leading/trailing slashes
   const pageKey = path === '' ? 'home' : path;
   const meta = PAGE_META[pageKey] || PAGE_META['home'];
 
@@ -126,3 +198,83 @@ export default async function middleware(request) {
     },
   });
 }
+`;
+
+fs.writeFileSync(MIDDLEWARE, middlewareCode);
+console.log('  ✓ middleware.js created at project root');
+
+// ============================================================================
+// PART 2 — Tokenize index.html
+// ============================================================================
+// We replace the seven hard-coded meta values with placeholder tokens that
+// the middleware will fill in. The base structure of index.html is preserved
+// — only the title text and meta content="..." attributes change.
+
+const replacements = [
+  // <title>
+  {
+    old: '<title>Union Pathways - Find Your Nearest Union Construction Local</title>',
+    new: '<title>{{TITLE}}</title>'
+  },
+  // <meta name="description">
+  {
+    old: '<meta name="description" content="Find your nearest union construction local — IBEW, UA, BAC, Ironworkers and more. Free resource for tradespeople."/>',
+    new: '<meta name="description" content="{{DESC}}"/>'
+  },
+  // og:title
+  {
+    old: '<meta property="og:title" content="Union Pathways - Find Your Nearest Union Construction Local"/>',
+    new: '<meta property="og:title" content="{{TITLE}}"/>'
+  },
+  // og:description
+  {
+    old: '<meta property="og:description" content="Find your nearest union construction local — IBEW, UA, BAC, Ironworkers and more. Everything union trades, one place. Free."/>',
+    new: '<meta property="og:description" content="{{DESC}}"/>'
+  },
+  // og:url
+  {
+    old: '<meta property="og:url" content="https://unionpathways.com"/>',
+    new: '<meta property="og:url" content="{{URL}}"/>'
+  },
+  // twitter:title
+  {
+    old: '<meta name="twitter:title" content="Union Pathways - Find Your Nearest Union Construction Local"/>',
+    new: '<meta name="twitter:title" content="{{TITLE}}"/>'
+  },
+  // twitter:description
+  {
+    old: '<meta name="twitter:description" content="Find your nearest union construction local — IBEW, UA, BAC, Ironworkers and more. Free."/>',
+    new: '<meta name="twitter:description" content="{{DESC}}"/>'
+  },
+  // canonical
+  {
+    old: '<link rel="canonical" href="https://unionpathways.com"/>',
+    new: '<link rel="canonical" href="{{CANONICAL}}"/>'
+  }
+];
+
+let appliedCount = 0;
+for (const r of replacements) {
+  if (html.includes(r.old)) {
+    html = html.replace(r.old, r.new);
+    appliedCount++;
+  } else {
+    console.log('  (warning: anchor not found, skipped) →', r.old.slice(0, 70) + '...');
+  }
+}
+console.log(`  ✓ index.html tokenized (${appliedCount}/${replacements.length} meta tags)`);
+fs.writeFileSync(INDEX_HTML, html);
+
+console.log('');
+console.log('Files changed:');
+console.log('  - middleware.js (NEW, project root)');
+console.log('  - index.html (tokenized)');
+console.log('');
+console.log('Now run:');
+console.log('  git add middleware.js index.html && git commit -m "feat: per-page social previews via Vercel Edge Middleware" && git push');
+console.log('');
+console.log('After deploy, test by sharing the URL in iMessage:');
+console.log('  - https://unionpathways.com/downpayment → "Down Payment Calculator..."');
+console.log('  - https://unionpathways.com/history-nnu → "NNU History — By the Bedside..."');
+console.log('  - https://unionpathways.com/weingarten  → "Weingarten Rights..."');
+console.log('');
