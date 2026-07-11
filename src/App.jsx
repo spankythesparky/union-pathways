@@ -2919,10 +2919,10 @@ function AdminPage() {
         </div>
 
         <div style={{display:"flex", gap:6, marginBottom:16}}>
-          <button onClick={() => { setAdminSection('jobs'); setEditingId(null); }} style={{flex:1, padding:"12px 16px", background: adminSection==='jobs' ? "#FF6B00" : "#94A3B8", color: adminSection==='jobs' ? "#000" : "#fff", border:"none", borderRadius:10, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:14, letterSpacing:1, cursor:"pointer"}}>
+          <button onClick={() => { setAdminSection('jobs'); setEditingId(null); }} style={{flex:1, padding:"12px 16px", background: adminSection==='jobs' ? "#FF6B00" : "#F1F5F9", color: adminSection==='jobs' ? "#000" : "#fff", border:"none", borderRadius:10, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:14, letterSpacing:1, cursor:"pointer"}}>
             JOB BOARD
           </button>
-          <button onClick={() => { setAdminSection('wages'); setEditingId(null); }} style={{flex:1, padding:"12px 16px", background: adminSection==='wages' ? "#FF6B00" : "#94A3B8", color: adminSection==='wages' ? "#000" : "#fff", border:"none", borderRadius:10, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:14, letterSpacing:1, cursor:"pointer"}}>
+          <button onClick={() => { setAdminSection('wages'); setEditingId(null); }} style={{flex:1, padding:"12px 16px", background: adminSection==='wages' ? "#FF6B00" : "#F1F5F9", color: adminSection==='wages' ? "#000" : "#fff", border:"none", borderRadius:10, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:14, letterSpacing:1, cursor:"pointer"}}>
             WAGES
           </button>
         </div>
@@ -6130,7 +6130,7 @@ export default function UnionPathway() {
         }
 
         /* ── QUIZ PAGE ── */
-        /* GET STARTED SWEEP */
+        /* GET STARTED SWEEP */ /* CALC INPUT FIX */
         .page { max-width: 1000px; margin: 0 auto; padding: 72px 40px 96px; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 
@@ -16689,7 +16689,7 @@ export default function UnionPathway() {
                           </div>
                         ))}
                         <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", padding:"16px 0 0", marginTop:8, borderTop:"2px solid #FF6B00"}}>
-                          <span style={{fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:900, color:"white"}}>{lang==="es" ? "COMPENSACION TOTAL" : lang==="pl" ? "CALKOWITE WYNAGRODZENIE" : "TOTAL COMPENSATION"}</span>
+                          <span style={{fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:900, color:"#072554"}}>{lang==="es" ? "COMPENSACION TOTAL" : lang==="pl" ? "CALKOWITE WYNAGRODZENIE" : "TOTAL COMPENSATION"}</span>
                           <span style={{fontFamily:"'Inter',sans-serif", fontSize:26, fontWeight:900, color:"#FF6B00"}}>$81.00/hr</span>
                         </div>
                         <div style={{fontSize:12, color:"#5A6478", marginTop:12, fontStyle:"italic"}}>
@@ -16849,10 +16849,10 @@ export default function UnionPathway() {
                           { model: lang==="es" ? "Modelo 2 — Escuela Diurna Sin Pago" : lang==="pl" ? "Model 2 — Szkola Dzienna Bez Wynagrodzenia" : "Model 2 — Unpaid Daytime School", highlight:false, tag: lang==="es" ? "Varia segun el local" : lang==="pl" ? "Rozni sie w zaleznosci od lokalu" : "Varies by local", desc: lang==="es" ? "Algunos locales envian a los aprendices a la escuela durante el dia, pero sin compensacion por el tiempo en el aula. Pierdes un dia de trabajo por semana para asistir a clase. Esto puede ser dificil financieramente al principio, especialmente para aprendices de primer ano con salarios mas bajos." : lang==="pl" ? "Niektore lokalne oddzialy wysylaja praktykantow do szkoly w ciagu dnia, ale nie ma wynagrodzenia za czas w sali lekcyjnej. Zasadniczo tracisz dzien pracy w tygodniu, aby chodzic na zajecia." : "Some locals send apprentices to school during the day, but there is no compensation for classroom time. You essentially lose a day of work per week to attend class. This can be financially tough early on, especially for first-year apprentices on lower wages." },
                           { model: lang==="es" ? "Modelo 3 — Escuela Nocturna Sin Pago" : lang==="pl" ? "Model 3 — Szkola Wieczorowa Bez Wynagrodzenia" : "Model 3 — Unpaid Evening School", highlight:false, tag: lang==="es" ? "El modelo mas comun en EE.UU." : lang==="pl" ? "Najpopularniejszy model w USA" : "Most common model across the US", desc: lang==="es" ? "El modelo mas prevalente. Los aprendices trabajan sus horas regulares durante el dia y luego van a la escuela por las noches — tipicamente una o dos noches por semana. Son dias largos, especialmente en invierno, pero permite mantener ingresos completos mientras se obtiene educacion." : lang==="pl" ? "Najbardziej rozpowszechniony model. Praktykanci pracuja swoje regularne godziny w ciagu dnia, a nastepnie chodza do szkoly wieczorami — zazwyczaj jedną lub dwie noce w tygodniu. To dlugie dni, szczegolnie zima." : "The most prevalent model. Apprentices work their regular hours during the day, then go to school in the evenings — typically one or two nights per week. There is no additional pay for school time. These are long days, especially in winter, but it allows you to maintain full work income while getting your education." },
                         ].map((m, i) => (
-                          <div key={i} style={{background: m.highlight ? "rgba(255,107,0,0.06)" : "#94A3B8", border: m.highlight ? "1px solid rgba(255,107,0,0.25)" : "1px solid #E5E7EB", borderRadius:16, padding:"24px"}}>
+                          <div key={i} style={{background: m.highlight ? "rgba(255,107,0,0.06)" : "#F1F5F9", border: m.highlight ? "1px solid rgba(255,107,0,0.25)" : "1px solid #E5E7EB", borderRadius:16, padding:"24px"}}>
                             <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:12, flexWrap:"wrap", gap:8}}>
                               <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color: m.highlight ? "#FF6B00" : "#fff"}}>{m.model}</div>
-                              <div style={{fontSize:12, fontWeight:700, color: m.highlight ? "#FF6B00" : "var(--muted)", background: m.highlight ? "rgba(255,107,0,0.1)" : "#94A3B8", borderRadius:50, padding:"4px 12px", letterSpacing:"0.06em", textTransform:"uppercase"}}>{m.tag}</div>
+                              <div style={{fontSize:12, fontWeight:700, color: m.highlight ? "#FF6B00" : "var(--muted)", background: m.highlight ? "rgba(255,107,0,0.1)" : "#F1F5F9", borderRadius:50, padding:"4px 12px", letterSpacing:"0.06em", textTransform:"uppercase"}}>{m.tag}</div>
                             </div>
                             <div style={{fontSize:14, color:"#5A6478", lineHeight:1.7}}>{m.desc}</div>
                           </div>
@@ -16987,7 +16987,7 @@ export default function UnionPathway() {
                     <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FF6B00", marginBottom:10}}>{lang==="es" ? "01 — Tu Oficio" : lang==="pl" ? "01 — Twoj Zawod" : "01 — Your Trade"}</div>
                     <div style={{display:"flex", flexWrap:"wrap", gap:8}}>
                       {Object.entries(WAGE_DATA).map(([key, val]) => (
-                        <button key={key} onClick={() => { setCalcTrade(key); setShowResults(false); }} style={{background: calcTrade===key ? "#FF6B00" : "#94A3B8", border: calcTrade===key ? "1px solid #FF6B00" : "1px solid #E5E7EB", borderRadius:50, padding:"8px 16px", color: calcTrade===key ? "#000" : "var(--muted)", fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.06em", textTransform:"uppercase", cursor:"pointer", transition:"all 0.15s"}}>
+                        <button key={key} onClick={() => { setCalcTrade(key); setShowResults(false); }} style={{background: calcTrade===key ? "#FF6B00" : "#F1F5F9", border: calcTrade===key ? "1px solid #FF6B00" : "1px solid #E5E7EB", borderRadius:50, padding:"8px 16px", color: calcTrade===key ? "#000" : "var(--muted)", fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.06em", textTransform:"uppercase", cursor:"pointer", transition:"all 0.15s"}}>
                           {key === "IBEW_I" ? "IBEW Inside" : key === "IBEW_L" ? "IBEW Lineman" : key === "UA" ? "UA Plumbers" : key === "BAC" ? "Bricklayers" : key === "IW" ? "Ironworkers" : key === "HFIAW" ? "Insulators" : key === "IUEC" ? "Elevators" : key === "IUOE" ? "Operating Engineers" : key}
                         </button>
                       ))}
@@ -16998,7 +16998,7 @@ export default function UnionPathway() {
                     <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FF6B00", marginBottom:10}}>{lang==="es" ? "02 — Ano / Nivel" : lang==="pl" ? "02 — Rok / Poziom" : "02 — Apprentice Year or Journeyman"}</div>
                     <div style={{display:"flex", flexWrap:"wrap", gap:8}}>
                       {["1","2","3","4","5","journeyman"].map(y => (
-                        <button key={y} onClick={() => { setCalcYear(y); setShowResults(false); }} style={{background: calcYear===y ? "#FF6B00" : "#94A3B8", border: calcYear===y ? "1px solid #FF6B00" : "1px solid #E5E7EB", borderRadius:50, padding:"8px 16px", color: calcYear===y ? "#000" : "var(--muted)", fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.06em", textTransform:"uppercase", cursor:"pointer", transition:"all 0.15s"}}>
+                        <button key={y} onClick={() => { setCalcYear(y); setShowResults(false); }} style={{background: calcYear===y ? "#FF6B00" : "#F1F5F9", border: calcYear===y ? "1px solid #FF6B00" : "1px solid #E5E7EB", borderRadius:50, padding:"8px 16px", color: calcYear===y ? "#000" : "var(--muted)", fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, letterSpacing:"0.06em", textTransform:"uppercase", cursor:"pointer", transition:"all 0.15s"}}>
                           {y === "journeyman" ? (lang==="es" ? "Oficial" : lang==="pl" ? "Czeladnik" : "Journeyman") : (lang==="es" ? "Ano "+y : lang==="pl" ? "Rok "+y : "Year "+y)}
                         </button>
                       ))}
@@ -17007,10 +17007,10 @@ export default function UnionPathway() {
 
                   <div style={{marginBottom:24}}>
                     <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FF6B00", marginBottom:10}}>{lang==="es" ? "03 — Tu Ciudad" : lang==="pl" ? "03 — Twoje Miasto" : "03 — Your City or Market"}</div>
-                    <input value={calcCity} onChange={e => handleCalcCity(e.target.value)} placeholder={lang==="es" ? "ej. Chicago, Cleveland, Phoenix..." : lang==="pl" ? "np. Chicago, Cleveland, Phoenix..." : "e.g. Chicago, Cleveland, Phoenix..."} style={{width:"100%", background:"#ffffff", border:"1px solid rgba(7,37,84,0.10)", borderRadius:10, padding:"12px 16px", fontSize:15, color:"white", outline:"none", boxSizing:"border-box", marginBottom:8}} />
+                    <input value={calcCity} onChange={e => handleCalcCity(e.target.value)} placeholder={lang==="es" ? "ej. Chicago, Cleveland, Phoenix..." : lang==="pl" ? "np. Chicago, Cleveland, Phoenix..." : "e.g. Chicago, Cleveland, Phoenix..."} style={{width:"100%", background:"#ffffff", border:"1px solid rgba(7,37,84,0.10)", borderRadius:10, padding:"12px 16px", fontSize:15, color:"#072554", outline:"none", boxSizing:"border-box", marginBottom:8}} />
                     <div style={{display:"flex", gap:8}}>
                       {[{label: lang==="es" ? "Metropoli" : lang==="pl" ? "Metropolia" : "Major Metro", t:1},{label: lang==="es" ? "Mercado Medio" : lang==="pl" ? "Sredni Rynek" : "Mid-Market", t:2},{label: lang==="es" ? "Mercado Menor" : lang==="pl" ? "Mniejszy Rynek" : "Smaller Market", t:3}].map(({label, t}) => (
-                        <button key={t} onClick={() => setCalcTier(t)} style={{background: calcTier===t ? "rgba(255,107,0,0.15)" : "#94A3B8", border: calcTier===t ? "1px solid rgba(255,107,0,0.4)" : "1px solid #E5E7EB", borderRadius:50, padding:"5px 12px", color: calcTier===t ? "#FF6B00" : "var(--muted)", fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.06em", textTransform:"uppercase", cursor:"pointer"}}>
+                        <button key={t} onClick={() => setCalcTier(t)} style={{background: calcTier===t ? "rgba(255,107,0,0.15)" : "#F1F5F9", border: calcTier===t ? "1px solid rgba(255,107,0,0.4)" : "1px solid #E5E7EB", borderRadius:50, padding:"5px 12px", color: calcTier===t ? "#FF6B00" : "var(--muted)", fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.06em", textTransform:"uppercase", cursor:"pointer"}}>
                           {label}
                         </button>
                       ))}
@@ -17021,7 +17021,7 @@ export default function UnionPathway() {
                   <div style={{marginBottom:24, paddingTop:24, borderTop:"1px solid #E5E7EB"}}>
                     <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#FF6B00", marginBottom:6}}>{lang==="es" ? "04 — Comparar Contra (Opcional)" : lang==="pl" ? "04 — Porownaj Z (Opcjonalne)" : "04 — Compare Against (Optional)"}</div>
                     <div style={{fontSize:12, color:"#5A6478", marginBottom:12, lineHeight:1.5}}>{lang==="es" ? "Elige un trabajo para ver una comparacion lado a lado de tu salario actual contra el sindicato." : lang==="pl" ? "Wybierz prace aby zobaczyc porownanie obecnej stawki ze stawka zwiazkowa." : "Pick a job to see a side-by-side of what you make now vs union."}</div>
-                    <select value={compareJob} onChange={e => { setCompareJob(e.target.value); setShowResults(false); }} style={{width:"100%", background:"#ffffff", border:"1px solid rgba(7,37,84,0.10)", borderRadius:10, padding:"12px 16px", fontSize:14, color:"white", outline:"none", marginBottom: compareJob === "custom" ? 12 : 0}}>
+                    <select value={compareJob} onChange={e => { setCompareJob(e.target.value); setShowResults(false); }} style={{width:"100%", background:"#ffffff", border:"1px solid rgba(7,37,84,0.10)", borderRadius:10, padding:"12px 16px", fontSize:14, color:"#072554", outline:"none", marginBottom: compareJob === "custom" ? 12 : 0}}>
                       <option value="">{lang==="es" ? "— Saltar comparacion —" : lang==="pl" ? "— Pomin porownanie —" : "— Skip comparison —"}</option>
                       {Object.entries(COMPARE_JOBS).map(([key, val]) => (
                         <option key={key} value={key}>{val.name[lang] || val.name.en}{key !== "custom" && val.hourly ? " ($" + val.hourly.toFixed(2) + "/hr)" : ""}</option>
@@ -17032,7 +17032,7 @@ export default function UnionPathway() {
                         <div style={{fontSize:12, color:"#5A6478", marginBottom:6}}>{lang==="es" ? "Tu salario por hora actual" : lang==="pl" ? "Twoja obecna stawka godzinowa" : "Your current hourly wage"}</div>
                         <div style={{display:"flex", alignItems:"center", gap:8}}>
                           <span style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:900, color:"#FF6B00"}}>$</span>
-                          <input type="number" min="0" step="0.50" value={compareCustomWage} onChange={e => { setCompareCustomWage(e.target.value); setShowResults(false); }} style={{flex:1, background:"#ffffff", border:"1px solid rgba(7,37,84,0.10)", borderRadius:10, padding:"10px 14px", fontSize:14, color:"white", outline:"none", boxSizing:"border-box"}} />
+                          <input type="number" min="0" step="0.50" value={compareCustomWage} onChange={e => { setCompareCustomWage(e.target.value); setShowResults(false); }} style={{flex:1, background:"#ffffff", border:"1px solid rgba(7,37,84,0.10)", borderRadius:10, padding:"10px 14px", fontSize:14, color:"#072554", outline:"none", boxSizing:"border-box"}} />
                           <span style={{fontSize:12, color:"#5A6478"}}>/hr</span>
                         </div>
                       </div>
