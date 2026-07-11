@@ -1,0 +1,23 @@
+# dependencies + build output
+node_modules/
+dist/
+.vercel
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# secrets
+.env
+.env.local
+
+# one-off patch scripts
+fix*.js
+
+# stale drafts / scratch
+*-page.jsx
+*_block.txt
+iupat_locals.js
+iupat_trade_entry.json
+geocode-locals.js
+*.zip
