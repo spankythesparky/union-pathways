@@ -5051,8 +5051,8 @@ export default function UnionPathway() {
         }
         .history-section-title {
           font-family: 'Inter', sans-serif;
-          font-size: 36px; font-weight: 900;
-          text-transform: uppercase; letter-spacing: -0.01em;
+          font-size: 32px; font-weight: 800;
+          text-transform: none; letter-spacing: -0.02em;
           color: #072554; margin-bottom: 8px;
         }
         .history-section-title .accent { color: #FF6B00; }
@@ -5115,17 +5115,17 @@ export default function UnionPathway() {
           gap: 20px; margin-top: 8px;
         }
         .impact-card {
-          background: #ffffff;
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(7,37,84,0.10);
-          border-radius: 20px;
+          background: #FFFFFF;
+          border: 1px solid rgba(7,37,84,0.08);
+          border-radius: 16px;
           padding: 28px 24px;
-          transition: border-color 0.2s, transform 0.2s;
+          box-shadow: 0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06);
+          transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
         }
         .impact-card:hover {
-          border-color: rgba(255,107,0,0.3);
+          border-color: rgba(255,107,0,0.35);
           transform: translateY(-3px);
-          box-shadow: 0 8px 32px rgba(255,107,0,0.1);
+          box-shadow: 0 6px 14px rgba(7,37,84,0.06), 0 20px 48px rgba(7,37,84,0.10);
         }
         .impact-icon {
           font-size: 36px; margin-bottom: 16px;
@@ -6130,21 +6130,32 @@ export default function UnionPathway() {
         }
 
         /* ── QUIZ PAGE ── */
-        .page { max-width: 700px; margin: 0 auto; padding: 48px 24px 80px; animation: fadeIn 0.3s ease; }
+        /* GET STARTED SWEEP */
+        .page { max-width: 1000px; margin: 0 auto; padding: 72px 40px 96px; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 
         .page-eyebrow {
           font-family: 'Inter', sans-serif;
-          font-size: 12px; font-weight: 700; letter-spacing: 0.2em;
+          font-size: 13px; font-weight: 600; letter-spacing: 0.14em;
           text-transform: uppercase; color: #FF6B00;
-          margin-bottom: 12px;
+          margin-bottom: 24px;
+          display: inline-flex; align-items: center; gap: 14px;
+        }
+        .page-eyebrow::before {
+          content: ''; width: 40px; height: 2px; background: #FF6B00;
         }
         .page-title {
           font-family: 'Inter', sans-serif;
-          font-size: clamp(36px, 6vw, 56px); font-weight: 900;
-          text-transform: uppercase; line-height: 1; margin-bottom: 16px;
+          font-size: clamp(40px, 5.5vw, 64px); font-weight: 800;
+          text-transform: none; line-height: 1.05;
+          letter-spacing: -0.025em; color: #072554;
+          margin-bottom: 24px; max-width: 900px;
         }
-        .page-sub { font-size: 16px; color: #5A6478; line-height: 1.6; margin-bottom: 40px; max-width: 560px; }
+        .page-title .accent { color: #FF6B00; }
+        .page-sub {
+          font-size: 19px; color: #5A6478; line-height: 1.6;
+          margin-bottom: 56px; max-width: 660px;
+        }
 
         .quiz-progress {
           display: flex; gap: 6px; margin-bottom: 32px;
@@ -6168,16 +6179,21 @@ export default function UnionPathway() {
 
         .quiz-options { display: flex; flex-direction: column; gap: 10px; }
         .quiz-option {
-          background: #ffffff;
-          border: 1.5px solid var(--wire);
-          border-radius: 10px;
-          padding: 16px 20px;
+          background: #FFFFFF;
+          border: 1px solid rgba(7,37,84,0.08);
+          border-radius: 14px;
+          padding: 20px 24px;
           text-align: left; cursor: pointer; color: #072554;
-          font-family: 'Barlow', sans-serif; font-size: 15px;
-          transition: border-color 0.15s, background 0.15s, transform 0.1s;
-          display: flex; align-items: center; gap: 12px;
+          font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500;
+          box-shadow: 0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06);
+          transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+          display: flex; align-items: center; gap: 14px;
         }
-        .quiz-option:hover { border-color: #FF6B00; background: rgba(255,107,0,0.05); transform: translateX(4px); }
+        .quiz-option:hover {
+          border-color: rgba(255,107,0,0.45);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 14px rgba(7,37,84,0.06), 0 20px 48px rgba(7,37,84,0.10);
+        }
         .quiz-option-num {
           font-family: 'Inter', sans-serif;
           font-size: 13px; font-weight: 800; color: #5A6478;
@@ -6188,9 +6204,11 @@ export default function UnionPathway() {
         .quiz-result { animation: fadeIn 0.4s ease; }
         .result-card {
           border-radius: 16px;
-          padding: 32px;
+          padding: 36px;
           margin-bottom: 24px;
-          border: 1px solid;
+          border: 1px solid rgba(7,37,84,0.08);
+          background: #FFFFFF !important;
+          box-shadow: 0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06);
         }
         .result-badge {
           font-family: 'Inter', sans-serif;
@@ -6200,8 +6218,9 @@ export default function UnionPathway() {
         }
         .result-title {
           font-family: 'Inter', sans-serif;
-          font-size: 36px; font-weight: 900;
-          text-transform: uppercase; margin-bottom: 16px;
+          font-size: 34px; font-weight: 800;
+          text-transform: none; letter-spacing: -0.02em;
+          color: #072554; margin-bottom: 16px;
         }
         .result-why { font-size: 15px; line-height: 1.7; color: #5A6478; margin-bottom: 24px; }
         .result-path { margin-bottom: 24px; }
@@ -6230,26 +6249,44 @@ export default function UnionPathway() {
         }
         .result-actions { display: flex; gap: 10px; flex-wrap: wrap; }
         .btn-primary {
-          background: var(--yellow); color: var(--steel);
+          background: #FF6B00; color: #FFFFFF;
           border: none; cursor: pointer; border-radius: 8px;
-          padding: 12px 24px;
-          font-family: 'Inter', sans-serif;
-          font-size: 14px; font-weight: 800;
-          letter-spacing: 0.06em; text-transform: uppercase;
-          text-decoration: none; display: inline-block;
-          transition: background 0.2s;
-        }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,107,0,0.5); }
-        .btn-ghost {
-          background: transparent; color: #5A6478;
-          border: 1.5px solid var(--wire); cursor: pointer;
-          border-radius: 8px; padding: 12px 24px;
+          padding: 14px 28px;
           font-family: 'Inter', sans-serif;
           font-size: 14px; font-weight: 700;
-          letter-spacing: 0.06em; text-transform: uppercase;
-          transition: border-color 0.2s, color 0.2s;
+          letter-spacing: 0.04em; text-transform: uppercase;
+          text-decoration: none; display: inline-block;
+          box-shadow: 0 2px 8px rgba(255,107,0,0.18);
+          transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
         }
-        .btn-ghost:hover { border-color: #FF6B00; color: #FF6B00; box-shadow: 0 0 20px rgba(255,107,0,0.15); }
+        .btn-primary:hover {
+          background: #FF7E1F; transform: translateY(-2px);
+          box-shadow: 0 10px 26px rgba(255,107,0,0.28);
+        }
+        .btn-ghost {
+          background: #FFFFFF; color: #072554;
+          border: 1.5px solid #E5E7EB; cursor: pointer;
+          border-radius: 8px; padding: 14px 28px;
+          font-family: 'Inter', sans-serif;
+          font-size: 14px; font-weight: 700;
+          letter-spacing: 0.04em; text-transform: uppercase;
+          transition: border-color 0.18s, color 0.18s, transform 0.18s, box-shadow 0.18s;
+        }
+        .btn-ghost:hover {
+          border-color: #FF6B00; color: #FF6B00;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(7,37,84,0.07);
+        }
+        .quiz-back {
+          margin-top: 20px;
+          background: transparent; border: none; cursor: pointer;
+          color: #64748B; font-family: 'Inter', sans-serif;
+          font-size: 13px; font-weight: 600;
+          letter-spacing: 0.04em;
+          padding: 8px 0;
+          transition: color 0.15s;
+        }
+        .quiz-back:hover { color: #FF6B00; }
 
         /* ── CAREER PATH PAGE ── */
         .career-stats {
@@ -6257,10 +6294,13 @@ export default function UnionPathway() {
           gap: 16px; margin-bottom: 48px;
         }
         .stat-card {
-          background: transparent;
-          border: 1px solid rgba(255,107,0,0.15);
-          border-radius: 12px; padding: 20px 24px;
+          background: #FFFFFF;
+          border: 1px solid rgba(7,37,84,0.08);
+          border-radius: 16px; padding: 26px 28px;
+          box-shadow: 0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06);
+          transition: transform 0.18s, box-shadow 0.18s;
         }
+        .stat-card:hover { transform: translateY(-3px); box-shadow: 0 6px 14px rgba(7,37,84,0.06), 0 20px 48px rgba(7,37,84,0.10); }
         .stat-num {
           font-family: 'Inter', sans-serif;
           font-size: 36px; font-weight: 900; color: #FF6B00;
@@ -6270,29 +6310,33 @@ export default function UnionPathway() {
 
         .section-title {
           font-family: 'Inter', sans-serif;
-          font-size: 22px; font-weight: 800;
-          text-transform: uppercase; letter-spacing: 0.05em;
-          margin-bottom: 20px;
-          display: flex; align-items: center; gap: 12px;
+          font-size: 28px; font-weight: 800;
+          text-transform: none; letter-spacing: -0.02em;
+          color: #072554;
+          margin: 64px 0 24px;
+          display: flex; align-items: center; gap: 16px;
         }
         .section-title::after {
-          content: ''; flex: 1; height: 1px; background: var(--wire);
+          content: ''; flex: 1; height: 1px; background: #E5E7EB;
         }
 
         .career-stages { margin-bottom: 48px; }
         .career-stage {
-          display: flex; gap: 20px;
-          padding: 22px 24px;
-          border: 1px solid #E5E7EB;
-          border-radius: 14px;
-          background: #ffffff;
-          margin-bottom: 12px;
+          display: flex; gap: 22px;
+          padding: 26px 28px;
+          border: 1px solid rgba(7,37,84,0.08);
+          border-left: 3px solid transparent;
+          border-radius: 16px;
+          background: #FFFFFF;
+          margin-bottom: 14px;
           align-items: flex-start;
-          transition: border-color 0.2s, background 0.2s;
+          box-shadow: 0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06);
+          transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
         }
         .career-stage:hover {
-          background: rgba(255,107,0,0.04);
-          border-color: rgba(255,107,0,0.2);
+          border-left-color: #FF6B00;
+          transform: translateY(-3px);
+          box-shadow: 0 6px 14px rgba(7,37,84,0.06), 0 20px 48px rgba(7,37,84,0.10);
         }
         .stage-icon {
           min-width: 44px; height: 44px;
@@ -6311,7 +6355,8 @@ export default function UnionPathway() {
         }
         .stage-name {
           font-family: 'Inter', sans-serif;
-          font-size: 20px; font-weight: 800; text-transform: uppercase;
+          font-size: 21px; font-weight: 800; text-transform: none;
+          letter-spacing: -0.01em; color: #072554;
         }
         .stage-years { font-size: 12px; color: #5A6478; text-transform: uppercase; letter-spacing: 0.1em; }
         .stage-pay {
@@ -6326,14 +6371,16 @@ export default function UnionPathway() {
           gap: 14px; margin-bottom: 40px;
         }
         .benefit-card {
-          background: #ffffff;
-          border: 1px solid #E5E7EB;
-          border-radius: 14px; padding: 24px 20px;
-          transition: border-color 0.2s, background 0.2s;
+          background: #FFFFFF;
+          border: 1px solid rgba(7,37,84,0.08);
+          border-radius: 16px; padding: 28px 24px;
+          box-shadow: 0 2px 6px rgba(7,37,84,0.04), 0 12px 32px rgba(7,37,84,0.06);
+          transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
         }
         .benefit-card:hover {
-          background: rgba(255,107,0,0.04);
-          border-color: rgba(255,107,0,0.2);
+          border-color: rgba(255,107,0,0.35);
+          transform: translateY(-3px);
+          box-shadow: 0 6px 14px rgba(7,37,84,0.06), 0 20px 48px rgba(7,37,84,0.10);
         }
         .benefit-icon {
           width: 36px; height: 36px;
@@ -6347,23 +6394,28 @@ export default function UnionPathway() {
         }
         .benefit-label {
           font-family: 'Inter', sans-serif;
-          font-size: 15px; font-weight: 800;
-          text-transform: uppercase; margin-bottom: 6px;
+          font-size: 16px; font-weight: 700;
+          text-transform: none; color: #072554; margin-bottom: 8px;
         }
         .benefit-desc { font-size: 13px; color: #5A6478; line-height: 1.5; }
 
         .cta-banner {
-          background: #ffffff;
-          border: 1px solid rgba(255,107,0,0.25);
-          border-radius: 14px; padding: 28px;
-          text-align: center; margin-top: 16px;
+          background: #072554;
+          border: none;
+          border-radius: 20px; padding: 48px 40px;
+          text-align: center; margin-top: 64px;
+          box-shadow: 0 20px 48px rgba(7,37,84,0.18);
         }
         .cta-banner h3 {
           font-family: 'Inter', sans-serif;
-          font-size: 24px; font-weight: 900;
-          text-transform: uppercase; margin-bottom: 10px;
+          font-size: 32px; font-weight: 800;
+          text-transform: none; letter-spacing: -0.02em;
+          color: #FFFFFF; margin-bottom: 12px;
         }
-        .cta-banner p { color: #5A6478; font-size: 14px; margin-bottom: 20px; }
+        .cta-banner p {
+          color: rgba(255,255,255,0.72); font-size: 16px;
+          margin: 0 auto 28px; max-width: 480px; line-height: 1.6;
+        }
 
         /* ── CHECKLIST PAGE ── */
         .checklist-intro {
@@ -7133,6 +7185,11 @@ export default function UnionPathway() {
                     </button>
                   ))}
                 </div>
+                {quizStep > 0 && (
+                  <button className="quiz-back" onClick={() => { setQuizAnswers(a => a.slice(0, -1)); setQuizStep(s => s - 1); }}>
+                    {lang==="es" ? "\u2190 Pregunta anterior" : lang==="pl" ? "\u2190 Poprzednie pytanie" : "\u2190 Previous question"}
+                  </button>
+                )}
               </>
             ) : (
               <div className="quiz-result">
@@ -14284,26 +14341,26 @@ export default function UnionPathway() {
           const renderSection = (label) => (
             <div style={{display:'flex', alignItems:'center', gap:12, marginBottom:20}}>
               <div style={{...monoFont, fontSize:11, fontWeight:700, color:'#FF6B00', letterSpacing:'0.35em'}}>{label}</div>
-              <div style={{flex:1, height:1, background:'rgba(255,255,255,0.1)'}} />
+              <div style={{flex:1, height:1, background:'#F8FAFC'}} />
             </div>
           );
 
           // Reusable inline-style helper for a stat card. Same idea — JSX
           // expression, not a component definition.
           const renderStat = (tag, label, value, dim, accent) => (
-            <div style={{padding:20, background: accent ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.3)'}}>
-              <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', marginBottom:8, color: accent ? '#FF6B00' : 'rgba(255,255,255,0.4)'}}>{tag}</div>
-              <div style={{...displayFont, fontSize:32, marginBottom:4, color: dim ? 'rgba(255,255,255,0.5)' : '#fff'}}>{value}</div>
-              <div style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)'}}>{label}</div>
+            <div style={{padding:20, background: accent ? '#94A3B8' : 'rgba(0,0,0,0.3)'}}>
+              <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', marginBottom:8, color: accent ? '#FF6B00' : '#94A3B8'}}>{tag}</div>
+              <div style={{...displayFont, fontSize:32, marginBottom:4, color: dim ? '#64748B' : '#fff'}}>{value}</div>
+              <div style={{...monoFont, fontSize:11, color:'#94A3B8'}}>{label}</div>
             </div>
           );
 
           return (
-            <div style={{minHeight:'100vh', background:'#0F1620', position:'relative', overflow:'hidden'}}>
+            <div style={{minHeight:'100vh', background:'#FFFFFF', position:'relative', overflow:'hidden'}}>
               {/* blueprint grid background */}
               <div style={{
                 position:'fixed', inset:0, opacity:0.04, pointerEvents:'none',
-                backgroundImage:'linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)',
+                backgroundImage:'linear-gradient(to right, rgba(7,37,84,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(7,37,84,0.06) 1px, transparent 1px)',
                 backgroundSize:'32px 32px'
               }} />
               {/* corner glow */}
@@ -14315,7 +14372,7 @@ export default function UnionPathway() {
 
               <div style={{position:'relative', maxWidth:760, margin:'0 auto', padding:'40px 24px 80px'}}>
                 {/* breadcrumb */}
-                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:12, color:'rgba(160,180,196,0.85)', fontFamily:"'Inter',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700, marginBottom:32}}>
+                <div onClick={() => setPage('apprenticeship')} style={{display:'inline-flex', alignItems:'center', gap:6, cursor:'pointer', fontSize:12, color:'#64748B', fontFamily:"'Inter',sans-serif", letterSpacing:1.5, textTransform:'uppercase', fontWeight:700, marginBottom:32}}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
                   Apprenticeship
                 </div>
@@ -14329,7 +14386,7 @@ export default function UnionPathway() {
                   <h1 style={{...displayFont, fontSize:'clamp(48px, 9vw, 96px)', lineHeight:0.9, marginBottom:18, color:'#072554', margin:0}}>
                     THE DOWN<br/>PAYMENT<br/><span style={{color:'#FF6B00'}}>CALCULATOR.</span>
                   </h1>
-                  <p style={{fontSize:15, color:'rgba(255,255,255,0.6)', lineHeight:1.55, maxWidth:540, marginTop:18}}>
+                  <p style={{fontSize:15, color:'#64748B', lineHeight:1.55, maxWidth:540, marginTop:18}}>
                     For fifth-year apprentices about to make journeyman. Before you buy the truck — run the numbers.
                   </p>
                 </div>
@@ -14339,10 +14396,10 @@ export default function UnionPathway() {
                   {renderSection("01 · INPUTS")}
 
                   {/* Journeyman hourly rate */}
-                  <div style={{borderBottom:'1px solid rgba(255,255,255,0.08)', paddingBottom:16, marginBottom:16}}>
-                    <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'rgba(255,255,255,0.6)', textTransform:'uppercase', marginBottom:8}}>Journeyman hourly rate</label>
+                  <div style={{borderBottom:'1px solid #E5E7EB', paddingBottom:16, marginBottom:16}}>
+                    <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'#64748B', textTransform:'uppercase', marginBottom:8}}>Journeyman hourly rate</label>
                     <div style={{display:'flex', alignItems:'baseline', gap:8}}>
-                      <span style={{...monoFont, fontSize:24, color:'rgba(255,255,255,0.4)'}}>$</span>
+                      <span style={{...monoFont, fontSize:24, color:'#94A3B8'}}>$</span>
                       <input
                         type="number"
                         inputMode="decimal"
@@ -14351,13 +14408,13 @@ export default function UnionPathway() {
                         onChange={(e) => setHourlyWage(parseFloat(e.target.value) || 0)}
                         style={{...monoFont, background:'transparent', fontSize:32, color:'#072554', width:'100%', border:'none', outline:'none'}}
                       />
-                      <span style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>/ HR</span>
+                      <span style={{...monoFont, fontSize:11, color:'#94A3B8', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>/ HR</span>
                     </div>
                   </div>
 
                   {/* Apprentice % of scale */}
-                  <div style={{borderBottom:'1px solid rgba(255,255,255,0.08)', paddingBottom:16, marginBottom:16}}>
-                    <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'rgba(255,255,255,0.6)', textTransform:'uppercase', marginBottom:8}}>Apprentice % of scale</label>
+                  <div style={{borderBottom:'1px solid #E5E7EB', paddingBottom:16, marginBottom:16}}>
+                    <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'#64748B', textTransform:'uppercase', marginBottom:8}}>Apprentice % of scale</label>
                     <div style={{display:'flex', alignItems:'baseline', gap:8}}>
                       <input
                         type="number"
@@ -14367,13 +14424,13 @@ export default function UnionPathway() {
                         onChange={(e) => setApprenticePercent(parseFloat(e.target.value) || 0)}
                         style={{...monoFont, background:'transparent', fontSize:32, color:'#072554', width:'100%', border:'none', outline:'none'}}
                       />
-                      <span style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>%</span>
+                      <span style={{...monoFont, fontSize:11, color:'#94A3B8', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>%</span>
                     </div>
                   </div>
 
                   {/* Apprentice hrs / week */}
-                  <div style={{borderBottom:'1px solid rgba(255,255,255,0.08)', paddingBottom:16, marginBottom:16}}>
-                    <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'rgba(255,255,255,0.6)', textTransform:'uppercase', marginBottom:8}}>Apprentice hrs / week</label>
+                  <div style={{borderBottom:'1px solid #E5E7EB', paddingBottom:16, marginBottom:16}}>
+                    <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'#64748B', textTransform:'uppercase', marginBottom:8}}>Apprentice hrs / week</label>
                     <div style={{display:'flex', alignItems:'baseline', gap:8}}>
                       <input
                         type="number"
@@ -14383,13 +14440,13 @@ export default function UnionPathway() {
                         onChange={(e) => setApprenticeHours(parseFloat(e.target.value) || 0)}
                         style={{...monoFont, background:'transparent', fontSize:32, color:'#072554', width:'100%', border:'none', outline:'none'}}
                       />
-                      <span style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>HRS</span>
+                      <span style={{...monoFont, fontSize:11, color:'#94A3B8', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>HRS</span>
                     </div>
                   </div>
 
                   {/* Journeyman hrs / week */}
-                  <div style={{borderBottom:'1px solid rgba(255,255,255,0.08)', paddingBottom:16, marginBottom:16}}>
-                    <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'rgba(255,255,255,0.6)', textTransform:'uppercase', marginBottom:8}}>Journeyman hrs / week</label>
+                  <div style={{borderBottom:'1px solid #E5E7EB', paddingBottom:16, marginBottom:16}}>
+                    <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'#64748B', textTransform:'uppercase', marginBottom:8}}>Journeyman hrs / week</label>
                     <div style={{display:'flex', alignItems:'baseline', gap:8}}>
                       <input
                         type="number"
@@ -14399,13 +14456,13 @@ export default function UnionPathway() {
                         onChange={(e) => setJourneymanHours(parseFloat(e.target.value) || 0)}
                         style={{...monoFont, background:'transparent', fontSize:32, color:'#072554', width:'100%', border:'none', outline:'none'}}
                       />
-                      <span style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>HRS</span>
+                      <span style={{...monoFont, fontSize:11, color:'#94A3B8', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>HRS</span>
                     </div>
                   </div>
 
                   {/* Years of discipline */}
-                  <div style={{borderBottom:'1px solid rgba(255,255,255,0.08)', paddingBottom:16, marginBottom:16}}>
-                    <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'rgba(255,255,255,0.6)', textTransform:'uppercase', marginBottom:8}}>Years of discipline</label>
+                  <div style={{borderBottom:'1px solid #E5E7EB', paddingBottom:16, marginBottom:16}}>
+                    <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'#64748B', textTransform:'uppercase', marginBottom:8}}>Years of discipline</label>
                     <div style={{display:'flex', alignItems:'baseline', gap:8}}>
                       <input
                         type="number"
@@ -14415,7 +14472,7 @@ export default function UnionPathway() {
                         onChange={(e) => setYears(parseFloat(e.target.value) || 0)}
                         style={{...monoFont, background:'transparent', fontSize:32, color:'#072554', width:'100%', border:'none', outline:'none'}}
                       />
-                      <span style={{...monoFont, fontSize:11, color:'rgba(255,255,255,0.4)', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>YRS</span>
+                      <span style={{...monoFont, fontSize:11, color:'#94A3B8', letterSpacing:'0.1em', whiteSpace:'nowrap'}}>YRS</span>
                     </div>
                   </div>
                 </div>
@@ -14423,7 +14480,7 @@ export default function UnionPathway() {
                 {/* THE RAISE */}
                 <div style={{marginBottom:40}}>
                   {renderSection("02 · THE RAISE")}
-                  <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:1, background:'rgba(255,255,255,0.08)', marginBottom:24}}>
+                  <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:1, background:'#F8FAFC', marginBottom:24}}>
                     {renderStat("NOW", "Apprentice / yr", fmt(apprenticeAnnual), true, false)}
                     {renderStat("AFTER", "Journeyman / yr", fmt(journeymanAnnual), false, true)}
                   </div>
@@ -14431,22 +14488,22 @@ export default function UnionPathway() {
                     <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'#FF6B00', marginBottom:8}}>GROSS RAISE</div>
                     <div style={{display:'flex', alignItems:'baseline', gap:14, flexWrap:'wrap'}}>
                       <div style={{...displayFont, fontSize:'clamp(48px, 8vw, 64px)', color:'#FF6B00'}}>{fmt(annualRaise)}</div>
-                      <div style={{fontSize:14, color:'rgba(255,255,255,0.5)'}}>/ year</div>
+                      <div style={{fontSize:14, color:'#64748B'}}>/ year</div>
                     </div>
-                    <div style={{...monoFont, marginTop:8, fontSize:13, color:'rgba(255,255,255,0.5)'}}>≈ {fmt(monthlyRaise)} / month</div>
+                    <div style={{...monoFont, marginTop:8, fontSize:13, color:'#64748B'}}>≈ {fmt(monthlyRaise)} / month</div>
                   </div>
                 </div>
 
                 {/* THE PLAY */}
                 <div style={{marginBottom:40}}>
                   {renderSection("03 · THE PLAY")}
-                  <div style={{border:'1px solid rgba(255,255,255,0.1)', background:'rgba(255,255,255,0.02)', padding:28}}>
-                    <p style={{fontSize:15, lineHeight:1.65, color:'rgba(255,255,255,0.85)', marginBottom:24, marginTop:0}}>
+                  <div style={{border:'1px solid #E5E7EB', background:'#F8FAFC', padding:28}}>
+                    <p style={{fontSize:15, lineHeight:1.65, color:'#072554', marginBottom:24, marginTop:0}}>
                       Keep living like a fifth-year apprentice. Don't upgrade the truck. Don't upgrade everything. Save the entire raise for{' '}
                       <span style={{...monoFont, color:'#FF6B00'}}>{years} years</span>.
                     </p>
-                    <div style={{borderTop:'1px solid rgba(255,255,255,0.08)', paddingTop:24}}>
-                      <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'rgba(255,255,255,0.5)', marginBottom:10}}>TOTAL SAVED</div>
+                    <div style={{borderTop:'1px solid #E5E7EB', paddingTop:24}}>
+                      <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'#64748B', marginBottom:10}}>TOTAL SAVED</div>
                       <div style={{...displayFont, fontSize:'clamp(64px, 14vw, 112px)', lineHeight:1, color:'#072554'}}>{fmt(totalSaved)}</div>
                     </div>
                   </div>
@@ -14457,10 +14514,10 @@ export default function UnionPathway() {
                   {renderSection("04 · THE HOUSE")}
 
                   {/* Target home price */}
-                  <div style={{borderBottom:'1px solid rgba(255,255,255,0.08)', paddingBottom:16, marginBottom:16}}>
-                    <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'rgba(255,255,255,0.6)', textTransform:'uppercase', marginBottom:8}}>Target home price</label>
+                  <div style={{borderBottom:'1px solid #E5E7EB', paddingBottom:16, marginBottom:16}}>
+                    <label style={{...monoFont, display:'block', fontSize:11, fontWeight:600, letterSpacing:'0.2em', color:'#64748B', textTransform:'uppercase', marginBottom:8}}>Target home price</label>
                     <div style={{display:'flex', alignItems:'baseline', gap:8}}>
-                      <span style={{...monoFont, fontSize:24, color:'rgba(255,255,255,0.4)'}}>$</span>
+                      <span style={{...monoFont, fontSize:24, color:'#94A3B8'}}>$</span>
                       <input
                         type="number"
                         inputMode="decimal"
@@ -14472,22 +14529,22 @@ export default function UnionPathway() {
                     </div>
                   </div>
 
-                  <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))', gap:1, background:'rgba(255,255,255,0.08)', marginTop:20}}>
-                    <div style={{padding:24, background:'#0F1620'}}>
-                      <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'rgba(255,255,255,0.5)', marginBottom:8}}>YOUR DOWN PAYMENT</div>
+                  <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(220px, 1fr))', gap:1, background:'#F8FAFC', marginTop:20}}>
+                    <div style={{padding:24, background:'#FFFFFF'}}>
+                      <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'#64748B', marginBottom:8}}>YOUR DOWN PAYMENT</div>
                       <div style={{...displayFont, fontSize:48, marginBottom:6, color:'#072554'}}>{pctOfHome.toFixed(1)}%</div>
-                      <div style={{...monoFont, fontSize:13, color:'rgba(255,255,255,0.5)'}}>of {fmt(homePrice)}</div>
+                      <div style={{...monoFont, fontSize:13, color:'#64748B'}}>of {fmt(homePrice)}</div>
                     </div>
-                    <div style={{padding:24, background:'#0F1620'}}>
+                    <div style={{padding:24, background:'#FFFFFF'}}>
                       <div style={{...monoFont, fontSize:10, fontWeight:700, letterSpacing:'0.3em', color:'#FF6B00', marginBottom:8}}>OR · 20% DOWN BUYS</div>
                       <div style={{...displayFont, fontSize:48, marginBottom:6, color:'#FF6B00'}}>{fmt(homeAt20Down)}</div>
-                      <div style={{...monoFont, fontSize:13, color:'rgba(255,255,255,0.5)'}}>home value</div>
+                      <div style={{...monoFont, fontSize:13, color:'#64748B'}}>home value</div>
                     </div>
                   </div>
                 </div>
 
                 {/* Footer */}
-                <div style={{marginTop:48, paddingTop:24, borderTop:'1px solid rgba(255,255,255,0.08)', ...monoFont, fontSize:11, lineHeight:1.65, color:'rgba(255,255,255,0.4)'}}>
+                <div style={{marginTop:48, paddingTop:24, borderTop:'1px solid #E5E7EB', ...monoFont, fontSize:11, lineHeight:1.65, color:'#94A3B8'}}>
                   GROSS FIGURES · TAXES & WITHHOLDING NOT INCLUDED · ASSUMES 52 WORK WEEKS<br/>
                   DISCIPLINE NOT INCLUDED — BRING YOUR OWN.
                 </div>
