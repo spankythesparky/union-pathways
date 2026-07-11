@@ -6130,7 +6130,7 @@ export default function UnionPathway() {
         }
 
         /* ── QUIZ PAGE ── */
-        /* GET STARTED SWEEP */ /* CALC INPUT FIX */ /* DARK CONTAINER FIX */ /* MEMBERSHIP SWEEP */ /* INVISIBLE TITLE FIX */
+        /* GET STARTED SWEEP */ /* CALC INPUT FIX */ /* DARK CONTAINER FIX */ /* MEMBERSHIP SWEEP */ /* INVISIBLE TITLE FIX */ /* RESOURCES SWEEP */
         .page { max-width: 1000px; margin: 0 auto; padding: 72px 40px 96px; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 
@@ -8050,7 +8050,7 @@ export default function UnionPathway() {
                       { label: lang==="es" ? "Salario Oficial" : lang==="pl" ? "Wynagrodzenie Czeladnika" : "Journeyman Pay", val: "$35–$75/hr+" },
                       { label: lang==="es" ? "Por qué es #1" : lang==="pl" ? "Dlaczego #1" : "Why It's #1", val: lang==="es" ? "Es el pipeline real. Sin intermediarios." : lang==="pl" ? "To prawdziwy pipeline. Bez pośredników." : "It's the actual pipeline. No middleman." },
                     ].map((item, i) => (
-                      <div key={i} style={{background:"#F5F7FA", borderRadius:"10px", padding:"12px 16px"}}>
+                      <div key={i} style={{background:"#F8FAFC", borderRadius:"10px", padding:"12px 16px"}}>
                         <div style={{fontSize:"11px", fontWeight:"700", letterSpacing:"0.08em", textTransform:"uppercase", color:"#FF6B00", marginBottom:"4px"}}>{item.label}</div>
                         <div style={{fontSize:"13px", color:"#5A6478", lineHeight:"1.5"}}>{item.val}</div>
                       </div>
@@ -8074,7 +8074,7 @@ export default function UnionPathway() {
                       { label: lang==="es" ? "Qué Hacen" : lang==="pl" ? "Co Robią" : "What They Do", val: lang==="es" ? "Enseñan habilidades básicas, ayudan a pasar pruebas de ingreso, a veces dan entrada directa" : lang==="pl" ? "Uczą podstawowych umiejętności, pomagają zdać testy wstępne, czasem dają bezpośrednie wejście" : "Teach basic skills, help you pass entry tests, sometimes give direct entry or priority" },
                       { label: lang==="es" ? "Quién las Ofrece" : lang==="pl" ? "Kto Je Oferuje" : "Who Offers Them", val: lang==="es" ? "Colegios comunitarios, organizaciones sin fines de lucro, centros de formación sindicales" : lang==="pl" ? "Community college, organizacje non-profit, związkowe centra szkoleniowe" : "Community colleges, nonprofits, union training centers" },
                     ].map((item, i) => (
-                      <div key={i} style={{background:"#F5F7FA", borderRadius:"10px", padding:"12px 16px"}}>
+                      <div key={i} style={{background:"#F8FAFC", borderRadius:"10px", padding:"12px 16px"}}>
                         <div style={{fontSize:"11px", fontWeight:"700", letterSpacing:"0.08em", textTransform:"uppercase", color:"#64748B", marginBottom:"4px"}}>{item.label}</div>
                         <div style={{fontSize:"13px", color:"#5A6478", lineHeight:"1.5"}}>{item.val}</div>
                       </div>
@@ -12587,11 +12587,11 @@ export default function UnionPathway() {
             };
 
             return (
-              <div style={{position:'relative', minHeight:'100vh', background:'#0A0A0A', color:'#072554'}}>
+              <div style={{position:'relative', minHeight:'100vh', background:'#FFFFFF', color:'#072554'}}>
                 {/* SUBTLE GRID BG */}
                 <div style={{
                   position:'fixed', inset:0,
-                  backgroundImage:'linear-gradient(#94A3B8 1px, transparent 1px), linear-gradient(90deg, #94A3B8 1px, transparent 1px)',
+                  backgroundImage:'linear-gradient(rgba(7,37,84,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(7,37,84,0.05) 1px, transparent 1px)',
                   backgroundSize:'48px 48px',
                   pointerEvents:'none', zIndex:0
                 }} />
@@ -12660,7 +12660,7 @@ export default function UnionPathway() {
                         <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:ACCENT, letterSpacing:3, textTransform:'uppercase'}}>A Field Guide for Members</div>
                       </div>
                       <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(48px, 9vw, 112px)', fontWeight:900, color:'#072554', lineHeight:0.92, margin:'0 0 28px 0', letterSpacing:'-0.01em', textTransform:'uppercase'}}>
-                        How to form<br/>a <span style={{color:ACCENT, fontStyle:'italic', fontWeight:600}}>union caucus.</span>
+                        How to form<br/>a <span style={{color:ACCENT, fontWeight:600}}>union caucus.</span>
                       </h1>
                       <p style={{fontSize:'clamp(17px, 1.6vw, 19px)', color:'#072554', lineHeight:1.65, maxWidth:680, margin:0}}>
                         Every reform victory in modern American labor began the same way: a few members talking quietly in a break room, deciding their union could be better, and getting organized to make it happen. This is how that work is done.
@@ -12711,7 +12711,7 @@ export default function UnionPathway() {
                           { abbr:'UAWD', year:'2019', name:'Unite All Workers for Democracy', win:'Won direct elections of UAW officers and helped elect Shawn Fain, who led the successful 2023 Stand Up Strike against the Big Three automakers.' },
                           { abbr:'MORE', year:'2012', name:'MORE Caucus (UFT)', win:'A reform caucus inside the United Federation of Teachers in New York City, organizing for transparency and stronger member power.' },
                         ].map((c, i) => (
-                          <div key={i} style={{padding:'28px 26px', background:'#0F0F0F'}}>
+                          <div key={i} style={{padding:'28px 26px', background:'#F8FAFC'}}>
                             <div style={{display:'flex', alignItems:'baseline', justifyContent:'space-between', marginBottom:14}}>
                               <div style={{fontFamily:"'Inter',sans-serif", fontSize:32, fontWeight:900, color:ACCENT, lineHeight:1, letterSpacing:'0.02em'}}>{c.abbr}</div>
                               <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:700, color:'#94A3B8', letterSpacing:2}}>{c.year}</div>
@@ -12778,7 +12778,7 @@ export default function UnionPathway() {
                           'Track your contacts. Most caucuses use a spreadsheet, database, or organizing app like Action Network or Action Builder. The list is the caucus.'
                         ],
                         // Recruitment flow visual
-                        <div style={{margin:'32px 0 8px 0', padding:'28px 24px', background:'rgba(220,38,38,0.04)', border:'1px solid rgba(220,38,38,0.18)'}}>
+                        <div style={{margin:'32px 0 8px 0', padding:'28px 24px', background:'rgba(255,107,0,0.04)', border:'1px solid rgba(255,107,0,0.18)'}}>
                           <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:ACCENT, letterSpacing:2.5, textTransform:'uppercase', marginBottom:20}}>The Recruitment Flow</div>
                           <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:0}}>
                             {[
@@ -12855,8 +12855,8 @@ export default function UnionPathway() {
                             style={{
                               display:'flex', alignItems:'center', gap:18, width:'100%',
                               padding:'16px 20px',
-                              background: checked[i] ? 'rgba(220,38,38,0.08)' : '#94A3B8',
-                              border: '1px solid ' + (checked[i] ? 'rgba(220,38,38,0.3)' : '#94A3B8'),
+                              background: checked[i] ? 'rgba(255,107,0,0.08)' : '#F1F5F9',
+                              border: '1px solid ' + (checked[i] ? 'rgba(255,107,0,0.35)' : '#E5E7EB'),
                               marginBottom: 6, cursor:'pointer', textAlign:'left',
                               transition:'all 0.18s'
                             }}
@@ -12871,7 +12871,7 @@ export default function UnionPathway() {
                               transition:'all 0.18s'
                             }}>
                               {checked[i] && (
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                               )}
                             </div>
                             <div style={{fontFamily:"'Inter',sans-serif", fontSize:15, fontWeight:700, color: checked[i] ? ACCENT : '#94A3B8', letterSpacing:1.5, minWidth:32}}>{s.num}</div>
@@ -12880,7 +12880,7 @@ export default function UnionPathway() {
                         ))}
                       </div>
                       {checkedCount === 10 && (
-                        <div style={{marginTop:32, padding:'28px 32px', background:'rgba(220,38,38,0.1)', border:'1px solid ' + ACCENT, textAlign:'center'}}>
+                        <div style={{marginTop:32, padding:'28px 32px', background:'rgba(255,107,0,0.1)', border:'1px solid ' + ACCENT, textAlign:'center'}}>
                           <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 38px)', fontWeight:900, color:'#072554', textTransform:'uppercase', marginBottom:8, lineHeight:1.1}}>You're not done. You're started.</div>
                           <div style={{fontSize:14, color:'#64748B', lineHeight:1.6}}>Caucus building is a years-long project. Cycle the checklist back to the top and run it again with the next campaign.</div>
                         </div>
@@ -12949,13 +12949,13 @@ export default function UnionPathway() {
 
         {page === "mental-health" && (() => {
           const MentalHealthPage = () => {
-            const TEAL = '#14B8A6';
-            const TEAL_DIM = 'rgba(20,184,166,0.5)';
-            const TEAL_GLOW = 'rgba(20,184,166,0.15)';
+            const TEAL = '#FF6B00';
+            const TEAL_DIM = 'rgba(255,107,0,0.5)';
+            const TEAL_GLOW = 'rgba(255,107,0,0.15)';
 
             return (
-              <div style={{position:'relative', minHeight:'100vh', background:'#0A0F0F', color:'#072554'}}>
-                <div style={{position:'fixed', inset:0, backgroundImage:'linear-gradient(#94A3B8 1px, transparent 1px), linear-gradient(90deg, #94A3B8 1px, transparent 1px)', backgroundSize:'48px 48px', pointerEvents:'none', zIndex:0}} />
+              <div style={{position:'relative', minHeight:'100vh', background:'#FFFFFF', color:'#072554'}}>
+                <div style={{position:'fixed', inset:0, backgroundImage:'linear-gradient(rgba(7,37,84,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(7,37,84,0.05) 1px, transparent 1px)', backgroundSize:'48px 48px', pointerEvents:'none', zIndex:0}} />
                 <div style={{position:'fixed', top:-200, right:-200, width:600, height:600, background: 'radial-gradient(circle, ' + TEAL_GLOW + ' 0%, transparent 70%)', filter:'blur(40px)', pointerEvents:'none', zIndex:0}} />
 
                 <div style={{position:'relative', zIndex:1, maxWidth:880, margin:'0 auto', padding:'24px 24px 80px'}}>
@@ -12982,38 +12982,38 @@ export default function UnionPathway() {
 
                   {/* CRISIS RESOURCES — TOP OF PAGE */}
                   <section style={{padding:'40px 0', borderBottom:'1px solid #E5E7EB'}}>
-                    <div style={{padding:'32px 28px', background:'rgba(20,184,166,0.06)', border:'2px solid ' + TEAL, borderRadius:4}}>
+                    <div style={{padding:'32px 28px', background:'rgba(255,107,0,0.06)', border:'2px solid ' + TEAL, borderRadius:4}}>
                       <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:3, textTransform:'uppercase', marginBottom:14}}>If You Need Help Right Now</div>
                       <h2 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 40px)', fontWeight:900, color:'#072554', margin:'0 0 24px 0', lineHeight:1.05, textTransform:'uppercase'}}>You can talk to someone right now. Free. Confidential.</h2>
 
                       <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(260px, 1fr))', gap:14}}>
-                        <a href="tel:988" style={{display:'block', padding:'20px 22px', background:'#0A0F0F', border:'1px solid ' + TEAL_DIM, textDecoration:'none', transition:'all 0.18s'}}
-                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(20,184,166,0.08)'; e.currentTarget.style.borderColor = TEAL; }}
-                          onMouseLeave={e => { e.currentTarget.style.background = '#0A0F0F'; e.currentTarget.style.borderColor = TEAL_DIM; }}>
+                        <a href="tel:988" style={{display:'block', padding:'20px 22px', background:'#FFFFFF', border:'1px solid ' + TEAL_DIM, textDecoration:'none', transition:'all 0.18s'}}
+                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,107,0,0.08)'; e.currentTarget.style.borderColor = TEAL; }}
+                          onMouseLeave={e => { e.currentTarget.style.background = '#FFFFFF'; e.currentTarget.style.borderColor = TEAL_DIM; }}>
                           <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Call or Text</div>
                           <div style={{fontFamily:"'Inter',sans-serif", fontSize:42, fontWeight:900, color:'#072554', lineHeight:1, marginBottom:6}}>988</div>
                           <div style={{fontSize:13, color:'#072554', lineHeight:1.4}}>988 Suicide & Crisis Lifeline. 24/7. Free. Confidential. English & Spanish.</div>
                         </a>
 
-                        <a href="sms:741741?body=HOME" style={{display:'block', padding:'20px 22px', background:'#0A0F0F', border:'1px solid ' + TEAL_DIM, textDecoration:'none', transition:'all 0.18s'}}
-                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(20,184,166,0.08)'; e.currentTarget.style.borderColor = TEAL; }}
-                          onMouseLeave={e => { e.currentTarget.style.background = '#0A0F0F'; e.currentTarget.style.borderColor = TEAL_DIM; }}>
+                        <a href="sms:741741?body=HOME" style={{display:'block', padding:'20px 22px', background:'#FFFFFF', border:'1px solid ' + TEAL_DIM, textDecoration:'none', transition:'all 0.18s'}}
+                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,107,0,0.08)'; e.currentTarget.style.borderColor = TEAL; }}
+                          onMouseLeave={e => { e.currentTarget.style.background = '#FFFFFF'; e.currentTarget.style.borderColor = TEAL_DIM; }}>
                           <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Text</div>
                           <div style={{fontFamily:"'Inter',sans-serif", fontSize:30, fontWeight:900, color:'#072554', lineHeight:1, marginBottom:6}}>HOME → 741741</div>
                           <div style={{fontSize:13, color:'#072554', lineHeight:1.4}}>Crisis Text Line. Trained counselor responds in minutes. Free.</div>
                         </a>
 
-                        <a href="tel:988" style={{display:'block', padding:'20px 22px', background:'#0A0F0F', border:'1px solid ' + TEAL_DIM, textDecoration:'none', transition:'all 0.18s'}}
-                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(20,184,166,0.08)'; e.currentTarget.style.borderColor = TEAL; }}
-                          onMouseLeave={e => { e.currentTarget.style.background = '#0A0F0F'; e.currentTarget.style.borderColor = TEAL_DIM; }}>
+                        <a href="tel:988" style={{display:'block', padding:'20px 22px', background:'#FFFFFF', border:'1px solid ' + TEAL_DIM, textDecoration:'none', transition:'all 0.18s'}}
+                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,107,0,0.08)'; e.currentTarget.style.borderColor = TEAL; }}
+                          onMouseLeave={e => { e.currentTarget.style.background = '#FFFFFF'; e.currentTarget.style.borderColor = TEAL_DIM; }}>
                           <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>Veterans</div>
                           <div style={{fontFamily:"'Inter',sans-serif", fontSize:26, fontWeight:900, color:'#072554', lineHeight:1, marginBottom:6}}>988 + 1, or text 838255</div>
                           <div style={{fontSize:13, color:'#072554', lineHeight:1.4}}>Veterans Crisis Line. Connects you to a VA-affiliated responder.</div>
                         </a>
 
-                        <a href="tel:988" style={{display:'block', padding:'20px 22px', background:'#0A0F0F', border:'1px solid ' + TEAL_DIM, textDecoration:'none', transition:'all 0.18s'}}
-                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(20,184,166,0.08)'; e.currentTarget.style.borderColor = TEAL; }}
-                          onMouseLeave={e => { e.currentTarget.style.background = '#0A0F0F'; e.currentTarget.style.borderColor = TEAL_DIM; }}>
+                        <a href="tel:988" style={{display:'block', padding:'20px 22px', background:'#FFFFFF', border:'1px solid ' + TEAL_DIM, textDecoration:'none', transition:'all 0.18s'}}
+                          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,107,0,0.08)'; e.currentTarget.style.borderColor = TEAL; }}
+                          onMouseLeave={e => { e.currentTarget.style.background = '#FFFFFF'; e.currentTarget.style.borderColor = TEAL_DIM; }}>
                           <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:2, textTransform:'uppercase', marginBottom:8}}>En Español</div>
                           <div style={{fontFamily:"'Inter',sans-serif", fontSize:26, fontWeight:900, color:'#072554', lineHeight:1, marginBottom:6}}>988 (Marca 2) · AYUDA → 988</div>
                           <div style={{fontSize:13, color:'#072554', lineHeight:1.4}}>988 Línea de Vida. Disponible 24/7 en español. Gratis. Confidencial.</div>
@@ -13041,7 +13041,7 @@ export default function UnionPathway() {
                     <p style={{fontSize:16, color:'#072554', lineHeight:1.7, marginBottom:24}}>
                       The reasons are structural, not personal. Chronic pain from years on the tools. Opioid prescriptions for that pain that were over-prescribed for a generation. Long stretches away from family on travel work. Layoff cycles that erase income overnight. A culture where asking for help has been treated as weakness. Heavy drinking culture that masks rather than treats what's underneath. None of that is the fault of any one tradesperson. All of it is the industry, and all of it can change.
                     </p>
-                    <div style={{padding:'20px 22px', background:'rgba(20,184,166,0.05)', borderLeft:'3px solid ' + TEAL, marginTop:24}}>
+                    <div style={{padding:'20px 22px', background:'rgba(255,107,0,0.05)', borderLeft:'3px solid ' + TEAL, marginTop:24}}>
                       <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:TEAL, letterSpacing:2, textTransform:'uppercase', marginBottom:10}}>The Most Important Thing on This Page</div>
                       <p style={{fontSize:16, color:'#072554', lineHeight:1.6, margin:0, fontWeight:500}}>
                         Help works. Recovery is the rule, not the exception. The vast majority of people who reach out for support get better. The thoughts that feel permanent right now are not permanent. They pass.
@@ -13068,13 +13068,13 @@ export default function UnionPathway() {
                         { h:'Giving things away', body:'Suddenly settling debts. Giving away tools or possessions that mattered to them. "Just want to make sure things are taken care of."' },
                         { h:'Talking about being a burden', body:'"Everyone would be better off without me." "I\'m just dragging people down." Take this language seriously when you hear it.' },
                       ].map((s, i) => (
-                        <div key={i} style={{padding:'24px 22px', background:'#0F1414'}}>
+                        <div key={i} style={{padding:'24px 22px', background:'#F8FAFC'}}>
                           <div style={{fontFamily:"'Inter',sans-serif", fontSize:18, fontWeight:800, color:'#072554', marginBottom:10, textTransform:'uppercase', letterSpacing:'0.01em'}}>{s.h}</div>
                           <div style={{fontSize:13.5, color:'#64748B', lineHeight:1.65}}>{s.body}</div>
                         </div>
                       ))}
                     </div>
-                    <div style={{marginTop:24, fontSize:14, color:'#64748B', lineHeight:1.6, fontStyle:'italic'}}>
+                    <div style={{marginTop:24, fontSize:14, color:'#64748B', lineHeight:1.6}}>
                       None of these alone means a crisis. Several together, or a sudden change from how someone normally acts, is worth a conversation.
                     </div>
                   </section>
@@ -13134,7 +13134,7 @@ export default function UnionPathway() {
                         ))}
                       </ul>
                     </div>
-                    <p style={{fontSize:14, color:'#64748B', lineHeight:1.65, fontStyle:'italic'}}>
+                    <p style={{fontSize:14, color:'#64748B', lineHeight:1.65}}>
                       Asking for the MAP does not flag your file. It does not affect your standing in the local. The local exists to take care of members. This is one of the ways it does that.
                     </p>
                   </section>
@@ -13189,13 +13189,13 @@ export default function UnionPathway() {
 
                   {/* BOTTOM CRISIS REMINDER */}
                   <section style={{padding:'56px 0 24px'}}>
-                    <div style={{padding:'36px 32px', background:'rgba(20,184,166,0.08)', border:'2px solid ' + TEAL, borderRadius:4, textAlign:'center'}}>
+                    <div style={{padding:'36px 32px', background:'rgba(255,107,0,0.08)', border:'2px solid ' + TEAL, borderRadius:4, textAlign:'center'}}>
                       <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 4vw, 38px)', fontWeight:900, color:'#072554', textTransform:'uppercase', marginBottom:14, lineHeight:1.1}}>If you read this whole page and you're struggling right now —</div>
                       <p style={{fontSize:17, color:'#072554', lineHeight:1.6, marginBottom:24, maxWidth:560, margin:'0 auto 24px'}}>
                         Please call or text 988 before you close the tab. It is free. It is confidential. The person on the other end has talked to thousands of people in your shoes and is there for exactly this.
                       </p>
                       <div style={{display:'flex', justifyContent:'center', gap:14, flexWrap:'wrap'}}>
-                        <a href="tel:988" style={{display:'inline-flex', alignItems:'center', gap:10, background:TEAL, color:'#0A0F0F', padding:'16px 28px', textDecoration:'none', fontFamily:"'Inter',sans-serif", fontSize:15, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', border:'1px solid ' + TEAL}}>
+                        <a href="tel:988" style={{display:'inline-flex', alignItems:'center', gap:10, background:TEAL, color:'#FFFFFF', padding:'16px 28px', textDecoration:'none', fontFamily:"'Inter',sans-serif", fontSize:15, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', border:'1px solid ' + TEAL}}>
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
                           Call 988
                         </a>
@@ -13517,7 +13517,7 @@ export default function UnionPathway() {
                     {st.repealed && <> · <span style={{color:REPEAL_COLOR}}>Repealed {st.repealed}</span></>}
                   </div>
                   {st.note && (
-                    <div style={{padding:'10px 14px', borderLeft:'3px solid '+REPEAL_COLOR, background:'rgba(255,107,0,0.06)', borderRadius:'0 8px 8px 0', fontSize:13, fontStyle:'italic', color:'#072554', marginBottom:18, lineHeight:1.5}}>{st.note}</div>
+                    <div style={{padding:'10px 14px', borderLeft:'3px solid '+REPEAL_COLOR, background:'rgba(255,107,0,0.06)', borderRadius:'0 8px 8px 0', fontSize:13, color:'#072554', marginBottom:18, lineHeight:1.5}}>{st.note}</div>
                   )}
                   <div style={{marginTop:8}}>
                     <Row label="Median hourly wage" value={'$'+m.wage.toFixed(2)} diff={wageDiff} />
@@ -13640,7 +13640,7 @@ export default function UnionPathway() {
                           </div>
                         ))}
                       </div>
-                      <div style={{padding:'18px 22px', background:'transparent', border:'1px solid #E5E7EB', borderRadius:12, fontSize:14, color:'#072554', lineHeight:1.6, fontStyle:'italic'}}>
+                      <div style={{padding:'18px 22px', background:'transparent', border:'1px solid #E5E7EB', borderRadius:12, fontSize:14, color:'#072554', lineHeight:1.6}}>
                         Non-RTW states show <span style={{fontStyle:'normal', fontWeight:900, color: (md.favorHigh ? (diff > 0 ? NRTW_COLOR : RTW_COLOR) : (diff < 0 ? NRTW_COLOR : RTW_COLOR))}}>{Math.abs(diff).toFixed(1)}% {diff > 0 ? 'higher' : 'lower'}</span> {md.label.toLowerCase()} than RTW states.
                       </div>
                     </div>
@@ -13713,7 +13713,7 @@ export default function UnionPathway() {
                 <div style={{padding:'40px 24px 60px', maxWidth:1200, margin:'0 auto'}}>
                   <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'#FF6B00', letterSpacing:'0.22em', textTransform:'uppercase', marginBottom:18}}>An Investigation · 2026</div>
                   <h1 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(44px, 8vw, 96px)', fontWeight:900, color:'#072554', lineHeight:0.95, margin:'0 0 28px 0', letterSpacing:'-0.01em'}}>
-                    The price of <span style={{color:RTW_COLOR, fontStyle:'italic'}}>"freedom"</span><br/>to opt out.
+                    The price of <span style={{color:'#FF6B00'}}>"freedom"</span><br/>to opt out.
                   </h1>
                   <div style={{display:'grid', gridTemplateColumns:'2fr 1fr', gap:60, marginTop:32}}>
                     <p style={{fontSize:20, color:'#072554', lineHeight:1.55, maxWidth:680, margin:0}}>
@@ -13737,7 +13737,7 @@ export default function UnionPathway() {
                 </div>
 
                 {/* STICKY SECTION NAV */}
-                <div style={{position:'sticky', top:0, zIndex:50, background:'rgba(15, 22, 32, 0.92)', backdropFilter:'blur(8px)', WebkitBackdropFilter:'blur(8px)', borderTop:'1px solid #E5E7EB', borderBottom:'1px solid #E5E7EB'}}>
+                <div style={{position:'sticky', top:0, zIndex:50, background:'rgba(255,255,255,0.92)', backdropFilter:'blur(8px)', WebkitBackdropFilter:'blur(8px)', borderTop:'1px solid #E5E7EB', borderBottom:'1px solid #E5E7EB'}}>
                   <div style={{maxWidth:1200, margin:'0 auto', padding:'12px 16px', display:'flex', gap:8, overflowX:'auto', whiteSpace:'nowrap', scrollbarWidth:'none', justifyContent:'center'}}>
                     {sections.map(s => (
                       <button
@@ -13750,9 +13750,9 @@ export default function UnionPathway() {
                           fontWeight:800,
                           letterSpacing:1.5,
                           textTransform:'uppercase',
-                          background: activeSection === s.id ? '#FF6B00' : 'transparent',
-                          color: activeSection === s.id ? '#000' : '#072554',
-                          border:'1px solid '+(activeSection === s.id ? '#FF6B00' : '#94A3B8'),
+                          background: activeSection === s.id ? '#FF6B00' : '#FFFFFF',
+                          color: activeSection === s.id ? '#FFFFFF' : '#64748B',
+                          border:'1px solid '+(activeSection === s.id ? '#FF6B00' : '#E5E7EB'),
                           borderRadius:50,
                           cursor:'pointer',
                           transition:'all 0.15s',
@@ -13777,7 +13777,7 @@ export default function UnionPathway() {
                       <p style={{margin:0}}>This is not a question of compelled union membership, which has been illegal under federal law since the 1947 Taft-Hartley Act. The question is whether workers who benefit from a union contract must contribute to the cost of negotiating and enforcing it. RTW laws answer no.</p>
                       <p style={{margin:0}}>The labor movement calls these statutes "right-to-freeload" laws because they let some workers receive union-negotiated wages and protections while the dues-paying members shoulder the full cost. The empirical record across decades is consistent: weaker unions, lower wages, and slower growth in worker protections.</p>
                       <div style={{padding:'24px 28px', borderLeft:'4px solid '+RTW_COLOR, background:'linear-gradient(90deg, rgba(209,75,63,0.08) 0%, transparent 100%)', borderRadius:'0 12px 12px 0', marginTop:8}}>
-                        <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontStyle:'italic', color:'#072554', lineHeight:1.4, fontWeight:500}}>"Right-to-work is a misleading slogan invented to disguise a law that weakens unions and lowers everyone's wages."</div>
+                        <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, color:'#072554', lineHeight:1.4, fontWeight:500}}>"Right-to-work is a misleading slogan invented to disguise a law that weakens unions and lowers everyone's wages."</div>
                         <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, color:'rgba(160,180,196,0.85)', marginTop:14, letterSpacing:1.5, textTransform:'uppercase'}}>— Economic Policy Institute</div>
                       </div>
                     </div>
@@ -13799,7 +13799,7 @@ export default function UnionPathway() {
                         <div key={i}>
                           <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:'#64748B', letterSpacing:2.5, textTransform:'uppercase', marginBottom:14}}>{x.k}</div>
                           <div style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(28px, 3vw, 40px)', fontWeight:900, color:x.col, lineHeight:1, marginBottom:10}}>{x.v}</div>
-                          <div style={{fontSize:14, color:'#64748B', fontStyle:'italic'}}>{x.s}</div>
+                          <div style={{fontSize:14, color:'#64748B'}}>{x.s}</div>
                         </div>
                       ))}
                     </div>
@@ -13875,7 +13875,7 @@ export default function UnionPathway() {
                       <p style={{margin:0}}>They deliver lower wages. Weaker benefits. Higher poverty. More uninsured workers. Deadlier workplaces. And a labor movement that, after eight decades of being told these laws were about individual choice, has watched its institutional power slowly hollowed out — paycheck by paycheck, contract by contract, state by state.</p>
                       <p style={{margin:0}}>The story of right-to-work is the story of how a careful piece of political marketing, rolled out by anti-union employer associations beginning in the 1940s, gradually became the dominant labor framework across more than half of American states. And it is also, increasingly, the story of how that consensus is starting to crack.</p>
                       <p style={{margin:0}}>Missouri voters rejected RTW by a 2-to-1 margin in 2018. Michigan repealed its law in 2024 — the first state to do so in six decades. The labor movement that built the American middle class is fighting to dismantle the laws that have spent eighty years dismantling it back.</p>
-                      <p style={{margin:'14px 0 0 0', fontFamily:"'Inter',sans-serif", fontSize:'clamp(24px, 3.5vw, 36px)', fontStyle:'italic', color:'#FF6B00', fontWeight:500, lineHeight:1.2}}>The numbers were always going to win.</p>
+                      <p style={{margin:'14px 0 0 0', fontFamily:"'Inter',sans-serif", fontSize:'clamp(24px, 3.5vw, 36px)', color:'#FF6B00', fontWeight:500, lineHeight:1.2}}>The numbers were always going to win.</p>
                     </div>
                   </div>
                 </div>
@@ -13897,7 +13897,7 @@ export default function UnionPathway() {
                       <p style={{margin:0}}>Workplace fatality rates from the BLS Census of Fatal Occupational Injuries (CFOI), expressed per 100,000 full-time-equivalent workers. Comparisons consistent with AFL-CIO Death on the Job annual reports.</p>
                     </div>
                   </div>
-                  <p style={{marginTop:32, fontSize:12, fontStyle:'italic', color:'#64748B', maxWidth:900, lineHeight:1.6}}>State-level numbers are illustrative figures consistent with publicly available federal data circa 2023–2024. Aggregate gaps are consistent with peer-reviewed research from the Economic Policy Institute, the Center for Economic and Policy Research, and the AFL-CIO. RTW status reflects state law as of April 2026 following Michigan's February 2024 repeal.</p>
+                  <p style={{marginTop:32, fontSize:12, color:'#64748B', maxWidth:900, lineHeight:1.6}}>State-level numbers are illustrative figures consistent with publicly available federal data circa 2023–2024. Aggregate gaps are consistent with peer-reviewed research from the Economic Policy Institute, the Center for Economic and Policy Research, and the AFL-CIO. RTW status reflects state law as of April 2026 following Michigan's February 2024 repeal.</p>
                   <button onClick={() => setPage('home')} style={{marginTop:32, background:'transparent', color:'#FF6B00', fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:900, letterSpacing:1.5, textTransform:'uppercase', padding:'12px 28px', border:'1px solid rgba(255,107,0,0.4)', borderRadius:50, cursor:'pointer'}}>← Back to Home</button>
                 </div>
               </div>
@@ -14067,7 +14067,7 @@ export default function UnionPathway() {
                 </div>
 
                 <div style={{maxWidth:820, margin:"0 auto", padding:"32px 24px 0"}}>
-                  <p style={{fontSize:13, color:"#8A94A6", fontStyle:"italic", textAlign:"center", marginBottom:24, fontFamily:"'Inter',sans-serif", letterSpacing:1.5, textTransform:"uppercase"}}>
+                  <p style={{fontSize:13, color:"#64748B", textAlign:"center", marginBottom:24, fontFamily:"'Inter',sans-serif", letterSpacing:1.5, textTransform:"uppercase"}}>
                     {lang==="es" ? "Toca cualquier sección para abrirla" : lang==="pl" ? "Dotknij sekcji aby ją otworzyć" : "Tap any section to open it"}
                   </p>
 
@@ -14090,12 +14090,12 @@ export default function UnionPathway() {
 
                   {/* SECTION 3: THE 4 CONDITIONS */}
                   <CollapsibleSection id="conditions" title={lang==="es" ? "Las 4 condiciones que activan el derecho" : lang==="pl" ? "4 warunki uruchamiające prawo" : "The 4 conditions that trigger the right"}>
-                    <p style={{fontSize:14, color:"#5A6478", lineHeight:1.65, marginBottom:18, marginTop:0, fontStyle:"italic"}}>
+                    <p style={{fontSize:14, color:"#5A6478", lineHeight:1.65, marginBottom:18, marginTop:0}}>
                       All four must be present. If any one is missing, Weingarten does not attach.
                     </p>
                     <div style={{display:"grid", gridTemplateColumns:"1fr", gap:12}}>
                       {conditions.map((c, i) => (
-                        <div key={i} style={{display:"flex", gap:18, padding:"18px 20px", background:"#F5F7FA", border:"1px solid rgba(7,37,84,0.06)", borderRadius:10}}>
+                        <div key={i} style={{display:"flex", gap:18, padding:"18px 20px", background:"#F8FAFC", border:"1px solid rgba(7,37,84,0.06)", borderRadius:10}}>
                           <div style={{fontFamily:"'Inter',sans-serif", fontSize:28, fontWeight:900, color:"#FF6B00", lineHeight:1, minWidth:42}}>{c.n}</div>
                           <div>
                             <div style={{fontFamily:"'Inter',sans-serif", fontSize:17, fontWeight:800, color:"#072554", marginBottom:6}}>{c.t}</div>
@@ -14110,7 +14110,7 @@ export default function UnionPathway() {
                   <CollapsibleSection id="counts" title={lang==="es" ? "Qué cuenta como entrevista de investigación" : lang==="pl" ? "Co liczy się jako przesłuchanie śledcze" : "What counts as an investigatory interview"}>
                     <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(240px, 1fr))", gap:14}}>
                       {counts.map((g, gi) => (
-                        <div key={gi} style={{background:"#F5F7FA", border:"1px solid "+g.color+"33", borderRadius:10, padding:"18px 20px"}}>
+                        <div key={gi} style={{background:"#F8FAFC", border:"1px solid "+g.color+"33", borderRadius:10, padding:"18px 20px"}}>
                           <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:g.color, letterSpacing:1.5, textTransform:"uppercase", marginBottom:14}}>{g.label}</div>
                           <ul style={{margin:0, padding:"0 0 0 18px", listStyle:"none"}}>
                             {g.items.map((it, ii) => (
@@ -14130,16 +14130,16 @@ export default function UnionPathway() {
                     <p style={{fontSize:14, color:"#5A6478", lineHeight:1.7, marginBottom:18, marginTop:0}}>
                       You don't need to say "Weingarten" — any reasonable request for union representation works. Most stewards carry a wallet card with this script. Print it, save it, memorize it.
                     </p>
-                    <div style={{position:"relative", background:"linear-gradient(135deg, #1a2332 0%, #0f1620 100%)", border:"2px solid #FF6B00", borderRadius:12, padding:"24px 26px", boxShadow:"0 8px 24px rgba(0,0,0,0.3)"}}>
+                    <div style={{position:"relative", background:"linear-gradient(135deg, #F8FAFC 0%, #FFFFFF 100%)", border:"2px solid #FF6B00", borderRadius:12, padding:"24px 26px", boxShadow:"0 8px 24px rgba(0,0,0,0.3)"}}>
                       <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:"#FF6B00", letterSpacing:2, textTransform:"uppercase", marginBottom:14}}>Weingarten Request — Wallet Card</div>
-                      <p style={{fontSize:15, color:"#072554", lineHeight:1.7, fontStyle:"italic", margin:0, fontWeight:500}}>
+                      <p style={{fontSize:15, color:"#072554", lineHeight:1.7, margin:0, fontWeight:500}}>
                         "{cardScript}"
                       </p>
                       <button onClick={handleCopy} style={{marginTop:18, padding:"10px 20px", fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:800, letterSpacing:1.5, textTransform:"uppercase", background: copied ? "#4A9A6E" : "#FF6B00", color:"#000", border:"none", borderRadius:50, cursor:"pointer", transition:"all 0.15s"}}>
                         {copied ? "✓ Copied" : "Copy script"}
                       </button>
                     </div>
-                    <p style={{fontSize:13, color:"#5A6478", lineHeight:1.6, marginTop:14, marginBottom:0, fontStyle:"italic"}}>
+                    <p style={{fontSize:13, color:"#5A6478", lineHeight:1.6, marginTop:14, marginBottom:0}}>
                       Once you've asked, you don't need to ask again throughout the meeting. The request stands.
                     </p>
                   </CollapsibleSection>
@@ -14155,7 +14155,7 @@ export default function UnionPathway() {
                         {t:"2. End the interview", d:"Stop questioning entirely and proceed without your input. The employer can still investigate by other means."},
                         {t:"3. Offer you a choice", d:"Let you choose between continuing without a rep or ending the interview. The choice has to be yours, freely made."}
                       ].map((o, i) => (
-                        <div key={i} style={{background:"#F5F7FA", border:"1px solid rgba(7,37,84,0.06)", borderRadius:10, padding:"16px 18px"}}>
+                        <div key={i} style={{background:"#F8FAFC", border:"1px solid rgba(7,37,84,0.06)", borderRadius:10, padding:"16px 18px"}}>
                           <div style={{fontFamily:"'Inter',sans-serif", fontSize:15, fontWeight:800, color:"#FF6B00", marginBottom:8}}>{o.t}</div>
                           <div style={{fontSize:13, color:"#5A6478", lineHeight:1.6}}>{o.d}</div>
                         </div>
@@ -14196,7 +14196,7 @@ export default function UnionPathway() {
                   {/* SECTION 8: REP CAN/CAN'T DO */}
                   <CollapsibleSection id="rep" title={lang==="es" ? "Lo que tu representante puede y no puede hacer" : lang==="pl" ? "Co może i czego nie może twój przedstawiciel" : "What your rep can and can't do"}>
                     <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(240px, 1fr))", gap:14}}>
-                      <div style={{background:"#F5F7FA", border:"1px solid rgba(74,154,110,0.3)", borderRadius:10, padding:"18px 20px"}}>
+                      <div style={{background:"#F8FAFC", border:"1px solid rgba(74,154,110,0.3)", borderRadius:10, padding:"18px 20px"}}>
                         <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:"#4A9A6E", letterSpacing:1.5, textTransform:"uppercase", marginBottom:14}}>Can do</div>
                         <ul style={{margin:0, padding:"0 0 0 18px", listStyle:"none"}}>
                           {["Confer with you privately before the interview", "Ask for clarification of unclear questions", "Advise you during the interview", "Suggest other witnesses or evidence", "Take notes", "Object to harassing or unfair questions"].map((it, ii) => (
@@ -14207,7 +14207,7 @@ export default function UnionPathway() {
                           ))}
                         </ul>
                       </div>
-                      <div style={{background:"#F5F7FA", border:"1px solid rgba(209,75,63,0.3)", borderRadius:10, padding:"18px 20px"}}>
+                      <div style={{background:"#F8FAFC", border:"1px solid rgba(209,75,63,0.3)", borderRadius:10, padding:"18px 20px"}}>
                         <div style={{fontFamily:"'Inter',sans-serif", fontSize:13, fontWeight:700, color:"#D14B3F", letterSpacing:1.5, textTransform:"uppercase", marginBottom:14}}>Can't do</div>
                         <ul style={{margin:0, padding:"0 0 0 18px", listStyle:"none"}}>
                           {["Answer questions on your behalf", "Tell you not to answer (you can decline on your own)", "Disrupt the interview or block legitimate questions", "Turn the meeting into an adversarial contest"].map((it, ii) => (
@@ -14249,7 +14249,7 @@ export default function UnionPathway() {
                     <p style={{fontSize:14, color:"#5A6478", lineHeight:1.75, marginBottom:18, marginTop:0}}>
                       Whether non-union workers have Weingarten rights has been one of the most politically contested questions in modern labor law. The NLRB has flipped on it four times in 40 years.
                     </p>
-                    <div style={{background:"#F5F7FA", border:"1px solid rgba(7,37,84,0.06)", borderRadius:10, overflow:"hidden", marginBottom:18}}>
+                    <div style={{background:"#F8FAFC", border:"1px solid rgba(7,37,84,0.06)", borderRadius:10, overflow:"hidden", marginBottom:18}}>
                       {[
                         {y:"1982", c:"Materials Research Corp.", e:"Extended to non-union", color:"#4A9A6E"},
                         {y:"1985", c:"Sears, Roebuck & Co.", e:"Retracted", color:"#D14B3F"},
@@ -14258,12 +14258,12 @@ export default function UnionPathway() {
                       ].map((row, ri) => (
                         <div key={ri} style={{display:"grid", gridTemplateColumns:"60px 1fr auto", gap:14, padding:"12px 16px", borderBottom: ri < 3 ? "1px solid #E5E7EB" : "none", alignItems:"center"}}>
                           <div style={{fontFamily:"'Inter',sans-serif", fontSize:17, fontWeight:900, color:"#FF6B00"}}>{row.y}</div>
-                          <div style={{fontSize:13, color:"#5A6478", fontStyle:"italic"}}>{row.c}</div>
+                          <div style={{fontSize:13, color:"#5A6478"}}>{row.c}</div>
                           <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, color:row.color, letterSpacing:1.5, textTransform:"uppercase"}}>{row.e}</div>
                         </div>
                       ))}
                     </div>
-                    <p style={{fontSize:13, color:"#5A6478", lineHeight:1.7, margin:0, fontStyle:"italic"}}>
+                    <p style={{fontSize:13, color:"#5A6478", lineHeight:1.7, margin:0}}>
                       Bottom line: only union-represented employees have Weingarten rights right now. Non-union workers may request a coworker's presence, but the employer is not legally required to honor that request. A 2022 decision (<i>Troy Grove</i>) extended the right to strike replacements working under a union-represented unit, suggesting the Board may be willing to revisit this.
                     </p>
                   </CollapsibleSection>
@@ -14296,7 +14296,7 @@ export default function UnionPathway() {
                         <>5 U.S.C. § 7114(a)(2)(B) — federal sector parallel</>,
                       ].map((c, ci) => (
                         <li key={ci} style={{position:"relative", marginBottom:8, paddingLeft:6}}>
-                          <span style={{position:"absolute", left:-14, color:"#8A94A6"}}>·</span>
+                          <span style={{position:"absolute", left:-14, color:"#64748B"}}>·</span>
                           {c}
                         </li>
                       ))}
@@ -17077,7 +17077,7 @@ export default function UnionPathway() {
 
                     <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:16, marginBottom:16}}>
                       <div style={{background:"#ffffff", border:"1px solid #E5E7EB", borderRadius:16, padding:"20px", textAlign:"center"}}>
-                        <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#5A6478", marginBottom:8}}>{lang==="es" ? "Ingreso Anual" : lang==="pl" ? "Roczny Dochod" : "Annual Income"}<br/><span style={{color:"#8A94A6"}}>({calcHours.toLocaleString()} hrs)</span></div>
+                        <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#5A6478", marginBottom:8}}>{lang==="es" ? "Ingreso Anual" : lang==="pl" ? "Roczny Dochod" : "Annual Income"}<br/><span style={{color:"#64748B"}}>({calcHours.toLocaleString()} hrs)</span></div>
                         <div style={{fontFamily:"'Inter',sans-serif", fontSize:34, fontWeight:900, color:"#FF6B00"}}>{r.annualBase.toLocaleString()}</div>
                         <div style={{fontSize:12, color:"#5A6478", marginTop:4}}>{lang==="es" ? "salario base" : lang==="pl" ? "wynagrodzenie podstawowe" : "take-home wages"}</div>
                         <div style={{borderTop:"1px solid rgba(58,80,104,0.3)", marginTop:12, paddingTop:12}}>
@@ -17086,7 +17086,7 @@ export default function UnionPathway() {
                         </div>
                       </div>
                       <div style={{background:"#ffffff", border:"1px solid #E5E7EB", borderRadius:16, padding:"20px", textAlign:"center"}}>
-                        <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#5A6478", marginBottom:8}}>{lang==="es" ? "Proyeccion de Pension" : lang==="pl" ? "Projekcja Emerytalna" : "Pension Projection"}<br/><span style={{color:"#8A94A6"}}>({calcYearsCareer} {lang==="es" ? "anos" : lang==="pl" ? "lat" : "years"})</span></div>
+                        <div style={{fontFamily:"'Inter',sans-serif", fontSize:11, fontWeight:700, letterSpacing:"0.1em", textTransform:"uppercase", color:"#5A6478", marginBottom:8}}>{lang==="es" ? "Proyeccion de Pension" : lang==="pl" ? "Projekcja Emerytalna" : "Pension Projection"}<br/><span style={{color:"#64748B"}}>({calcYearsCareer} {lang==="es" ? "anos" : lang==="pl" ? "lat" : "years"})</span></div>
                         <div style={{fontFamily:"'Inter',sans-serif", fontSize:34, fontWeight:900, color:"#FF6B00"}}>{r.pensionProjection.toLocaleString()}</div>
                         <div style={{fontSize:12, color:"#5A6478", marginTop:4}}>{lang==="es" ? "valor estimado acumulado" : lang==="pl" ? "szacowana wartosc skumulowana" : "estimated accumulated value"}</div>
                       </div>
@@ -17102,7 +17102,7 @@ export default function UnionPathway() {
                             <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:700, color:"#5A6478", marginBottom:8, textTransform:"uppercase", letterSpacing:"0.08em"}}>{lang==="es" ? "Tu Trabajo Actual" : lang==="pl" ? "Obecna Praca" : "Your Current Job"}</div>
                             <div style={{fontFamily:"'Inter',sans-serif", fontSize:42, fontWeight:900, color:"#5A6478"}}>{r.comparison.compHourly.toFixed(2)}</div>
                             <div style={{fontSize:12, color:"#5A6478"}}>/hr</div>
-                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:700, color:"#8A94A6", marginTop:6}}>{r.comparison.compAnnual.toLocaleString()}/yr</div>
+                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:700, color:"#64748B", marginTop:6}}>{r.comparison.compAnnual.toLocaleString()}/yr</div>
                           </div>
                           <div style={{textAlign:"center"}}>
                             <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:700, color:"#FF6B00", marginBottom:8, textTransform:"uppercase", letterSpacing:"0.08em"}}>{lang==="es" ? "Paquete Sindical" : lang==="pl" ? "Pakiet Zwiazkowy" : "Union Total Package"}</div>
@@ -17140,7 +17140,7 @@ export default function UnionPathway() {
                             <div style={{fontFamily:"'Inter',sans-serif", fontSize:12, fontWeight:700, color:"#5A6478", marginBottom:8, textTransform:"uppercase", letterSpacing:"0.08em"}}>{lang==="es" ? "No Sindical" : lang==="pl" ? "Niezwiazowy" : "Non-Union (Est.)"}</div>
                             <div style={{fontFamily:"'Inter',sans-serif", fontSize:42, fontWeight:900, color:"#5A6478"}}>{r.nonUnionEquiv.toFixed(2)}</div>
                             <div style={{fontSize:12, color:"#5A6478"}}>{lang==="es" ? "estimado/hr" : lang==="pl" ? "szacowane/godz" : "estimated/hr"}</div>
-                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:700, color:"#8A94A6", marginTop:6}}>{r.nonUnionAnnual.toLocaleString()}/yr</div>
+                            <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:700, color:"#64748B", marginTop:6}}>{r.nonUnionAnnual.toLocaleString()}/yr</div>
                           </div>
                         </div>
                         <div style={{borderTop:"1px solid rgba(58,80,104,0.4)", paddingTop:16, textAlign:"center"}}>
@@ -17834,7 +17834,7 @@ export default function UnionPathway() {
                   <li>Take collective action to improve your workplace</li>
                   <li>Decline to participate in the union — your choice either way</li>
                 </ul>
-                <p style={{fontSize:14, color:"#5A6478", lineHeight:1.7, marginTop:16, fontStyle:"italic"}}>
+                <p style={{fontSize:14, color:"#5A6478", lineHeight:1.7, marginTop:16}}>
                   Your employer cannot legally fire, demote, threaten, or retaliate against you for these activities. Violations are called Unfair Labor Practices (ULPs) and can be filed with the National Labor Relations Board (NLRB) at nlrb.gov.
                 </p>
               </div>
@@ -17940,7 +17940,7 @@ export default function UnionPathway() {
               <p style={{fontSize:15, color:"#5A6478", lineHeight:1.75, marginBottom:16}}>
                 Salting is when a union member takes a job at a non-union company specifically to help organize it from the inside. Several internationals — including the IBEW and the UA — run formal paid salting programs. Salting is fully legal under federal law (the Supreme Court confirmed this in <i>NLRB v. Town &amp; Country Electric</i>, 1995).
               </p>
-              <p style={{fontSize:14, color:"#5A6478", lineHeight:1.7, fontStyle:"italic"}}>
+              <p style={{fontSize:14, color:"#5A6478", lineHeight:1.7}}>
                 If salting interests you, talk to your organizer. Programs typically pay union scale and benefits for the time you're inside.
               </p>
 
@@ -18056,7 +18056,7 @@ export default function UnionPathway() {
               <p style={{fontSize:15, color:"#5A6478", lineHeight:1.75, marginBottom:16}}>
                 The two core requirements anywhere in the country are <b>signing a Letter of Assent</b> and <b>posting the required bonds</b>. Everything else — what kind of bonds, which third-party administrator handles benefits, how workforce transition is run — varies by local.
               </p>
-              <p style={{fontSize:14, color:"#5A6478", lineHeight:1.7, fontStyle:"italic", marginBottom:24}}>
+              <p style={{fontSize:14, color:"#5A6478", lineHeight:1.7, marginBottom:24}}>
                 The walkthrough below is the general shape of the process. Confirm specifics with the local that has jurisdiction over the work.
               </p>
 
