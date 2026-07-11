@@ -24,7 +24,7 @@ const DEFAULT_IMAGE = 'https://unionpathways.com/social-preview-v2.png';
 
 // All page metadata. Mirrors PAGE_META in src/App.jsx.
 const PAGE_META = {
-  'home':      { title: "Union Pathways — Find Your Nearest Union Construction Local", desc: "Find your nearest union construction local — IBEW, UA, SMART, BAC, UBC, Ironworkers, Insulators, Laborers and more. Free resource for tradespeople." },
+  'home':      { title: "Union Trades: Locals, Apprenticeships & Wages | Union Pathways", og: "Everything Union Trades. One Place.", desc: "Find your local, prep for the apprenticeship test, calculate your true wage package, and know your rights. 1,700+ locals, 12 building trades. Free, ad-free." },
   'quiz':      { title: "Union Pathways — Which Trade Is Right For You?", desc: "Take our free quiz to find out which union construction trade matches your skills, interests, and goals." },
   'careers':   { title: "Union Pathways — Career Paths in the Union Trades", desc: "Learn about apprenticeships, wages, and career paths in union construction trades. Earn while you learn — no college debt." },
   'checklist': { title: "Union Pathways — How to Join a Union", desc: "Step-by-step guide to joining a union construction apprenticeship. Requirements, timeline, and how to apply." },
@@ -108,6 +108,7 @@ export default async function middleware(request) {
   // intentional; social crawlers each look at slightly different ones.
   const fullUrl = SITE + (path === '' ? '' : '/' + path);
   body = body
+    .replaceAll('{{OGTITLE}}', escapeHtml(meta.og || meta.title))
     .replaceAll('{{TITLE}}', escapeHtml(meta.title))
     .replaceAll('{{DESC}}',  escapeHtml(meta.desc))
     .replaceAll('{{URL}}',   escapeHtml(fullUrl))

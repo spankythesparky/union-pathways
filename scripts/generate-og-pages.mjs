@@ -87,7 +87,6 @@ const PAGES = {
   // ── Benefits and money ──
   '/benefits':     { title: 'Union Benefits · Union Pathways', description: 'What union construction members earn in benefits beyond base pay — health, pension, annuity.' },
   '/retirement':   { title: '401k vs Annuity vs Pension · Union Pathways', description: 'Three ways union construction trades help you retire — explained in plain English.' },
-  '/health':       { title: 'Health & Welfare · Union Pathways', description: 'How union health insurance works for tradespeople and their families.' },
   '/downpayment':  { title: 'Down Payment Calculator for Tradespeople · Union Pathways', description: 'How much house can you actually afford on a union tradesperson\'s wage? Real math for real budgets.' },
   '/mental-health':{ title: 'Mental Health for Tradespeople · Union Pathways', description: 'Mental health resources for construction workers. Suicide prevention, substance use, and the resources your local likely already provides.' },
 
@@ -148,7 +147,7 @@ function rewriteHtml(html, meta, fullUrl, articleSchema) {
   let rewritten = html
     .replace(/<title>[^<]*<\/title>/, `<title>${t}</title>`)
     .replace(/<meta name="description" content="[^"]*"\s*\/?>/, `<meta name="description" content="${d}"/>`)
-    .replace(/<meta property="og:title" content="[^"]*"\s*\/?>/, `<meta property="og:title" content="${t}"/>`)
+    .replace(/<meta property="og:title" content="[^"]*"\s*\/?>/, `<meta property="og:title" content="${escapeHtml(meta.og || meta.title)}"/>`)
     .replace(/<meta property="og:description" content="[^"]*"\s*\/?>/, `<meta property="og:description" content="${d}"/>`)
     .replace(/<meta property="og:url" content="[^"]*"\s*\/?>/, `<meta property="og:url" content="${fullUrl}"/>`)
     .replace(/<meta name="twitter:title" content="[^"]*"\s*\/?>/, `<meta name="twitter:title" content="${t}"/>`)
@@ -176,6 +175,37 @@ for (const [pagePath, meta] of Object.entries(PAGES)) {
   count++;
   if (article) articleCount++;
 }
+
+// ── SITEMAP + ROBOTS ────────────────────────────────────────────────────
+// Neither existed. 42 pages were left for Google to find by crawling an SPA.
+const today = new Date().toISOString().split('T')[0];
+
+const urls = ['/', ...Object.keys(PAGES)];
+
+const sitemap = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+  ...urls.map(u => `  <url>
+    <loc>${SITE}${u === '/' ? '/' : u}</loc>
+    <lastmod>${today}</lastmod>
+  </url>`),
+  '</urlset>',
+].join('\n');
+
+fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemap);
+
+const robots = [
+  'User-agent: *',
+  'Allow: /',
+  '',
+  `Sitemap: ${SITE}/sitemap.xml`,
+  '',
+].join('\n');
+
+fs.writeFileSync(path.join(distDir, 'robots.txt'), robots);
+
+console.log(`✓ sitemap.xml — ${urls.length} URLs`);
+console.log('✓ robots.txt');
 
 console.log(`✓ Generated ${count} per-page HTML files with custom OG tags`);
 console.log(`✓ Injected Article JSON-LD on ${articleCount} history/article pages`);
