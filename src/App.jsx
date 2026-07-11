@@ -3571,6 +3571,8 @@ export default function UnionPathway() {
   const [getInTouchOpen, setGetInTouchOpen] = useState(false);
   const [apprenticeshipOpen, setApprenticeshipOpen] = useState(false);
   const [apprenticeshipTestsOpen, setApprenticeshipTestsOpen] = useState(false);
+  const [historyTradesOpen, setHistoryTradesOpen] = useState(false);
+  const [historyIndustrialOpen, setHistoryIndustrialOpen] = useState(false);
   const [drawerTradeTestsOpen, setDrawerTradeTestsOpen] = useState(false);
   const [organizeOpen, setOrganizeOpen] = useState(false);
   const [selectedTrade, setSelectedTrade] = useState("IBEW_I");
@@ -6713,7 +6715,7 @@ export default function UnionPathway() {
                       <span className="nav-dropdown-label">{lang==="es" ? "Pruebas por Oficio" : lang==="pl" ? "Testy Wedlug Zawodu" : "Trade Tests"}</span>
                       <span className="nav-dropdown-sub">{lang==="es" ? "Por sindicato — 10 oficios" : lang==="pl" ? "Według związku — 10 zawodów" : "By union — 10 trades"}</span>
                     </span>
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" style={{transition:"transform 0.2s", transform: apprenticeshipTestsOpen ? "rotate(180deg)" : "none", color: apprenticeshipTestsOpen ? "#FF6B00" : "rgba(255,255,255,0.5)", flexShrink:0}}>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" style={{transition:"transform 0.2s", transform: apprenticeshipTestsOpen ? "rotate(180deg)" : "none", color: apprenticeshipTestsOpen ? "#FF6B00" : "#94A3B8", flexShrink:0}}>
                       <polyline points="6 9 12 15 18 9"/>
                     </svg>
                   </div>
@@ -6733,7 +6735,7 @@ export default function UnionPathway() {
                       <span className="nav-dropdown-label" style={{fontSize:13}}>· {t.name}</span>
                     </div>
                   ))}
-                  <div style={{margin:"6px 14px", height:1, background:"rgba(255,255,255,0.08)"}} />
+                  <div style={{margin:"6px 14px", height:1, background:"#F1F5F9"}} />
                   <div className={`nav-dropdown-item${page==="downpayment"?" active":""}`} onMouseDown={() => { setPage("downpayment"); setApprenticeshipOpen(false); }}>
                     <span className="nav-dropdown-label">{lang==="es" ? "Calculadora de Pago Inicial" : lang==="pl" ? "Kalkulator Wpłaty" : "Down Payment Calculator"}</span>
                     <span className="nav-dropdown-sub">{lang==="es" ? "Aprendiz a oficial — calcula tu casa" : lang==="pl" ? "Praktykant do mistrza — oblicz swój dom" : "Apprentice to journeyman — calculate your home"}</span>
@@ -6825,8 +6827,8 @@ export default function UnionPathway() {
                 <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="6 9 12 15 18 9"/></svg>
               </button>
               {historyOpen && (
-                <div className="nav-dropdown-menu" style={{minWidth:240}}>
-                  <div className={`nav-dropdown-item${page==="history"?" active":""}`} onMouseDown={() => { setPage("history"); setHistoryOpen(false); }}>
+                <div className="nav-dropdown-menu" style={{minWidth:270}}>
+                  <div className={`nav-dropdown-item${page==="history"?" active":""}`} onMouseDown={() => { setPage("history"); setHistoryOpen(false); setHistoryTradesOpen(false); setHistoryIndustrialOpen(false); }}>
                     <span className="nav-dropdown-label">{lang==="es" ? "Historia General" : lang==="pl" ? "Historia Ogolna" : "General Union History"}</span>
                     <span className="nav-dropdown-sub">{lang==="es" ? "El movimiento desde el siglo XII" : lang==="pl" ? "Ruch od XII wieku" : "The full movement from the 12th century"}</span>
                   </div>
@@ -6834,35 +6836,72 @@ export default function UnionPathway() {
                     const construction = [
                       {key:'IBEW_I', name:'IBEW Inside', page:'history-ibew', live:true},
                       {key:'UA', name:'UA — Plumbers & Pipefitters', page:'history-ua', live:true},
-                      {key:'SMART', name:'SMART — Sheet Metal, Air, Rail & Transportation', page:'history-smart', live:true},
-                      {key:'BAC', name:'BAC — Bricklayers & Allied Craftworkers', page:'history-bac', live:true},
-                      {key:'IW', name:'Iron Workers — Bridge & Structural', page:'history-iron', live:true},
-                      {key:'HFIAW', name:'AWIU — Heat & Frost Insulators', page:'history-insul', live:true},
+                      {key:'SMART', name:'SMART — Sheet Metal & Rail', page:'history-smart', live:true},
+                      {key:'BAC', name:'BAC — Bricklayers', page:'history-bac', live:true},
+                      {key:'IW', name:'Iron Workers', page:'history-iron', live:true},
+                      {key:'HFIAW', name:'AWIU — Insulators', page:'history-insul', live:true},
                       {key:'IUEC', name:'IUEC — Elevator Constructors', page:'history-iuec', live:true},
-                      {key:'IUPAT', name:'IUPAT — Painters & Allied Trades', page:'history-iupat', live:true},
+                      {key:'IUPAT', name:'IUPAT — Painters', page:'history-iupat', live:true},
                       {key:'IUOE', name:'IUOE — Operating Engineers'},
                       {key:'UBC', name:'UBC — Carpenters'},
                       {key:'LIUNA', name:'LIUNA — Laborers'},
                     ];
                     const industrial = [
-                      {key:'UFCW', name:'UFCW — Food & Commercial Workers', page:'history-ufcw', live:true},
+                      {key:'UFCW', name:'UFCW — Food & Commercial', page:'history-ufcw', live:true},
                       {key:'NNU', name:'NNU — National Nurses United', page:'history-nnu', live:true},
                     ];
+                    const closeAll = () => { setHistoryOpen(false); setHistoryTradesOpen(false); setHistoryIndustrialOpen(false); };
                     const renderItem = t => (
-                      <div key={t.key} onMouseDown={() => { if (t.live) { setPage(t.page); setHistoryOpen(false); } }} className={`nav-dropdown-item${page===t.page?" active":""}`} style={{opacity: t.live ? 1 : 0.55, cursor: t.live ? "pointer" : "not-allowed"}}>
-                        <span className="nav-dropdown-label" style={{display:"flex", alignItems:"center", justifyContent:"space-between", gap:8}}>
-                          <span>{t.name}</span>
-                          {!t.live && <span style={{fontSize:9, fontWeight:700, color:"#FF6B00", letterSpacing:1, textTransform:"uppercase", background:"rgba(255,107,0,0.12)", border:"1px solid rgba(255,107,0,0.3)", borderRadius:50, padding:"2px 8px", whiteSpace:"nowrap"}}>{lang==="es" ? "Pronto" : lang==="pl" ? "Wkrotce" : "Coming Soon"}</span>}
+                      <div key={t.key} onMouseDown={() => { if (t.live) { setPage(t.page); closeAll(); } }} className={`nav-dropdown-item${page===t.page?" active":""}`} style={{paddingLeft:28, opacity: t.live ? 1 : 0.5, cursor: t.live ? "pointer" : "not-allowed"}}>
+                        <span className="nav-dropdown-label" style={{fontSize:12.5, display:"flex", alignItems:"center", justifyContent:"space-between", gap:8}}>
+                          <span>· {t.name}</span>
+                          {!t.live && <span style={{fontSize:9, fontWeight:700, color:"#FF6B00", letterSpacing:1, textTransform:"uppercase", background:"rgba(255,107,0,0.10)", border:"1px solid rgba(255,107,0,0.28)", borderRadius:50, padding:"2px 8px", whiteSpace:"nowrap"}}>{lang==="es" ? "Pronto" : lang==="pl" ? "Wkrotce" : "Soon"}</span>}
                         </span>
                       </div>
                     );
+                    const chevron = open => (
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" style={{transition:"transform 0.2s", transform: open ? "rotate(180deg)" : "none", color: open ? "#FF6B00" : "#94A3B8", flexShrink:0}}>
+                        <polyline points="6 9 12 15 18 9"/>
+                      </svg>
+                    );
                     return (
                       <>
-                        <div style={{padding:"6px 14px 4px", fontFamily:"'Barlow Condensed',sans-serif", fontSize:10, fontWeight:700, color:"#FF6B00", letterSpacing:2, textTransform:"uppercase"}}>{lang==="es" ? "Historias por Oficio" : lang==="pl" ? "Historia Wedlug Zawodu" : "Trade Histories"}</div>
-                        {construction.map(renderItem)}
-                        <div style={{margin:"6px 14px", height:1, background:"rgba(255,255,255,0.08)"}} />
-                        <div style={{padding:"6px 14px 4px", fontFamily:"'Barlow Condensed',sans-serif", fontSize:10, fontWeight:700, color:"#10A37F", letterSpacing:2, textTransform:"uppercase"}}>{lang==="es" ? "Sindicatos Industriales" : lang==="pl" ? "Związki Przemysłowe" : "Industrial Unions"}</div>
-                        {industrial.map(renderItem)}
+                        {/* TRADE HISTORIES — accordion */}
+                        <div
+                          className={`nav-dropdown-item${page.startsWith("history-") || page==="trade-history" ? " active":""}`}
+                          onMouseDown={(e) => { e.preventDefault(); setHistoryTradesOpen(o => !o); setHistoryIndustrialOpen(false); }}
+                          style={{cursor:"pointer", display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"space-between", gap:8}}
+                        >
+                          <span style={{display:"flex", flexDirection:"column"}}>
+                            <span className="nav-dropdown-label">{lang==="es" ? "Historias por Oficio" : lang==="pl" ? "Historia Wedlug Zawodu" : "Trade Histories"}</span>
+                            <span className="nav-dropdown-sub">{lang==="es" ? "Construccion — 11 oficios" : lang==="pl" ? "Budownictwo — 11 zawodow" : "Construction — 11 trades"}</span>
+                          </span>
+                          {chevron(historyTradesOpen)}
+                        </div>
+                        {historyTradesOpen && (
+                          <>
+                            <div onMouseDown={() => { setPage("trade-history"); closeAll(); }} className={`nav-dropdown-item${page==="trade-history"?" active":""}`} style={{paddingLeft:28}}>
+                              <span className="nav-dropdown-label" style={{fontSize:12.5, color:"#FF6B00"}}>· {lang==="es" ? "Ver Todas" : lang==="pl" ? "Zobacz Wszystkie" : "All Trade Histories"}</span>
+                            </div>
+                            {construction.map(renderItem)}
+                          </>
+                        )}
+
+                        <div style={{margin:"6px 14px", height:1, background:"#F1F5F9"}} />
+
+                        {/* INDUSTRIAL UNIONS — accordion */}
+                        <div
+                          className={`nav-dropdown-item${(page==="history-ufcw"||page==="history-nnu") ? " active":""}`}
+                          onMouseDown={(e) => { e.preventDefault(); setHistoryIndustrialOpen(o => !o); setHistoryTradesOpen(false); }}
+                          style={{cursor:"pointer", display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"space-between", gap:8}}
+                        >
+                          <span style={{display:"flex", flexDirection:"column"}}>
+                            <span className="nav-dropdown-label">{lang==="es" ? "Sindicatos Industriales" : lang==="pl" ? "Zwiazki Przemyslowe" : "Industrial Unions"}</span>
+                            <span className="nav-dropdown-sub">{lang==="es" ? "2 sindicatos" : lang==="pl" ? "2 zwiazki" : "2 unions"}</span>
+                          </span>
+                          {chevron(historyIndustrialOpen)}
+                        </div>
+                        {historyIndustrialOpen && industrial.map(renderItem)}
                       </>
                     );
                   })()}
