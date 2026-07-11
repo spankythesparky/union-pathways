@@ -2919,10 +2919,10 @@ function AdminPage() {
         </div>
 
         <div style={{display:"flex", gap:6, marginBottom:16}}>
-          <button onClick={() => { setAdminSection('jobs'); setEditingId(null); }} style={{flex:1, padding:"12px 16px", background: adminSection==='jobs' ? "#FF6B00" : "#F1F5F9", color: adminSection==='jobs' ? "#000" : "#fff", border:"none", borderRadius:10, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:14, letterSpacing:1, cursor:"pointer"}}>
+          <button onClick={() => { setAdminSection('jobs'); setEditingId(null); }} style={{flex:1, padding:"12px 16px", background: adminSection==='jobs' ? "#FF6B00" : "#F1F5F9", color: adminSection==='jobs' ? "#FFFFFF" : "#64748B", border:"none", borderRadius:10, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:14, letterSpacing:1, cursor:"pointer"}}>
             JOB BOARD
           </button>
-          <button onClick={() => { setAdminSection('wages'); setEditingId(null); }} style={{flex:1, padding:"12px 16px", background: adminSection==='wages' ? "#FF6B00" : "#F1F5F9", color: adminSection==='wages' ? "#000" : "#fff", border:"none", borderRadius:10, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:14, letterSpacing:1, cursor:"pointer"}}>
+          <button onClick={() => { setAdminSection('wages'); setEditingId(null); }} style={{flex:1, padding:"12px 16px", background: adminSection==='wages' ? "#FF6B00" : "#F1F5F9", color: adminSection==='wages' ? "#FFFFFF" : "#64748B", border:"none", borderRadius:10, fontFamily:"'Barlow Condensed',sans-serif", fontWeight:900, fontSize:14, letterSpacing:1, cursor:"pointer"}}>
             WAGES
           </button>
         </div>
@@ -6130,7 +6130,7 @@ export default function UnionPathway() {
         }
 
         /* ── QUIZ PAGE ── */
-        /* GET STARTED SWEEP */ /* CALC INPUT FIX */ /* DARK CONTAINER FIX */ /* MEMBERSHIP SWEEP */
+        /* GET STARTED SWEEP */ /* CALC INPUT FIX */ /* DARK CONTAINER FIX */ /* MEMBERSHIP SWEEP */ /* INVISIBLE TITLE FIX */
         .page { max-width: 1000px; margin: 0 auto; padding: 72px 40px 96px; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 
@@ -16572,7 +16572,7 @@ export default function UnionPathway() {
                         <thead>
                           <tr style={{background:"rgba(255,107,0,0.08)", borderBottom:"2px solid #FF6B00"}}>
                             {["", lang==="es"?"Pension":lang==="pl"?"Emerytura":"Pension", lang==="es"?"Anualidad":lang==="pl"?"Renta":"Annuity", "401k"].map(h => (
-                              <th key={h} style={{padding:"14px 16px", textAlign:"left", fontFamily:"'Inter',sans-serif", fontSize:16, fontWeight:800, color: h==="Pension" ? "#FF6B00" : "white"}}>{h}</th>
+                              <th key={h} style={{padding:"14px 16px", textAlign:"left", fontFamily:"'Inter',sans-serif", fontSize:16, fontWeight:800, color: h==="Pension" ? "#FF6B00" : "#072554"}}>{h}</th>
                             ))}
                           </tr>
                         </thead>
@@ -16587,7 +16587,7 @@ export default function UnionPathway() {
                           ].map((row, i) => (
                             <tr key={i} style={{borderBottom:"1px solid rgba(58,80,104,0.4)", background: i%2===0 ? "rgba(34,48,61,0.3)" : "transparent"}}>
                               {row.map((cell, j) => (
-                                <td key={j} style={{padding:"12px 16px", color: j===0 ? "white" : "var(--muted)", fontWeight: j===0 ? 700 : 400}}>{cell}</td>
+                                <td key={j} style={{padding:"12px 16px", color: j===0 ? "#072554" : "var(--muted)", fontWeight: j===0 ? 700 : 400}}>{cell}</td>
                               ))}
                             </tr>
                           ))}
@@ -16682,7 +16682,7 @@ export default function UnionPathway() {
                         ].map(([label, amount, isWage, note], i) => (
                           <div key={i} style={{display:"flex", justifyContent:"space-between", alignItems:"center", padding:"12px 0", borderBottom: i < 5 ? "1px solid rgba(58,80,104,0.4)" : "none"}}>
                             <div>
-                              <span style={{fontSize:15, color: isWage ? "white" : "var(--muted)", fontWeight: isWage ? 700 : 400}}>{label}</span>
+                              <span style={{fontSize:15, color: isWage ? "#072554" : "var(--muted)", fontWeight: isWage ? 700 : 400}}>{label}</span>
                               {note && <div style={{fontSize:12, color:"#FF6B00", marginTop:2}}>{note}</div>}
                             </div>
                             <span style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color: isWage ? "#FF6B00" : "var(--muted)"}}>{amount}</span>
@@ -16705,7 +16705,7 @@ export default function UnionPathway() {
                     onClick={() => setRetSection(retSection===section.id ? null : section.id)}
                     style={{width:"100%", background:"#ffffff", border:"none", padding:"20px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", cursor:"pointer", textAlign:"left"}}
                   >
-                    <span style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color: retSection===section.id ? "#FF6B00" : "#fff"}}>{section.title}</span>
+                    <span style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color: retSection===section.id ? "#FF6B00" : "#072554"}}>{section.title}</span>
                     <span style={{color:"#FF6B00", fontSize:22, fontWeight:700, lineHeight:1, transform: retSection===section.id ? "rotate(45deg)" : "rotate(0deg)", display:"inline-block", transition:"transform 0.2s"}}>+</span>
                   </button>
                   {retSection===section.id && (
@@ -16851,7 +16851,7 @@ export default function UnionPathway() {
                         ].map((m, i) => (
                           <div key={i} style={{background: m.highlight ? "rgba(255,107,0,0.06)" : "#F1F5F9", border: m.highlight ? "1px solid rgba(255,107,0,0.25)" : "1px solid #E5E7EB", borderRadius:16, padding:"24px"}}>
                             <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-start", marginBottom:12, flexWrap:"wrap", gap:8}}>
-                              <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color: m.highlight ? "#FF6B00" : "#fff"}}>{m.model}</div>
+                              <div style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color: m.highlight ? "#FF6B00" : "#072554"}}>{m.model}</div>
                               <div style={{fontSize:12, fontWeight:700, color: m.highlight ? "#FF6B00" : "var(--muted)", background: m.highlight ? "rgba(255,107,0,0.1)" : "#F1F5F9", borderRadius:50, padding:"4px 12px", letterSpacing:"0.06em", textTransform:"uppercase"}}>{m.tag}</div>
                             </div>
                             <div style={{fontSize:14, color:"#5A6478", lineHeight:1.7}}>{m.desc}</div>
@@ -16871,7 +16871,7 @@ export default function UnionPathway() {
                     onClick={() => setLocalSection(localSection===section.id ? null : section.id)}
                     style={{width:"100%", background:"#ffffff", border:"none", padding:"20px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", cursor:"pointer", textAlign:"left"}}
                   >
-                    <span style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color: localSection===section.id ? "#FF6B00" : "#fff"}}>{section.title}</span>
+                    <span style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color: localSection===section.id ? "#FF6B00" : "#072554"}}>{section.title}</span>
                     <span style={{color:"#FF6B00", fontSize:22, fontWeight:700, lineHeight:1, transform: localSection===section.id ? "rotate(45deg)" : "rotate(0deg)", display:"inline-block", transition:"transform 0.2s"}}>+</span>
                   </button>
                   {localSection===section.id && (
@@ -17326,7 +17326,7 @@ export default function UnionPathway() {
                     onClick={() => setVetSection(vetSection===section.id ? null : section.id)}
                     style={{width:"100%", background:"#ffffff", border:"none", padding:"20px 24px", display:"flex", justifyContent:"space-between", alignItems:"center", cursor:"pointer", textAlign:"left"}}
                   >
-                    <span style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color: vetSection===section.id ? "#FF6B00" : "#fff"}}>{section.title}</span>
+                    <span style={{fontFamily:"'Inter',sans-serif", fontSize:20, fontWeight:800, color: vetSection===section.id ? "#FF6B00" : "#072554"}}>{section.title}</span>
                     <span style={{color:"#FF6B00", fontSize:22, fontWeight:700, lineHeight:1, transform: vetSection===section.id ? "rotate(45deg)" : "rotate(0deg)", display:"inline-block", transition:"transform 0.2s"}}>+</span>
                   </button>
                   {vetSection===section.id && (
