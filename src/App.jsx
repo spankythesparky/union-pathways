@@ -2705,6 +2705,53 @@ const CITY_COORDS = {
 // ── SUPABASE CLIENT ─────────────────────────────────────────────────────────
 const SUPABASE_URL = 'https://bonqybbmcoaujfiiwson.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_RjCnTsf0YLPVxtMNzI_p8Q_1ss3DQ8W';
+/* JOB CALLS */
+// ── TRAMPHEREBRO (read-only) ────────────────────────────────────────────────
+// Live job calls from the board. SELECT only — never writes.
+// Join is trade + local number, matching TrampHereBro's own slugFor().
+const THB_URL = 'https://cpyhqsfkvtkangjfddis.supabase.co';
+const THB_KEY = 'sb_publishable_lBCUtgCBIR7IkuwKt5I0Mg_-sb9vLMM';
+const THB_SITE = 'https://www.trampherebro.com';
+
+// Union Pathways trade code -> TrampHereBro slug prefix
+const THB_TRADE = { IBEW_I: 'ibew', IBEW_L: 'lineman', UA: 'ua' };
+
+// same idea as TrampHereBro's localNumber(name)
+function thbLocalNum(name) {
+  const m = String(name || '').match(/\d+/);
+  return m ? m[0] : null;
+}
+function thbSlug(tradeAbbr, localName) {
+  const pfx = THB_TRADE[tradeAbbr];
+  const num = thbLocalNum(localName);
+  return (pfx && num) ? `${pfx}-local-${num}` : null;
+}
+
+/* JOB CALLS V2 */
+// TrampHereBro's locals table was seeded from this app's data — the IDs are
+// IDENTICAL. So job_calls.local_id maps straight onto our own local.id, and
+// we never need to fetch their locals table at all.
+// -> { 10824: { calls: 3, hands: 12 }, ... }
+async function fetchJobCalls() {
+  const headers = { apikey: THB_KEY, Authorization: 'Bearer ' + THB_KEY };
+  const calls = await fetch(
+    THB_URL + '/rest/v1/job_calls?select=local_id,num_needed&status=eq.open',
+    { headers }
+  ).then(r => r.json());
+
+  if (!Array.isArray(calls)) throw new Error('job_calls: unexpected shape');
+
+  const out = {};
+  for (const c of calls) {
+    const id = c.local_id;
+    if (id == null) continue;
+    if (!out[id]) out[id] = { calls: 0, hands: 0 };
+    out[id].calls += 1;
+    out[id].hands += Number(c.num_needed) || 0;
+  }
+  return out;
+}
+
 let supabaseClient = null;
 async function getSupabase() {
   if (supabaseClient) return supabaseClient;
@@ -3591,9 +3638,19 @@ export default function UnionPathway() {
     window.scrollTo(0, 0);
   };
   const [lang, setLang] = useState("en");
+  // live job calls from TrampHereBro — null until loaded, stays null on failure
+  const [thbCalls, setThbCalls] = useState(null);
   const [quizStep, setQuizStep] = useState(0);
   const [quizAnswers, setQuizAnswers] = useState([]);
   const [quizResult, setQuizResult] = useState(null);
+  useEffect(() => {
+    let alive = true;
+    fetchJobCalls()
+      .then(d => { if (alive) setThbCalls(d); })
+      .catch(() => { /* board unreachable — badges just don't render */ });
+    return () => { alive = false; };
+  }, []);
+
   const [contactForm, setContactForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
   const [contactSent, setContactSent] = useState(false);
   const inputRef = useRef(null);
@@ -7315,6 +7372,41 @@ export default function UnionPathway() {
             {/* HOME CHIP FIX */}
             {t.heroTitle1}{" "}<span style={{color:'#FF6B00'}}>{t.heroAccent}</span>{" "}{t.heroTitle2}
           </h1>
+          {(() => {
+            if (!thbCalls) return null;
+            const slugs = Object.keys(thbCalls);
+            if (!slugs.length) return null;
+            const hands = slugs.reduce((s, k) => s + thbCalls[k].hands, 0);
+            if (!hands) return null;
+            return (
+              <a
+                href={THB_SITE}
+                target="_blank"
+                rel="noopener"
+                style={{
+                  display:'flex', alignItems:'center', gap:14, flexWrap:'wrap',
+                  background:'#F8FAFC', border:'1px solid #E5E7EB',
+                  borderRadius:10, padding:'14px 16px',
+                  margin:'0 0 28px', maxWidth:660,
+                  textDecoration:'none', fontFamily:"'Inter',sans-serif"
+                }}
+              >
+                <span style={{display:'flex', alignItems:'center', gap:7, fontSize:11, fontWeight:700, letterSpacing:'0.1em', textTransform:'uppercase', color:'#FF6B00'}}>
+                  <span style={{width:7, height:7, borderRadius:'50%', background:'#FF6B00', display:'inline-block'}} />
+                  {lang==="es" ? "En vivo" : lang==="pl" ? "Na zywo" : "Live"}
+                </span>
+                <span style={{fontSize:15, color:'#072554', lineHeight:1.5}}>
+                  <strong style={{fontWeight:800, fontSize:19}}>{hands.toLocaleString()}</strong>{' '}
+                  {lang==="es" ? "manos necesarias ahora" : lang==="pl" ? "potrzebnych rak teraz" : "hands needed right now"}
+                  {' — '}{slugs.length}{' '}
+                  {lang==="es" ? "locales" : lang==="pl" ? "oddzialow" : "locals"}
+                </span>
+                <span style={{marginLeft:'auto', fontSize:13, fontWeight:700, color:'#FF6B00', whiteSpace:'nowrap'}}>
+                  {lang==="es" ? "Ver las llamadas" : lang==="pl" ? "Zobacz wezwania" : "See the calls"} &rarr;
+                </span>
+              </a>
+            );
+          })()}
           <p style={{
             fontFamily:"'Inter',sans-serif",
             fontSize:'clamp(16px, 1.3vw, 19px)',
@@ -7493,6 +7585,43 @@ export default function UnionPathway() {
                       )}
                       <h3 style={{fontFamily:"'Inter',sans-serif", fontSize:'clamp(18px, 2vw, 22px)', fontWeight:700, color:'#072554', margin:'0 0 6px 0', letterSpacing:'-0.01em'}}>{local.name}</h3>
                       <div style={{fontSize:14, color:'#5A6478', marginBottom:10, fontFamily:"'Inter',sans-serif"}}>{local.city}, {local.state}</div>
+                      {(() => {
+                        if (!thbCalls) return null;
+                        const jc = thbCalls[local.id];
+                        if (!jc || !jc.hands) return null;
+                        // slug is only for the outbound URL
+                        const slug = thbSlug(selectedTrade, local.name);
+                        if (!slug) return null;
+                        return (
+                          <a
+                            href={`${THB_SITE}/locals/${slug}`}
+                            target="_blank"
+                            rel="noopener"
+                            style={{
+                              display:'flex', alignItems:'center', gap:10,
+                              background:'rgba(255,107,0,0.06)',
+                              border:'1px solid rgba(255,107,0,0.28)',
+                              borderRadius:8, padding:'10px 14px',
+                              margin:'0 0 12px', textDecoration:'none',
+                              fontFamily:"'Inter',sans-serif"
+                            }}
+                          >
+                            <span style={{width:7, height:7, borderRadius:'50%', background:'#FF6B00', flexShrink:0}} />
+                            <span style={{fontSize:14, color:'#072554'}}>
+                              <strong style={{fontWeight:700}}>{jc.calls}</strong>{' '}
+                              {jc.calls === 1
+                                ? (lang==="es" ? "llamada" : lang==="pl" ? "wezwanie" : "call")
+                                : (lang==="es" ? "llamadas" : lang==="pl" ? "wezwania" : "calls")}
+                              {' · '}
+                              <strong style={{fontWeight:700}}>{jc.hands}</strong>{' '}
+                              {lang==="es" ? "manos necesarias" : lang==="pl" ? "potrzebnych rak" : "hands needed"}
+                            </span>
+                            <span style={{marginLeft:'auto', fontSize:12, fontWeight:700, color:'#FF6B00', whiteSpace:'nowrap'}}>
+                              {lang==="es" ? "Ver llamadas" : lang==="pl" ? "Zobacz" : "View calls"} &rarr;
+                            </span>
+                          </a>
+                        );
+                      })()}
                       {local.tradeType && (
                         <div style={{display:'inline-block', fontFamily:"'Inter',sans-serif", fontSize:10, fontWeight:700, color:'#072554', letterSpacing:'0.14em', textTransform:'uppercase', marginBottom:10, padding:'3px 10px', background:'#E8EAED', borderRadius:4}}>
                           {local.tradeType}
